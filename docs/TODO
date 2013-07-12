@@ -1,0 +1,81 @@
+╔══════════════════════════════════════════════════════════════════════
+╠═══════════════════════  Menu engine  ════════════════════════════════
+║[ ] – Window initialization
+║[ ] – Event handling
+║[ ] – Mouse and keyboard classes
+║[ ] – Main menu textures loading
+║[ ] – Main menu render
+║[ ] – Setting
+║[ ] – Loading settings
+║[ ] – Menu structure loading
+║[ ] – Menu items rendering
+║[ ] – Mouse cursor
+║[ ] – Mouse click events
+║[ ] – «Back» butto in menus
+║[ ] – Menu items animation
+║[ ] – Add "Credits"
+║[ ] – Credits rendering
+║[ ] – Add "StartScr"
+║[ ] – StartScr rendering
+╠═══════════════════════  Game engine  ════════════════════════════════
+║[ ] – Add map storage class
+║[ ] – Add landscape generation
+║[ ] – Add saving map
+║[ ] – Add loading map
+║[ ] – Add map rendering
+║[ ] – Add loading tilesets
+║[ ] – Add movement
+║[ ] – Add char physics
+║[ ] – Add jumps
+║[ ] – Add crosshair
+║[ ] – Add char rendering
+║[ ] – Add tilesets
+║[ ] – Add walls (50% grey tiles)
+║[ ] – Add buildings generation
+╠══════════════════════ Visual effects  ═══════════════════════════════
+║[ ] – Lighting
+║[ ] – Particle systems
+║[ ] – Fog
+║[ ] – Animation
+║[ ] – Blur
+║[ ] – Day and night
+╠═══════════════════════  Character    ════════════════════════════════
+║[ ] – Add weapons
+║[ ] – Add shot
+║[ ] – Add collectable items
+║[ ] – Add HP
+║[ ] – Add GUI
+║[ ] – Add InGameMenu
+║[ ] – Add CharacterMenu
+║[ ] – Add inventory
+║[ ] – Add armor
+║[ ] – Add collectors (chests, etc.)
+║[ ] – Add ammo
+║[ ] – Add models
+║[ ] – Add models configuration
+║[ ] – Add models rendering
+║[ ] – Add primary skills (Strength, Agility, Accuracy etc.)
+║[ ] – Add secondary skills (Healing, Crafting etc.)
+║[ ] – Add weapon skills (each weapon has it's own XP value)
+║[ ] – Add crafting recipes
+║[ ] – Add QuestItems
+╠═══════════════════════   Creatures   ════════════════════════════════
+║[ ] – Add some weapons
+║[ ] – Add some armors
+║[ ] – Add money
+║[ ] – Add XP
+║[ ] – Add creatures
+║[ ] – Add creatures rendering
+║[ ] – Add creatures AI
+║[ ] – Add creatures drop
+║[ ] – Add LevelUp
+║[ ] – Add items bonuses +dmg, +defence, etc.
+║[ ] – Add explosives
+║[ ] – Add Trigger–Action system
+╠════════════════ Sound engine ════════════════════════════════════════
+║[ ] – Add sound system
+║[ ] – Add sounds of jump, shot etc.
+║[ ] – Add main music theme
+║[ ] – Write some themes
+║[ ] – Add volume change
+╚══════════════════════════════════════════════════════════════════════

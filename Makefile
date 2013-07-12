@@ -3,9 +3,18 @@
 #                   Main Makefile for FIRED project                     
 #                                                                       
 ########################################################################
+export PROJECT_NAME=fired
+export PROJECT_VER=0.99
 
-PROJECT_NAME=fired
-PROJECT_VER=0.99
+export CC=gcc
+export LDFLAGS=-lsfml-graphics -lsfml-window -lsfml-system
+export CLEAN=rm -rf
 
-CC=gcc
-LDFLAGS=-lsfml-graphics -lsfml-window -lsfml-system
+
+all: src
+	make -C src
+	cp -f src/$(PROJECT_NAME) ./
+
+clean: src
+	make -C src clean
+	$(CLEAN) $(PROJECT_NAME)

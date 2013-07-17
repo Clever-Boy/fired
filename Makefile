@@ -7,8 +7,9 @@ export PROJECT_NAME=fired
 export PROJECT_VER=0.99
 
 export CC=gcc
-export LDFLAGS=-lsfml-graphics -lsfml-window -lsfml-system
+export LD=ld
 export CLEAN=rm -rf
+export LDFLAGS=-lsfml-graphics -lsfml-window -lsfml-system
 export CFLAGS=-I$(PWD)/include
 
 all: src

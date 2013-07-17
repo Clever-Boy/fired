@@ -4,7 +4,7 @@ OUT  := input.o
 all: $(OUT)
 
 $(OUT): $(OBJS)
-	$(CC) -o ../$(OUT) -c $(OBJS)
+	$(LD) -r $(OBJS) -o ../$(OUT) 
 
 .cpp.o:
 	$(CC) $(CFLAGS) -o $@ -c $<

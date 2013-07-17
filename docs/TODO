@@ -2,7 +2,7 @@
 ╠═══════════════════════  Menu engine  ════════════════════════════════
 ║[X] – Window initialization
 ║[X] – Event handling
-║[ ] – Mouse and keyboard classes
+║[X] – Mouse and keyboard classes
 ║[ ] – Main menu textures loading
 ║[ ] – Main menu render
 ║[ ] – Setting

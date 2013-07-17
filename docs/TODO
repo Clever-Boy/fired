@@ -1,6 +1,6 @@
 ╔══════════════════════════════════════════════════════════════════════
 ╠═══════════════════════  Menu engine  ════════════════════════════════
-║[ ] – Window initialization
+║[X] – Window initialization
 ║[ ] – Event handling
 ║[ ] – Mouse and keyboard classes
 ║[ ] – Main menu textures loading
@@ -11,7 +11,7 @@
 ║[ ] – Menu items rendering
 ║[ ] – Mouse cursor
 ║[ ] – Mouse click events
-║[ ] – «Back» butto in menus
+║[ ] – «Back» button in menus
 ║[ ] – Menu items animation
 ║[ ] – Add "Credits"
 ║[ ] – Credits rendering

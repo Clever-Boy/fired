@@ -1,11 +1,13 @@
+OBJS := main.o events.o
+
 all: $(PROJECT_NAME)
 
-$(PROJECT_NAME): main.o
-	$(CC) $(LDFLAGS) main.o -o $(PROJECT_NAME)
+$(PROJECT_NAME): $(OBJS)
+	$(CC) $(LDFLAGS) $(OBJS) -o $(PROJECT_NAME)
 
-main.o: main.cpp
-	$(CC) -o main.o -c main.cpp
+.cpp.o:
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
-	$(CLEAN) $(PROJECT_NAME) main.o
+	$(CLEAN) $(PROJECT_NAME) $(OBJS)
 

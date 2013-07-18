@@ -1,7 +1,7 @@
 #include "menuitem.hpp"
 
 void fired::MenuItem::Init() {
-	Caption = sf::String("Exit");
+	Caption.SetText("Exit");
 	return;
 }
 

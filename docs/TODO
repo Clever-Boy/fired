@@ -3,9 +3,12 @@
 ║[X] – Window initialization
 ║[X] – Event handling
 ║[X] – Mouse and keyboard classes
+║[ ] – Add game class (for inclusion menu, input devices, etc.)
+║[ ] – Add main menu class
 ║[ ] – Main menu textures loading
 ║[ ] – Main menu render
-║[ ] – Setting
+║[ ] – Add settings class
+║[ ] – Add settings file
 ║[ ] – Loading settings
 ║[ ] – Menu structure loading
 ║[ ] – Menu items rendering

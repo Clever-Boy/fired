@@ -5,6 +5,7 @@
 ║[X] – Mouse and keyboard classes
 ║[X] – Add game class (for inclusion menu, input devices, etc.)
 ║[X] – Add main menu class
+║[ ] – Add menu textures (Logo, BG & Item)
 ║[ ] – Main menu textures loading
 ║[ ] – Main menu render
 ║[ ] – Add settings class

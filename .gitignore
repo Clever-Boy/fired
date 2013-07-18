@@ -11,3 +11,7 @@
 *.lai
 *.la
 *.a
+
+# Compiled project
+fired
+src/fired

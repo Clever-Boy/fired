@@ -4,24 +4,31 @@ OBJS    := $(wildcard *.cpp)
 OBJS    := $(OBJS:.cpp=.o)
 OBJS    += $(SUBDIRS:=.o)
 
+
+
 all: $(PROJECT_NAME)
+
 
 $(PROJECT_NAME): subdirs $(OBJS)
 	$(CC) $(LDFLAGS) $(OBJS) -o $(PROJECT_NAME)
 
+
 subdirs: $(SUBDIRS)
 	for dir in $(SUBDIRS); do \
 		export SUBDIR=$$dir; \
-		make -C $$dir; \
+		$(MAKESUB); \
 	done
+
 
 .cpp.o:
 	$(CC) $(CFLAGS) -o $@ -c $<
 
+
 clean: clean-subdirs
 	$(CLEAN) $(PROJECT_NAME) $(OBJS)
 
+
 clean-subdirs:
 	for dir in $(SUBDIRS); do \
-		make -C $$dir clean; \
+		$(MAKESUB) clean; \
 	done

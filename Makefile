@@ -10,7 +10,7 @@ export CC=gcc
 export LD=ld
 export CLEAN=rm -rf
 export LDFLAGS=-lsfml-graphics -lsfml-window -lsfml-system
-export CFLAGS=-I$(PWD)/include
+export CFLAGS=-I$(PWD)/include -DPROJECT_NAME="\"$(PROJECT_NAME)\"" -DPROJECT_VER="\"$(PROJECT_VER)\""
 
 all: src
 	make -C src

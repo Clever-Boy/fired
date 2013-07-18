@@ -1,17 +1,10 @@
-#include <SFML/Graphics.hpp>
-#include "events.hpp"
+#include "game.hpp"
 
 int main() {
-	// After take the settings from config file (resolution and fullscreen)
-	sf::RenderWindow App(sf::VideoMode(1024, 600, 32), "Name get from define", sf::Style::Fullscreen);
-	sf::Event Event;
+	fired::Game Game;
 
-	while(App.IsOpened()) {
-		while (App.GetEvent(Event)) ProcessEvent(Event);
-
-		App.Clear();
-		App.Display();
-	}
+	Game.Init();
+	while(Game.IsRunning()) Game.Update();
 
 	return EXIT_SUCCESS;
 }

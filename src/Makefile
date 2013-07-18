@@ -1,4 +1,4 @@
-OBJS := main.o events.o input.o
+OBJS := main.o game.o input.o
 SUBDIRS := input
 
 all: $(PROJECT_NAME)

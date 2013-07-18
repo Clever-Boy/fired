@@ -1,13 +1,17 @@
-OBJS := main.o game.o input.o
-SUBDIRS := input
+SUBDIRS := ${shell find * -type d -print}
+
+OBJS    := $(wildcard *.cpp)
+OBJS    := $(OBJS:.cpp=.o)
+OBJS    += $(SUBDIRS:=.o)
 
 all: $(PROJECT_NAME)
 
 $(PROJECT_NAME): subdirs $(OBJS)
 	$(CC) $(LDFLAGS) $(OBJS) -o $(PROJECT_NAME)
 
-subdirs: input
+subdirs: $(SUBDIRS)
 	for dir in $(SUBDIRS); do \
+		export SUBDIR=$$dir; \
 		make -C $$dir; \
 	done
 
@@ -16,7 +20,6 @@ subdirs: input
 
 clean: clean-subdirs
 	$(CLEAN) $(PROJECT_NAME) $(OBJS)
-	make -C input clean
 
 clean-subdirs:
 	for dir in $(SUBDIRS); do \

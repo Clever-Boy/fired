@@ -2,6 +2,8 @@
 #define __GAME
 
 #include <SFML/Graphics.hpp>
+#include "menu.hpp"
+#include "input.hpp"
 
 namespace fired {
 	class Game {
@@ -9,15 +11,19 @@ namespace fired {
 		bool Running;
 		sf::RenderWindow App;
 
+		fired::MainMenu MainMenu;
+
+		fired::Keyboard Keyboard;
+		fired::Mouse Mouse;
 
 	public:
-		int Init();
-		int Update();
+		void Init();
+		void Update();
 
 		bool IsRunning() { return Running; };
 
-		int ProcessEvents();
-		int ProcessEvent(sf::Event Event);
+		void ProcessEvents();
+		void ProcessEvent(sf::Event Event);
 	};
 }
 #endif

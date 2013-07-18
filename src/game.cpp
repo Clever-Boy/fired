@@ -1,12 +1,17 @@
 #include "game.hpp"
 
-int fired::Game::Init() {
-	App.Create(sf::VideoMode(1024, 600, 32), PROJECT_NAME " v" PROJECT_VER);
+void fired::Game::Init() {
+	App.Create(sf::VideoMode(640, 480, 32), PROJECT_NAME " v" PROJECT_VER);
 	Running = true;
+
+	Mouse.Init();
+	Keyboard.Init();
+
+	MainMenu.Init();
 }
 
 
-int fired::Game::Update() {
+void fired::Game::Update() {
 	ProcessEvents();
 
 	App.Clear();
@@ -14,7 +19,7 @@ int fired::Game::Update() {
 }
 
 
-int fired::Game::ProcessEvents() {
+void fired::Game::ProcessEvents() {
 	sf::Event Event;
 	while (App.GetEvent(Event)) ProcessEvent(Event);
 
@@ -22,7 +27,6 @@ int fired::Game::ProcessEvents() {
 }
 
 
-int fired::Game::ProcessEvent(sf::Event Event) {
+void fired::Game::ProcessEvent(sf::Event Event) {
 	if (Event.Type == sf::Event::Closed) Running = false;
-	return 0;
 }

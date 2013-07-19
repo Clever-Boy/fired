@@ -1,4 +1,5 @@
 #include "settings.hpp"
+#include <stdio.h>
 
 void fired::Settings::init() {
 	loadFromFile("data/settings.conf");
@@ -11,10 +12,20 @@ void fired::Settings::save() {
 
 
 void fired::Settings::loadFromFile(const char *filename) {
-	return;
+	FILE *fp = fopen(filename, "r");
+	fscanf(fp, "window.width=%d\n"     , &window.width);
+	fscanf(fp, "window.height=%d\n"    , &window.height);
+	fscanf(fp, "window.bpp=%d\n"       , &window.bpp);
+	fscanf(fp, "window.fullscreen=%d\n", &window.fullScreen);
+	fclose(fp);
 }
 
 
 void fired::Settings::saveToFile(const char *filename) {
-	return;
+	FILE *fp = fopen(filename, "w");
+	fprintf(fp, "window.width=%d\n"     , window.width);
+	fprintf(fp, "window.height=%d\n"    , window.height);
+	fprintf(fp, "window.bpp=%d\n"       , window.bpp);
+	fprintf(fp, "window.fullscreen=%d\n", window.fullScreen);
+	fclose(fp);
 }

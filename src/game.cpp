@@ -1,10 +1,7 @@
 #include "game.hpp"
 
 void fired::Game::init() {
-	settings.window.width      = 800;
-	settings.window.height     = 600;
-	settings.window.bpp        = 32;
-	settings.window.fullScreen = false;
+	settings.init();
 
 	unsigned long style;
 	if (settings.window.fullScreen) style = sf::Style::Fullscreen;

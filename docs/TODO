@@ -12,8 +12,9 @@
 ║[X] – Main menu render
 ║[X] – Main menu BG animation
 ║[X] – Add settings class
-║[ ] – Add settings file
-║[ ] – Loading settings
+║[X] – Add settings file
+║[X] – Loading settings
+║[X] – Saving settings
 ║[ ] – Menu structure loading
 ║[ ] – Menu items rendering
 ║[ ] – Mouse cursor

@@ -5,6 +5,7 @@
 #include "prototypes.hpp"
 #include "menu.hpp"
 #include "input.hpp"
+#include "settings.hpp"
 
 namespace fired {
 	class Game {
@@ -21,6 +22,7 @@ namespace fired {
 		float frameClock;
 		bool running;
 
+		fired::Settings settings;
 		fired::MainMenu mainMenu;
 
 		fired::Keyboard keyboard;

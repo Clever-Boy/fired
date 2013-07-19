@@ -1,6 +1,6 @@
 #include "game.hpp"
 
-void fired::MenuItem::init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_font, char *_caption) {
+void fired::MenuItem::init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_font, const char *_caption) {
 	sf::FloatRect textRect;
 
 	game    = _game;

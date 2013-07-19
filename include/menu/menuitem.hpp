@@ -23,7 +23,7 @@ namespace fired {
 		float xOffset;
 
 	public:
-		void init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_font, char *_caption);
+		void init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_font, const char *_caption);
 		void update(float frameClock);
 		void render();
 	};

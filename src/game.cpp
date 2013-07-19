@@ -1,7 +1,18 @@
 #include "game.hpp"
 
 void fired::Game::init() {
-	app.create(sf::VideoMode(800, 600, 32), PROJECT_NAME " v" PROJECT_VER);
+	settings.window.width      = 800;
+	settings.window.height     = 600;
+	settings.window.bpp        = 32;
+	settings.window.fullScreen = false;
+
+	unsigned long style;
+	if (settings.window.fullScreen) style = sf::Style::Fullscreen;
+	else style = sf::Style::Close;
+
+	app.create(sf::VideoMode(settings.window.width,
+	                         settings.window.height,
+	                         settings.window.bpp), PROJECT_NAME " v" PROJECT_VER, style);
 	running = true;
 
 	mouse.init(this);

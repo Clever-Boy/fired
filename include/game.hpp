@@ -9,6 +9,7 @@
 namespace fired {
 	class Game {
 		friend class fired::MainMenu;
+		friend class fired::MenuItem;
 		friend class fired::Mouse;
 		friend class fired::Keyboard;
 

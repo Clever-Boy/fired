@@ -19,6 +19,8 @@ namespace fired {
 		sf::Sprite menuItemSprite;
 		sf::Sprite logoSprite;
 
+		sf::Font menuFont;
+
 	public:
 		void init(fired::Game *_game);
 		void update(float frameClock);

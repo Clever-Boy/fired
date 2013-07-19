@@ -9,7 +9,7 @@
 ║[X] – Main menu textures loading
 ║[X] – Add system clock
 ║[X] – Add argue Clock to Update functions
-║[ ] – Main menu render
+║[X] – Main menu render
 ║[ ] – Main menu BG animation
 ║[ ] – Main menu LOGO animation
 ║[ ] – Add settings class

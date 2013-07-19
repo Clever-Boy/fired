@@ -16,6 +16,12 @@ void fired::MainMenu::Init(fired::Game *game) {
 }
 
 
-void fired::MainMenu::Update() {
+void fired::MainMenu::Update(float FrameClock) {
+	Render();
 	return;
+}
+
+
+void fired::MainMenu::Render() {
+	Game->App.Draw(BackgroundSprite);
 }

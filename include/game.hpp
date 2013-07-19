@@ -8,7 +8,16 @@
 
 namespace fired {
 	class Game {
+		friend class fired::MainMenu;
+		friend class fired::Mouse;
+		friend class fired::Keyboard;
+
 	private:
+		sf::RenderWindow App;
+		sf::Clock Clock;
+
+		float LastClock;
+		float FrameClock;
 		bool Running;
 
 		fired::MainMenu MainMenu;
@@ -17,8 +26,6 @@ namespace fired {
 		fired::Mouse Mouse;
 
 	public:
-		sf::RenderWindow App;
-
 		void Init();
 		void Update();
 

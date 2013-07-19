@@ -7,8 +7,8 @@
 ║[X] – Add main menu class
 ║[X] – Add menu textures (Logo, BG & Item)
 ║[X] – Main menu textures loading
-║[ ] – Add system clock
-║[ ] – Add argue Clock to Update functions
+║[X] – Add system clock
+║[X] – Add argue Clock to Update functions
 ║[ ] – Main menu render
 ║[ ] – Main menu BG animation
 ║[ ] – Main menu LOGO animation

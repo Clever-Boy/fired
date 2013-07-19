@@ -14,3 +14,7 @@ void fired::Mouse::Init(fired::Game *game) {
 	Game = game;
 	return;
 }
+
+void fired::Mouse::Update(float FrameClock) {
+	return;
+}

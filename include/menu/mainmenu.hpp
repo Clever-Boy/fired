@@ -21,7 +21,7 @@ namespace fired {
 
 	public:
 		void Init(fired::Game *game);
-		void Update();
+		void Update(float FrameClock);
 		void Render();
 	};
 }

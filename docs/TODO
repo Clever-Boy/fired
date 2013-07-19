@@ -10,7 +10,7 @@
 ║[X] – Add system clock
 ║[X] – Add argue Clock to Update functions
 ║[X] – Main menu render
-║[ ] – Main menu BG animation
+║[X] – Main menu BG animation
 ║[ ] – Main menu LOGO animation
 ║[ ] – Add settings class
 ║[ ] – Add settings file

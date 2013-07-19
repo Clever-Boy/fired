@@ -8,13 +8,15 @@ void fired::Game::init() {
 	keyboard.init(this);
 	mainMenu.init(this);
 
-	lastClock = clock.getElapsedTime().asSeconds();
+	lastClock = clock.getElapsedTime().asMilliseconds();
 }
 
 
 void fired::Game::update() {
-	float currentClock = clock.getElapsedTime().asSeconds();
-	frameClock = currentClock - lastClock;
+	long currentClock = clock.getElapsedTime().asMilliseconds();
+	if (currentClock - lastClock < 10) return;
+
+	frameClock = (currentClock - lastClock) / 1000.0;
 	lastClock = currentClock;
 
 	processEvents();

@@ -17,7 +17,7 @@ namespace fired {
 		sf::RenderWindow app;
 		sf::Clock clock;
 
-		float lastClock;
+		long lastClock;
 		float frameClock;
 		bool running;
 

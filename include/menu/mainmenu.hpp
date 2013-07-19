@@ -1,6 +1,8 @@
 #ifndef __MAINMENU
 #define __MAINMENU
 
+#define MENU_BG_SPEED 100.0
+
 #include <SFML/Graphics.hpp>
 #include "menuitem.hpp"
 #include "prototypes.hpp"
@@ -20,6 +22,8 @@ namespace fired {
 		sf::Sprite logoSprite;
 
 		sf::Font menuFont;
+
+		float xOffset;
 
 	public:
 		void init(fired::Game *_game);

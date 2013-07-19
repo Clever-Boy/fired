@@ -5,9 +5,13 @@
 ║[X] – Mouse and keyboard classes
 ║[X] – Add game class (for inclusion menu, input devices, etc.)
 ║[X] – Add main menu class
-║[ ] – Add menu textures (Logo, BG & Item)
-║[ ] – Main menu textures loading
+║[X] – Add menu textures (Logo, BG & Item)
+║[X] – Main menu textures loading
+║[ ] – Add system clock
+║[ ] – Add argue Clock to Update functions
 ║[ ] – Main menu render
+║[ ] – Main menu BG animation
+║[ ] – Main menu LOGO animation
 ║[ ] – Add settings class
 ║[ ] – Add settings file
 ║[ ] – Loading settings

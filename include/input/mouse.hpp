@@ -2,16 +2,20 @@
 #define __MOUSE
 
 #include <SFML/Graphics.hpp>
+#include "prototypes.hpp"
 
 namespace fired {
 	class Mouse {
-		public:
-		void ProcessEvent(sf::Event Event);
-		void Draw();
-		void Init();
-
-		private:
+	private:
+		fired::Game *Game;
 		sf::Vector2f Pos;
+
+	public:
+		void Init(fired::Game *game);
+		void Update();
+		void Render();
+
+		void ProcessEvent(sf::Event Event);
 	};
 }
 

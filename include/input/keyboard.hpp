@@ -2,12 +2,16 @@
 #define __KEYBOARD
 
 #include <SFML/Graphics.hpp>
+#include "prototypes.hpp"
 
 namespace fired {
 	class Keyboard {
-		public:
+	private:
+		fired::Game *Game;
+
+	public:
 		void ProcessEvent(sf::Event Event);
-		void Init();
+		void Init(fired::Game *game);
 	};
 }
 

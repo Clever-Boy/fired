@@ -1,15 +1,16 @@
-#include "mouse.hpp"
+#include "game.hpp"
 
 void fired::Mouse::ProcessEvent(sf::Event Event) {
 	return;
 }
 
 
-void fired::Mouse::Draw() {
+void fired::Mouse::Render() {
 	return;
 }
 
 
-void fired::Mouse::Init() {
+void fired::Mouse::Init(fired::Game *game) {
+	Game = game;
 	return;
 }

@@ -4,17 +4,18 @@ void fired::Game::Init() {
 	App.Create(sf::VideoMode(640, 480, 32), PROJECT_NAME " v" PROJECT_VER);
 	Running = true;
 
-	Mouse.Init();
-	Keyboard.Init();
-
-	MainMenu.Init();
+	Mouse.Init(this);
+	Keyboard.Init(this);
+	MainMenu.Init(this);
 }
 
 
 void fired::Game::Update() {
 	ProcessEvents();
-
 	App.Clear();
+
+	MainMenu.Update();
+
 	App.Display();
 }
 

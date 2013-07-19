@@ -7,11 +7,11 @@
 namespace fired {
 	class Keyboard {
 	private:
-		fired::Game *Game;
+		fired::Game *game;
 
 	public:
-		void ProcessEvent(sf::Event Event);
-		void Init(fired::Game *game);
+		void processEvent(sf::Event event);
+		void init(fired::Game *_game);
 	};
 }
 

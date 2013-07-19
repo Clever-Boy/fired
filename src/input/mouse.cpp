@@ -1,20 +1,20 @@
 #include "game.hpp"
 
-void fired::Mouse::ProcessEvent(sf::Event Event) {
+void fired::Mouse::processEvent(sf::Event event) {
 	return;
 }
 
 
-void fired::Mouse::Render() {
+void fired::Mouse::render() {
 	return;
 }
 
 
-void fired::Mouse::Init(fired::Game *game) {
-	Game = game;
+void fired::Mouse::init(fired::Game *_game) {
+	game = _game;
 	return;
 }
 
-void fired::Mouse::Update(float FrameClock) {
+void fired::Mouse::update(float frameClock) {
 	return;
 }

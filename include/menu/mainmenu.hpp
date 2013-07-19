@@ -8,21 +8,21 @@
 namespace fired {
 	class MainMenu {
 	private:
-		fired::MenuItem MenuItem;
-		fired::Game *Game;
+		fired::MenuItem menuItem;
+		fired::Game *game;
 
-		sf::Image BackgroundImage;
-		sf::Image MenuItemImage;
-		sf::Image LogoImage;
+		sf::Texture bgTexture;
+		sf::Texture menuItemTexture;
+		sf::Texture logoTexture;
 
-		sf::Sprite BackgroundSprite;
-		sf::Sprite MenuItemSprite;
-		sf::Sprite LogoSprite;
+		sf::RectangleShape bgSprite;
+		sf::Sprite menuItemSprite;
+		sf::Sprite logoSprite;
 
 	public:
-		void Init(fired::Game *game);
-		void Update(float FrameClock);
-		void Render();
+		void init(fired::Game *_game);
+		void update(float frameClock);
+		void render();
 	};
 }
 #endif

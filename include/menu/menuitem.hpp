@@ -2,16 +2,18 @@
 #define __MENUITEM
 
 #include <SFML/Graphics.hpp>
+#include "prototypes.hpp"
 
 namespace fired {
 	class MenuItem {
 	private:
-		sf::String Caption;
+		fired::Game *game;
+		sf::String caption;
 
 	public:
-		void Init();
-		void Update();
-		void Render();
+		void init(fired::Game *_game);
+		void update(float frameClock);
+		void render();
 	};
 }
 #endif

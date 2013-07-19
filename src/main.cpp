@@ -3,8 +3,8 @@
 int main() {
 	fired::Game Game;
 
-	Game.Init();
-	while(Game.IsRunning()) Game.Update();
+	Game.init();
+	while(Game.isRunning()) Game.update();
 
 	return EXIT_SUCCESS;
 }

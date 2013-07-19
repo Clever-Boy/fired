@@ -1,40 +1,40 @@
 #include "game.hpp"
 
-void fired::Game::Init() {
-	App.Create(sf::VideoMode(800, 600, 32), PROJECT_NAME " v" PROJECT_VER);
-	Running = true;
+void fired::Game::init() {
+	app.create(sf::VideoMode(800, 600, 32), PROJECT_NAME " v" PROJECT_VER);
+	running = true;
 
-	Mouse.Init(this);
-	Keyboard.Init(this);
-	MainMenu.Init(this);
+	mouse.init(this);
+	keyboard.init(this);
+	mainMenu.init(this);
 
-	LastClock = Clock.GetElapsedTime();
+	lastClock = clock.getElapsedTime().asSeconds();
 }
 
 
-void fired::Game::Update() {
-	float CurrentClock = Clock.GetElapsedTime();
-	FrameClock = CurrentClock - LastClock;
-	LastClock = CurrentClock;
+void fired::Game::update() {
+	float currentClock = clock.getElapsedTime().asSeconds();
+	frameClock = currentClock - lastClock;
+	lastClock = currentClock;
 
-	ProcessEvents();
-	App.Clear();
+	processEvents();
+	app.clear();
 
-	MainMenu.Update(FrameClock);
-	Mouse.Update(FrameClock);
+	mainMenu.update(frameClock);
+	mouse.update(frameClock);
 
-	App.Display();
+	app.display();
 }
 
 
-void fired::Game::ProcessEvents() {
-	sf::Event Event;
-	while (App.GetEvent(Event)) ProcessEvent(Event);
+void fired::Game::processEvents() {
+	sf::Event event;
+	while (app.pollEvent(event)) processEvent(event);
 
-	if (!App.IsOpened()) Running = false;
+	if (!app.isOpen()) running = false;
 }
 
 
-void fired::Game::ProcessEvent(sf::Event Event) {
-	if (Event.Type == sf::Event::Closed) Running = false;
+void fired::Game::processEvent(sf::Event event) {
+	if (event.type == sf::Event::Closed) running = false;
 }

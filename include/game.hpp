@@ -13,26 +13,26 @@ namespace fired {
 		friend class fired::Keyboard;
 
 	private:
-		sf::RenderWindow App;
-		sf::Clock Clock;
+		sf::RenderWindow app;
+		sf::Clock clock;
 
-		float LastClock;
-		float FrameClock;
-		bool Running;
+		float lastClock;
+		float frameClock;
+		bool running;
 
-		fired::MainMenu MainMenu;
+		fired::MainMenu mainMenu;
 
-		fired::Keyboard Keyboard;
-		fired::Mouse Mouse;
+		fired::Keyboard keyboard;
+		fired::Mouse mouse;
 
 	public:
-		void Init();
-		void Update();
+		void init();
+		void update();
 
-		bool IsRunning() { return Running; };
+		bool isRunning() { return running; };
 
-		void ProcessEvents();
-		void ProcessEvent(sf::Event Event);
+		void processEvents();
+		void processEvent(sf::Event event);
 	};
 }
 

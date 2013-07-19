@@ -7,15 +7,15 @@
 namespace fired {
 	class Mouse {
 	private:
-		fired::Game *Game;
-		sf::Vector2f Pos;
+		fired::Game *game;
+		sf::Vector2f pos;
 
 	public:
-		void Init(fired::Game *game);
-		void Update(float FrameClock);
-		void Render();
+		void init(fired::Game *_game);
+		void update(float frameClock);
+		void render();
 
-		void ProcessEvent(sf::Event Event);
+		void processEvent(sf::Event event);
 	};
 }
 

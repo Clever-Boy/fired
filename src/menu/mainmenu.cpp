@@ -1,27 +1,31 @@
 #include "game.hpp"
 
-void fired::MainMenu::Init(fired::Game *game) {
-	BackgroundImage.LoadFromFile("data/img/gui/mainmenu/bg.jpg");
-	MenuItemImage.LoadFromFile("data/img/gui/mainmenu/menuitem.jpg");
-	LogoImage.LoadFromFile("data/img/gui/mainmenu/logo.tga");
+void fired::MainMenu::init(fired::Game *_game) {
+	bgTexture.loadFromFile("data/img/gui/mainmenu/bg.jpg");
+	menuItemTexture.loadFromFile("data/img/gui/mainmenu/menuitem.jpg");
+	logoTexture.loadFromFile("data/img/gui/mainmenu/logo.tga");
 
-	BackgroundSprite.SetImage(BackgroundImage);
-	MenuItemSprite.SetImage(MenuItemImage);
-	LogoSprite.SetImage(LogoImage);
+	menuItemSprite.setTexture(menuItemTexture);
+	logoSprite.setTexture(logoTexture);
+	bgSprite.setTexture(&bgTexture);
 
-	Game = game;
+	bgTexture.setRepeated(true);
+	bgSprite.setSize(sf::Vector2f(800,600));
+	bgSprite.setTextureRect(sf::IntRect(0,0,800,600));
 
-	MenuItem.Init();
+	game = _game;
+
+	menuItem.init(game);
 	return;
 }
 
 
-void fired::MainMenu::Update(float FrameClock) {
-	Render();
+void fired::MainMenu::update(float frameClock) {
+	render();
 	return;
 }
 
 
-void fired::MainMenu::Render() {
-	Game->App.Draw(BackgroundSprite);
+void fired::MainMenu::render() {
+	game->app.draw(bgSprite);
 }

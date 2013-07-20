@@ -23,6 +23,9 @@ void fired::MainMenu::init(fired::Game *_game) {
 		logoSprite.setPosition((game->settings.window.width - logoTexture.getSize().x) / 2, 0);
 
 	menuFont.loadFromFile(MENU_FONT_FILE);
+	menuCaption.setFont(menuFont);
+	menuCaption.setCharacterSize(48);
+
 	fillMenu();
 	return;
 }
@@ -32,8 +35,12 @@ void fired::MainMenu::update(float frameClock) {
 	xOffset += frameClock * MENU_BG_SPEED;
 	if (xOffset > bgTexture.getSize().x) xOffset -= bgTexture.getSize().x;
 
+	//This gonna move to change current menu function
+	menuCaption.setString(currentMenu->caption);
+	menuCaption.setPosition(sf::Vector2f(50 + (menuItemTexture.getSize().x - menuCaption.getGlobalBounds().width) / 2, 150));
+
 	render();
-	for (int i = 0; i < menuItems.size(); i++) menuItems[i].update(frameClock);
+	for (int i = 0; i < currentMenu->subMenu.size(); i++) currentMenu->subMenu[i]->update(frameClock);
 }
 
 
@@ -41,22 +48,26 @@ void fired::MainMenu::render() {
 	bgSprite.setTextureRect(sf::IntRect(xOffset, 0, game->settings.window.width, game->settings.window.height));
 	game->app.draw(bgSprite);
 	game->app.draw(logoSprite);
+	game->app.draw(menuCaption);
 }
 
 
-void fired::MainMenu::menuItemAdd(const char *_caption) {
-	fired::MenuItem menuItem;
-
-	menuItem.init(game, &menuItemSprite, &menuFont, _caption);
-	menuItems.push_back(menuItem);
+void fired::MainMenu::menuItemAdd(const char *_caption, fired::MenuItem *_parent) {
+	menuItems.push_back(new fired::MenuItem);
+	menuItems.back()->init(game, &menuItemSprite, &menuFont, _caption, _parent);
 }
 
 
 void fired::MainMenu::fillMenu() {
-	menuItemAdd("Start game");
-	menuItemAdd("Load game");
-	menuItemAdd("Exit");
+	fired::MenuItem *curParent;
 
-	// This will be the structMenu function later
-	for (int i = 0; i < menuItems.size(); i++) menuItems[i].setIndex(i);
+	menuItemAdd("Main menu", NULL);
+	currentMenu = menuItems[0];
+
+	curParent   = menuItems[0];
+	menuItemAdd("Start game", curParent);
+	menuItemAdd("Load game", curParent);
+	menuItemAdd("Exit", curParent);
+
+	for (int i = 0; i < menuItems.size(); i++) menuItems[i]->addToParent();
 }

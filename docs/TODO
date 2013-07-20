@@ -15,11 +15,12 @@
 ║[X] – Add settings file
 ║[X] – Loading settings
 ║[X] – Saving settings
-║[ ] – Menu structure loading
-║[ ] – Menu items rendering
+║[X] – Menu structure loading
+║[X] – Menu items rendering
 ║[ ] – Mouse cursor
 ║[ ] – Mouse click events
 ║[ ] – «Back» button in menus
+║[ ] – «Exit» button in menu
 ║[ ] – Menu items animation
 ║[ ] – Add "Credits"
 ║[ ] – Credits rendering

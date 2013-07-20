@@ -11,6 +11,7 @@
 
 namespace fired {
 	class MenuItem {
+		friend class fired::MainMenu;
 	private:
 		fired::Game  *game;
 		sf::Sprite   *sprite;
@@ -22,11 +23,15 @@ namespace fired {
 
 		float xOffset;
 
+		fired::MenuItem *parent;
+		std::vector<fired::MenuItem*> subMenu;
 	public:
-		void init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_font, const char *_caption);
+		void init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_font, const char *_caption, fired::MenuItem *_parent);
 		void update(float frameClock);
 		void render();
-		void setIndex(int index);
+
+		void addSubMenu(fired::MenuItem *subMenuItem);
+		void addToParent();
 	};
 }
 #endif

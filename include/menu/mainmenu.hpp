@@ -10,7 +10,7 @@
 namespace fired {
 	class MainMenu {
 	private:
-		std::vector<fired::MenuItem> menuItems;
+		std::vector<fired::MenuItem *> menuItems;
 		fired::Game *game;
 
 		sf::Texture bgTexture;
@@ -22,6 +22,9 @@ namespace fired {
 		sf::Sprite logoSprite;
 
 		sf::Font menuFont;
+		sf::Text menuCaption;
+
+		fired::MenuItem *currentMenu;
 
 		float xOffset;
 
@@ -31,7 +34,7 @@ namespace fired {
 		void render();
 
 		void fillMenu();
-		void menuItemAdd(const char *_caption);
+		void menuItemAdd(const char *_caption, fired::MenuItem *_parent);
 	};
 }
 #endif

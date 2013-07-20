@@ -26,6 +26,7 @@ namespace fired {
 		void init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_font, const char *_caption);
 		void update(float frameClock);
 		void render();
+		void setIndex(int index);
 	};
 }
 #endif

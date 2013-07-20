@@ -12,16 +12,21 @@ void fired::MenuItem::init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_f
 	text.setString(caption);
 	text.setCharacterSize(MENU_FONT_SIZE);
 
-	pos = sf::Vector2f(50, 200);
 	textRect = text.getGlobalBounds();
 	xOffset = (sprite->getTexture()->getSize().x - textRect.width) / 2;
 	return;
 }
 
 
+void fired::MenuItem::setIndex(int index) {
+	pos = sf::Vector2f(50, 200 + 75*index);
+}
+
+
 void fired::MenuItem::update(float frameClock) {
 	render();
 }
+
 
 void fired::MenuItem::render() {
 	sprite->setPosition(pos);

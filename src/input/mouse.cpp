@@ -14,9 +14,8 @@ void fired::Mouse::render() {
 void fired::Mouse::init(fired::Game *_game) {
 	game = _game;
 
-	mouseTex.loadFromFile("data/img/gui/mainmenu/mouse.png");
+	mouseTex.loadFromFile("data/img/gui/mainmenu/mouse.tga");
 	mouseCur.setTexture(mouseTex);
-	mouseCur.setScale(20.0 / mouseTex.getSize().x, 24.0 / mouseTex.getSize().x);
 	mouseTex.setSmooth(true);
 
 	return;

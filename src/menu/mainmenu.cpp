@@ -22,7 +22,7 @@ void fired::MainMenu::init(fired::Game *_game) {
 	else
 		logoSprite.setPosition((game->settings.window.width - logoTexture.getSize().x) / 2, 0);
 
-	menuFont.loadFromFile(MENU_FONT_FILE);
+	menuFont.loadFromFile("data/fonts/advanced_pixel-7.ttf");
 	menuCaption.setFont(menuFont);
 	menuCaption.setCharacterSize(48);
 

@@ -10,6 +10,8 @@ namespace fired {
 		fired::Game *game;
 		sf::Vector2f pos;
 
+		sf::Texture mouseTex;
+		sf::Sprite  mouseCur;
 	public:
 		void init(fired::Game *_game);
 		void update(float frameClock);

@@ -11,7 +11,7 @@ void fired::MenuItem::init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_f
 
 	text.setFont(*font);
 	text.setString(caption);
-	text.setCharacterSize(MENU_FONT_SIZE);
+	text.setCharacterSize(32);
 
 	textRect = text.getGlobalBounds();
 	xOffset = (sprite->getTexture()->getSize().x - textRect.width) / 2;
@@ -37,7 +37,7 @@ void fired::MenuItem::update(float frameClock) {
 
 void fired::MenuItem::render() {
 	sprite->setPosition(pos);
-	text.setPosition(pos.x + xOffset, pos.y + MENU_Y_OFFSET);
+	text.setPosition(pos.x + xOffset, pos.y + 1.5);
 
 	game->app.draw(*sprite);
 	game->app.draw(text);

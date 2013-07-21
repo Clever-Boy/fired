@@ -10,6 +10,7 @@ void fired::Game::init() {
 	app.create(sf::VideoMode(settings.window.width,
 	                         settings.window.height,
 	                         settings.window.bpp), PROJECT_NAME " v" PROJECT_VER, style);
+	app.setMouseCursorVisible(false);
 	running = true;
 
 	mouse.init(this);

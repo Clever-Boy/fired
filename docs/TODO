@@ -17,7 +17,7 @@
 ║[X] – Saving settings
 ║[X] – Menu structure loading
 ║[X] – Menu items rendering
-║[ ] – Mouse cursor
+║[X] – Mouse cursor
 ║[ ] – Mouse click events
 ║[ ] – «Back» button in menus
 ║[ ] – «Exit» button in menu

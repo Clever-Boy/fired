@@ -1,11 +1,6 @@
 #ifndef __MENUITEM
 #define __MENUITEM
 
-#define MENU_FONT_FILE "data/fonts/advanced_pixel-7.ttf"
-#define MENU_FONT_SIZE 32
-#define MENU_Y_OFFSET  1.5
-
-
 #include <SFML/Graphics.hpp>
 #include "prototypes.hpp"
 

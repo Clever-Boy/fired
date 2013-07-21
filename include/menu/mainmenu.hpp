@@ -32,6 +32,7 @@ namespace fired {
 		void init(fired::Game *_game);
 		void update(float frameClock);
 		void render();
+		void click(sf::Vector2i pos);
 
 		void fillMenu();
 		void menuItemAdd(const char *_caption, fired::MenuItem *_parent);

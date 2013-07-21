@@ -31,6 +31,7 @@ namespace fired {
 	public:
 		void init();
 		void update();
+		void click(sf::Vector2i pos);
 
 		bool isRunning() { return running; };
 

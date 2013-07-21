@@ -42,10 +42,19 @@ void fired::Game::processEvents() {
 	sf::Event event;
 	while (app.pollEvent(event)) processEvent(event);
 
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) click(sf::Mouse::getPosition(app));
 	if (!app.isOpen()) running = false;
 }
 
 
 void fired::Game::processEvent(sf::Event event) {
 	if (event.type == sf::Event::Closed) running = false;
+}
+
+
+void fired::Game::click(sf::Vector2i pos) {
+	if ((pos.x > MENU_X_OFFSET) &&
+	    (pos.x < MENU_X_OFFSET + MENU_WIDTH) &&
+	    (pos.y > MENU_Y_OFFSET))
+		mainMenu.click(pos);
 }

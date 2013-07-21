@@ -71,3 +71,9 @@ void fired::MainMenu::fillMenu() {
 
 	for (int i = 0; i < menuItems.size(); i++) menuItems[i]->addToParent();
 }
+
+
+void fired::MainMenu::click(sf::Vector2i pos) {
+	int index = (pos.y - MENU_Y_OFFSET) / MENU_Y_DIFF;
+	if ((index < menuItems.size()) && ((pos.y - MENU_Y_OFFSET) % MENU_Y_DIFF < MENU_HEIGHT)) menuItems[index]->click();
+}

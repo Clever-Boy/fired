@@ -19,6 +19,8 @@
 ║[X] – Menu items rendering
 ║[X] – Mouse cursor
 ║[ ] – Mouse click events
+║[ ] – Menu click handlers
+║[ ] – Menu items browsing
 ║[ ] – «Back» button in menus
 ║[ ] – «Exit» button in menu
 ║[ ] – Menu items animation

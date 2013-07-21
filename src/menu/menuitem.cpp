@@ -26,7 +26,7 @@ void fired::MenuItem::addToParent() {
 
 void fired::MenuItem::addSubMenu(fired::MenuItem *subMenuItem) {
 	subMenu.push_back(subMenuItem);
-	subMenuItem->pos = sf::Vector2f(50, 150 + 75 * subMenu.size());
+	subMenuItem->pos = sf::Vector2f(MENU_X_OFFSET, MENU_Y_OFFSET + MENU_Y_DIFF * subMenu.size());
 }
 
 
@@ -41,4 +41,9 @@ void fired::MenuItem::render() {
 
 	game->app.draw(*sprite);
 	game->app.draw(text);
+}
+
+
+void fired::MenuItem::click() {
+	return;
 }

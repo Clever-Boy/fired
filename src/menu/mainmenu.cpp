@@ -35,10 +35,6 @@ void fired::MainMenu::update(float frameClock) {
 	xOffset += frameClock * MENU_BG_SPEED;
 	if (xOffset > bgTexture.getSize().x) xOffset -= bgTexture.getSize().x;
 
-	//This gonna move to change current menu function
-	menuCaption.setString(currentMenu->caption);
-	menuCaption.setPosition(sf::Vector2f(50 + (menuItemTexture.getSize().x - menuCaption.getGlobalBounds().width) / 2, 150));
-
 	render();
 	for (int i = 0; i < currentMenu->subMenu.size(); i++) currentMenu->subMenu[i]->update(frameClock);
 }
@@ -52,6 +48,11 @@ void fired::MainMenu::render() {
 }
 
 
+void fired::MainMenu::processEvent(sf::Event event) {
+	if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) click(sf::Mouse::getPosition(game->app));
+}
+
+
 void fired::MainMenu::menuItemAdd(const char *_caption, fired::MenuItem *_parent) {
 	menuItems.push_back(new fired::MenuItem);
 	menuItems.back()->init(game, &menuItemSprite, &menuFont, _caption, _parent);
@@ -62,7 +63,6 @@ void fired::MainMenu::fillMenu() {
 	fired::MenuItem *curParent;
 
 	menuItemAdd("Main menu", NULL);
-	currentMenu = menuItems[0];
 
 	curParent   = menuItems[0];
 	menuItemAdd("Start game", curParent);
@@ -70,10 +70,19 @@ void fired::MainMenu::fillMenu() {
 	menuItemAdd("Exit", curParent);
 
 	for (int i = 0; i < menuItems.size(); i++) menuItems[i]->addToParent();
+	switchMenu(menuItems[0]);
 }
 
 
 void fired::MainMenu::click(sf::Vector2i pos) {
-	int index = (pos.y - MENU_Y_OFFSET) / MENU_Y_DIFF;
-	if ((index < menuItems.size()) && ((pos.y - MENU_Y_OFFSET) % MENU_Y_DIFF < MENU_HEIGHT)) menuItems[index]->click();
+	for (int i = 0; i < currentMenu->subMenu.size(); i++) 
+		if (currentMenu->subMenu[i]->sprite->getLocalBounds().contains(sf::Vector2f(pos) - currentMenu->subMenu[i]->pos))
+			currentMenu->subMenu[i]->click();
+}
+
+
+void fired::MainMenu::switchMenu(fired::MenuItem *menuItem) {
+	currentMenu = menuItem;
+	menuCaption.setString(currentMenu->caption);
+	menuCaption.setPosition(sf::Vector2f(50 + (menuItemTexture.getSize().x - menuCaption.getGlobalBounds().width) / 2, 150));
 }

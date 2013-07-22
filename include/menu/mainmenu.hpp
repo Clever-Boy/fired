@@ -33,9 +33,11 @@ namespace fired {
 		void update(float frameClock);
 		void render();
 		void click(sf::Vector2i pos);
+		void processEvent(sf::Event event);
 
 		void fillMenu();
 		void menuItemAdd(const char *_caption, fired::MenuItem *_parent);
+		void switchMenu(fired::MenuItem *menuItem);
 	};
 }
 #endif

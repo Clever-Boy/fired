@@ -28,6 +28,7 @@
 ║[X] – StartScr rendering
 ║[ ] – Add "Credits"
 ║[ ] – Credits rendering
+║[ ] – Add button handlers
 ╠═══════════════════════  Game engine  ════════════════════════════════
 ║[ ] – Add map storage class
 ║[ ] – Add landscape generation

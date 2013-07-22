@@ -10,7 +10,8 @@ export CC=gcc
 export LD=ld
 export CLEAN=rm -rf
 export MAKE=make
-export MAKESUB=$(MAKE) -C $$$$dir -f ../Makefile.sub
+export MAKESRC=$(MAKE) -f $(PWD)/Makefile.src
+export MAKESUB=$(MAKE) -C $$$$dir -f $(PWD)/Makefile.sub
 
 export PROJECT_DIR="$(PWD)"
 export INCLUDE_DIR="$(PWD)/include"
@@ -21,10 +22,10 @@ export CFLAGS=-I$(INCLUDE_DIR) -DPROJECT_NAME="\"$(PROJECT_NAME)\"" -DPROJECT_VE
 
 
 all: src
-	$(MAKE) -C src
+	$(MAKESRC) -C src
 	cp -f src/$(PROJECT_NAME) ./
 
 
 clean: src
-	$(MAKE) -C src clean
+	$(MAKESRC) -C src clean
 	$(CLEAN) $(PROJECT_NAME)

@@ -22,8 +22,7 @@ void fired::MainMenu::init(fired::Game *_game) {
 	else
 		logoSprite.setPosition((game->settings.window.width - logoTexture.getSize().x) / 2, 0);
 
-	menuFont.loadFromFile("data/fonts/advanced_pixel-7.ttf");
-	menuCaption.setFont(menuFont);
+	menuCaption.setFont(game->font);
 	menuCaption.setCharacterSize(48);
 
 	fillMenu();
@@ -142,7 +141,7 @@ void fired::MainMenu::processAnimation(float frameClock) {
 
 void fired::MainMenu::menuItemAdd(const char *_caption, fired::MenuItem *_parent, fired::MenuItemType itemType = itSubmenu) {
 	menuItems.push_back(new fired::MenuItem);
-	menuItems.back()->init(game, &menuItemSprite, &menuFont, _caption, _parent, itemType);
+	menuItems.back()->init(game, &menuItemSprite, &game->font, _caption, _parent, itemType);
 }
 
 

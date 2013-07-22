@@ -26,8 +26,9 @@
 ║[X] – Menu items animation
 ║[X] – Add "StartScr"
 ║[X] – StartScr rendering
-║[ ] – Add "Credits"
-║[ ] – Credits rendering
+║[X] – Add "Credits"
+║[X] – Credits rendering
+║[ ] – Add deinit function with freeing objects
 ║[ ] – Add button handlers
 ╠═══════════════════════  Game engine  ════════════════════════════════
 ║[ ] – Add map storage class

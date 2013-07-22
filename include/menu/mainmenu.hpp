@@ -27,8 +27,6 @@ namespace fired {
 		sf::RectangleShape bgSprite;
 		sf::Sprite menuItemSprite;
 		sf::Sprite logoSprite;
-
-		sf::Font menuFont;
 		sf::Text menuCaption;
 
 		fired::MenuItem *currentMenu;

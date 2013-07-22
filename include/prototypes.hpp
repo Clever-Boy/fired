@@ -7,6 +7,7 @@ namespace fired {
 	class Mouse;
 	class MainMenu;
 	class StartScr;
+	class CreditsScr;
 }
 
 #endif

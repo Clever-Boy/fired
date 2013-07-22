@@ -16,6 +16,7 @@ void fired::Game::init() {
 	mouse.init(this);
 	keyboard.init(this);
 
+	font.loadFromFile("data/fonts/advanced_pixel-7.ttf");
 	setGameState(gsStartScr);
 	lastClock = clock.getElapsedTime().asMilliseconds();
 }
@@ -31,8 +32,9 @@ void fired::Game::update() {
 	processEvents();
 	app.clear();
 
-	if      (gameState == gsMainMenu) mainMenu.update(frameClock);
-	else if (gameState == gsStartScr) startScr.update(frameClock);
+	if      (gameState == gsMainMenu)   mainMenu.update(frameClock);
+	else if (gameState == gsStartScr)   startScr.update(frameClock);
+	else if (gameState == gsCreditsScr) creditsScr.update(frameClock);
 
 	app.display();
 }
@@ -53,14 +55,16 @@ void fired::Game::processEvent(sf::Event event) {
 	}
 
 
-	if      (gameState == gsMainMenu) mainMenu.processEvent(event);
-	else if (gameState == gsStartScr) startScr.processEvent(event);
+	if      (gameState == gsMainMenu)   mainMenu.processEvent(event);
+	else if (gameState == gsStartScr)   startScr.processEvent(event);
+	else if (gameState == gsCreditsScr) creditsScr.processEvent(event);
 }
 
 
 void fired::Game::setGameState(fired::GameState state) {
 	gameState = state;
 
-	if      (gameState == gsMainMenu) mainMenu.init(this);
-	else if (gameState == gsStartScr) startScr.init(this);
+	if      (gameState == gsMainMenu)   mainMenu.init(this);
+	else if (gameState == gsStartScr)   startScr.init(this);
+	else if (gameState == gsCreditsScr) creditsScr.init(this);
 }

@@ -12,6 +12,8 @@
 #include "prototypes.hpp"
 
 namespace fired {
+	enum MenuItemType {itBack, itSubmenu, itWindow};
+
 	class MenuItem {
 		friend class fired::MainMenu;
 	private:
@@ -26,9 +28,10 @@ namespace fired {
 		float xOffset;
 
 		fired::MenuItem *parent;
+		fired::MenuItemType itemType;
 		std::vector<fired::MenuItem*> subMenu;
 	public:
-		void init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_font, const char *_caption, fired::MenuItem *_parent);
+		void init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_font, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType);
 		void update(float frameClock);
 		void render();
 		void click();

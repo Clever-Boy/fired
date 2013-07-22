@@ -16,7 +16,7 @@ void fired::Settings::loadFromFile(const char *filename) {
 	fscanf(fp, "window.width=%d\n"     , &window.width);
 	fscanf(fp, "window.height=%d\n"    , &window.height);
 	fscanf(fp, "window.bpp=%d\n"       , &window.bpp);
-	fscanf(fp, "window.fullscreen=%d\n", &window.fullScreen);
+	fscanf(fp, "window.fullscreen=%d\n", (int *)&window.fullScreen);
 	fclose(fp);
 }
 

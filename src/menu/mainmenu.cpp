@@ -53,9 +53,9 @@ void fired::MainMenu::processEvent(sf::Event event) {
 }
 
 
-void fired::MainMenu::menuItemAdd(const char *_caption, fired::MenuItem *_parent) {
+void fired::MainMenu::menuItemAdd(const char *_caption, fired::MenuItem *_parent, fired::MenuItemType itemType = itSubmenu) {
 	menuItems.push_back(new fired::MenuItem);
-	menuItems.back()->init(game, &menuItemSprite, &menuFont, _caption, _parent);
+	menuItems.back()->init(game, &menuItemSprite, &menuFont, _caption, _parent, itemType);
 }
 
 
@@ -64,13 +64,28 @@ void fired::MainMenu::fillMenu() {
 
 	menuItemAdd("Main menu", NULL);
 
-	curParent   = menuItems[0];
+	curParent = menuItems[0];
 	menuItemAdd("Start game", curParent);
-	menuItemAdd("Load game", curParent);
-	menuItemAdd("Exit", curParent);
+	menuItemAdd("Load game" , curParent);
+	menuItemAdd("Options"   , curParent);
+
+	curParent = menuItems[3];
+	menuItemAdd("Video"   , curParent);
+	menuItemAdd("Audio"   , curParent);
+	menuItemAdd("Controls", curParent);
+
+	fillMenuBack();
 
 	for (int i = 0; i < menuItems.size(); i++) menuItems[i]->addToParent();
 	switchMenu(menuItems[0]);
+}
+
+void fired::MainMenu::fillMenuBack() {
+	int menuItemCount = menuItems.size();
+	for (int i = 0; i < menuItemCount; i++)
+		if (menuItems[i]->itemType != itBack)
+			if (i == 0) menuItemAdd("Exit", menuItems[i], itBack);
+			else        menuItemAdd("Back", menuItems[i], itBack);
 }
 
 

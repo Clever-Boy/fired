@@ -1,12 +1,13 @@
 #include "game.hpp"
 
-void fired::MenuItem::init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_font, const char *_caption, fired::MenuItem *_parent) {
+void fired::MenuItem::init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_font, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType) {
 	sf::FloatRect textRect;
 
-	game    = _game;
-	font    = _font;
-	sprite  = _sprite;
-	parent  = _parent;
+	game     = _game;
+	font     = _font;
+	sprite   = _sprite;
+	parent   = _parent;
+	itemType = _itemType;
 	caption = sf::String(_caption);
 
 	text.setFont(*font);
@@ -45,5 +46,13 @@ void fired::MenuItem::render() {
 
 
 void fired::MenuItem::click() {
-	return;
+	switch (itemType) {
+		case itSubmenu:
+			game->mainMenu.switchMenu(this);
+			break;
+
+		case itBack:
+			if (parent->parent) game->mainMenu.switchMenu(parent->parent);
+			else game->running = false;
+	}
 }

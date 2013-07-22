@@ -36,7 +36,8 @@ namespace fired {
 		void processEvent(sf::Event event);
 
 		void fillMenu();
-		void menuItemAdd(const char *_caption, fired::MenuItem *_parent);
+		void fillMenuBack();
+		void menuItemAdd(const char *_caption, fired::MenuItem *_parent, fired::MenuItemType itemType);
 		void switchMenu(fired::MenuItem *menuItem);
 	};
 }

@@ -4,10 +4,17 @@
 #define MENU_BG_SPEED 100.0
 
 #include <SFML/Graphics.hpp>
+#include <math.h>
 #include "menuitem.hpp"
 #include "prototypes.hpp"
 
 namespace fired {
+	enum MenuAnimationType {
+		atUp,
+		atDown,
+		atNone
+	};
+
 	class MainMenu {
 	private:
 		std::vector<fired::MenuItem *> menuItems;
@@ -25,6 +32,8 @@ namespace fired {
 		sf::Text menuCaption;
 
 		fired::MenuItem *currentMenu;
+		fired::MenuItem *nextMenu;
+		fired::MenuAnimationType animation;
 
 		float xOffset;
 
@@ -39,6 +48,9 @@ namespace fired {
 		void fillMenuBack();
 		void menuItemAdd(const char *_caption, fired::MenuItem *_parent, fired::MenuItemType itemType);
 		void switchMenu(fired::MenuItem *menuItem);
+		void setNextMenu(fired::MenuItem *menuItem);
+		void initAnimation(fired::MenuAnimationType animType);
+		void processAnimation(float frameClock);
 	};
 }
 #endif

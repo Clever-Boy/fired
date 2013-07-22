@@ -37,8 +37,8 @@ void fired::MenuItem::update(float frameClock) {
 
 
 void fired::MenuItem::render() {
-	sprite->setPosition(pos);
-	text.setPosition(pos.x + xOffset, pos.y + 1.5);
+	sprite->setPosition(pos.x, pos.y + yOffset);
+	text.setPosition(pos.x + xOffset, pos.y + 1.5 + yOffset);
 
 	game->app.draw(*sprite);
 	game->app.draw(text);
@@ -48,11 +48,11 @@ void fired::MenuItem::render() {
 void fired::MenuItem::click() {
 	switch (itemType) {
 		case itSubmenu:
-			game->mainMenu.switchMenu(this);
+			game->mainMenu.setNextMenu(this);
 			break;
 
 		case itBack:
-			if (parent->parent) game->mainMenu.switchMenu(parent->parent);
+			if (parent->parent) game->mainMenu.setNextMenu(parent->parent);
 			else game->running = false;
 	}
 }

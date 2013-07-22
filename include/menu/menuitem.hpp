@@ -4,15 +4,17 @@
 #define MENU_X_OFFSET 50
 #define MENU_Y_OFFSET 150
 #define MENU_Y_DIFF   75
-#define MENU_WIDTH    207
-#define MENU_HEIGHT   55
 
 
 #include <SFML/Graphics.hpp>
 #include "prototypes.hpp"
 
 namespace fired {
-	enum MenuItemType {itBack, itSubmenu, itWindow};
+	enum MenuItemType {
+		itBack,
+		itSubmenu,
+		itWindow
+	};
 
 	class MenuItem {
 		friend class fired::MainMenu;
@@ -26,6 +28,8 @@ namespace fired {
 		sf::Vector2f pos;
 
 		float xOffset;
+		float yOffset;
+		float timeOffset;
 
 		fired::MenuItem *parent;
 		fired::MenuItemType itemType;

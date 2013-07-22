@@ -38,6 +38,8 @@ void fired::MainMenu::update(float frameClock) {
 	processAnimation(frameClock);
 	render();
 	for (int i = 0; i < currentMenu->subMenu.size(); i++) currentMenu->subMenu[i]->update(frameClock);
+
+	game->mouse.update(frameClock);
 }
 
 

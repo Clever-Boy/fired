@@ -15,8 +15,8 @@ void fired::Game::init() {
 
 	mouse.init(this);
 	keyboard.init(this);
-	mainMenu.init(this);
 
+	setGameState(gsStartScr);
 	lastClock = clock.getElapsedTime().asMilliseconds();
 }
 
@@ -31,8 +31,8 @@ void fired::Game::update() {
 	processEvents();
 	app.clear();
 
-	mainMenu.update(frameClock);
-	mouse.update(frameClock);
+	if      (gameState == gsMainMenu) mainMenu.update(frameClock);
+	else if (gameState == gsStartScr) startScr.update(frameClock);
 
 	app.display();
 }
@@ -47,12 +47,20 @@ void fired::Game::processEvents() {
 
 
 void fired::Game::processEvent(sf::Event event) {
-	if (event.type == sf::Event::Closed) running = false;
+	if (event.type == sf::Event::Closed) {
+		running = false;
+		return;
+	}
 
-	mainMenu.processEvent(event);
+
+	if      (gameState == gsMainMenu) mainMenu.processEvent(event);
+	else if (gameState == gsStartScr) startScr.processEvent(event);
 }
 
 
-void fired::Game::click(sf::Vector2i pos) {
-	mainMenu.click(pos);
+void fired::Game::setGameState(fired::GameState state) {
+	gameState = state;
+
+	if      (gameState == gsMainMenu) mainMenu.init(this);
+	else if (gameState == gsStartScr) startScr.init(this);
 }

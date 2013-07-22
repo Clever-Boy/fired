@@ -24,10 +24,10 @@
 ║[X] – «Back» button in menus
 ║[X] – «Exit» button in menu
 ║[X] – Menu items animation
+║[X] – Add "StartScr"
+║[X] – StartScr rendering
 ║[ ] – Add "Credits"
 ║[ ] – Credits rendering
-║[ ] – Add "StartScr"
-║[ ] – StartScr rendering
 ╠═══════════════════════  Game engine  ════════════════════════════════
 ║[ ] – Add map storage class
 ║[ ] – Add landscape generation

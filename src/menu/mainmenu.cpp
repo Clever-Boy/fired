@@ -163,18 +163,17 @@ void fired::MainMenu::processAnimation(float frameClock) {
 }
 
 
-void fired::MainMenu::menuItemAdd(const char *_caption, fired::MenuItem *_parent, fired::MenuItemType itemType = itSubmenu) {
+void fired::MainMenu::menuItemAdd(const char *_caption, fired::MenuItem *_parent, fired::MenuItemType itemType = itSubmenu, fired::Handler handlerFunc = NULL) {
 	menuItems.push_back(new fired::MenuItem);
-	menuItems.back()->init(game, menuItemSprite, &game->font, _caption, _parent, itemType);
+	menuItems.back()->init(game, menuItemSprite, &game->font, _caption, _parent, itemType, handlerFunc);
 }
 
 
 void fired::MainMenu::fillMenuBack() {
 	int menuItemCount = menuItems.size();
-	for (int i = 0; i < menuItemCount; i++)
+	for (int i = 1; i < menuItemCount; i++)
 		if (menuItems[i]->itemType != itBack)
-			if (i == 0) menuItemAdd("Exit", menuItems[i], itBack);
-			else        menuItemAdd("Back", menuItems[i], itBack);
+			menuItemAdd("Back", menuItems[i], itBack);
 }
 
 
@@ -187,6 +186,8 @@ void fired::MainMenu::fillMenu() {
 	menuItemAdd("Start game", curParent);
 	menuItemAdd("Load game" , curParent);
 	menuItemAdd("Options"   , curParent);
+	menuItemAdd("Credits"   , curParent, itButton, &fired::Handlers::buttonCredits);
+	menuItemAdd("Exit"      , curParent, itButton, &fired::Handlers::buttonExit);
 
 	curParent = menuItems[3];
 	menuItemAdd("Video"   , curParent);

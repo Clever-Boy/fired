@@ -15,6 +15,7 @@ void fired::Game::init() {
 
 	mouse.init(this);
 	keyboard.init(this);
+	handlers.init(this);
 
 	font.loadFromFile("data/fonts/advanced_pixel-7.ttf");
 	setGameState(gsStartScr);
@@ -29,6 +30,7 @@ void fired::Game::update() {
 	frameClock = (currentClock - lastClock) / 1000.0;
 	lastClock = currentClock;
 
+	switchGameState();
 	processEvents();
 	app.clear();
 
@@ -62,11 +64,18 @@ void fired::Game::processEvent(sf::Event event) {
 
 
 void fired::Game::setGameState(fired::GameState state) {
+	gameStateNew = state;
+}
+
+
+void fired::Game::switchGameState() {
+	if (gameState == gameStateNew) return;
+
 	if      (gameState == gsMainMenu)   mainMenu.deinit();
 	else if (gameState == gsStartScr)   startScr.deinit();
 	else if (gameState == gsCreditsScr) creditsScr.deinit();
 
-	gameState = state;
+	gameState = gameStateNew;
 
 	if      (gameState == gsMainMenu)   mainMenu.init(this);
 	else if (gameState == gsStartScr)   startScr.init(this);

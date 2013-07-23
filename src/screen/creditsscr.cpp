@@ -1,7 +1,6 @@
 #include "game.hpp"
 #include <fstream>
 #include <string>
-#include <stdio.h>
 
 void fired::CreditsScr::init(fired::Game *_game) {
 	std::string line;
@@ -20,11 +19,9 @@ void fired::CreditsScr::init(fired::Game *_game) {
 	credits.back()->setStyle(sf::Text::Bold);
 	credits.back()->setPosition((game->settings.window.width - credits.back()->getLocalBounds().width) / 2, game->settings.window.height);
 
-
 	while(!creditsFile.eof()) {
 		getline(creditsFile, line);
 		iOffset += 50;
-
 		if (line.length() == 0) continue;
 
 		isCaption = line.find("$C") != -1;
@@ -45,11 +42,14 @@ void fired::CreditsScr::init(fired::Game *_game) {
 			credits.back()->setPosition((game->settings.window.width - CREDITSSCR_WIDTH) / 2, game->settings.window.height + iOffset);
 		}
 	}
+
+	creditsFile.close();
 }
 
 
 void fired::CreditsScr::deinit() {
 	for (int i = 0; i < credits.size(); free(credits[i]), i++);
+	credits.clear();
 }
 
 

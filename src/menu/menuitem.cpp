@@ -1,15 +1,16 @@
 #include "game.hpp"
 
-void fired::MenuItem::init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_font, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType) {
+void fired::MenuItem::init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_font, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc) {
 	sf::FloatRect textRect;
 
-	game     = _game;
-	font     = _font;
-	sprite   = _sprite;
-	parent   = _parent;
-	itemType = _itemType;
-	caption  = new sf::String(_caption);
-	text     = new sf::Text();
+	game        = _game;
+	font        = _font;
+	sprite      = _sprite;
+	parent      = _parent;
+	itemType    = _itemType;
+	handlerFunc = _handlerFunc;
+	caption     = new sf::String(_caption);
+	text        = new sf::Text();
 
 	text->setFont(*font);
 	text->setString(*caption);
@@ -59,7 +60,11 @@ void fired::MenuItem::click() {
 			break;
 
 		case itBack:
-			if (parent->parent) game->mainMenu.setNextMenu(parent->parent);
-			else game->running = false;
+			game->mainMenu.setNextMenu(parent->parent);
+			break;
+
+		case itButton:
+			(game->handlers.*handlerFunc)();
+			break;
 	}
 }

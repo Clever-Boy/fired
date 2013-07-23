@@ -21,6 +21,7 @@ namespace fired {
 		friend class fired::MenuItem;
 		friend class fired::Mouse;
 		friend class fired::Keyboard;
+		friend class fired::Handlers;
 		friend class fired::StartScr;
 		friend class fired::CreditsScr;
 
@@ -33,8 +34,10 @@ namespace fired {
 		float frameClock;
 		bool running;
 
-		fired::GameState gameState;
+		fired::GameState  gameState;
+		fired::GameState  gameStateNew;
 		fired::Settings   settings;
+		fired::Handlers   handlers; 
 
 		fired::MainMenu   mainMenu;
 		fired::StartScr   startScr;
@@ -49,6 +52,7 @@ namespace fired {
 
 		bool isRunning() { return running; };
 		void setGameState(fired::GameState state);
+		void switchGameState();
 
 		void processEvents();
 		void processEvent(sf::Event event);

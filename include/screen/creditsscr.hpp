@@ -1,7 +1,7 @@
 #ifndef __CREDITSSCR
 #define __CREDITSSCR
 
-#define CREDITSSCR_SPEED 50
+#define CREDITSSCR_SPEED 100
 #define CREDITSSCR_WIDTH 700
 
 

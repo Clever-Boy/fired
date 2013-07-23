@@ -29,7 +29,7 @@
 ║[X] – Add "Credits"
 ║[X] – Credits rendering
 ║[X] – Add deinit function with freeing objects
-║[ ] – Add button handlers
+║[X] – Add button handlers
 ╠══════════════════════  Sound engine    ══════════════════════════════
 ║[ ] – Add sound system
 ║[ ] – Add sounds of jump, shot etc.

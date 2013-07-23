@@ -4,10 +4,8 @@ void fired::MainMenu::init(fired::Game *_game) {
 	game    = _game;
 	xOffset = 0;
 
-	musicTheme = new sf::Music();
-	musicTheme->openFromFile("data/snd/themes/mainmenu.ogg");
-	musicTheme->setLoop(true);
-	musicTheme->play();
+	game->musicTheme.openFromFile("data/snd/themes/mainmenu.ogg");
+	game->musicTheme.play();
 
 	clickBuffer = new sf::SoundBuffer();
 	clickSound  = new sf::Sound();
@@ -45,6 +43,7 @@ void fired::MainMenu::init(fired::Game *_game) {
 	menuCaption->setCharacterSize(48);
 
 	fillMenu();
+	updateSettings();
 	return;
 }
 
@@ -53,10 +52,9 @@ void fired::MainMenu::deinit() {
 	for (int i = 0; i < menuItems.size(); menuItems[i]->deinit(), free(menuItems[i]), i++);
 	menuItems.clear();
 
-	musicTheme->stop();
+	game->musicTheme.stop();
 	clickSound->stop();
 
-	delete musicTheme;
 	delete clickSound;
 	delete clickBuffer;
 
@@ -107,11 +105,8 @@ void fired::MainMenu::click(sf::Vector2i pos) {
 }
 
 
-void fired::MainMenu::switchMenu(fired::MenuItem *menuItem) {
-	currentMenu = menuItem;
-	menuCaption->setString(*currentMenu->caption);
-	menuCaption->setPosition(sf::Vector2f(MENU_X_OFFSET + (menuItemTexture->getSize().x - menuCaption->getGlobalBounds().width) / 2, MENU_Y_OFFSET));
-	initAnimation(atUp);
+void fired::MainMenu::updateSettings() {
+	clickSound->setVolume(game->settings.volume.sound);
 }
 
 
@@ -119,6 +114,15 @@ void fired::MainMenu::setNextMenu(fired::MenuItem *menuItem) {
 	nextMenu = menuItem;
 	initAnimation(atDown);
 }
+
+
+void fired::MainMenu::switchMenu(fired::MenuItem *menuItem) {
+	currentMenu = menuItem;
+	menuCaption->setString(*currentMenu->caption);
+	menuCaption->setPosition(sf::Vector2f(MENU_X_OFFSET + (menuItemTexture->getSize().x - menuCaption->getGlobalBounds().width) / 2, MENU_Y_OFFSET));
+	initAnimation(atUp);
+}
+
 
 void fired::MainMenu::initAnimation(fired::MenuAnimationType animType) {
 	animation = animType;

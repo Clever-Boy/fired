@@ -12,10 +12,8 @@ void fired::CreditsScr::init(fired::Game *_game) {
 	yOffset = 0;
 	iOffset = 100;
 
-	musicTheme = new sf::Music();
-	musicTheme->openFromFile("data/snd/themes/creditsscr.ogg");
-	musicTheme->setLoop(true);
-	musicTheme->play();
+	game->musicTheme.openFromFile("data/snd/themes/creditsscr.ogg");
+	game->musicTheme.play();
 
 	credits.push_back(new sf::Text);
 	credits.back()->setFont(game->font);
@@ -56,8 +54,7 @@ void fired::CreditsScr::deinit() {
 	for (int i = 0; i < credits.size(); delete credits[i], i++);
 	credits.clear();
 
-	musicTheme->stop();
-	delete musicTheme;
+	game->musicTheme.stop();
 }
 
 

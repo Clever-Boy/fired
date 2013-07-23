@@ -38,7 +38,7 @@
 ║[ ] – Add main menu theme
 ║[ ] – Add credits theme
 ║[X] – Add theme objects to CreditsScr, StartScr and MainMenu
-║[ ] – Add volume into settings
+║[X] – Add volume into settings
 ╠══════════════════════  Game engine     ══════════════════════════════
 ║[ ] – Add map storage class
 ║[ ] – Add landscape generation

@@ -11,6 +11,12 @@ namespace fired {
 			bool fullScreen;
 		} window;
 
+		struct {
+			int music;
+			int sound;
+		} volume;
+
+
 		void init();
 		void save();
 		void loadFromFile(const char *filename);

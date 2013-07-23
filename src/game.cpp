@@ -17,6 +17,9 @@ void fired::Game::init() {
 	keyboard.init(this);
 	handlers.init(this);
 
+	musicTheme.setLoop(true);
+	musicTheme.setVolume(settings.volume.music);
+
 	font.loadFromFile("data/fonts/advanced_pixel-7.ttf");
 	setGameState(gsStartScr);
 	lastClock = clock.getElapsedTime().asMilliseconds();

@@ -11,7 +11,6 @@ namespace fired {
 	private:
 		std::vector<sf::Texture*> textures;
 		std::vector<sf::Sprite*> sprites;
-		sf::Music *musicTheme;
 
 		fired::Game *game;
 		float timeOffset;

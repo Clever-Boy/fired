@@ -29,8 +29,9 @@ namespace fired {
 
 	private:
 		sf::RenderWindow app;
-		sf::Clock clock;
-		sf::Font font;
+		sf::Clock        clock;
+		sf::Font         font;
+		sf::Music        musicTheme;
 
 		long lastClock;
 		float frameClock;

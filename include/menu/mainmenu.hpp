@@ -29,7 +29,6 @@ namespace fired {
 		sf::Sprite         *logoSprite;
 
 		sf::Text           *menuCaption;
-		sf::Music          *musicTheme;
 		sf::SoundBuffer    *clickBuffer;
 		sf::Sound          *clickSound;
 
@@ -54,6 +53,7 @@ namespace fired {
 		void setNextMenu(fired::MenuItem *menuItem);
 		void initAnimation(fired::MenuAnimationType animType);
 		void processAnimation(float frameClock);
+		void updateSettings();
 	};
 }
 #endif

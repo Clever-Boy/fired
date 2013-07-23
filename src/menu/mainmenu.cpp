@@ -4,6 +4,16 @@ void fired::MainMenu::init(fired::Game *_game) {
 	game    = _game;
 	xOffset = 0;
 
+	musicTheme = new sf::Music();
+	musicTheme->openFromFile("data/snd/themes/mainmenu.ogg");
+	musicTheme->setLoop(true);
+	musicTheme->play();
+
+	clickBuffer = new sf::SoundBuffer();
+	clickSound  = new sf::Sound();
+	clickBuffer->loadFromFile("data/snd/misc/click.wav");
+	clickSound->setBuffer(*clickBuffer);
+
 	bgTexture       = new sf::Texture();
 	menuItemTexture = new sf::Texture();
 	logoTexture     = new sf::Texture();
@@ -43,14 +53,21 @@ void fired::MainMenu::deinit() {
 	for (int i = 0; i < menuItems.size(); menuItems[i]->deinit(), free(menuItems[i]), i++);
 	menuItems.clear();
 
-	free(bgTexture);
-	free(menuItemTexture);
-	free(logoTexture);
+	musicTheme->stop();
+	clickSound->stop();
 
-	free(logoSprite);
-	free(menuItemSprite);
-	free(bgSprite);
-	free(menuCaption);
+	delete musicTheme;
+	delete clickSound;
+	delete clickBuffer;
+
+	delete bgTexture;
+	delete menuItemTexture;
+	delete logoTexture;
+
+	delete logoSprite;
+	delete menuItemSprite;
+	delete bgSprite;
+	delete menuCaption;
 }
 
 
@@ -83,8 +100,10 @@ void fired::MainMenu::click(sf::Vector2i pos) {
 	if (animation != atNone) return;
 
 	for (int i = 0; i < currentMenu->subMenu.size(); i++) 
-		if (currentMenu->subMenu[i]->sprite->getLocalBounds().contains(sf::Vector2f(pos) - currentMenu->subMenu[i]->pos))
+		if (currentMenu->subMenu[i]->sprite->getLocalBounds().contains(sf::Vector2f(pos) - currentMenu->subMenu[i]->pos)) {
+			clickSound->play();
 			currentMenu->subMenu[i]->click();
+		}
 }
 
 

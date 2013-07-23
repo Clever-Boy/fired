@@ -5,6 +5,11 @@ void fired::StartScr::init(fired::Game *_game) {
 	timeOffset = 0;
 	index      = 0;
 
+	musicTheme = new sf::Music();
+	musicTheme->openFromFile("data/snd/themes/startscr.ogg");
+	musicTheme->setLoop(true);
+	musicTheme->play();
+
 	textures.push_back(new sf::Texture()); textures.back()->loadFromFile("data/img/startscr/01.jpg");
 	textures.push_back(new sf::Texture()); textures.back()->loadFromFile("data/img/startscr/02.jpg");
 	textures.push_back(new sf::Texture()); textures.back()->loadFromFile("data/img/startscr/03.jpg");
@@ -18,7 +23,9 @@ void fired::StartScr::init(fired::Game *_game) {
 }
 
 void fired::StartScr::deinit() {
-	for (int i = 0; i < textures.size(); free(sprites[i]), free(textures[i]), i++);
+	for (int i = 0; i < textures.size(); delete sprites[i], delete textures[i], i++);
+	musicTheme->stop();
+	delete musicTheme;
 }
 
 void fired::StartScr::update(float frameClock) {

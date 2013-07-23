@@ -27,7 +27,11 @@ namespace fired {
 		sf::RectangleShape *bgSprite;
 		sf::Sprite         *menuItemSprite;
 		sf::Sprite         *logoSprite;
+
 		sf::Text           *menuCaption;
+		sf::Music          *musicTheme;
+		sf::SoundBuffer    *clickBuffer;
+		sf::Sound          *clickSound;
 
 		fired::MenuItem *currentMenu;
 		fired::MenuItem *nextMenu;

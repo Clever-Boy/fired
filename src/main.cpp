@@ -5,6 +5,7 @@ int main() {
 
 	Game.init();
 	while(Game.isRunning()) Game.update();
+	Game.deinit();
 
 	return EXIT_SUCCESS;
 }

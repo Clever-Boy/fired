@@ -2,6 +2,8 @@
 #define __GAME
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+
 #include "prototypes.hpp"
 #include "menu.hpp"
 #include "input.hpp"
@@ -48,6 +50,7 @@ namespace fired {
 
 	public:
 		void init();
+		void deinit();
 		void update();
 
 		bool isRunning() { return running; };

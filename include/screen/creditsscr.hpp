@@ -10,6 +10,7 @@ namespace fired {
 	private:
 		fired::Game *game;
 		std::vector<sf::Text*> credits;
+		sf::Music *musicTheme;
 
 		float yOffset;
 

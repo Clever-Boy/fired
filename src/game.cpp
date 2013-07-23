@@ -23,6 +23,13 @@ void fired::Game::init() {
 }
 
 
+void fired::Game::deinit() {
+	if      (gameState == gsMainMenu)   mainMenu.deinit();
+	else if (gameState == gsStartScr)   startScr.deinit();
+	else if (gameState == gsCreditsScr) creditsScr.deinit();
+}
+
+
 void fired::Game::update() {
 	long currentClock = clock.getElapsedTime().asMilliseconds();
 	if (currentClock - lastClock < 10) return;
@@ -55,7 +62,6 @@ void fired::Game::processEvent(sf::Event event) {
 		running = false;
 		return;
 	}
-
 
 	if      (gameState == gsMainMenu)   mainMenu.processEvent(event);
 	else if (gameState == gsStartScr)   startScr.processEvent(event);

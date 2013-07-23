@@ -23,8 +23,8 @@ void fired::MenuItem::init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_f
 
 
 void fired::MenuItem::deinit() {
-	free(caption);
-	free(text);
+	delete caption;
+	delete text;
 }
 
 

@@ -31,11 +31,14 @@
 ║[X] – Add deinit function with freeing objects
 ║[X] – Add button handlers
 ╠══════════════════════  Sound engine    ══════════════════════════════
-║[ ] – Add sound system
-║[ ] – Add sounds of jump, shot etc.
-║[ ] – Add main music theme
-║[ ] – Write some themes
-║[ ] – Add volume change
+║[X] – Add sound system
+║[X] – Add music system
+║[X] – Add sounds of menu clicks
+║[ ] – Add start screen theme
+║[ ] – Add main menu theme
+║[ ] – Add credits theme
+║[X] – Add theme objects to CreditsScr, StartScr and MainMenu
+║[ ] – Add volume into settings
 ╠══════════════════════  Game engine     ══════════════════════════════
 ║[ ] – Add map storage class
 ║[ ] – Add landscape generation

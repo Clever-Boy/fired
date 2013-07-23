@@ -4,26 +4,35 @@ void fired::MainMenu::init(fired::Game *_game) {
 	game    = _game;
 	xOffset = 0;
 
-	bgTexture.loadFromFile("data/img/gui/mainmenu/bg.jpg");
-	bgSprite.setTexture(&bgTexture);
-	bgTexture.setRepeated(true);
-	bgSprite.setSize(sf::Vector2f(game->settings.window.width, game->settings.window.height));
+	bgTexture       = new sf::Texture();
+	menuItemTexture = new sf::Texture();
+	logoTexture     = new sf::Texture();
 
-	menuItemTexture.loadFromFile("data/img/gui/mainmenu/menuitem.jpg");
-	menuItemSprite.setTexture(menuItemTexture);
-	menuItemTexture.setSmooth(true);
+	bgSprite       = new sf::RectangleShape();
+	menuItemSprite = new sf::Sprite();
+	logoSprite     = new sf::Sprite();
+	menuCaption    = new sf::Text();
 
-	logoTexture.loadFromFile("data/img/gui/mainmenu/logo.tga");
-	logoSprite.setTexture(logoTexture);
-	logoTexture.setSmooth(true);
+	bgTexture->loadFromFile("data/img/gui/mainmenu/bg.jpg");
+	bgSprite->setTexture(bgTexture);
+	bgTexture->setRepeated(true);
+	bgSprite->setSize(sf::Vector2f(game->settings.window.width, game->settings.window.height));
 
-	if (logoTexture.getSize().x > game->settings.window.width)
-		logoSprite.setScale((float)game->settings.window.width/logoTexture.getSize().x, (float)game->settings.window.width/logoTexture.getSize().x);
+	menuItemTexture->loadFromFile("data/img/gui/mainmenu/menuitem.jpg");
+	menuItemSprite->setTexture(*menuItemTexture);
+	menuItemTexture->setSmooth(true);
+
+	logoTexture->loadFromFile("data/img/gui/mainmenu/logo.tga");
+	logoSprite->setTexture(*logoTexture);
+	logoTexture->setSmooth(true);
+
+	if (logoTexture->getSize().x > game->settings.window.width)
+		logoSprite->setScale((float)game->settings.window.width/logoTexture->getSize().x, (float)game->settings.window.width/logoTexture->getSize().x);
 	else
-		logoSprite.setPosition((game->settings.window.width - logoTexture.getSize().x) / 2, 0);
+		logoSprite->setPosition((game->settings.window.width - logoTexture->getSize().x) / 2, 0);
 
-	menuCaption.setFont(game->font);
-	menuCaption.setCharacterSize(48);
+	menuCaption->setFont(game->font);
+	menuCaption->setCharacterSize(48);
 
 	fillMenu();
 	return;
@@ -31,22 +40,23 @@ void fired::MainMenu::init(fired::Game *_game) {
 
 
 void fired::MainMenu::deinit() {
-	for (int i = 0; i < menuItems.size(); menuItems[i]->deinit(), i++);
+	for (int i = 0; i < menuItems.size(); menuItems[i]->deinit(), free(menuItems[i]), i++);
+	menuItems.clear();
 
-	bgTexture.~Texture();
-	menuItemTexture.~Texture();
-	logoTexture.~Texture();
+	free(bgTexture);
+	free(menuItemTexture);
+	free(logoTexture);
 
-	logoSprite.~Sprite();
-	menuItemSprite.~Sprite();
-	bgSprite.~RectangleShape();
-	menuCaption.~Text();
+	free(logoSprite);
+	free(menuItemSprite);
+	free(bgSprite);
+	free(menuCaption);
 }
 
 
 void fired::MainMenu::update(float frameClock) {
 	xOffset += frameClock * MENU_BG_SPEED;
-	if (xOffset > bgTexture.getSize().x) xOffset -= bgTexture.getSize().x;
+	if (xOffset > bgTexture->getSize().x) xOffset -= bgTexture->getSize().x;
 
 	processAnimation(frameClock);
 	render();
@@ -57,10 +67,10 @@ void fired::MainMenu::update(float frameClock) {
 
 
 void fired::MainMenu::render() {
-	bgSprite.setTextureRect(sf::IntRect(xOffset, 0, game->settings.window.width, game->settings.window.height));
-	game->app.draw(bgSprite);
-	game->app.draw(logoSprite);
-	game->app.draw(menuCaption);
+	bgSprite->setTextureRect(sf::IntRect(xOffset, 0, game->settings.window.width, game->settings.window.height));
+	game->app.draw(*bgSprite);
+	game->app.draw(*logoSprite);
+	game->app.draw(*menuCaption);
 }
 
 
@@ -80,8 +90,8 @@ void fired::MainMenu::click(sf::Vector2i pos) {
 
 void fired::MainMenu::switchMenu(fired::MenuItem *menuItem) {
 	currentMenu = menuItem;
-	menuCaption.setString(currentMenu->caption);
-	menuCaption.setPosition(sf::Vector2f(MENU_X_OFFSET + (menuItemTexture.getSize().x - menuCaption.getGlobalBounds().width) / 2, MENU_Y_OFFSET));
+	menuCaption->setString(*currentMenu->caption);
+	menuCaption->setPosition(sf::Vector2f(MENU_X_OFFSET + (menuItemTexture->getSize().x - menuCaption->getGlobalBounds().width) / 2, MENU_Y_OFFSET));
 	initAnimation(atUp);
 }
 
@@ -155,7 +165,7 @@ void fired::MainMenu::processAnimation(float frameClock) {
 
 void fired::MainMenu::menuItemAdd(const char *_caption, fired::MenuItem *_parent, fired::MenuItemType itemType = itSubmenu) {
 	menuItems.push_back(new fired::MenuItem);
-	menuItems.back()->init(game, &menuItemSprite, &game->font, _caption, _parent, itemType);
+	menuItems.back()->init(game, menuItemSprite, &game->font, _caption, _parent, itemType);
 }
 
 

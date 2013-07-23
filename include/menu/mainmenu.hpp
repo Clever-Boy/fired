@@ -20,14 +20,14 @@ namespace fired {
 		std::vector<fired::MenuItem *> menuItems;
 		fired::Game *game;
 
-		sf::Texture bgTexture;
-		sf::Texture menuItemTexture;
-		sf::Texture logoTexture;
+		sf::Texture *bgTexture;
+		sf::Texture *menuItemTexture;
+		sf::Texture *logoTexture;
 
-		sf::RectangleShape bgSprite;
-		sf::Sprite menuItemSprite;
-		sf::Sprite logoSprite;
-		sf::Text menuCaption;
+		sf::RectangleShape *bgSprite;
+		sf::Sprite         *menuItemSprite;
+		sf::Sprite         *logoSprite;
+		sf::Text           *menuCaption;
 
 		fired::MenuItem *currentMenu;
 		fired::MenuItem *nextMenu;

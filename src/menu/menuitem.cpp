@@ -8,21 +8,22 @@ void fired::MenuItem::init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_f
 	sprite   = _sprite;
 	parent   = _parent;
 	itemType = _itemType;
-	caption = sf::String(_caption);
+	caption  = new sf::String(_caption);
+	text     = new sf::Text();
 
-	text.setFont(*font);
-	text.setString(caption);
-	text.setCharacterSize(32);
+	text->setFont(*font);
+	text->setString(*caption);
+	text->setCharacterSize(32);
 
-	textRect = text.getGlobalBounds();
+	textRect = text->getGlobalBounds();
 	xOffset = (sprite->getTexture()->getSize().x - textRect.width) / 2;
 	return;
 }
 
 
 void fired::MenuItem::deinit() {
-	caption.~String();
-	text.~Text();
+	free(caption);
+	free(text);
 }
 
 
@@ -44,10 +45,10 @@ void fired::MenuItem::update(float frameClock) {
 
 void fired::MenuItem::render() {
 	sprite->setPosition(pos.x, pos.y + yOffset);
-	text.setPosition(pos.x + xOffset, pos.y + 1.5 + yOffset);
+	text->setPosition(pos.x + xOffset, pos.y + 1.5 + yOffset);
 
 	game->app.draw(*sprite);
-	game->app.draw(text);
+	game->app.draw(*text);
 }
 
 

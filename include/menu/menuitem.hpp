@@ -21,8 +21,8 @@ namespace fired {
 	private:
 		fired::Game  *game;
 		sf::Sprite   *sprite;
-		sf::String   caption;
-		sf::Text     text;
+		sf::String   *caption;
+		sf::Text     *text;
 		sf::Font     *font;
 
 		sf::Vector2f pos;

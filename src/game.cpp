@@ -62,6 +62,10 @@ void fired::Game::processEvent(sf::Event event) {
 
 
 void fired::Game::setGameState(fired::GameState state) {
+	if      (gameState == gsMainMenu)   mainMenu.deinit();
+	else if (gameState == gsStartScr)   startScr.deinit();
+	else if (gameState == gsCreditsScr) creditsScr.deinit();
+
 	gameState = state;
 
 	if      (gameState == gsMainMenu)   mainMenu.init(this);

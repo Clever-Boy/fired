@@ -1,5 +1,5 @@
 ╔══════════════════════════════════════════════════════════════════════
-╠═══════════════════════  Menu engine  ════════════════════════════════
+╠══════════════════════  Menu engine     ══════════════════════════════
 ║[X] – Window initialization
 ║[X] – Event handling
 ║[X] – Mouse and keyboard classes
@@ -28,9 +28,15 @@
 ║[X] – StartScr rendering
 ║[X] – Add "Credits"
 ║[X] – Credits rendering
-║[ ] – Add deinit function with freeing objects
+║[X] – Add deinit function with freeing objects
 ║[ ] – Add button handlers
-╠═══════════════════════  Game engine  ════════════════════════════════
+╠══════════════════════  Sound engine    ══════════════════════════════
+║[ ] – Add sound system
+║[ ] – Add sounds of jump, shot etc.
+║[ ] – Add main music theme
+║[ ] – Write some themes
+║[ ] – Add volume change
+╠══════════════════════  Game engine     ══════════════════════════════
 ║[ ] – Add map storage class
 ║[ ] – Add landscape generation
 ║[ ] – Add saving map
@@ -45,14 +51,14 @@
 ║[ ] – Add tilesets
 ║[ ] – Add walls (50% grey tiles)
 ║[ ] – Add buildings generation
-╠══════════════════════ Visual effects  ═══════════════════════════════
+╠══════════════════════  Visual effects  ══════════════════════════════
 ║[ ] – Lighting
 ║[ ] – Particle systems
 ║[ ] – Fog
 ║[ ] – Animation
 ║[ ] – Blur
 ║[ ] – Day and night
-╠═══════════════════════  Character    ════════════════════════════════
+╠══════════════════════  Character       ══════════════════════════════
 ║[ ] – Add weapons
 ║[ ] – Add shot
 ║[ ] – Add collectable items
@@ -72,7 +78,7 @@
 ║[ ] – Add weapon skills (each weapon has it's own XP value)
 ║[ ] – Add crafting recipes
 ║[ ] – Add QuestItems
-╠═══════════════════════   Creatures   ════════════════════════════════
+╠══════════════════════  Creatures       ══════════════════════════════
 ║[ ] – Add some weapons
 ║[ ] – Add some armors
 ║[ ] – Add money
@@ -85,10 +91,4 @@
 ║[ ] – Add items bonuses +dmg, +defence, etc.
 ║[ ] – Add explosives
 ║[ ] – Add Trigger–Action system
-╠════════════════ Sound engine ════════════════════════════════════════
-║[ ] – Add sound system
-║[ ] – Add sounds of jump, shot etc.
-║[ ] – Add main music theme
-║[ ] – Write some themes
-║[ ] – Add volume change
 ╚══════════════════════════════════════════════════════════════════════

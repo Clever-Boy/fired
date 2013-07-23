@@ -36,6 +36,7 @@ namespace fired {
 		std::vector<fired::MenuItem*> subMenu;
 	public:
 		void init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_font, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType);
+		void deinit();
 		void update(float frameClock);
 		void render();
 		void click();

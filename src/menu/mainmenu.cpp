@@ -30,6 +30,20 @@ void fired::MainMenu::init(fired::Game *_game) {
 }
 
 
+void fired::MainMenu::deinit() {
+	for (int i = 0; i < menuItems.size(); menuItems[i]->deinit(), i++);
+
+	bgTexture.~Texture();
+	menuItemTexture.~Texture();
+	logoTexture.~Texture();
+
+	logoSprite.~Sprite();
+	menuItemSprite.~Sprite();
+	bgSprite.~RectangleShape();
+	menuCaption.~Text();
+}
+
+
 void fired::MainMenu::update(float frameClock) {
 	xOffset += frameClock * MENU_BG_SPEED;
 	if (xOffset > bgTexture.getSize().x) xOffset -= bgTexture.getSize().x;

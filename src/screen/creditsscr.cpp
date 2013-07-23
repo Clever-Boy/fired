@@ -48,6 +48,11 @@ void fired::CreditsScr::init(fired::Game *_game) {
 }
 
 
+void fired::CreditsScr::deinit() {
+	for (int i = 0; i < credits.size(); free(credits[i]), i++);
+}
+
+
 void fired::CreditsScr::update(float frameClock) {
 	float yOffset = -frameClock * CREDITSSCR_SPEED;
 	for (int i = 0; i < credits.size(); i++) credits[i]->move(0, yOffset);

@@ -34,8 +34,8 @@ namespace fired {
 		bool running;
 
 		fired::GameState gameState;
-
 		fired::Settings   settings;
+
 		fired::MainMenu   mainMenu;
 		fired::StartScr   startScr;
 		fired::CreditsScr creditsScr;

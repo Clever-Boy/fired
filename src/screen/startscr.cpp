@@ -17,6 +17,9 @@ void fired::StartScr::init(fired::Game *_game) {
 	}
 }
 
+void fired::StartScr::deinit() {
+	for (int i = 0; i < textures.size(); free(sprites[i]), free(textures[i]), i++);
+}
 
 void fired::StartScr::update(float frameClock) {
 	timeOffset += frameClock;

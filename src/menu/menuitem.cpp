@@ -20,6 +20,12 @@ void fired::MenuItem::init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_f
 }
 
 
+void fired::MenuItem::deinit() {
+	caption.~String();
+	text.~Text();
+}
+
+
 void fired::MenuItem::addToParent() {
 	if (parent) parent->addSubMenu(this);
 }

@@ -64,7 +64,9 @@ namespace fired {
 		void deinit();
 		void update();
 
+		sf::RenderWindow *getApp() { return &app; };
 		bool isRunning() { return running; };
+
 		void setGameState(fired::GameState state);
 		void switchGameState();
 

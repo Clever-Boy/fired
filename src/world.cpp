@@ -3,13 +3,13 @@
 
 void fired::World::init(fired::Game *_game) {
 	game = _game;
-	map.init();
+	map.init(game);
 }
 
 
 
 void fired::World::deinit() {
-	return;
+	map.deinit();
 }
 
 
@@ -21,7 +21,7 @@ void fired::World::update(float frameClock) {
 
 
 void fired::World::render() {
-	return;
+	map.render();
 }
 
 

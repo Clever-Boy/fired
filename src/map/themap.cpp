@@ -1,14 +1,16 @@
 #include "game.hpp"
 
 
-void fired::Map::init() {
-	return;
+void fired::Map::init(fired::Game *_game) {
+	game = _game;
+
+	tileset.init("data/img/tilesets/grass.tga");
 }
 
 
 
 void fired::Map::deinit() {
-	return;
+	tileset.deinit();
 }
 
 

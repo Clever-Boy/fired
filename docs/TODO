@@ -43,7 +43,8 @@
 ║[X] – Add world class
 ║[X] – Add tile storage class
 ║[X] – Add map storage class
-║[ ] – Add tileset storage class
+║[X] – Add tileset storage class
+║[X] – Add tileset loading
 ║[ ] – Add map rendering
 ║[ ] – Add world theme
 ║[ ] – Add landscape generation

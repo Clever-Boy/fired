@@ -1,8 +1,8 @@
 #include "game.hpp"
 
 
-void fired::Tile::init() {
-	return;
+void fired::Tile::init(fired::Tileset *_tileset) {
+	tileset = _tileset;
 }
 
 

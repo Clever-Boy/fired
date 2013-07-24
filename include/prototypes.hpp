@@ -11,6 +11,7 @@ namespace fired {
 	class MainMenu;
 	class StartScr;
 	class CreditsScr;
+	class Tileset;
 
 
 	typedef void (Handlers::*Handler)(void);

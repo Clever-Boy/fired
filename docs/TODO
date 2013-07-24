@@ -34,17 +34,18 @@
 ║[X] – Add sound system
 ║[X] – Add music system
 ║[X] – Add sounds of menu clicks
-║[ ] – Add start screen theme
-║[ ] – Add main menu theme
-║[ ] – Add credits theme
+║[X] – Add start screen theme
+║[X] – Add main menu theme
+║[X] – Add credits theme
 ║[X] – Add theme objects to CreditsScr, StartScr and MainMenu
 ║[X] – Add volume into settings
 ╠══════════════════════  Game engine     ══════════════════════════════
+║[ ] – Add world class
 ║[ ] – Add map storage class
+║[ ] – Add map rendering
 ║[ ] – Add landscape generation
 ║[ ] – Add saving map
 ║[ ] – Add loading map
-║[ ] – Add map rendering
 ║[ ] – Add loading tilesets
 ║[ ] – Add movement
 ║[ ] – Add char physics

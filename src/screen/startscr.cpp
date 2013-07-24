@@ -42,9 +42,9 @@ void fired::StartScr::update(float frameClock) {
 		return;
 	}
 
-	if      (timeOffset < STARTSCR_TIME_APPEAR)    sprites[index]->setColor(sf::Color(255, 255, 255, 255 * timeOffset));
+	if      (timeOffset < STARTSCR_TIME_APPEAR)    sprites[index]->setColor(sf::Color(255, 255, 255, 255 * timeOffset / STARTSCR_TIME_APPEAR));
 	else if (timeOffset < STARTSCR_TIME_DISAPPEAR) sprites[index]->setColor(sf::Color(255, 255, 255, 255));
-	else                                           sprites[index]->setColor(sf::Color(255, 255, 255, 255 * (STARTSCR_TIME_DELAY - timeOffset)));
+	else                                           sprites[index]->setColor(sf::Color(255, 255, 255, 255 * (STARTSCR_TIME_DELAY - timeOffset) / (STARTSCR_TIME_DELAY - STARTSCR_TIME_DISAPPEAR)));
 
 	render();
 }

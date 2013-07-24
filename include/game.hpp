@@ -25,14 +25,7 @@ namespace fired {
 
 
 	class Game {
-		friend class fired::MainMenu;
-		friend class fired::MenuItem;
-		friend class fired::Mouse;
-		friend class fired::World;
-		friend class fired::Keyboard;
 		friend class fired::Handlers;
-		friend class fired::StartScr;
-		friend class fired::CreditsScr;
 
 
 	private:
@@ -64,13 +57,16 @@ namespace fired {
 		void deinit();
 		void update();
 
-		sf::RenderWindow *getApp() { return &app; };
-		fired::Settings *getSettings() { return &settings; };
-		bool isRunning() { return running; };
+		sf::RenderWindow *getApp()      { return &app; };
+		sf::Font         *getFont()     { return &font; };
+		fired::Settings  *getSettings() { return &settings; };
+		bool              isRunning()   { return running; };
 
 		void setGameState(fired::GameState state);
+		void setMusic(const char *musicFile);
 		void switchGameState();
 
+		void processHandler(fired::Handler handler);
 		void processEvents();
 		void processEvent(sf::Event event);
 	};

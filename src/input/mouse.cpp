@@ -27,14 +27,14 @@ void fired::Mouse::processEvent(sf::Event event) {
 
 
 
-void fired::Mouse::render() {
-	mouseCur->setPosition(pos);
-	game->app.draw(*mouseCur);
+void fired::Mouse::update(float frameClock) {
+	pos = sf::Vector2f(sf::Mouse::getPosition(*game->getApp()));
+	render();
 }
 
 
 
-void fired::Mouse::update(float frameClock) {
-	pos = sf::Vector2f(sf::Mouse::getPosition(game->app));
-	render();
+void fired::Mouse::render() {
+	mouseCur->setPosition(pos);
+	game->getApp()->draw(*mouseCur);
 }

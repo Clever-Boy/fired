@@ -31,6 +31,7 @@ void fired::Game::init() {
 
 
 void fired::Game::deinit() {
+	musicTheme.stop();
 	mouse.deinit();
 
 	if      (gameState == gsMainMenu)   mainMenu.deinit();
@@ -62,6 +63,12 @@ void fired::Game::update() {
 
 
 
+void fired::Game::processHandler(fired::Handler handler) {
+	(handlers.*handler)();
+}
+
+
+
 void fired::Game::processEvents() {
 	sf::Event event;
 	while (app.pollEvent(event)) processEvent(event);
@@ -85,6 +92,14 @@ void fired::Game::processEvent(sf::Event event) {
 
 
 
+void fired::Game::setMusic(const char *musicFile) {
+	musicTheme.stop();
+	musicTheme.openFromFile(musicFile);
+	musicTheme.play();
+}
+
+
+
 void fired::Game::setGameState(fired::GameState state) {
 	gameStateNew = state;
 }
@@ -93,6 +108,7 @@ void fired::Game::setGameState(fired::GameState state) {
 
 void fired::Game::switchGameState() {
 	if (gameState == gameStateNew) return;
+	musicTheme.stop();
 
 	if      (gameState == gsMainMenu)   mainMenu.deinit();
 	else if (gameState == gsStartScr)   startScr.deinit();
@@ -101,7 +117,7 @@ void fired::Game::switchGameState() {
 
 	gameState = gameStateNew;
 
-	if      (gameState == gsMainMenu)   mainMenu.init(this);
+	if      (gameState == gsMainMenu)   mainMenu.init(this, &mouse);
 	else if (gameState == gsStartScr)   startScr.init(this);
 	else if (gameState == gsCreditsScr) creditsScr.init(this);
 	else if (gameState == gsWorld)      world.init(this);

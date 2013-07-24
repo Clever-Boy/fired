@@ -47,20 +47,25 @@
 ║[X] – Add tileset loading
 ║[X] – Add map rendering
 ║[X] – Add background
-║[ ] – Remove some friend classes from Game
-║[ ] – Add world theme
-║[ ] – Add landscape generation
+║[X] – Remove some friend classes from Game
+║[X] – Add testmap generation generation
 ║[ ] – Add saving map
 ║[ ] – Add loading map
-║[ ] – Add tilesets system
-║[ ] – Add finding tiles
+║[ ] – Add world theme
+║[ ] – Add char class
+║[ ] – Add char controls
 ║[ ] – Add movement
 ║[ ] – Add char physics
 ║[ ] – Add jumps
 ║[ ] – Add crosshair
 ║[ ] – Add char rendering
-║[ ] – Add walls (50% grey tiles)
+║[ ] – Add big map support
+╠══════════════════════  Map generator   ══════════════════════════════
+║[ ] – Add landscape generation
+║[ ] – Add tilesets system
+║[ ] – Add finding tiles
 ║[ ] – Add buildings generation
+║[ ] – Add walls (50% grey tiles)
 ╠══════════════════════  Visual effects  ══════════════════════════════
 ║[ ] – Lighting
 ║[ ] – Particle systems

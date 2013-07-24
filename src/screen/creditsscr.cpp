@@ -13,15 +13,14 @@ void fired::CreditsScr::init(fired::Game *_game) {
 	yOffset = 0;
 	iOffset = 100;
 
-	game->musicTheme.openFromFile("data/snd/themes/creditsscr.ogg");
-	game->musicTheme.play();
+	game->setMusic("data/snd/themes/creditsscr.ogg");
 
 	credits.push_back(new sf::Text);
-	credits.back()->setFont(game->font);
+	credits.back()->setFont(*game->getFont());
 	credits.back()->setString(sf::String("F.I.R.E.D. v" PROJECT_VER " credits"));
 	credits.back()->setCharacterSize(96);
 	credits.back()->setStyle(sf::Text::Bold);
-	credits.back()->setPosition((game->settings.window.width - credits.back()->getLocalBounds().width) / 2, game->settings.window.height);
+	credits.back()->setPosition((game->getSettings()->window.width - credits.back()->getLocalBounds().width) / 2, game->getSettings()->window.height);
 
 	while(!creditsFile.eof()) {
 		getline(creditsFile, line);
@@ -33,17 +32,17 @@ void fired::CreditsScr::init(fired::Game *_game) {
 
 
 		credits.push_back(new sf::Text);
-		credits.back()->setFont(game->font);
+		credits.back()->setFont(*game->getFont());
 		credits.back()->setString(sf::String(line));
 
 		if (isCaption) {
 			credits.back()->setCharacterSize(72);
 			credits.back()->setStyle(sf::Text::Bold);
-			credits.back()->setPosition((game->settings.window.width - credits.back()->getLocalBounds().width) / 2, game->settings.window.height + iOffset);
+			credits.back()->setPosition((game->getSettings()->window.width - credits.back()->getLocalBounds().width) / 2, game->getSettings()->window.height + iOffset);
 			iOffset += 50;
 		} else {
 			credits.back()->setCharacterSize(48);
-			credits.back()->setPosition((game->settings.window.width - CREDITSSCR_WIDTH) / 2, game->settings.window.height + iOffset);
+			credits.back()->setPosition((game->getSettings()->window.width - CREDITSSCR_WIDTH) / 2, game->getSettings()->window.height + iOffset);
 		}
 	}
 
@@ -55,8 +54,6 @@ void fired::CreditsScr::init(fired::Game *_game) {
 void fired::CreditsScr::deinit() {
 	for (int i = 0; i < credits.size(); delete credits[i], i++);
 	credits.clear();
-
-	game->musicTheme.stop();
 }
 
 
@@ -74,7 +71,7 @@ void fired::CreditsScr::update(float frameClock) {
 
 
 void fired::CreditsScr::render() {
-	for (int i = 0; i < credits.size(); i++) game->app.draw(*credits[i]);
+	for (int i = 0; i < credits.size(); i++) game->getApp()->draw(*credits[i]);
 }
 
 

@@ -1,10 +1,11 @@
 #include "game.hpp"
 
 
-void fired::MenuItem::init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_font, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc) {
+void fired::MenuItem::init(fired::Game *_game, fired::MainMenu *_mainMenu, sf::Sprite *_sprite, sf::Font *_font, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc) {
 	sf::FloatRect textRect;
 
 	game        = _game;
+	mainMenu    = _mainMenu;
 	font        = _font;
 	sprite      = _sprite;
 	parent      = _parent;
@@ -53,8 +54,8 @@ void fired::MenuItem::render() {
 	sprite->setPosition(pos.x, pos.y + yOffset);
 	text->setPosition(pos.x + xOffset, pos.y + 1.5 + yOffset);
 
-	game->app.draw(*sprite);
-	game->app.draw(*text);
+	game->getApp()->draw(*sprite);
+	game->getApp()->draw(*text);
 }
 
 
@@ -62,15 +63,15 @@ void fired::MenuItem::render() {
 void fired::MenuItem::click() {
 	switch (itemType) {
 		case itSubmenu:
-			game->mainMenu.setNextMenu(this);
+			mainMenu->setNextMenu(this);
 			break;
 
 		case itBack:
-			game->mainMenu.setNextMenu(parent->parent);
+			mainMenu->setNextMenu(parent->parent);
 			break;
 
 		case itButton:
-			(game->handlers.*handlerFunc)();
+			game->processHandler(handlerFunc);
 			break;
 	}
 }

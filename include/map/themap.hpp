@@ -13,7 +13,7 @@ namespace fired {
 	private:
 		fired::Game    *game;
 		fired::Tileset tileset;
-		fired::Tile    tiles[100][100];
+		fired::Tile    tiles[50][38];
 
 		sf::Texture        *bgTex;
 		sf::RectangleShape *bgSprite;

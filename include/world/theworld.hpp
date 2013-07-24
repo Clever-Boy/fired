@@ -1,5 +1,5 @@
-#ifndef __KEYBOARD
-#define __KEYBOARD
+#ifndef __THEWORLD
+#define __THEWORLD
 
 
 #include <SFML/Graphics.hpp>
@@ -7,13 +7,16 @@
 
 
 namespace fired {
-	class Keyboard {
+	class World {
 	private:
 		fired::Game *game;
 
 
 	public:
 		void init(fired::Game *_game);
+		void deinit();
+		void update(float frameClock);
+		void render();
 		void processEvent(sf::Event event);
 	};
 }

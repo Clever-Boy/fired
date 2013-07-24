@@ -40,9 +40,10 @@
 ║[X] – Add theme objects to CreditsScr, StartScr and MainMenu
 ║[X] – Add volume into settings
 ╠══════════════════════  Game engine     ══════════════════════════════
-║[ ] – Add world class
+║[X] – Add world class
 ║[ ] – Add map storage class
 ║[ ] – Add map rendering
+║[ ] – Add world theme
 ║[ ] – Add landscape generation
 ║[ ] – Add saving map
 ║[ ] – Add loading map

@@ -11,6 +11,7 @@
 #include "input.hpp"
 #include "settings.hpp"
 #include "screen.hpp"
+#include "world.hpp"
 
 
 namespace fired {
@@ -18,7 +19,8 @@ namespace fired {
 		gsNone,
 		gsStartScr,
 		gsMainMenu,
-		gsCreditsScr
+		gsCreditsScr,
+		gsWorld
 	};
 
 
@@ -26,6 +28,7 @@ namespace fired {
 		friend class fired::MainMenu;
 		friend class fired::MenuItem;
 		friend class fired::Mouse;
+		friend class fired::World;
 		friend class fired::Keyboard;
 		friend class fired::Handlers;
 		friend class fired::StartScr;
@@ -50,6 +53,7 @@ namespace fired {
 		fired::MainMenu   mainMenu;
 		fired::StartScr   startScr;
 		fired::CreditsScr creditsScr;
+		fired::World      world;
 
 		fired::Keyboard keyboard;
 		fired::Mouse mouse;

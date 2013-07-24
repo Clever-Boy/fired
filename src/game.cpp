@@ -36,6 +36,7 @@ void fired::Game::deinit() {
 	if      (gameState == gsMainMenu)   mainMenu.deinit();
 	else if (gameState == gsStartScr)   startScr.deinit();
 	else if (gameState == gsCreditsScr) creditsScr.deinit();
+	else if (gameState == gsWorld)      world.deinit();
 }
 
 
@@ -54,6 +55,7 @@ void fired::Game::update() {
 	if      (gameState == gsMainMenu)   mainMenu.update(frameClock);
 	else if (gameState == gsStartScr)   startScr.update(frameClock);
 	else if (gameState == gsCreditsScr) creditsScr.update(frameClock);
+	else if (gameState == gsWorld)      world.update(frameClock);
 
 	app.display();
 }
@@ -78,6 +80,7 @@ void fired::Game::processEvent(sf::Event event) {
 	if      (gameState == gsMainMenu)   mainMenu.processEvent(event);
 	else if (gameState == gsStartScr)   startScr.processEvent(event);
 	else if (gameState == gsCreditsScr) creditsScr.processEvent(event);
+	else if (gameState == gsWorld)      world.processEvent(event);
 }
 
 
@@ -94,10 +97,12 @@ void fired::Game::switchGameState() {
 	if      (gameState == gsMainMenu)   mainMenu.deinit();
 	else if (gameState == gsStartScr)   startScr.deinit();
 	else if (gameState == gsCreditsScr) creditsScr.deinit();
+	else if (gameState == gsWorld)      world.deinit();
 
 	gameState = gameStateNew;
 
 	if      (gameState == gsMainMenu)   mainMenu.init(this);
 	else if (gameState == gsStartScr)   startScr.init(this);
 	else if (gameState == gsCreditsScr) creditsScr.init(this);
+	else if (gameState == gsWorld)      world.init(this);
 }

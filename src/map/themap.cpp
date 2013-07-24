@@ -4,6 +4,15 @@
 void fired::Map::init(fired::Game *_game) {
 	game = _game;
 
+	bgTex    = new sf::Texture();
+	bgSprite = new sf::RectangleShape();
+
+	bgTex->loadFromFile("data/img/bg/sky.jpg");
+	bgSprite->setTexture(bgTex);
+	bgTex->setRepeated(true);
+	bgSprite->setSize(sf::Vector2f(game->getSettings()->window.width, game->getSettings()->window.height));
+
+
 	tileset.init("data/img/tilesets/grass.tga");
 
 	for (int i = 0; i < 100; i++) for (int j = 0; j < 100; j++) {
@@ -28,6 +37,8 @@ void fired::Map::deinit() {
 
 
 void fired::Map::render() {
+	game->getApp()->draw(*bgSprite);
+
 	for (int i = 0; i < 100; i++)
 		for (int j = 0; j < 100; j++)
 			tiles[i][j].render(game);

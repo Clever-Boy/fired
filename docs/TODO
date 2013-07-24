@@ -46,7 +46,8 @@
 ║[X] – Add tileset storage class
 ║[X] – Add tileset loading
 ║[X] – Add map rendering
-║[ ] – Add background
+║[X] – Add background
+║[ ] – Remove some friend classes from Game
 ║[ ] – Add world theme
 ║[ ] – Add landscape generation
 ║[ ] – Add saving map

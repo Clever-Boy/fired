@@ -15,6 +15,8 @@ namespace fired {
 		fired::Tileset tileset;
 		fired::Tile    tiles[100][100];
 
+		sf::Texture        *bgTex;
+		sf::RectangleShape *bgSprite;
 
 	public:
 		void init(fired::Game *_game);

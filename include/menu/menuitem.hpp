@@ -1,6 +1,7 @@
 #ifndef __MENUITEM
 #define __MENUITEM
 
+
 #define MENU_X_OFFSET 50
 #define MENU_Y_OFFSET 150
 #define MENU_Y_DIFF   75
@@ -8,6 +9,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "prototypes.hpp"
+
 
 namespace fired {
 	enum MenuItemType {
@@ -17,8 +19,11 @@ namespace fired {
 		itButton
 	};
 
+
 	class MenuItem {
 		friend class fired::MainMenu;
+
+
 	private:
 		fired::Game  *game;
 		sf::Sprite   *sprite;
@@ -36,6 +41,8 @@ namespace fired {
 		fired::MenuItem *parent;
 		fired::MenuItemType itemType;
 		std::vector<fired::MenuItem*> subMenu;
+
+
 	public:
 		void init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_font, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc);
 		void deinit();
@@ -47,4 +54,5 @@ namespace fired {
 		void addToParent();
 	};
 }
+
 #endif

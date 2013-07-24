@@ -1,6 +1,7 @@
 #ifndef __SETTINGS
 #define __SETTINGS
 
+
 namespace fired {
 	class Settings {
 	public:

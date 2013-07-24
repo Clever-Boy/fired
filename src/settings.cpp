@@ -1,14 +1,17 @@
 #include "settings.hpp"
 #include <stdio.h>
 
+
 void fired::Settings::init() {
 	loadFromFile("data/settings.conf");
 }
 
 
+
 void fired::Settings::save() {
 	saveToFile("data/settings.conf");
 }
+
 
 
 void fired::Settings::loadFromFile(const char *filename) {
@@ -21,6 +24,7 @@ void fired::Settings::loadFromFile(const char *filename) {
 	fscanf(fp, "volume.sound=%d\n"     , &volume.sound);
 	fclose(fp);
 }
+
 
 
 void fired::Settings::saveToFile(const char *filename) {

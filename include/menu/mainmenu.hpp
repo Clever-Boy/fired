@@ -1,12 +1,15 @@
 #ifndef __MAINMENU
 #define __MAINMENU
 
+
 #define MENU_BG_SPEED 100.0
+
 
 #include <SFML/Graphics.hpp>
 #include <math.h>
 #include "menuitem.hpp"
 #include "prototypes.hpp"
+
 
 namespace fired {
 	enum MenuAnimationType {
@@ -14,6 +17,7 @@ namespace fired {
 		atDown,
 		atNone
 	};
+
 
 	class MainMenu {
 	private:
@@ -38,6 +42,7 @@ namespace fired {
 
 		float xOffset;
 
+
 	public:
 		void init(fired::Game *_game);
 		void deinit();
@@ -56,4 +61,5 @@ namespace fired {
 		void updateSettings();
 	};
 }
+
 #endif

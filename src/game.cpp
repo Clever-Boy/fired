@@ -1,5 +1,6 @@
 #include "game.hpp"
 
+
 void fired::Game::init() {
 	settings.init();
 
@@ -11,7 +12,9 @@ void fired::Game::init() {
 	                         settings.window.height,
 	                         settings.window.bpp), PROJECT_NAME " v" PROJECT_VER, style);
 	app.setMouseCursorVisible(false);
-	running = true;
+
+	running   = true;
+	gameState = gsNone;
 
 	mouse.init(this);
 	keyboard.init(this);
@@ -26,11 +29,15 @@ void fired::Game::init() {
 }
 
 
+
 void fired::Game::deinit() {
+	mouse.deinit();
+
 	if      (gameState == gsMainMenu)   mainMenu.deinit();
 	else if (gameState == gsStartScr)   startScr.deinit();
 	else if (gameState == gsCreditsScr) creditsScr.deinit();
 }
+
 
 
 void fired::Game::update() {
@@ -52,12 +59,14 @@ void fired::Game::update() {
 }
 
 
+
 void fired::Game::processEvents() {
 	sf::Event event;
 	while (app.pollEvent(event)) processEvent(event);
 
 	if (!app.isOpen()) running = false;
 }
+
 
 
 void fired::Game::processEvent(sf::Event event) {
@@ -72,9 +81,11 @@ void fired::Game::processEvent(sf::Event event) {
 }
 
 
+
 void fired::Game::setGameState(fired::GameState state) {
 	gameStateNew = state;
 }
+
 
 
 void fired::Game::switchGameState() {

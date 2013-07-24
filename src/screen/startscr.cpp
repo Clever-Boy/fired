@@ -1,5 +1,6 @@
 #include "game.hpp"
 
+
 void fired::StartScr::init(fired::Game *_game) {
 	game       = _game;
 	timeOffset = 0;
@@ -20,10 +21,14 @@ void fired::StartScr::init(fired::Game *_game) {
 	}
 }
 
+
+
 void fired::StartScr::deinit() {
 	for (int i = 0; i < textures.size(); delete sprites[i], delete textures[i], i++);
 	game->musicTheme.stop();
 }
+
+
 
 void fired::StartScr::update(float frameClock) {
 	timeOffset += frameClock;
@@ -45,14 +50,17 @@ void fired::StartScr::update(float frameClock) {
 }
 
 
+
 void fired::StartScr::render() {
 	game->app.draw(*sprites[index]);
 }
 
 
+
 void fired::StartScr::processEvent(sf::Event event) {
 	if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) click(sf::Mouse::getPosition(game->app));
 }
+
 
 
 void fired::StartScr::click(sf::Vector2i pos) {

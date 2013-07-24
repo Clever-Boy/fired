@@ -1,6 +1,7 @@
 #ifndef __CREDITSSCR
 #define __CREDITSSCR
 
+
 #define CREDITSSCR_SPEED 100
 #define CREDITSSCR_WIDTH 700
 
@@ -12,6 +13,7 @@ namespace fired {
 		std::vector<sf::Text*> credits;
 
 		float yOffset;
+
 
 	public:
 		void init(fired::Game *_game);

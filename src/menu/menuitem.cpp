@@ -1,5 +1,6 @@
 #include "game.hpp"
 
+
 void fired::MenuItem::init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_font, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc) {
 	sf::FloatRect textRect;
 
@@ -18,8 +19,8 @@ void fired::MenuItem::init(fired::Game *_game, sf::Sprite *_sprite, sf::Font *_f
 
 	textRect = text->getGlobalBounds();
 	xOffset = (sprite->getTexture()->getSize().x - textRect.width) / 2;
-	return;
 }
+
 
 
 void fired::MenuItem::deinit() {
@@ -28,9 +29,11 @@ void fired::MenuItem::deinit() {
 }
 
 
+
 void fired::MenuItem::addToParent() {
 	if (parent) parent->addSubMenu(this);
 }
+
 
 
 void fired::MenuItem::addSubMenu(fired::MenuItem *subMenuItem) {
@@ -39,9 +42,11 @@ void fired::MenuItem::addSubMenu(fired::MenuItem *subMenuItem) {
 }
 
 
+
 void fired::MenuItem::update(float frameClock) {
 	render();
 }
+
 
 
 void fired::MenuItem::render() {
@@ -51,6 +56,7 @@ void fired::MenuItem::render() {
 	game->app.draw(*sprite);
 	game->app.draw(*text);
 }
+
 
 
 void fired::MenuItem::click() {

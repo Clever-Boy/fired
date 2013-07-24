@@ -1,5 +1,6 @@
 #include "game.hpp"
 
+
 void fired::MainMenu::init(fired::Game *_game) {
 	game    = _game;
 	xOffset = 0;
@@ -44,8 +45,8 @@ void fired::MainMenu::init(fired::Game *_game) {
 
 	fillMenu();
 	updateSettings();
-	return;
 }
+
 
 
 void fired::MainMenu::deinit() {
@@ -69,6 +70,7 @@ void fired::MainMenu::deinit() {
 }
 
 
+
 void fired::MainMenu::update(float frameClock) {
 	xOffset += frameClock * MENU_BG_SPEED;
 	if (xOffset > bgTexture->getSize().x) xOffset -= bgTexture->getSize().x;
@@ -81,6 +83,7 @@ void fired::MainMenu::update(float frameClock) {
 }
 
 
+
 void fired::MainMenu::render() {
 	bgSprite->setTextureRect(sf::IntRect(xOffset, 0, game->settings.window.width, game->settings.window.height));
 	game->app.draw(*bgSprite);
@@ -89,9 +92,11 @@ void fired::MainMenu::render() {
 }
 
 
+
 void fired::MainMenu::processEvent(sf::Event event) {
 	if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) click(sf::Mouse::getPosition(game->app));
 }
+
 
 
 void fired::MainMenu::click(sf::Vector2i pos) {
@@ -105,9 +110,11 @@ void fired::MainMenu::click(sf::Vector2i pos) {
 }
 
 
+
 void fired::MainMenu::updateSettings() {
 	clickSound->setVolume(game->settings.volume.sound);
 }
+
 
 
 void fired::MainMenu::setNextMenu(fired::MenuItem *menuItem) {
@@ -116,12 +123,14 @@ void fired::MainMenu::setNextMenu(fired::MenuItem *menuItem) {
 }
 
 
+
 void fired::MainMenu::switchMenu(fired::MenuItem *menuItem) {
 	currentMenu = menuItem;
 	menuCaption->setString(*currentMenu->caption);
 	menuCaption->setPosition(sf::Vector2f(MENU_X_OFFSET + (menuItemTexture->getSize().x - menuCaption->getGlobalBounds().width) / 2, MENU_Y_OFFSET));
 	initAnimation(atUp);
 }
+
 
 
 void fired::MainMenu::initAnimation(fired::MenuAnimationType animType) {
@@ -133,7 +142,7 @@ void fired::MainMenu::initAnimation(fired::MenuAnimationType animType) {
 				currentMenu->subMenu[i]->timeOffset = 0;
 				currentMenu->subMenu[i]->yOffset = 0;
 			}
-			return;
+			break;
 
 		case atUp:
 			for (int i = 0; i < currentMenu->subMenu.size(); i++) {
@@ -152,10 +161,11 @@ void fired::MainMenu::initAnimation(fired::MenuAnimationType animType) {
 }
 
 
+
 void fired::MainMenu::processAnimation(float frameClock) {
 	switch (animation) {
 		case atNone:
-			return;
+			break;
 
 		case atUp:
 			for (int i = 0; i < currentMenu->subMenu.size(); i++) {
@@ -186,10 +196,12 @@ void fired::MainMenu::processAnimation(float frameClock) {
 }
 
 
+
 void fired::MainMenu::menuItemAdd(const char *_caption, fired::MenuItem *_parent, fired::MenuItemType itemType = itSubmenu, fired::Handler handlerFunc = NULL) {
 	menuItems.push_back(new fired::MenuItem);
 	menuItems.back()->init(game, menuItemSprite, &game->font, _caption, _parent, itemType, handlerFunc);
 }
+
 
 
 void fired::MainMenu::fillMenuBack() {
@@ -198,6 +210,7 @@ void fired::MainMenu::fillMenuBack() {
 		if (menuItems[i]->itemType != itBack)
 			menuItemAdd("Back", menuItems[i], itBack);
 }
+
 
 
 void fired::MainMenu::fillMenu() {

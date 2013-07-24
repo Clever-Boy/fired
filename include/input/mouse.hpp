@@ -1,8 +1,10 @@
 #ifndef __MOUSE
 #define __MOUSE
 
+
 #include <SFML/Graphics.hpp>
 #include "prototypes.hpp"
+
 
 namespace fired {
 	class Mouse {
@@ -10,10 +12,13 @@ namespace fired {
 		fired::Game *game;
 		sf::Vector2f pos;
 
-		sf::Texture mouseTex;
-		sf::Sprite  mouseCur;
+		sf::Texture *mouseTex;
+		sf::Sprite  *mouseCur;
+
+
 	public:
 		void init(fired::Game *_game);
+		void deinit();
 		void update(float frameClock);
 		void render();
 

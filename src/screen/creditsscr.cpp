@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 
+
 void fired::CreditsScr::init(fired::Game *_game) {
 	std::string line;
 	std::ifstream creditsFile("data/img/creditsscr/credits");
@@ -50,12 +51,14 @@ void fired::CreditsScr::init(fired::Game *_game) {
 }
 
 
+
 void fired::CreditsScr::deinit() {
 	for (int i = 0; i < credits.size(); delete credits[i], i++);
 	credits.clear();
 
 	game->musicTheme.stop();
 }
+
 
 
 void fired::CreditsScr::update(float frameClock) {
@@ -69,9 +72,11 @@ void fired::CreditsScr::update(float frameClock) {
 }
 
 
+
 void fired::CreditsScr::render() {
 	for (int i = 0; i < credits.size(); i++) game->app.draw(*credits[i]);
 }
+
 
 
 void fired::CreditsScr::processEvent(sf::Event event) {

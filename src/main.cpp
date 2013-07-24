@@ -1,5 +1,6 @@
 #include "game.hpp"
 
+
 int main() {
 	fired::Game Game;
 

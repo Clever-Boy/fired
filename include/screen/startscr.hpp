@@ -1,6 +1,7 @@
 #ifndef __STARTSCR
 #define __STARTSCR
 
+
 #define STARTSCR_TIME_DELAY     3.0
 #define STARTSCR_TIME_APPEAR    1.0
 #define STARTSCR_TIME_DISAPPEAR 2.0

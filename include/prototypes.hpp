@@ -1,6 +1,7 @@
 #ifndef __PROTOTYPES
 #define __PROTOTYPES
 
+
 namespace fired {
 	class Game;
 	class Keyboard;
@@ -9,6 +10,7 @@ namespace fired {
 	class MainMenu;
 	class StartScr;
 	class CreditsScr;
+
 
 	typedef void (Handlers::*Handler)(void);
 }

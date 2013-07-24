@@ -1,8 +1,10 @@
 #ifndef __GAME
 #define __GAME
 
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+
 
 #include "prototypes.hpp"
 #include "menu.hpp"
@@ -13,10 +15,12 @@
 
 namespace fired {
 	enum GameState {
+		gsNone,
 		gsStartScr,
 		gsMainMenu,
 		gsCreditsScr
 	};
+
 
 	class Game {
 		friend class fired::MainMenu;
@@ -26,6 +30,7 @@ namespace fired {
 		friend class fired::Handlers;
 		friend class fired::StartScr;
 		friend class fired::CreditsScr;
+
 
 	private:
 		sf::RenderWindow app;
@@ -48,6 +53,7 @@ namespace fired {
 
 		fired::Keyboard keyboard;
 		fired::Mouse mouse;
+
 
 	public:
 		void init();

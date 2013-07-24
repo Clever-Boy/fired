@@ -219,7 +219,7 @@ void fired::MainMenu::fillMenu() {
 	menuItemAdd("Main menu", NULL);
 
 	curParent = menuItems[0];
-	menuItemAdd("Start game", curParent);
+	menuItemAdd("Start game", curParent, itButton, &fired::Handlers::buttonStart);
 	menuItemAdd("Load game" , curParent);
 	menuItemAdd("Options"   , curParent);
 	menuItemAdd("Credits"   , curParent, itButton, &fired::Handlers::buttonCredits);

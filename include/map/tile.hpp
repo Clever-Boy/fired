@@ -14,13 +14,15 @@ namespace fired {
 	class Tile {
 	private:
 		fired::Tileset *tileset;
+
 		sf::Vector2f pos;
+		int tile;
 
 
 	public:
-		void init(fired::Tileset *_tileset);
+		void init(fired::Tileset *_tileset, int x, int y);
 		void deinit();
-		void render();
+		void render(fired::Game *game);
 	};
 }
 

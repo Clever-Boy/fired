@@ -7,6 +7,12 @@ void fired::Handlers::init(fired::Game *_game) {
 
 
 
+void fired::Handlers::buttonStart() {
+	game->setGameState(gsWorld);
+}
+
+
+
 void fired::Handlers::buttonCredits() {
 	game->setGameState(gsCreditsScr);
 }

@@ -45,18 +45,19 @@
 ║[X] – Add map storage class
 ║[X] – Add tileset storage class
 ║[X] – Add tileset loading
-║[ ] – Add map rendering
+║[X] – Add map rendering
+║[ ] – Add background
 ║[ ] – Add world theme
 ║[ ] – Add landscape generation
 ║[ ] – Add saving map
 ║[ ] – Add loading map
-║[ ] – Add loading tilesets
+║[ ] – Add tilesets system
+║[ ] – Add finding tiles
 ║[ ] – Add movement
 ║[ ] – Add char physics
 ║[ ] – Add jumps
 ║[ ] – Add crosshair
 ║[ ] – Add char rendering
-║[ ] – Add tilesets
 ║[ ] – Add walls (50% grey tiles)
 ║[ ] – Add buildings generation
 ╠══════════════════════  Visual effects  ══════════════════════════════

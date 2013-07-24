@@ -14,6 +14,7 @@ namespace fired {
 	public:
 		void init(fired::Game *_game);
 
+		void buttonStart();
 		void buttonCredits();
 		void buttonExit();
 	};

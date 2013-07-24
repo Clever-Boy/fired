@@ -20,6 +20,8 @@ namespace fired {
 	public:
 		void init(const char *textureFile);
 		void deinit();
+
+		sf::Sprite *getTile(int index) { return tiles[index]; };
 	};
 }
 

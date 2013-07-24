@@ -3,6 +3,7 @@
 
 void fired::World::init(fired::Game *_game) {
 	game = _game;
+	map.init();
 }
 
 

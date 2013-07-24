@@ -41,7 +41,9 @@
 ║[X] – Add volume into settings
 ╠══════════════════════  Game engine     ══════════════════════════════
 ║[X] – Add world class
-║[ ] – Add map storage class
+║[X] – Add tile storage class
+║[X] – Add map storage class
+║[ ] – Add tileset storage class
 ║[ ] – Add map rendering
 ║[ ] – Add world theme
 ║[ ] – Add landscape generation

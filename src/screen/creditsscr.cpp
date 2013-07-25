@@ -60,7 +60,7 @@ void fired::CreditsScr::deinit() {
 
 
 
-void fired::CreditsScr::update(float frameClock) {
+void fired::CreditsScr::update() {
 	float yOffset = -frameClock * CREDITSSCR_SPEED;
 	for (int i = 0; i < credits.size(); i++) credits[i]->move(0, yOffset);
 

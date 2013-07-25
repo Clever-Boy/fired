@@ -18,7 +18,7 @@ namespace fired {
 	public:
 		void init(fired::Game *_game);
 		void deinit();
-		void update(float frameClock);
+		void update();
 		void render();
 		void processEvent(sf::Event event);
 	};

@@ -30,7 +30,7 @@ void fired::StartScr::deinit() {
 
 
 
-void fired::StartScr::update(float frameClock) {
+void fired::StartScr::update() {
 	timeOffset += frameClock;
 	if (timeOffset > STARTSCR_TIME_DELAY) {
 		index++;

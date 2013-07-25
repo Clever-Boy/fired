@@ -1,6 +1,7 @@
 #include "game.hpp"
 
 
+float frameClock;
 int main() {
 	fired::Game Game;
 

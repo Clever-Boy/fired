@@ -26,7 +26,7 @@ void fired::Character::deinit() {
 
 
 
-void fired::Character::update(float frameClock) {
+void fired::Character::update() {
 	render();
 }
 

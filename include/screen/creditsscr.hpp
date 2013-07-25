@@ -20,7 +20,7 @@ namespace fired {
 	public:
 		void init(fired::Game *_game);
 		void deinit();
-		void update(float frameClock);
+		void update();
 		void render();
 		void click(sf::Vector2i pos);
 		void processEvent(sf::Event event);

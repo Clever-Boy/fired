@@ -29,7 +29,7 @@ void fired::Mouse::processEvent(sf::Event event) {
 
 
 
-void fired::Mouse::update(float frameClock) {
+void fired::Mouse::update() {
 	pos = sf::Vector2f(sf::Mouse::getPosition(*game->getApp()));
 	render();
 }

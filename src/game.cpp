@@ -53,10 +53,10 @@ void fired::Game::update() {
 	processEvents();
 	app.clear();
 
-	if      (gameState == gsMainMenu)   mainMenu.update(frameClock);
-	else if (gameState == gsStartScr)   startScr.update(frameClock);
-	else if (gameState == gsCreditsScr) creditsScr.update(frameClock);
-	else if (gameState == gsWorld)      world.update(frameClock);
+	if      (gameState == gsMainMenu)   mainMenu.update();
+	else if (gameState == gsStartScr)   startScr.update();
+	else if (gameState == gsCreditsScr) creditsScr.update();
+	else if (gameState == gsWorld)      world.update();
 
 	app.display();
 }

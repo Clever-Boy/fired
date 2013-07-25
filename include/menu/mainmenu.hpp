@@ -49,7 +49,7 @@ namespace fired {
 	public:
 		void init(fired::Game *_game, fired::Mouse *_mouse);
 		void deinit();
-		void update(float frameClock);
+		void update();
 		void render();
 		void click(sf::Vector2i pos);
 		void processEvent(sf::Event event);
@@ -60,7 +60,7 @@ namespace fired {
 		void switchMenu(fired::MenuItem *menuItem);
 		void setNextMenu(fired::MenuItem *menuItem);
 		void initAnimation(fired::MenuAnimationType animType);
-		void processAnimation(float frameClock);
+		void processAnimation();
 		void updateSettings();
 	};
 }

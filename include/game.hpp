@@ -15,6 +15,8 @@
 #include "world.hpp"
 
 
+extern float frameClock;
+
 namespace fired {
 	enum GameState {
 		gsNone,
@@ -33,7 +35,6 @@ namespace fired {
 		sf::Music        musicTheme;
 
 		long lastClock;
-		float frameClock;
 		bool running;
 
 		fired::GameState  gameState;

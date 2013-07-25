@@ -71,15 +71,15 @@ void fired::MainMenu::deinit() {
 
 
 
-void fired::MainMenu::update(float frameClock) {
+void fired::MainMenu::update() {
 	xOffset += frameClock * MENU_BG_SPEED;
 	if (xOffset > bgTexture->getSize().x) xOffset -= bgTexture->getSize().x;
 
-	processAnimation(frameClock);
+	processAnimation();
 	render();
-	for (int i = 0; i < currentMenu->subMenu.size(); i++) currentMenu->subMenu[i]->update(frameClock);
+	for (int i = 0; i < currentMenu->subMenu.size(); i++) currentMenu->subMenu[i]->update();
 
-	mouse->update(frameClock);
+	mouse->update();
 }
 
 
@@ -162,7 +162,7 @@ void fired::MainMenu::initAnimation(fired::MenuAnimationType animType) {
 
 
 
-void fired::MainMenu::processAnimation(float frameClock) {
+void fired::MainMenu::processAnimation() {
 	switch (animation) {
 		case atNone:
 			break;

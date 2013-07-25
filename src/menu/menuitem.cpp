@@ -45,7 +45,7 @@ void fired::MenuItem::addSubMenu(fired::MenuItem *subMenuItem) {
 
 
 
-void fired::MenuItem::update(float frameClock) {
+void fired::MenuItem::update() {
 	render();
 }
 

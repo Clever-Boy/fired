@@ -16,11 +16,11 @@ void fired::World::deinit() {
 
 
 
-void fired::World::update(float frameClock) {
+void fired::World::update() {
 	render();
 
 	map.update();
-	player.update(frameClock);
+	player.update();
 }
 
 

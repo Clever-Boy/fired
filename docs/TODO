@@ -54,7 +54,9 @@
 ║[X] – Add char rendering
 ║[X] – Add char controls
 ║[X] – Add movement
-║[ ] – Add gravity
+║[X] – Add gravity
+║[ ] – Add physic struct (size, pos, vel, acc)
+║[ ] – Add physics processing
 ║[ ] – Add char physics
 ║[ ] – Add jumps
 ║[ ] – Add crosshair

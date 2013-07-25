@@ -2,9 +2,12 @@
 
 
 void fired::Character::init(fired::Game *_game) {
-	game = _game;
-	pos  = sf::Vector2f(384, 432);
-	size = sf::Vector2f(32, 48);
+	game     = _game;
+	settings = game->getSettings();
+	app      = game->getApp();
+
+	pos      = sf::Vector2f(384, 432);
+	size     = sf::Vector2f(32, 48);
 
 	texture = new sf::Texture();
 	sprite  = new sf::Sprite();

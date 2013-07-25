@@ -9,9 +9,11 @@ void fired::CreditsScr::init(fired::Game *_game) {
 	int  iOffset;
 	bool isCaption;
 
-	game    = _game;
-	yOffset = 0;
-	iOffset = 100;
+	game     = _game;
+	settings = game->getSettings();
+	app      = game->getApp();
+	yOffset  = 0;
+	iOffset  = 100;
 
 	game->setMusic("data/snd/themes/creditsscr.ogg");
 
@@ -20,7 +22,7 @@ void fired::CreditsScr::init(fired::Game *_game) {
 	credits.back()->setString(sf::String("F.I.R.E.D. v" PROJECT_VER " credits"));
 	credits.back()->setCharacterSize(96);
 	credits.back()->setStyle(sf::Text::Bold);
-	credits.back()->setPosition((game->getSettings()->window.width - credits.back()->getLocalBounds().width) / 2, game->getSettings()->window.height);
+	credits.back()->setPosition((settings->window.width - credits.back()->getLocalBounds().width) / 2, settings->window.height);
 
 	while(!creditsFile.eof()) {
 		getline(creditsFile, line);
@@ -38,11 +40,11 @@ void fired::CreditsScr::init(fired::Game *_game) {
 		if (isCaption) {
 			credits.back()->setCharacterSize(72);
 			credits.back()->setStyle(sf::Text::Bold);
-			credits.back()->setPosition((game->getSettings()->window.width - credits.back()->getLocalBounds().width) / 2, game->getSettings()->window.height + iOffset);
+			credits.back()->setPosition((settings->window.width - credits.back()->getLocalBounds().width) / 2, settings->window.height + iOffset);
 			iOffset += 50;
 		} else {
 			credits.back()->setCharacterSize(48);
-			credits.back()->setPosition((game->getSettings()->window.width - CREDITSSCR_WIDTH) / 2, game->getSettings()->window.height + iOffset);
+			credits.back()->setPosition((settings->window.width - CREDITSSCR_WIDTH) / 2, settings->window.height + iOffset);
 		}
 	}
 
@@ -71,12 +73,13 @@ void fired::CreditsScr::update(float frameClock) {
 
 
 void fired::CreditsScr::render() {
-	for (int i = 0; i < credits.size(); i++) game->getApp()->draw(*credits[i]);
+	for (int i = 0; i < credits.size(); i++) app->draw(*credits[i]);
 }
 
 
 
 void fired::CreditsScr::processEvent(sf::Event event) {
-	if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) game->setGameState(gsMainMenu);
-	if (event.type == sf::Event::KeyPressed) game->setGameState(gsMainMenu);
+	if ((event.type == sf::Event::MouseButtonReleased) || 
+	    (event.type == sf::Event::KeyPressed))
+		game->setGameState(gsMainMenu);
 }

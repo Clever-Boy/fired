@@ -26,9 +26,6 @@ namespace fired {
 
 
 	class Game {
-		friend class fired::Handlers;
-
-
 	private:
 		sf::RenderWindow app;
 		sf::Clock        clock;
@@ -62,6 +59,7 @@ namespace fired {
 		sf::Font         *getFont()     { return &font; };
 		fired::Settings  *getSettings() { return &settings; };
 		bool              isRunning()   { return running; };
+		void              stop()        { running = false; };
 
 		void setGameState(fired::GameState state);
 		void setMusic(const char *musicFile);

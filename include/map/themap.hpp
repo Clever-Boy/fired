@@ -11,7 +11,10 @@
 namespace fired {
 	class Map {
 	private:
-		fired::Game    *game;
+		fired::Game      *game;
+		fired::Settings  *settings;
+		sf::RenderWindow *app;
+
 		fired::Tileset tileset;
 		fired::Tile    tiles[50][38];
 

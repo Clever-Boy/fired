@@ -4,6 +4,7 @@
 
 namespace fired {
 	class Game;
+	class Settings;
 	class World;
 	class Keyboard;
 	class Mouse;

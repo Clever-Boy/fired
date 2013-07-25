@@ -3,6 +3,8 @@
 
 void fired::StartScr::init(fired::Game *_game) {
 	game       = _game;
+	settings   = game->getSettings();
+	app        = game->getApp();
 	timeOffset = 0;
 	index      = 0;
 
@@ -16,7 +18,7 @@ void fired::StartScr::init(fired::Game *_game) {
 	for (int i = 0; i < textures.size(); i++) {
 		sprites.push_back(new sf::Sprite());
 		sprites[i]->setTexture(*textures[i]);
-		sprites[i]->move((game->getSettings()->window.width - textures[i]->getSize().x) / 2, (game->getSettings()->window.height - textures[i]->getSize().y) / 2);
+		sprites[i]->move((settings->window.width - textures[i]->getSize().x) / 2, (settings->window.height - textures[i]->getSize().y) / 2);
 	}
 }
 
@@ -50,18 +52,15 @@ void fired::StartScr::update(float frameClock) {
 
 
 void fired::StartScr::render() {
-	game->getApp()->draw(*sprites[index]);
+	app->draw(*sprites[index]);
 }
 
 
 
 void fired::StartScr::processEvent(sf::Event event) {
-	if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) click(sf::Mouse::getPosition(*game->getApp()));
-}
-
-
-
-void fired::StartScr::click(sf::Vector2i pos) {
-	timeOffset = 0;
-	index++;
+	if ((event.type == sf::Event::MouseButtonReleased) ||
+	    (event.type == sf::Event::KeyPressed)) {
+		timeOffset = 0;
+		index++;
+	}
 }

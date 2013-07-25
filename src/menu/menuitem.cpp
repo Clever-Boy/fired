@@ -1,12 +1,13 @@
 #include "game.hpp"
 
 
-void fired::MenuItem::init(fired::Game *_game, fired::MainMenu *_mainMenu, sf::Sprite *_sprite, sf::Font *_font, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc) {
+void fired::MenuItem::init(fired::Game *_game, fired::MainMenu *_mainMenu, sf::Sprite *_sprite, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc) {
 	sf::FloatRect textRect;
 
 	game        = _game;
+	app         = game->getApp();
+	font        = game->getFont();
 	mainMenu    = _mainMenu;
-	font        = _font;
 	sprite      = _sprite;
 	parent      = _parent;
 	itemType    = _itemType;
@@ -54,8 +55,8 @@ void fired::MenuItem::render() {
 	sprite->setPosition(pos.x, pos.y + yOffset);
 	text->setPosition(pos.x + xOffset, pos.y + 1.5 + yOffset);
 
-	game->getApp()->draw(*sprite);
-	game->getApp()->draw(*text);
+	app->draw(*sprite);
+	app->draw(*text);
 }
 
 

@@ -15,10 +15,10 @@ void fired::Tile::deinit() {
 
 
 
-void fired::Tile::render(fired::Game *game) {
+void fired::Tile::render(sf::RenderWindow *app) {
 	if (!tileset) return;
 
 	sf::Sprite *sprite = tileset->getTile(tile);
 	sprite->setPosition(pos);
-	game->getApp()->draw(*sprite);
+	app->draw(*sprite);
 }

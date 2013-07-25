@@ -25,7 +25,9 @@ namespace fired {
 
 
 	private:
-		fired::Game     *game;
+		fired::Game      *game;
+		sf::RenderWindow *app;
+
 		fired::MainMenu *mainMenu;
 		sf::Sprite      *sprite;
 		sf::String      *caption;
@@ -45,7 +47,7 @@ namespace fired {
 
 
 	public:
-		void init(fired::Game *_game, fired::MainMenu *_mainMenu, sf::Sprite *_sprite, sf::Font *_font, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc);
+		void init(fired::Game *_game, fired::MainMenu *_mainMenu, sf::Sprite *_sprite, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc);
 		void deinit();
 		void update(float frameClock);
 		void render();

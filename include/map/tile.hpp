@@ -22,7 +22,7 @@ namespace fired {
 	public:
 		void init(fired::Tileset *_tileset, int x, int y);
 		void deinit();
-		void render(fired::Game *game);
+		void render(sf::RenderWindow *app);
 	};
 }
 

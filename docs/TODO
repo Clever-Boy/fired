@@ -50,8 +50,8 @@
 ║[X] – Remove some friend classes from Game
 ║[X] – Add testmap generation generation
 ║[X] – Add char class
-║[ ] – Create pointers to app, mainmenu or settings instead of game->...
-║[ ] – Add char rendering
+║[X] – Create pointers to app, mainmenu or settings instead of game->...
+║[X] – Add char rendering
 ║[ ] – Add char controls
 ║[ ] – Add movement
 ║[ ] – Add char physics

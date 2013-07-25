@@ -2,7 +2,9 @@
 
 
 void fired::Mouse::init(fired::Game *_game) {
-	game = _game;
+	game     = _game;
+	settings = game->getSettings();
+	app      = game->getApp();
 
 	mouseTex = new sf::Texture();
 	mouseCur = new sf::Sprite();

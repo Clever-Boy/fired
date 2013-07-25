@@ -8,7 +8,10 @@
 namespace fired {
 	class Character {
 	private:
-		fired::Game  *game;
+		fired::Game      *game;
+		fired::Settings  *settings;
+		sf::RenderWindow *app;
+
 		sf::Sprite   *sprite;
 		sf::Texture  *texture;
 		sf::Vector2f  pos;

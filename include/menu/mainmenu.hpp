@@ -22,8 +22,10 @@ namespace fired {
 	class MainMenu {
 	private:
 		std::vector<fired::MenuItem *> menuItems;
-		fired::Game  *game;
-		fired::Mouse *mouse;
+		fired::Game      *game;
+		fired::Settings  *settings;
+		sf::RenderWindow *app;
+		fired::Mouse     *mouse;
 
 		sf::Texture *bgTexture;
 		sf::Texture *menuItemTexture;

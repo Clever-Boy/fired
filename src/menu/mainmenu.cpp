@@ -2,9 +2,11 @@
 
 
 void fired::MainMenu::init(fired::Game *_game, fired::Mouse *_mouse) {
-	game    = _game;
-	mouse   = _mouse;
-	xOffset = 0;
+	game     = _game;
+	settings = game->getSettings();
+	app      = game->getApp();
+	mouse    = _mouse;
+	xOffset  = 0;
 
 	game->setMusic("data/snd/themes/mainmenu.ogg");
 
@@ -25,7 +27,7 @@ void fired::MainMenu::init(fired::Game *_game, fired::Mouse *_mouse) {
 	bgTexture->loadFromFile("data/img/gui/mainmenu/bg.jpg");
 	bgSprite->setTexture(bgTexture);
 	bgTexture->setRepeated(true);
-	bgSprite->setSize(sf::Vector2f(game->getSettings()->window.width, game->getSettings()->window.height));
+	bgSprite->setSize(sf::Vector2f(settings->window.width, settings->window.height));
 
 	menuItemTexture->loadFromFile("data/img/gui/mainmenu/menuitem.jpg");
 	menuItemSprite->setTexture(*menuItemTexture);
@@ -35,10 +37,10 @@ void fired::MainMenu::init(fired::Game *_game, fired::Mouse *_mouse) {
 	logoSprite->setTexture(*logoTexture);
 	logoTexture->setSmooth(true);
 
-	if (logoTexture->getSize().x > game->getSettings()->window.width)
-		logoSprite->setScale((float)game->getSettings()->window.width/logoTexture->getSize().x, (float)game->getSettings()->window.width/logoTexture->getSize().x);
+	if (logoTexture->getSize().x > settings->window.width)
+		logoSprite->setScale((float)settings->window.width/logoTexture->getSize().x, (float)settings->window.width/logoTexture->getSize().x);
 	else
-		logoSprite->setPosition((game->getSettings()->window.width - logoTexture->getSize().x) / 2, 0);
+		logoSprite->setPosition((settings->window.width - logoTexture->getSize().x) / 2, 0);
 
 	menuCaption->setFont(*game->getFont());
 	menuCaption->setCharacterSize(48);
@@ -83,16 +85,16 @@ void fired::MainMenu::update(float frameClock) {
 
 
 void fired::MainMenu::render() {
-	bgSprite->setTextureRect(sf::IntRect(xOffset, 0, game->getSettings()->window.width, game->getSettings()->window.height));
-	game->getApp()->draw(*bgSprite);
-	game->getApp()->draw(*logoSprite);
-	game->getApp()->draw(*menuCaption);
+	bgSprite->setTextureRect(sf::IntRect(xOffset, 0, settings->window.width, settings->window.height));
+	app->draw(*bgSprite);
+	app->draw(*logoSprite);
+	app->draw(*menuCaption);
 }
 
 
 
 void fired::MainMenu::processEvent(sf::Event event) {
-	if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) click(sf::Mouse::getPosition(*game->getApp()));
+	if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) click(sf::Mouse::getPosition(*app));
 }
 
 
@@ -110,7 +112,7 @@ void fired::MainMenu::click(sf::Vector2i pos) {
 
 
 void fired::MainMenu::updateSettings() {
-	clickSound->setVolume(game->getSettings()->volume.sound);
+	clickSound->setVolume(settings->volume.sound);
 }
 
 
@@ -145,7 +147,7 @@ void fired::MainMenu::initAnimation(fired::MenuAnimationType animType) {
 		case atUp:
 			for (int i = 0; i < currentMenu->subMenu.size(); i++) {
 				currentMenu->subMenu[i]->timeOffset = -0.05 * i;
-				currentMenu->subMenu[i]->yOffset = game->getSettings()->window.height;
+				currentMenu->subMenu[i]->yOffset = settings->window.height;
 			}
 			break;
 
@@ -185,7 +187,7 @@ void fired::MainMenu::processAnimation(float frameClock) {
 					currentMenu->subMenu[i]->yOffset = 15.0 * (exp(currentMenu->subMenu[i]->timeOffset * 12.0 + 2.0) - exp(2));
 			}
 
-			if (currentMenu->subMenu[0]->yOffset > game->getSettings()->window.height) {
+			if (currentMenu->subMenu[0]->yOffset > settings->window.height) {
 				switchMenu(nextMenu);
 				initAnimation(atUp);
 			}
@@ -197,7 +199,7 @@ void fired::MainMenu::processAnimation(float frameClock) {
 
 void fired::MainMenu::menuItemAdd(const char *_caption, fired::MenuItem *_parent, fired::MenuItemType itemType = itSubmenu, fired::Handler handlerFunc = NULL) {
 	menuItems.push_back(new fired::MenuItem);
-	menuItems.back()->init(game, this, menuItemSprite, game->getFont(), _caption, _parent, itemType, handlerFunc);
+	menuItems.back()->init(game, this, menuItemSprite, _caption, _parent, itemType, handlerFunc);
 }
 
 

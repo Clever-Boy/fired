@@ -20,5 +20,5 @@ void fired::Handlers::buttonCredits() {
 
 
 void fired::Handlers::buttonExit() {
-	game->running = false;
+	game->stop();
 }

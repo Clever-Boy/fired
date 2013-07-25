@@ -9,9 +9,11 @@
 namespace fired {
 	class CreditsScr {
 	private:
-		fired::Game *game;
-		std::vector<sf::Text*> credits;
+		fired::Game      *game;
+		fired::Settings  *settings;
+		sf::RenderWindow *app;
 
+		std::vector<sf::Text*> credits;
 		float yOffset;
 
 

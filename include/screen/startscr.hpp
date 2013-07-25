@@ -10,10 +10,13 @@
 namespace fired {
 	class StartScr {
 	private:
+		fired::Game      *game;
+		fired::Settings  *settings;
+		sf::RenderWindow *app;
+
 		std::vector<sf::Texture*> textures;
 		std::vector<sf::Sprite*> sprites;
 
-		fired::Game *game;
 		float timeOffset;
 		int   index;
 
@@ -23,7 +26,6 @@ namespace fired {
 		void deinit();
 		void update(float frameClock);
 		void render();
-		void click(sf::Vector2i pos);
 		void processEvent(sf::Event event);
 	};
 }

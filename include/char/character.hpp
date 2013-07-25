@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "prototypes.hpp"
+#include "stats.hpp"
 
 
 namespace fired {
@@ -11,6 +12,8 @@ namespace fired {
 		fired::Game      *game;
 		fired::Settings  *settings;
 		sf::RenderWindow *app;
+
+		fired::CharacterStats baseStats;
 
 		sf::Sprite   *sprite;
 		sf::Texture  *texture;
@@ -23,6 +26,9 @@ namespace fired {
 		void deinit();
 		void update();
 		void render();
+
+		void moveLeft();
+		void moveRight();
 	};
 }
 

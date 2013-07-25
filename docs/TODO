@@ -53,7 +53,7 @@
 ║[X] – Create pointers to app, mainmenu or settings instead of game->...
 ║[X] – Add char rendering
 ║[ ] – Add char controls
-║[ ] – Add movement
+║[X] – Add movement
 ║[ ] – Add char physics
 ║[ ] – Add jumps
 ║[ ] – Add crosshair

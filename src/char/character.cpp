@@ -9,6 +9,8 @@ void fired::Character::init(fired::Game *_game) {
 	pos      = sf::Vector2f(384, 432);
 	size     = sf::Vector2f(32, 48);
 
+	baseStats.speed = 120.0;
+
 	texture = new sf::Texture();
 	sprite  = new sf::Sprite();
 
@@ -35,4 +37,15 @@ void fired::Character::update() {
 void fired::Character::render() {
 	sprite->setPosition(pos);
 	game->getApp()->draw(*sprite);
+}
+
+
+
+void fired::Character::moveLeft() {
+	pos.x -= frameClock * baseStats.speed;
+}
+
+
+void fired::Character::moveRight() {
+	pos.x += frameClock * baseStats.speed;
 }

@@ -4,7 +4,7 @@
 void fired::Tile::init(fired::Tileset *_tileset, int x, int y) {
 	tileset = _tileset;
 	pos     = sf::Vector2f(x * TILE_SIZE, y * TILE_SIZE);
-	tile    = 0;
+	tile    = random() % 4;
 }
 
 

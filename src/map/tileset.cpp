@@ -10,8 +10,8 @@ void fired::Tileset::init(const char *textureFile) {
 	texture->loadFromImage(*image);
 	delete image;
 
-	for (int i = 0; i < 16; i++)
-		for (int j = 0; j < 12; j++) {
+	for (int j = 0; j < 12; j++)
+		for (int i = 0; i < 16; i++) {
 			tiles.push_back(new sf::Sprite());
 			tiles.back()->setTexture(*texture);
 			tiles.back()->setTextureRect(sf::IntRect(TILE_SIZE_ORIGIN * i, TILE_SIZE_ORIGIN * j, TILE_SIZE_ORIGIN, TILE_SIZE_ORIGIN));

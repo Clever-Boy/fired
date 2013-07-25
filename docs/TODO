@@ -49,9 +49,6 @@
 ║[X] – Add background
 ║[X] – Remove some friend classes from Game
 ║[X] – Add testmap generation generation
-║[ ] – Add saving map
-║[ ] – Add loading map
-║[ ] – Add world theme
 ║[ ] – Add char class
 ║[ ] – Add char controls
 ║[ ] – Add movement
@@ -60,6 +57,9 @@
 ║[ ] – Add crosshair
 ║[ ] – Add char rendering
 ║[ ] – Add big map support
+║[ ] – Add saving map
+║[ ] – Add loading map
+║[ ] – Add world theme
 ╠══════════════════════  Map generator   ══════════════════════════════
 ║[ ] – Add landscape generation
 ║[ ] – Add tilesets system

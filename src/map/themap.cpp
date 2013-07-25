@@ -12,7 +12,7 @@ void fired::Map::init(fired::Game *_game) {
 	bgTex->setRepeated(true);
 	bgSprite->setSize(sf::Vector2f(game->getSettings()->window.width, game->getSettings()->window.height));
 
-	tileset.init("data/img/tilesets/grass.tga");
+	tileset.init("data/img/tilesets/dirt.tga");
 
 	for (int i = 0; i < 50; i++) for (int j = 0; j < 38; j++) {
 		tiles[i][j].init(NULL, i, j);

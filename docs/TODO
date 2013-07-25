@@ -52,11 +52,13 @@
 ║[X] – Add char class
 ║[X] – Create pointers to app, mainmenu or settings instead of game->...
 ║[X] – Add char rendering
-║[ ] – Add char controls
+║[X] – Add char controls
 ║[X] – Add movement
+║[ ] – Add gravity
 ║[ ] – Add char physics
 ║[ ] – Add jumps
 ║[ ] – Add crosshair
+║[ ] – Add char spritesheet
 ║[ ] – Add char animation
 ║[ ] – Add big map support
 ║[ ] – Add saving map

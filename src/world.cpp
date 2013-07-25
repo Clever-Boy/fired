@@ -17,7 +17,7 @@ void fired::World::deinit() {
 
 
 void fired::World::update() {
-	render();
+	checkControls();
 
 	map.update();
 	player.update();
@@ -25,8 +25,9 @@ void fired::World::update() {
 
 
 
-void fired::World::render() {
-	return;
+void fired::World::checkControls() {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) player.moveLeft();
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) player.moveRight();
 }
 
 

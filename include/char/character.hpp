@@ -1,18 +1,18 @@
-#ifndef __WORLD
-#define __WORLD
-
+#ifndef __CHARACTER
+#define __CHARACTER
 
 #include <SFML/Graphics.hpp>
-#include "map.hpp"
 #include "prototypes.hpp"
 
 
 namespace fired {
-	class World {
+	class Character {
 	private:
-		fired::Game     *game;
-		fired::Map       map;
-		fired::Character player;
+		fired::Game  *game;
+		sf::Sprite   *sprite;
+		sf::Texture  *texture;
+		sf::Vector2f  pos;
+		sf::Vector2f  size;
 
 
 	public:
@@ -20,7 +20,6 @@ namespace fired {
 		void deinit();
 		void update(float frameClock);
 		void render();
-		void processEvent(sf::Event event);
 	};
 }
 

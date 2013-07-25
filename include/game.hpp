@@ -11,6 +11,7 @@
 #include "input.hpp"
 #include "settings.hpp"
 #include "screen.hpp"
+#include "char.hpp"
 #include "world.hpp"
 
 

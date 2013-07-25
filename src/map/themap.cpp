@@ -20,7 +20,7 @@ void fired::Map::init(fired::Game *_game) {
 
 	// Test map generation
 	for (int i = 0; i < 50; i++)
-		for (int j = 31; j < 38; j++)
+		for (int j = 30; j < 38; j++)
 			tiles[i][j].init(&tileset, i, j);
 }
 
@@ -28,6 +28,12 @@ void fired::Map::init(fired::Game *_game) {
 
 void fired::Map::deinit() {
 	tileset.deinit();
+}
+
+
+
+void fired::Map::update() {
+	render();
 }
 
 

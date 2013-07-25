@@ -49,13 +49,15 @@
 ║[X] – Add background
 ║[X] – Remove some friend classes from Game
 ║[X] – Add testmap generation generation
-║[ ] – Add char class
+║[X] – Add char class
+║[ ] – Create pointers to app, mainmenu or settings instead of game->...
+║[ ] – Add char rendering
 ║[ ] – Add char controls
 ║[ ] – Add movement
 ║[ ] – Add char physics
 ║[ ] – Add jumps
 ║[ ] – Add crosshair
-║[ ] – Add char rendering
+║[ ] – Add char animation
 ║[ ] – Add big map support
 ║[ ] – Add saving map
 ║[ ] – Add loading map

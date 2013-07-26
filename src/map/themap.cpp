@@ -24,6 +24,9 @@ void fired::Map::init(fired::Game *_game) {
 	for (int i = 0; i < 50; i++)
 		for (int j = 30; j < 38; j++)
 			tiles[i][j].init(&tileset, i, j);
+
+	for (int i = 17; i < 30; i+=2)
+		tiles[i][29].init(&tileset, i, 29);
 }
 
 
@@ -57,4 +60,36 @@ void fired::Map::checkPhys(fired::Phys *phys) {
 	if (phys->velocity.y > PHYS_MAX_FALL) phys->velocity.y = PHYS_MAX_FALL;
 
 	phys->pos += phys->velocity * frameClock;
+	phys->rect = sf::FloatRect(phys->pos, phys->size);
+
+	sf::FloatRect intersection;
+	sf::Vector2i  tiles_from((int)(phys->pos.x / TILE_SIZE), (int)(phys->pos.y / TILE_SIZE));
+	sf::Vector2i  tiles_to((int)((phys->pos.x + phys->size.x) / TILE_SIZE), (int)((phys->pos.y + phys->size.y) / TILE_SIZE));
+
+
+	for (int i = tiles_from.x; i <= tiles_to.x; i++) 
+	for (int j = tiles_from.y; j <= tiles_to.y; j++) 
+		if (tiles[i][j].isSolid())
+			if (phys->rect.intersects(sf::FloatRect(i * TILE_SIZE, j * TILE_SIZE, TILE_SIZE, TILE_SIZE), intersection)) {
+				if (intersection.width > intersection.height) {
+					if (phys->pos.y < j * TILE_SIZE) {
+						phys->pos.y -= intersection.height;
+						phys->velocity.y = 0;
+					} else {
+						phys->pos.y += intersection.height;
+						phys->velocity.y = 0;
+					}
+				} else {
+					if (phys->pos.x < i * TILE_SIZE) {
+						phys->pos.x -= intersection.width;
+						phys->velocity.x = 0;
+					} else {
+						phys->pos.x += intersection.width;
+						phys->velocity.x = 0;
+					}
+				}
+
+				phys->rect = sf::FloatRect(phys->pos, phys->size);
+			}
+
 }

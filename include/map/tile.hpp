@@ -23,6 +23,8 @@ namespace fired {
 		void init(fired::Tileset *_tileset, int x, int y);
 		void deinit();
 		void render(sf::RenderWindow *app);
+
+		bool isSolid() { return tileset; };
 	};
 }
 

@@ -16,6 +16,8 @@ namespace fired {
 		sf::Vector2f  pos;
 		sf::Vector2f  velocity;
 		sf::Vector2f  acceleration;
+
+		sf::FloatRect rect;
 	};
 }
 

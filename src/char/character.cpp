@@ -10,6 +10,7 @@ void fired::Character::init(fired::Game *_game) {
 	phys.velocity     = sf::Vector2f(0, 0);
 	phys.acceleration = sf::Vector2f(0, PHYS_GRAVITY);
 	phys.size         = sf::Vector2f(32, 48);
+	phys.rect         = sf::FloatRect(phys.pos, phys.size);
 
 	baseStats.speed = 120.0;
 	baseStats.accel = 1200.0;

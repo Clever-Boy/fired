@@ -8,7 +8,7 @@
 
 #include "prototypes.hpp"
 #include "menu.hpp"
-#include "input.hpp"
+#include "control.hpp"
 #include "settings.hpp"
 #include "screen.hpp"
 #include "char.hpp"

@@ -60,12 +60,14 @@
 ║[X] – Add char physics
 ║[X] – Add collision test
 ║[X] – Add jumps
-║[ ] – Add crosshair
-║[ ] – Add char spritesheet
-║[ ] – Add char animation
+║[X] – Add camera class
+║[ ] – Move BG with camera
 ║[ ] – Add big map support
+║[ ] – Add crosshair
 ║[ ] – Add saving map
 ║[ ] – Add loading map
+║[ ] – Add char spritesheet
+║[ ] – Add char animation
 ║[ ] – Add world theme
 ╠══════════════════════  Map generator   ══════════════════════════════
 ║[ ] – Add landscape generation

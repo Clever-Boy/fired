@@ -2,9 +2,15 @@
 
 
 void fired::World::init(fired::Game *_game) {
-	game = _game;
+	game     = _game;
+	settings = game->getSettings();
+	app      = game->getApp();
+
 	map.init(game);
+	cam.init(game);
 	player.init(game);
+
+	cam.setTrackObj(&player.phys);
 }
 
 
@@ -18,10 +24,10 @@ void fired::World::deinit() {
 
 void fired::World::update() {
 	checkControls();
-
-	map.update();
 	map.checkPhys(&player.phys);
 
+	cam.update();
+	map.update();
 	player.update();
 }
 

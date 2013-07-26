@@ -6,7 +6,7 @@ void fired::World::init(fired::Game *_game) {
 	settings = game->getSettings();
 	app      = game->getApp();
 
-	map.init(game);
+	map.init(game, &cam);
 	cam.init(game);
 	player.init(game);
 

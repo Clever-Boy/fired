@@ -61,8 +61,8 @@
 ║[X] – Add collision test
 ║[X] – Add jumps
 ║[X] – Add camera class
-║[ ] – Move BG with camera
-║[ ] – Add big map support
+║[X] – Move BG with camera
+║[X] – Add big map support
 ║[ ] – Add crosshair
 ║[ ] – Add saving map
 ║[ ] – Add loading map

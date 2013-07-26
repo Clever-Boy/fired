@@ -5,8 +5,8 @@
 #include <SFML/Graphics.hpp>
 
 
-#define PHYS_GRAVITY  1000.0
-#define PHYS_MAX_FALL 5000.0
+#define PHYS_GRAVITY  1500.0
+#define PHYS_MAX_FALL 2500.0
 
 
 

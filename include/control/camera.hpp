@@ -24,7 +24,8 @@ namespace fired {
 		void init(fired::Game *_game);
 		void update();
 
-		void setTrackObj(fired::Phys *phys) { objToTrack = phys; };
+		void          setTrackObj(fired::Phys *phys) { objToTrack = phys; };
+		sf::Vector2f  getOffset() { return offset; };
 	};
 }
 

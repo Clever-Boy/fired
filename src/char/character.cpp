@@ -11,9 +11,11 @@ void fired::Character::init(fired::Game *_game) {
 	phys.acceleration = sf::Vector2f(0, PHYS_GRAVITY);
 	phys.size         = sf::Vector2f(32, 48);
 	phys.rect         = sf::FloatRect(phys.pos, phys.size);
+	phys.onGround     = false;
 
 	baseStats.speed = 120.0;
 	baseStats.accel = 1200.0;
+	baseStats.jump  = 400.0;
 
 	isMoving  = false;
 	direction = 1;
@@ -61,7 +63,14 @@ void fired::Character::moveLeft() {
 }
 
 
+
 void fired::Character::moveRight() {
 	direction = 1;
 	isMoving  = true;
+}
+
+
+
+void fired::Character::jump() {
+	if (phys.onGround) phys.velocity.y = -baseStats.jump;
 }

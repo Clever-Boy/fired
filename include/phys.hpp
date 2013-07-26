@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 
 
-#define PHYS_GRAVITY  512.0
+#define PHYS_GRAVITY  1000.0
 #define PHYS_MAX_FALL 5000.0
 
 
@@ -18,6 +18,7 @@ namespace fired {
 		sf::Vector2f  acceleration;
 
 		sf::FloatRect rect;
+		bool onGround;
 	};
 }
 

@@ -59,6 +59,7 @@ void fired::Map::checkPhys(fired::Phys *phys) {
 	if (phys->velocity.x > PHYS_MAX_FALL) phys->velocity.x = PHYS_MAX_FALL;
 	if (phys->velocity.y > PHYS_MAX_FALL) phys->velocity.y = PHYS_MAX_FALL;
 
+	phys->onGround = false;
 	phys->pos += phys->velocity * frameClock;
 	phys->rect = sf::FloatRect(phys->pos, phys->size);
 
@@ -75,6 +76,7 @@ void fired::Map::checkPhys(fired::Phys *phys) {
 					if (phys->pos.y < j * TILE_SIZE) {
 						phys->pos.y -= intersection.height;
 						phys->velocity.y = 0;
+						phys->onGround = true;
 					} else {
 						phys->pos.y += intersection.height;
 						phys->velocity.y = 0;

@@ -32,6 +32,7 @@ namespace fired {
 
 		void moveLeft();
 		void moveRight();
+		void jump();
 	};
 }
 

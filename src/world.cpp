@@ -28,8 +28,9 @@ void fired::World::update() {
 
 
 void fired::World::checkControls() {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) player.moveLeft();
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) player.moveRight();
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))     player.moveLeft();
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))     player.moveRight();
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) player.jump();
 }
 
 

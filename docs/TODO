@@ -59,7 +59,7 @@
 ║[X] – Add physics processing
 ║[X] – Add char physics
 ║[X] – Add collision test
-║[ ] – Add jumps
+║[X] – Add jumps
 ║[ ] – Add crosshair
 ║[ ] – Add char spritesheet
 ║[ ] – Add char animation

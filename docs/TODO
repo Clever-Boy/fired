@@ -55,9 +55,10 @@
 ║[X] – Add char controls
 ║[X] – Add movement
 ║[X] – Add gravity
-║[ ] – Add physic struct (size, pos, vel, acc)
-║[ ] – Add physics processing
+║[X] – Add physic struct (size, pos, vel, acc)
+║[X] – Add physics processing
 ║[ ] – Add char physics
+║[ ] – Add collision test
 ║[ ] – Add jumps
 ║[ ] – Add crosshair
 ║[ ] – Add char spritesheet

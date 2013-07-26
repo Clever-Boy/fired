@@ -20,6 +20,8 @@ void fired::World::update() {
 	checkControls();
 
 	map.update();
+	map.checkPhys(&player.phys);
+
 	player.update();
 }
 

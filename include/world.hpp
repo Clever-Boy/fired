@@ -7,10 +7,6 @@
 #include "prototypes.hpp"
 
 
-#define PHYS_GRAVITY  5.0
-#define PHYS_MAX_FALL 250.0
-
-
 namespace fired {
 	class World {
 	private:

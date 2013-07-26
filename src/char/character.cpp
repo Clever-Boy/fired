@@ -6,10 +6,10 @@ void fired::Character::init(fired::Game *_game) {
 	settings = game->getSettings();
 	app      = game->getApp();
 
-	pos          = sf::Vector2f(384, 0);
-	velocity     = sf::Vector2f(0, 0);
-	acceleration = sf::Vector2f(0, PHYS_GRAVITY);
-	size         = sf::Vector2f(32, 48);
+	phys.pos          = sf::Vector2f(384, 0);
+	phys.velocity     = sf::Vector2f(0, 0);
+	phys.acceleration = sf::Vector2f(0, PHYS_GRAVITY);
+	phys.size         = sf::Vector2f(32, 48);
 
 	baseStats.speed = 120.0;
 
@@ -31,30 +31,23 @@ void fired::Character::deinit() {
 
 
 void fired::Character::update() {
-	velocity.x = 0;
-	velocity += acceleration;
-	if (velocity.x > PHYS_MAX_FALL) velocity.x = PHYS_MAX_FALL;
-	if (velocity.y > PHYS_MAX_FALL) velocity.y = PHYS_MAX_FALL;
-
-	pos += velocity;
-
 	render();
 }
 
 
 
 void fired::Character::render() {
-	sprite->setPosition(pos);
+	sprite->setPosition(phys.pos);
 	game->getApp()->draw(*sprite);
 }
 
 
 
 void fired::Character::moveLeft() {
-	velocity.x = -frameClock * baseStats.speed;
+	phys.pos.x -= frameClock * baseStats.speed;
 }
 
 
 void fired::Character::moveRight() {
-	velocity.x = frameClock * baseStats.speed;
+	phys.pos.x += frameClock * baseStats.speed;
 }

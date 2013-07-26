@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "prototypes.hpp"
 #include "stats.hpp"
+#include "phys.hpp"
 
 
 namespace fired {
@@ -18,14 +19,10 @@ namespace fired {
 		sf::Sprite   *sprite;
 		sf::Texture  *texture;
 
-		sf::Vector2f  pos;
-		sf::Vector2f  velocity;
-		sf::Vector2f  acceleration;
-
-		sf::Vector2f  size;
-
 
 	public:
+		fired::Phys phys;
+
 		void init(fired::Game *_game);
 		void deinit();
 		void update();

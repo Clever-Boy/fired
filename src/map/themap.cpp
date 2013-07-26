@@ -47,3 +47,14 @@ void fired::Map::render() {
 		for (int j = 0; j < 38; j++)
 			tiles[i][j].render(app);
 }
+
+
+
+void fired::Map::checkPhys(fired::Phys *phys) {
+	phys->velocity += phys->acceleration * frameClock;
+
+	if (phys->velocity.x > PHYS_MAX_FALL) phys->velocity.x = PHYS_MAX_FALL;
+	if (phys->velocity.y > PHYS_MAX_FALL) phys->velocity.y = PHYS_MAX_FALL;
+
+	phys->pos += phys->velocity * frameClock;
+}

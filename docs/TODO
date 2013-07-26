@@ -57,7 +57,7 @@
 ║[X] – Add gravity
 ║[X] – Add physic struct (size, pos, vel, acc)
 ║[X] – Add physics processing
-║[ ] – Add char physics
+║[X] – Add char physics
 ║[ ] – Add collision test
 ║[ ] – Add jumps
 ║[ ] – Add crosshair

@@ -12,6 +12,10 @@ void fired::Character::init(fired::Game *_game) {
 	phys.size         = sf::Vector2f(32, 48);
 
 	baseStats.speed = 120.0;
+	baseStats.accel = 1200.0;
+
+	isMoving  = false;
+	direction = 1;
 
 	texture = new sf::Texture();
 	sprite  = new sf::Sprite();
@@ -31,6 +35,13 @@ void fired::Character::deinit() {
 
 
 void fired::Character::update() {
+	if (isMoving) {
+		phys.velocity.x += direction * frameClock * baseStats.accel;
+		if (abs(phys.velocity.x) > baseStats.speed) phys.velocity.x = direction * baseStats.speed;
+	} else
+		phys.velocity.x = 0;
+
+	isMoving = false;
 	render();
 }
 
@@ -44,10 +55,12 @@ void fired::Character::render() {
 
 
 void fired::Character::moveLeft() {
-	phys.pos.x -= frameClock * baseStats.speed;
+	direction = -1;
+	isMoving  = true;
 }
 
 
 void fired::Character::moveRight() {
-	phys.pos.x += frameClock * baseStats.speed;
+	direction = 1;
+	isMoving  = true;
 }

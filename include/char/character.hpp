@@ -15,6 +15,8 @@ namespace fired {
 		sf::RenderWindow *app;
 
 		fired::CharacterStats baseStats;
+		int  direction;
+		bool isMoving;
 
 		sf::Sprite   *sprite;
 		sf::Texture  *texture;

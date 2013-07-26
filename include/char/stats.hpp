@@ -5,6 +5,7 @@
 namespace fired {
 	struct CharacterStats {
 		float speed;
+		float accel;
 	};
 }
 

@@ -64,8 +64,6 @@
 ║[X] – Move BG with camera
 ║[X] – Add big map support
 ║[X] – Add crosshair
-║[ ] – Add char spritesheet
-║[ ] – Add char animation
 ║[ ] – Add world theme
 ╠══════════════════════  Physics engine  ══════════════════════════════
 ║[ ] – Add box2D support
@@ -74,6 +72,11 @@
 ║[ ] – Add physics processing
 ║[ ] – Add movement
 ║[ ] – Add jumping
+╠══════════════════════  Animation       ══════════════════════════════
+║[ ] – Add animation class
+║[ ] – Add animation parts (legs, body, head)
+║[ ] – Add animation sprite sheets
+║[ ] – Add rendering animation
 ╠══════════════════════  Map generator   ══════════════════════════════
 ║[ ] – Add landscape generation
 ║[ ] – Add tilesets system

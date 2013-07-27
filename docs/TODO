@@ -69,6 +69,13 @@
 ║[ ] – Add char spritesheet
 ║[ ] – Add char animation
 ║[ ] – Add world theme
+╠══════════════════════  Physics engine  ══════════════════════════════
+║[ ] – Add box2D support
+║[ ] – Add box2D classes to objects
+║[ ] – Add dynamic tree for level
+║[ ] – Add physics processing
+║[ ] – Add movement
+║[ ] – Add jumping
 ╠══════════════════════  Map generator   ══════════════════════════════
 ║[ ] – Add landscape generation
 ║[ ] – Add tilesets system

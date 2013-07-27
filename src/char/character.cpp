@@ -6,7 +6,7 @@ void fired::Character::init(fired::Game *_game) {
 	settings = game->getSettings();
 	app      = game->getApp();
 
-	phys.pos          = sf::Vector2f(384, 0);
+	phys.pos          = sf::Vector2f(384, 2360);
 	phys.velocity     = sf::Vector2f(0, 0);
 	phys.acceleration = sf::Vector2f(0, PHYS_GRAVITY);
 	phys.size         = sf::Vector2f(32, 48);

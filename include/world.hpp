@@ -17,6 +17,7 @@ namespace fired {
 		fired::Map        map;
 		fired::Camera     cam;
 		fired::Character  player;
+		fired::Crosshair  crosshair;
 
 
 	public:

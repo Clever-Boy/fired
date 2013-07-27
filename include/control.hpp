@@ -5,5 +5,6 @@
 #include "control/keyboard.hpp"
 #include "control/handlers.hpp"
 #include "control/camera.hpp"
+#include "control/crosshair.hpp"
 
 #endif

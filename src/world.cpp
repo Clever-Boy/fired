@@ -9,6 +9,7 @@ void fired::World::init(fired::Game *_game) {
 	map.init(game, &cam);
 	cam.init(game);
 	player.init(game);
+	crosshair.init(game, &cam);
 
 	cam.setTrackObj(&player.phys);
 }
@@ -18,6 +19,7 @@ void fired::World::init(fired::Game *_game) {
 void fired::World::deinit() {
 	map.deinit();
 	player.deinit();
+	crosshair.deinit();
 }
 
 
@@ -28,6 +30,7 @@ void fired::World::update() {
 
 	cam.update();
 	map.update();
+	crosshair.update();
 	player.update();
 }
 

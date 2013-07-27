@@ -8,10 +8,9 @@ void fired::World::init(fired::Game *_game) {
 
 	map.init(game, &cam);
 	cam.init(game);
-	player.init(game);
-	crosshair.init(game, &cam);
+	player.init(game, &cam);
 
-	cam.setTrackObj(&player.phys);
+	cam.setTrackObj(player.getPhys());
 }
 
 
@@ -19,27 +18,23 @@ void fired::World::init(fired::Game *_game) {
 void fired::World::deinit() {
 	map.deinit();
 	player.deinit();
-	crosshair.deinit();
 }
 
 
 
 void fired::World::update() {
 	checkControls();
-	map.checkPhys(&player.phys);
+	map.checkPhys(player.getPhys());
 
 	cam.update();
 	map.update();
-	crosshair.update();
 	player.update();
 }
 
 
 
 void fired::World::checkControls() {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))     player.moveLeft();
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))     player.moveRight();
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) player.jump();
+	player.checkControls();
 }
 
 

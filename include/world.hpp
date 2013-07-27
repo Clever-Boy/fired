@@ -4,6 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "map.hpp"
+#include "char.hpp"
 #include "prototypes.hpp"
 
 
@@ -14,10 +15,9 @@ namespace fired {
 		fired::Settings  *settings;
 		sf::RenderWindow *app;
 
-		fired::Map        map;
-		fired::Camera     cam;
-		fired::Character  player;
-		fired::Crosshair  crosshair;
+		fired::Map    map;
+		fired::Camera cam;
+		fired::Player player;
 
 
 	public:
@@ -25,7 +25,6 @@ namespace fired {
 		void deinit();
 		void update();
 		void processEvent(sf::Event event);
-
 		void checkControls();
 	};
 }

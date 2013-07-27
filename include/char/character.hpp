@@ -24,11 +24,13 @@ namespace fired {
 
 	public:
 		fired::Phys phys;
+		fired::CharacterStats *getStats() { return &baseStats; };
 
 		void init(fired::Game *_game);
 		void deinit();
 		void update();
 		void render();
+
 
 		void moveLeft();
 		void moveRight();

@@ -14,6 +14,7 @@ void fired::Game::init() {
 	app.setMouseCursorVisible(false);
 
 	running   = true;
+	focused   = true;
 	gameState = gsNone;
 
 	mouse.init(this);
@@ -51,6 +52,8 @@ void fired::Game::update() {
 
 	switchGameState();
 	processEvents();
+	if (!focused) return;
+
 	app.clear();
 
 	if      (gameState == gsMainMenu)   mainMenu.update();
@@ -79,15 +82,25 @@ void fired::Game::processEvents() {
 
 
 void fired::Game::processEvent(sf::Event event) {
-	if (event.type == sf::Event::Closed) {
-		running = false;
-		return;
-	}
+	switch(event.type) {
+		case sf::Event::Closed:
+			running = false;
+			break;
 
-	if      (gameState == gsMainMenu)   mainMenu.processEvent(event);
-	else if (gameState == gsStartScr)   startScr.processEvent(event);
-	else if (gameState == gsCreditsScr) creditsScr.processEvent(event);
-	else if (gameState == gsWorld)      world.processEvent(event);
+		case sf::Event::LostFocus:
+			focused = false;
+			break;
+
+		case sf::Event::GainedFocus:
+			focused = true;
+			break;
+
+		default:
+			if      (gameState == gsMainMenu)   mainMenu.processEvent(event);
+			else if (gameState == gsStartScr)   startScr.processEvent(event);
+			else if (gameState == gsCreditsScr) creditsScr.processEvent(event);
+			else if (gameState == gsWorld)      world.processEvent(event);
+	}
 }
 
 

@@ -22,7 +22,7 @@ namespace fired {
 	public:
 		void init(fired::Game *_game, fired::Camera *_cam);
 		void deinit();
-		void update();
+		void update(float distance);
 		void render();
 
 		void processEvent(sf::Event event);

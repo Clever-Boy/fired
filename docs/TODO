@@ -63,9 +63,7 @@
 ║[X] – Add camera class
 ║[X] – Move BG with camera
 ║[X] – Add big map support
-║[ ] – Add crosshair
-║[ ] – Add saving map
-║[ ] – Add loading map
+║[X] – Add crosshair
 ║[ ] – Add char spritesheet
 ║[ ] – Add char animation
 ║[ ] – Add world theme
@@ -79,6 +77,8 @@
 ╠══════════════════════  Map generator   ══════════════════════════════
 ║[ ] – Add landscape generation
 ║[ ] – Add tilesets system
+║[ ] – Add saving map
+║[ ] – Add loading map
 ║[ ] – Add finding tiles
 ║[ ] – Add buildings generation
 ║[ ] – Add walls (50% grey tiles)

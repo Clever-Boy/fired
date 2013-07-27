@@ -36,6 +36,7 @@ namespace fired {
 
 		long lastClock;
 		bool running;
+		bool focused;
 
 		fired::GameState  gameState;
 		fired::GameState  gameStateNew;

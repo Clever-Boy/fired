@@ -14,9 +14,9 @@ namespace fired {
 		fired::Game      *game;
 		fired::Settings  *settings;
 		sf::RenderWindow *app;
+		b2World          *physWorld;
 
 		fired::CharacterStats baseStats;
-		b2World *physWorld;
 		b2Body  *body;
 		int  direction;
 		bool isMoving;

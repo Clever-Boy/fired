@@ -7,7 +7,7 @@ void fired::World::init(fired::Game *_game) {
 	app       = game->getApp();
 	physWorld = new b2World(b2Vec2(0, 9.8));
 
-	map.init(game, &cam);
+	map.init(game, &cam, physWorld);
 	cam.init(game);
 	player.init(game, &cam, physWorld);
 
@@ -28,6 +28,7 @@ void fired::World::deinit() {
 void fired::World::update() {
 	checkControls();
 
+	physWorld->Step(frameClock, 8, 3);
 	cam.update();
 	map.update();
 	player.update();

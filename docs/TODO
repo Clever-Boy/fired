@@ -68,8 +68,8 @@
 ╠══════════════════════  Physics engine  ══════════════════════════════
 ║[X] – Add box2D support
 ║[X] – Add box2D classes to objects
-║[ ] – Add dynamic tree for level
-║[ ] – Add physics processing
+║[X] – Add dynamic tree for level
+║[X] – Add physics processing
 ║[ ] – Add movement
 ║[ ] – Add jumping
 ╠══════════════════════  Animation       ══════════════════════════════

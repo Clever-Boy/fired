@@ -1,11 +1,12 @@
 #include "game.hpp"
 
 
-void fired::Map::init(fired::Game *_game, fired::Camera *_cam) {
-	game     = _game;
-	settings = game->getSettings();
-	app      = game->getApp();
-	cam      = _cam;
+void fired::Map::init(fired::Game *_game, fired::Camera *_cam, b2World *_physWorld) {
+	game      = _game;
+	settings  = game->getSettings();
+	app       = game->getApp();
+	cam       = _cam;
+	physWorld = _physWorld;
 
 	bgTex    = new sf::Texture();
 	bgSprite = new sf::RectangleShape();
@@ -71,6 +72,8 @@ void fired::Map::init(fired::Game *_game, fired::Camera *_cam) {
 	for (int i = 195; i < 200; i++) tiles[i][154].init(&tileset, i, 154);
 	for (int i = 195; i < 200; i++) tiles[i][153].init(&tileset, i, 153);
 	for (int i = 195; i < 200; i++) tiles[i][152].init(&tileset, i, 152);
+
+	initPhys();
 }
 
 
@@ -106,4 +109,24 @@ void fired::Map::render() {
 	for (int i = from.x; i < to.x; i++)
 		for (int j = from.y; j < to.y; j++)
 			tiles[i][j].render(app);
+}
+
+
+
+void fired::Map::initPhys() {
+	b2BodyDef      bodyDef;
+	b2PolygonShape shapeDef;
+	b2FixtureDef   fixtureDef;
+
+	bodyDef.type = b2_staticBody;
+	shapeDef.SetAsBox(toPhys(TILE_SIZE / 2), toPhys(TILE_SIZE / 2));
+	fixtureDef.density = 0.f;
+	fixtureDef.shape = &shapeDef;
+
+	for (int i = 0; i < 200; i++) for (int j = 0; j < 200; j++)
+		if (tiles[i][j].isSolid()) {
+			bodyDef.position = b2Vec2(toPhys(i * TILE_SIZE + TILE_SIZE/2), toPhys(j * TILE_SIZE + TILE_SIZE/2));
+			b2Body* body = physWorld->CreateBody(&bodyDef);
+			body->CreateFixture(&fixtureDef);
+		}
 }

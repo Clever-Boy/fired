@@ -15,11 +15,11 @@ void fired::Character::init(fired::Game *_game, b2World *_physWorld) {
 	b2PolygonShape shapeDef;
 	b2FixtureDef   fixtureDef;
 
-	bodyDef.position = b2Vec2(phys.pos.x, phys.pos.y);
+	bodyDef.position = b2Vec2(toPhys(phys.pos.x), toPhys(phys.pos.y));
 	bodyDef.type = b2_dynamicBody;
 	bodyDef.fixedRotation = true;
 
-	shapeDef.SetAsBox(phys.size.x / 2, phys.size.y / 2);
+	shapeDef.SetAsBox(toPhys(phys.size.x / 2), toPhys(phys.size.y / 2));
 	fixtureDef.density = 1;
 	fixtureDef.friction = 0.7;
 	fixtureDef.shape = &shapeDef;
@@ -40,6 +40,7 @@ void fired::Character::init(fired::Game *_game, b2World *_physWorld) {
 
 	texture->loadFromFile("data/img/chars/player.tga");
 	sprite->setTexture(*texture);
+	sprite->setOrigin(phys.size.x / 2, phys.size.y / 2);
 	texture->setSmooth(true);
 }
 
@@ -53,6 +54,7 @@ void fired::Character::deinit() {
 
 
 void fired::Character::update() {
+	phys.pos = sf::Vector2f(fromPhys(body->GetPosition().x), fromPhys(body->GetPosition().y));
 	render();
 }
 

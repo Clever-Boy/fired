@@ -3,6 +3,7 @@
 
 
 #include <SFML/Graphics.hpp>
+#include <Box2D/Box2D.h>
 #include "map.hpp"
 #include "char.hpp"
 #include "prototypes.hpp"
@@ -14,6 +15,7 @@ namespace fired {
 		fired::Game      *game;
 		fired::Settings  *settings;
 		sf::RenderWindow *app;
+		b2World          *physWorld; 
 
 		fired::Map    map;
 		fired::Camera cam;

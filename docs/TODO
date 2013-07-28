@@ -66,7 +66,7 @@
 ║[X] – Add crosshair
 ║[ ] – Add world theme
 ╠══════════════════════  Physics engine  ══════════════════════════════
-║[ ] – Add box2D support
+║[X] – Add box2D support
 ║[ ] – Add box2D classes to objects
 ║[ ] – Add dynamic tree for level
 ║[ ] – Add physics processing

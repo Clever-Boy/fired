@@ -10,7 +10,7 @@ all: $(PROJECT_NAME)
 
 
 $(PROJECT_NAME): subdirs $(OBJS)
-	$(CC) $(LDFLAGS) $(OBJS) -o $(PROJECT_NAME)
+	$(CC) $(OBJS) -o $(PROJECT_NAME) $(LDFLAGS)
 
 
 subdirs: $(SUBDIRS)

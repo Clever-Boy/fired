@@ -2,9 +2,10 @@
 
 
 void fired::World::init(fired::Game *_game) {
-	game     = _game;
-	settings = game->getSettings();
-	app      = game->getApp();
+	game      = _game;
+	settings  = game->getSettings();
+	app       = game->getApp();
+	physWorld = new b2World(b2Vec2(0, 9.8));
 
 	map.init(game, &cam);
 	cam.init(game);
@@ -18,6 +19,8 @@ void fired::World::init(fired::Game *_game) {
 void fired::World::deinit() {
 	map.deinit();
 	player.deinit();
+
+	delete physWorld;
 }
 
 

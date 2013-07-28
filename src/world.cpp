@@ -9,7 +9,7 @@ void fired::World::init(fired::Game *_game) {
 
 	map.init(game, &cam);
 	cam.init(game);
-	player.init(game, &cam);
+	player.init(game, &cam, physWorld);
 
 	cam.setTrackObj(player.getPhys());
 }
@@ -27,7 +27,6 @@ void fired::World::deinit() {
 
 void fired::World::update() {
 	checkControls();
-	map.checkPhys(player.getPhys());
 
 	cam.update();
 	map.update();

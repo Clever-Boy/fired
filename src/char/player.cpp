@@ -1,12 +1,12 @@
 #include "game.hpp"
 
 
-void fired::Player::init(fired::Game *_game, fired::Camera *_cam) {
+void fired::Player::init(fired::Game *_game, fired::Camera *_cam, b2World *physWorld) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();
 
-	character.init(_game);
+	character.init(_game, physWorld);
 	crosshair.init(_game, _cam);
 }
 

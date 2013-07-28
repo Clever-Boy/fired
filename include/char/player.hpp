@@ -2,6 +2,7 @@
 #define __PLAYER
 
 #include <SFML/Graphics.hpp>
+#include <Box2D/Box2D.h>
 #include "prototypes.hpp"
 #include "character.hpp"
 #include "stats.hpp"
@@ -20,7 +21,7 @@ namespace fired {
 
 
 	public:
-		void init(fired::Game *_game, fired::Camera *_cam);
+		void init(fired::Game *_game, fired::Camera *_cam, b2World *physWorld);
 		void deinit();
 		void update();
 

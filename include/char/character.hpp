@@ -2,6 +2,7 @@
 #define __CHARACTER
 
 #include <SFML/Graphics.hpp>
+#include <Box2D/Box2D.h>
 #include "prototypes.hpp"
 #include "stats.hpp"
 #include "phys.hpp"
@@ -15,6 +16,8 @@ namespace fired {
 		sf::RenderWindow *app;
 
 		fired::CharacterStats baseStats;
+		b2World *physWorld;
+		b2Body  *body;
 		int  direction;
 		bool isMoving;
 
@@ -26,7 +29,7 @@ namespace fired {
 		fired::Phys phys;
 		fired::CharacterStats *getStats() { return &baseStats; };
 
-		void init(fired::Game *_game);
+		void init(fired::Game *_game, b2World *_physWorld);
 		void deinit();
 		void update();
 		void render();

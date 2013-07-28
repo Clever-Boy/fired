@@ -29,8 +29,6 @@ namespace fired {
 		void deinit();
 		void update();
 		void render();
-
-		void checkPhys(fired::Phys *phys);
 	};
 }
 

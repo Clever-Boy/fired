@@ -67,7 +67,7 @@
 ║[ ] – Add world theme
 ╠══════════════════════  Physics engine  ══════════════════════════════
 ║[X] – Add box2D support
-║[ ] – Add box2D classes to objects
+║[X] – Add box2D classes to objects
 ║[ ] – Add dynamic tree for level
 ║[ ] – Add physics processing
 ║[ ] – Add movement

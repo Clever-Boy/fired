@@ -7,6 +7,7 @@ export PROJECT_NAME=fired
 export PROJECT_VER=0.99
 
 export CC=gcc
+export STRIP=strip
 export LD=ld
 export CLEAN=rm -rf
 export MAKE=make

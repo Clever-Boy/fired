@@ -11,6 +11,7 @@ all: $(PROJECT_NAME)
 
 $(PROJECT_NAME): subdirs $(OBJS)
 	$(CC) $(OBJS) -o $(PROJECT_NAME) $(LDFLAGS)
+	$(STRIP) $(PROJECT_NAME)
 
 
 subdirs: $(SUBDIRS)

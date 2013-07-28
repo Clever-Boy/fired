@@ -64,7 +64,7 @@
 ║[X] – Move BG with camera
 ║[X] – Add big map support
 ║[X] – Add crosshair
-║[ ] – Add world theme
+║[X] – Add world theme
 ╠══════════════════════  Physics engine  ══════════════════════════════
 ║[X] – Add box2D support
 ║[X] – Add box2D classes to objects

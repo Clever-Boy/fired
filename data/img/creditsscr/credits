@@ -1,14 +1,18 @@
 $CDevelopment team:
 code: achpile
 design: achpile
+music: achpile
+
 
 $CGraphics engine
 SFML v2.1
 url: http://sfml-dev.org/
 
+
 $CPhysics
 Box2D v2.2.1
 url: http://box2d.org/
+
 
 $CFeedback
 URL: http://github.com/achpile

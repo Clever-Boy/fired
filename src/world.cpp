@@ -7,6 +7,8 @@ void fired::World::init(fired::Game *_game) {
 	app       = game->getApp();
 	physWorld = new b2World(b2Vec2(0, 9.8));
 
+	game->setMusic("data/snd/themes/world.ogg");
+
 	map.init(game, &cam, physWorld);
 	cam.init(game);
 	player.init(game, &cam, physWorld);

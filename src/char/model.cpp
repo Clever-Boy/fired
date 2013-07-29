@@ -19,7 +19,7 @@ void fired::Model::init(fired::Game *_game, fired::Character *_owner) {
 	owner    = _owner;
 
 	initPart(&sprite    , &texture    , "data/img/chars/player.tga");
-	initPart(&spriteHair, &textureHair, "data/img/chars/player.tga");
+	initPart(&spriteHair, &textureHair, "data/img/chars/hair.tga");
 	initPart(&spriteHead, &textureHead, "data/img/chars/head.tga");
 	initPart(&spriteBody, &textureBody, "data/img/chars/player.tga");
 	initPart(&spriteLegs, &textureLegs, "data/img/chars/player.tga");
@@ -55,4 +55,7 @@ void fired::Model::render() {
 
 	spriteHead->setPosition(owner->phys.pos);
 	game->getApp()->draw(*spriteHead);
+
+	spriteHair->setPosition(owner->phys.pos);
+	game->getApp()->draw(*spriteHair);
 }

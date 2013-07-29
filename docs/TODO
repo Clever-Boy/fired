@@ -76,8 +76,8 @@
 ╠══════════════════════  Animation       ══════════════════════════════
 ║[X] – Add model class
 ║[X] – Add model parts (legs, body, head, hair)
-║[ ] – Add hair sprite
-║[ ] – Add hair rendering
+║[X] – Add hair sprite
+║[X] – Add hair rendering
 ║[X] – Add head sprite
 ║[X] – Add head rendering
 ║[ ] – Add body sprite

@@ -14,7 +14,16 @@ namespace fired {
 		fired::Character *owner;
 		sf::RenderWindow *app;
 
+		sf::Sprite   *spriteHair;
+		sf::Sprite   *spriteHead;
+		sf::Sprite   *spriteBody;
+		sf::Sprite   *spriteLegs;
 		sf::Sprite   *sprite;
+
+		sf::Texture  *textureHair;
+		sf::Texture  *textureHead;
+		sf::Texture  *textureBody;
+		sf::Texture  *textureLegs;
 		sf::Texture  *texture;
 
 

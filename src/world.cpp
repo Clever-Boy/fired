@@ -37,6 +37,7 @@ void fired::World::update() {
 
 void fired::World::checkControls() {
 	player.checkControls();
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) game->stop();
 }
 
 

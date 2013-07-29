@@ -75,11 +75,11 @@
 ║[X] – Prevent tunnelong effect
 ╠══════════════════════  Animation       ══════════════════════════════
 ║[X] – Add model class
-║[ ] – Add model parts (legs, body, head, hair)
+║[X] – Add model parts (legs, body, head, hair)
 ║[ ] – Add hair sprite
 ║[ ] – Add hair rendering
-║[ ] – Add head sprite
-║[ ] – Add head rendering
+║[X] – Add head sprite
+║[X] – Add head rendering
 ║[ ] – Add body sprite
 ║[ ] – Add body rendering
 ║[ ] – Add leg sprite

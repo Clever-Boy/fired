@@ -19,12 +19,16 @@ namespace fired {
 		sf::Sprite   *spriteBody;
 		sf::Sprite   *spriteLegs;
 		sf::Sprite   *spriteArms;
+		sf::Sprite   *spriteShoe;
+		sf::Sprite   *spriteFist;
 
 		sf::Texture  *textureHair;
 		sf::Texture  *textureHead;
 		sf::Texture  *textureBody;
 		sf::Texture  *textureLegs;
 		sf::Texture  *textureArms;
+		sf::Texture  *textureShoe;
+		sf::Texture  *textureFist;
 
 
 	public:

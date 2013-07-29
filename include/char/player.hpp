@@ -1,6 +1,7 @@
 #ifndef __PLAYER
 #define __PLAYER
 
+
 #include <SFML/Graphics.hpp>
 #include "prototypes.hpp"
 #include "character.hpp"

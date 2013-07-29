@@ -20,6 +20,7 @@ namespace fired {
 
 		fired::Phys  *objToTrack;
 
+
 	public:
 		void init(fired::Game *_game);
 		void update();

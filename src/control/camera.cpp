@@ -13,9 +13,9 @@ void fired::Camera::init(fired::Game *_game) {
 
 
 void fired::Camera::update() {
-	view.setCenter(objToTrack->pos.x, objToTrack->pos.y);
-	offset = sf::Vector2f(objToTrack->pos.x - settings->window.width  / 2,
-	                      objToTrack->pos.y - settings->window.height / 2);
+	view.setCenter(objToTrack->rect.left + objToTrack->rect.width / 2, objToTrack->rect.top + objToTrack->rect.height / 2);
+	offset = sf::Vector2f(objToTrack->rect.left + objToTrack->rect.width / 2 - settings->window.width / 2,
+	                    objToTrack->rect.top + objToTrack->rect.height / 2 - settings->window.height/2);
 
 	app->setView(view);
 }

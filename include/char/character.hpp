@@ -1,6 +1,7 @@
 #ifndef __CHARACTER
 #define __CHARACTER
 
+
 #include <SFML/Graphics.hpp>
 #include "prototypes.hpp"
 #include "stats.hpp"

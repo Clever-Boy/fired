@@ -24,6 +24,7 @@ namespace fired {
 		sf::RectangleShape *bgSprite;
 		sf::Vector2i        visibleTiles;
 
+
 	public:
 		void init(fired::Game *_game, fired::Camera *_cam);
 		void deinit();

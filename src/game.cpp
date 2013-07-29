@@ -25,7 +25,7 @@ void fired::Game::init() {
 	musicTheme.setVolume(settings.volume.music);
 
 	font.loadFromFile("data/fonts/advanced_pixel-7.ttf");
-	setGameState(gsStartScr);
+	setGameState(gsWorld);
 	lastClock = clock.getElapsedTime().asMilliseconds();
 }
 

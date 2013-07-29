@@ -15,7 +15,6 @@ namespace fired {
 		fired::Game      *game;
 		fired::Settings  *settings;
 		sf::RenderWindow *app;
-		b2World          *physWorld; 
 
 		fired::Map    map;
 		fired::Camera cam;

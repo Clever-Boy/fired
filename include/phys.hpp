@@ -5,9 +5,8 @@
 #include <SFML/Graphics.hpp>
 
 
-#define PHYS_SCALE 16.0
-#define toPhys(x)   (x)/PHYS_SCALE
-#define fromPhys(x) (x)*PHYS_SCALE
+#define PHYS_GRAVITY  1500.0
+#define PHYS_MAX_FALL 2500.0
 
 
 
@@ -15,7 +14,11 @@ namespace fired {
 	struct Phys {
 		sf::Vector2f  size;
 		sf::Vector2f  pos;
-		bool          onGround;
+		sf::Vector2f  velocity;
+		sf::Vector2f  acceleration;
+
+		sf::FloatRect rect;
+		bool onGround;
 	};
 }
 

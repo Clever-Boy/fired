@@ -1,12 +1,11 @@
 #include "game.hpp"
 
 
-void fired::Map::init(fired::Game *_game, fired::Camera *_cam, b2World *_physWorld) {
-	game      = _game;
-	settings  = game->getSettings();
-	app       = game->getApp();
-	cam       = _cam;
-	physWorld = _physWorld;
+void fired::Map::init(fired::Game *_game, fired::Camera *_cam) {
+	game     = _game;
+	settings = game->getSettings();
+	app      = game->getApp();
+	cam      = _cam;
 
 	bgTex    = new sf::Texture();
 	bgSprite = new sf::RectangleShape();
@@ -72,8 +71,6 @@ void fired::Map::init(fired::Game *_game, fired::Camera *_cam, b2World *_physWor
 	for (int i = 195; i < 200; i++) tiles[i][154].init(&tileset, i, 154);
 	for (int i = 195; i < 200; i++) tiles[i][153].init(&tileset, i, 153);
 	for (int i = 195; i < 200; i++) tiles[i][152].init(&tileset, i, 152);
-
-	initPhys();
 }
 
 
@@ -113,20 +110,70 @@ void fired::Map::render() {
 
 
 
-void fired::Map::initPhys() {
-	b2BodyDef      bodyDef;
-	b2PolygonShape shapeDef;
-	b2FixtureDef   fixtureDef;
+void checkCollision(fired::Phys *phys, int tile_x, int tile_y) {
+	sf::FloatRect intersection;
 
-	bodyDef.type = b2_staticBody;
-	shapeDef.SetAsBox(toPhys(TILE_SIZE / 2), toPhys(TILE_SIZE / 2));
-	fixtureDef.density = 0.f;
-	fixtureDef.shape = &shapeDef;
-
-	for (int i = 0; i < 200; i++) for (int j = 0; j < 200; j++)
-		if (tiles[i][j].isSolid()) {
-			bodyDef.position = b2Vec2(toPhys(i * TILE_SIZE + TILE_SIZE/2), toPhys(j * TILE_SIZE + TILE_SIZE/2));
-			b2Body* body = physWorld->CreateBody(&bodyDef);
-			body->CreateFixture(&fixtureDef);
+	if (phys->rect.intersects(sf::FloatRect(tile_x * TILE_SIZE, tile_y * TILE_SIZE, TILE_SIZE, TILE_SIZE), intersection)) {
+		if (intersection.width > intersection.height) {
+			if (phys->pos.y < tile_y * TILE_SIZE) {
+				phys->pos.y -= intersection.height;
+				if (phys->velocity.y > 0) phys->velocity.y = 0;
+				phys->onGround = true;
+			} else {
+				phys->pos.y += intersection.height;
+				if (phys->velocity.y < 0) phys->velocity.y = 0;
+			}
+		} else {
+			if (phys->pos.x < tile_x * TILE_SIZE) {
+				phys->pos.x -= intersection.width;
+				if (phys->velocity.x > 0) phys->velocity.x = 0;
+			} else {
+				phys->pos.x += intersection.width;
+				if (phys->velocity.x < 0) phys->velocity.x = 0;
+			}
 		}
+
+		phys->rect = sf::FloatRect(phys->pos, phys->size);
+	}
+}
+
+
+
+void fired::Map::checkPhys(fired::Phys *phys) {
+	int i, j;
+
+	phys->velocity += phys->acceleration * frameClock;
+
+	if (phys->velocity.x > PHYS_MAX_FALL) phys->velocity.x = PHYS_MAX_FALL;
+	if (phys->velocity.y > PHYS_MAX_FALL) phys->velocity.y = PHYS_MAX_FALL;
+
+	phys->onGround = false;
+	phys->pos += phys->velocity * frameClock;
+	phys->rect = sf::FloatRect(phys->pos, phys->size);
+
+	sf::Vector2i  tiles_from((int)(phys->pos.x / TILE_SIZE), (int)(phys->pos.y / TILE_SIZE));
+	sf::Vector2i  tiles_to((int)((phys->pos.x + phys->size.x) / TILE_SIZE), (int)((phys->pos.y + phys->size.y) / TILE_SIZE));
+
+
+	for (i = tiles_from.x + 1; i <= tiles_to.x - 1; i++) {
+		if (tiles[i][tiles_from.y].isSolid()) checkCollision(phys, i, tiles_from.y);
+		if (tiles[i][tiles_to.y].isSolid()) checkCollision(phys, i, tiles_to.y);
+	}
+
+	for (j = tiles_from.y + 1; j <= tiles_to.y - 1; j++) {
+		if (tiles[tiles_from.x][j].isSolid()) checkCollision(phys, tiles_from.x, j);
+		if (tiles[tiles_to.x][j].isSolid()) checkCollision(phys, tiles_to.x, j);
+	}
+
+	if (phys->velocity.x > 0) {
+		if (tiles[tiles_from.x][tiles_from.y].isSolid()) checkCollision(phys, tiles_from.x, tiles_from.y);
+		if (tiles[tiles_from.x][tiles_to.y  ].isSolid()) checkCollision(phys, tiles_from.x, tiles_to.y  );
+		if (tiles[tiles_to.x  ][tiles_from.y].isSolid()) checkCollision(phys, tiles_to.x  , tiles_from.y);
+		if (tiles[tiles_to.x  ][tiles_to.y  ].isSolid()) checkCollision(phys, tiles_to.x  , tiles_to.y  );
+	} else {
+		if (tiles[tiles_to.x  ][tiles_from.y].isSolid()) checkCollision(phys, tiles_to.x  , tiles_from.y);
+		if (tiles[tiles_to.x  ][tiles_to.y  ].isSolid()) checkCollision(phys, tiles_to.x  , tiles_to.y  );
+		if (tiles[tiles_from.x][tiles_from.y].isSolid()) checkCollision(phys, tiles_from.x, tiles_from.y);
+		if (tiles[tiles_from.x][tiles_to.y  ].isSolid()) checkCollision(phys, tiles_from.x, tiles_to.y  );
+	}
 }

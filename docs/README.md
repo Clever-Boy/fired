@@ -9,4 +9,4 @@ What is it?
 Dependencies
 -------------
 * SFML  v2.1   http://www.sfml-dev.org/
-* Box2D v2.2.1 http://box2d.org/
+

@@ -1,33 +1,19 @@
 #include "game.hpp"
 
 
-void fired::Character::init(fired::Game *_game, b2World *_physWorld) {
-	game      = _game;
-	settings  = game->getSettings();
-	app       = game->getApp();
-	physWorld = _physWorld;
+void fired::Character::init(fired::Game *_game) {
+	game     = _game;
+	settings = game->getSettings();
+	app      = game->getApp();
 
 	phys.pos          = sf::Vector2f(384, 2360);
+	phys.velocity     = sf::Vector2f(0, 0);
+	phys.acceleration = sf::Vector2f(0, PHYS_GRAVITY);
 	phys.size         = sf::Vector2f(32, 48);
+	phys.rect         = sf::FloatRect(phys.pos, phys.size);
 	phys.onGround     = false;
 
-	b2BodyDef      bodyDef;
-	b2PolygonShape shapeDef;
-	b2FixtureDef   fixtureDef;
-
-	bodyDef.position = b2Vec2(toPhys(phys.pos.x), toPhys(phys.pos.y));
-	bodyDef.type = b2_dynamicBody;
-	bodyDef.fixedRotation = true;
-
-	shapeDef.SetAsBox(toPhys(phys.size.x / 2), toPhys(phys.size.y / 2));
-	fixtureDef.density = 1;
-	fixtureDef.friction = 0.7;
-	fixtureDef.shape = &shapeDef;
-
-	body = physWorld->CreateBody(&bodyDef);
-	body->CreateFixture(&fixtureDef);
-
-	baseStats.speed  = 220.0;
+	baseStats.speed  = 200.0;
 	baseStats.accel  = 1200.0;
 	baseStats.jump   = 520.0;
 	baseStats.aiming = 100.0;
@@ -40,7 +26,6 @@ void fired::Character::init(fired::Game *_game, b2World *_physWorld) {
 
 	texture->loadFromFile("data/img/chars/player.tga");
 	sprite->setTexture(*texture);
-	sprite->setOrigin(phys.size.x / 2, phys.size.y / 2);
 	texture->setSmooth(true);
 }
 
@@ -54,7 +39,13 @@ void fired::Character::deinit() {
 
 
 void fired::Character::update() {
-	phys.pos = sf::Vector2f(fromPhys(body->GetPosition().x), fromPhys(body->GetPosition().y));
+	if (isMoving) {
+		phys.velocity.x += direction * frameClock * baseStats.accel;
+		if (abs(phys.velocity.x) > baseStats.speed) phys.velocity.x = direction * baseStats.speed;
+	} else
+		phys.velocity.x = 0;
+
+	isMoving = false;
 	render();
 }
 
@@ -82,5 +73,5 @@ void fired::Character::moveRight() {
 
 
 void fired::Character::jump() {
-	if (phys.onGround) return;
+	if (phys.onGround) phys.velocity.y = -baseStats.jump;
 }

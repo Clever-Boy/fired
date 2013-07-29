@@ -2,16 +2,15 @@
 
 
 void fired::World::init(fired::Game *_game) {
-	game      = _game;
-	settings  = game->getSettings();
-	app       = game->getApp();
-	physWorld = new b2World(b2Vec2(0, 9.8));
+	game     = _game;
+	settings = game->getSettings();
+	app      = game->getApp();
 
 	game->setMusic("data/snd/themes/world.ogg");
 
-	map.init(game, &cam, physWorld);
+	map.init(game, &cam);
 	cam.init(game);
-	player.init(game, &cam, physWorld);
+	player.init(game, &cam);
 
 	cam.setTrackObj(player.getPhys());
 }
@@ -21,16 +20,14 @@ void fired::World::init(fired::Game *_game) {
 void fired::World::deinit() {
 	map.deinit();
 	player.deinit();
-
-	delete physWorld;
 }
 
 
 
 void fired::World::update() {
 	checkControls();
+	map.checkPhys(player.getPhys());
 
-	physWorld->Step(frameClock, 8, 3);
 	cam.update();
 	map.update();
 	player.update();

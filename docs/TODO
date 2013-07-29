@@ -66,12 +66,13 @@
 ║[X] – Add crosshair
 ║[X] – Add world theme
 ╠══════════════════════  Physics engine  ══════════════════════════════
-║[X] – Add box2D support
-║[X] – Add box2D classes to objects
-║[X] – Add dynamic tree for level
+║[X] – Add phys struct
+║[X] – Add tile collision test
+║[X] – Add collision offset
 ║[X] – Add physics processing
-║[ ] – Add movement
-║[ ] – Add jumping
+║[X] – Add movement
+║[X] – Add jumping
+║[ ] – Prevent tunnelong effect
 ╠══════════════════════  Animation       ══════════════════════════════
 ║[ ] – Add animation class
 ║[ ] – Add animation parts (legs, body, head)

@@ -18,11 +18,11 @@ void fired::Model::init(fired::Game *_game, fired::Character *_owner) {
 	app      = game->getApp();
 	owner    = _owner;
 
-	initPart(&sprite    , &texture    , "data/img/chars/player.tga");
+	initPart(&spriteArms, &textureArms, "data/img/chars/player.tga");
 	initPart(&spriteHair, &textureHair, "data/img/chars/hair.tga");
 	initPart(&spriteHead, &textureHead, "data/img/chars/head.tga");
 	initPart(&spriteBody, &textureBody, "data/img/chars/body.tga");
-	initPart(&spriteLegs, &textureLegs, "data/img/chars/player.tga");
+	initPart(&spriteLegs, &textureLegs, "data/img/chars/legs.tga");
 }
 
 
@@ -32,13 +32,13 @@ void fired::Model::deinit() {
 	delete spriteHead;
 	delete spriteBody;
 	delete spriteLegs;
-	delete sprite;
+	delete spriteArms;
 
 	delete textureHair;
 	delete textureHead;
 	delete textureBody;
 	delete textureLegs;
-	delete texture;
+	delete textureArms;
 }
 
 
@@ -50,9 +50,6 @@ void fired::Model::update() {
 
 
 void fired::Model::render() {
-	sprite->setPosition(owner->phys.pos);
-	game->getApp()->draw(*sprite);
-
 	spriteBody->setPosition(owner->phys.pos);
 	game->getApp()->draw(*spriteBody);
 
@@ -61,4 +58,10 @@ void fired::Model::render() {
 
 	spriteHair->setPosition(owner->phys.pos);
 	game->getApp()->draw(*spriteHair);
+
+	spriteLegs->setPosition(owner->phys.pos);
+	spriteLegs->move(5, 0);
+	game->getApp()->draw(*spriteLegs);
+	spriteLegs->move(-5, 0);
+	game->getApp()->draw(*spriteLegs);
 }

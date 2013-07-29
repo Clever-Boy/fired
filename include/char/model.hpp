@@ -18,13 +18,13 @@ namespace fired {
 		sf::Sprite   *spriteHead;
 		sf::Sprite   *spriteBody;
 		sf::Sprite   *spriteLegs;
-		sf::Sprite   *sprite;
+		sf::Sprite   *spriteArms;
 
 		sf::Texture  *textureHair;
 		sf::Texture  *textureHead;
 		sf::Texture  *textureBody;
 		sf::Texture  *textureLegs;
-		sf::Texture  *texture;
+		sf::Texture  *textureArms;
 
 
 	public:

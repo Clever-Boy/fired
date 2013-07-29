@@ -75,16 +75,19 @@
 ║[X] – Prevent tunnelong effect
 ╠══════════════════════  Animation       ══════════════════════════════
 ║[X] – Add model class
-║[X] – Add model parts (legs, body, head, hair)
+║[X] – Add model parts (legs, body, head, hair, arms)
 ║[X] – Add hair sprite
 ║[X] – Add hair rendering
 ║[X] – Add head sprite
 ║[X] – Add head rendering
 ║[X] – Add body sprite
 ║[X] – Add body rendering
-║[ ] – Add leg sprite
-║[ ] – Add leg rendering
+║[X] – Add legs sprite
+║[X] – Add legs rendering
+║[ ] – Add arms sprite
+║[ ] – Add arms rendering
 ║[ ] – Add wraping on left/right moving
+║[ ] – Use sprite offset instead the offset of the image
 ║[ ] – Add processing animation
 ║[ ] – Add walk animation
 ║[ ] – Add jump animation

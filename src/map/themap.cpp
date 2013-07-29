@@ -139,6 +139,12 @@ void checkCollision(fired::Phys *phys, int tile_x, int tile_y) {
 
 
 
+float sqr(float x) {
+	return x * x;
+}
+
+
+
 void fired::Map::checkPhys(fired::Phys *phys) {
 	int i, j;
 
@@ -149,16 +155,16 @@ void fired::Map::checkPhys(fired::Phys *phys) {
 
 	float frameLeft = frameClock;
 	float frameChunk;
+	float velocity = sqrt(sqr(phys->velocity.x + phys->acceleration.x * frameClock) + sqr(phys->velocity.y + phys->acceleration.y * frameClock));
 
-	if ((phys->velocity.x == 0) && (phys->velocity.y == 0))
+	if (velocity == 0)
 		frameChunk = frameClock;
 	else
-		frameChunk = PHYS_TUNNEL_CHUNK / (sqrt(phys->velocity.x * phys->velocity.x + phys->velocity.y * phys->velocity.y));
+		frameChunk = PHYS_TUNNEL_CHUNK / velocity;
 
 
 	while (frameLeft > 0) {
 		if (frameChunk > frameLeft) frameChunk = frameLeft;
-		frameLeft -= frameChunk;
 
 		phys->velocity += phys->acceleration * frameChunk;
 		phys->pos += phys->velocity * frameChunk;
@@ -189,5 +195,7 @@ void fired::Map::checkPhys(fired::Phys *phys) {
 			if (tiles[tiles_from.x][tiles_from.y].isSolid()) checkCollision(phys, tiles_from.x, tiles_from.y);
 			if (tiles[tiles_from.x][tiles_to.y  ].isSolid()) checkCollision(phys, tiles_from.x, tiles_to.y  );
 		}
+
+		frameLeft -= frameChunk;
 	}
 }

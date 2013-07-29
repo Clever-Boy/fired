@@ -65,7 +65,7 @@ namespace fired {
 
 		void setGameState(fired::GameState state);
 		void setMusic(const char *musicFile);
-		void switchGameState();
+		bool switchGameState();
 
 		void processHandler(fired::Handler handler);
 		void processEvents();

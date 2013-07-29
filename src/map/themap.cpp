@@ -142,21 +142,26 @@ void checkCollision(fired::Phys *phys, int tile_x, int tile_y) {
 void fired::Map::checkPhys(fired::Phys *phys) {
 	int i, j;
 
-	phys->velocity += phys->acceleration * frameClock;
+	phys->onGround = false;
 
 	if (phys->velocity.x > PHYS_MAX_FALL) phys->velocity.x = PHYS_MAX_FALL;
 	if (phys->velocity.y > PHYS_MAX_FALL) phys->velocity.y = PHYS_MAX_FALL;
 
-	if ((phys->velocity.x == 0) && (phys->velocity.y == 0)) return;
-
 	float frameLeft = frameClock;
-	float frameChunk = PHYS_TUNNEL_CHUNK / (sqrt(phys->velocity.x * phys->velocity.x + phys->velocity.y * phys->velocity.y));
+	float frameChunk;
+
+	if ((phys->velocity.x == 0) && (phys->velocity.y == 0))
+		frameChunk = frameClock;
+	else
+		frameChunk = PHYS_TUNNEL_CHUNK / (sqrt(phys->velocity.x * phys->velocity.x + phys->velocity.y * phys->velocity.y));
+
 
 	while (frameLeft > 0) {
 		if (frameChunk > frameLeft) frameChunk = frameLeft;
+		frameLeft -= frameChunk;
 
-		phys->onGround = false;
-		phys->pos += phys->velocity * frameClock;
+		phys->velocity += phys->acceleration * frameChunk;
+		phys->pos += phys->velocity * frameChunk;
 		phys->rect = sf::FloatRect(phys->pos, phys->size);
 
 		sf::Vector2i  tiles_from((int)(phys->pos.x / TILE_SIZE), (int)(phys->pos.y / TILE_SIZE));
@@ -184,7 +189,5 @@ void fired::Map::checkPhys(fired::Phys *phys) {
 			if (tiles[tiles_from.x][tiles_from.y].isSolid()) checkCollision(phys, tiles_from.x, tiles_from.y);
 			if (tiles[tiles_from.x][tiles_to.y  ].isSolid()) checkCollision(phys, tiles_from.x, tiles_to.y  );
 		}
-
-		frameLeft -= frameChunk;
 	}
 }

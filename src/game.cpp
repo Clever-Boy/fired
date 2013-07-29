@@ -50,7 +50,7 @@ void fired::Game::update() {
 	frameClock = (currentClock - lastClock) / 1000.0;
 	lastClock = currentClock;
 
-	switchGameState();
+	if (switchGameState()) return;
 	processEvents();
 	if (!focused) return;
 
@@ -120,8 +120,8 @@ void fired::Game::setGameState(fired::GameState state) {
 
 
 
-void fired::Game::switchGameState() {
-	if (gameState == gameStateNew) return;
+bool fired::Game::switchGameState() {
+	if (gameState == gameStateNew) return false;
 	musicTheme.stop();
 
 	if      (gameState == gsMainMenu)   mainMenu.deinit();
@@ -135,4 +135,6 @@ void fired::Game::switchGameState() {
 	else if (gameState == gsStartScr)   startScr.init(this);
 	else if (gameState == gsCreditsScr) creditsScr.init(this);
 	else if (gameState == gsWorld)      world.init(this);
+
+	return true;
 }

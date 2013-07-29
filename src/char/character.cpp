@@ -13,7 +13,7 @@ void fired::Character::init(fired::Game *_game) {
 	phys.rect         = sf::FloatRect(phys.pos, phys.size);
 	phys.onGround     = false;
 
-	baseStats.speed  = 200.0;
+	baseStats.speed  = 180.0;
 	baseStats.accel  = 1200.0;
 	baseStats.jump   = 520.0;
 	baseStats.aiming = 100.0;

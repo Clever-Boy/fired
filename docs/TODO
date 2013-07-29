@@ -72,7 +72,7 @@
 ║[X] – Add physics processing
 ║[X] – Add movement
 ║[X] – Add jumping
-║[ ] – Prevent tunnelong effect
+║[X] – Prevent tunnelong effect
 ╠══════════════════════  Animation       ══════════════════════════════
 ║[ ] – Add animation class
 ║[ ] – Add animation parts (legs, body, head)

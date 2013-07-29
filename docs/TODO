@@ -74,10 +74,19 @@
 ║[X] – Add jumping
 ║[X] – Prevent tunnelong effect
 ╠══════════════════════  Animation       ══════════════════════════════
-║[ ] – Add animation class
-║[ ] – Add animation parts (legs, body, head)
-║[ ] – Add animation sprite sheets
-║[ ] – Add rendering animation
+║[X] – Add model class
+║[ ] – Add model parts (legs, body, head, hair)
+║[ ] – Add hair sprite
+║[ ] – Add hair rendering
+║[ ] – Add head sprite
+║[ ] – Add head rendering
+║[ ] – Add body sprite
+║[ ] – Add body rendering
+║[ ] – Add leg sprite
+║[ ] – Add leg rendering
+║[ ] – Add processing animation
+║[ ] – Add walk animation
+║[ ] – Add jump animation
 ╠══════════════════════  Map generator   ══════════════════════════════
 ║[ ] – Add landscape generation
 ║[ ] – Add tilesets system

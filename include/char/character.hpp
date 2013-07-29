@@ -6,6 +6,7 @@
 #include "prototypes.hpp"
 #include "stats.hpp"
 #include "phys.hpp"
+#include "model.hpp"
 
 
 namespace fired {
@@ -16,11 +17,9 @@ namespace fired {
 		sf::RenderWindow *app;
 
 		fired::CharacterStats baseStats;
+		fired::Model          model;
 		int  direction;
 		bool isMoving;
-
-		sf::Sprite   *sprite;
-		sf::Texture  *texture;
 
 
 	public:

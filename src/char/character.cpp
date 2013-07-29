@@ -18,22 +18,15 @@ void fired::Character::init(fired::Game *_game) {
 	baseStats.jump   = 520.0;
 	baseStats.aiming = 100.0;
 
+	model.init(game, this);
 	isMoving  = false;
 	direction = 1;
-
-	texture = new sf::Texture();
-	sprite  = new sf::Sprite();
-
-	texture->loadFromFile("data/img/chars/player.tga");
-	sprite->setTexture(*texture);
-	texture->setSmooth(true);
 }
 
 
 
 void fired::Character::deinit() {
-	delete sprite;
-	delete texture;
+	model.deinit();
 }
 
 
@@ -45,15 +38,8 @@ void fired::Character::update() {
 	} else
 		phys.velocity.x = 0;
 
+	model.update();
 	isMoving = false;
-	render();
-}
-
-
-
-void fired::Character::render() {
-	sprite->setPosition(phys.pos);
-	game->getApp()->draw(*sprite);
 }
 
 

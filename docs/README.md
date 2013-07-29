@@ -1,6 +1,12 @@
-fired
-=====
+F.I.R.E.D.
+==============
 
+What is it?
+--------------
 2D cross-platform RPG/Shooter/Adventure game
 
-Depends on SFML v2.0 http://www.sfml-dev.org/
+
+Dependencies
+-------------
+* SFML  v2.1   http://www.sfml-dev.org/
+* Box2D v2.2.1 http://box2d.org/

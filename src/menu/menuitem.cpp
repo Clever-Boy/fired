@@ -17,7 +17,7 @@ void fired::MenuItem::init(fired::Game *_game, fired::MainMenu *_mainMenu, sf::S
 
 	text->setFont(*font);
 	text->setString(*caption);
-	text->setCharacterSize(32);
+	text->setCharacterSize(24);
 
 	textRect = text->getGlobalBounds();
 	xOffset = (sprite->getTexture()->getSize().x - textRect.width) / 2;
@@ -53,7 +53,7 @@ void fired::MenuItem::update() {
 
 void fired::MenuItem::render() {
 	sprite->setPosition(pos.x, pos.y + yOffset);
-	text->setPosition(pos.x + xOffset, pos.y + 1.5 + yOffset);
+	text->setPosition(pos.x + xOffset, pos.y + 8.5 + yOffset);
 
 	app->draw(*sprite);
 	app->draw(*text);

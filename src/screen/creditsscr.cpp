@@ -20,7 +20,7 @@ void fired::CreditsScr::init(fired::Game *_game) {
 	credits.push_back(new sf::Text);
 	credits.back()->setFont(*game->getFont());
 	credits.back()->setString(sf::String("F.I.R.E.D. v" PROJECT_VER " credits"));
-	credits.back()->setCharacterSize(96);
+	credits.back()->setCharacterSize(48);
 	credits.back()->setStyle(sf::Text::Bold);
 	credits.back()->setPosition((settings->window.width - credits.back()->getLocalBounds().width) / 2, settings->window.height);
 
@@ -38,12 +38,12 @@ void fired::CreditsScr::init(fired::Game *_game) {
 		credits.back()->setString(sf::String(line));
 
 		if (isCaption) {
-			credits.back()->setCharacterSize(72);
+			credits.back()->setCharacterSize(36);
 			credits.back()->setStyle(sf::Text::Bold);
 			credits.back()->setPosition((settings->window.width - credits.back()->getLocalBounds().width) / 2, settings->window.height + iOffset);
 			iOffset += 50;
 		} else {
-			credits.back()->setCharacterSize(48);
+			credits.back()->setCharacterSize(24);
 			credits.back()->setPosition((settings->window.width - CREDITSSCR_WIDTH) / 2, settings->window.height + iOffset);
 		}
 	}

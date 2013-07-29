@@ -24,7 +24,7 @@ void fired::Game::init() {
 	musicTheme.setLoop(true);
 	musicTheme.setVolume(settings.volume.music);
 
-	font.loadFromFile("data/fonts/advanced_pixel-7.ttf");
+	font.loadFromFile("data/fonts/batik.ttf");
 	setGameState(gsStartScr);
 	lastClock = clock.getElapsedTime().asMilliseconds();
 }

@@ -90,7 +90,7 @@
 ║[X] – Add shoe render
 ║[X] – Add fist sprite
 ║[X] – Add fist render
-║[ ] – Use sprite offset instead the offset of the image
+║[X] – Use sprite offset instead the offset of the image
 ║[ ] – Add wraping on left/right moving
 ║[ ] – Add body wrapping depending on crosshair position
 ║[ ] – Add processing animation

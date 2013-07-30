@@ -30,6 +30,17 @@ namespace fired {
 		sf::Texture  *textureShoe;
 		sf::Texture  *textureFist;
 
+		sf::Vector2f  offsetHair;
+		sf::Vector2f  offsetHead;
+		sf::Vector2f  offsetBody;
+		sf::Vector2f  offsetArms;
+		sf::Vector2f  offsetLegsB;
+		sf::Vector2f  offsetLegsF;
+		sf::Vector2f  offsetFistB;
+		sf::Vector2f  offsetFistF;
+		sf::Vector2f  offsetShoeB;
+		sf::Vector2f  offsetShoeF;
+
 
 	public:
 		void init(fired::Game *_game, fired::Character *_owner);

@@ -18,6 +18,17 @@ void fired::Model::init(fired::Game *_game, fired::Character *_owner) {
 	app      = game->getApp();
 	owner    = _owner;
 
+	offsetHair  = sf::Vector2f(11, 4 );
+	offsetHead  = sf::Vector2f(13, 9 );
+	offsetBody  = sf::Vector2f(8 , 18);
+	offsetArms  = sf::Vector2f(6 , 18);
+	offsetLegsB = sf::Vector2f(16, 36);
+	offsetLegsF = sf::Vector2f(11, 36);
+	offsetFistB = sf::Vector2f(19, 30);
+	offsetFistF = sf::Vector2f(5 , 30);
+	offsetShoeB = sf::Vector2f(16, 43);
+	offsetShoeF = sf::Vector2f(11, 43);
+
 	initPart(&spriteArms, &textureArms, "data/img/chars/arms.tga");
 	initPart(&spriteFist, &textureFist, "data/img/chars/fist.tga");
 	initPart(&spriteShoe, &textureShoe, "data/img/chars/shoe.tga");
@@ -52,35 +63,43 @@ void fired::Model::update() {
 
 
 void fired::Model::render() {
-	spriteFist->setPosition(owner->phys.pos);
-	spriteFist->move(14, 0);
+	//Back fist
+	spriteFist->setPosition(owner->phys.pos + offsetFistB);
 	game->getApp()->draw(*spriteFist);
 
-	spriteBody->setPosition(owner->phys.pos);
+	//Body
+	spriteBody->setPosition(owner->phys.pos + offsetBody);
 	game->getApp()->draw(*spriteBody);
 
-	spriteHead->setPosition(owner->phys.pos);
+	//Head
+	spriteHead->setPosition(owner->phys.pos + offsetHead);
 	game->getApp()->draw(*spriteHead);
 
-	spriteHair->setPosition(owner->phys.pos);
+	//Hair
+	spriteHair->setPosition(owner->phys.pos + offsetHair);
 	game->getApp()->draw(*spriteHair);
 
-	spriteLegs->setPosition(owner->phys.pos);
-	spriteLegs->move(5, 0);
-	game->getApp()->draw(*spriteLegs);
-	spriteLegs->move(-5, 0);
+	//Back leg
+	spriteLegs->setPosition(owner->phys.pos + offsetLegsB);
 	game->getApp()->draw(*spriteLegs);
 
-	spriteShoe->setPosition(owner->phys.pos);
-	spriteShoe->move(5, 0);
+	//Back shoe
+	spriteShoe->setPosition(owner->phys.pos + offsetShoeB);
 	game->getApp()->draw(*spriteShoe);
 
-	spriteShoe->setPosition(owner->phys.pos);
+	//Front leg
+	spriteLegs->setPosition(owner->phys.pos + offsetLegsF);
+	game->getApp()->draw(*spriteLegs);
+
+	//Front shoe
+	spriteShoe->setPosition(owner->phys.pos + offsetShoeF);
 	game->getApp()->draw(*spriteShoe);
 
-	spriteArms->setPosition(owner->phys.pos);
+	//Arm
+	spriteArms->setPosition(owner->phys.pos + offsetArms);
 	game->getApp()->draw(*spriteArms);
 
-	spriteFist->setPosition(owner->phys.pos);
+	//Front fist
+	spriteFist->setPosition(owner->phys.pos + offsetFistF);
 	game->getApp()->draw(*spriteFist);
 }

@@ -1,5 +1,7 @@
 #include "game.hpp"
 
+//======================================================================
+
 
 void fired::Mouse::init(fired::Game *_game) {
 	game     = _game;
@@ -14,6 +16,7 @@ void fired::Mouse::init(fired::Game *_game) {
 	mouseTex->setSmooth(true);
 }
 
+//======================================================================
 
 
 void fired::Mouse::deinit() {
@@ -21,12 +24,14 @@ void fired::Mouse::deinit() {
 	delete mouseCur;
 }
 
+//======================================================================
 
 
 void fired::Mouse::processEvent(sf::Event event) {
 	return;
 }
 
+//======================================================================
 
 
 void fired::Mouse::update() {
@@ -34,6 +39,7 @@ void fired::Mouse::update() {
 	render();
 }
 
+//======================================================================
 
 
 void fired::Mouse::render() {

@@ -2,6 +2,8 @@
 #include <fstream>
 #include <string>
 
+//======================================================================
+
 
 void fired::CreditsScr::init(fired::Game *_game) {
 	std::string line;
@@ -51,6 +53,7 @@ void fired::CreditsScr::init(fired::Game *_game) {
 	creditsFile.close();
 }
 
+//======================================================================
 
 
 void fired::CreditsScr::deinit() {
@@ -58,6 +61,7 @@ void fired::CreditsScr::deinit() {
 	credits.clear();
 }
 
+//======================================================================
 
 
 void fired::CreditsScr::update() {
@@ -70,12 +74,14 @@ void fired::CreditsScr::update() {
 	render();
 }
 
+//======================================================================
 
 
 void fired::CreditsScr::render() {
 	for (int i = 0; i < credits.size(); i++) app->draw(*credits[i]);
 }
 
+//======================================================================
 
 
 void fired::CreditsScr::processEvent(sf::Event event) {

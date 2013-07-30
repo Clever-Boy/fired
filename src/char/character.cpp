@@ -1,5 +1,7 @@
 #include "game.hpp"
 
+//======================================================================
+
 
 void fired::Character::init(fired::Game *_game) {
 	game     = _game;
@@ -25,12 +27,14 @@ void fired::Character::init(fired::Game *_game) {
 	watching  = 1;
 }
 
+//======================================================================
 
 
 void fired::Character::deinit() {
 	model.deinit();
 }
 
+//======================================================================
 
 
 void fired::Character::update() {
@@ -44,6 +48,7 @@ void fired::Character::update() {
 	isMoving = false;
 }
 
+//======================================================================
 
 
 void fired::Character::moveLeft() {
@@ -51,6 +56,7 @@ void fired::Character::moveLeft() {
 	isMoving  = true;
 }
 
+//======================================================================
 
 
 void fired::Character::moveRight() {
@@ -58,6 +64,7 @@ void fired::Character::moveRight() {
 	isMoving  = true;
 }
 
+//======================================================================
 
 
 void fired::Character::jump() {

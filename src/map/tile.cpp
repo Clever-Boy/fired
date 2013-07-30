@@ -1,5 +1,7 @@
 #include "game.hpp"
 
+//======================================================================
+
 
 void fired::Tile::init(fired::Tileset *_tileset, int x, int y) {
 	tileset = _tileset;
@@ -7,12 +9,14 @@ void fired::Tile::init(fired::Tileset *_tileset, int x, int y) {
 	tile    = random() % 4;
 }
 
+//======================================================================
 
 
 void fired::Tile::deinit() {
 	return;
 }
 
+//======================================================================
 
 
 void fired::Tile::render(sf::RenderWindow *app) {

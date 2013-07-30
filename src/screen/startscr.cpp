@@ -1,5 +1,7 @@
 #include "game.hpp"
 
+//======================================================================
+
 
 void fired::StartScr::init(fired::Game *_game) {
 	game       = _game;
@@ -22,12 +24,14 @@ void fired::StartScr::init(fired::Game *_game) {
 	}
 }
 
+//======================================================================
 
 
 void fired::StartScr::deinit() {
 	for (int i = 0; i < textures.size(); delete sprites[i], delete textures[i], i++);
 }
 
+//======================================================================
 
 
 void fired::StartScr::update() {
@@ -49,12 +53,14 @@ void fired::StartScr::update() {
 	render();
 }
 
+//======================================================================
 
 
 void fired::StartScr::render() {
 	app->draw(*sprites[index]);
 }
 
+//======================================================================
 
 
 void fired::StartScr::processEvent(sf::Event event) {

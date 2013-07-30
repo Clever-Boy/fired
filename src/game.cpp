@@ -1,5 +1,7 @@
 #include "game.hpp"
 
+//======================================================================
+
 
 void fired::Game::init() {
 	settings.init();
@@ -29,6 +31,7 @@ void fired::Game::init() {
 	lastClock = clock.getElapsedTime().asMilliseconds();
 }
 
+//======================================================================
 
 
 void fired::Game::deinit() {
@@ -41,6 +44,7 @@ void fired::Game::deinit() {
 	else if (gameState == gsWorld)      world.deinit();
 }
 
+//======================================================================
 
 
 void fired::Game::update() {
@@ -65,12 +69,14 @@ void fired::Game::update() {
 	app.display();
 }
 
+//======================================================================
 
 
 void fired::Game::processHandler(fired::Handler handler) {
 	(handlers.*handler)();
 }
 
+//======================================================================
 
 
 void fired::Game::processEvents() {
@@ -80,6 +86,7 @@ void fired::Game::processEvents() {
 	if (!app.isOpen()) running = false;
 }
 
+//======================================================================
 
 
 void fired::Game::processEvent(sf::Event event) {
@@ -104,6 +111,7 @@ void fired::Game::processEvent(sf::Event event) {
 	}
 }
 
+//======================================================================
 
 
 void fired::Game::setMusic(const char *musicFile) {
@@ -112,12 +120,14 @@ void fired::Game::setMusic(const char *musicFile) {
 	musicTheme.play();
 }
 
+//======================================================================
 
 
 void fired::Game::setGameState(fired::GameState state) {
 	gameStateNew = state;
 }
 
+//======================================================================
 
 
 bool fired::Game::switchGameState() {

@@ -1,5 +1,7 @@
 #include "game.hpp"
 
+//======================================================================
+
 
 void fired::MenuItem::init(fired::Game *_game, fired::MainMenu *_mainMenu, sf::Sprite *_sprite, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc) {
 	sf::FloatRect textRect;
@@ -23,6 +25,7 @@ void fired::MenuItem::init(fired::Game *_game, fired::MainMenu *_mainMenu, sf::S
 	xOffset = (sprite->getTexture()->getSize().x - textRect.width) / 2;
 }
 
+//======================================================================
 
 
 void fired::MenuItem::deinit() {
@@ -30,12 +33,14 @@ void fired::MenuItem::deinit() {
 	delete text;
 }
 
+//======================================================================
 
 
 void fired::MenuItem::addToParent() {
 	if (parent) parent->addSubMenu(this);
 }
 
+//======================================================================
 
 
 void fired::MenuItem::addSubMenu(fired::MenuItem *subMenuItem) {
@@ -43,12 +48,14 @@ void fired::MenuItem::addSubMenu(fired::MenuItem *subMenuItem) {
 	subMenuItem->pos = sf::Vector2f(MENU_X_OFFSET, MENU_Y_OFFSET + MENU_Y_DIFF * subMenu.size());
 }
 
+//======================================================================
 
 
 void fired::MenuItem::update() {
 	render();
 }
 
+//======================================================================
 
 
 void fired::MenuItem::render() {
@@ -59,6 +66,7 @@ void fired::MenuItem::render() {
 	app->draw(*text);
 }
 
+//======================================================================
 
 
 void fired::MenuItem::click() {

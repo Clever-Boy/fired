@@ -1,5 +1,7 @@
 #include "game.hpp"
 
+//======================================================================
+
 
 void fired::MainMenu::init(fired::Game *_game, fired::Mouse *_mouse) {
 	game     = _game;
@@ -49,6 +51,7 @@ void fired::MainMenu::init(fired::Game *_game, fired::Mouse *_mouse) {
 	updateSettings();
 }
 
+//======================================================================
 
 
 void fired::MainMenu::deinit() {
@@ -69,6 +72,7 @@ void fired::MainMenu::deinit() {
 	delete menuCaption;
 }
 
+//======================================================================
 
 
 void fired::MainMenu::update() {
@@ -82,6 +86,7 @@ void fired::MainMenu::update() {
 	mouse->update();
 }
 
+//======================================================================
 
 
 void fired::MainMenu::render() {
@@ -91,12 +96,14 @@ void fired::MainMenu::render() {
 	app->draw(*menuCaption);
 }
 
+//======================================================================
 
 
 void fired::MainMenu::processEvent(sf::Event event) {
 	if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) click(sf::Mouse::getPosition(*app));
 }
 
+//======================================================================
 
 
 void fired::MainMenu::click(sf::Vector2i pos) {
@@ -109,12 +116,14 @@ void fired::MainMenu::click(sf::Vector2i pos) {
 		}
 }
 
+//======================================================================
 
 
 void fired::MainMenu::updateSettings() {
 	clickSound->setVolume(settings->volume.sound);
 }
 
+//======================================================================
 
 
 void fired::MainMenu::setNextMenu(fired::MenuItem *menuItem) {
@@ -122,6 +131,7 @@ void fired::MainMenu::setNextMenu(fired::MenuItem *menuItem) {
 	initAnimation(atDown);
 }
 
+//======================================================================
 
 
 void fired::MainMenu::switchMenu(fired::MenuItem *menuItem) {
@@ -131,6 +141,7 @@ void fired::MainMenu::switchMenu(fired::MenuItem *menuItem) {
 	initAnimation(atUp);
 }
 
+//======================================================================
 
 
 void fired::MainMenu::initAnimation(fired::MenuAnimationType animType) {
@@ -160,6 +171,7 @@ void fired::MainMenu::initAnimation(fired::MenuAnimationType animType) {
 	}
 }
 
+//======================================================================
 
 
 void fired::MainMenu::processAnimation() {
@@ -195,6 +207,7 @@ void fired::MainMenu::processAnimation() {
 	}
 }
 
+//======================================================================
 
 
 void fired::MainMenu::menuItemAdd(const char *_caption, fired::MenuItem *_parent, fired::MenuItemType itemType = itSubmenu, fired::Handler handlerFunc = NULL) {
@@ -202,6 +215,7 @@ void fired::MainMenu::menuItemAdd(const char *_caption, fired::MenuItem *_parent
 	menuItems.back()->init(game, this, menuItemSprite, _caption, _parent, itemType, handlerFunc);
 }
 
+//======================================================================
 
 
 void fired::MainMenu::fillMenuBack() {
@@ -211,6 +225,7 @@ void fired::MainMenu::fillMenuBack() {
 			menuItemAdd("Back", menuItems[i], itBack);
 }
 
+//======================================================================
 
 
 void fired::MainMenu::fillMenu() {

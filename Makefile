@@ -22,7 +22,7 @@ export CFLAGS=-I$(INCLUDE_DIR) -DPROJECT_NAME="\"$(PROJECT_NAME)\"" -DPROJECT_VE
 
 
 
-all: src
+all: clean src
 	$(MAKESRC) -C src
 	cp -f src/$(PROJECT_NAME) ./
 

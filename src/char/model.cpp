@@ -1,5 +1,7 @@
 #include "game.hpp"
 
+//======================================================================
+
 
 void fired::Model::init(fired::Game *_game, fired::Character *_owner) {
 	game     = _game;
@@ -38,6 +40,7 @@ void fired::Model::init(fired::Game *_game, fired::Character *_owner) {
 	armsFrame = 0;
 }
 
+//======================================================================
 
 
 void fired::Model::deinit() {
@@ -45,6 +48,7 @@ void fired::Model::deinit() {
 	bodyParts.clear();
 }
 
+//======================================================================
 
 
 void fired::Model::update() {
@@ -54,12 +58,14 @@ void fired::Model::update() {
 	render();
 }
 
+//======================================================================
 
 
 void fired::Model::render() {
 	for (int i = 0; i < bodyParts.size(); i++) drawPart(bodyParts[i]);
 }
 
+//======================================================================
 
 
 void fired::Model::initPart(fired::Bodypart *part, sf::Vector2f offset, const char *imgFile, int *direction) {
@@ -75,6 +81,7 @@ void fired::Model::initPart(fired::Bodypart *part, sf::Vector2f offset, const ch
 	part->texture->setSmooth(true);
 }
 
+//======================================================================
 
 
 void fired::Model::drawPart(fired::Bodypart *part) {
@@ -84,11 +91,12 @@ void fired::Model::drawPart(fired::Bodypart *part) {
 	if (*part->direction == 1)
 		part->sprite->setPosition(owner->phys.pos + part->offset + part->animOffset);
 	else
-		part->sprite->setPosition(owner->phys.pos + sf::Vector2f(-part->offset.x, part->offset.y)  + sf::Vector2f(-part->animOffset.x, part->animOffset.y) + sf::Vector2f(owner->phys.size.x, 0));
+		part->sprite->setPosition(owner->phys.pos + sf::Vector2f(-part->offset.x, part->offset.y) + sf::Vector2f(-part->animOffset.x, part->animOffset.y) + sf::Vector2f(owner->phys.size.x, 0));
 
 	app->draw(*part->sprite);
 }
 
+//======================================================================
 
 
 void fired::Model::deinitPart(fired::Bodypart *part) {
@@ -103,6 +111,7 @@ void fired::Model::resetPart(fired::Bodypart *part) {
 	part->animRotation = 0;;
 }
 
+//======================================================================
 
 
 void fired::Model::resetAnimation() {
@@ -110,6 +119,7 @@ void fired::Model::resetAnimation() {
 	for (int i = 0; i < bodyParts.size(); i++) resetPart(bodyParts[i]);
 }
 
+//======================================================================
 
 
 void fired::Model::processAnimation() {
@@ -117,6 +127,7 @@ void fired::Model::processAnimation() {
 	processArmsAnimation();
 }
 
+//======================================================================
 
 
 void fired::Model::processBodyAnimation() {
@@ -140,6 +151,7 @@ void fired::Model::processBodyAnimation() {
 	}
 }
 
+//======================================================================
 
 
 void fired::Model::processArmsAnimation() {

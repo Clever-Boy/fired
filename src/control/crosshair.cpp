@@ -1,6 +1,8 @@
 #include "game.hpp"
 #include <math.h>
 
+//======================================================================
+
 
 void fired::Crosshair::init(fired::Game *_game, fired::Camera *_cam) {
 	game     = _game;
@@ -17,6 +19,7 @@ void fired::Crosshair::init(fired::Game *_game, fired::Camera *_cam) {
 	crosshairCur->setOrigin(crosshairTex->getSize().x / 2, crosshairTex->getSize().y / 2);
 }
 
+//======================================================================
 
 
 void fired::Crosshair::deinit() {
@@ -24,6 +27,7 @@ void fired::Crosshair::deinit() {
 	delete crosshairCur;
 }
 
+//======================================================================
 
 
 void fired::Crosshair::update(float distance) {
@@ -39,6 +43,7 @@ void fired::Crosshair::update(float distance) {
 	render();
 }
 
+//======================================================================
 
 
 void fired::Crosshair::render() {
@@ -46,12 +51,14 @@ void fired::Crosshair::render() {
 	app->draw(*crosshairCur);
 }
 
+//======================================================================
 
 
 void fired::Crosshair::processEvent(sf::Event event) {
 	return;
 }
 
+//======================================================================
 
 
 float fired::Crosshair::getAngle() {

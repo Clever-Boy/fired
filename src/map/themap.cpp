@@ -1,5 +1,7 @@
 #include "game.hpp"
 
+//======================================================================
+
 
 void fired::Map::init(fired::Game *_game, fired::Camera *_cam) {
 	game     = _game;
@@ -73,12 +75,14 @@ void fired::Map::init(fired::Game *_game, fired::Camera *_cam) {
 	for (int i = 195; i < 200; i++) tiles[i][152].init(&tileset, i, 152);
 }
 
+//======================================================================
 
 
 void fired::Map::deinit() {
 	tileset.deinit();
 }
 
+//======================================================================
 
 
 void fired::Map::update() {
@@ -90,6 +94,7 @@ void fired::Map::update() {
 	render();
 }
 
+//======================================================================
 
 
 void fired::Map::render() {
@@ -108,6 +113,7 @@ void fired::Map::render() {
 			tiles[i][j].render(app);
 }
 
+//======================================================================
 
 
 void checkCollision(fired::Phys *phys, int tile_x, int tile_y) {
@@ -137,12 +143,14 @@ void checkCollision(fired::Phys *phys, int tile_x, int tile_y) {
 	}
 }
 
+//======================================================================
 
 
 float sqr(float x) {
 	return x * x;
 }
 
+//======================================================================
 
 
 void fired::Map::checkPhys(fired::Phys *phys) {

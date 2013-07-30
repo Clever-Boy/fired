@@ -1,5 +1,7 @@
 #include "game.hpp"
 
+//======================================================================
+
 
 void fired::Player::init(fired::Game *_game, fired::Camera *_cam) {
 	game     = _game;
@@ -10,6 +12,7 @@ void fired::Player::init(fired::Game *_game, fired::Camera *_cam) {
 	crosshair.init(_game, _cam);
 }
 
+//======================================================================
 
 
 void fired::Player::deinit() {
@@ -17,6 +20,7 @@ void fired::Player::deinit() {
 	crosshair.deinit();
 }
 
+//======================================================================
 
 
 void fired::Player::update() {
@@ -27,6 +31,7 @@ void fired::Player::update() {
 	else                               character.setWatching( 1);
 }
 
+//======================================================================
 
 
 void fired::Player::checkControls() {

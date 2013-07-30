@@ -1,5 +1,7 @@
 #include "game.hpp"
 
+//======================================================================
+
 
 void fired::Camera::init(fired::Game *_game) {
 	game     = _game;
@@ -10,6 +12,7 @@ void fired::Camera::init(fired::Game *_game) {
 	view.reset(viewport);
 }
 
+//======================================================================
 
 
 void fired::Camera::update() {

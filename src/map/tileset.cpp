@@ -1,5 +1,7 @@
 #include "game.hpp"
 
+//======================================================================
+
 
 void fired::Tileset::init(const char *textureFile) {
 	sf::Image *image = new sf::Image();
@@ -19,6 +21,7 @@ void fired::Tileset::init(const char *textureFile) {
 		}
 }
 
+//======================================================================
 
 
 void fired::Tileset::deinit() {

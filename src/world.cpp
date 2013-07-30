@@ -1,5 +1,7 @@
 #include "game.hpp"
 
+//======================================================================
+
 
 void fired::World::init(fired::Game *_game) {
 	game     = _game;
@@ -15,6 +17,7 @@ void fired::World::init(fired::Game *_game) {
 	cam.setTrackObj(player.getPhys());
 }
 
+//======================================================================
 
 
 void fired::World::deinit() {
@@ -22,6 +25,7 @@ void fired::World::deinit() {
 	player.deinit();
 }
 
+//======================================================================
 
 
 void fired::World::update() {
@@ -33,6 +37,7 @@ void fired::World::update() {
 	player.update();
 }
 
+//======================================================================
 
 
 void fired::World::checkControls() {
@@ -40,6 +45,7 @@ void fired::World::checkControls() {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) game->stop();
 }
 
+//======================================================================
 
 
 void fired::World::processEvent(sf::Event event) {

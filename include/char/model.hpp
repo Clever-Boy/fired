@@ -42,6 +42,7 @@ namespace fired {
 
 		std::vector<fired::Bodypart*> bodyParts;
 
+
 	public:
 		void init(fired::Game *_game, fired::Character *_owner);
 		void deinit();

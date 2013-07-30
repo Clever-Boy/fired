@@ -11,6 +11,9 @@
 
 namespace fired {
 	class Character {
+		friend class Model;
+
+
 	private:
 		fired::Game      *game;
 		fired::Settings  *settings;

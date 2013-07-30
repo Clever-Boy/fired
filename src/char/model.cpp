@@ -1,17 +1,6 @@
 #include "game.hpp"
 
 
-void initPart(sf::Sprite **spr, sf::Texture **tex, const char *imgFile) {
-	*tex = new sf::Texture();
-	*spr = new sf::Sprite();
-
-	(*tex)->loadFromFile(imgFile);
-	(*spr)->setTexture(**tex);
-	(*tex)->setSmooth(true);
-}
-
-
-
 void fired::Model::init(fired::Game *_game, fired::Character *_owner) {
 	game     = _game;
 	settings = game->getSettings();
@@ -46,60 +35,65 @@ void fired::Model::deinit() {
 	delete spriteBody;
 	delete spriteLegs;
 	delete spriteArms;
+	delete spriteShoe;
+	delete spriteFist;
 
 	delete textureHair;
 	delete textureHead;
 	delete textureBody;
 	delete textureLegs;
 	delete textureArms;
+	delete textureShoe;
+	delete textureFist;
 }
 
 
 
 void fired::Model::update() {
+	spriteArms->setScale(owner->direction, 1);
+	spriteHead->setScale(owner->direction, 1);
+	spriteHair->setScale(owner->direction, 1);
+	spriteBody->setScale(owner->direction, 1);
+	spriteLegs->setScale(owner->direction, 1);
+	spriteFist->setScale(owner->direction, 1);
+	spriteShoe->setScale(owner->direction, 1);
+
 	render();
 }
 
 
 
 void fired::Model::render() {
-	//Back fist
-	spriteFist->setPosition(owner->phys.pos + offsetFistB);
-	game->getApp()->draw(*spriteFist);
+	drawPart(spriteFist, offsetFistB);
+	drawPart(spriteBody, offsetBody );
+	drawPart(spriteHead, offsetHead );
+	drawPart(spriteHair, offsetHair );
+	drawPart(spriteLegs, offsetLegsB);
+	drawPart(spriteShoe, offsetShoeB);
+	drawPart(spriteLegs, offsetLegsF);
+	drawPart(spriteShoe, offsetShoeF);
+	drawPart(spriteArms, offsetArms );
+	drawPart(spriteFist, offsetFistF);
+}
 
-	//Body
-	spriteBody->setPosition(owner->phys.pos + offsetBody);
-	game->getApp()->draw(*spriteBody);
 
-	//Head
-	spriteHead->setPosition(owner->phys.pos + offsetHead);
-	game->getApp()->draw(*spriteHead);
 
-	//Hair
-	spriteHair->setPosition(owner->phys.pos + offsetHair);
-	game->getApp()->draw(*spriteHair);
+void fired::Model::initPart(sf::Sprite **spr, sf::Texture **tex, const char *imgFile) {
+	*tex = new sf::Texture();
+	*spr = new sf::Sprite();
 
-	//Back leg
-	spriteLegs->setPosition(owner->phys.pos + offsetLegsB);
-	game->getApp()->draw(*spriteLegs);
+	(*tex)->loadFromFile(imgFile);
+	(*spr)->setTexture(**tex);
+	(*tex)->setSmooth(true);
+}
 
-	//Back shoe
-	spriteShoe->setPosition(owner->phys.pos + offsetShoeB);
-	game->getApp()->draw(*spriteShoe);
 
-	//Front leg
-	spriteLegs->setPosition(owner->phys.pos + offsetLegsF);
-	game->getApp()->draw(*spriteLegs);
 
-	//Front shoe
-	spriteShoe->setPosition(owner->phys.pos + offsetShoeF);
-	game->getApp()->draw(*spriteShoe);
+void fired::Model::drawPart(sf::Sprite *spr, sf::Vector2f offset) {
+	if (owner->direction == 1) 
+		spr->setPosition(owner->phys.pos + offset);
+	else
+		spr->setPosition(owner->phys.pos + sf::Vector2f(-offset.x, offset.y) + sf::Vector2f(owner->phys.size.x, 0));
 
-	//Arm
-	spriteArms->setPosition(owner->phys.pos + offsetArms);
-	game->getApp()->draw(*spriteArms);
-
-	//Front fist
-	spriteFist->setPosition(owner->phys.pos + offsetFistF);
-	game->getApp()->draw(*spriteFist);
+	app->draw(*spr);
 }

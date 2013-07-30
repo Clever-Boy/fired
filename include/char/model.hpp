@@ -47,6 +47,9 @@ namespace fired {
 		void deinit();
 		void update();
 		void render();
+
+		void initPart(sf::Sprite **spr, sf::Texture **tex, const char *imgFile);
+		void drawPart(sf::Sprite *spr, sf::Vector2f offset);
 	};
 }
 

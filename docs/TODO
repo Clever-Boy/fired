@@ -91,7 +91,8 @@
 ║[X] – Add fist sprite
 ║[X] – Add fist render
 ║[X] – Use sprite offset instead the offset of the image
-║[ ] – Add wraping on left/right moving
+║[X] – Add flipping on left/right moving
+║[ ] – Add structure to define bodyPart
 ║[ ] – Add body wrapping depending on crosshair position
 ║[ ] – Add processing animation
 ║[ ] – Add walk animation

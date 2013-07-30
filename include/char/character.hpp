@@ -23,7 +23,6 @@ namespace fired {
 		fired::Model          model;
 		int  direction;
 		int  watching;
-		bool isMoving;
 
 
 	public:

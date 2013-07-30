@@ -123,19 +123,21 @@ void checkCollision(fired::Phys *phys, int tile_x, int tile_y) {
 		if (intersection.width > intersection.height) {
 			if (phys->pos.y < tile_y * TILE_SIZE) {
 				phys->pos.y -= intersection.height;
-				if (phys->velocity.y > 0) phys->velocity.y = 0;
+				if (phys->velocity.y > 0.0) phys->velocity.y = 0.0;
 				phys->onGround = true;
 			} else {
 				phys->pos.y += intersection.height;
-				if (phys->velocity.y < 0) phys->velocity.y = 0;
+				if (phys->velocity.y < 0.0) phys->velocity.y = 0.0;
 			}
 		} else {
 			if (phys->pos.x < tile_x * TILE_SIZE) {
 				phys->pos.x -= intersection.width;
-				if (phys->velocity.x > 0) phys->velocity.x = 0;
+				if (phys->velocity.x > 0.0) phys->velocity.x = 0.0;
+				phys->isMoving = false;
 			} else {
 				phys->pos.x += intersection.width;
-				if (phys->velocity.x < 0) phys->velocity.x = 0;
+				if (phys->velocity.x < 0.0) phys->velocity.x = 0.0;
+				phys->isMoving = false;
 			}
 		}
 
@@ -158,13 +160,13 @@ void fired::Map::checkPhys(fired::Phys *phys) {
 	float frameChunk;
 	float velocity = sqrt(sqr(phys->velocity.x + phys->acceleration.x * frameClock) + sqr(phys->velocity.y + phys->acceleration.y * frameClock));
 
-	if (velocity == 0)
+	if (velocity == 0.0)
 		frameChunk = frameClock;
 	else
 		frameChunk = PHYS_TUNNEL_CHUNK / velocity;
 
 
-	while (frameLeft > 0) {
+	while (frameLeft > 0.0) {
 		if (frameChunk > frameLeft) frameChunk = frameLeft;
 
 		phys->velocity += phys->acceleration * frameChunk;

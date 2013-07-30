@@ -14,6 +14,7 @@ void fired::Character::init(fired::Game *_game) {
 	phys.size         = sf::Vector2f(32, 48);
 	phys.rect         = sf::FloatRect(phys.pos, phys.size);
 	phys.onGround     = false;
+	phys.isMoving     = false;
 
 	baseStats.speed  = 180.0;
 	baseStats.accel  = 1200.0;
@@ -22,7 +23,6 @@ void fired::Character::init(fired::Game *_game) {
 
 	model.init(game, this);
 
-	isMoving  = false;
 	direction = 1;
 	watching  = 1;
 }
@@ -38,14 +38,14 @@ void fired::Character::deinit() {
 
 
 void fired::Character::update() {
-	if (isMoving) {
+	if (phys.isMoving) {
 		phys.velocity.x += direction * frameClock * baseStats.accel;
 		if (abs(phys.velocity.x) > baseStats.speed) phys.velocity.x = direction * baseStats.speed;
 	} else
-		phys.velocity.x = 0;
+		phys.velocity.x = 0.0;
 
 	model.update();
-	isMoving = false;
+	phys.isMoving = false;
 }
 
 //======================================================================
@@ -53,7 +53,7 @@ void fired::Character::update() {
 
 void fired::Character::moveLeft() {
 	direction = -1;
-	isMoving  = true;
+	phys.isMoving  = true;
 }
 
 //======================================================================
@@ -61,7 +61,7 @@ void fired::Character::moveLeft() {
 
 void fired::Character::moveRight() {
 	direction = 1;
-	isMoving  = true;
+	phys.isMoving  = true;
 }
 
 //======================================================================

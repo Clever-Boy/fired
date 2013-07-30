@@ -36,8 +36,8 @@ void fired::Model::init(fired::Game *_game, fired::Character *_owner) {
 	bodyAnimation = caNone;
 	armsAnimation = caNone;
 
-	bodyFrame = 0;
-	armsFrame = 0;
+	bodyAnimationTime = 0;
+	armsAnimationTime = 0;
 }
 
 //======================================================================
@@ -53,7 +53,7 @@ void fired::Model::deinit() {
 
 void fired::Model::update() {
 	bodyAnimation = caNone;
-	if (owner->isMoving)       bodyAnimation = caMoving;
+	if (owner->phys.isMoving)       bodyAnimation = caMoving;
 	if (!owner->phys.onGround) bodyAnimation = caJumping;
 
 	processAnimation();
@@ -75,8 +75,8 @@ void fired::Model::initPart(fired::Bodypart *part, sf::Vector2f offset, const ch
 	part->sprite       = new sf::Sprite();
 	part->offset       = offset;
 	part->direction    = direction;
-	part->animOffset   = sf::Vector2f(0, 0);
-	part->animRotation = 0;
+	part->animOffset   = sf::Vector2f(0.0, 0.0);
+	part->animRotation = 0.0;
 
 	part->texture->loadFromFile(imgFile);
 	part->sprite->setTexture(*part->texture);
@@ -87,7 +87,7 @@ void fired::Model::initPart(fired::Bodypart *part, sf::Vector2f offset, const ch
 
 
 void fired::Model::drawPart(fired::Bodypart *part) {
-	part->sprite->setScale(*part->direction, 1);
+	part->sprite->setScale(*part->direction, 1.0);
 	part->sprite->setRotation(*part->direction * part->animRotation);
 
 	if (*part->direction == 1)
@@ -136,31 +136,31 @@ void fired::Model::processAnimation() {
 void fired::Model::processBodyAnimation() {
 	switch (bodyAnimation) {
 		case caNone:
-			bodyFrame = 0;
+			bodyAnimationTime = 0.0;
 			break;
 
 		case caMoving:
 			bodyAnimationTime += frameClock * abs(owner->phys.velocity.x);
 			bodyFrame          = (int)(bodyAnimationTime / 5) % 14;
 
-			partLegsF.animOffset = sf::Vector2f(cos(0.449 * bodyFrame) * 2 + 2, 0);
-			partShoeF.animOffset = sf::Vector2f(cos(0.449 * bodyFrame) * 3 + 2, lessOrZero(sin(0.449 * bodyFrame) * 3));
+			partLegsF.animOffset = sf::Vector2f(cos(0.449 * bodyFrame) * 2.0 + 2.0, 0.0);
+			partShoeF.animOffset = sf::Vector2f(cos(0.449 * bodyFrame) * 3.0 + 2.0, lessOrZero(sin(0.449 * bodyFrame) * 3.0));
 
-			partLegsB.animOffset = sf::Vector2f(cos(0.449 * (bodyFrame - 7)) * 2 - 2, 0);
-			partShoeB.animOffset = sf::Vector2f(cos(0.449 * (bodyFrame - 7)) * 3 - 2, lessOrZero(sin(0.449 * (bodyFrame - 7)) * 3));
+			partLegsB.animOffset = sf::Vector2f(cos(0.449 * (bodyFrame - 7)) * 2.0 - 2.0, 0.0);
+			partShoeB.animOffset = sf::Vector2f(cos(0.449 * (bodyFrame - 7)) * 3.0 - 2.0, lessOrZero(sin(0.449 * (bodyFrame - 7)) * 3.0));
 			break;
 
 		case caJumping:
-			bodyFrame = 0;
+			bodyAnimationTime = 0.0;
 
-			partLegsF.animRotation =  20;
-			partLegsB.animRotation = -20;
+			partLegsF.animRotation =  20.0;
+			partLegsB.animRotation = -20.0;
 
-			partLegsF.animOffset = sf::Vector2f(0, -2);
-			partLegsB.animOffset = sf::Vector2f(0,  2);
+			partLegsF.animOffset = sf::Vector2f( 0.0, -2.0);
+			partLegsB.animOffset = sf::Vector2f( 0.0,  2.0);
 
-			partShoeF.animOffset = sf::Vector2f(-3, -2);
-			partShoeB.animOffset = sf::Vector2f( 3, -2);
+			partShoeF.animOffset = sf::Vector2f(-3.0, -2.0);
+			partShoeB.animOffset = sf::Vector2f( 3.0, -2.0);
 			break;
 	}
 }
@@ -173,19 +173,21 @@ void fired::Model::processArmsAnimation() {
 		case caNone:
 			switch (bodyAnimation) {
 				case caJumping:
-					partFistF.animOffset = sf::Vector2f(5, 3);
-					partFistB.animOffset = sf::Vector2f(5, 3);
+					partFistF.animOffset = sf::Vector2f(5.0, 3.0);
+					partFistB.animOffset = sf::Vector2f(5.0, 3.0);
 
-					partFistF.animRotation = -90;
-					partFistB.animRotation = -90;
+					partFistF.animRotation = -90.0;
+					partFistB.animRotation = -90.0;
 					break;
 
 				case caMoving:
-					partFistF.animOffset = sf::Vector2f(5, 3);
-					partFistB.animOffset = sf::Vector2f(5, 3);
+					partArms.animRotation = -cos(0.449 * (bodyFrame - 7)) * 7.0;
 
-					partFistF.animRotation = -90;
-					partFistB.animRotation = -90;
+					partFistF.animOffset = sf::Vector2f(5.0 + cos(0.449 * (bodyFrame - 7)), 4.0);
+					partFistB.animOffset = sf::Vector2f(5.0 - cos(0.449 * (bodyFrame - 7)), 4.0);
+
+					partFistF.animRotation = -90.0;
+					partFistB.animRotation = -90.0;
 					break;
 			}
 			break;

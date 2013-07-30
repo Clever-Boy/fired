@@ -26,12 +26,6 @@ void fired::Crosshair::deinit() {
 
 
 
-void fired::Crosshair::processEvent(sf::Event event) {
-	return;
-}
-
-
-
 void fired::Crosshair::update(float distance) {
 	sf::Vector2f center(settings->window.width / 2, settings->window.height / 2);
 	pos = sf::Vector2f(sf::Mouse::getPosition(*app));
@@ -50,4 +44,16 @@ void fired::Crosshair::update(float distance) {
 void fired::Crosshair::render() {
 	crosshairCur->setPosition(pos + cam->getOffset());
 	app->draw(*crosshairCur);
+}
+
+
+
+void fired::Crosshair::processEvent(sf::Event event) {
+	return;
+}
+
+
+
+float fired::Crosshair::getAngle() {
+	return atan2(pos.y - settings->window.height / 2, pos.x - settings->window.width / 2);
 }

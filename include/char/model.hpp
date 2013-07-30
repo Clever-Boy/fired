@@ -34,7 +34,7 @@ namespace fired {
 		void update();
 		void render();
 
-		void initPart(fired::Bodypart *part, sf::Vector2f offset, const char *imgFile);
+		void initPart(fired::Bodypart *part, sf::Vector2f offset, const char *imgFile, int *direction);
 		void drawPart(fired::Bodypart *part);
 		void deinitPart(fired::Bodypart *part);
 	};

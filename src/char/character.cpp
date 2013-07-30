@@ -21,6 +21,7 @@ void fired::Character::init(fired::Game *_game) {
 	model.init(game, this);
 	isMoving  = false;
 	direction = 1;
+	watching  = 1;
 }
 
 

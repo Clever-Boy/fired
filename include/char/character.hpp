@@ -22,12 +22,14 @@ namespace fired {
 		fired::CharacterStats baseStats;
 		fired::Model          model;
 		int  direction;
+		int  watching;
 		bool isMoving;
 
 
 	public:
 		fired::Phys phys;
 		fired::CharacterStats *getStats() { return &baseStats; };
+
 
 		void init(fired::Game *_game);
 		void deinit();
@@ -38,6 +40,8 @@ namespace fired {
 		void moveLeft();
 		void moveRight();
 		void jump();
+
+		void setWatching(int _watching) { watching = _watching; };
 	};
 }
 

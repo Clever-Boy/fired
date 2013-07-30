@@ -22,6 +22,9 @@ void fired::Player::deinit() {
 void fired::Player::update() {
 	character.update();
 	crosshair.update(character.getStats()->aiming);
+
+	if (cos(crosshair.getAngle()) < 0) character.setWatching(-1);
+	else                               character.setWatching( 1);
 }
 
 

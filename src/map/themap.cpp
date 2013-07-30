@@ -22,10 +22,17 @@ void fired::Map::init(fired::Game *_game, fired::Camera *_cam) {
 	visibleTiles.x = settings->window.width  / TILE_SIZE + 2;
 	visibleTiles.y = settings->window.height / TILE_SIZE + 2;
 
+	sizeX = 200;
+	sizeY = 200;
 
-	for (int i = 0; i < 200; i++) for (int j = 0; j < 200; j++) {
+	tiles = new fired::Tile*[sizeX];
+	for (int i = 0; i < sizeX; i++)
+		tiles[i] = new fired::Tile[sizeY];
+
+
+	for (int i = 0; i < sizeX; i++) for (int j = 0; j < sizeY; j++)
 		tiles[i][j].init(NULL, i, j);
-	}
+
 
 	// Test map generation
 	for (int i = 0; i < 19; i++) 
@@ -80,6 +87,10 @@ void fired::Map::init(fired::Game *_game, fired::Camera *_cam) {
 
 void fired::Map::deinit() {
 	tileset.deinit();
+	for (int i = 0; i < sizeX; i++)
+		delete tiles[i];
+
+	delete tiles;
 }
 
 //======================================================================
@@ -103,10 +114,10 @@ void fired::Map::render() {
 	sf::Vector2i from((int)(cam->getOffset().x / TILE_SIZE), (int)(cam->getOffset().y / TILE_SIZE));
 	sf::Vector2i to(from + visibleTiles);
 
-	if (from.x < 0) from.x = 0;
-	if (from.y < 0) from.y = 0;
-	if (to.x > 200) to.x = 200;
-	if (to.y > 200) to.y = 200;
+	if (from.x < 0  ) from.x = 0;
+	if (from.y < 0  ) from.y = 0;
+	if (to.x > sizeX) to.x = sizeX;
+	if (to.y > sizeY) to.y = sizeY;
 
 	for (int i = from.x; i < to.x; i++)
 		for (int j = from.y; j < to.y; j++)

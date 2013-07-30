@@ -99,7 +99,7 @@
 ║[X] – Add jump animation
 ║[X] – Add walk animation
 ╠══════════════════════  Map generator   ══════════════════════════════
-║[ ] – Update map class to set sizes
+║[X] – Update map class to set sizes
 ║[ ] – Add saving map
 ║[ ] – Add loading map
 ║[ ] – Add MapGenerator class

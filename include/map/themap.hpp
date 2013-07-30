@@ -18,11 +18,14 @@ namespace fired {
 		fired::Camera    *cam;
 
 		fired::Tileset tileset;
-		fired::Tile    tiles[200][200];
+		fired::Tile  **tiles;
 
 		sf::Texture        *bgTex;
 		sf::RectangleShape *bgSprite;
 		sf::Vector2i        visibleTiles;
+
+		int sizeX;
+		int sizeY;
 
 
 	public:

@@ -26,6 +26,9 @@ namespace fired {
 		fired::CharAnimationType bodyAnimation;
 		fired::CharAnimationType armsAnimation;
 
+		float bodyAnimationTime;
+		float armsAnimationTime;
+
 		int bodyFrame;
 		int armsFrame;
 

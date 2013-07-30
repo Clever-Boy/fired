@@ -13,7 +13,7 @@
 #include "screen.hpp"
 #include "char.hpp"
 #include "world.hpp"
-
+#include "misc.hpp"
 
 extern float frameClock;
 

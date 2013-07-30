@@ -146,13 +146,6 @@ void checkCollision(fired::Phys *phys, int tile_x, int tile_y) {
 //======================================================================
 
 
-float sqr(float x) {
-	return x * x;
-}
-
-//======================================================================
-
-
 void fired::Map::checkPhys(fired::Phys *phys) {
 	int i, j;
 

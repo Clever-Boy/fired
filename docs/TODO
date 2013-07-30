@@ -99,10 +99,12 @@
 ║[X] – Add jump animation
 ║[ ] – Add walk animation
 ╠══════════════════════  Map generator   ══════════════════════════════
-║[ ] – Add landscape generation
-║[ ] – Add tilesets system
+║[ ] – Update map class to set sizes
 ║[ ] – Add saving map
 ║[ ] – Add loading map
+║[ ] – Add MapGenerator class
+║[ ] – Add landscape generation
+║[ ] – Add tilesets system
 ║[ ] – Add finding tiles
 ║[ ] – Add buildings generation
 ║[ ] – Add walls (50% grey tiles)

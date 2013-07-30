@@ -22,11 +22,11 @@ void fired::Model::init(fired::Game *_game, fired::Character *_owner) {
 	initPart(&partArms , sf::Vector2f( 3, 18), "data/img/chars/arms.tga", &owner->watching);
 
 	bodyParts.push_back(&partFistB);
+	bodyParts.push_back(&partLegsB);
+	bodyParts.push_back(&partShoeB);
 	bodyParts.push_back(&partBody );
 	bodyParts.push_back(&partHead );
 	bodyParts.push_back(&partHair );
-	bodyParts.push_back(&partLegsB);
-	bodyParts.push_back(&partShoeB);
 	bodyParts.push_back(&partLegsF);
 	bodyParts.push_back(&partShoeF);
 	bodyParts.push_back(&partArms );
@@ -53,7 +53,9 @@ void fired::Model::deinit() {
 
 void fired::Model::update() {
 	bodyAnimation = caNone;
+	if (owner->isMoving)       bodyAnimation = caMoving;
 	if (!owner->phys.onGround) bodyAnimation = caJumping;
+
 	processAnimation();
 	render();
 }
@@ -104,6 +106,7 @@ void fired::Model::deinitPart(fired::Bodypart *part) {
 	delete part->texture;
 }
 
+//======================================================================
 
 
 void fired::Model::resetPart(fired::Bodypart *part) {
@@ -115,7 +118,6 @@ void fired::Model::resetPart(fired::Bodypart *part) {
 
 
 void fired::Model::resetAnimation() {
-	bodyFrame = 0;
 	for (int i = 0; i < bodyParts.size(); i++) resetPart(bodyParts[i]);
 }
 
@@ -123,6 +125,7 @@ void fired::Model::resetAnimation() {
 
 
 void fired::Model::processAnimation() {
+	resetAnimation();
 	processBodyAnimation();
 	processArmsAnimation();
 }
@@ -133,11 +136,22 @@ void fired::Model::processAnimation() {
 void fired::Model::processBodyAnimation() {
 	switch (bodyAnimation) {
 		case caNone:
-			resetAnimation();
+			bodyFrame = 0;
+			break;
+
+		case caMoving:
+			bodyAnimationTime += frameClock * abs(owner->phys.velocity.x);
+			bodyFrame          = (int)(bodyAnimationTime / 5) % 14;
+
+			partLegsF.animOffset = sf::Vector2f(cos(0.449 * bodyFrame) * 2 + 2, 0);
+			partShoeF.animOffset = sf::Vector2f(cos(0.449 * bodyFrame) * 3 + 2, lessOrZero(sin(0.449 * bodyFrame) * 3));
+
+			partLegsB.animOffset = sf::Vector2f(cos(0.449 * (bodyFrame - 7)) * 2 - 2, 0);
+			partShoeB.animOffset = sf::Vector2f(cos(0.449 * (bodyFrame - 7)) * 3 - 2, lessOrZero(sin(0.449 * (bodyFrame - 7)) * 3));
 			break;
 
 		case caJumping:
-			resetAnimation();
+			bodyFrame = 0;
 
 			partLegsF.animRotation =  20;
 			partLegsB.animRotation = -20;
@@ -159,6 +173,14 @@ void fired::Model::processArmsAnimation() {
 		case caNone:
 			switch (bodyAnimation) {
 				case caJumping:
+					partFistF.animOffset = sf::Vector2f(5, 3);
+					partFistB.animOffset = sf::Vector2f(5, 3);
+
+					partFistF.animRotation = -90;
+					partFistB.animRotation = -90;
+					break;
+
+				case caMoving:
 					partFistF.animOffset = sf::Vector2f(5, 3);
 					partFistB.animOffset = sf::Vector2f(5, 3);
 

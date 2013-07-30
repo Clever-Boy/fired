@@ -93,7 +93,7 @@
 ║[X] – Use sprite offset instead the offset of the image
 ║[X] – Add flipping on left/right moving
 ║[X] – Add structure to define bodyPart
-║[ ] – Add vector to store pointers to bodyparts
+║[X] – Add vector to store pointers to bodyparts
 ║[ ] – Add body wrapping depending on crosshair position
 ║[ ] – Add processing animation
 ║[ ] – Add walk animation

@@ -17,21 +17,24 @@ void fired::Model::init(fired::Game *_game, fired::Character *_owner) {
 	initPart(&partHead , sf::Vector2f(13, 9 ), "data/img/chars/head.tga");
 	initPart(&partHair , sf::Vector2f(11, 4 ), "data/img/chars/hair.tga");
 	initPart(&partArms , sf::Vector2f(6 , 18), "data/img/chars/arms.tga");
+
+	bodyParts.push_back(&partFistB);
+	bodyParts.push_back(&partBody );
+	bodyParts.push_back(&partHead );
+	bodyParts.push_back(&partHair );
+	bodyParts.push_back(&partLegsB);
+	bodyParts.push_back(&partShoeB);
+	bodyParts.push_back(&partLegsF);
+	bodyParts.push_back(&partShoeF);
+	bodyParts.push_back(&partArms );
+	bodyParts.push_back(&partFistF);
 }
 
 
 
 void fired::Model::deinit() {
-	deinitPart(&partLegsF);
-	deinitPart(&partLegsB);
-	deinitPart(&partShoeF);
-	deinitPart(&partShoeB);
-	deinitPart(&partFistF);
-	deinitPart(&partFistB);
-	deinitPart(&partHead );
-	deinitPart(&partHair );
-	deinitPart(&partBody );
-	deinitPart(&partArms );
+	for (int i = 0; i < bodyParts.size(); i++) deinitPart(bodyParts[i]);
+	bodyParts.clear();
 }
 
 
@@ -43,16 +46,7 @@ void fired::Model::update() {
 
 
 void fired::Model::render() {
-	drawPart(&partFistB);
-	drawPart(&partBody );
-	drawPart(&partHead );
-	drawPart(&partHair );
-	drawPart(&partLegsB);
-	drawPart(&partShoeB);
-	drawPart(&partLegsF);
-	drawPart(&partShoeF);
-	drawPart(&partArms );
-	drawPart(&partFistF);
+	for (int i = 0; i < bodyParts.size(); i++) drawPart(bodyParts[i]);
 }
 
 

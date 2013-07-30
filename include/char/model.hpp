@@ -26,6 +26,7 @@ namespace fired {
 		fired::Bodypart partArms;
 		fired::Bodypart partHead;
 
+		std::vector<fired::Bodypart*> bodyParts;
 
 	public:
 		void init(fired::Game *_game, fired::Character *_owner);

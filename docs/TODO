@@ -95,9 +95,9 @@
 ║[X] – Add structure to define bodyPart
 ║[X] – Add vector to store pointers to bodyparts
 ║[X] – Add body flipping depending on crosshair position
-║[ ] – Add processing animation
+║[X] – Add processing animation
+║[X] – Add jump animation
 ║[ ] – Add walk animation
-║[ ] – Add jump animation
 ╠══════════════════════  Map generator   ══════════════════════════════
 ║[ ] – Add landscape generation
 ║[ ] – Add tilesets system

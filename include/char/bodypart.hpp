@@ -12,6 +12,9 @@ namespace fired {
 		sf::Texture  *texture;
 		sf::Vector2f  offset;
 		int          *direction;
+
+		sf::Vector2f  animOffset;
+		float         animRotation;
 	};
 }
 

@@ -19,6 +19,7 @@ void fired::Character::init(fired::Game *_game) {
 	baseStats.aiming = 100.0;
 
 	model.init(game, this);
+
 	isMoving  = false;
 	direction = 1;
 	watching  = 1;

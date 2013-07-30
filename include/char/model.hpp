@@ -8,12 +8,26 @@
 
 
 namespace fired {
+	enum CharAnimationType {
+		caNone,
+		caMoving,
+		caJumping,
+		caShooting
+	};
+
+
 	class Model {
 	private:
 		fired::Game      *game;
 		fired::Settings  *settings;
 		fired::Character *owner;
 		sf::RenderWindow *app;
+
+		fired::CharAnimationType bodyAnimation;
+		fired::CharAnimationType armsAnimation;
+
+		int bodyFrame;
+		int armsFrame;
 
 		fired::Bodypart partLegsF;
 		fired::Bodypart partLegsB;
@@ -37,6 +51,12 @@ namespace fired {
 		void initPart(fired::Bodypart *part, sf::Vector2f offset, const char *imgFile, int *direction);
 		void drawPart(fired::Bodypart *part);
 		void deinitPart(fired::Bodypart *part);
+		void resetPart(fired::Bodypart *part);
+
+		void processAnimation();
+		void resetAnimation();
+		void processBodyAnimation();
+		void processArmsAnimation();
 	};
 }
 

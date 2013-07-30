@@ -4,6 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "prototypes.hpp"
+#include "bodypart.hpp"
 
 
 namespace fired {
@@ -14,32 +15,16 @@ namespace fired {
 		fired::Character *owner;
 		sf::RenderWindow *app;
 
-		sf::Sprite   *spriteHair;
-		sf::Sprite   *spriteHead;
-		sf::Sprite   *spriteBody;
-		sf::Sprite   *spriteLegs;
-		sf::Sprite   *spriteArms;
-		sf::Sprite   *spriteShoe;
-		sf::Sprite   *spriteFist;
-
-		sf::Texture  *textureHair;
-		sf::Texture  *textureHead;
-		sf::Texture  *textureBody;
-		sf::Texture  *textureLegs;
-		sf::Texture  *textureArms;
-		sf::Texture  *textureShoe;
-		sf::Texture  *textureFist;
-
-		sf::Vector2f  offsetHair;
-		sf::Vector2f  offsetHead;
-		sf::Vector2f  offsetBody;
-		sf::Vector2f  offsetArms;
-		sf::Vector2f  offsetLegsB;
-		sf::Vector2f  offsetLegsF;
-		sf::Vector2f  offsetFistB;
-		sf::Vector2f  offsetFistF;
-		sf::Vector2f  offsetShoeB;
-		sf::Vector2f  offsetShoeF;
+		fired::Bodypart partLegsF;
+		fired::Bodypart partLegsB;
+		fired::Bodypart partShoeF;
+		fired::Bodypart partShoeB;
+		fired::Bodypart partFistF;
+		fired::Bodypart partFistB;
+		fired::Bodypart partHair;
+		fired::Bodypart partBody;
+		fired::Bodypart partArms;
+		fired::Bodypart partHead;
 
 
 	public:
@@ -48,8 +33,9 @@ namespace fired {
 		void update();
 		void render();
 
-		void initPart(sf::Sprite **spr, sf::Texture **tex, const char *imgFile);
-		void drawPart(sf::Sprite *spr, sf::Vector2f offset);
+		void initPart(fired::Bodypart *part, sf::Vector2f offset, const char *imgFile);
+		void drawPart(fired::Bodypart *part);
+		void deinitPart(fired::Bodypart *part);
 	};
 }
 

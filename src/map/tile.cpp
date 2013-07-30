@@ -3,10 +3,10 @@
 //======================================================================
 
 
-void fired::Tile::init(fired::Tileset *_tileset, int x, int y) {
-	tileset = _tileset;
-	pos     = sf::Vector2f(x * TILE_SIZE, y * TILE_SIZE);
-	tile    = random() % 4;
+void fired::Tile::init(int _tileset, int x, int y) {
+	tilesetIdx = _tileset;
+	pos        = sf::Vector2f(x * TILE_SIZE, y * TILE_SIZE);
+	tile       = random() % 4;
 }
 
 //======================================================================

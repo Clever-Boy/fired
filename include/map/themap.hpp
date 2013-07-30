@@ -17,7 +17,7 @@ namespace fired {
 		sf::RenderWindow *app;
 		fired::Camera    *cam;
 
-		fired::Tileset tileset;
+		std::vector<fired::Tileset*> tilesets;
 		fired::Tile  **tiles;
 
 		sf::Texture        *bgTex;
@@ -33,6 +33,9 @@ namespace fired {
 		void deinit();
 		void update();
 		void render();
+
+		void load(const char* filename);
+		void save(const char* filename);
 
 		void checkPhys(fired::Phys *phys);
 	};

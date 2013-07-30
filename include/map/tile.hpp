@@ -11,20 +11,28 @@
 
 
 namespace fired {
+	struct MapTile {
+		int tileset;
+	};
+
+
 	class Tile {
 	private:
 		fired::Tileset *tileset;
 
 		sf::Vector2f pos;
+		int tilesetIdx;
 		int tile;
 
 
 	public:
-		void init(fired::Tileset *_tileset, int x, int y);
+		void init(int _tileset, int x, int y);
 		void deinit();
 		void render(sf::RenderWindow *app);
 
-		bool isSolid() { return tileset; };
+		void setTileset(fired::Tileset *_tileset) { tileset = _tileset; };
+		int  getIndex()   { return tilesetIdx; };
+		bool isSolid()    { return tileset; };
 	};
 }
 

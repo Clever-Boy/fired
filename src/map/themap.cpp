@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "game.hpp"
 
 //======================================================================
@@ -17,80 +18,36 @@ void fired::Map::init(fired::Game *_game, fired::Camera *_cam) {
 	bgTex->setRepeated(true);
 	bgSprite->setSize(sf::Vector2f(settings->window.width, settings->window.height));
 
-	tileset.init("data/img/tilesets/dirt.tga");
+	tilesets.push_back(NULL);
+
+	tilesets.push_back(new fired::Tileset);
+	tilesets.back()->init("data/img/tilesets/dirt.tga");
+
+	tilesets.push_back(new fired::Tileset);
+	tilesets.back()->init("data/img/tilesets/stone.tga");
 
 	visibleTiles.x = settings->window.width  / TILE_SIZE + 2;
 	visibleTiles.y = settings->window.height / TILE_SIZE + 2;
 
-	sizeX = 200;
-	sizeY = 200;
-
-	tiles = new fired::Tile*[sizeX];
-	for (int i = 0; i < sizeX; i++)
-		tiles[i] = new fired::Tile[sizeY];
-
-
-	for (int i = 0; i < sizeX; i++) for (int j = 0; j < sizeY; j++)
-		tiles[i][j].init(NULL, i, j);
-
-
-	// Test map generation
-	for (int i = 0; i < 19; i++) 
-		for (int j = 0; j < 200; j++) {
-			tiles[i][j].init(&tileset, i, j);
-			tiles[j][199-i].init(&tileset, j, 199-i);
-			tiles[199-i][j].init(&tileset, 199-i, j);
-		}
-
-	for (int j = 0; j < 200; j+=2) tiles[20][j].init(&tileset, 20, j);
-	for (int i = 0; i < 50; i+=2) tiles[i][29].init(&tileset, i, 29);
-
-	for (int i = 65; i < 200; i++) tiles[i][180].init(&tileset, i, 180);
-	for (int i = 75; i < 200; i++) tiles[i][179].init(&tileset, i, 179);
-	
-	for (int i = 100; i < 200; i++) tiles[i][178].init(&tileset, i, 178);
-	for (int i = 100; i < 200; i++) tiles[i][177].init(&tileset, i, 177);
-
-	for (int i = 125; i < 200; i++) tiles[i][176].init(&tileset, i, 176);
-	for (int i = 125; i < 200; i++) tiles[i][175].init(&tileset, i, 175);
-	for (int i = 125; i < 200; i++) tiles[i][174].init(&tileset, i, 174);
-	
-	for (int i = 150; i < 200; i++) tiles[i][173].init(&tileset, i, 173);
-	for (int i = 150; i < 200; i++) tiles[i][172].init(&tileset, i, 172);
-	for (int i = 150; i < 200; i++) tiles[i][171].init(&tileset, i, 171);
-	for (int i = 150; i < 200; i++) tiles[i][170].init(&tileset, i, 170);
-	
-	for (int i = 175; i < 200; i++) tiles[i][169].init(&tileset, i, 169);
-	for (int i = 175; i < 200; i++) tiles[i][168].init(&tileset, i, 168);
-	for (int i = 175; i < 200; i++) tiles[i][167].init(&tileset, i, 167);
-	for (int i = 175; i < 200; i++) tiles[i][166].init(&tileset, i, 166);
-	for (int i = 175; i < 200; i++) tiles[i][165].init(&tileset, i, 165);
-
-	for (int i = 185; i < 200; i++) tiles[i][164].init(&tileset, i, 164);
-	for (int i = 185; i < 200; i++) tiles[i][163].init(&tileset, i, 163);
-	for (int i = 185; i < 200; i++) tiles[i][162].init(&tileset, i, 162);
-	for (int i = 185; i < 200; i++) tiles[i][161].init(&tileset, i, 161);
-	for (int i = 185; i < 200; i++) tiles[i][160].init(&tileset, i, 160);
-	for (int i = 185; i < 200; i++) tiles[i][159].init(&tileset, i, 159);
-
-	for (int i = 195; i < 200; i++) tiles[i][158].init(&tileset, i, 158);
-	for (int i = 195; i < 200; i++) tiles[i][157].init(&tileset, i, 157);
-	for (int i = 195; i < 200; i++) tiles[i][156].init(&tileset, i, 156);
-	for (int i = 195; i < 200; i++) tiles[i][155].init(&tileset, i, 155);
-	for (int i = 195; i < 200; i++) tiles[i][154].init(&tileset, i, 154);
-	for (int i = 195; i < 200; i++) tiles[i][153].init(&tileset, i, 153);
-	for (int i = 195; i < 200; i++) tiles[i][152].init(&tileset, i, 152);
+	load("data/maps/test.map");
 }
 
 //======================================================================
 
 
 void fired::Map::deinit() {
-	tileset.deinit();
 	for (int i = 0; i < sizeX; i++)
 		delete tiles[i];
 
 	delete tiles;
+
+
+	for (int i = 1; i < tilesets.size(); i++) {
+		tilesets[i]->deinit();
+		delete tilesets[i];
+	}
+
+	tilesets.clear();
 }
 
 //======================================================================
@@ -122,6 +79,54 @@ void fired::Map::render() {
 	for (int i = from.x; i < to.x; i++)
 		for (int j = from.y; j < to.y; j++)
 			tiles[i][j].render(app);
+}
+
+//======================================================================
+
+
+void fired::Map::load(const char* filename) {
+	FILE *fp;
+	fired::MapTile tile;
+
+
+	if ((fp = fopen(filename, "r")) == NULL) return;
+	fread(&sizeX, sizeof(int), 1, fp);
+	fread(&sizeY, sizeof(int), 1, fp);
+
+	tiles = new fired::Tile*[sizeX];
+	for (int i = 0; i < sizeX; i++)
+		tiles[i] = new fired::Tile[sizeY];
+
+	for (int i = 0; i < sizeX; i++)
+		for (int j = 0; j < sizeY; j++) {
+			fread(&tile, sizeof(tile), 1, fp);
+			tiles[i][j].init(tile.tileset, i, j);
+		}
+
+	fclose(fp);
+	for (int i = 0; i < sizeX; i++) for (int j = 0; j < sizeY; j++)
+		tiles[i][j].setTileset(tilesets[tiles[i][j].getIndex()]);
+}
+
+//======================================================================
+
+
+void fired::Map::save(const char* filename) {
+	FILE *fp;
+	fired::MapTile tile;
+
+
+	if ((fp = fopen(filename, "w")) == NULL) return;
+	fwrite(&sizeX, sizeof(int), 1, fp);
+	fwrite(&sizeY, sizeof(int), 1, fp);
+
+	for (int i = 0; i < sizeX; i++)
+		for (int j = 0; j < sizeY; j++) {
+			tile.tileset = tiles[i][j].getIndex();
+			fwrite(&tile, sizeof(tile), 1, fp);
+		}
+
+	fclose(fp);
 }
 
 //======================================================================

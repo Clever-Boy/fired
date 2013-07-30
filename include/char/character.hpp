@@ -36,6 +36,7 @@ namespace fired {
 		void render();
 
 
+		void move();
 		void moveLeft();
 		void moveRight();
 		void jump();

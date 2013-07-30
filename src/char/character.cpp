@@ -38,14 +38,19 @@ void fired::Character::deinit() {
 
 
 void fired::Character::update() {
+	model.update();
+	phys.isMoving = false;
+}
+
+//======================================================================
+
+
+void fired::Character::move() {
 	if (phys.isMoving) {
 		phys.velocity.x += direction * frameClock * baseStats.accel;
 		if (abs(phys.velocity.x) > baseStats.speed) phys.velocity.x = direction * baseStats.speed;
 	} else
 		phys.velocity.x = 0.0;
-
-	model.update();
-	phys.isMoving = false;
 }
 
 //======================================================================

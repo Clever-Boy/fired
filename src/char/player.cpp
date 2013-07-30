@@ -38,4 +38,6 @@ void fired::Player::checkControls() {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))     character.moveLeft();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))     character.moveRight();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) character.jump();
+
+	character.move();
 }

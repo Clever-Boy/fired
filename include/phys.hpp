@@ -18,6 +18,7 @@ namespace fired {
 		sf::Vector2f  acceleration;
 
 		sf::FloatRect rect;
+		sf::Vector2f  center;
 		bool isMoving;
 		bool onGround;
 	};

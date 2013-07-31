@@ -9,7 +9,7 @@ void fired::Player::init(fired::Game *_game, fired::Camera *_cam) {
 	app      = game->getApp();
 
 	character.init(_game);
-	crosshair.init(_game, _cam);
+	crosshair.init(_game, _cam, &character.phys);
 }
 
 //======================================================================

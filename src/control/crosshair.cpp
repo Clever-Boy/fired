@@ -4,11 +4,12 @@
 //======================================================================
 
 
-void fired::Crosshair::init(fired::Game *_game, fired::Camera *_cam) {
+void fired::Crosshair::init(fired::Game *_game, fired::Camera *_cam, fired::Phys *_owner) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();
 	cam      = _cam;
+	owner    = _owner;
 
 	crosshairTex = new sf::Texture();
 	crosshairCur = new sf::Sprite();
@@ -32,6 +33,7 @@ void fired::Crosshair::deinit() {
 
 void fired::Crosshair::update(float distance) {
 	sf::Vector2f center(settings->window.width / 2, settings->window.height / 2);
+	center -= (cam->getOffset() + center - owner->center);
 	pos = sf::Vector2f(sf::Mouse::getPosition(*app));
 
 	float dist = sqrt((center.x - pos.x)*(center.x - pos.x) + (center.y - pos.y)*(center.y - pos.y));
@@ -40,6 +42,7 @@ void fired::Crosshair::update(float distance) {
 		sf::Mouse::setPosition(sf::Vector2i(pos), *app);
 	}
 
+	angle = atan2(pos.y + cam->getOffset().y - owner->center.y, pos.x + cam->getOffset().x - owner->center.x);
 	render();
 }
 
@@ -56,11 +59,4 @@ void fired::Crosshair::render() {
 
 void fired::Crosshair::processEvent(sf::Event event) {
 	return;
-}
-
-//======================================================================
-
-
-float fired::Crosshair::getAngle() {
-	return atan2(pos.y - settings->window.height / 2, pos.x - settings->window.width / 2);
 }

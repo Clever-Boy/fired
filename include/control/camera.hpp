@@ -15,6 +15,7 @@ namespace fired {
 		sf::RenderWindow *app;
 
 		sf::Vector2f  offset;
+		sf::Vector2i  mapSize;
 		sf::FloatRect viewport;
 		sf::View      view;
 
@@ -22,7 +23,7 @@ namespace fired {
 
 
 	public:
-		void init(fired::Game *_game);
+		void init(fired::Game *_game, sf::Vector2i _mapSize);
 		void update();
 
 		void          setTrackObj(fired::Phys *phys) { objToTrack = phys; };

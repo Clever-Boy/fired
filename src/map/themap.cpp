@@ -92,6 +92,7 @@ void fired::Map::load(const char* filename) {
 	if ((fp = fopen(filename, "r")) == NULL) return;
 	fread(&sizeX, sizeof(int), 1, fp);
 	fread(&sizeY, sizeof(int), 1, fp);
+	mapSize = sf::Vector2i(sizeX * TILE_SIZE, sizeY * TILE_SIZE);
 
 	tiles = new fired::Tile*[sizeX];
 	for (int i = 0; i < sizeX; i++)
@@ -197,7 +198,8 @@ void checkCollision(fired::Phys *phys, int tile_x, int tile_y) {
 			}
 		}
 
-		phys->rect = sf::FloatRect(phys->pos, phys->size);
+		phys->center = phys->pos + sf::Vector2f(phys->size.x / 2, phys->size.y / 2);
+		phys->rect   = sf::FloatRect(phys->pos, phys->size);
 	}
 }
 
@@ -228,6 +230,7 @@ void fired::Map::checkPhys(fired::Phys *phys) {
 		phys->velocity += phys->acceleration * frameChunk;
 		phys->pos += phys->velocity * frameChunk;
 		phys->rect = sf::FloatRect(phys->pos, phys->size);
+		phys->center = phys->pos + sf::Vector2f(phys->size.x / 2, phys->size.y / 2);
 
 		sf::Vector2i  tiles_from((int)(phys->pos.x / TILE_SIZE), (int)(phys->pos.y / TILE_SIZE));
 		sf::Vector2i  tiles_to((int)((phys->pos.x + phys->size.x) / TILE_SIZE), (int)((phys->pos.y + phys->size.y) / TILE_SIZE));

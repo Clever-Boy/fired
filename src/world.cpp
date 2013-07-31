@@ -11,7 +11,7 @@ void fired::World::init(fired::Game *_game) {
 	game->setMusic("data/snd/themes/world.ogg");
 
 	map.init(game, &cam);
-	cam.init(game);
+	cam.init(game, map.getSize());
 	player.init(game, &cam);
 
 	cam.setTrackObj(player.getPhys());

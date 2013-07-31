@@ -23,6 +23,7 @@ namespace fired {
 		sf::Texture        *bgTex;
 		sf::RectangleShape *bgSprite;
 		sf::Vector2i        visibleTiles;
+		sf::Vector2i        mapSize;
 
 		int sizeX;
 		int sizeY;
@@ -41,6 +42,7 @@ namespace fired {
 		void findTile(int i, int j);
 
 		void checkPhys(fired::Phys *phys);
+		sf::Vector2i getSize() { return mapSize; };
 	};
 }
 

@@ -13,7 +13,7 @@ void fired::Map::init(fired::Game *_game, fired::Camera *_cam) {
 	bgTex    = new sf::Texture();
 	bgSprite = new sf::RectangleShape();
 
-	bgTex->loadFromFile("data/img/bg/sky.jpg");
+	bgTex->loadFromFile("data/img/world/bg/sky.jpg");
 	bgSprite->setTexture(bgTex);
 	bgTex->setRepeated(true);
 	bgSprite->setSize(sf::Vector2f(settings->window.width, settings->window.height));
@@ -21,10 +21,10 @@ void fired::Map::init(fired::Game *_game, fired::Camera *_cam) {
 	tilesets.push_back(NULL);
 
 	tilesets.push_back(new fired::Tileset);
-	tilesets.back()->init("data/img/tilesets/grass.tga");
+	tilesets.back()->init("data/img/world/tilesets/grass.tga");
 
 	tilesets.push_back(new fired::Tileset);
-	tilesets.back()->init("data/img/tilesets/dirt.tga");
+	tilesets.back()->init("data/img/world/tilesets/dirt.tga");
 
 	visibleTiles.x = settings->window.width  / TILE_SIZE + 2;
 	visibleTiles.y = settings->window.height / TILE_SIZE + 2;

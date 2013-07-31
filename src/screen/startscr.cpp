@@ -12,9 +12,9 @@ void fired::StartScr::init(fired::Game *_game) {
 
 	game->setMusic("data/snd/themes/startscr.ogg");
 
-	textures.push_back(new sf::Texture()); textures.back()->loadFromFile("data/img/startscr/01.jpg");
-	textures.push_back(new sf::Texture()); textures.back()->loadFromFile("data/img/startscr/02.jpg");
-	textures.push_back(new sf::Texture()); textures.back()->loadFromFile("data/img/startscr/03.jpg");
+	textures.push_back(new sf::Texture()); textures.back()->loadFromFile("data/img/gui/startscr/01.jpg");
+	textures.push_back(new sf::Texture()); textures.back()->loadFromFile("data/img/gui/startscr/02.jpg");
+	textures.push_back(new sf::Texture()); textures.back()->loadFromFile("data/img/gui/startscr/03.jpg");
 
 
 	for (int i = 0; i < textures.size(); i++) {

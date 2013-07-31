@@ -18,6 +18,9 @@ namespace fired {
 		void deinit();
 		void save(const char* filename);
 
+		void genLandscape();
+		void genClear();
+
 
 	public:
 		void generate();

@@ -15,6 +15,3 @@
 # Compiled project
 fired
 src/fired
-
-# Test maps
-data/maps/*.map

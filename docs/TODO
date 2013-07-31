@@ -107,7 +107,9 @@
 ║[X] – Fix viewport when moving at the edges
 ║[X] – Add edges phys collision
 ║[X] – Add MapGenerator class
-║[ ] – Add landscape generation
+║[X] – Add landscape generation
+║[ ] – Add saving player position to map file
+║[ ] – Add hills generation
 ║[ ] – Add buildings generation
 ║[ ] – Add walls (50% grey tiles)
 ║[ ] – Add mixing dirt with other tiles
@@ -119,16 +121,10 @@
 ║[ ] – Blur
 ║[ ] – Day and night
 ╠══════════════════════  Character       ══════════════════════════════
-║[ ] – Add weapons
+║[ ] – Add weapon
 ║[ ] – Add shot
-║[ ] – Add collectable items
 ║[ ] – Add HP
 ║[ ] – Add GUI
-║[ ] – Add InGameMenu
-║[ ] – Add CharacterMenu
-║[ ] – Add inventory
-║[ ] – Add armor
-║[ ] – Add collectors (chests, etc.)
 ║[ ] – Add ammo
 ║[ ] – Add models
 ║[ ] – Add models configuration
@@ -136,8 +132,6 @@
 ║[ ] – Add primary skills (Strength, Agility, Accuracy etc.)
 ║[ ] – Add secondary skills (Healing, Crafting etc.)
 ║[ ] – Add weapon skills (each weapon has it's own XP value)
-║[ ] – Add crafting recipes
-║[ ] – Add QuestItems
 ╠══════════════════════  Creatures       ══════════════════════════════
 ║[ ] – Add some weapons
 ║[ ] – Add some armors
@@ -148,7 +142,20 @@
 ║[ ] – Add creatures AI
 ║[ ] – Add creatures drop
 ║[ ] – Add LevelUp
+╠══════════════════════  Map extensions  ══════════════════════════════
+║[ ] – Add map decoration class
+║[ ] – Add trees
+║[ ] – Add collectors (chests, etc.)
+╠══════════════════════  Inventory       ══════════════════════════════
+║[ ] – Add collectable items
+║[ ] – Add InGameMenu
+║[ ] – Add CharacterMenu
+║[ ] – Add inventory
+║[ ] – Add armor
+║[ ] – Add crafting recipes
+║[ ] – Add QuestItems
 ║[ ] – Add items bonuses +dmg, +defence, etc.
+╠══════════════════════  Advanced        ══════════════════════════════
 ║[ ] – Add explosives
 ║[ ] – Add Trigger–Action system
 ╚══════════════════════════════════════════════════════════════════════

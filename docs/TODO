@@ -109,7 +109,7 @@
 ║[X] – Add MapGenerator class
 ║[X] – Add landscape generation
 ║[X] – Add saving player position to map file
-║[ ] – Add hills generation
+║[X] – Add hills generation
 ║[ ] – Add some bricks tilesets
 ║[ ] – Add buildings generation
 ║[ ] – Add walls (50% grey tiles)

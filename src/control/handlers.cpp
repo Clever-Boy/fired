@@ -11,6 +11,7 @@ void fired::Handlers::init(fired::Game *_game) {
 
 
 void fired::Handlers::buttonStart() {
+	game->generateWorld();
 	game->setGameState(gsWorld);
 }
 

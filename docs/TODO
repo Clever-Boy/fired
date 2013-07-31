@@ -106,10 +106,11 @@
 ║[X] – Add finding tiles
 ║[X] – Fix viewport when moving at the edges
 ║[X] – Add edges phys collision
-║[ ] – Add MapGenerator class
+║[X] – Add MapGenerator class
 ║[ ] – Add landscape generation
 ║[ ] – Add buildings generation
 ║[ ] – Add walls (50% grey tiles)
+║[ ] – Add mixing dirt with other tiles
 ╠══════════════════════  Visual effects  ══════════════════════════════
 ║[ ] – Lighting
 ║[ ] – Particle systems

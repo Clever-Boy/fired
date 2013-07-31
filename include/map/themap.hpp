@@ -42,6 +42,7 @@ namespace fired {
 		void findTile(int i, int j);
 
 		void checkPhys(fired::Phys *phys);
+		bool isSolid(int i, int j);
 		sf::Vector2i getSize() { return mapSize; };
 	};
 }

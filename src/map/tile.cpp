@@ -22,7 +22,14 @@ void fired::Tile::deinit() {
 void fired::Tile::render(sf::RenderWindow *app) {
 	if (!tileset) return;
 
-	sf::Sprite *sprite = tileset->getTile(tile);
 	sprite->setPosition(pos);
 	app->draw(*sprite);
+}
+
+//======================================================================
+
+
+void fired::Tile::setTileset(fired::Tileset *_tileset) {
+	tileset = _tileset;
+	if (tileset) sprite = tileset->getTile(tile);
 }

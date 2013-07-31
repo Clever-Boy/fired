@@ -21,6 +21,7 @@ namespace fired {
 		fired::Tileset *tileset;
 
 		sf::Vector2f pos;
+		sf::Sprite  *sprite;
 		int tilesetIdx;
 		int tile;
 
@@ -30,7 +31,7 @@ namespace fired {
 		void deinit();
 		void render(sf::RenderWindow *app);
 
-		void setTileset(fired::Tileset *_tileset) { tileset = _tileset; };
+		void setTileset(fired::Tileset *_tileset);
 		int  getIndex()   { return tilesetIdx; };
 		bool isSolid()    { return tileset; };
 	};

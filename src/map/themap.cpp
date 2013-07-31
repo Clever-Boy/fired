@@ -21,10 +21,10 @@ void fired::Map::init(fired::Game *_game, fired::Camera *_cam) {
 	tilesets.push_back(NULL);
 
 	tilesets.push_back(new fired::Tileset);
-	tilesets.back()->init("data/img/tilesets/dirt.tga");
+	tilesets.back()->init("data/img/tilesets/grass.tga");
 
 	tilesets.push_back(new fired::Tileset);
-	tilesets.back()->init("data/img/tilesets/stone.tga");
+	tilesets.back()->init("data/img/tilesets/dirt.tga");
 
 	visibleTiles.x = settings->window.width  / TILE_SIZE + 2;
 	visibleTiles.y = settings->window.height / TILE_SIZE + 2;

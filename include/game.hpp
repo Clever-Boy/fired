@@ -32,6 +32,7 @@ namespace fired {
 		sf::RenderWindow app;
 		sf::Clock        clock;
 		sf::Font         font;
+		sf::Image        icon;
 		sf::Music        musicTheme;
 
 		long lastClock;

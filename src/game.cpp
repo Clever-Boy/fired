@@ -15,6 +15,9 @@ void fired::Game::init() {
 	                         settings.window.bpp), PROJECT_NAME " v" PROJECT_VER, style);
 	app.setMouseCursorVisible(false);
 
+	icon.loadFromFile("data/img/gui/icon.tga");
+	app.setIcon(110, 110, icon.getPixelsPtr());
+
 	running   = true;
 	focused   = true;
 	gameState = gsNone;

@@ -32,8 +32,9 @@ namespace fired {
 		void render(sf::RenderWindow *app);
 
 		void setTileset(fired::Tileset *_tileset);
-		int  getIndex()   { return tilesetIdx; };
-		bool isSolid()    { return tileset; };
+		void setTile(int _tile);
+		int  getIndex() { return tilesetIdx; };
+		bool isSolid()  { return tileset; };
 	};
 }
 

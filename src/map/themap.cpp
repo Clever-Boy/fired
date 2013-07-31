@@ -103,6 +103,8 @@ void fired::Map::load(const char* filename) {
 			tiles[i][j].init(tile.tileset, i, j);
 		}
 
+	findTiles();
+
 	fclose(fp);
 	for (int i = 0; i < sizeX; i++) for (int j = 0; j < sizeY; j++)
 		tiles[i][j].setTileset(tilesets[tiles[i][j].getIndex()]);
@@ -128,6 +130,44 @@ void fired::Map::save(const char* filename) {
 
 	fclose(fp);
 }
+
+//======================================================================
+
+void fired::Map::findTiles() {
+	for (int i = 0; i < sizeX; i++) for (int j = 0; j < sizeY; j++) 
+		findTile(i, j);
+}
+
+
+//======================================================================
+
+void fired::Map::findTile(int i, int j) {
+	int resultTile;
+	int top    = 0;
+	int left   = 0;
+	int right  = 0;
+	int bottom = 0;
+
+	if (i == 0) left = 1;
+	else if (tiles[i-1][j].getIndex() == tiles[i][j].getIndex()) left = 1;
+
+	if (i == sizeX - 1) right = 1;
+	else if (tiles[i+1][j].getIndex() == tiles[i][j].getIndex()) right = 1;
+
+	if (j == 0) top = 1;
+	else if (tiles[i][j-1].getIndex() == tiles[i][j].getIndex()) top = 1;
+
+	if (j == sizeY - 1) bottom = 1;
+	else if (tiles[i][j+1].getIndex() == tiles[i][j].getIndex()) bottom = 1;
+
+	resultTile = left   * 1 +
+	             right  * 2 +
+	             top    * 4 +
+	             bottom * 8;
+
+	tiles[i][j].setTile(resultTile);
+}
+
 
 //======================================================================
 

@@ -103,7 +103,7 @@
 ║[X] – Add saving map
 ║[X] – Add loading map
 ║[X] – Add tilesets system
-║[ ] – Add finding tiles
+║[X] – Add finding tiles
 ║[ ] – Add MapGenerator class
 ║[ ] – Add landscape generation
 ║[ ] – Add buildings generation

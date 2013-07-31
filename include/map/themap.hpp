@@ -37,6 +37,9 @@ namespace fired {
 		void load(const char* filename);
 		void save(const char* filename);
 
+		void findTiles();
+		void findTile(int i, int j);
+
 		void checkPhys(fired::Phys *phys);
 	};
 }

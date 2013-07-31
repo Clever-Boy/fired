@@ -7,6 +7,7 @@
 void fired::MapGenerator::generate() {
 	genClear();
 	genLandscape();
+	genPlayer();
 
 	save("data/maps/test.map");
 	deinit();
@@ -30,6 +31,7 @@ void fired::MapGenerator::save(const char* filename) {
 
 
 	if ((fp = fopen(filename, "w")) == NULL) return;
+	fwrite(&startPos, sizeof(startPos), 1, fp);
 	fwrite(&sizeX, sizeof(int), 1, fp);
 	fwrite(&sizeY, sizeof(int), 1, fp);
 
@@ -79,4 +81,15 @@ void fired::MapGenerator::genLandscape() {
 		width--;
 		i++;
 	}
+}
+
+//======================================================================
+
+
+void fired::MapGenerator::genPlayer() {
+	int y = 0;
+	startPos.x = (sizeX / 2) * TILE_SIZE;
+
+	while (!tiles[sizeX / 2][y].tileset) y++;
+	startPos.y = (y - 3) * TILE_SIZE;
 }

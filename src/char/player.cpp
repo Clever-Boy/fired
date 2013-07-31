@@ -3,12 +3,12 @@
 //======================================================================
 
 
-void fired::Player::init(fired::Game *_game, fired::Camera *_cam) {
+void fired::Player::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();
 
-	character.init(_game);
+	character.init(_game, _startpos);
 	crosshair.init(_game, _cam, &character.phys);
 }
 

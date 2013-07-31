@@ -3,12 +3,12 @@
 //======================================================================
 
 
-void fired::Character::init(fired::Game *_game) {
+void fired::Character::init(fired::Game *_game, sf::Vector2f _startpos) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();
 
-	phys.pos          = sf::Vector2f(300, 360);
+	phys.pos          = _startpos;
 	phys.velocity     = sf::Vector2f(0, 0);
 	phys.acceleration = sf::Vector2f(0, PHYS_GRAVITY);
 	phys.size         = sf::Vector2f(32, 48);

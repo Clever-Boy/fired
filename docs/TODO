@@ -108,10 +108,12 @@
 ║[X] – Add edges phys collision
 ║[X] – Add MapGenerator class
 ║[X] – Add landscape generation
-║[ ] – Add saving player position to map file
+║[X] – Add saving player position to map file
 ║[ ] – Add hills generation
+║[ ] – Add some bricks tilesets
 ║[ ] – Add buildings generation
 ║[ ] – Add walls (50% grey tiles)
+║[ ] – Add caves generation
 ║[ ] – Add mixing dirt with other tiles
 ╠══════════════════════  Visual effects  ══════════════════════════════
 ║[ ] – Lighting

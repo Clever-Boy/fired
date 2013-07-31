@@ -30,7 +30,7 @@ namespace fired {
 		fired::CharacterStats *getStats() { return &baseStats; };
 
 
-		void init(fired::Game *_game);
+		void init(fired::Game *_game, sf::Vector2f _startpos);
 		void deinit();
 		void update();
 		void render();

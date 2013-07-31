@@ -12,7 +12,7 @@ void fired::World::init(fired::Game *_game) {
 
 	map.init(game, &cam);
 	cam.init(game, map.getSize());
-	player.init(game, &cam);
+	player.init(game, &cam, map.getStartPos());
 
 	cam.setTrackObj(player.getPhys());
 }

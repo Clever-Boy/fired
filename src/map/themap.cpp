@@ -90,6 +90,7 @@ void fired::Map::load(const char* filename) {
 
 
 	if ((fp = fopen(filename, "r")) == NULL) return;
+	fread(&startPos, sizeof(startPos), 1, fp);
 	fread(&sizeX, sizeof(int), 1, fp);
 	fread(&sizeY, sizeof(int), 1, fp);
 	mapSize = sf::Vector2i(sizeX * TILE_SIZE, sizeY * TILE_SIZE);
@@ -120,6 +121,7 @@ void fired::Map::save(const char* filename) {
 
 
 	if ((fp = fopen(filename, "w")) == NULL) return;
+	fwrite(&startPos, sizeof(startPos), 1, fp);
 	fwrite(&sizeX, sizeof(int), 1, fp);
 	fwrite(&sizeY, sizeof(int), 1, fp);
 

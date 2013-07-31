@@ -22,8 +22,10 @@ namespace fired {
 
 		sf::Texture        *bgTex;
 		sf::RectangleShape *bgSprite;
+
 		sf::Vector2i        visibleTiles;
 		sf::Vector2i        mapSize;
+		sf::Vector2f        startPos;
 
 		int sizeX;
 		int sizeY;
@@ -44,6 +46,7 @@ namespace fired {
 		void checkPhys(fired::Phys *phys);
 		bool isSolid(int i, int j);
 		sf::Vector2i getSize() { return mapSize; };
+		sf::Vector2f getStartPos() { return startPos; };
 	};
 }
 

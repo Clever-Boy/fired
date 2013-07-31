@@ -11,7 +11,8 @@
 namespace fired {
 	class MapGenerator {
 	private:
-		fired::MapTile  **tiles;
+		fired::MapTile **tiles;
+		sf::Vector2f     startPos;
 		int sizeX;
 		int sizeY;
 
@@ -20,6 +21,7 @@ namespace fired {
 
 		void genLandscape();
 		void genClear();
+		void genPlayer();
 
 
 	public:

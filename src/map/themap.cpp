@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <sys/stat.h>
 #include "game.hpp"
 
 //======================================================================
@@ -24,10 +25,10 @@ void fired::Map::init(fired::Game *_game, fired::Camera *_cam) {
 	tilesets.back()->init("data/img/world/tilesets/concrete.tga");
 
 	tilesets.push_back(new fired::Tileset);
-	tilesets.back()->init("data/img/world/tilesets/grass.tga");
+	tilesets.back()->init("data/img/world/tilesets/greybrick.tga");
 
 	tilesets.push_back(new fired::Tileset);
-	tilesets.back()->init("data/img/world/tilesets/dirt.tga");
+	tilesets.back()->init("data/img/world/tilesets/redbrick.tga");
 
 	visibleTiles.x = settings->window.width  / TILE_SIZE + 2;
 	visibleTiles.y = settings->window.height / TILE_SIZE + 2;
@@ -120,9 +121,10 @@ void fired::Map::load(const char* filename) {
 
 void fired::Map::save(const char* filename) {
 	FILE *fp;
+	struct stat buf;
 	fired::MapTile tile;
 
-
+	if (stat("data/maps", &buf) == -1) mkdir("data/maps", 0755);
 	if ((fp = fopen(filename, "w")) == NULL) return;
 	fwrite(&startPos, sizeof(startPos), 1, fp);
 	fwrite(&sizeX, sizeof(int), 1, fp);

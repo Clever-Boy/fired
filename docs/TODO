@@ -71,7 +71,7 @@
 ║[X] – Add tilesets system
 ║[X] – Add finding tiles
 ║[X] – Add walls (50% grey tiles)
-║[ ] – Add bricks tileset
+║[X] – Add bricks tileset
 ║[ ] – Add yellow warning tilesets
 ║[X] – Fix viewport when moving at the edges
 ╠══════════════════════  Physics engine  ══════════════════════════════

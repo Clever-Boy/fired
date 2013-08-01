@@ -14,6 +14,7 @@
 #include "char.hpp"
 #include "world.hpp"
 #include "misc.hpp"
+#include "particle.hpp"
 
 extern float frameClock;
 

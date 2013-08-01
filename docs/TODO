@@ -83,6 +83,10 @@
 ║[X] – Add jumping
 ║[X] – Prevent tunnelong effect
 ║[X] – Add edges phys collision
+╠══════════════════════  Map generator   ══════════════════════════════
+║[X] – Add MapGenerator class
+║[X] – Add landscape generation
+║[X] – Add saving player position to map file
 ╠══════════════════════  Animation       ══════════════════════════════
 ║[X] – Add model class
 ║[X] – Add model parts (legs, body, head, hair, arms, shoe, fist)
@@ -108,17 +112,16 @@
 ║[X] – Add processing animation
 ║[X] – Add jump animation
 ║[X] – Add walk animation
-╠══════════════════════  Map generator   ══════════════════════════════
-║[X] – Add MapGenerator class
-║[X] – Add landscape generation
-║[X] – Add saving player position to map file
+║[X] – Add particle system virtual class
+║[ ] – Add particle system generation
+║[ ] – Add particle system rendering
 ╠══════════════════════  Character       ══════════════════════════════
 ║[ ] – Add weapon
 ║[ ] – Add shot
 ║[ ] – Add HP
 ║[ ] – Add GUI
+║[ ] – Add damage when falling down
 ║[ ] – Add ammo
-║[ ] – Add model configuration
 ║[ ] – Add primary skills (Strength, Agility, Accuracy etc.)
 ║[ ] – Add secondary skills (Healing, Crafting etc.)
 ║[ ] – Add weapon skills (each weapon has it's own XP value)
@@ -127,14 +130,14 @@
 ║[ ] – Add some armors
 ║[ ] – Add money
 ║[ ] – Add XP
+║[ ] – Add LevelUp
 ║[ ] – Add creatures
 ║[ ] – Add creatures rendering
 ║[ ] – Add creatures AI
 ║[ ] – Add creatures drop
-║[ ] – Add LevelUp
 ╠══════════════════════  Map extensions  ══════════════════════════════
 ║[ ] – Add map decoration class
-║[ ] – Add trees
+║[ ] – Add decorations
 ║[ ] – Add collectors (chests, etc.)
 ╠══════════════════════  Inventory       ══════════════════════════════
 ║[ ] – Add collectable items
@@ -146,11 +149,14 @@
 ║[ ] – Add QuestItems
 ║[ ] – Add items bonuses +dmg, +defence, etc.
 ╠══════════════════════  Advanced        ══════════════════════════════
-║[ ] – Particle systems
 ║[ ] – Add explosives
 ║[ ] – Blur
 ║[ ] – Day and night
 ║[ ] – Lighting
 ║[ ] – Fog
+║[ ] – Add body parts system
+║[ ] – Add char model config
+║[ ] – Add char model reading from config
+║[ ] – Add rendering armor on model
 ║[ ] – Add Trigger–Action system
 ╚══════════════════════════════════════════════════════════════════════

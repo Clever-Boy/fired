@@ -77,12 +77,12 @@ void fired::MapGenerator::genLandscape(int areaStart, int areaEnd, int horizon) 
 	genBar(41, horizon - 6, horizon, 2, false);
 	genBar(47, horizon - 6, horizon, 2, false);
 	genFill(41, horizon - 2, 48, horizon, 2, false);
-	genFill(40, horizon - 5, 49, horizon - 4, 2, true);
+	genFill(40, horizon - 5, 49, horizon - 4, 4, true);
 
 	genBar(81, horizon - 6, horizon, 2, false);
 	genBar(87, horizon - 6, horizon, 2, false);
 	genFill(81, horizon - 2, 88, horizon, 2, false);
-	genFill(80, horizon - 5, 89, horizon - 4, 2, true);
+	genFill(80, horizon - 5, 89, horizon - 4, 4, true);
 
 	//Generating testing house
 	genFill(140, horizon - 10, 160, horizon, 3, false);

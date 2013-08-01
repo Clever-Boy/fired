@@ -19,20 +19,10 @@ void fired::Map::init(fired::Game *_game, fired::Camera *_cam) {
 	bgTex->setRepeated(true);
 	bgSprite->setSize(sf::Vector2f(settings->window.width, settings->window.height));
 
-	tilesets.push_back(NULL);
-
-	tilesets.push_back(new fired::Tileset);
-	tilesets.back()->init("data/img/world/tilesets/concrete.tga");
-
-	tilesets.push_back(new fired::Tileset);
-	tilesets.back()->init("data/img/world/tilesets/greybrick.tga");
-
-	tilesets.push_back(new fired::Tileset);
-	tilesets.back()->init("data/img/world/tilesets/redbrick.tga");
-
 	visibleTiles.x = settings->window.width  / TILE_SIZE + 2;
 	visibleTiles.y = settings->window.height / TILE_SIZE + 2;
 
+	tileset.init();
 	load("data/maps/test.map");
 }
 
@@ -44,14 +34,7 @@ void fired::Map::deinit() {
 		delete tiles[i];
 
 	delete tiles;
-
-
-	for (int i = 1; i < tilesets.size(); i++) {
-		tilesets[i]->deinit();
-		delete tilesets[i];
-	}
-
-	tilesets.clear();
+	tileset.deinit();
 }
 
 //======================================================================
@@ -113,7 +96,7 @@ void fired::Map::load(const char* filename) {
 
 	fclose(fp);
 	for (int i = 0; i < sizeX; i++) for (int j = 0; j < sizeY; j++)
-		tiles[i][j].setTileset(tilesets[tiles[i][j].getIndex()]);
+		tiles[i][j].setTileset(&tileset);
 }
 
 //======================================================================
@@ -142,13 +125,14 @@ void fired::Map::save(const char* filename) {
 
 //======================================================================
 
+
 void fired::Map::findTiles(int x1, int y1, int x2, int y2) {
 	for (int i = x1; i < x2; i++) for (int j = y1; j < y2; j++) 
 		findTile(i, j);
 }
 
-
 //======================================================================
+
 
 void fired::Map::findTile(int i, int j) {
 	int resultTile;
@@ -176,7 +160,6 @@ void fired::Map::findTile(int i, int j) {
 
 	tiles[i][j].setTile(resultTile);
 }
-
 
 //======================================================================
 

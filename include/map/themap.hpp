@@ -17,7 +17,7 @@ namespace fired {
 		sf::RenderWindow *app;
 		fired::Camera    *cam;
 
-		std::vector<fired::Tileset*> tilesets;
+		fired::Tileset tileset;
 		fired::Tile  **tiles;
 
 		sf::Texture        *bgTex;

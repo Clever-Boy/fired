@@ -2,8 +2,7 @@
 #define __TILE
 
 
-#define TILE_SIZE        16.0
-#define TILE_SIZE_ORIGIN 32.0
+#define TILE_SIZE 16.0
 
 
 #include <SFML/Graphics.hpp>
@@ -19,12 +18,12 @@ namespace fired {
 
 	class Tile {
 	private:
-		fired::Tileset *tileset;
-
 		sf::Vector2f pos;
 		sf::Sprite  *sprite;
+		sf::Sprite  *mask;
 		sf::Color    color;
-		int tilesetIdx;
+
+		int tileset;
 		int tile;
 		bool isWall;
 
@@ -36,7 +35,7 @@ namespace fired {
 
 		void setTileset(fired::Tileset *_tileset);
 		void setTile(int _tile);
-		int  getIndex() { return tilesetIdx; };
+		int  getIndex() { return tileset; };
 		bool isSolid()  { return isWall; };
 	};
 }

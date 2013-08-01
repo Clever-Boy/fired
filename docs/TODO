@@ -65,6 +65,15 @@
 ║[X] – Add big map support
 ║[X] – Add crosshair
 ║[X] – Add world theme
+║[X] – Update map class to set sizes
+║[X] – Add saving map
+║[X] – Add loading map
+║[X] – Add tilesets system
+║[X] – Add finding tiles
+║[X] – Add walls (50% grey tiles)
+║[ ] – Add bricks tileset
+║[ ] – Add yellow warning tilesets
+║[X] – Fix viewport when moving at the edges
 ╠══════════════════════  Physics engine  ══════════════════════════════
 ║[X] – Add phys struct
 ║[X] – Add tile collision test
@@ -73,6 +82,7 @@
 ║[X] – Add movement
 ║[X] – Add jumping
 ║[X] – Prevent tunnelong effect
+║[X] – Add edges phys collision
 ╠══════════════════════  Animation       ══════════════════════════════
 ║[X] – Add model class
 ║[X] – Add model parts (legs, body, head, hair, arms, shoe, fist)
@@ -99,38 +109,16 @@
 ║[X] – Add jump animation
 ║[X] – Add walk animation
 ╠══════════════════════  Map generator   ══════════════════════════════
-║[X] – Update map class to set sizes
-║[X] – Add saving map
-║[X] – Add loading map
-║[X] – Add tilesets system
-║[X] – Add finding tiles
-║[X] – Fix viewport when moving at the edges
-║[X] – Add edges phys collision
 ║[X] – Add MapGenerator class
 ║[X] – Add landscape generation
 ║[X] – Add saving player position to map file
-║[X] – Add hills generation
-║[ ] – Add some bricks tilesets
-║[ ] – Add buildings generation
-║[ ] – Add walls (50% grey tiles)
-║[ ] – Add caves generation
-║[ ] – Add mixing dirt with other tiles
-╠══════════════════════  Visual effects  ══════════════════════════════
-║[ ] – Lighting
-║[ ] – Particle systems
-║[ ] – Fog
-║[ ] – Animation
-║[ ] – Blur
-║[ ] – Day and night
 ╠══════════════════════  Character       ══════════════════════════════
 ║[ ] – Add weapon
 ║[ ] – Add shot
 ║[ ] – Add HP
 ║[ ] – Add GUI
 ║[ ] – Add ammo
-║[ ] – Add models
-║[ ] – Add models configuration
-║[ ] – Add models rendering
+║[ ] – Add model configuration
 ║[ ] – Add primary skills (Strength, Agility, Accuracy etc.)
 ║[ ] – Add secondary skills (Healing, Crafting etc.)
 ║[ ] – Add weapon skills (each weapon has it's own XP value)
@@ -158,6 +146,11 @@
 ║[ ] – Add QuestItems
 ║[ ] – Add items bonuses +dmg, +defence, etc.
 ╠══════════════════════  Advanced        ══════════════════════════════
+║[ ] – Particle systems
 ║[ ] – Add explosives
+║[ ] – Blur
+║[ ] – Day and night
+║[ ] – Lighting
+║[ ] – Fog
 ║[ ] – Add Trigger–Action system
 ╚══════════════════════════════════════════════════════════════════════

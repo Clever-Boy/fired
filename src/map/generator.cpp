@@ -5,9 +5,8 @@
 
 
 void fired::MapGenerator::generate() {
-	genClear();
-	genLandscape(0, sizeX, 30, 37, 23);
-	genHills(0, sizeX, 30);
+	genClear(200, 100);
+	genLandscape(0, sizeX, 40);
 	genPlayer();
 
 	save("data/maps/test.map");
@@ -47,43 +46,29 @@ void fired::MapGenerator::save(const char* filename) {
 //======================================================================
 
 
-void fired::MapGenerator::genClear() {
-	sizeX = 500;
-	sizeY = 100;
+void fired::MapGenerator::genClear(int xSize, int ySize) {
+	sizeX = xSize;
+	sizeY = ySize;
 
 	tiles = new fired::MapTile*[sizeX];
 	for (int i = 0; i < sizeX; i++)
 		tiles[i] = new fired::MapTile[sizeY];
 
-	genFill(0, 0, sizeX, sizeY, 0);
+	genFill(0, 0, sizeX, sizeY, 0, false);
 }
 
 //======================================================================
 
 
-void fired::MapGenerator::genLandscape(int areaStart, int areaEnd, int horizon, int max, int min) {
-	int height = horizon;
-	int width  = 0;
-	int i = areaStart;
+void fired::MapGenerator::genLandscape(int areaStart, int areaEnd, int horizon) {
+	genFill(areaStart, horizon, areaEnd, sizeY, 1, true);
+	genFill(areaStart, horizon - 2, areaEnd, horizon, 1, false);
 
-	while (i < areaEnd) {
-		if (!width) {
-			width = 5 + random() % 20;
+	genFill(areaStart  , horizon - 2, areaStart + 4, horizon, 1, true);
+	genFill(areaEnd - 4, horizon - 2, areaEnd      , horizon, 1, true);
 
-			if      (height == min) height += random() % 4;
-			else if (height == max) height -= random() % 4;
-			else     height += random() % 7 - 3;
-
-			if (height < min) height = min;
-			if (height > max) height = max;
-		}
-
-		genBar(i, sizeY - height, sizeY, 2);
-		tiles[i][sizeY - height].tileset = 1;
-
-		width--;
-		i++;
-	}
+	genFill(areaStart + 4, horizon - 1, areaStart + 8, horizon, 1, true);
+	genFill(areaEnd - 8  , horizon - 1, areaEnd - 4  , horizon, 1, true);
 }
 
 //======================================================================
@@ -100,57 +85,7 @@ void fired::MapGenerator::genPlayer() {
 //======================================================================
 
 
-void fired::MapGenerator::genHills(int areaStart, int areaEnd, int horizon) {
-	int count = (areaEnd - areaStart) / 250 + (random() % 3 - 1);
-	int area = (areaEnd - areaStart) / count;
-
-	for (int i = 0; i < count; i++)
-		genHill(areaStart + i * area, area, 20, horizon);
-}
-
-//======================================================================
-
-
-void fired::MapGenerator::genHill(int areaStart, int areaWidth, int height, int horizon) {
-	int curHeight = height + random() % 7 - 3;
-	int width = 45 + random() % 11 - 5;
-	int start = areaStart + random() % (areaWidth - width - 5);
-	int leftSide = width / 4 + random() % 9 - 4;
-	int rightSide = width / 4 + random() % 9 - 4;
-	int topWidth = (width - leftSide - rightSide) / 2 + random() % 5 - 2;
-	int topStart = random() % (width - leftSide - rightSide - topWidth - 1) + 1;
-	int lastH = -1;
-
-	for (int i = start; i < start + leftSide; i++) {
-		int h = horizon + (i - start) * curHeight / leftSide + random() % 3 - 1;
-		if (h < lastH) h = lastH;
-		else lastH = h;
-
-		if (tiles[i][sizeY - h + 1].tileset) continue;
-		genBar(i, sizeY - h, sizeY, 2);
-		tiles[i][sizeY - h].tileset = 1;
-	}
-
-	genFill(start + leftSide, sizeY - (horizon + curHeight), start + width - rightSide, sizeY, 2);
-	genFill(start + leftSide, sizeY - (horizon + curHeight), start + width - rightSide, sizeY - (horizon + curHeight) + 1, 1);
-
-	genFill(start + leftSide + topStart, sizeY - (horizon + curHeight) - 1, start + leftSide + topStart + topWidth, sizeY - (horizon + curHeight), 1);
-
-	for (int i = start + width - rightSide; i < start + width; i++) {
-		int h = horizon + (start + width - i) * curHeight / rightSide + random() % 3 - 1;
-		if (h > lastH) h = lastH;
-		else lastH = h;
-
-		if (tiles[i][sizeY - h + 1].tileset) continue;
-		genBar(i, sizeY - h, sizeY, 2);
-		tiles[i][sizeY - h].tileset = 1;
-	}
-}
-
-//======================================================================
-
-
-void fired::MapGenerator::genBar(int x, int startHeight, int endHeight, int tileset) {
+void fired::MapGenerator::genBar(int x, int startHeight, int endHeight, int tileset, bool isWall) {
 	for (int j = startHeight; j < endHeight; j++)
 		tiles[x][j].tileset = tileset;
 }
@@ -158,7 +93,9 @@ void fired::MapGenerator::genBar(int x, int startHeight, int endHeight, int tile
 //======================================================================
 
 
-void fired::MapGenerator::genFill(int x1, int y1, int x2, int y2, int tileset) {
-	for (int i = x1; i < x2; i++) for (int j = y1; j < y2; j++)
+void fired::MapGenerator::genFill(int x1, int y1, int x2, int y2, int tileset, bool isWall) {
+	for (int i = x1; i < x2; i++) for (int j = y1; j < y2; j++) {
 		tiles[i][j].tileset = tileset;
+		tiles[i][j].isWall  = isWall;
+	}
 }

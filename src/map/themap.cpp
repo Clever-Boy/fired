@@ -21,6 +21,9 @@ void fired::Map::init(fired::Game *_game, fired::Camera *_cam) {
 	tilesets.push_back(NULL);
 
 	tilesets.push_back(new fired::Tileset);
+	tilesets.back()->init("data/img/world/tilesets/concrete.tga");
+
+	tilesets.push_back(new fired::Tileset);
 	tilesets.back()->init("data/img/world/tilesets/grass.tga");
 
 	tilesets.push_back(new fired::Tileset);
@@ -102,10 +105,10 @@ void fired::Map::load(const char* filename) {
 	for (int i = 0; i < sizeX; i++)
 		for (int j = 0; j < sizeY; j++) {
 			fread(&tile, sizeof(tile), 1, fp);
-			tiles[i][j].init(tile.tileset, i, j);
+			tiles[i][j].init(tile.tileset, tile.isWall, i, j);
 		}
 
-	findTiles();
+	findTiles(0, 0, sizeX, sizeY);
 
 	fclose(fp);
 	for (int i = 0; i < sizeX; i++) for (int j = 0; j < sizeY; j++)
@@ -128,6 +131,7 @@ void fired::Map::save(const char* filename) {
 	for (int i = 0; i < sizeX; i++)
 		for (int j = 0; j < sizeY; j++) {
 			tile.tileset = tiles[i][j].getIndex();
+			tile.isWall  = tiles[i][j].isSolid();
 			fwrite(&tile, sizeof(tile), 1, fp);
 		}
 
@@ -136,8 +140,8 @@ void fired::Map::save(const char* filename) {
 
 //======================================================================
 
-void fired::Map::findTiles() {
-	for (int i = 0; i < sizeX; i++) for (int j = 0; j < sizeY; j++) 
+void fired::Map::findTiles(int x1, int y1, int x2, int y2) {
+	for (int i = x1; i < x2; i++) for (int j = y1; j < y2; j++) 
 		findTile(i, j);
 }
 
@@ -152,16 +156,16 @@ void fired::Map::findTile(int i, int j) {
 	int bottom = 0;
 
 	if (i == 0) left = 1;
-	else if (tiles[i-1][j].getIndex() == tiles[i][j].getIndex()) left = 1;
+	else if (tiles[i-1][j].getIndex() == tiles[i][j].getIndex() && tiles[i-1][j].isSolid() >= tiles[i][j].isSolid()) left = 1;
 
 	if (i == sizeX - 1) right = 1;
-	else if (tiles[i+1][j].getIndex() == tiles[i][j].getIndex()) right = 1;
+	else if (tiles[i+1][j].getIndex() == tiles[i][j].getIndex() && tiles[i+1][j].isSolid() >= tiles[i][j].isSolid()) right = 1;
 
 	if (j == 0) top = 1;
-	else if (tiles[i][j-1].getIndex() == tiles[i][j].getIndex()) top = 1;
+	else if (tiles[i][j-1].getIndex() == tiles[i][j].getIndex() && tiles[i][j-1].isSolid() >= tiles[i][j].isSolid()) top = 1;
 
 	if (j == sizeY - 1) bottom = 1;
-	else if (tiles[i][j+1].getIndex() == tiles[i][j].getIndex()) bottom = 1;
+	else if (tiles[i][j+1].getIndex() == tiles[i][j].getIndex() && tiles[i][j+1].isSolid() >= tiles[i][j].isSolid()) bottom = 1;
 
 	resultTile = left   * 1 +
 	             right  * 2 +

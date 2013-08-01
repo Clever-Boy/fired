@@ -40,7 +40,7 @@ namespace fired {
 		void load(const char* filename);
 		void save(const char* filename);
 
-		void findTiles();
+		void findTiles(int x1, int y1, int x2, int y2);
 		void findTile(int i, int j);
 
 		void checkPhys(fired::Phys *phys);

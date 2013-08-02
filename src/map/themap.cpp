@@ -5,11 +5,12 @@
 //======================================================================
 
 
-void fired::Map::init(fired::Game *_game, fired::Camera *_cam) {
+void fired::Map::init(fired::Game *_game, fired::Camera *_cam, fired::World *_world) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();
 	cam      = _cam;
+	world    = _world;
 
 	bgTex    = new sf::Texture();
 	bgSprite = new sf::RectangleShape();
@@ -164,7 +165,7 @@ void fired::Map::findTile(int i, int j) {
 //======================================================================
 
 
-void checkCollision(fired::Phys *phys, int tile_x, int tile_y) {
+void fired::Map::checkCollision(fired::Phys *phys, int tile_x, int tile_y) {
 	sf::FloatRect intersection;
 
 	if (phys->rect.intersects(sf::FloatRect(tile_x * TILE_SIZE, tile_y * TILE_SIZE, TILE_SIZE, TILE_SIZE), intersection)) {
@@ -263,4 +264,64 @@ void fired::Map::checkPhys(fired::Phys *phys) {
 
 		frameLeft -= frameChunk;
 	}
+}
+
+//======================================================================
+
+
+bool fired::Map::checkLineCollision(int x, float y1, float y2) {
+	if (y1 < y2)
+		for (int i = floor(y1 / TILE_SIZE); i <= ceil(y2 / TILE_SIZE); i++)
+			if (isSolid(x, i)) return true;
+	else
+		for (int i = floor(y2 / TILE_SIZE); i <= ceil(y1 / TILE_SIZE); i++)
+			if (isSolid(x, i)) return true;
+
+	return false;
+}
+
+//======================================================================
+
+
+bool fired::Map::checkShot(fired::Shot *shot) {
+	float x1, x2, y1, y2, dx, dy;
+	int x;
+
+	x1 = shot->pos.x;
+	dx = shot->velocity.x * frameClock;
+
+	if (dx > 0) {
+		x2 = ceil(x1 / TILE_SIZE + 1) * TILE_SIZE;
+		while (x1 < shot->pos.x + dx) {
+			if (x1 < shot->pos.x)      x1 = shot->pos.x;
+			if (x2 > shot->pos.x + dx) x2 = shot->pos.x + dx;
+
+
+			x  = floor(((x1 + x2)/ 2) / TILE_SIZE);
+			y1 = tan(shot->angle) * (x1 - shot->pos.x) + shot->pos.y;
+			y2 = tan(shot->angle) * (x2 - shot->pos.x) + shot->pos.y;
+
+			if (checkLineCollision(x, y1, y2)) return true;
+
+			x1 = (x + 1) * TILE_SIZE;
+			x2 += TILE_SIZE;
+		}
+	} else {
+		x2 = floor(x1) * TILE_SIZE;
+		while (x1 > shot->pos.x + dx) {
+			if (x1 > shot->pos.x)      x1 = shot->pos.x;
+			if (x2 < shot->pos.x + dx) x2 = shot->pos.x + dx;
+
+
+			x  = floor(((x1 + x2)/ 2) / TILE_SIZE);
+			y1 = tan(shot->angle) * (x1 - shot->pos.x) + shot->pos.y;
+			y2 = tan(shot->angle) * (x2 - shot->pos.x) + shot->pos.y;
+			if (checkLineCollision(x, y1, y2)) return true;
+
+			x1 = (x - 1) * TILE_SIZE;
+			x2 -= TILE_SIZE;
+		}
+	}
+
+	return false;
 }

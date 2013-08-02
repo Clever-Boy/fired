@@ -7,6 +7,8 @@
 #include "tileset.hpp"
 #include "prototypes.hpp"
 #include "phys.hpp"
+#include "world.hpp"
+#include "theworld.hpp"
 
 
 namespace fired {
@@ -16,6 +18,7 @@ namespace fired {
 		fired::Settings  *settings;
 		sf::RenderWindow *app;
 		fired::Camera    *cam;
+		fired::World     *world;
 
 		fired::Tileset tileset;
 		fired::Tile  **tiles;
@@ -32,7 +35,7 @@ namespace fired {
 
 
 	public:
-		void init(fired::Game *_game, fired::Camera *_cam);
+		void init(fired::Game *_game, fired::Camera *_cam, fired::World *_world);
 		void deinit();
 		void update();
 		void render();
@@ -43,7 +46,12 @@ namespace fired {
 		void findTiles(int x1, int y1, int x2, int y2);
 		void findTile(int i, int j);
 
+		bool checkLineCollision(int x, float y1, float y2);
+		void checkCollision(fired::Phys *phys, int tile_x, int tile_y);
+
 		void checkPhys(fired::Phys *phys);
+		bool checkShot(fired::Shot *shot);
+
 		bool isSolid(int i, int j);
 		sf::Vector2i getSize() { return mapSize; };
 		sf::Vector2f getStartPos() { return startPos; };

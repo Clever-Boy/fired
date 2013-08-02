@@ -10,7 +10,7 @@ void fired::World::init(fired::Game *_game) {
 
 	game->setMusic("data/snd/themes/world.ogg");
 
-	map.init(game, &cam);
+	map.init(game, &cam, this);
 	cam.init(game, map.getSize());
 	player.init(game, &cam, map.getStartPos(), this);
 
@@ -32,21 +32,22 @@ void fired::World::update() {
 	checkControls();
 	map.checkPhys(player.getPhys());
 
-	//check shot collision
-
-	cam.update();
-	map.update();
-	player.update();
-
-
 	for (int i = 0; i < shots.size();) {
-		if (!shots[i]->update(app)) {
+		if (map.checkShot(shots[i])) {
 			shots[i]->deinit();
 			delete shots[i];
 			shots.erase(shots.begin() + i);
 		} else
 			i++;
 	}
+
+	cam.update();
+	map.update();
+	player.update();
+
+
+	for (int i = 0; i < shots.size(); i++)
+		shots[i]->update(app);
 
 	for (int i = 0; i < particles.size();) {
 		if (!particles[i]->update(app)) {

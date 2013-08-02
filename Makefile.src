@@ -1,7 +1,4 @@
 SUBDIRS := ${shell find * -type d -print}
-
-OBJS    := $(wildcard *.cpp)
-OBJS    := $(OBJS:.cpp=.o)
 OBJS    += $(SUBDIRS:=.o)
 
 
@@ -19,10 +16,6 @@ subdirs: $(SUBDIRS)
 		export SUBDIR=$$dir; \
 		$(MAKESUB); \
 	done
-
-
-.cpp.o:
-	$(CC) $(CFLAGS) -o $@ -c $<
 
 
 clean: clean-subdirs

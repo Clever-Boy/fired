@@ -3,27 +3,20 @@
 //======================================================================
 
 
-void fired::ParticleSystemCone::init() {
+void fired::ParticleSystemSplash::init() {
 	return;
 }
 
 //======================================================================
 
 
-void fired::ParticleSystemCone::deinit() {
+void fired::ParticleSystemSplash::deinit() {
 	return;
 }
 
 //======================================================================
 
 
-void fired::ParticleSystemCone::update() {
-	return;
-}
-
-//======================================================================
-
-
-void fired::ParticleSystemCone::render() {
-	return;
+bool fired::ParticleSystemSplash::update() {
+	return false;
 }

@@ -116,11 +116,12 @@
 ║[X] – Add particle system generation
 ║[X] – Add particle system rendering
 ╠══════════════════════  Character       ══════════════════════════════
-║[ ] – Add shot
-║[ ] – Add shot rendering
+║[X] – Add shot
+║[X] – Add shot rendering
 ║[ ] – Add shot collision
 ║[X] – Add shot splash
 ║[ ] – Add weapon
+║[X] – Add weapon cooldown
 ║[ ] – Add arms shooting animation
 ║[ ] – Add HP
 ║[ ] – Add GUI

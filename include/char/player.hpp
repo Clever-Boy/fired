@@ -21,7 +21,7 @@ namespace fired {
 
 
 	public:
-		void init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos);
+		void init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *world);
 		void deinit();
 		void update();
 

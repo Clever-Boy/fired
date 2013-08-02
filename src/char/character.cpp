@@ -3,10 +3,11 @@
 //======================================================================
 
 
-void fired::Character::init(fired::Game *_game, sf::Vector2f _startpos) {
+void fired::Character::init(fired::Game *_game, sf::Vector2f _startpos, fired::World *_world) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();
+	world    = _world;
 
 	phys.pos          = _startpos;
 	phys.velocity     = sf::Vector2f(0, 0);
@@ -21,7 +22,9 @@ void fired::Character::init(fired::Game *_game, sf::Vector2f _startpos) {
 	baseStats.jump   = 520.0;
 	baseStats.aiming = 100.0;
 
+
 	model.init(game, this);
+	weaponCooldown = 0;
 
 	direction = 1;
 	watching  = 1;
@@ -39,6 +42,7 @@ void fired::Character::deinit() {
 
 void fired::Character::update() {
 	model.update();
+	weaponCooldown -= frameClock;
 	phys.isMoving = false;
 }
 
@@ -74,4 +78,13 @@ void fired::Character::moveRight() {
 
 void fired::Character::jump() {
 	if (phys.onGround) phys.velocity.y = -baseStats.jump;
+}
+
+//======================================================================
+
+
+void fired::Character::shot(float angle) {
+	if (weaponCooldown > 0) return;
+	weaponCooldown = 0.2;
+	world->addShot(phys.center, angle, 2000, this);
 }

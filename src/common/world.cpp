@@ -12,7 +12,7 @@ void fired::World::init(fired::Game *_game) {
 
 	map.init(game, &cam);
 	cam.init(game, map.getSize());
-	player.init(game, &cam, map.getStartPos());
+	player.init(game, &cam, map.getStartPos(), this);
 
 	cam.setTrackObj(player.getPhys());
 }
@@ -32,9 +32,21 @@ void fired::World::update() {
 	checkControls();
 	map.checkPhys(player.getPhys());
 
+	//check shot collision
+
 	cam.update();
 	map.update();
 	player.update();
+
+
+	for (int i = 0; i < shots.size();) {
+		if (!shots[i]->update(app)) {
+			shots[i]->deinit();
+			delete shots[i];
+			shots.erase(shots.begin() + i);
+		} else
+			i++;
+	}
 
 	for (int i = 0; i < particles.size();) {
 		if (!particles[i]->update(app)) {
@@ -69,4 +81,12 @@ void fired::World::addBulletSplash(sf::Vector2f pos, sf::Vector2f direction) {
 	fired::ParticleSystemSplash *ps = new fired::ParticleSystemSplash;
 	ps->init(pos, direction, sf::Color(100, 50, 0, 200));
 	particles.push_back(ps);
+}
+
+//======================================================================
+
+
+void fired::World::addShot(sf::Vector2f pos, float angle, float speed, fired::Character *owner) {
+	shots.push_back(new fired::Shot);
+	shots.back()->init(pos, angle, speed, owner);
 }

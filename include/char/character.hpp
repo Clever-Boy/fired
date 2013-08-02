@@ -18,19 +18,21 @@ namespace fired {
 		fired::Game      *game;
 		fired::Settings  *settings;
 		sf::RenderWindow *app;
+		fired::World     *world;
 
 		fired::CharacterStats baseStats;
 		fired::Model          model;
 		int  direction;
 		int  watching;
 
+		float weaponCooldown;
 
 	public:
 		fired::Phys phys;
 		fired::CharacterStats *getStats() { return &baseStats; };
 
 
-		void init(fired::Game *_game, sf::Vector2f _startpos);
+		void init(fired::Game *_game, sf::Vector2f _startpos, fired::World *_world);
 		void deinit();
 		void update();
 		void render();
@@ -40,6 +42,7 @@ namespace fired {
 		void moveLeft();
 		void moveRight();
 		void jump();
+		void shot(float angle);
 
 		void setWatching(int _watching) { watching = _watching; };
 	};

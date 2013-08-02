@@ -7,6 +7,7 @@
 #include "char.hpp"
 #include "prototypes.hpp"
 #include "particle.hpp"
+#include "theworld.hpp"
 
 
 namespace fired {
@@ -21,6 +22,7 @@ namespace fired {
 		fired::Player player;
 
 		std::vector<fired::ParticleSystem*> particles;
+		std::vector<fired::Shot*>           shots;
 
 
 	public:
@@ -31,6 +33,7 @@ namespace fired {
 		void processEvent(sf::Event event);
 		void checkControls();
 
+		void addShot(sf::Vector2f pos, float angle, float speed, fired::Character *owner);
 		void addBulletSplash(sf::Vector2f pos, sf::Vector2f direction);
 	};
 }

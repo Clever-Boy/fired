@@ -13,6 +13,7 @@
 #include "screen.hpp"
 #include "char.hpp"
 #include "world.hpp"
+#include "theworld.hpp"
 #include "misc.hpp"
 #include "particle.hpp"
 

@@ -113,11 +113,15 @@
 ║[X] – Add jump animation
 ║[X] – Add walk animation
 ║[X] – Add particle system virtual class
-║[ ] – Add particle system generation
-║[ ] – Add particle system rendering
+║[X] – Add particle system generation
+║[X] – Add particle system rendering
 ╠══════════════════════  Character       ══════════════════════════════
-║[ ] – Add weapon
 ║[ ] – Add shot
+║[ ] – Add shot rendering
+║[ ] – Add shot collision
+║[X] – Add shot splash
+║[ ] – Add weapon
+║[ ] – Add arms shooting animation
 ║[ ] – Add HP
 ║[ ] – Add GUI
 ║[ ] – Add damage when falling down

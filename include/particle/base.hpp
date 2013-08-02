@@ -9,6 +9,7 @@ namespace fired {
 	struct Particle {
 		float lifetime;
 		float life;
+		float scale;
 
 		sf::Color           color;
 		sf::RectangleShape *sprite;
@@ -28,10 +29,10 @@ namespace fired {
 
 
 	public:
-		virtual void init()   {return; };
-		virtual bool update() {return false; };
-		virtual void deinit() {return; };
+		virtual bool update(sf::RenderWindow *app) {return false; };
+		virtual void deinit()                      {return; };
 
+		void baseDeinit();
 		void render(sf::RenderWindow *app);
 	};
 }

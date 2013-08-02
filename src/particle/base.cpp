@@ -12,6 +12,7 @@ bool fired::Particle::process(sf::RenderWindow *app) {
 
 	sprite->setPosition(pos);
 	sprite->setFillColor(color);
+	sprite->setScale(scale, scale);
 	app->draw(*sprite);
 	return true;
 }
@@ -28,4 +29,14 @@ void fired::ParticleSystem::render(sf::RenderWindow *app) {
 			particles.erase(particles.begin() + i);
 		} else
 			i++;
+}
+
+//======================================================================
+
+
+void fired::ParticleSystem::baseDeinit() {
+	for (int i = 0; i < particles.size(); i++)
+		delete particles[i];
+
+	particles.clear();
 }

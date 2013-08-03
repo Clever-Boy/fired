@@ -270,12 +270,13 @@ void fired::Map::checkPhys(fired::Phys *phys) {
 
 
 bool fired::Map::checkLineCollision(int x, float y1, float y2) {
-	if (y1 < y2)
+	if (y1 < y2) {
 		for (int i = floor(y1 / TILE_SIZE); i <= floor(y2 / TILE_SIZE); i++)
 			if (isSolid(x, i)) return true;
-	else
+	} else {
 		for (int i = floor(y2 / TILE_SIZE); i <= floor(y1 / TILE_SIZE); i++)
 			if (isSolid(x, i)) return true;
+	}
 
 	return false;
 }

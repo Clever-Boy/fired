@@ -118,8 +118,9 @@
 ╠══════════════════════  Character       ══════════════════════════════
 ║[X] – Add shot
 ║[X] – Add shot rendering
-║[ ] – Add shot collision
+║[X] – Add shot collision
 ║[X] – Add shot splash
+║[ ] – Add shot splash creation
 ║[ ] – Add weapon
 ║[X] – Add weapon cooldown
 ║[ ] – Add arms shooting animation

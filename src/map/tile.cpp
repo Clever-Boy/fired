@@ -28,16 +28,13 @@ void fired::Tile::render(sf::RenderWindow *app) {
 	sprite->setPosition(pos);
 	sprite->setColor(color);
 	app->draw(*sprite);
-
-	mask->setPosition(pos);
-	app->draw(*mask);
 }
 
 //======================================================================
 
 void fired::Tile::setTileset(fired::Tileset *_tileset) {
-	sprite = _tileset->getTile(tileset);
-	mask   = _tileset->getMask(tile);
+	if (tileset == 0) sprite = NULL;
+	else sprite = _tileset->getTile((tileset - 1) * 16 + tile);
 }
 
 //======================================================================

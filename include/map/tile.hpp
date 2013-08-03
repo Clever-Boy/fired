@@ -20,7 +20,6 @@ namespace fired {
 	private:
 		sf::Vector2f pos;
 		sf::Sprite  *sprite;
-		sf::Sprite  *mask;
 		sf::Color    color;
 
 		int tileset;

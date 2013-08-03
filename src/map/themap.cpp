@@ -271,10 +271,10 @@ void fired::Map::checkPhys(fired::Phys *phys) {
 
 bool fired::Map::checkLineCollision(int x, float y1, float y2) {
 	if (y1 < y2)
-		for (int i = floor(y1 / TILE_SIZE); i <= ceil(y2 / TILE_SIZE); i++)
+		for (int i = floor(y1 / TILE_SIZE); i <= floor(y2 / TILE_SIZE); i++)
 			if (isSolid(x, i)) return true;
 	else
-		for (int i = floor(y2 / TILE_SIZE); i <= ceil(y1 / TILE_SIZE); i++)
+		for (int i = floor(y2 / TILE_SIZE); i <= floor(y1 / TILE_SIZE); i++)
 			if (isSolid(x, i)) return true;
 
 	return false;
@@ -291,7 +291,7 @@ bool fired::Map::checkShot(fired::Shot *shot) {
 	dx = shot->velocity.x * frameClock;
 
 	if (dx > 0) {
-		x2 = ceil(x1 / TILE_SIZE + 1) * TILE_SIZE;
+		x2 = floor(x1 / TILE_SIZE + 1) * TILE_SIZE;
 		while (x1 < shot->pos.x + dx) {
 			if (x1 < shot->pos.x)      x1 = shot->pos.x;
 			if (x2 > shot->pos.x + dx) x2 = shot->pos.x + dx;
@@ -307,7 +307,7 @@ bool fired::Map::checkShot(fired::Shot *shot) {
 			x2 += TILE_SIZE;
 		}
 	} else {
-		x2 = floor(x1) * TILE_SIZE;
+		x2 = floor(x1 / TILE_SIZE) * TILE_SIZE;
 		while (x1 > shot->pos.x + dx) {
 			if (x1 > shot->pos.x)      x1 = shot->pos.x;
 			if (x2 < shot->pos.x + dx) x2 = shot->pos.x + dx;
@@ -316,6 +316,7 @@ bool fired::Map::checkShot(fired::Shot *shot) {
 			x  = floor(((x1 + x2)/ 2) / TILE_SIZE);
 			y1 = tan(shot->angle) * (x1 - shot->pos.x) + shot->pos.y;
 			y2 = tan(shot->angle) * (x2 - shot->pos.x) + shot->pos.y;
+
 			if (checkLineCollision(x, y1, y2)) return true;
 
 			x1 = (x - 1) * TILE_SIZE;

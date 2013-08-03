@@ -86,5 +86,5 @@ void fired::Character::jump() {
 void fired::Character::shot(float angle) {
 	if (weaponCooldown > 0) return;
 	weaponCooldown = 0.2;
-	world->addShot(phys.center, angle, 2000, this);
+	world->addShot(phys.center, angle, 100, this);
 }

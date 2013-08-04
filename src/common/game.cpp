@@ -16,7 +16,7 @@ void fired::Game::init() {
 	app.setMouseCursorVisible(false);
 
 	icon.loadFromFile("data/img/gui/icon.tga");
-	app.setIcon(110, 110, icon.getPixelsPtr());
+	app.setIcon(128, 128, icon.getPixelsPtr());
 
 	running   = true;
 	focused   = true;

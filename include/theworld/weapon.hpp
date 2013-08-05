@@ -12,22 +12,13 @@ namespace fired {
 
 
 	private:
-		fired::Game      *game;
-		fired::Settings  *settings;
-		fired::Character *owner;
-		fired::World     *world;
-		sf::RenderWindow *app;
-
-		sf::Texture *tex;
-		sf::Sprite  *spr;
+		float damage;
 
 
 	public:
-		void init(fired::Game *_game, fired::Character *_owner, fired::World *_world);
-		void deinit();
-		void update();
-		void render();
+		void init();
 	};
+
 
 
 	class Weapon {
@@ -37,9 +28,6 @@ namespace fired {
 
 	public:
 		void init(fired::BaseWeapon *_weapon);
-		void deinit();
-		void update();
-		void render();
 	};
 }
 

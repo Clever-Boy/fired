@@ -48,7 +48,8 @@ namespace fired {
 		void jump();
 		void shot();
 
-		void setAiming(float _aiming);
+		void  setAiming(float _aiming);
+		float getAiming() {return aiming; };
 	};
 }
 

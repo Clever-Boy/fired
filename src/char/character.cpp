@@ -24,6 +24,7 @@ void fired::Character::init(fired::Game *_game, sf::Vector2f _startpos, fired::W
 
 
 	model.init(game, this);
+	weapon.init(world->getWeapon(0));
 	weaponCooldown = 0;
 
 	direction = 1;
@@ -36,7 +37,6 @@ void fired::Character::init(fired::Game *_game, sf::Vector2f _startpos, fired::W
 
 void fired::Character::deinit() {
 	model.deinit();
-	weapon.deinit();
 }
 
 //======================================================================

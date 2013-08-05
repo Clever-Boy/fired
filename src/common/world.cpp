@@ -10,6 +10,9 @@ void fired::World::init(fired::Game *_game) {
 
 	game->setMusic("data/snd/themes/world.ogg");
 
+	weapons.push_back(new fired::BaseWeapon);
+	weapons.back()->init();
+
 	map.init(game, &cam, this);
 	cam.init(game, map.getSize());
 	player.init(game, &cam, map.getStartPos(), this);
@@ -23,6 +26,20 @@ void fired::World::init(fired::Game *_game) {
 void fired::World::deinit() {
 	map.deinit();
 	player.deinit();
+
+	for (int i = 0; i < shots.size(); i++) {
+		shots[i]->deinit();
+		delete shots[i];
+	}
+
+	for (int i = 0; i < particles.size(); i++) {
+		particles[i]->deinit();
+		delete particles[i];
+	}
+
+	for (int i = 0; i < weapons.size(); i++) {
+		delete weapons[i];
+	}
 }
 
 //======================================================================

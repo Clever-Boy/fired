@@ -23,6 +23,7 @@ namespace fired {
 
 		std::vector<fired::ParticleSystem*> particles;
 		std::vector<fired::Shot*>           shots;
+		std::vector<fired::BaseWeapon*>     weapons;
 
 
 	public:
@@ -35,6 +36,8 @@ namespace fired {
 
 		void addShot(sf::Vector2f pos, float angle, float speed, fired::Character *owner);
 		void addBulletSplash(sf::Vector2f pos, sf::Vector2f direction);
+
+		fired::BaseWeapon *getWeapon(int index) {return weapons[index]; };
 	};
 }
 

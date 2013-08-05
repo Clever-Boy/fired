@@ -42,6 +42,7 @@ namespace fired {
 		fired::Bodypart partBody;
 		fired::Bodypart partArms;
 		fired::Bodypart partHead;
+		fired::Bodypart partWeapon;
 
 		std::vector<fired::Bodypart*> bodyParts;
 

@@ -27,6 +27,7 @@ namespace fired {
 
 		void checkControls();
 		fired::Phys *getPhys() { return &character.phys; };
+		fired::Character *getChar() { return &character; };
 	};
 }
 

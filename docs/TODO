@@ -131,10 +131,12 @@
 ║[ ] – Add GUI
 ║[ ] – Add GUI item HP
 ║[ ] – Add GUI item ammo
-║[ ] – Add damage when falling down
+║[X] – Add damage when falling down
 ╠══════════════════════  Creatures       ══════════════════════════════
 ║[ ] – Add creatures
 ║[ ] – Add creatures rendering
+║[ ] – Add creatures damage
+║[ ] – Add floating text with damage
 ║[ ] – Add money
 ║[ ] – Add XP
 ║[ ] – Add LevelUp

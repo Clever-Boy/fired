@@ -78,6 +78,13 @@ void fired::Character::setAiming(float _aiming) {
 //======================================================================
 
 
+void fired::Character::damage(int damage) {
+	baseStats.HP -= damage;
+}
+
+//======================================================================
+
+
 void fired::Character::moveLeft() {
 	direction = -1;
 	phys.isMoving  = true;

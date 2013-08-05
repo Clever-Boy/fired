@@ -47,7 +47,7 @@ void fired::World::deinit() {
 
 void fired::World::update() {
 	checkControls();
-	map.checkPhys(player.getPhys());
+	map.checkPhys(player.getChar());
 
 	for (int i = 0; i < shots.size();) {
 		if (map.checkShot(shots[i])) {

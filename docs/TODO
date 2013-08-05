@@ -126,9 +126,11 @@
 ║[X] – Add weapon rendering in fist
 ║[X] – Add shooting animation with weapon aiming
 ║[ ] – Add shooting sound
-║[ ] – Add HP
-║[ ] – Add ammo
+║[X] – Add HP
+║[X] – Add ammo
 ║[ ] – Add GUI
+║[ ] – Add GUI item HP
+║[ ] – Add GUI item ammo
 ║[ ] – Add damage when falling down
 ╠══════════════════════  Creatures       ══════════════════════════════
 ║[ ] – Add creatures

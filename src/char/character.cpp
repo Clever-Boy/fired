@@ -22,10 +22,14 @@ void fired::Character::init(fired::Game *_game, sf::Vector2f _startpos, fired::W
 	baseStats.accel    = 1200.0;
 	baseStats.jump     = 520.0;
 	baseStats.aimrange = 100.0;
+	baseStats.maxHP    = 100;
+	baseStats.HP       = baseStats.maxHP;
 
 
 	model.init(game, this);
 	weapon.init(world->getWeapon(0));
+	weapon.ammo = -1;
+
 	weaponCooldown = 0;
 
 	direction = 1;
@@ -100,7 +104,10 @@ void fired::Character::jump() {
 void fired::Character::shot() {
 	isShooting = true;
 
+	if (weapon.ammo == 0) return;
 	if (weaponCooldown > 0) return;
-	weaponCooldown = weapon.baseWeapon->cooldown;
+	if (weapon.ammo > 0) weapon.ammo--;
+
+	weaponCooldown = weapon.cooldown;
 	world->addShot(phys.center, aiming, 1000, this);
 }

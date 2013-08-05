@@ -17,7 +17,9 @@ namespace fired {
 
 
 	struct Weapon {
-		fired::BaseWeapon *baseWeapon;
+		float damage;
+		float cooldown;
+		int ammo;
 
 		void init(fired::BaseWeapon *_weapon);
 	};

@@ -8,6 +8,9 @@ namespace fired {
 		float accel;
 		float aimrange;
 		float jump;
+
+		int maxHP;
+		int HP;
 	};
 }
 

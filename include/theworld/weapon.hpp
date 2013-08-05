@@ -7,26 +7,18 @@
 
 
 namespace fired {
-	class BaseWeapon {
-		friend class Weapon;
-
-
-	private:
+	struct BaseWeapon {
 		float damage;
+		float cooldown;
 
-
-	public:
 		void init();
 	};
 
 
 
-	class Weapon {
-	private:
+	struct Weapon {
 		fired::BaseWeapon *baseWeapon;
 
-
-	public:
 		void init(fired::BaseWeapon *_weapon);
 	};
 }

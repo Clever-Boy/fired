@@ -97,6 +97,6 @@ void fired::Character::jump() {
 
 void fired::Character::shot() {
 	if (weaponCooldown > 0) return;
-	weaponCooldown = 0.2;
+	weaponCooldown = weapon.baseWeapon->cooldown;
 	world->addShot(phys.center, aiming, 1000, this);
 }

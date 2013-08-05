@@ -123,7 +123,8 @@
 ║[X] – Add shot splash creation
 ║[X] – Add weapon model
 ║[X] – Add weapon cooldown
-║[ ] – Add arms shooting animation
+║[X] – Add weapon rendering in fist
+║[ ] – Add shooting animation with weapon aiming
 ║[ ] – Add HP
 ║[ ] – Add ammo
 ║[ ] – Add GUI

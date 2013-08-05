@@ -180,6 +180,8 @@ void fired::Model::processArmsAnimation() {
 					break;
 
 				case caJumping:
+					partWeapon.animOffset = sf::Vector2f(5.0, -4.0);
+
 					partFistF.animOffset = sf::Vector2f(5.0, 3.0);
 					partFistB.animOffset = sf::Vector2f(5.0, 3.0);
 
@@ -189,6 +191,8 @@ void fired::Model::processArmsAnimation() {
 
 				case caMoving:
 					partArms.animRotation = -cos(0.449 * (bodyFrame - 7)) * 7.0;
+
+					partWeapon.animOffset = sf::Vector2f(5.0 + cos(0.449 * (bodyFrame - 7)), -4.0);
 
 					partFistF.animOffset = sf::Vector2f(5.0 + cos(0.449 * (bodyFrame - 7)), 4.0);
 					partFistB.animOffset = sf::Vector2f(5.0 - cos(0.449 * (bodyFrame - 7)), 4.0);

@@ -125,28 +125,23 @@
 ║[X] – Add weapon cooldown
 ║[ ] – Add arms shooting animation
 ║[ ] – Add HP
+║[ ] – Add ammo
 ║[ ] – Add GUI
 ║[ ] – Add damage when falling down
-║[ ] – Add ammo
-║[ ] – Add primary skills (Strength, Agility, Accuracy etc.)
-║[ ] – Add secondary skills (Healing, Crafting etc.)
-║[ ] – Add weapon skills (each weapon has it's own XP value)
 ╠══════════════════════  Creatures       ══════════════════════════════
-║[ ] – Add some weapons
-║[ ] – Add some armors
+║[ ] – Add creatures
+║[ ] – Add creatures rendering
 ║[ ] – Add money
 ║[ ] – Add XP
 ║[ ] – Add LevelUp
-║[ ] – Add creatures
-║[ ] – Add creatures rendering
 ║[ ] – Add creatures AI
-║[ ] – Add creatures drop
 ╠══════════════════════  Map extensions  ══════════════════════════════
 ║[ ] – Add map decoration class
 ║[ ] – Add decorations
 ║[ ] – Add collectors (chests, etc.)
 ╠══════════════════════  Inventory       ══════════════════════════════
 ║[ ] – Add collectable items
+║[ ] – Add creatures drop
 ║[ ] – Add InGameMenu
 ║[ ] – Add CharacterMenu
 ║[ ] – Add inventory
@@ -155,6 +150,11 @@
 ║[ ] – Add QuestItems
 ║[ ] – Add items bonuses +dmg, +defence, etc.
 ╠══════════════════════  Advanced        ══════════════════════════════
+║[ ] – Add some weapons
+║[ ] – Add some armors
+║[ ] – Add primary skills (Strength, Agility, Accuracy etc.)
+║[ ] – Add secondary skills (Healing, Crafting etc.)
+║[ ] – Add weapon skills (each weapon has it's own XP value)
 ║[ ] – Add explosives
 ║[ ] – Blur
 ║[ ] – Day and night

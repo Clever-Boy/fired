@@ -7,6 +7,7 @@
 #include "stats.hpp"
 #include "phys.hpp"
 #include "model.hpp"
+#include "theworld.hpp"
 
 
 namespace fired {
@@ -21,11 +22,14 @@ namespace fired {
 		fired::World     *world;
 
 		fired::CharacterStats baseStats;
+		fired::Weapon         weapon;
 		fired::Model          model;
-		int  direction;
-		int  watching;
+		int   direction;
+		int   watching;
+		float aiming;
 
 		float weaponCooldown;
+
 
 	public:
 		fired::Phys phys;
@@ -42,9 +46,9 @@ namespace fired {
 		void moveLeft();
 		void moveRight();
 		void jump();
-		void shot(float angle);
+		void shot();
 
-		void setWatching(int _watching) { watching = _watching; };
+		void setAiming(float _aiming);
 	};
 }
 

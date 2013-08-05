@@ -25,10 +25,8 @@ void fired::Player::deinit() {
 
 void fired::Player::update() {
 	character.update();
-	crosshair.update(character.getStats()->aiming);
-
-	if (cos(crosshair.getAngle()) < 0) character.setWatching(-1);
-	else                               character.setWatching( 1);
+	crosshair.update(character.getStats()->aimrange);
+	character.setAiming(crosshair.getAngle());
 }
 
 //======================================================================
@@ -38,7 +36,7 @@ void fired::Player::checkControls() {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))     character.moveLeft();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))     character.moveRight();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) character.jump();
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))     character.shot(crosshair.getAngle());
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))     character.shot();
 
 	character.move();
 }

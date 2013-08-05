@@ -17,10 +17,10 @@ void fired::Character::init(fired::Game *_game, sf::Vector2f _startpos, fired::W
 	phys.onGround     = false;
 	phys.isMoving     = false;
 
-	baseStats.speed  = 180.0;
-	baseStats.accel  = 1200.0;
-	baseStats.jump   = 520.0;
-	baseStats.aiming = 100.0;
+	baseStats.speed    = 180.0;
+	baseStats.accel    = 1200.0;
+	baseStats.jump     = 520.0;
+	baseStats.aimrange = 100.0;
 
 
 	model.init(game, this);
@@ -28,6 +28,7 @@ void fired::Character::init(fired::Game *_game, sf::Vector2f _startpos, fired::W
 
 	direction = 1;
 	watching  = 1;
+	aiming    = 0;
 }
 
 //======================================================================
@@ -35,6 +36,7 @@ void fired::Character::init(fired::Game *_game, sf::Vector2f _startpos, fired::W
 
 void fired::Character::deinit() {
 	model.deinit();
+	weapon.deinit();
 }
 
 //======================================================================
@@ -42,6 +44,7 @@ void fired::Character::deinit() {
 
 void fired::Character::update() {
 	model.update();
+
 	weaponCooldown -= frameClock;
 	phys.isMoving = false;
 }
@@ -55,6 +58,15 @@ void fired::Character::move() {
 		if (abs(phys.velocity.x) > baseStats.speed) phys.velocity.x = direction * baseStats.speed;
 	} else
 		phys.velocity.x = 0.0;
+}
+
+//======================================================================
+
+
+void fired::Character::setAiming(float _aiming) {
+	aiming = _aiming;
+	if (cos(aiming) < 0) watching = -1;
+	else                 watching =  1;
 }
 
 //======================================================================
@@ -83,8 +95,8 @@ void fired::Character::jump() {
 //======================================================================
 
 
-void fired::Character::shot(float angle) {
+void fired::Character::shot() {
 	if (weaponCooldown > 0) return;
 	weaponCooldown = 0.2;
-	world->addShot(phys.center, angle, 1000, this);
+	world->addShot(phys.center, aiming, 1000, this);
 }

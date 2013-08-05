@@ -35,6 +35,6 @@ bool fired::Shot::update(sf::RenderWindow *app) {
 
 void fired::Shot::render(sf::RenderWindow *app) {
 	line[0].position = pos;
-	line[1].position = pos - velocity * frameClock;
+	line[1].position = pos - velocity * frameClock * 4.0f;
 	app->draw(line);
 }

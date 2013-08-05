@@ -1,174 +1,864 @@
-╔══════════════════════════════════════════════════════════════════════
-╠══════════════════════  Menu engine     ══════════════════════════════
-║[X] – Window initialization
-║[X] – Event handling
-║[X] – Mouse and keyboard classes
-║[X] – Add game class (for inclusion menu, input devices, etc.)
-║[X] – Add main menu class
-║[X] – Add menu textures (Logo, BG & Item)
-║[X] – Main menu textures loading
-║[X] – Add system clock
-║[X] – Add argue Clock to Update functions
-║[X] – Main menu render
-║[X] – Main menu BG animation
-║[X] – Add settings class
-║[X] – Add settings file
-║[X] – Loading settings
-║[X] – Saving settings
-║[X] – Menu structure loading
-║[X] – Menu items rendering
-║[X] – Mouse cursor
-║[X] – Mouse click events
-║[X] – Menu click handlers
-║[X] – Menu items browsing
-║[X] – «Back» button in menus
-║[X] – «Exit» button in menu
-║[X] – Menu items animation
-║[X] – Add "StartScr"
-║[X] – StartScr rendering
-║[X] – Add "Credits"
-║[X] – Credits rendering
-║[X] – Add deinit function with freeing objects
-║[X] – Add button handlers
-╠══════════════════════  Sound engine    ══════════════════════════════
-║[X] – Add sound system
-║[X] – Add music system
-║[X] – Add sounds of menu clicks
-║[X] – Add start screen theme
-║[X] – Add main menu theme
-║[X] – Add credits theme
-║[X] – Add theme objects to CreditsScr, StartScr and MainMenu
-║[X] – Add volume into settings
-╠══════════════════════  Game engine     ══════════════════════════════
-║[X] – Add world class
-║[X] – Add tile storage class
-║[X] – Add map storage class
-║[X] – Add tileset storage class
-║[X] – Add tileset loading
-║[X] – Add map rendering
-║[X] – Add background
-║[X] – Remove some friend classes from Game
-║[X] – Add testmap generation generation
-║[X] – Add char class
-║[X] – Create pointers to app, mainmenu or settings instead of game->...
-║[X] – Add char rendering
-║[X] – Add char controls
-║[X] – Add movement
-║[X] – Add gravity
-║[X] – Add physic struct (size, pos, vel, acc)
-║[X] – Add physics processing
-║[X] – Add char physics
-║[X] – Add collision test
-║[X] – Add jumps
-║[X] – Add camera class
-║[X] – Move BG with camera
-║[X] – Add big map support
-║[X] – Add crosshair
-║[X] – Add world theme
-║[X] – Update map class to set sizes
-║[X] – Add saving map
-║[X] – Add loading map
-║[X] – Add tilesets system
-║[X] – Add finding tiles
-║[X] – Add walls (50% grey tiles)
-║[X] – Add bricks tileset
-║[X] – Add yellow warning tilesets
-║[X] – Fix viewport when moving at the edges
-╠══════════════════════  Physics engine  ══════════════════════════════
-║[X] – Add phys struct
-║[X] – Add tile collision test
-║[X] – Add collision offset
-║[X] – Add physics processing
-║[X] – Add movement
-║[X] – Add jumping
-║[X] – Prevent tunnelong effect
-║[X] – Add edges phys collision
-╠══════════════════════  Map generator   ══════════════════════════════
-║[X] – Add MapGenerator class
-║[X] – Add landscape generation
-║[X] – Add saving player position to map file
-╠══════════════════════  Animation       ══════════════════════════════
-║[X] – Add model class
-║[X] – Add model parts (legs, body, head, hair, arms, shoe, fist)
-║[X] – Add hair sprite
-║[X] – Add hair render
-║[X] – Add head sprite
-║[X] – Add head render
-║[X] – Add body sprite
-║[X] – Add body render
-║[X] – Add legs sprite
-║[X] – Add legs render
-║[X] – Add arms sprite
-║[X] – Add arms render
-║[X] – Add shoe sprite
-║[X] – Add shoe render
-║[X] – Add fist sprite
-║[X] – Add fist render
-║[X] – Use sprite offset instead the offset of the image
-║[X] – Add flipping on left/right moving
-║[X] – Add structure to define bodyPart
-║[X] – Add vector to store pointers to bodyparts
-║[X] – Add body flipping depending on crosshair position
-║[X] – Add processing animation
-║[X] – Add jump animation
-║[X] – Add walk animation
-║[X] – Add particle system virtual class
-║[X] – Add particle system generation
-║[X] – Add particle system rendering
-╠══════════════════════  Character       ══════════════════════════════
-║[X] – Add shot
-║[X] – Add shot rendering
-║[X] – Add shot collision
-║[X] – Add shot splash
-║[X] – Add shot splash creation
-║[X] – Add weapon model
-║[X] – Add weapon cooldown
-║[X] – Add weapon rendering in fist
-║[X] – Add shooting animation with weapon aiming
-║[ ] – Add shooting sound
-║[X] – Add HP
-║[X] – Add ammo
-║[ ] – Add GUI
-║[ ] – Add GUI item HP
-║[ ] – Add GUI item ammo
-║[X] – Add damage when falling down
-╠══════════════════════  Creatures       ══════════════════════════════
-║[ ] – Add creatures
-║[ ] – Add creatures rendering
-║[ ] – Add creatures damage
-║[ ] – Add floating text with damage
-║[ ] – Add money
-║[ ] – Add XP
-║[ ] – Add LevelUp
-║[ ] – Add creatures AI
-╠══════════════════════  Map extensions  ══════════════════════════════
-║[ ] – Add map decoration class
-║[ ] – Add decorations
-║[ ] – Add collectors (chests, etc.)
-╠══════════════════════  Inventory       ══════════════════════════════
-║[ ] – Add collectable items
-║[ ] – Add creatures drop
-║[ ] – Add InGameMenu
-║[ ] – Add CharacterMenu
-║[ ] – Add inventory
-║[ ] – Add armor
-║[ ] – Add crafting recipes
-║[ ] – Add QuestItems
-║[ ] – Add items bonuses +dmg, +defence, etc.
-╠══════════════════════  Advanced        ══════════════════════════════
-║[ ] – Add some weapons
-║[ ] – Add some armors
-║[ ] – Add primary skills (Strength, Agility, Accuracy etc.)
-║[ ] – Add secondary skills (Healing, Crafting etc.)
-║[ ] – Add weapon skills (each weapon has it's own XP value)
-║[ ] – Add explosives
-║[ ] – Blur
-║[ ] – Day and night
-║[ ] – Lighting
-║[ ] – Fog
-║[ ] – Add body parts system
-║[ ] – Add char model config
-║[ ] – Add char model reading from config
-║[ ] – Add rendering armor on model
-║[ ] – Add Trigger–Action system
-╚══════════════════════════════════════════════════════════════════════
+<?xml version="1.0"?>
+<!DOCTYPE tudu SYSTEM "/usr/local/share/tudu/tudu.dtd">
+<todo>
+	<todo done="no" collapse="yes">
+		<title>Menu engine</title>
+		<text>
+</text>
+		<todo done="yes" collapse="no">
+			<title>Window initialization</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Event handling</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Mouse and keyboard classes</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add game class (for inclusion menu, input devices,etc.)</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add main menu class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add menu textures (Logo, BG and Item)</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Main menu textures loading</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add system clock</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add argue Clock to Update functions</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Main menu render</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Main menu BG animation</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add settings class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add settings file</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Loading settings</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Saving settings</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Menu structure loading</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Menu items rendering</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Mouse cursor</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Mouse click events</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Menu click handlers</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Menu items browsing</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>«Back» button in menus</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>«Exit» button in menu</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Menu items animation</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add "StartScr"</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>StartScr rendering</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add "Credits"</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Credits rendering</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add deinit function with freeing objects</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add button handlers</title>
+			<text>
+</text>
+		</todo>
+	</todo>
+	<todo done="no" collapse="yes">
+		<title>Sound engine</title>
+		<text>
+</text>
+		<todo done="yes" collapse="no">
+			<title>Add sound system</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add music system</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add sounds of menu clicks</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add start screen theme</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add main menu theme</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add credits theme</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add theme objects to CreditsScr, StartScr and MainMenu</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add volume into settings</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add shooting sound</title>
+			<text>
+</text>
+		</todo>
+	</todo>
+	<todo done="no" collapse="yes">
+		<title>Game engine</title>
+		<text>
+</text>
+		<todo done="yes" collapse="no">
+			<title>Add world class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add tile storage class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add map storage class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add tileset storage class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add tileset loading</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add map rendering</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add background</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Remove some friend classes from Game</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add testmap generation generation</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add char class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Create pointers to main project objects</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add char rendering</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add char controls</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add movement</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add gravity</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add physic struct (size, pos, vel, acc)</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add physics processing</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add char physics</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add collision test</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add jumps</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add camera class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Move BG with camera</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add big map support</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add crosshair</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add world theme</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Update map class to set sizes</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add saving map</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add loading map</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add tilesets system</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add finding tiles</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add walls (50 0rey tiles)</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add bricks tileset</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add yellow warning tilesets</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Fix viewport when moving at the edges</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add GUI</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add GUI item HP</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add GUI item ammo</title>
+			<text>
+</text>
+		</todo>
+	</todo>
+	<todo done="no" collapse="yes">
+		<title>Physics engine</title>
+		<text>
+</text>
+		<todo done="yes" collapse="no">
+			<title>Add phys struct</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add tile collision test</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add collision offset</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add physics processing</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add movement</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add jumping</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Prevent tunnelong effect</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add edges phys collision</title>
+			<text>
+</text>
+		</todo>
+	</todo>
+	<todo done="no" collapse="yes">
+		<title>Map generator</title>
+		<text>
+</text>
+		<todo done="yes" collapse="no">
+			<title>Add MapGenerator class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add landscape generation</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add saving player position to map file</title>
+			<text>
+</text>
+		</todo>
+	</todo>
+	<todo done="no" collapse="yes">
+		<title>Animation</title>
+		<text>
+</text>
+		<todo done="yes" collapse="no">
+			<title>Add model class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add model parts (legs, body, head, hair, arms, shoe, fist)</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add hair sprite</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add hair render</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add head sprite</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add head render</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add body sprite</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add body render</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add legs sprite</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add legs render</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add arms sprite</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add arms render</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add shoe sprite</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add shoe render</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add fist sprite</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add fist render</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Use sprite offset instead the offset of the image</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add flipping on left/right moving</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add structure to define bodyPart</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add vector to store pointers to bodyparts</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add body flipping depending on crosshair position</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add processing animation</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add jump animation</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add walk animation</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add particle system virtual class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add particle system generation</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add particle system rendering</title>
+			<text>
+</text>
+		</todo>
+	</todo>
+	<todo done="no" collapse="yes">
+		<title>Character</title>
+		<text>
+</text>
+		<todo done="yes" collapse="no">
+			<title>Add shot</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add shot rendering</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add shot collision</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add shot splash</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add shot splash creation</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add weapon model</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add weapon cooldown</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add weapon rendering in fist</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add shooting animation with weapon aiming</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add HP</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add ammo</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add damage when falling down</title>
+			<text>
+</text>
+		</todo>
+	</todo>
+	<todo done="no" collapse="yes">
+		<title>Creatures</title>
+		<text>
+</text>
+		<todo done="no" collapse="no">
+			<title>Add creatures</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add creatures rendering</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add creatures damage</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add floating text with damage</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add money</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add XP</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add LevelUp</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add creatures AI</title>
+			<text>
+</text>
+		</todo>
+	</todo>
+	<todo done="no" collapse="yes">
+		<title>Map extensions</title>
+		<text>
+</text>
+		<todo done="no" collapse="no">
+			<title>Add map decoration class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add decorations</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add collectors (chests, etc.)</title>
+			<text>
+</text>
+		</todo>
+	</todo>
+	<todo done="no" collapse="yes">
+		<title>Inventory</title>
+		<text>
+</text>
+		<todo done="no" collapse="no">
+			<title>Add collectable items</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add creatures drop</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add InGameMenu</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add CharacterMenu</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add inventory</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add armor</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add crafting recipes</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add QuestItems</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add items bonuses +dmg, +defence, etc.</title>
+			<text>
+</text>
+		</todo>
+	</todo>
+	<todo done="no" collapse="yes">
+		<title>Advanced</title>
+		<text>
+</text>
+		<todo done="no" collapse="no">
+			<title>Add some weapons</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add some armors</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add primary skills (Strength, Agility, Accuracy etc.)</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add secondary skills (Healing, Crafting etc.)</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add weapon skills (each weapon has it's own XP value)</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add explosives</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Blur</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Day and night</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Lighting</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Fog</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add body parts system</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add char model config</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add char model reading from config</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add rendering armor on model</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add Trigger–Action system</title>
+			<text>
+</text>
+		</todo>
+	</todo>
+</todo>

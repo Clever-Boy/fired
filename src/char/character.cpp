@@ -16,6 +16,7 @@ void fired::Character::init(fired::Game *_game, sf::Vector2f _startpos, fired::W
 	phys.rect         = sf::FloatRect(phys.pos, phys.size);
 	phys.onGround     = false;
 	phys.isMoving     = false;
+	isShooting        = false;
 
 	baseStats.speed    = 180.0;
 	baseStats.accel    = 1200.0;
@@ -47,6 +48,7 @@ void fired::Character::update() {
 
 	weaponCooldown -= frameClock;
 	phys.isMoving = false;
+	isShooting    = false;
 }
 
 //======================================================================
@@ -96,6 +98,8 @@ void fired::Character::jump() {
 
 
 void fired::Character::shot() {
+	isShooting = true;
+
 	if (weaponCooldown > 0) return;
 	weaponCooldown = weapon.baseWeapon->cooldown;
 	world->addShot(phys.center, aiming, 1000, this);

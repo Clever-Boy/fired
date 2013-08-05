@@ -97,7 +97,7 @@ void fired::World::processEvent(sf::Event event) {
 
 void fired::World::addBulletSplash(sf::Vector2f pos, sf::Vector2f direction) {
 	fired::ParticleSystemSplash *ps = new fired::ParticleSystemSplash;
-	ps->init(pos, direction, sf::Color(200, 100, 0, 255));
+	ps->init(pos, direction, sf::Color(255, 155, 0, 255));
 	particles.push_back(ps);
 }
 

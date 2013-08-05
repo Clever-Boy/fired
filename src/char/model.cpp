@@ -55,8 +55,11 @@ void fired::Model::deinit() {
 
 void fired::Model::update() {
 	bodyAnimation = caNone;
-	if (owner->phys.isMoving)       bodyAnimation = caMoving;
+	armsAnimation = caNone;
+
+	if (owner->phys.isMoving)  bodyAnimation = caMoving;
 	if (!owner->phys.onGround) bodyAnimation = caJumping;
+	if (owner->isShooting)     armsAnimation = caShooting;
 
 	processAnimation();
 	render();
@@ -201,6 +204,18 @@ void fired::Model::processArmsAnimation() {
 					partFistB.animRotation = -90.0;
 					break;
 			}
+			break;
+
+
+		case caShooting:
+			partWeapon.animOffset = sf::Vector2f(5.0 + 4.0 * cos(owner->aiming - 1.54), -4.0);
+			partWeapon.animRotation = owner->aiming * 180 / 3.14;
+			if (*partWeapon.direction < 0) partWeapon.animRotation = 180 - partWeapon.animRotation;
+
+			partFistF.animOffset = sf::Vector2f(5.0, 3.0);
+			partFistF.animRotation = -90.0;
+
+			partFistB.animOffset = sf::Vector2f(-5.0, 0.0);
 			break;
 	}
 }

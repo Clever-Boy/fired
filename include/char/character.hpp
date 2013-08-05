@@ -24,6 +24,8 @@ namespace fired {
 		fired::CharacterStats baseStats;
 		fired::Weapon         weapon;
 		fired::Model          model;
+
+		bool  isShooting;
 		int   direction;
 		int   watching;
 		float aiming;

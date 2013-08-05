@@ -124,7 +124,8 @@
 ║[X] – Add weapon model
 ║[X] – Add weapon cooldown
 ║[X] – Add weapon rendering in fist
-║[ ] – Add shooting animation with weapon aiming
+║[X] – Add shooting animation with weapon aiming
+║[ ] – Add shooting sound
 ║[ ] – Add HP
 ║[ ] – Add ammo
 ║[ ] – Add GUI

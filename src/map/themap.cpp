@@ -269,61 +269,25 @@ void fired::Map::checkPhys(fired::Phys *phys) {
 //======================================================================
 
 
-bool fired::Map::checkLineCollision(int x, float y1, float y2) {
-	if (y1 < y2) {
-		for (int i = floor(y1 / TILE_SIZE); i <= floor(y2 / TILE_SIZE); i++)
-			if (isSolid(x, i)) return true;
-	} else {
-		for (int i = floor(y2 / TILE_SIZE); i <= floor(y1 / TILE_SIZE); i++)
-			if (isSolid(x, i)) return true;
-	}
-
-	return false;
-}
-
-//======================================================================
-
-
 bool fired::Map::checkShot(fired::Shot *shot) {
-	float x1, x2, y1, y2, dx, dy;
-	int x;
+	sf::Vector2f dir(shot->velocity * frameClock);
+	sf::FloatRect ray(shot->pos, dir);
+	sf::IntRect tilesToCheck(shot->pos.x / TILE_SIZE, shot->pos.y / TILE_SIZE, (shot->pos + dir).x / TILE_SIZE, (shot->pos + dir).y / TILE_SIZE);
 
-	x1 = shot->pos.x;
-	dx = shot->velocity.x * frameClock;
+	sf::Vector2f c, n;
+	float dist;
 
-	if (dx > 0) {
-		x2 = floor(x1 / TILE_SIZE + 1) * TILE_SIZE;
-		while (x1 < shot->pos.x + dx) {
-			if (x1 < shot->pos.x)      x1 = shot->pos.x;
-			if (x2 > shot->pos.x + dx) x2 = shot->pos.x + dx;
+	if (dir.x < 0) std::swap(tilesToCheck.left, tilesToCheck.width);
+	if (dir.y < 0) std::swap(tilesToCheck.top, tilesToCheck.height);
 
-
-			x  = floor(((x1 + x2)/ 2) / TILE_SIZE);
-			y1 = tan(shot->angle) * (x1 - shot->pos.x) + shot->pos.y;
-			y2 = tan(shot->angle) * (x2 - shot->pos.x) + shot->pos.y;
-
-			if (checkLineCollision(x, y1, y2)) return true;
-
-			x1 = (x + 1) * TILE_SIZE;
-			x2 += TILE_SIZE;
+	for (int i = tilesToCheck.left; i <= tilesToCheck.width; i++)
+	for (int j = tilesToCheck.top; j <= tilesToCheck.height; j++)
+	if (isSolid(i, j))
+		if (lineBoxCollision(sf::FloatRect(i * TILE_SIZE, j * TILE_SIZE, TILE_SIZE, TILE_SIZE), ray, &c, &n, &dist)) {
+			n *= 200.0f;
+			world->addBulletSplash(c, n);
+			return true;
 		}
-	} else {
-		x2 = floor(x1 / TILE_SIZE) * TILE_SIZE;
-		while (x1 > shot->pos.x + dx) {
-			if (x1 > shot->pos.x)      x1 = shot->pos.x;
-			if (x2 < shot->pos.x + dx) x2 = shot->pos.x + dx;
-
-
-			x  = floor(((x1 + x2)/ 2) / TILE_SIZE);
-			y1 = tan(shot->angle) * (x1 - shot->pos.x) + shot->pos.y;
-			y2 = tan(shot->angle) * (x2 - shot->pos.x) + shot->pos.y;
-
-			if (checkLineCollision(x, y1, y2)) return true;
-
-			x1 = (x - 1) * TILE_SIZE;
-			x2 -= TILE_SIZE;
-		}
-	}
 
 	return false;
 }

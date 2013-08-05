@@ -46,7 +46,6 @@ namespace fired {
 		void findTiles(int x1, int y1, int x2, int y2);
 		void findTile(int i, int j);
 
-		bool checkLineCollision(int x, float y1, float y2);
 		void checkCollision(fired::Phys *phys, int tile_x, int tile_y);
 
 		void checkPhys(fired::Phys *phys);

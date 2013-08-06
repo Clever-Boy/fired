@@ -16,6 +16,7 @@ void fired::World::init(fired::Game *_game) {
 	map.init(game, &cam, this);
 	cam.init(game, map.getSize());
 	player.init(game, &cam, map.getStartPos(), this);
+	gui.init(game, &cam, &player);
 
 	cam.setTrackObj(player.getPhys());
 }
@@ -26,6 +27,7 @@ void fired::World::init(fired::Game *_game) {
 void fired::World::deinit() {
 	map.deinit();
 	player.deinit();
+	gui.deinit();
 
 	for (int i = 0; i < shots.size(); i++) {
 		shots[i]->deinit();
@@ -62,6 +64,7 @@ void fired::World::update() {
 	cam.update();
 	map.update();
 	player.update();
+	gui.update();
 
 
 	for (int i = 0; i < shots.size(); i++)

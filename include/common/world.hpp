@@ -20,6 +20,7 @@ namespace fired {
 		fired::Map    map;
 		fired::Camera cam;
 		fired::Player player;
+		fired::GUI    gui;
 
 		std::vector<fired::ParticleSystem*> particles;
 		std::vector<fired::Shot*>           shots;

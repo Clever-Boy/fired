@@ -17,7 +17,7 @@ namespace fired {
 		sf::RenderWindow *app;
 
 		fired::Character character;
-
+		bool left; // Temporary for pseudo AI
 
 	public:
 		void init(fired::Game *_game, sf::Vector2f _startpos, fired::World *world);

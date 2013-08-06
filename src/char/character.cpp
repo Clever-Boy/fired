@@ -48,6 +48,8 @@ void fired::Character::deinit() {
 
 
 void fired::Character::update() {
+	world->checkPhys(this);
+	move();
 	model.update();
 
 	weaponCooldown -= frameClock;

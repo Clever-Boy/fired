@@ -63,11 +63,6 @@ void fired::World::deinit() {
 
 void fired::World::update() {
 	checkControls();
-	map.checkPhys(player.getChar());
-
-	for (int i = 0; i < creatures.size(); i++)
-		map.checkPhys(creatures[i]->getChar());
-
 
 	for (int i = 0; i < shots.size();) {
 		if (map.checkShot(shots[i])) {
@@ -83,12 +78,11 @@ void fired::World::update() {
 	player.update();
 	gui.update();
 
+	for (int i = 0; i < creatures.size(); i++)
+		creatures[i]->update();
 
 	for (int i = 0; i < shots.size(); i++)
 		shots[i]->update(app);
-
-	for (int i = 0; i < creatures.size(); i++)
-		creatures[i]->update();
 
 	for (int i = 0; i < particles.size();) {
 		if (!particles[i]->update(app)) {

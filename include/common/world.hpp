@@ -35,6 +35,7 @@ namespace fired {
 
 		void processEvent(sf::Event event);
 		void checkControls();
+		void checkPhys(fired::Character *character) {map.checkPhys(character); };
 
 		void addShot(sf::Vector2f pos, float angle, float speed, fired::Character *owner);
 		void addBulletSplash(sf::Vector2f pos, sf::Vector2f direction);

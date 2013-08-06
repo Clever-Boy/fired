@@ -9,6 +9,7 @@ void fired::Creature::init(fired::Game *_game, sf::Vector2f _startpos, fired::Wo
 	app      = game->getApp();
 
 	character.init(_game, _startpos, world);
+	left = false;
 }
 
 //======================================================================
@@ -22,5 +23,15 @@ void fired::Creature::deinit() {
 
 
 void fired::Creature::update() {
+	if (left) {
+		if (character.phys.pos.x < 140*16.0) left = false;
+		character.moveLeft();
+		character.setAiming(3.14);
+	} else {
+		if (character.phys.pos.x > 158*16.0) left = true;
+		character.moveRight();
+		character.setAiming(0);
+	}
+
 	character.update();
 }

@@ -410,6 +410,41 @@
 			<text>
 </text>
 		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add container class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add weapon config</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add weapon container</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add bodypart config</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add bodypart container</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add creature config</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add creature container</title>
+			<text>
+</text>
+		</todo>
 	</todo>
 	<todo done="no" collapse="yes">
 		<title>Physics engine</title>
@@ -681,7 +716,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="no">
+	<todo done="no" collapse="yes">
 		<title>Creatures</title>
 		<text>
 </text>
@@ -712,6 +747,16 @@
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Add death</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add death animation</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add creature respawn</title>
 			<text>
 </text>
 		</todo>
@@ -771,7 +816,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="no" collapse="no">
 		<title>Inventory</title>
 		<text>
 </text>
@@ -857,6 +902,11 @@
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Add explosives</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add body explosion (chunks fly away)</title>
 			<text>
 </text>
 		</todo>

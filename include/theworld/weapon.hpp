@@ -11,7 +11,12 @@ namespace fired {
 		float damage;
 		float cooldown;
 
+		sf::SoundBuffer *shotBuffer;
+		sf::Sound       *shotSound;
+
+
 		void init();
+		void deinit();
 	};
 
 
@@ -20,6 +25,9 @@ namespace fired {
 		float damage;
 		float cooldown;
 		int ammo;
+
+		sf::Sound *shotSound;
+
 
 		void init(fired::BaseWeapon *_weapon);
 	};

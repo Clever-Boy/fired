@@ -38,6 +38,7 @@ void fired::World::deinit() {
 	}
 
 	for (int i = 0; i < weapons.size(); i++) {
+		weapons[i]->deinit();
 		delete weapons[i];
 	}
 }

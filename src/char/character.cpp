@@ -116,5 +116,6 @@ void fired::Character::shot() {
 	if (weapon.ammo > 0) weapon.ammo--;
 
 	weaponCooldown = weapon.cooldown;
+	weapon.shotSound->play();
 	world->addShot(phys.center, aiming, 1000, this);
 }

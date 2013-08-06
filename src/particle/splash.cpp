@@ -3,8 +3,8 @@
 //======================================================================
 
 
-void fired::ParticleSystemSplash::init(sf::Vector2f pos, sf::Vector2f direction, sf::Color color) {
-	sprite = new sf::RectangleShape(sf::Vector2f(2, 2));
+void fired::ParticleSystemSplash::init(sf::Vector2f pos, sf::Vector2f direction, sf::Color color, float size) {
+	sprite = new sf::RectangleShape(sf::Vector2f(size, size));
 
 	sf::Vector2f normal(direction.y, -direction.x);
 	sf::Vector2f accel(0, PHYS_GRAVITY / 2);

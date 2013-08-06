@@ -90,9 +90,37 @@ void fired::Character::damage(int damage) {
 //======================================================================
 
 
+bool fired::Character::checkShot(fired::Shot *shot) {
+	sf::Vector2f dir(shot->velocity * frameClock);
+	sf::FloatRect ray(shot->pos, dir);
+
+	sf::Vector2f c, n;
+	float dist;
+
+	if (lineBoxCollision(phys.rect, ray, &c, &n, &dist)) {
+		n *= 200.0f;
+		damage(shot->damage);
+		world->addBloodSplash(c, n);
+		return true;
+	}
+
+
+	return false;
+}
+
+//======================================================================
+
+
 float fired::Character::getHpPercent() {
 	if (baseStats.HP > 0) return (float)baseStats.HP / (float)baseStats.maxHP;
 	return 0.0;
+}
+
+//======================================================================
+
+
+int fired::Character::getDamage() {
+	return weapon.damage;
 }
 
 //======================================================================

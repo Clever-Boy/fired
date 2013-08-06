@@ -3,8 +3,8 @@
 //======================================================================
 
 
-void fired::BaseWeapon::init() {
-	damage   = 30;
+void fired::BaseWeapon::init(fired::Game *game) {
+	damage   = 20;
 	cooldown = 0.2;
 
 	shotBuffer = new sf::SoundBuffer();
@@ -12,6 +12,7 @@ void fired::BaseWeapon::init() {
 
 	shotSound = new sf::Sound();
 	shotSound->setBuffer(*shotBuffer);
+	shotSound->setVolume(game->getSettings()->volume.sound);
 }
 
 //======================================================================

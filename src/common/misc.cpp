@@ -104,6 +104,9 @@ bool lineBoxCollision(sf::FloatRect box, sf::FloatRect ray, sf::Vector2f *coord,
 		if (coord->x < box.left || coord->x > (box.left + box.width)) return false;
 	}
 
-	*dist = sqrt((coord->x - ray.left)*(coord->x - ray.left) + (coord->y - ray.top)*(coord->y - ray.top));
+	if (dist) {
+		 *dist = sqrt((coord->x - ray.left)*(coord->x - ray.left) + (coord->y - ray.top)*(coord->y - ray.top));
+		 if (*dist > sqrt(sqr(ray.width) + sqr(ray.height))) return false;
+	}
 	return true;
 }

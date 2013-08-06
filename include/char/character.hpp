@@ -51,10 +51,12 @@ namespace fired {
 		void jump();
 		void shot();
 
+		bool  checkShot(fired::Shot *shot);
 		void  damage(int damage);
 		void  setAiming(float _aiming);
 		float getHpPercent();
 		int   getAmmo() {return weapon.ammo; };
+		int   getDamage();
 	};
 }
 

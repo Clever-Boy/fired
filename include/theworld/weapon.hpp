@@ -8,14 +8,14 @@
 
 namespace fired {
 	struct BaseWeapon {
-		float damage;
+		int   damage;
 		float cooldown;
 
 		sf::SoundBuffer *shotBuffer;
 		sf::Sound       *shotSound;
 
 
-		void init();
+		void init(fired::Game *game);
 		void deinit();
 	};
 

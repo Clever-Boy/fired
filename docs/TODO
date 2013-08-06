@@ -395,6 +395,21 @@
 			<text>
 </text>
 		</todo>
+		<todo done="no" collapse="no">
+			<title>Add flying text class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add flying text rendering</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add flying text animation</title>
+			<text>
+</text>
+		</todo>
 	</todo>
 	<todo done="no" collapse="yes">
 		<title>Physics engine</title>
@@ -680,7 +695,7 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add creatures damage</title>
 			<text>
 </text>

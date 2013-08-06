@@ -35,10 +35,12 @@ namespace fired {
 
 		void processEvent(sf::Event event);
 		void checkControls();
+		void checkShots();
 		void checkPhys(fired::Character *character) {map.checkPhys(character); };
 
 		void addShot(sf::Vector2f pos, float angle, float speed, fired::Character *owner);
 		void addBulletSplash(sf::Vector2f pos, sf::Vector2f direction);
+		void addBloodSplash(sf::Vector2f pos, sf::Vector2f direction);
 
 		fired::BaseWeapon *getWeapon(int index) {return weapons[index]; };
 	};

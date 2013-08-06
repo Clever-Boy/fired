@@ -27,7 +27,8 @@ namespace fired {
 		void update();
 
 		void          setTrackObj(fired::Phys *phys) { objToTrack = phys; };
-		sf::Vector2f  getOffset() { return offset; };
+		sf::Vector2f  getOffset()   { return offset; };
+		sf::FloatRect getViewport() { return viewport; };
 	};
 }
 

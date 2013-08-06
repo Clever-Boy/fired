@@ -3,11 +3,12 @@
 //======================================================================
 
 
-void fired::Character::init(fired::Game *_game, sf::Vector2f _startpos, fired::World *_world) {
+void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();
 	world    = _world;
+	cam      = _cam;
 
 	phys.pos          = _startpos;
 	phys.velocity     = sf::Vector2f(0, 0);
@@ -51,6 +52,8 @@ void fired::Character::update() {
 	world->checkPhys(this);
 	move();
 	model.update();
+	if (phys.rect.intersects(cam->getViewport())) model.render();
+
 
 	weaponCooldown -= frameClock;
 	phys.isMoving = false;

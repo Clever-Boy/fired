@@ -20,6 +20,7 @@ namespace fired {
 		fired::Settings  *settings;
 		sf::RenderWindow *app;
 		fired::World     *world;
+		fired::Camera    *cam;
 
 		fired::CharacterStats baseStats;
 		fired::Weapon         weapon;
@@ -38,7 +39,7 @@ namespace fired {
 		fired::CharacterStats *getStats() { return &baseStats; };
 
 
-		void init(fired::Game *_game, sf::Vector2f _startpos, fired::World *_world);
+		void init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world);
 		void deinit();
 		void update();
 		void render();

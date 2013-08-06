@@ -3,12 +3,12 @@
 //======================================================================
 
 
-void fired::Creature::init(fired::Game *_game, sf::Vector2f _startpos, fired::World *world) {
+void fired::Creature::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *world) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();
 
-	character.init(_game, _startpos, world);
+	character.init(_game, _cam, _startpos, world);
 	left = false;
 }
 

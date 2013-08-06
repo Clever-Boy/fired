@@ -14,7 +14,7 @@ void fired::World::init(fired::Game *_game) {
 	weapons.back()->init();
 
 	creatures.push_back(new fired::Creature);
-	creatures.back()->init(game, sf::Vector2f(143*16.0, 35*16.0), this);
+	creatures.back()->init(game, &cam, sf::Vector2f(143*16.0, 35*16.0), this);
 
 	map.init(game, &cam, this);
 	cam.init(game, map.getSize());

@@ -26,6 +26,9 @@ void fired::Camera::update() {
 	if (offset.x > mapSize.x - settings->window.width ) offset.x = mapSize.x - settings->window.width;
 	if (offset.y > mapSize.y - settings->window.height) offset.y = mapSize.y - settings->window.height;
 
+	viewport.left = offset.x;
+	viewport.top  = offset.y;
+
 	view.setCenter(offset + sf::Vector2f(settings->window.width / 2, settings->window.height / 2));
 	app->setView(view);
 }

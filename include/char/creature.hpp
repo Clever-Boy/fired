@@ -20,7 +20,7 @@ namespace fired {
 		bool left; // Temporary for pseudo AI
 
 	public:
-		void init(fired::Game *_game, sf::Vector2f _startpos, fired::World *world);
+		void init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *world);
 		void deinit();
 		void update();
 

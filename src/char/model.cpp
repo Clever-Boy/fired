@@ -62,7 +62,6 @@ void fired::Model::update() {
 	if (owner->isShooting)     armsAnimation = caShooting;
 
 	processAnimation();
-	render();
 }
 
 //======================================================================

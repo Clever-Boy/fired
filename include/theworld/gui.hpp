@@ -21,6 +21,11 @@ namespace fired {
 		sf::Texture        *healthTex;
 		sf::RectangleShape *healthSpr;
 
+		sf::Texture *ammoTex;
+		sf::Sprite  *ammoSpr;
+		sf::String  *ammoCnt;
+		sf::Text    *ammoTxt;
+
 	public:
 		void init(fired::Game *_game, fired::Camera *_cam, fired::Player *_player);
 		void deinit();

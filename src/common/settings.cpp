@@ -1,5 +1,4 @@
-#include "settings.hpp"
-#include <stdio.h>
+#include "game.hpp"
 
 //======================================================================
 

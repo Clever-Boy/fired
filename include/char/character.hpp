@@ -53,6 +53,7 @@ namespace fired {
 		void  damage(int damage);
 		void  setAiming(float _aiming);
 		float getHpPercent();
+		int   getAmmo() {return weapon.ammo; };
 	};
 }
 

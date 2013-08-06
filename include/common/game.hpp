@@ -4,6 +4,11 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include <sys/stat.h>
+#include <stdio.h>
+#include <fstream>
+#include <string>
+#include <math.h>
 
 
 #include "prototypes.hpp"
@@ -16,6 +21,7 @@
 #include "theworld.hpp"
 #include "misc.hpp"
 #include "particle.hpp"
+
 
 extern float frameClock;
 

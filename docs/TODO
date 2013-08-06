@@ -700,7 +700,7 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add floating text with damage</title>
 			<text>
 </text>
@@ -712,6 +712,11 @@
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Add LevelUp</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add death</title>
 			<text>
 </text>
 		</todo>

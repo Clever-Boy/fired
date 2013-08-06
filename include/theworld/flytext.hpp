@@ -5,8 +5,8 @@
 #include <SFML/Graphics.hpp>
 #include "prototypes.hpp"
 
-#define FLYTEXT_LIFETIME 0.3
-#define FLYTEXT_OFFSET   40.0
+#define FLYTEXT_LIFETIME 0.5
+#define FLYTEXT_OFFSET   20.0
 
 
 namespace fired {

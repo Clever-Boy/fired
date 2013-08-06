@@ -84,8 +84,11 @@ void fired::Character::setAiming(float _aiming) {
 
 
 void fired::Character::damage(int damage) {
+	char dmg[8];
+
 	baseStats.HP -= damage;
-	world->addText(phys.pos, sf::Color(255, 0, 0, 255), 16, "Hello");
+	snprintf(dmg, 8, "-%u", damage);
+	world->addText(phys.pos, sf::Color(255, 0, 0, 255), 16, dmg);
 }
 
 //======================================================================

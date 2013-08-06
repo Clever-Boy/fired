@@ -14,10 +14,10 @@ void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 	phys.velocity     = sf::Vector2f(0, 0);
 	phys.acceleration = sf::Vector2f(0, PHYS_GRAVITY);
 	phys.size         = sf::Vector2f(32, 48);
-	phys.rect         = sf::FloatRect(phys.pos, phys.size);
 	phys.onGround     = false;
 	phys.isMoving     = false;
 	isShooting        = false;
+	phys.calculate();
 
 	baseStats.speed    = 180.0;
 	baseStats.accel    = 1200.0;
@@ -83,12 +83,16 @@ void fired::Character::setAiming(float _aiming) {
 //======================================================================
 
 
-void fired::Character::damage(int damage) {
+void fired::Character::damage(int damage, bool headshot) {
 	char dmg[8];
 
 	baseStats.HP -= damage;
 	snprintf(dmg, 8, "-%u", damage);
-	world->addText(phys.pos, sf::Color(255, 0, 0, 255), 16, dmg);
+
+	if (headshot)
+		world->addText(phys.pos, sf::Color(255, 0, 0, 255), 24, dmg);
+	else
+		world->addText(phys.pos, sf::Color(255, 0, 0, 255), 16, dmg);
 }
 
 //======================================================================
@@ -102,8 +106,12 @@ bool fired::Character::checkShot(fired::Shot *shot) {
 	float dist;
 
 	if (lineBoxCollision(phys.rect, ray, &c, &n, &dist)) {
+		if (lineBoxCollision(phys.head, ray, &c, &n, &dist))
+			damage(shot->damage * 1.5, true);
+		else
+			damage(shot->damage, false);
+
 		n *= 200.0f;
-		damage(shot->damage);
 		world->addBloodSplash(c, n);
 		return true;
 	}

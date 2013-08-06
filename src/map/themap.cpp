@@ -171,7 +171,7 @@ void fired::Map::checkCollision(fired::Character *character, int tile_x, int til
 		if (intersection.width > intersection.height) {
 			if (phys->pos.y < tile_y * TILE_SIZE) {
 				phys->pos.y -= intersection.height;
-				if (phys->velocity.y > PHYS_SAFE_FALL) character->damage((phys->velocity.y - PHYS_SAFE_FALL) / 10.0);
+				if (phys->velocity.y > PHYS_SAFE_FALL) character->damage((phys->velocity.y - PHYS_SAFE_FALL) / 10.0, false);
 				if (phys->velocity.y > 0.0) phys->velocity.y = 0.0;
 				phys->onGround = true;
 			} else {
@@ -190,8 +190,7 @@ void fired::Map::checkCollision(fired::Character *character, int tile_x, int til
 			}
 		}
 
-		phys->center = phys->pos + sf::Vector2f(phys->size.x / 2, phys->size.y / 2);
-		phys->rect   = sf::FloatRect(phys->pos, phys->size);
+		phys->calculate();
 	}
 }
 
@@ -234,8 +233,7 @@ void fired::Map::checkPhys(fired::Character *character) {
 
 		phys->velocity += phys->acceleration * frameChunk;
 		phys->pos += phys->velocity * frameChunk;
-		phys->rect = sf::FloatRect(phys->pos, phys->size);
-		phys->center = phys->pos + sf::Vector2f(phys->size.x / 2, phys->size.y / 2);
+		phys->calculate();
 
 		sf::Vector2i  tiles_from(floor(phys->pos.x / TILE_SIZE), floor(phys->pos.y / TILE_SIZE));
 		sf::Vector2i  tiles_to(floor((phys->pos.x + phys->size.x) / TILE_SIZE), floor((phys->pos.y + phys->size.y) / TILE_SIZE));

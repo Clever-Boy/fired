@@ -52,7 +52,7 @@ namespace fired {
 		void shot();
 
 		bool  checkShot(fired::Shot *shot);
-		void  damage(int damage);
+		void  damage(int damage, bool headshot);
 		void  setAiming(float _aiming);
 		float getHpPercent();
 		int   getAmmo() {return weapon.ammo; };

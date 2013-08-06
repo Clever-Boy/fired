@@ -85,6 +85,14 @@ void fired::Character::damage(int damage) {
 //======================================================================
 
 
+float fired::Character::getHpPercent() {
+	if (baseStats.HP > 0) return (float)baseStats.HP / (float)baseStats.maxHP;
+	return 0.0;
+}
+
+//======================================================================
+
+
 void fired::Character::moveLeft() {
 	direction = -1;
 	phys.isMoving  = true;

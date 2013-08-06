@@ -50,8 +50,9 @@ namespace fired {
 		void jump();
 		void shot();
 
-		void damage(int damage);
-		void setAiming(float _aiming);
+		void  damage(int damage);
+		void  setAiming(float _aiming);
+		float getHpPercent();
 	};
 }
 

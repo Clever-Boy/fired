@@ -18,6 +18,8 @@ namespace fired {
 		sf::Texture *barTex;
 		sf::Sprite  *barSpr;
 
+		sf::Texture        *healthTex;
+		sf::RectangleShape *healthSpr;
 
 	public:
 		void init(fired::Game *_game, fired::Camera *_cam, fired::Player *_player);

@@ -25,6 +25,7 @@ namespace fired {
 		std::vector<fired::ParticleSystem*> particles;
 		std::vector<fired::Shot*>           shots;
 		std::vector<fired::BaseWeapon*>     weapons;
+		std::vector<fired::Creature*>       creatures;
 
 
 	public:

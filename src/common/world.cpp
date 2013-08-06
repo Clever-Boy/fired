@@ -13,6 +13,9 @@ void fired::World::init(fired::Game *_game) {
 	weapons.push_back(new fired::BaseWeapon);
 	weapons.back()->init();
 
+	creatures.push_back(new fired::Creature);
+	creatures.back()->init(game, sf::Vector2f(143*16.0, 35*16.0), this);
+
 	map.init(game, &cam, this);
 	cam.init(game, map.getSize());
 	player.init(game, &cam, map.getStartPos(), this);
@@ -43,6 +46,16 @@ void fired::World::deinit() {
 		weapons[i]->deinit();
 		delete weapons[i];
 	}
+
+	for (int i = 0; i < creatures.size(); i++) {
+		creatures[i]->deinit();
+		delete creatures[i];
+	}
+
+	shots.clear();
+	particles.clear();
+	weapons.clear();
+	creatures.clear();
 }
 
 //======================================================================
@@ -51,6 +64,10 @@ void fired::World::deinit() {
 void fired::World::update() {
 	checkControls();
 	map.checkPhys(player.getChar());
+
+	for (int i = 0; i < creatures.size(); i++)
+		map.checkPhys(creatures[i]->getChar());
+
 
 	for (int i = 0; i < shots.size();) {
 		if (map.checkShot(shots[i])) {
@@ -69,6 +86,9 @@ void fired::World::update() {
 
 	for (int i = 0; i < shots.size(); i++)
 		shots[i]->update(app);
+
+	for (int i = 0; i < creatures.size(); i++)
+		creatures[i]->update();
 
 	for (int i = 0; i < particles.size();) {
 		if (!particles[i]->update(app)) {

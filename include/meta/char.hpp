@@ -3,5 +3,6 @@
 
 #include "char/character.hpp"
 #include "char/player.hpp"
+#include "char/creature.hpp"
 
 #endif

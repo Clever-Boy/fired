@@ -395,17 +395,17 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add flying text class</title>
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add flying text rendering</title>
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add flying text animation</title>
 			<text>
 </text>
@@ -706,11 +706,6 @@
 </text>
 		</todo>
 		<todo done="no" collapse="no">
-			<title>Add money</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
 			<title>Add XP</title>
 			<text>
 </text>
@@ -721,7 +716,27 @@
 </text>
 		</todo>
 		<todo done="no" collapse="no">
-			<title>Add creatures AI</title>
+			<title>Add creatures AI prototype</title>
+			<text>
+</text>
+		</todo>
+	</todo>
+	<todo done="no" collapse="yes">
+		<title>AI</title>
+		<text>
+</text>
+		<todo done="no" collapse="no">
+			<title>Warrior AI</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Shooter AI</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Turrel AI</title>
 			<text>
 </text>
 		</todo>
@@ -750,6 +765,11 @@
 		<title>Inventory</title>
 		<text>
 </text>
+		<todo done="no" collapse="no">
+			<title>Add money</title>
+			<text>
+</text>
+		</todo>
 		<todo done="no" collapse="no">
 			<title>Add collectable items</title>
 			<text>

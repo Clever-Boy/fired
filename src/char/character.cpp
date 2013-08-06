@@ -85,6 +85,7 @@ void fired::Character::setAiming(float _aiming) {
 
 void fired::Character::damage(int damage) {
 	baseStats.HP -= damage;
+	world->addText(phys.pos, sf::Color(255, 0, 0, 255), 16, "Hello");
 }
 
 //======================================================================

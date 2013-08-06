@@ -52,10 +52,16 @@ void fired::World::deinit() {
 		delete creatures[i];
 	}
 
+	for (int i = 0; i < texts.size(); i++) {
+		texts[i]->deinit();
+		delete texts[i];
+	}
+
 	shots.clear();
 	particles.clear();
 	weapons.clear();
 	creatures.clear();
+	texts.clear();
 }
 
 //======================================================================
@@ -83,6 +89,15 @@ void fired::World::update() {
 			particles[i]->deinit();
 			delete particles[i];
 			particles.erase(particles.begin() + i);
+		} else
+			i++;
+	}
+
+	for (int i = 0; i < texts.size();) {
+		if (!texts[i]->update()) {
+			texts[i]->deinit();
+			delete texts[i];
+			texts.erase(texts.begin() + i);
 		} else
 			i++;
 	}
@@ -160,4 +175,12 @@ void fired::World::addBloodSplash(sf::Vector2f pos, sf::Vector2f direction) {
 void fired::World::addShot(sf::Vector2f pos, float angle, float speed, fired::Character *owner) {
 	shots.push_back(new fired::Shot);
 	shots.back()->init(pos, angle, speed, owner);
+}
+
+//======================================================================
+
+
+void fired::World::addText(sf::Vector2f pos, sf::Color color, int size, const char *text) {
+	texts.push_back(new fired::FlyText);
+	texts.back()->init(game, pos, color, size, text);
 }

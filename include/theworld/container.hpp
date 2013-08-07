@@ -15,8 +15,9 @@ namespace fired {
 		sf::RenderWindow *app;
 		fired::World     *world;
 
-		std::vector<fired::BaseWeapon*> weapons;
-		std::vector<fired::BaseBodypart*>   bodyparts;
+		std::vector<fired::BaseWeapon*>   weapons;
+		std::vector<fired::BaseBodypart*> bodyparts;
+		std::vector<fired::BaseModel*>    models;
 
 
 	public:
@@ -26,6 +27,10 @@ namespace fired {
 		void loadWeapons();
 		void loadWeapon(const char* filename);
 		fired::BaseWeapon *getWeapon(const char* name);
+
+		void loadModels();
+		void loadModel(const char* filename);
+		fired::BaseModel *getModel(const char* name);
 
 		void loadBodyparts();
 		void loadBodypartsInDir(const char *dir, fired::BodypartType type);

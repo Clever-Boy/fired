@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::Model::init(fired::Game *_game, fired::Character *_owner) {
+void fired::Model::init(fired::Game *_game, fired::Character *_owner, fired::BaseModel *base) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();

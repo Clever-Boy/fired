@@ -1,0 +1,14 @@
+type=humanoid
+name=common
+legsf=common
+legsb=common
+shoef=common
+shoeb=common
+fistf=common
+fistb=common
+arms=common
+hair=common
+head=common
+body=common
+weapon=rifle
+

@@ -27,7 +27,7 @@ void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 	baseStats.HP       = baseStats.maxHP;
 
 
-	model.init(game, this);
+	model.init(game, this, world->getModel("common"));
 	weapon.init(world->getWeapon("rifle"));
 	weapon.ammo = -1;
 

@@ -11,6 +11,7 @@ void fired::Container::init(fired::Game *_game, fired::World *_world) {
 
 	loadWeapons();
 	loadBodyparts();
+	loadModels();
 }
 
 //======================================================================
@@ -27,9 +28,13 @@ void fired::Container::deinit() {
 		delete bodyparts[i];
 	}
 
+	for (int i = 0; i < models.size(); i++)
+		delete models[i];
+
 
 	weapons.clear();
 	bodyparts.clear();
+	models.clear();
 }
 
 //======================================================================
@@ -147,3 +152,79 @@ fired::BaseBodypart* fired::Container::getBodypart(const char* name, fired::Body
 
 	return NULL;
 }
+
+//======================================================================
+
+
+void fired::Container::loadModels() {
+	std::vector<std::string> files;
+	char filename[128];
+
+	directoryContents("data/game/models", &files);
+	for (int i = 0; i < files.size(); i++) {
+		snprintf(filename, sizeof(filename), "data/game/models/%s", files[i].c_str());
+		loadModel(filename);
+	}
+}
+
+//======================================================================
+
+
+void fired::Container::loadModel(const char* filename) {
+	char field[128];
+
+	FILE *fp = fopen(filename, "r");
+	fscanf(fp, "type=%s\n", field);
+
+	if (!strcmp(field, "humanoid")) {
+		fired::BaseModelHumanoid *model = new fired::BaseModelHumanoid;
+		model->type = mtHumanoid;
+		fscanf(fp, "name=%s\n"    , model->name);
+
+		fscanf(fp, "legsf=%s\n", field);
+		model->partLegsF = getBodypart(field, bptLegsF);
+
+		fscanf(fp, "legsb=%s\n", field);
+		model->partLegsB = getBodypart(field, bptLegsB);
+
+		fscanf(fp, "shoef=%s\n", field);
+		model->partShoeF = getBodypart(field, bptShoeF);
+
+		fscanf(fp, "shoeb=%s\n", field);
+		model->partShoeB = getBodypart(field, bptShoeB);
+
+		fscanf(fp, "fistf=%s\n", field);
+		model->partFistF = getBodypart(field, bptFistF);
+
+		fscanf(fp, "fistb=%s\n", field);
+		model->partFistB = getBodypart(field, bptFistB);
+
+		fscanf(fp, "arms=%s\n", field);
+		model->partArms = getBodypart(field, bptArms);
+
+		fscanf(fp, "hair=%s\n", field);
+		model->partHair = getBodypart(field, bptHair);
+
+		fscanf(fp, "head=%s\n", field);
+		model->partHead = getBodypart(field, bptHead);
+
+		fscanf(fp, "body=%s\n", field);
+		model->partBody = getBodypart(field, bptBody);
+
+		fscanf(fp, "weapon=%s\n", field);
+		model->partWeapon = getBodypart(field, bptWeapon);
+
+		models.push_back(model);
+	}
+}
+
+//======================================================================
+
+
+fired::BaseModel* fired::Container::getModel(const char* name) {
+	for (int i = 0; i < models.size(); i++)
+		if (!strcmp(name, models[i]->name)) return models[i];
+
+	return NULL;
+}
+

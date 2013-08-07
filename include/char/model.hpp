@@ -16,6 +16,32 @@ namespace fired {
 	};
 
 
+	enum ModelType {
+		mtHumanoid
+	};
+
+
+	struct BaseModel {
+		char             name[32];
+		fired::ModelType type;
+	};
+
+
+	struct BaseModelHumanoid : BaseModel {
+		fired::BaseBodypart *partLegsF;
+		fired::BaseBodypart *partLegsB;
+		fired::BaseBodypart *partShoeF;
+		fired::BaseBodypart *partShoeB;
+		fired::BaseBodypart *partFistF;
+		fired::BaseBodypart *partFistB;
+		fired::BaseBodypart *partHair;
+		fired::BaseBodypart *partBody;
+		fired::BaseBodypart *partArms;
+		fired::BaseBodypart *partHead;
+		fired::BaseBodypart *partWeapon;
+	};
+
+
 	class Model {
 	private:
 		fired::Game      *game;
@@ -48,7 +74,7 @@ namespace fired {
 
 
 	public:
-		void init(fired::Game *_game, fired::Character *_owner);
+		void init(fired::Game *_game, fired::Character *_owner, fired::BaseModel *base);
 		void deinit();
 		void update();
 		void render();

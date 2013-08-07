@@ -39,6 +39,8 @@ namespace fired {
 		void checkShots();
 		void checkPhys(fired::Character *character) {map.checkPhys(character); };
 
+		void spawn(sf::Vector2f pos, const char *creature);
+
 		void addShot(sf::Vector2f pos, float angle, float speed, fired::Character *owner);
 		void addText(sf::Vector2f pos, sf::Color color, int size, const char *text);
 		void addBulletSplash(sf::Vector2f pos, sf::Vector2f direction);

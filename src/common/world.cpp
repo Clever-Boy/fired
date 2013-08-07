@@ -11,15 +11,13 @@ void fired::World::init(fired::Game *_game) {
 	game->setMusic("data/snd/themes/world.ogg");
 	container.init(game, this);
 
-	creatures.push_back(new fired::Creature);
-	creatures.back()->init(game, &cam, sf::Vector2f(143*16.0, 35*16.0), this, getCreature("soldier"));
-
 	map.init(game, &cam, this);
 	cam.init(game, map.getSize());
 	player.init(game, &cam, map.getStartPos(), this);
 	gui.init(game, &cam, &player);
 
 	cam.setTrackObj(player.getPhys());
+	spawn(sf::Vector2f(2288, 560), "soldier");
 }
 
 //======================================================================
@@ -142,6 +140,14 @@ void fired::World::checkShots() {
 
 void fired::World::processEvent(sf::Event event) {
 	return;
+}
+
+//======================================================================
+
+
+void fired::World::spawn(sf::Vector2f pos, const char *creature) {
+	creatures.push_back(new fired::Creature);
+	creatures.back()->init(game, &cam, pos, this, getCreature(creature));
 }
 
 //======================================================================

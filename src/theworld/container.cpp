@@ -134,7 +134,7 @@ void fired::Container::loadBodypart(const char *dir, const char* filename, fired
 	FILE *fp = fopen(filename, "r");
 	fscanf(fp, "name=%s\n"     , bodyparts.back()->name);
 	fscanf(fp, "offset=%f,%f\n", &bodyparts.back()->offset.x, &bodyparts.back()->offset.y);
-	fscanf(fp, "color=%d,%d,%d,%d\n", &bodyparts.back()->color.r, &bodyparts.back()->color.g, &bodyparts.back()->color.b, &bodyparts.back()->color.a);
+	fscanf(fp, "color=%hhu,%hhu,%hhu,%hhu\n", &bodyparts.back()->color.r, &bodyparts.back()->color.g, &bodyparts.back()->color.b, &bodyparts.back()->color.a);
 	fscanf(fp, "image=%s\n"    , imgfile);
 	fclose(fp);
 

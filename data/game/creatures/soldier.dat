@@ -1,0 +1,9 @@
+name=soldier
+model=common
+weapon=rifle
+speed=80.0
+accel=800.0
+jump=520.0
+aimrange=100.0
+maxHP=50
+

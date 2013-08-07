@@ -47,6 +47,7 @@ namespace fired {
 		fired::BaseWeapon   *getWeapon(const char *name) {return container.getWeapon(name); };
 		fired::BaseBodypart *getBodypart(const char *name, fired::BodypartType type) {return container.getBodypart(name, type); };
 		fired::BaseModel    *getModel(const char *name) {return container.getModel(name); };
+		fired::BaseCreature *getCreature(const char *name) {return container.getCreature(name); };
 	};
 }
 

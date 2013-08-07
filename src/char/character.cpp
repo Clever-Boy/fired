@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world) {
+void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, const char *modelname) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();
@@ -26,7 +26,7 @@ void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 	baseStats.maxHP    = 100;
 	baseStats.HP       = baseStats.maxHP;
 
-	fired::BaseModel *basemodel = world->getModel("common");
+	fired::BaseModel *basemodel = world->getModel(modelname);
 	switch (basemodel->type) {
 		case mtHumanoid: {
 			fired::ModelHumanoid *newmodel = new fired::ModelHumanoid;

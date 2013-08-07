@@ -10,6 +10,15 @@
 
 
 namespace fired {
+	struct BaseCreature {
+		char name[32];
+		char model[32];
+		char weapon[32];
+
+		CharacterStats stats;
+	};
+
+
 	class Creature {
 	private:
 		fired::Game      *game;

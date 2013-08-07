@@ -17,6 +17,7 @@ namespace fired {
 	class CreditsScr;
 	class Tileset;
 	class BaseWeapon;
+	class BaseCreature;
 
 
 	typedef void (Handlers::*Handler)(void);

@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include "prototypes.hpp"
 #include "char.hpp"
+#include "theworld.hpp"
 
 
 namespace fired {
@@ -18,6 +19,7 @@ namespace fired {
 		std::vector<fired::BaseWeapon*>   weapons;
 		std::vector<fired::BaseBodypart*> bodyparts;
 		std::vector<fired::BaseModel*>    models;
+		std::vector<fired::BaseCreature*> creatures;
 
 
 	public:
@@ -31,6 +33,10 @@ namespace fired {
 		void loadModels();
 		void loadModel(const char* filename);
 		fired::BaseModel *getModel(const char* name);
+
+		void loadCreatures();
+		void loadCreature(const char* filename);
+		fired::BaseCreature *getCreature(const char* name);
 
 		void loadBodyparts();
 		void loadBodypartsInDir(const char *dir, fired::BodypartType type);

@@ -12,6 +12,7 @@ void fired::Container::init(fired::Game *_game, fired::World *_world) {
 	loadWeapons();
 	loadBodyparts();
 	loadModels();
+	loadCreatures();
 }
 
 //======================================================================
@@ -31,10 +32,14 @@ void fired::Container::deinit() {
 	for (int i = 0; i < models.size(); i++)
 		delete models[i];
 
+	for (int i = 0; i < creatures.size(); i++)
+		delete creatures[i];
+
 
 	weapons.clear();
 	bodyparts.clear();
 	models.clear();
+	creatures.clear();
 }
 
 //======================================================================
@@ -224,6 +229,48 @@ void fired::Container::loadModel(const char* filename) {
 fired::BaseModel* fired::Container::getModel(const char* name) {
 	for (int i = 0; i < models.size(); i++)
 		if (!strcmp(name, models[i]->name)) return models[i];
+
+	return NULL;
+}
+
+//======================================================================
+
+
+void fired::Container::loadCreatures() {
+	std::vector<std::string> files;
+	char filename[128];
+
+	directoryContents("data/game/creatures", &files);
+	for (int i = 0; i < files.size(); i++) {
+		snprintf(filename, sizeof(filename), "data/game/creatures/%s", files[i].c_str());
+		loadCreature(filename);
+	}
+}
+
+//======================================================================
+
+
+void fired::Container::loadCreature(const char* filename) {
+	creatures.push_back(new fired::BaseCreature);
+
+	FILE *fp = fopen(filename, "r");
+	fscanf(fp, "name=%s\n"    ,  creatures.back()->name);
+	fscanf(fp, "model=%s\n"   ,  creatures.back()->model);
+	fscanf(fp, "weapon=%s\n"  ,  creatures.back()->weapon);
+	fscanf(fp, "speed=%f\n"   , &creatures.back()->stats.speed);
+	fscanf(fp, "accel=%f\n"   , &creatures.back()->stats.accel);
+	fscanf(fp, "jump=%f\n"    , &creatures.back()->stats.jump);
+	fscanf(fp, "aimrange=%f\n", &creatures.back()->stats.aimrange);
+	fscanf(fp, "maxHP=%u\n"   , &creatures.back()->stats.maxHP);
+	fclose(fp);
+}
+
+//======================================================================
+
+
+fired::BaseCreature* fired::Container::getCreature(const char* name) {
+	for (int i = 0; i < creatures.size(); i++)
+		if (!strcmp(name, creatures[i]->name)) return creatures[i];
 
 	return NULL;
 }

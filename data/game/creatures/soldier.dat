@@ -1,5 +1,6 @@
 name=soldier
 model=common
+scale=1.3
 weapon=rifle
 speed=80.0
 accel=800.0

@@ -25,6 +25,7 @@ namespace fired {
 	struct BaseModel {
 		char             name[32];
 		fired::ModelType type;
+		sf::Vector2f     size;
 	};
 
 
@@ -51,6 +52,7 @@ namespace fired {
 		fired::Character *owner;
 		sf::RenderWindow *app;
 
+		float modelScale;
 		std::vector<fired::Bodypart*> bodyParts;
 
 

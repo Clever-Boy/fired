@@ -185,6 +185,7 @@ void fired::Container::loadModel(const char* filename) {
 		fired::BaseModelHumanoid *model = new fired::BaseModelHumanoid;
 		model->type = mtHumanoid;
 		fscanf(fp, "name=%s\n"    , model->name);
+		fscanf(fp, "size=%f,%f\n", &model->size.x, &model->size.y);
 
 		fscanf(fp, "legsf=%s\n", field);
 		model->partLegsF = getBodypart(field, bptLegsF);
@@ -256,6 +257,7 @@ void fired::Container::loadCreature(const char* filename) {
 	FILE *fp = fopen(filename, "r");
 	fscanf(fp, "name=%s\n"    ,  creatures.back()->name);
 	fscanf(fp, "model=%s\n"   ,  creatures.back()->model);
+	fscanf(fp, "scale=%f\n"   , &creatures.back()->modelScale);
 	fscanf(fp, "weapon=%s\n"  ,  creatures.back()->weapon);
 	fscanf(fp, "speed=%f\n"   , &creatures.back()->stats.speed);
 	fscanf(fp, "accel=%f\n"   , &creatures.back()->stats.accel);

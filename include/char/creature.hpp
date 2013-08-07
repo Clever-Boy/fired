@@ -11,9 +11,10 @@
 
 namespace fired {
 	struct BaseCreature {
-		char name[32];
-		char model[32];
-		char weapon[32];
+		char  name[32];
+		char  model[32];
+		char  weapon[32];
+		float modelScale;
 
 		CharacterStats stats;
 	};

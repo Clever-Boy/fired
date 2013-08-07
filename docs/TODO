@@ -206,7 +206,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="no">
+	<todo done="no" collapse="yes">
 		<title>Game engine</title>
 		<text>
 </text>
@@ -475,12 +475,12 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add size to model config</title>
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add scalable models</title>
 			<text>
 </text>
@@ -756,7 +756,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="no" collapse="no">
 		<title>Creatures</title>
 		<text>
 </text>

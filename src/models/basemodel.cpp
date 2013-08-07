@@ -28,13 +28,13 @@ void fired::Model::initPart(fired::Bodypart *part, fired::BaseBodypart *base, in
 
 
 void fired::Model::drawPart(fired::Bodypart *part) {
-	part->base->sprite->setScale(*part->direction, 1.0);
+	part->base->sprite->setScale(*part->direction * modelScale, modelScale);
 	part->base->sprite->setRotation(*part->direction * part->animRotation);
 
 	if (*part->direction == 1)
-		part->base->sprite->setPosition(owner->phys.pos + part->base->offset + part->animOffset);
+		part->base->sprite->setPosition(owner->phys.pos + (part->base->offset + part->animOffset) * modelScale);
 	else
-		part->base->sprite->setPosition(owner->phys.pos + sf::Vector2f(-part->base->offset.x, part->base->offset.y) + sf::Vector2f(-part->animOffset.x, part->animOffset.y) + sf::Vector2f(owner->phys.size.x, 0));
+		part->base->sprite->setPosition(owner->phys.pos + sf::Vector2f(-part->base->offset.x - part->animOffset.x, part->base->offset.y + part->animOffset.y) * modelScale + sf::Vector2f(owner->phys.size.x, 0));
 
 	app->draw(*part->base->sprite);
 }

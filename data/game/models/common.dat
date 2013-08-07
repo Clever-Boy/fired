@@ -1,5 +1,6 @@
 type=humanoid
 name=common
+size=32.0,48.0
 legsf=common
 legsb=common
 shoef=common

@@ -13,7 +13,6 @@ void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 	phys.pos          = _startpos;
 	phys.velocity     = sf::Vector2f(0, 0);
 	phys.acceleration = sf::Vector2f(0, PHYS_GRAVITY);
-	phys.size         = sf::Vector2f(32, 48);
 	phys.onGround     = false;
 	phys.isMoving     = false;
 	isShooting        = false;
@@ -31,7 +30,7 @@ void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 	switch (basemodel->type) {
 		case mtHumanoid: {
 			fired::ModelHumanoid *newmodel = new fired::ModelHumanoid;
-			newmodel->init(game, this, (fired::BaseModelHumanoid*)basemodel);
+			newmodel->init(game, this, (fired::BaseModelHumanoid*)basemodel, base->modelScale);
 			model = newmodel;
 			break;
 		}

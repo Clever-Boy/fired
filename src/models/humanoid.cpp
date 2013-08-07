@@ -3,11 +3,14 @@
 //======================================================================
 
 
-void fired::ModelHumanoid::init(fired::Game *_game, fired::Character *_owner, fired::BaseModelHumanoid *base) {
+void fired::ModelHumanoid::init(fired::Game *_game, fired::Character *_owner, fired::BaseModelHumanoid *base, float scale) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();
 	owner    = _owner;
+
+	modelScale = scale;
+	owner->phys.size = base->size * scale;
 
 
 	initPart(&partLegsF , base->partLegsF, &owner->direction);

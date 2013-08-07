@@ -17,14 +17,14 @@ namespace fired {
 		fired::Settings  *settings;
 		sf::RenderWindow *app;
 
-		fired::Map    map;
-		fired::Camera cam;
-		fired::Player player;
-		fired::GUI    gui;
+		fired::Map       map;
+		fired::Camera    cam;
+		fired::Player    player;
+		fired::GUI       gui;
+		fired::Container container;
 
 		std::vector<fired::ParticleSystem*> particles;
 		std::vector<fired::Shot*>           shots;
-		std::vector<fired::BaseWeapon*>     weapons;
 		std::vector<fired::Creature*>       creatures;
 		std::vector<fired::FlyText*>        texts;
 
@@ -44,7 +44,7 @@ namespace fired {
 		void addBulletSplash(sf::Vector2f pos, sf::Vector2f direction);
 		void addBloodSplash(sf::Vector2f pos, sf::Vector2f direction);
 
-		fired::BaseWeapon *getWeapon(int index) {return weapons[index]; };
+		fired::BaseWeapon *getWeapon(const char *name) {return container.getWeapon(name); };
 	};
 }
 

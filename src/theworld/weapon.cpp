@@ -3,21 +3,6 @@
 //======================================================================
 
 
-void fired::BaseWeapon::init(fired::Game *game) {
-	damage   = 20;
-	cooldown = 0.2;
-
-	shotBuffer = new sf::SoundBuffer();
-	shotBuffer->loadFromFile("data/snd/weapons/rifle_shot.wav");
-
-	shotSound = new sf::Sound();
-	shotSound->setBuffer(*shotBuffer);
-	shotSound->setVolume(game->getSettings()->volume.sound);
-}
-
-//======================================================================
-
-
 void fired::BaseWeapon::deinit() {
 	delete shotBuffer;
 	delete shotSound;

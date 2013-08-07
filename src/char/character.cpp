@@ -28,7 +28,7 @@ void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 
 
 	model.init(game, this);
-	weapon.init(world->getWeapon(0));
+	weapon.init(world->getWeapon("rifle"));
 	weapon.ammo = -1;
 
 	weaponCooldown = 0;

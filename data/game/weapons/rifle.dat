@@ -1,0 +1,5 @@
+weapon.name=rifle
+weapon.damage=20
+weapon.cooldown=0.2
+weapon.fire=rifle_shot.wav
+

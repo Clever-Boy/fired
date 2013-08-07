@@ -6,8 +6,10 @@
 #include <SFML/Audio.hpp>
 #include <sys/stat.h>
 #include <stdio.h>
+#include <dirent.h>
 #include <fstream>
 #include <string>
+#include <string.h>
 #include <math.h>
 
 

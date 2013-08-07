@@ -9,9 +9,7 @@ void fired::World::init(fired::Game *_game) {
 	app      = game->getApp();
 
 	game->setMusic("data/snd/themes/world.ogg");
-
-	weapons.push_back(new fired::BaseWeapon);
-	weapons.back()->init(game);
+	container.init(game, this);
 
 	creatures.push_back(new fired::Creature);
 	creatures.back()->init(game, &cam, sf::Vector2f(143*16.0, 35*16.0), this);
@@ -31,6 +29,7 @@ void fired::World::deinit() {
 	map.deinit();
 	player.deinit();
 	gui.deinit();
+	container.deinit();
 
 	for (int i = 0; i < shots.size(); i++) {
 		shots[i]->deinit();
@@ -40,11 +39,6 @@ void fired::World::deinit() {
 	for (int i = 0; i < particles.size(); i++) {
 		particles[i]->deinit();
 		delete particles[i];
-	}
-
-	for (int i = 0; i < weapons.size(); i++) {
-		weapons[i]->deinit();
-		delete weapons[i];
 	}
 
 	for (int i = 0; i < creatures.size(); i++) {
@@ -59,7 +53,6 @@ void fired::World::deinit() {
 
 	shots.clear();
 	particles.clear();
-	weapons.clear();
 	creatures.clear();
 	texts.clear();
 }

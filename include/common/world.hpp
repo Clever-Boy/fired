@@ -45,6 +45,7 @@ namespace fired {
 		void addBloodSplash(sf::Vector2f pos, sf::Vector2f direction);
 
 		fired::BaseWeapon *getWeapon(const char *name) {return container.getWeapon(name); };
+		fired::BaseBodypart *getBodypart(const char *name, fired::BodypartType type) {return container.getBodypart(name, type); };
 	};
 }
 

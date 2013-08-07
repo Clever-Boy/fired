@@ -22,6 +22,26 @@ namespace fired {
 	};
 
 
+	struct BaseBodypart {
+		char                name[32];
+		sf::Sprite         *sprite;
+		sf::Texture        *texture;
+		sf::Vector2f        offset;
+		sf::Color           color;
+		fired::BodypartType type;
+
+		void deinit();
+	};
+
+
+	struct BodypartNew {
+		fired::BaseBodypart *base;
+		int                 *direction;
+		sf::Vector2f         animOffset;
+		float                animRotation;
+	};
+
+
 	struct Bodypart {
 		char                name[32];
 		sf::Sprite         *sprite;

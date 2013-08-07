@@ -16,7 +16,7 @@ namespace fired {
 		fired::World     *world;
 
 		std::vector<fired::BaseWeapon*> weapons;
-		std::vector<fired::Bodypart*>   bodyparts;
+		std::vector<fired::BaseBodypart*>   bodyparts;
 
 
 	public:
@@ -30,7 +30,7 @@ namespace fired {
 		void loadBodyparts();
 		void loadBodypartsInDir(const char *dir, fired::BodypartType type);
 		void loadBodypart(const char *dir, const char* filename, fired::BodypartType type);
-		fired::Bodypart *getBodypart(const char* name);
+		fired::BaseBodypart *getBodypart(const char* name, fired::BodypartType type);
 	};
 }
 

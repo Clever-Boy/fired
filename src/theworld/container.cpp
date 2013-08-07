@@ -119,7 +119,7 @@ void fired::Container::loadBodypartsInDir(const char *dir, fired::BodypartType t
 void fired::Container::loadBodypart(const char *dir, const char* filename, fired::BodypartType type) {
 	char imgfile[128];
 	char imgpath[128];
-	bodyparts.push_back(new fired::Bodypart);
+	bodyparts.push_back(new fired::BaseBodypart);
 
 	FILE *fp = fopen(filename, "r");
 	fscanf(fp, "name=%s\n"     , bodyparts.back()->name);
@@ -141,6 +141,9 @@ void fired::Container::loadBodypart(const char *dir, const char* filename, fired
 //======================================================================
 
 
-fired::Bodypart* fired::Container::getBodypart(const char* name) {
+fired::BaseBodypart* fired::Container::getBodypart(const char* name, fired::BodypartType type) {
+	for (int i = 0; i < bodyparts.size(); i++)
+		if (!strcmp(name, bodyparts[i]->name) && type == bodyparts[i]->type) return bodyparts[i];
+
 	return NULL;
 }

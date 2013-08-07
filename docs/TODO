@@ -455,7 +455,7 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add model selecting</title>
 			<text>
 </text>
@@ -472,6 +472,16 @@
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Add creature selecting</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add size to model config</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add scalable models</title>
 			<text>
 </text>
 		</todo>

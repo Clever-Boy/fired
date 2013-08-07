@@ -1,5 +1,5 @@
-#ifndef __MODEL
-#define __MODEL
+#ifndef __BASEMODEL
+#define __BASEMODEL
 
 
 #include <SFML/Graphics.hpp>
@@ -19,6 +19,7 @@ namespace fired {
 	enum ModelType {
 		mtHumanoid
 	};
+
 
 
 	struct BaseModel {
@@ -42,52 +43,27 @@ namespace fired {
 	};
 
 
+
 	class Model {
-	private:
+	protected:
 		fired::Game      *game;
 		fired::Settings  *settings;
 		fired::Character *owner;
 		sf::RenderWindow *app;
 
-		fired::CharAnimationType bodyAnimation;
-		fired::CharAnimationType armsAnimation;
-
-		float bodyAnimationTime;
-		float armsAnimationTime;
-
-		int bodyFrame;
-		int armsFrame;
-
-		fired::Bodypart partLegsF;
-		fired::Bodypart partLegsB;
-		fired::Bodypart partShoeF;
-		fired::Bodypart partShoeB;
-		fired::Bodypart partFistF;
-		fired::Bodypart partFistB;
-		fired::Bodypart partHair;
-		fired::Bodypart partBody;
-		fired::Bodypart partArms;
-		fired::Bodypart partHead;
-		fired::Bodypart partWeapon;
-
 		std::vector<fired::Bodypart*> bodyParts;
 
 
 	public:
-		void init(fired::Game *_game, fired::Character *_owner, fired::BaseModel *base);
 		void deinit();
-		void update();
 		void render();
+		virtual void update() {};
 
-		void initPart(fired::Bodypart *part, sf::Vector2f offset, const char *imgFile, int *direction);
+		void initPart(fired::Bodypart *part, fired::BaseBodypart *base, int *direction);
 		void drawPart(fired::Bodypart *part);
-		void deinitPart(fired::Bodypart *part);
 		void resetPart(fired::Bodypart *part);
 
-		void processAnimation();
 		void resetAnimation();
-		void processBodyAnimation();
-		void processArmsAnimation();
 	};
 }
 

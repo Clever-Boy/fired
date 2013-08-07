@@ -18,6 +18,7 @@
 #include "control.hpp"
 #include "settings.hpp"
 #include "screen.hpp"
+#include "model.hpp"
 #include "char.hpp"
 #include "world.hpp"
 #include "theworld.hpp"

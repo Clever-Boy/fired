@@ -26,8 +26,16 @@ void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 	baseStats.maxHP    = 100;
 	baseStats.HP       = baseStats.maxHP;
 
+	fired::BaseModel *basemodel = world->getModel("common");
+	switch (basemodel->type) {
+		case mtHumanoid: {
+			fired::ModelHumanoid *newmodel = new fired::ModelHumanoid;
+			newmodel->init(game, this, (fired::BaseModelHumanoid*)basemodel);
+			model = newmodel;
+			break;
+		}
+	}
 
-	model.init(game, this, world->getModel("common"));
 	weapon.init(world->getWeapon("rifle"));
 	weapon.ammo = -1;
 
@@ -42,7 +50,8 @@ void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 
 
 void fired::Character::deinit() {
-	model.deinit();
+	model->deinit();
+	delete model;
 }
 
 //======================================================================
@@ -51,8 +60,8 @@ void fired::Character::deinit() {
 void fired::Character::update() {
 	world->checkPhys(this);
 	move();
-	model.update();
-	if (phys.rect.intersects(cam->getViewport())) model.render();
+	model->update();
+	if (phys.rect.intersects(cam->getViewport())) model->render();
 
 
 	weaponCooldown -= frameClock;

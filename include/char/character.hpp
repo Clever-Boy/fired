@@ -13,6 +13,7 @@
 namespace fired {
 	class Character {
 		friend class Model;
+		friend class ModelHumanoid;
 
 
 	private:
@@ -22,9 +23,9 @@ namespace fired {
 		fired::World     *world;
 		fired::Camera    *cam;
 
-		fired::CharacterStats baseStats;
-		fired::Weapon         weapon;
-		fired::Model          model;
+		fired::CharacterStats  baseStats;
+		fired::Weapon          weapon;
+		fired::Model          *model;
 
 		bool  isShooting;
 		int   direction;

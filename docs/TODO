@@ -425,13 +425,38 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
+			<title>Add weapon selection</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
 			<title>Add bodypart config</title>
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add bodypart container</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add bodypart selecting</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add model config</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add model container</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add model selecting</title>
 			<text>
 </text>
 		</todo>
@@ -442,6 +467,11 @@
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Add creature container</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add creature selecting</title>
 			<text>
 </text>
 		</todo>

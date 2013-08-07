@@ -10,17 +10,17 @@ void fired::Model::init(fired::Game *_game, fired::Character *_owner) {
 	owner    = _owner;
 
 
-	initPart(&partLegsF , sf::Vector2f( 8, 36), "data/img/world/models/legs/common.tga", &owner->direction);
-	initPart(&partLegsB , sf::Vector2f(13, 36), "data/img/world/models/legs/common.tga", &owner->direction);
-	initPart(&partShoeF , sf::Vector2f( 8, 43), "data/img/world/models/shoe/common.tga", &owner->direction);
-	initPart(&partShoeB , sf::Vector2f(13, 43), "data/img/world/models/shoe/common.tga", &owner->direction);
-	initPart(&partFistF , sf::Vector2f( 2, 30), "data/img/world/models/fist/common.tga", &owner->watching);
-	initPart(&partFistB , sf::Vector2f(16, 30), "data/img/world/models/fist/common.tga", &owner->watching);
+	initPart(&partLegsF , sf::Vector2f( 8, 36), "data/img/world/models/legsF/common.tga", &owner->direction);
+	initPart(&partLegsB , sf::Vector2f(13, 36), "data/img/world/models/legsB/common.tga", &owner->direction);
+	initPart(&partShoeF , sf::Vector2f( 8, 43), "data/img/world/models/shoeF/common.tga", &owner->direction);
+	initPart(&partShoeB , sf::Vector2f(13, 43), "data/img/world/models/shoeB/common.tga", &owner->direction);
+	initPart(&partFistF , sf::Vector2f( 2, 30), "data/img/world/models/fistF/common.tga", &owner->watching);
+	initPart(&partFistB , sf::Vector2f(16, 30), "data/img/world/models/fistB/common.tga", &owner->watching);
 	initPart(&partBody  , sf::Vector2f( 5, 18), "data/img/world/models/body/common.tga", &owner->watching);
 	initPart(&partHead  , sf::Vector2f(10, 9 ), "data/img/world/models/head/common.tga", &owner->watching);
 	initPart(&partHair  , sf::Vector2f( 8, 4 ), "data/img/world/models/hair/common.tga", &owner->watching);
 	initPart(&partArms  , sf::Vector2f( 3, 18), "data/img/world/models/arms/common.tga", &owner->watching);
-	initPart(&partWeapon, sf::Vector2f( 4, 29), "data/img/world/models/weapons/amp.tga", &owner->watching);
+	initPart(&partWeapon, sf::Vector2f( 4, 29), "data/img/world/models/weapon/amp.tga", &owner->watching);
 
 	bodyParts.push_back(&partFistB );
 	bodyParts.push_back(&partLegsB );

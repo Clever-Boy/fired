@@ -1,5 +1,5 @@
-weapon.name=pistol
-weapon.damage=10
-weapon.cooldown=1.0
-weapon.fire=rifle_shot.wav
+name=pistol
+damage=10
+cooldown=1.0
+fire=rifle_shot.wav
 

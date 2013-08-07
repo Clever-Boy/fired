@@ -470,7 +470,7 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add creature selecting</title>
 			<text>
 </text>

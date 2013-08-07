@@ -8,7 +8,7 @@ void fired::Player::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _
 	settings = game->getSettings();
 	app      = game->getApp();
 
-	character.init(_game, _cam, _startpos, world, "common");
+	character.init(_game, _cam, _startpos, world, world->getCreature("player"));
 	crosshair.init(_game, _cam, &character.phys);
 }
 

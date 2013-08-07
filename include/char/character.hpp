@@ -40,7 +40,7 @@ namespace fired {
 		fired::CharacterStats *getStats() { return &baseStats; };
 
 
-		void init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, const char *modelname);
+		void init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *base);
 		void deinit();
 		void update();
 		void render();

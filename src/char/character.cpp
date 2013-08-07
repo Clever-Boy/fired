@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, const char *modelname) {
+void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *base) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();
@@ -19,14 +19,15 @@ void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 	isShooting        = false;
 	phys.calculate();
 
-	baseStats.speed    = 180.0;
-	baseStats.accel    = 1200.0;
-	baseStats.jump     = 520.0;
-	baseStats.aimrange = 100.0;
-	baseStats.maxHP    = 100;
+	baseStats.speed    = base->stats.speed;
+	baseStats.accel    = base->stats.accel;
+	baseStats.jump     = base->stats.jump;
+	baseStats.aimrange = base->stats.aimrange;
+	baseStats.maxHP    = base->stats.maxHP;
+
 	baseStats.HP       = baseStats.maxHP;
 
-	fired::BaseModel *basemodel = world->getModel(modelname);
+	fired::BaseModel *basemodel = world->getModel(base->model);
 	switch (basemodel->type) {
 		case mtHumanoid: {
 			fired::ModelHumanoid *newmodel = new fired::ModelHumanoid;
@@ -36,7 +37,7 @@ void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 		}
 	}
 
-	weapon.init(world->getWeapon("rifle"));
+	weapon.init(world->getWeapon(base->weapon));
 	weapon.ammo = -1;
 
 	weaponCooldown = 0;

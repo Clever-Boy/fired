@@ -12,7 +12,7 @@ void fired::World::init(fired::Game *_game) {
 	container.init(game, this);
 
 	creatures.push_back(new fired::Creature);
-	creatures.back()->init(game, &cam, sf::Vector2f(143*16.0, 35*16.0), this);
+	creatures.back()->init(game, &cam, sf::Vector2f(143*16.0, 35*16.0), this, getCreature("soldier"));
 
 	map.init(game, &cam, this);
 	cam.init(game, map.getSize());

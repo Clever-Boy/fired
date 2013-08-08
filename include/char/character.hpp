@@ -2,7 +2,7 @@
 #define __CHARACTER
 
 
-#define ROTTEN_TIME 1.0
+#define ROTTEN_TIME 5.0
 
 
 #include <SFML/Graphics.hpp>

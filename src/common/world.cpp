@@ -18,6 +18,7 @@ void fired::World::init(fired::Game *_game) {
 
 	cam.setTrackObj(player.getPhys());
 	spawn(sf::Vector2f(2288, 560), "soldier");
+	spawn(sf::Vector2f(2388, 560), "soldier");
 }
 
 //======================================================================
@@ -75,6 +76,7 @@ void fired::World::update() {
 	for (int i = 0; i < shots.size(); i++)
 		shots[i]->update(app);
 
+
 	for (int i = 0; i < particles.size();) {
 		if (!particles[i]->update(app)) {
 			particles[i]->deinit();
@@ -89,6 +91,16 @@ void fired::World::update() {
 			texts[i]->deinit();
 			delete texts[i];
 			texts.erase(texts.begin() + i);
+		} else
+			i++;
+	}
+
+	for (int i = 0; i < creatures.size();) {
+		if (creatures[i]->getChar()->isDead()) {
+			creatures[i]->deinit();
+			delete creatures[i];
+			creatures.erase(creatures.begin() + i);
+			spawn(sf::Vector2f(2288, 560), "soldier");
 		} else
 			i++;
 	}

@@ -12,7 +12,8 @@ namespace fired {
 		caNone,
 		caMoving,
 		caJumping,
-		caShooting
+		caShooting,
+		caDying
 	};
 
 

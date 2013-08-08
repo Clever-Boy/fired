@@ -41,9 +41,11 @@ void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 
 	weaponCooldown = 0;
 
-	direction = 1;
-	watching  = 1;
-	aiming    = 0;
+	dead       = false;
+	isShooting = false;
+	direction  = 1;
+	watching   = 1;
+	aiming     = 0;
 }
 
 //======================================================================
@@ -96,6 +98,7 @@ void fired::Character::damage(int damage, bool headshot) {
 	char dmg[8];
 
 	baseStats.HP -= damage;
+	if (baseStats.HP <= 0) dead = true;
 	snprintf(dmg, 8, "-%u", damage);
 
 	if (headshot)

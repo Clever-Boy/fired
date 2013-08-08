@@ -27,6 +27,7 @@ namespace fired {
 		fired::Weapon          weapon;
 		fired::Model          *model;
 
+		bool  dead;
 		bool  isShooting;
 		int   direction;
 		int   watching;
@@ -56,8 +57,9 @@ namespace fired {
 		void  damage(int damage, bool headshot);
 		void  setAiming(float _aiming);
 		float getHpPercent();
-		int   getAmmo() {return weapon.ammo; };
 		int   getDamage();
+		int   getAmmo() {return weapon.ammo; };
+		bool  isDead()  {return dead; };
 	};
 }
 

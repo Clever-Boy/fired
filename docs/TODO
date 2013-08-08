@@ -785,13 +785,18 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add death</title>
 			<text>
 </text>
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Add death animation</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Remove head when dead after headshot</title>
 			<text>
 </text>
 		</todo>
@@ -952,6 +957,11 @@
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Add body explosion (chunks fly away)</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add chunks centered spites for body explosions</title>
 			<text>
 </text>
 		</todo>

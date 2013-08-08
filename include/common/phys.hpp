@@ -18,6 +18,9 @@ namespace fired {
 		sf::Vector2f  velocity;
 		sf::Vector2f  acceleration;
 
+		sf::Vector2f  headSize;
+		sf::Vector2f  headOffset;
+
 		sf::FloatRect rect;
 		sf::FloatRect head;
 		sf::Vector2f  center;

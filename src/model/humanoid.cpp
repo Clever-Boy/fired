@@ -129,45 +129,42 @@ void fired::ModelHumanoid::processBodyAnimation() {
 
 		case caDying:
 			bodyAnimationTime += frameClock;
-			bodyFrame          = (int)(bodyAnimationTime * 40);
+			bodyFrame          = (int)(bodyAnimationTime * 100);
 
-			if (bodyFrame < 9) {
-				partLegsF.animRotation = 10 * bodyFrame;
-				partLegsB.animRotation = 10 * bodyFrame;
-				partLegsF.animOffset   = sf::Vector2f(10.0, 2.0) * (float)sin(partLegsF.animRotation * 3.14 / 180.0);
-				partLegsB.animOffset   = sf::Vector2f(10.0, 2.0) * (float)sin(partLegsF.animRotation * 3.14 / 180.0);
+			if (bodyFrame < 18) {
+				partShoeF.animRotation = 5 * bodyFrame;
+				partShoeB.animRotation = 5 * bodyFrame;
 
-				partShoeF.animRotation = 10 * bodyFrame;
-				partShoeB.animRotation = 10 * bodyFrame;
-				partShoeF.animOffset   = sf::Vector2f(0.0, -4.0 * sin(partLegsF.animRotation * 3.14 / 180.0));
-				partShoeB.animOffset   = sf::Vector2f(0.0, -4.0 * sin(partLegsF.animRotation * 3.14 / 180.0));
+				partLegsF.animRotation = 5 * bodyFrame;
+				partLegsB.animRotation = 5 * bodyFrame;
+				partLegsF.animOffset   = sf::Vector2f(partLegsF.base->size.y * sin(partLegsF.animRotation * 3.14 / 180.0), partLegsF.base->size.y * (bodyFrame / 18.0));
+				partLegsB.animOffset   = sf::Vector2f(partLegsF.base->size.y * sin(partLegsF.animRotation * 3.14 / 180.0), partLegsF.base->size.y * (bodyFrame / 18.0));
 
-				partBody.animOffset = sf::Vector2f(10.0, 10.0) * (float)sin(partLegsF.animRotation * 3.14 / 180.0);
-				partHead.animOffset = sf::Vector2f(10.0, 10.0) * (float)sin(partLegsF.animRotation * 3.14 / 180.0);
-				partHair.animOffset = sf::Vector2f(10.0, 10.0) * (float)sin(partLegsF.animRotation * 3.14 / 180.0);
-				partArms.animOffset = sf::Vector2f(10.0, 10.0) * (float)sin(partLegsF.animRotation * 3.14 / 180.0);
-				partFistF.animOffset = sf::Vector2f(10.0, 10.0) * (float)sin(partLegsF.animRotation * 3.14 / 180.0);
-				partFistB.animOffset = sf::Vector2f(10.0, 10.0) * (float)sin(partLegsF.animRotation * 3.14 / 180.0);
-				partWeapon.animOffset = sf::Vector2f(10.0, 10.0) * (float)sin(partLegsF.animRotation * 3.14 / 180.0);
-
-			} else if (bodyFrame < 18) {
-				partLegsF.animRotation = 90;
-				partLegsB.animRotation = 90;
-				partLegsF.animOffset   = sf::Vector2f(10.0, 3.0);
-				partLegsB.animOffset   = sf::Vector2f(10.0, 3.0);
-
+				partBody.animOffset = sf::Vector2f(partLegsF.base->size.y * sin(partLegsF.animRotation * 3.14 / 180.0), (partLegsF.base->size.y + partLegsF.base->size.x / 2) * bodyFrame / 18);
+				partHead.animOffset = sf::Vector2f(partLegsF.base->size.y * sin(partLegsF.animRotation * 3.14 / 180.0), (partLegsF.base->size.y + partLegsF.base->size.x / 2) * bodyFrame / 18);
+				partHair.animOffset = sf::Vector2f(partLegsF.base->size.y * sin(partLegsF.animRotation * 3.14 / 180.0), (partLegsF.base->size.y + partLegsF.base->size.x / 2) * bodyFrame / 18);
+				partArms.animOffset = sf::Vector2f(partLegsF.base->size.y * sin(partLegsF.animRotation * 3.14 / 180.0), (partLegsF.base->size.y + partLegsF.base->size.x / 2) * bodyFrame / 18);
+				partFistF.animOffset = sf::Vector2f(partLegsF.base->size.y * sin(partLegsF.animRotation * 3.14 / 180.0), (partLegsF.base->size.y + partLegsF.base->size.x / 2) * bodyFrame / 18);
+				partFistB.animOffset = sf::Vector2f(partLegsF.base->size.y * sin(partLegsF.animRotation * 3.14 / 180.0), (partLegsF.base->size.y + partLegsF.base->size.x / 2) * bodyFrame / 18);
+				partWeapon.animOffset = sf::Vector2f(partLegsF.base->size.y * sin(partLegsF.animRotation * 3.14 / 180.0), (partLegsF.base->size.y + partLegsF.base->size.x / 2) * bodyFrame / 18);
+			} else /*if (bodyFrame < 18)*/ {
 				partShoeF.animRotation = 90;
 				partShoeB.animRotation = 90;
-				partShoeF.animOffset   = sf::Vector2f(0.0, -4.0);
-				partShoeB.animOffset   = sf::Vector2f(0.0, -4.0);
 
-				partBody.animOffset = sf::Vector2f(10.0, 10.0);
-				partHead.animOffset = sf::Vector2f(10.0, 10.0);
-				partHair.animOffset = sf::Vector2f(10.0, 10.0);
-				partArms.animOffset = sf::Vector2f(10.0, 10.0);
-				partFistF.animOffset = sf::Vector2f(10.0, 10.0);
-				partFistB.animOffset = sf::Vector2f(10.0, 10.0);
-				partWeapon.animOffset = sf::Vector2f(10.0, 10.0);
+				partLegsF.animRotation = 90;
+				partLegsB.animRotation = 90;
+				partLegsF.animOffset   = sf::Vector2f(partLegsF.base->size.y, partLegsF.base->size.y);
+				partLegsB.animOffset   = sf::Vector2f(partLegsF.base->size.y, partLegsF.base->size.y);
+
+
+				partBody.animOffset = sf::Vector2f(partLegsF.base->size.y, (partLegsF.base->size.y + partLegsF.base->size.x / 2));
+				partHead.animOffset = sf::Vector2f(partLegsF.base->size.y, (partLegsF.base->size.y + partLegsF.base->size.x / 2));
+				partHair.animOffset = sf::Vector2f(partLegsF.base->size.y, (partLegsF.base->size.y + partLegsF.base->size.x / 2));
+				partArms.animOffset = sf::Vector2f(partLegsF.base->size.y, (partLegsF.base->size.y + partLegsF.base->size.x / 2));
+				partFistF.animOffset = sf::Vector2f(partLegsF.base->size.y, (partLegsF.base->size.y + partLegsF.base->size.x / 2));
+				partFistB.animOffset = sf::Vector2f(partLegsF.base->size.y, (partLegsF.base->size.y + partLegsF.base->size.x / 2));
+				partWeapon.animOffset = sf::Vector2f(partLegsF.base->size.y, (partLegsF.base->size.y + partLegsF.base->size.x / 2));
+/*
 			} else if (bodyFrame < 27) {
 				partLegsF.animRotation = 90;
 				partLegsB.animRotation = 90;
@@ -220,6 +217,7 @@ void fired::ModelHumanoid::processBodyAnimation() {
 				partFistF.animRotation = 90;
 				partFistB.animRotation = 90;
 				partWeapon.animRotation = 90;
+*/
 			}
 
 			break;

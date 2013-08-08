@@ -381,21 +381,6 @@
 </text>
 		</todo>
 		<todo done="yes" collapse="no">
-			<title>Add GUI</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add GUI item HP</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add GUI item ammo</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
 			<title>Add flying text class</title>
 			<text>
 </text>
@@ -410,6 +395,11 @@
 			<text>
 </text>
 		</todo>
+	</todo>
+	<todo done="no" collapse="yes">
+		<title>Container</title>
+		<text>
+</text>
 		<todo done="yes" collapse="no">
 			<title>Add container class</title>
 			<text>
@@ -482,6 +472,36 @@
 		</todo>
 		<todo done="yes" collapse="no">
 			<title>Add scalable models</title>
+			<text>
+</text>
+		</todo>
+	</todo>
+	<todo done="no" collapse="no">
+		<title>GUI</title>
+		<text>
+</text>
+		<todo done="yes" collapse="no">
+			<title>Add GUI</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add GUI item HP</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add GUI item ammo</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add XP GUI item</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add level GUI item</title>
 			<text>
 </text>
 		</todo>

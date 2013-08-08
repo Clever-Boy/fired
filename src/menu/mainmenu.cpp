@@ -55,7 +55,7 @@ void fired::MainMenu::init(fired::Game *_game, fired::Mouse *_mouse) {
 
 
 void fired::MainMenu::deinit() {
-	for (int i = 0; i < menuItems.size(); menuItems[i]->deinit(), free(menuItems[i]), i++);
+	for (unsigned int i = 0; i < menuItems.size(); menuItems[i]->deinit(), free(menuItems[i]), i++);
 	menuItems.clear();
 	clickSound->stop();
 
@@ -81,7 +81,7 @@ void fired::MainMenu::update() {
 
 	processAnimation();
 	render();
-	for (int i = 0; i < currentMenu->subMenu.size(); i++) currentMenu->subMenu[i]->update();
+	for (unsigned int i = 0; i < currentMenu->subMenu.size(); i++) currentMenu->subMenu[i]->update();
 
 	mouse->update();
 }
@@ -109,7 +109,7 @@ void fired::MainMenu::processEvent(sf::Event event) {
 void fired::MainMenu::click(sf::Vector2i pos) {
 	if (animation != atNone) return;
 
-	for (int i = 0; i < currentMenu->subMenu.size(); i++) 
+	for (unsigned int i = 0; i < currentMenu->subMenu.size(); i++) 
 		if (currentMenu->subMenu[i]->sprite->getLocalBounds().contains(sf::Vector2f(pos) - currentMenu->subMenu[i]->pos)) {
 			clickSound->play();
 			currentMenu->subMenu[i]->click();
@@ -149,21 +149,21 @@ void fired::MainMenu::initAnimation(fired::MenuAnimationType animType) {
 
 	switch (animation) {
 		case atNone:
-			for (int i = 0; i < currentMenu->subMenu.size(); i++) {
+			for (unsigned int i = 0; i < currentMenu->subMenu.size(); i++) {
 				currentMenu->subMenu[i]->timeOffset = 0;
 				currentMenu->subMenu[i]->yOffset = 0;
 			}
 			break;
 
 		case atUp:
-			for (int i = 0; i < currentMenu->subMenu.size(); i++) {
+			for (unsigned int i = 0; i < currentMenu->subMenu.size(); i++) {
 				currentMenu->subMenu[i]->timeOffset = -0.05 * i;
 				currentMenu->subMenu[i]->yOffset = settings->window.height;
 			}
 			break;
 
 		case atDown:
-			for (int i = 0; i < currentMenu->subMenu.size(); i++) {
+			for (unsigned int i = 0; i < currentMenu->subMenu.size(); i++) {
 				currentMenu->subMenu[i]->timeOffset = -0.05 * (currentMenu->subMenu.size() - i - 1);
 				currentMenu->subMenu[i]->yOffset = 0;
 			}
@@ -180,7 +180,7 @@ void fired::MainMenu::processAnimation() {
 			break;
 
 		case atUp:
-			for (int i = 0; i < currentMenu->subMenu.size(); i++) {
+			for (unsigned int i = 0; i < currentMenu->subMenu.size(); i++) {
 				currentMenu->subMenu[i]->timeOffset += frameClock;
 				if (currentMenu->subMenu[i]->timeOffset > 0)
 					currentMenu->subMenu[i]->yOffset = 250.0 * exp(-currentMenu->subMenu[i]->timeOffset * 16.0 + 2.0) - 25.0;
@@ -193,7 +193,7 @@ void fired::MainMenu::processAnimation() {
 			break;
 
 		case atDown:
-			for (int i = 0; i < currentMenu->subMenu.size(); i++) {
+			for (unsigned int i = 0; i < currentMenu->subMenu.size(); i++) {
 				currentMenu->subMenu[i]->timeOffset += frameClock;
 				if (currentMenu->subMenu[i]->timeOffset > 0)
 					currentMenu->subMenu[i]->yOffset = 15.0 * (exp(currentMenu->subMenu[i]->timeOffset * 12.0 + 2.0) - exp(2));
@@ -246,6 +246,6 @@ void fired::MainMenu::fillMenu() {
 
 	fillMenuBack();
 
-	for (int i = 0; i < menuItems.size(); i++) menuItems[i]->addToParent();
+	for (unsigned int i = 0; i < menuItems.size(); i++) menuItems[i]->addToParent();
 	switchMenu(menuItems[0]);
 }

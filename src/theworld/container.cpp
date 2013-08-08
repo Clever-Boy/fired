@@ -19,20 +19,20 @@ void fired::Container::init(fired::Game *_game, fired::World *_world) {
 
 
 void fired::Container::deinit() {
-	for (int i = 0; i < weapons.size(); i++) {
+	for (unsigned int i = 0; i < weapons.size(); i++) {
 		weapons[i]->deinit();
 		delete weapons[i];
 	}
 
-	for (int i = 0; i < bodyparts.size(); i++) {
+	for (unsigned int i = 0; i < bodyparts.size(); i++) {
 		bodyparts[i]->deinit();
 		delete bodyparts[i];
 	}
 
-	for (int i = 0; i < models.size(); i++)
+	for (unsigned int i = 0; i < models.size(); i++)
 		delete models[i];
 
-	for (int i = 0; i < creatures.size(); i++)
+	for (unsigned int i = 0; i < creatures.size(); i++)
 		delete creatures[i];
 
 
@@ -50,7 +50,7 @@ void fired::Container::loadWeapons() {
 	char filename[128];
 
 	directoryContents("data/game/weapons", &files);
-	for (int i = 0; i < files.size(); i++) {
+	for (unsigned int i = 0; i < files.size(); i++) {
 		snprintf(filename, sizeof(filename), "data/game/weapons/%s", files[i].c_str());
 		loadWeapon(filename);
 	}
@@ -85,7 +85,7 @@ void fired::Container::loadWeapon(const char* filename) {
 
 
 fired::BaseWeapon* fired::Container::getWeapon(const char* name) {
-	for (int i = 0; i < weapons.size(); i++)
+	for (unsigned int i = 0; i < weapons.size(); i++)
 		if (!strcmp(name, weapons[i]->name)) return weapons[i];
 
 	return NULL;
@@ -118,7 +118,7 @@ void fired::Container::loadBodypartsInDir(const char *dir, fired::BodypartType t
 
 	snprintf(dirname, sizeof(dirname), "data/game/bodyparts/%s", dir);
 	directoryContents(dirname, &files);
-	for (int i = 0; i < files.size(); i++) {
+	for (unsigned int i = 0; i < files.size(); i++) {
 		snprintf(filename, sizeof(filename), "data/game/bodyparts/%s/%s", dir, files[i].c_str());
 		loadBodypart(dir, filename, type);
 	}
@@ -154,7 +154,7 @@ void fired::Container::loadBodypart(const char *dir, const char* filename, fired
 
 
 fired::BaseBodypart* fired::Container::getBodypart(const char* name, fired::BodypartType type) {
-	for (int i = 0; i < bodyparts.size(); i++)
+	for (unsigned int i = 0; i < bodyparts.size(); i++)
 		if (!strcmp(name, bodyparts[i]->name) && type == bodyparts[i]->type) return bodyparts[i];
 
 	return NULL;
@@ -168,7 +168,7 @@ void fired::Container::loadModels() {
 	char filename[128];
 
 	directoryContents("data/game/models", &files);
-	for (int i = 0; i < files.size(); i++) {
+	for (unsigned int i = 0; i < files.size(); i++) {
 		snprintf(filename, sizeof(filename), "data/game/models/%s", files[i].c_str());
 		loadModel(filename);
 	}
@@ -230,7 +230,7 @@ void fired::Container::loadModel(const char* filename) {
 
 
 fired::BaseModel* fired::Container::getModel(const char* name) {
-	for (int i = 0; i < models.size(); i++)
+	for (unsigned int i = 0; i < models.size(); i++)
 		if (!strcmp(name, models[i]->name)) return models[i];
 
 	return NULL;
@@ -244,7 +244,7 @@ void fired::Container::loadCreatures() {
 	char filename[128];
 
 	directoryContents("data/game/creatures", &files);
-	for (int i = 0; i < files.size(); i++) {
+	for (unsigned int i = 0; i < files.size(); i++) {
 		snprintf(filename, sizeof(filename), "data/game/creatures/%s", files[i].c_str());
 		loadCreature(filename);
 	}
@@ -273,7 +273,7 @@ void fired::Container::loadCreature(const char* filename) {
 
 
 fired::BaseCreature* fired::Container::getCreature(const char* name) {
-	for (int i = 0; i < creatures.size(); i++)
+	for (unsigned int i = 0; i < creatures.size(); i++)
 		if (!strcmp(name, creatures[i]->name)) return creatures[i];
 
 	return NULL;

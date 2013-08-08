@@ -14,7 +14,6 @@ namespace fired {
 
 	public:
 		void init(fired::Game *_game);
-		void processEvent(sf::Event event);
 	};
 }
 

@@ -29,8 +29,8 @@ namespace fired {
 
 
 	public:
-		virtual bool update(sf::RenderWindow *app) {return false; };
-		virtual void deinit()                      {return; };
+		virtual bool update(sf::RenderWindow *app);
+		virtual void deinit() {return; };
 
 		void baseDeinit();
 		void render(sf::RenderWindow *app);

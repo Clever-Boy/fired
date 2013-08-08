@@ -15,7 +15,6 @@ namespace fired {
 	enum MenuItemType {
 		itBack,
 		itSubmenu,
-		itWindow,
 		itButton
 	};
 

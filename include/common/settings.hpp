@@ -6,8 +6,8 @@ namespace fired {
 	class Settings {
 	public:
 		struct {
-			int width;
-			int height;
+			unsigned int width;
+			unsigned int height;
 			int bpp;
 			bool fullScreen;
 		} window;

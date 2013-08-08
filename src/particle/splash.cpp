@@ -10,8 +10,6 @@ void fired::ParticleSystemSplash::init(sf::Vector2f pos, sf::Vector2f direction,
 	sf::Vector2f accel(0, PHYS_GRAVITY / 2);
 	endScale = _endScale;
 
-	float speed_factor;
-
 	for (int i = 0; i < count; i++) {
 		particles.push_back(new fired::Particle);
 		particles.back()->color    = color;
@@ -31,7 +29,7 @@ void fired::ParticleSystemSplash::init(sf::Vector2f pos, sf::Vector2f direction,
 
 
 bool fired::ParticleSystemSplash::update(sf::RenderWindow *app) {
-	for (int i = 0; i < particles.size(); i++)
+	for (unsigned int i = 0; i < particles.size(); i++)
 		particles[i]->scale = endScale + (1 - endScale) * (particles[i]->lifetime - particles[i]->life) / particles[i]->lifetime;
 
 	if (particles.size() == 0) return false;

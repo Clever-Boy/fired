@@ -30,22 +30,22 @@ void fired::World::deinit() {
 	gui.deinit();
 	container.deinit();
 
-	for (int i = 0; i < shots.size(); i++) {
+	for (unsigned int i = 0; i < shots.size(); i++) {
 		shots[i]->deinit();
 		delete shots[i];
 	}
 
-	for (int i = 0; i < particles.size(); i++) {
+	for (unsigned int i = 0; i < particles.size(); i++) {
 		particles[i]->deinit();
 		delete particles[i];
 	}
 
-	for (int i = 0; i < creatures.size(); i++) {
+	for (unsigned int i = 0; i < creatures.size(); i++) {
 		creatures[i]->deinit();
 		delete creatures[i];
 	}
 
-	for (int i = 0; i < texts.size(); i++) {
+	for (unsigned int i = 0; i < texts.size(); i++) {
 		texts[i]->deinit();
 		delete texts[i];
 	}
@@ -68,16 +68,16 @@ void fired::World::update() {
 	gui.update();
 
 
-	for (int i = 0; i < creatures.size(); i++)
+	for (unsigned int i = 0; i < creatures.size(); i++)
 		creatures[i]->update();
 
 	checkShots();
 
-	for (int i = 0; i < shots.size(); i++)
+	for (unsigned int i = 0; i < shots.size(); i++)
 		shots[i]->update(app);
 
 
-	for (int i = 0; i < particles.size();) {
+	for (unsigned int i = 0; i < particles.size();) {
 		if (!particles[i]->update(app)) {
 			particles[i]->deinit();
 			delete particles[i];
@@ -86,7 +86,7 @@ void fired::World::update() {
 			i++;
 	}
 
-	for (int i = 0; i < texts.size();) {
+	for (unsigned int i = 0; i < texts.size();) {
 		if (!texts[i]->update()) {
 			texts[i]->deinit();
 			delete texts[i];
@@ -95,7 +95,7 @@ void fired::World::update() {
 			i++;
 	}
 
-	for (int i = 0; i < creatures.size();) {
+	for (unsigned int i = 0; i < creatures.size();) {
 		if (creatures[i]->getChar()->isRotten()) {
 			creatures[i]->deinit();
 			delete creatures[i];
@@ -111,8 +111,6 @@ void fired::World::update() {
 
 void fired::World::checkControls() {
 	player.checkControls();
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) game->stop();
 }
 
 //======================================================================
@@ -122,9 +120,9 @@ void fired::World::checkShots() {
 	sf::Vector2f c, n;
 	bool deleted;
 
-	for (int i = 0; i < shots.size();) {
+	for (unsigned int i = 0; i < shots.size();) {
 		deleted = false;
-		for (int j = 0; j < creatures.size(); j++) {
+		for (unsigned int j = 0; j < creatures.size(); j++) {
 			if (creatures[j]->getChar()->checkShot(shots[i])) {
 				shots[i]->deinit();
 				delete shots[i];
@@ -137,7 +135,7 @@ void fired::World::checkShots() {
 		if (!deleted) i++;
 	}
 
-	for (int i = 0; i < shots.size();) {
+	for (unsigned int i = 0; i < shots.size();) {
 		if (map.checkShot(shots[i])) {
 			shots[i]->deinit();
 			delete shots[i];
@@ -151,7 +149,7 @@ void fired::World::checkShots() {
 
 
 void fired::World::processEvent(sf::Event event) {
-	return;
+	if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)) game->stop();
 }
 
 //======================================================================

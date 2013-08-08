@@ -21,7 +21,7 @@ bool fired::Particle::process(sf::RenderWindow *app) {
 
 
 void fired::ParticleSystem::render(sf::RenderWindow *app) {
-	int i = 0;
+	unsigned int i = 0;
 
 	while (i < particles.size())
 		if (!particles[i]->process(app)) {
@@ -34,8 +34,16 @@ void fired::ParticleSystem::render(sf::RenderWindow *app) {
 //======================================================================
 
 
+bool fired::ParticleSystem::update(sf::RenderWindow *app) {
+	render(app);
+	return false;
+}
+
+//======================================================================
+
+
 void fired::ParticleSystem::baseDeinit() {
-	for (int i = 0; i < particles.size(); i++)
+	for (unsigned int i = 0; i < particles.size(); i++)
 		delete particles[i];
 
 	particles.clear();

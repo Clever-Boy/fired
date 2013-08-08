@@ -23,8 +23,6 @@ namespace fired {
 		void deinit();
 		void update();
 		void render();
-
-		void processEvent(sf::Event event);
 	};
 }
 

@@ -27,7 +27,6 @@ namespace fired {
 		void update(float distance);
 		void render();
 
-		void  processEvent(sf::Event event);
 		float getAngle() { return angle; };
 	};
 }

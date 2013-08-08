@@ -52,10 +52,3 @@ void fired::Crosshair::render() {
 	crosshairCur->setPosition(pos + cam->getOffset());
 	app->draw(*crosshairCur);
 }
-
-//======================================================================
-
-
-void fired::Crosshair::processEvent(sf::Event event) {
-	return;
-}

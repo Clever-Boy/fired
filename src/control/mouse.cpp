@@ -27,13 +27,6 @@ void fired::Mouse::deinit() {
 //======================================================================
 
 
-void fired::Mouse::processEvent(sf::Event event) {
-	return;
-}
-
-//======================================================================
-
-
 void fired::Mouse::update() {
 	pos = sf::Vector2f(sf::Mouse::getPosition(*app));
 	render();

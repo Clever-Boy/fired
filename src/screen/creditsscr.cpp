@@ -29,7 +29,7 @@ void fired::CreditsScr::init(fired::Game *_game) {
 		iOffset += 50;
 		if (line.length() == 0) continue;
 
-		isCaption = line.find("$C") != -1;
+		isCaption = (line.find("$C") != std::string::npos);
 		if (isCaption) line = line.substr(2);
 
 
@@ -55,7 +55,7 @@ void fired::CreditsScr::init(fired::Game *_game) {
 
 
 void fired::CreditsScr::deinit() {
-	for (int i = 0; i < credits.size(); delete credits[i], i++);
+	for (unsigned int i = 0; i < credits.size(); delete credits[i], i++);
 	credits.clear();
 }
 
@@ -64,7 +64,7 @@ void fired::CreditsScr::deinit() {
 
 void fired::CreditsScr::update() {
 	float yOffset = -frameClock * CREDITSSCR_SPEED;
-	for (int i = 0; i < credits.size(); i++) credits[i]->move(0, yOffset);
+	for (unsigned int i = 0; i < credits.size(); i++) credits[i]->move(0, yOffset);
 
 	if (credits.back()->getGlobalBounds().top + credits.back()->getGlobalBounds().height < 0) 
 		game->setGameState(gsMainMenu);
@@ -76,7 +76,7 @@ void fired::CreditsScr::update() {
 
 
 void fired::CreditsScr::render() {
-	for (int i = 0; i < credits.size(); i++) app->draw(*credits[i]);
+	for (unsigned int i = 0; i < credits.size(); i++) app->draw(*credits[i]);
 }
 
 //======================================================================

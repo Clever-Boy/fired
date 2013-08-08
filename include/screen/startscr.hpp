@@ -17,8 +17,8 @@ namespace fired {
 		std::vector<sf::Texture*> textures;
 		std::vector<sf::Sprite*> sprites;
 
-		float timeOffset;
-		int   index;
+		float        timeOffset;
+		unsigned int index;
 
 
 	public:

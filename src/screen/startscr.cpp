@@ -17,7 +17,7 @@ void fired::StartScr::init(fired::Game *_game) {
 	textures.push_back(new sf::Texture()); textures.back()->loadFromFile("data/img/gui/startscr/03.jpg");
 
 
-	for (int i = 0; i < textures.size(); i++) {
+	for (unsigned int i = 0; i < textures.size(); i++) {
 		sprites.push_back(new sf::Sprite());
 		sprites[i]->setTexture(*textures[i]);
 		sprites[i]->move((settings->window.width - textures[i]->getSize().x) / 2, (settings->window.height - textures[i]->getSize().y) / 2);
@@ -28,7 +28,7 @@ void fired::StartScr::init(fired::Game *_game) {
 
 
 void fired::StartScr::deinit() {
-	for (int i = 0; i < textures.size(); delete sprites[i], delete textures[i], i++);
+	for (unsigned int i = 0; i < textures.size(); delete sprites[i], delete textures[i], i++);
 }
 
 //======================================================================

@@ -97,6 +97,7 @@ void fired::ModelHumanoid::processAnimation() {
 void fired::ModelHumanoid::processBodyAnimation() {
 	switch (bodyAnimation) {
 		case caNone:
+		case caShooting:
 			bodyAnimationTime = 0.0;
 			break;
 
@@ -230,8 +231,11 @@ void fired::ModelHumanoid::processBodyAnimation() {
 void fired::ModelHumanoid::processArmsAnimation() {
 	switch (armsAnimation) {
 		case caNone:
+		case caJumping:
+		case caMoving:
 			switch (bodyAnimation) {
 				case caNone:
+				case caShooting:
 					partWeapon.animOffset = sf::Vector2f(7, 0);
 					partWeapon.animRotation = 90;
 					break;
@@ -256,6 +260,9 @@ void fired::ModelHumanoid::processArmsAnimation() {
 
 					partFistF.animRotation = -90.0;
 					partFistB.animRotation = -90.0;
+					break;
+
+				case caDying:
 					break;
 			}
 			break;

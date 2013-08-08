@@ -11,7 +11,7 @@ void fired::Model::deinit() {
 
 
 void fired::Model::render() {
-	for (int i = 0; i < bodyParts.size(); i++) drawPart(bodyParts[i]);
+	for (unsigned int i = 0; i < bodyParts.size(); i++) drawPart(bodyParts[i]);
 }
 
 //======================================================================
@@ -51,6 +51,6 @@ void fired::Model::resetPart(fired::Bodypart *part) {
 
 
 void fired::Model::resetAnimation() {
-	for (int i = 0; i < bodyParts.size(); i++) resetPart(bodyParts[i]);
+	for (unsigned int i = 0; i < bodyParts.size(); i++) resetPart(bodyParts[i]);
 }
 

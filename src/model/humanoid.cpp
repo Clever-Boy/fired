@@ -12,7 +12,7 @@ void fired::ModelHumanoid::init(fired::Game *_game, fired::Character *_owner, fi
 
 	modelScale = scale;
 	owner->phys.size       = base->size * scale;
-	owner->phys.headSize   = sf::Vector2f(base->size.x, base->size.y / 3);
+	owner->phys.headSize   = sf::Vector2f(owner->phys.size.x, owner->phys.size.y / 3);
 	owner->phys.headOffset = sf::Vector2f(0, 0);
 	owner->phys.calculate();
 

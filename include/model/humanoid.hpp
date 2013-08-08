@@ -34,8 +34,9 @@ namespace fired {
 
 
 	public:
-		void init(fired::Game *_game, fired::Character *_owner, fired::BaseModelHumanoid *base, float scale);
+		void init(fired::Game *_game, fired::Character *_owner, fired::BaseModelHumanoid *base, float scale, fired::World *_world);
 		void update();
+		void headshot();
 
 		void processAnimation();
 		void processBodyAnimation();

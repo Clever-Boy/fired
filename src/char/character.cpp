@@ -30,7 +30,7 @@ void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 	switch (basemodel->type) {
 		case mtHumanoid: {
 			fired::ModelHumanoid *newmodel = new fired::ModelHumanoid;
-			newmodel->init(game, this, (fired::BaseModelHumanoid*)basemodel, base->modelScale);
+			newmodel->init(game, this, (fired::BaseModelHumanoid*)basemodel, base->modelScale, world);
 			model = newmodel;
 			break;
 		}
@@ -131,11 +131,12 @@ bool fired::Character::checkShot(fired::Shot *shot) {
 
 	if (lineBoxCollision(phys.rect, ray, &c, &n, &dist)) {
 		phys.velocity.x -= n.x * shot->knockback;
-		world->addBloodSplash(c, n * 200.0f);
+		world->addBloodSplash(c, n * 200.0f, 20);
 
-		if (lineBoxCollision(phys.head, ray, &c, &n, &dist))
+		if (lineBoxCollision(phys.head, ray, &c, &n, &dist)) {
 			damage(shot->damage * 1.5, true);
-		else
+			model->headshot();
+		} else
 			damage(shot->damage, false);
 
 		return true;

@@ -52,6 +52,7 @@ namespace fired {
 		fired::Settings  *settings;
 		fired::Character *owner;
 		sf::RenderWindow *app;
+		fired::World     *world;
 
 		float modelScale;
 		std::vector<fired::Bodypart*> bodyParts;
@@ -60,7 +61,9 @@ namespace fired {
 	public:
 		void deinit();
 		void render();
-		virtual void update() {};
+
+		virtual void headshot() {};
+		virtual void update()   {};
 
 		void initPart(fired::Bodypart *part, fired::BaseBodypart *base, int *direction);
 		void drawPart(fired::Bodypart *part);

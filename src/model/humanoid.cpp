@@ -3,11 +3,12 @@
 //======================================================================
 
 
-void fired::ModelHumanoid::init(fired::Game *_game, fired::Character *_owner, fired::BaseModelHumanoid *base, float scale) {
+void fired::ModelHumanoid::init(fired::Game *_game, fired::Character *_owner, fired::BaseModelHumanoid *base, float scale, fired::World *_world) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();
 	owner    = _owner;
+	world    = _world;
 
 	modelScale = scale;
 	owner->phys.size       = base->size * scale;
@@ -60,6 +61,15 @@ void fired::ModelHumanoid::update() {
 	if (owner->isShooting)     armsAnimation = caShooting;
 
 	processAnimation();
+}
+
+//======================================================================
+
+
+void fired::ModelHumanoid::headshot() {
+	bodyParts.erase(bodyParts.begin() + 4);
+	bodyParts.erase(bodyParts.begin() + 4);
+	world->addBloodSplash(owner->phys.pos + owner->phys.headOffset + owner->phys.headSize / 2.0f, sf::Vector2f(0.0f, -400.0f), 50);
 }
 
 //======================================================================

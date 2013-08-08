@@ -41,11 +41,13 @@ void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 
 	weaponCooldown = 0;
 
-	dead       = false;
-	isShooting = false;
-	direction  = 1;
-	watching   = 1;
-	aiming     = 0;
+	dead           = false;
+	rotten         = false;
+	timeAfterDeath = 0.0;
+	isShooting     = false;
+	direction      = 1;
+	watching       = 1;
+	aiming         = 0;
 }
 
 //======================================================================
@@ -61,7 +63,12 @@ void fired::Character::deinit() {
 
 void fired::Character::update() {
 	world->checkPhys(this);
+
+	if (dead) timeAfterDeath += frameClock;
+	if (timeAfterDeath > ROTTEN_TIME) rotten = true;
+
 	move();
+
 	model->update();
 	if (phys.rect.intersects(cam->getViewport())) model->render();
 
@@ -75,6 +82,16 @@ void fired::Character::update() {
 
 
 void fired::Character::move() {
+	if (dead) {
+		phys.isMoving = false;
+		if (phys.onGround) {
+			if (phys.velocity.x != 0) phys.velocity.x -= direction * frameClock * PHYS_FRICTION_ACCEL;
+			if (direction * phys.velocity.x < 0) phys.velocity.x = 0;
+		}
+
+		return;
+	}
+
 	if (phys.isMoving) {
 		phys.velocity.x += direction * frameClock * baseStats.accel;
 		if (abs(phys.velocity.x) > baseStats.speed) phys.velocity.x = direction * baseStats.speed;
@@ -111,6 +128,8 @@ void fired::Character::damage(int damage, bool headshot) {
 
 
 bool fired::Character::checkShot(fired::Shot *shot) {
+	if (dead) return false;
+
 	sf::Vector2f dir(shot->velocity * frameClock);
 	sf::FloatRect ray(shot->pos, dir);
 

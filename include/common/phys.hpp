@@ -5,11 +5,11 @@
 #include <SFML/Graphics.hpp>
 
 
-#define PHYS_GRAVITY      1500.0
-#define PHYS_MAX_FALL     2500.0
-#define PHYS_TUNNEL_CHUNK 8.0
-#define PHYS_SAFE_FALL    900.0
-
+#define PHYS_GRAVITY        1500.0
+#define PHYS_MAX_FALL       2500.0
+#define PHYS_TUNNEL_CHUNK   8.0
+#define PHYS_SAFE_FALL      900.0
+#define PHYS_FRICTION_ACCEL 100.0
 
 namespace fired {
 	struct Phys {

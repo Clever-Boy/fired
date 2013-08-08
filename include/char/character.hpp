@@ -2,6 +2,9 @@
 #define __CHARACTER
 
 
+#define ROTTEN_TIME 1.0
+
+
 #include <SFML/Graphics.hpp>
 #include "prototypes.hpp"
 #include "stats.hpp"
@@ -28,6 +31,8 @@ namespace fired {
 		fired::Model          *model;
 
 		bool  dead;
+		bool  rotten;
+		float timeAfterDeath;
 		bool  isShooting;
 		int   direction;
 		int   watching;
@@ -58,8 +63,9 @@ namespace fired {
 		void  setAiming(float _aiming);
 		float getHpPercent();
 		int   getDamage();
-		int   getAmmo() {return weapon.ammo; };
-		bool  isDead()  {return dead; };
+		int   getAmmo()  {return weapon.ammo; };
+		bool  isDead()   {return dead; };
+		bool  isRotten() {return rotten; };
 	};
 }
 

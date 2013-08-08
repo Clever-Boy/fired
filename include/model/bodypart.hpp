@@ -27,6 +27,7 @@ namespace fired {
 		sf::Sprite         *sprite;
 		sf::Texture        *texture;
 		sf::Vector2f        offset;
+		sf::Vector2f        size;
 		sf::Color           color;
 		fired::BodypartType type;
 

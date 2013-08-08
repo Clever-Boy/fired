@@ -147,6 +147,7 @@ void fired::Container::loadBodypart(const char *dir, const char* filename, fired
 	bodyparts.back()->sprite = new sf::Sprite;
 	bodyparts.back()->sprite->setTexture(*bodyparts.back()->texture);
 	bodyparts.back()->type = type;
+	bodyparts.back()->size = sf::Vector2f(bodyparts.back()->texture->getSize());
 }
 
 //======================================================================

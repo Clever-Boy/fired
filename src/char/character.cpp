@@ -82,21 +82,13 @@ void fired::Character::update() {
 
 
 void fired::Character::move() {
-	if (dead) {
-		phys.isMoving = false;
-		if (phys.onGround) {
-			if (phys.velocity.x != 0) phys.velocity.x -= direction * frameClock * PHYS_FRICTION_ACCEL;
-			if (direction * phys.velocity.x < 0) phys.velocity.x = 0;
-		}
+	if (dead) phys.isMoving = false;
+	if (abs(phys.velocity.x) < PHYS_EPSILON) phys.velocity.x = 0.0f;
 
-		return;
-	}
-
-	if (phys.isMoving) {
-		phys.velocity.x += direction * frameClock * baseStats.accel;
-		if (abs(phys.velocity.x) > baseStats.speed) phys.velocity.x = direction * baseStats.speed;
-	} else
-		phys.velocity.x = 0.0;
+	if (phys.isMoving && abs(phys.velocity.x) < baseStats.speed)
+			phys.velocity.x += direction * frameClock * baseStats.accel;
+	else
+			phys.velocity.x -= sign(phys.velocity.x) * frameClock * PHYS_FRICTION_ACCEL;
 }
 
 //======================================================================
@@ -116,6 +108,7 @@ void fired::Character::damage(int damage, bool headshot) {
 
 	baseStats.HP -= damage;
 	if (baseStats.HP <= 0) dead = true;
+
 	snprintf(dmg, 8, "-%u", damage);
 
 	if (headshot)
@@ -137,13 +130,14 @@ bool fired::Character::checkShot(fired::Shot *shot) {
 	float dist;
 
 	if (lineBoxCollision(phys.rect, ray, &c, &n, &dist)) {
+		phys.velocity.x -= n.x * shot->knockback;
+		world->addBloodSplash(c, n * 200.0f);
+
 		if (lineBoxCollision(phys.head, ray, &c, &n, &dist))
 			damage(shot->damage * 1.5, true);
 		else
 			damage(shot->damage, false);
 
-		n *= 200.0f;
-		world->addBloodSplash(c, n);
 		return true;
 	}
 
@@ -164,6 +158,13 @@ float fired::Character::getHpPercent() {
 
 int fired::Character::getDamage() {
 	return weapon.damage;
+}
+
+//======================================================================
+
+
+float fired::Character::getKnockback() {
+	return weapon.knockback;
 }
 
 //======================================================================

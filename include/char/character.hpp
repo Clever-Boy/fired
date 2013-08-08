@@ -63,6 +63,7 @@ namespace fired {
 		void  setAiming(float _aiming);
 		float getHpPercent();
 		int   getDamage();
+		float getKnockback();
 		int   getAmmo()  {return weapon.ammo; };
 		bool  isDead()   {return dead; };
 		bool  isRotten() {return rotten; };

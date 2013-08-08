@@ -14,5 +14,6 @@ void fired::BaseWeapon::deinit() {
 void fired::Weapon::init(fired::BaseWeapon *_weapon) {
 	damage    = _weapon->damage;
 	cooldown  = _weapon->cooldown;
+	knockback = _weapon->knockback;
 	shotSound = _weapon->shotSound;
 }

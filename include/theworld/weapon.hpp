@@ -11,6 +11,7 @@ namespace fired {
 		char  name[32];
 		int   damage;
 		float cooldown;
+		float knockback;
 
 		sf::SoundBuffer *shotBuffer;
 		sf::Sound       *shotSound;
@@ -23,6 +24,7 @@ namespace fired {
 	struct Weapon {
 		float damage;
 		float cooldown;
+		float knockback;
 		int ammo;
 
 		sf::Sound *shotSound;

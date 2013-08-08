@@ -65,10 +65,11 @@ void fired::Container::loadWeapon(const char* filename) {
 	weapons.push_back(new fired::BaseWeapon);
 
 	FILE *fp = fopen(filename, "r");
-	fscanf(fp, "name=%s\n"    , weapons.back()->name);
-	fscanf(fp, "damage=%u\n"  , &weapons.back()->damage);
-	fscanf(fp, "cooldown=%f\n", &weapons.back()->cooldown);
-	fscanf(fp, "fire=%s\n"    , sndfile);
+	fscanf(fp, "name=%s\n"     , weapons.back()->name);
+	fscanf(fp, "damage=%u\n"   , &weapons.back()->damage);
+	fscanf(fp, "cooldown=%f\n" , &weapons.back()->cooldown);
+	fscanf(fp, "knockback=%f\n", &weapons.back()->knockback);
+	fscanf(fp, "fire=%s\n"     , sndfile);
 	fclose(fp);
 
 	snprintf(sndpath, sizeof(sndpath), "data/snd/weapons/%s", sndfile);

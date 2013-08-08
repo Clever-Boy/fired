@@ -12,6 +12,7 @@ namespace fired {
 		sf::Vector2f velocity;
 		float        angle;
 		int          damage;
+		float        knockback;
 
 		sf::VertexArray  line;
 		fired::Character *owner;

@@ -1,5 +1,6 @@
 name=pistol
 damage=10
 cooldown=1.0
+knockback=40.0
 fire=rifle_shot.wav
 

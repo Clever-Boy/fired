@@ -18,6 +18,15 @@ float sqr(float x) {
 //======================================================================
 
 
+float sign(float x) {
+	if (x > 0) return 1.0f;
+	if (x < 0) return -1.0f;
+	return 0.0f;
+}
+
+//======================================================================
+
+
 bool directoryContents(const char *dir, std::vector<std::string>* contents) {
 	contents->clear();
 	DIR *dir_ptr = opendir(dir);

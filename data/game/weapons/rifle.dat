@@ -1,5 +1,6 @@
 name=rifle
-damage=20
+damage=2
 cooldown=0.2
+knockback=100.0
 fire=rifle_shot.wav
 

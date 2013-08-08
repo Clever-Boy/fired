@@ -811,7 +811,7 @@
 </text>
 		</todo>
 		<todo done="no" collapse="no">
-			<title>Add creatures AI prototype</title>
+			<title>Add knockback</title>
 			<text>
 </text>
 		</todo>
@@ -820,6 +820,11 @@
 		<title>AI</title>
 		<text>
 </text>
+		<todo done="no" collapse="no">
+			<title>Add creatures AI prototype</title>
+			<text>
+</text>
+		</todo>
 		<todo done="no" collapse="no">
 			<title>Warrior AI</title>
 			<text>

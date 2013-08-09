@@ -144,10 +144,15 @@ void fired::Container::loadBodypart(const char *dir, const char* filename, fired
 	bodyparts.back()->texture->loadFromFile(imgpath);
 	bodyparts.back()->texture->setSmooth(true);
 
-	bodyparts.back()->sprite = new sf::Sprite;
-	bodyparts.back()->sprite->setTexture(*bodyparts.back()->texture);
 	bodyparts.back()->type = type;
 	bodyparts.back()->size = sf::Vector2f(bodyparts.back()->texture->getSize());
+
+	bodyparts.back()->sprite = new sf::Sprite;
+	bodyparts.back()->sprite->setTexture(*bodyparts.back()->texture);
+
+	bodyparts.back()->chunk = new sf::Sprite;
+	bodyparts.back()->chunk->setTexture(*bodyparts.back()->texture);
+	bodyparts.back()->chunk->setOrigin(bodyparts.back()->size / 2.0f);
 }
 
 //======================================================================

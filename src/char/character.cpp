@@ -42,7 +42,6 @@ void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 	weaponCooldown = 0;
 
 	dead           = false;
-	rotten         = false;
 	timeAfterDeath = 0.0;
 	isShooting     = false;
 	direction      = 1;
@@ -63,10 +62,6 @@ void fired::Character::deinit() {
 
 void fired::Character::update() {
 	world->checkPhys(this);
-
-	if (dead) timeAfterDeath += frameClock;
-	if (timeAfterDeath > ROTTEN_TIME) rotten = true;
-
 	move();
 
 	model->update();
@@ -82,7 +77,6 @@ void fired::Character::update() {
 
 
 void fired::Character::move() {
-	if (dead) phys.isMoving = false;
 	if (abs(phys.velocity.x) < PHYS_EPSILON) phys.velocity.x = 0.0f;
 
 	if (phys.isMoving && abs(phys.velocity.x) < baseStats.speed)
@@ -110,6 +104,7 @@ void fired::Character::damage(int damage, bool headshot) {
 	if (baseStats.HP <= 0) {
 		dead = true;
 		if (headshot) model->headshot();
+		// Create chunks there
 	}
 
 	snprintf(dmg, 8, "-%u", damage);

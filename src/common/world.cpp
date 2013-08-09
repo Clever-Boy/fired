@@ -96,7 +96,7 @@ void fired::World::update() {
 	}
 
 	for (unsigned int i = 0; i < creatures.size();) {
-		if (creatures[i]->getChar()->isRotten()) {
+		if (creatures[i]->getChar()->isDead()) {
 			creatures[i]->deinit();
 			delete creatures[i];
 			creatures.erase(creatures.begin() + i);

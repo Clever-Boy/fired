@@ -31,7 +31,6 @@ namespace fired {
 		fired::Model          *model;
 
 		bool  dead;
-		bool  rotten;
 		float timeAfterDeath;
 		bool  isShooting;
 		int   direction;
@@ -66,7 +65,6 @@ namespace fired {
 		float getKnockback();
 		int   getAmmo()  {return weapon.ammo; };
 		bool  isDead()   {return dead; };
-		bool  isRotten() {return rotten; };
 	};
 }
 

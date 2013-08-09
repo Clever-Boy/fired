@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE tudu SYSTEM "/usr/local/share/tudu/tudu.dtd">
 <todo>
-	<todo done="no" collapse="yes">
+	<todo done="yes" collapse="yes">
 		<title>Menu engine</title>
 		<text>
 </text>
@@ -156,7 +156,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="yes" collapse="yes">
 		<title>Sound engine</title>
 		<text>
 </text>
@@ -206,7 +206,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="no" collapse="no">
 		<title>Game engine</title>
 		<text>
 </text>
@@ -380,23 +380,18 @@
 			<text>
 </text>
 		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add flying text class</title>
+		<todo done="no" collapse="no">
+			<title>Move deinit to destructors</title>
 			<text>
 </text>
 		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add flying text rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add flying text animation</title>
+		<todo done="no" collapse="no">
+			<title>Move init to constructor</title>
 			<text>
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="yes" collapse="yes">
 		<title>Container</title>
 		<text>
 </text>
@@ -486,6 +481,21 @@
 </text>
 		</todo>
 		<todo done="yes" collapse="no">
+			<title>Add flying text class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add flying text rendering</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add flying text animation</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
 			<title>Add GUI item HP</title>
 			<text>
 </text>
@@ -506,7 +516,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="no" collapse="no">
 		<title>Physics engine</title>
 		<text>
 </text>
@@ -550,8 +560,13 @@
 			<text>
 </text>
 		</todo>
+		<todo done="no" collapse="no">
+			<title>Add chunks physics</title>
+			<text>
+</text>
+		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="yes" collapse="yes">
 		<title>Map generator</title>
 		<text>
 </text>
@@ -571,7 +586,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="yes" collapse="yes">
 		<title>Animation</title>
 		<text>
 </text>
@@ -711,7 +726,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="yes" collapse="yes">
 		<title>Character</title>
 		<text>
 </text>
@@ -815,8 +830,23 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add chunks centered spites for body explosions</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add chunk class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add chunk creating</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add chunk rendering</title>
 			<text>
 </text>
 		</todo>
@@ -846,7 +876,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="yes" collapse="yes">
 		<title>AI</title>
 		<text>
 </text>
@@ -871,7 +901,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="yes" collapse="yes">
 		<title>Map extensions</title>
 		<text>
 </text>
@@ -891,7 +921,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="yes" collapse="yes">
 		<title>Inventory</title>
 		<text>
 </text>
@@ -946,7 +976,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="yes" collapse="yes">
 		<title>Advanced</title>
 		<text>
 </text>

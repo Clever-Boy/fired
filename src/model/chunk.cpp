@@ -3,8 +3,6 @@
 //======================================================================
 
 
-void fired::BaseBodypart::deinit() {
-	delete sprite;
-	delete chunk;
-	delete texture;
+void fired::Chunk::init() {
+	return;
 }

@@ -25,6 +25,7 @@ namespace fired {
 	struct BaseBodypart {
 		char                name[32];
 		sf::Sprite         *sprite;
+		sf::Sprite         *chunk;
 		sf::Texture        *texture;
 		sf::Vector2f        offset;
 		sf::Vector2f        size;

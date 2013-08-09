@@ -95,9 +95,14 @@ void fired::World::update() {
 			i++;
 	}
 
-	for (unsigned int i = 0; i < chunks.size(); i++) {
+	for (unsigned int i = 0; i < chunks.size();) {
 		map.checkChunkPhys(chunks[i]);
-		chunks[i]->update(app);
+		if (!chunks[i]->update(app)) {
+			chunks[i]->deinit();
+			delete chunks[i];
+			chunks.erase(chunks.begin() + i);
+		} else
+			i++;
 	}
 
 	for (unsigned int i = 0; i < texts.size();) {
@@ -188,7 +193,7 @@ void fired::World::addBulletSplash(sf::Vector2f pos, sf::Vector2f direction) {
 
 void fired::World::addBloodSplash(sf::Vector2f pos, sf::Vector2f direction, int bloodCount) {
 	fired::ParticleSystemSplash *ps = new fired::ParticleSystemSplash;
-	ps->init(pos, direction, sf::Color(150, 0, 0, 155), 7, bloodCount, 0.3, 0.5);
+	ps->init(pos, direction, sf::Color(150, 0, 0, 155), 7, bloodCount, 0.5, 0.5);
 	particles.push_back(ps);
 }
 

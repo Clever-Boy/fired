@@ -516,7 +516,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="no">
+	<todo done="no" collapse="yes">
 		<title>Physics engine</title>
 		<text>
 </text>
@@ -565,7 +565,7 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add chunks rotation</title>
 			<text>
 </text>

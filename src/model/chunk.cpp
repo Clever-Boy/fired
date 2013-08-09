@@ -18,19 +18,22 @@ void fired::Chunk::init(fired::Bodypart *bodyPart, float scale, sf::Vector2f pos
 
 	phys.calculate();
 
-	rotation = 0;
+	rotation      = 0;
 	rotationSpeed = 0;
-	speed = sf::Vector2f(0, 0);
+	lifetime      = 0;
 }
 
 //======================================================================
 
 
-void fired::Chunk::update(sf::RenderWindow *app) {
+bool fired::Chunk::update(sf::RenderWindow *app) {
 	if (phys.onGround) {
 		phys.velocity.x -= sign(phys.velocity.x) * PHYS_FRICTION_ACCEL * frameClock / 3.0;
 		rotationSpeed -= sign(rotationSpeed) * frameClock;
 	}
+
+	if ((lifetime += frameClock) > CHUNK_LIFETIME) return false;
+	rotationSpeed = phys.velocity.x * 12.0;
 
 	if (abs(phys.velocity.x) < PHYS_EPSILON) phys.velocity.x = 0;
 	if (abs(rotationSpeed)   < PHYS_EPSILON) rotationSpeed   = 0;
@@ -39,12 +42,16 @@ void fired::Chunk::update(sf::RenderWindow *app) {
 	rotation += rotationSpeed * frameClock;
 
 	render(app);
+	return true;
 }
 
 //======================================================================
 
 
 void fired::Chunk::render(sf::RenderWindow *app) {
+	base->chunk->setColor(sf::Color(255, 255, 255, 255));
+	if (lifetime > CHUNK_DISAPPEARTIME) base->chunk->setColor(sf::Color(255, 255, 255, 255 * (CHUNK_LIFETIME - lifetime) / (CHUNK_LIFETIME - CHUNK_DISAPPEARTIME)));
+
 	base->chunk->setScale(scaleX, scaleY);
 	base->chunk->setRotation(rotation);
 	base->chunk->setPosition(phys.pos);

@@ -47,9 +47,11 @@ namespace fired {
 		void findTile(int i, int j);
 
 		void checkCollision(fired::Character *character, int tile_x, int tile_y);
+		void checkPhysCollision(fired::Phys *phys, int tile_x, int tile_y);
 
 		void checkPhys(fired::Character *character);
 		bool checkShot(fired::Shot *shot);
+		void checkChunkPhys(fired::Chunk *chunk);
 
 		bool isSolid(int i, int j);
 		sf::Vector2i getSize() { return mapSize; };

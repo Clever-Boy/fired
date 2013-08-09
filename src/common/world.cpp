@@ -75,9 +75,6 @@ void fired::World::update() {
 	gui.update();
 
 
-	for (unsigned int i = 0; i < chunks.size(); i++)
-		chunks[i]->update(app);
-
 	for (unsigned int i = 0; i < creatures.size(); i++)
 		creatures[i]->update();
 
@@ -96,6 +93,11 @@ void fired::World::update() {
 			particles.erase(particles.begin() + i);
 		} else
 			i++;
+	}
+
+	for (unsigned int i = 0; i < chunks.size(); i++) {
+		map.checkChunkPhys(chunks[i]);
+		chunks[i]->update(app);
 	}
 
 	for (unsigned int i = 0; i < texts.size();) {
@@ -193,9 +195,9 @@ void fired::World::addBloodSplash(sf::Vector2f pos, sf::Vector2f direction, int 
 //======================================================================
 
 
-void fired::World::addChunk(fired::Bodypart *bodyPart, float scale, sf::Vector2f position) {
+void fired::World::addChunk(fired::Bodypart *bodyPart, float scale, sf::Vector2f position, sf::Vector2f speed) {
 	chunks.push_back(new fired::Chunk);
-	chunks.back()->init(bodyPart, scale, position);
+	chunks.back()->init(bodyPart, scale, position, speed);
 }
 
 //======================================================================

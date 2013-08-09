@@ -27,6 +27,27 @@ float sign(float x) {
 //======================================================================
 
 
+sf::Vector2f vNorm(sf::Vector2f v) {
+	return v / vLen(v);
+}
+
+//======================================================================
+
+
+sf::Vector2f vSetLen(sf::Vector2f v, float l) {
+	return vNorm(v) * l;
+}
+
+//======================================================================
+
+
+float vLen(sf::Vector2f v) {
+	return sqrt(sqr(v.x) + sqr(v.y));
+}
+
+//======================================================================
+
+
 bool directoryContents(const char *dir, std::vector<std::string>* contents) {
 	contents->clear();
 	DIR *dir_ptr = opendir(dir);
@@ -133,8 +154,8 @@ bool lineBoxCollision(sf::FloatRect box, sf::FloatRect ray, sf::Vector2f *coord,
 	}
 
 	if (dist) {
-		 *dist = sqrt((coord->x - ray.left)*(coord->x - ray.left) + (coord->y - ray.top)*(coord->y - ray.top));
-		 if (*dist > sqrt(sqr(ray.width) + sqr(ray.height))) return false;
+		 *dist = vLen(sf::Vector2f(coord->x - ray.left, coord->y - ray.top));
+		 if (*dist > vLen(sf::Vector2f(ray.width, ray.height))) return false;
 	}
 	return true;
 }

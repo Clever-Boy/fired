@@ -97,14 +97,14 @@ void fired::Character::setAiming(float _aiming) {
 //======================================================================
 
 
-void fired::Character::damage(int damage, bool headshot) {
+void fired::Character::damage(int damage, bool headshot, sf::Vector2f shot, float knockback) {
 	char dmg[8];
 
 	baseStats.HP -= damage;
 	if (baseStats.HP <= 0) {
 		dead = true;
 		if (headshot) model->headshot();
-		model->explode();
+		model->explode(shot - phys.pos, knockback);
 	}
 
 	snprintf(dmg, 8, "-%u", damage);
@@ -121,20 +121,23 @@ void fired::Character::damage(int damage, bool headshot) {
 bool fired::Character::checkShot(fired::Shot *shot) {
 	if (dead) return false;
 
-	sf::Vector2f dir(shot->velocity * frameClock);
+	sf::Vector2f  dir(shot->velocity * frameClock);
 	sf::FloatRect ray(shot->pos, dir);
 
-	sf::Vector2f c, n;
+	sf::Vector2f c, n, c2, n2;
 	float dist;
 
 	if (lineBoxCollision(phys.rect, ray, &c, &n, &dist)) {
-		phys.velocity.x -= n.x * shot->knockback;
-		world->addBloodSplash(c, n * 200.0f, 20);
 
-		if (lineBoxCollision(phys.head, ray, &c, &n, &dist))
-			damage(shot->damage * 1.5, true);
-		else
-			damage(shot->damage, false);
+		if (lineBoxCollision(phys.head, ray, &c2, &n2, &dist)) {
+			phys.velocity.x -= n.x * shot->knockback * 1.5;
+			world->addBloodSplash(c, n * 200.0f, 30);
+			damage(shot->damage * 1.5, true, c, shot->knockback * 1.5);
+		} else {
+			phys.velocity.x -= n.x * shot->knockback;
+			world->addBloodSplash(c, n * 200.0f, 20);
+			damage(shot->damage, false, c, shot->knockback);
+		}
 
 		return true;
 	}

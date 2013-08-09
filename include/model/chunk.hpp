@@ -9,6 +9,7 @@
 namespace fired {
 	struct Chunk {
 		fired::BaseBodypart *base;
+		fired::Phys          phys;
 
 		sf::Vector2f speed;
 		sf::Vector2f pos;
@@ -18,7 +19,7 @@ namespace fired {
 		float        scaleY;
 
 
-		void init(fired::Bodypart *bodyPart, float scale, sf::Vector2f position);
+		void init(fired::Bodypart *bodyPart, float scale, sf::Vector2f position, sf::Vector2f speed);
 		void deinit() {};
 		void update(sf::RenderWindow *app);
 		void render(sf::RenderWindow *app);

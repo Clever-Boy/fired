@@ -35,7 +35,7 @@ void fired::Crosshair::update(float distance) {
 	center -= (cam->getOffset() + center - owner->center);
 	pos = sf::Vector2f(sf::Mouse::getPosition(*app));
 
-	float dist = sqrt((center.x - pos.x)*(center.x - pos.x) + (center.y - pos.y)*(center.y - pos.y));
+	float dist = vLen(center - pos);
 	if (dist > distance) {
 		pos = sf::Vector2f(center.x + (pos.x - center.x) * (distance / dist), center.y + (pos.y - center.y) * (distance / dist));
 		sf::Mouse::setPosition(sf::Vector2i(pos), *app);

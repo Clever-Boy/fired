@@ -17,8 +17,8 @@ void fired::Model::render() {
 //======================================================================
 
 
-void fired::Model::explode() {
-	for (unsigned int i = 0; i < bodyParts.size(); i++) chunkPart(bodyParts[i]);
+void fired::Model::explode(sf::Vector2f shot, float knockback) {
+	for (unsigned int i = 0; i < bodyParts.size(); i++) chunkPart(bodyParts[i], shot, knockback / 10);
 	bodyParts.clear();
 }
 
@@ -50,11 +50,15 @@ void fired::Model::drawPart(fired::Bodypart *part) {
 //======================================================================
 
 
-void fired::Model::chunkPart(fired::Bodypart *part) {
+void fired::Model::chunkPart(fired::Bodypart *part, sf::Vector2f shot, float knockback) {
+	sf::Vector2f chunkPos;
 	if (*part->direction == 1)
-		world->addChunk(part, modelScale, owner->phys.pos + (part->base->offset + part->base->size / 2.0f) * modelScale);
+		chunkPos = owner->phys.pos + (part->base->offset + part->base->size / 2.0f) * modelScale;
 	else
-		world->addChunk(part, modelScale, owner->phys.pos + sf::Vector2f(-part->base->offset.x - part->base->size.x / 2.0f, part->base->offset.y + part->base->size.y / 2.0f) * modelScale + sf::Vector2f(owner->phys.size.x, 0));
+		chunkPos = owner->phys.pos + sf::Vector2f(-part->base->offset.x - part->base->size.x / 2.0f, part->base->offset.y + part->base->size.y / 2.0f) * modelScale + sf::Vector2f(owner->phys.size.x, 0);
+
+
+	world->addChunk(part, modelScale, chunkPos, vNorm(part->base->offset - shot) * knockback * 10.0f);
 }
 
 //======================================================================

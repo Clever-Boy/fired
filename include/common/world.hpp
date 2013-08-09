@@ -47,7 +47,7 @@ namespace fired {
 		void addText(sf::Vector2f pos, sf::Color color, int size, const char *text);
 		void addBulletSplash(sf::Vector2f pos, sf::Vector2f direction);
 		void addBloodSplash(sf::Vector2f pos, sf::Vector2f direction, int bloodCount);
-		void addChunk(fired::Bodypart *bodyPart, float scale, sf::Vector2f position);
+		void addChunk(fired::Bodypart *bodyPart, float scale, sf::Vector2f position, sf::Vector2f speed);
 
 		fired::BaseWeapon   *getWeapon(const char *name) {return container.getWeapon(name); };
 		fired::BaseBodypart *getBodypart(const char *name, fired::BodypartType type) {return container.getBodypart(name, type); };

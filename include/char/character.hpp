@@ -58,7 +58,7 @@ namespace fired {
 		void shot();
 
 		bool  checkShot(fired::Shot *shot);
-		void  damage(int damage, bool headshot);
+		void  damage(int damage, bool headshot, sf::Vector2f shot, float knockback);
 		void  setAiming(float _aiming);
 		float getHpPercent();
 		int   getDamage();

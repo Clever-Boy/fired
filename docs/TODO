@@ -791,7 +791,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="no">
+	<todo done="no" collapse="yes">
 		<title>Creatures</title>
 		<text>
 </text>
@@ -850,7 +850,7 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add creating chunks on death</title>
 			<text>
 </text>

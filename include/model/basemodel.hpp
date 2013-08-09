@@ -60,6 +60,7 @@ namespace fired {
 	public:
 		void deinit();
 		void render();
+		void explode();
 
 		virtual void headshot() {};
 		virtual void update()   {};
@@ -67,6 +68,7 @@ namespace fired {
 		void initPart(fired::Bodypart *part, fired::BaseBodypart *base, int *direction);
 		void drawPart(fired::Bodypart *part);
 		void resetPart(fired::Bodypart *part);
+		void chunkPart(fired::Bodypart *part);
 
 		void resetAnimation();
 	};

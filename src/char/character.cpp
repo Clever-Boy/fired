@@ -104,7 +104,7 @@ void fired::Character::damage(int damage, bool headshot) {
 	if (baseStats.HP <= 0) {
 		dead = true;
 		if (headshot) model->headshot();
-		// Create chunks there
+		model->explode();
 	}
 
 	snprintf(dmg, 8, "-%u", damage);

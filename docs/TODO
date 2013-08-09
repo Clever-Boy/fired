@@ -810,13 +810,18 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
-			<title>Add death animation</title>
+		<todo done="yes" collapse="no">
+			<title>Remove head when dead after headshot</title>
 			<text>
 </text>
 		</todo>
-		<todo done="yes" collapse="no">
-			<title>Remove head when dead after headshot</title>
+		<todo done="no" collapse="no">
+			<title>Add chunks centered spites for body explosions</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add creating chunks on death</title>
 			<text>
 </text>
 		</todo>
@@ -972,21 +977,6 @@
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Add explosives</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add body explosion (chunks fly away)</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add chunks centered spites for body explosions</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add creating head chunk instead disappearing after headshot</title>
 			<text>
 </text>
 		</todo>

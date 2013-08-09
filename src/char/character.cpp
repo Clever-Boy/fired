@@ -107,7 +107,10 @@ void fired::Character::damage(int damage, bool headshot) {
 	char dmg[8];
 
 	baseStats.HP -= damage;
-	if (baseStats.HP <= 0) dead = true;
+	if (baseStats.HP <= 0) {
+		dead = true;
+		if (headshot) model->headshot();
+	}
 
 	snprintf(dmg, 8, "-%u", damage);
 
@@ -133,10 +136,9 @@ bool fired::Character::checkShot(fired::Shot *shot) {
 		phys.velocity.x -= n.x * shot->knockback;
 		world->addBloodSplash(c, n * 200.0f, 20);
 
-		if (lineBoxCollision(phys.head, ray, &c, &n, &dist)) {
+		if (lineBoxCollision(phys.head, ray, &c, &n, &dist))
 			damage(shot->damage * 1.5, true);
-			model->headshot();
-		} else
+		else
 			damage(shot->damage, false);
 
 		return true;

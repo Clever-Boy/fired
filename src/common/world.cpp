@@ -50,10 +50,17 @@ void fired::World::deinit() {
 		delete texts[i];
 	}
 
+	for (unsigned int i = 0; i < chunks.size(); i++) {
+		chunks[i]->deinit();
+		delete chunks[i];
+	}
+
+
 	shots.clear();
 	particles.clear();
 	creatures.clear();
 	texts.clear();
+	chunks.clear();
 }
 
 //======================================================================
@@ -68,10 +75,15 @@ void fired::World::update() {
 	gui.update();
 
 
+	for (unsigned int i = 0; i < chunks.size(); i++)
+		chunks[i]->update(app);
+
 	for (unsigned int i = 0; i < creatures.size(); i++)
 		creatures[i]->update();
 
+
 	checkShots();
+
 
 	for (unsigned int i = 0; i < shots.size(); i++)
 		shots[i]->update(app);
@@ -176,6 +188,14 @@ void fired::World::addBloodSplash(sf::Vector2f pos, sf::Vector2f direction, int 
 	fired::ParticleSystemSplash *ps = new fired::ParticleSystemSplash;
 	ps->init(pos, direction, sf::Color(150, 0, 0, 155), 7, bloodCount, 0.3, 0.5);
 	particles.push_back(ps);
+}
+
+//======================================================================
+
+
+void fired::World::addChunk(fired::Bodypart *bodyPart, float scale, sf::Vector2f position) {
+	chunks.push_back(new fired::Chunk);
+	chunks.back()->init(bodyPart, scale, position);
 }
 
 //======================================================================

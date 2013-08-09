@@ -27,6 +27,7 @@ namespace fired {
 		std::vector<fired::Shot*>           shots;
 		std::vector<fired::Creature*>       creatures;
 		std::vector<fired::FlyText*>        texts;
+		std::vector<fired::Chunk*>          chunks;
 
 
 	public:
@@ -41,10 +42,12 @@ namespace fired {
 
 		void spawn(sf::Vector2f pos, const char *creature);
 
+
 		void addShot(sf::Vector2f pos, float angle, float speed, fired::Character *owner);
 		void addText(sf::Vector2f pos, sf::Color color, int size, const char *text);
 		void addBulletSplash(sf::Vector2f pos, sf::Vector2f direction);
 		void addBloodSplash(sf::Vector2f pos, sf::Vector2f direction, int bloodCount);
+		void addChunk(fired::Bodypart *bodyPart, float scale, sf::Vector2f position);
 
 		fired::BaseWeapon   *getWeapon(const char *name) {return container.getWeapon(name); };
 		fired::BaseBodypart *getBodypart(const char *name, fired::BodypartType type) {return container.getBodypart(name, type); };

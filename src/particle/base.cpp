@@ -3,9 +3,14 @@
 //======================================================================
 
 
-bool fired::Particle::process(sf::RenderWindow *app) {
+bool fired::Particle::process(sf::RenderWindow *app, fired::World *world, bool physical) {
 	life += frameClock;
 	if (life > lifetime) return false;
+
+	if (physical) if (world->isSolidPixel(pos)) {
+		speed = sf::Vector2f(0, 0);
+		accel = sf::Vector2f(0, 0);
+	}
 
 	speed += accel * frameClock;
 	pos += speed * frameClock;
@@ -24,7 +29,7 @@ void fired::ParticleSystem::render(sf::RenderWindow *app) {
 	unsigned int i = 0;
 
 	while (i < particles.size())
-		if (!particles[i]->process(app)) {
+		if (!particles[i]->process(app, world, physical)) {
 			delete particles[i];
 			particles.erase(particles.begin() + i);
 		} else

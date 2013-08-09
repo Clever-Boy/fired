@@ -3,12 +3,16 @@
 //======================================================================
 
 
-void fired::ParticleSystemSplash::init(sf::Vector2f pos, sf::Vector2f direction, sf::Color color, float size, int count, float lifetime, float _endScale) {
+void fired::ParticleSystemSplash::init(sf::Vector2f pos, sf::Vector2f direction, fired::World *_world, sf::Color color, float size, int count, float lifetime, float _endScale, bool _physical) {
 	sprite = new sf::RectangleShape(sf::Vector2f(size, size));
+	sprite->setOrigin(sf::Vector2f(size / 2, size / 2));
 
 	sf::Vector2f normal(direction.y, -direction.x);
 	sf::Vector2f accel(0, PHYS_GRAVITY / 2);
+
 	endScale = _endScale;
+	physical = _physical;
+	world    = _world;
 
 	for (int i = 0; i < count; i++) {
 		particles.push_back(new fired::Particle);

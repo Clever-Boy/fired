@@ -17,14 +17,18 @@ namespace fired {
 		sf::Vector2f        speed;
 		sf::Vector2f        accel;
 
-		bool process(sf::RenderWindow *app);
+
+		bool process(sf::RenderWindow *app, fired::World *world, bool physical);
 	};
 
 
 	class ParticleSystem {
 	protected:
-		float life;
-		sf::Vector2f accel;
+		fired::World *world;
+		float         life;
+		bool          physical;
+		sf::Vector2f  accel;
+
 		std::vector<fired::Particle*> particles;
 
 

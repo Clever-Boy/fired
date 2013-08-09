@@ -184,7 +184,7 @@ void fired::World::spawn(sf::Vector2f pos, const char *creature) {
 
 void fired::World::addBulletSplash(sf::Vector2f pos, sf::Vector2f direction) {
 	fired::ParticleSystemSplash *ps = new fired::ParticleSystemSplash;
-	ps->init(pos, direction, sf::Color(255, 155, 0, 255), 2, 20, 0.3, 0);
+	ps->init(pos, direction, this, sf::Color(255, 155, 0, 255), 2, 20, 0.3, 0, false);
 	particles.push_back(ps);
 }
 
@@ -193,7 +193,7 @@ void fired::World::addBulletSplash(sf::Vector2f pos, sf::Vector2f direction) {
 
 void fired::World::addBloodSplash(sf::Vector2f pos, sf::Vector2f direction, int bloodCount) {
 	fired::ParticleSystemSplash *ps = new fired::ParticleSystemSplash;
-	ps->init(pos, direction, sf::Color(150, 0, 0, 155), 7, bloodCount, 0.5, 0.5);
+	ps->init(pos, direction, this, sf::Color(150, 0, 0, 155), 7, bloodCount, 17.0, 0.5, true);
 	particles.push_back(ps);
 }
 

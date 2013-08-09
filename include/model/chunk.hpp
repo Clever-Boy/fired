@@ -2,8 +2,8 @@
 #define __CHUNK
 
 
-#define CHUNK_LIFETIME      2.0
-#define CHUNK_DISAPPEARTIME 1.5
+#define CHUNK_LIFETIME      15.0
+#define CHUNK_DISAPPEARTIME 12.5
 
 
 #include <SFML/Graphics.hpp>

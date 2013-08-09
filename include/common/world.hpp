@@ -41,7 +41,7 @@ namespace fired {
 		void checkPhys(fired::Character *character) {map.checkPhys(character); };
 
 		void spawn(sf::Vector2f pos, const char *creature);
-
+		bool isSolidPixel(sf::Vector2f pixel) {return map.isSolid(pixel.x / TILE_SIZE, pixel.y / TILE_SIZE); };
 
 		void addShot(sf::Vector2f pos, float angle, float speed, fired::Character *owner);
 		void addText(sf::Vector2f pos, sf::Color color, int size, const char *text);

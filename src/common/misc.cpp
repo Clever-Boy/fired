@@ -48,6 +48,15 @@ float vLen(sf::Vector2f v) {
 //======================================================================
 
 
+long levelXP(int level) {
+	long res = 0;
+	for (int i = 0; i < level; res += (i / 2 + 1) * 250, i++);
+	return res;
+}
+
+//======================================================================
+
+
 bool directoryContents(const char *dir, std::vector<std::string>* contents) {
 	contents->clear();
 	DIR *dir_ptr = opendir(dir);

@@ -78,11 +78,11 @@ void fired::GUI::render() {
 	bar->setPosition(cam->getOffset() + sf::Vector2f(23, settings->window.height - barHeight - 2));
 	app->draw(*bar);
 
-	bar->setSize(sf::Vector2f(200 * 0.1 /*player->getChar()->getXpPercent()*/, 12));
+	bar->setSize(sf::Vector2f(200 * player->getChar()->getXpPercent(), 12));
 	bar->setFillColor(sf::Color(150, 150, 0, 255));
 	app->draw(*bar);
 
-	*str = "Level 1  (10 / 100)"; //player->getChar()->getXpString();
+	*str = player->getChar()->getXpString();
 	txt->setString(*str);
 	txt->setPosition(cam->getOffset() + sf::Vector2f(23 + (barWidth - txt->getGlobalBounds().width) / 2.0f, settings->window.height - barHeight - 4));
 	app->draw(*txt);

@@ -32,15 +32,16 @@ namespace fired {
 		fired::Model          *model;
 
 		bool  dead;
-		float timeAfterDeath;
 		bool  isShooting;
 		int   direction;
 		int   watching;
 		float aiming;
-
-		int level;
 		float weaponCooldown;
 
+		int  level;
+		long XP;
+		long needXP;
+		long lastXP;
 
 	public:
 		fired::Phys phys;
@@ -62,13 +63,17 @@ namespace fired {
 
 		bool  checkShot(fired::Shot *shot);
 		void  damage(int damage, bool headshot, sf::Vector2f shot, float knockback);
+		void  gainXP(long xp);
+		void  levelUp();
 		void  setAiming(float _aiming);
 
 		float getHpPercent();
+		float getXpPercent();
 		float getCooldownPercent();
 		float getAmmoPercent();
 
 		std::string getHpString();
+		std::string getXpString();
 		std::string getCooldownString();
 		std::string getAmmoString();
 

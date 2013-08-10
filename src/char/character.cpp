@@ -38,14 +38,15 @@ fired::Character::Character(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 	weapon->ammo = -1;
 
 	weaponCooldown = 0;
-
 	dead           = false;
-	timeAfterDeath = 0.0;
 	isShooting     = false;
 	direction      = 1;
 	watching       = 1;
 	aiming         = 0;
 	level          = 1;
+	XP             = 0;
+	lastXP         = 0;
+	needXP         = levelXP(level);
 }
 
 //======================================================================
@@ -106,12 +107,34 @@ void fired::Character::damage(int damage, bool headshot, sf::Vector2f shot, floa
 		model->explode(shot - phys.pos, knockback);
 	}
 
-	snprintf(dmg, 8, "-%u", damage);
+	snprintf(dmg, sizeof(dmg), "-%u", damage);
 
 	if (headshot)
 		world->addText(phys.pos, sf::Color(255, 0, 0, 255), 24, dmg);
 	else
 		world->addText(phys.pos, sf::Color(255, 0, 0, 255), 16, dmg);
+}
+
+//======================================================================
+
+
+void fired::Character::gainXP(long xp) {
+	char exp[8];
+	snprintf(exp, sizeof(exp), "+%lu", xp);
+
+	XP += xp;
+	world->addText(phys.pos, sf::Color(0, 255, 0, 255), 16, exp);
+	if (XP >= needXP) levelUp();
+}
+
+//======================================================================
+
+
+void fired::Character::levelUp() {
+	lastXP = needXP;
+	level++;
+	world->addText(sf::Vector2f(phys.pos.x, phys.pos.y - 20), sf::Color(255, 255, 0, 255), 24, "Level UP");
+	needXP = levelXP(level);
 }
 
 //======================================================================
@@ -138,6 +161,7 @@ bool fired::Character::checkShot(fired::Shot *shot) {
 			damage(shot->damage, false, c, shot->knockback);
 		}
 
+		if (dead) shot->owner->gainXP(baseStats.maxHP);
 		return true;
 	}
 
@@ -157,8 +181,24 @@ float fired::Character::getHpPercent() {
 
 
 std::string fired::Character::getHpString() {
-	char outStr[16];
+	char outStr[32];
 	snprintf(outStr, sizeof(outStr), "HP  %d / %d", baseStats.HP, baseStats.maxHP);
+	return std::string(outStr);
+}
+
+//======================================================================
+
+
+float fired::Character::getXpPercent() {
+	return (float)(XP - lastXP) / (float)(needXP - lastXP);
+}
+
+//======================================================================
+
+
+std::string fired::Character::getXpString() {
+	char outStr[32];
+	snprintf(outStr, sizeof(outStr), "Level %u  (%lu / %lu)", level, XP, needXP);
 	return std::string(outStr);
 }
 

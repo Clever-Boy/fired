@@ -6,6 +6,7 @@
 
 
 #include <SFML/Graphics.hpp>
+#include <string>
 #include "prototypes.hpp"
 #include "stats.hpp"
 #include "phys.hpp"
@@ -37,6 +38,7 @@ namespace fired {
 		int   watching;
 		float aiming;
 
+		int level;
 		float weaponCooldown;
 
 
@@ -61,10 +63,17 @@ namespace fired {
 		bool  checkShot(fired::Shot *shot);
 		void  damage(int damage, bool headshot, sf::Vector2f shot, float knockback);
 		void  setAiming(float _aiming);
+
 		float getHpPercent();
+		float getCooldownPercent();
+		float getAmmoPercent();
+
+		std::string getHpString();
+		std::string getCooldownString();
+		std::string getAmmoString();
+
 		int   getDamage();
 		float getKnockback();
-		int   getAmmo()  {return weapon->ammo; };
 		bool  isDead()   {return dead; };
 	};
 }

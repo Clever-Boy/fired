@@ -45,6 +45,7 @@ fired::Character::Character(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 	direction      = 1;
 	watching       = 1;
 	aiming         = 0;
+	level          = 1;
 }
 
 //======================================================================
@@ -149,7 +150,51 @@ bool fired::Character::checkShot(fired::Shot *shot) {
 
 float fired::Character::getHpPercent() {
 	if (baseStats.HP > 0) return (float)baseStats.HP / (float)baseStats.maxHP;
-	return 0.0;
+	return 0.0f;
+}
+
+//======================================================================
+
+
+std::string fired::Character::getHpString() {
+	char outStr[16];
+	snprintf(outStr, sizeof(outStr), "HP  %d / %d", baseStats.HP, baseStats.maxHP);
+	return std::string(outStr);
+}
+
+//======================================================================
+
+
+float fired::Character::getCooldownPercent() {
+	if (weaponCooldown > 0) return (float)(weapon->cooldown - weaponCooldown) / (float)weapon->cooldown;
+	return 1.0f;
+}
+
+//======================================================================
+
+
+std::string fired::Character::getCooldownString() {
+	char outStr[16];
+	if (weaponCooldown > 0) snprintf(outStr, sizeof(outStr), "%3.2f", weaponCooldown);
+	return std::string(outStr);
+}
+
+//======================================================================
+
+
+float fired::Character::getAmmoPercent() {
+	if (weapon->ammo >= 0) return (float)weapon->ammo / (float)weapon->clip;
+	return 1.0f;
+}
+
+//======================================================================
+
+
+std::string fired::Character::getAmmoString() {
+	char outStr[16];
+	if (weapon->ammo == -1) snprintf(outStr, sizeof(outStr), "inf");
+	else                    snprintf(outStr, sizeof(outStr), "Ammo  %d / %d", weapon->ammo, weapon->clip);
+	return std::string(outStr);
 }
 
 //======================================================================

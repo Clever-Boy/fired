@@ -10,6 +10,7 @@ namespace fired {
 	struct BaseWeapon {
 		char  name[32];
 		int   damage;
+		int   clip;
 		float cooldown;
 		float knockback;
 
@@ -26,6 +27,7 @@ namespace fired {
 		float cooldown;
 		float knockback;
 		int ammo;
+		int clip;
 
 		sf::Sound *shotSound;
 

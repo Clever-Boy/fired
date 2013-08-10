@@ -99,6 +99,9 @@ void fired::MapGenerator::genLandscape(int areaStart, int areaEnd, int horizon) 
 	genFill(144, horizon - 12, 156, horizon - 11, 3, true);
 	genFill(146, horizon - 13, 154, horizon - 12, 3, true);
 	genFill(148, horizon - 14, 152, horizon - 13, 3, true);
+
+	tiles[138][horizon - 5].tileset=3;
+	tiles[138][horizon - 5].isWall=true;
 }
 
 //======================================================================

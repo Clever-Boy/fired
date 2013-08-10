@@ -366,7 +366,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="no">
+	<todo done="no" collapse="yes">
 		<title>GUI</title>
 		<text>
 </text>
@@ -400,18 +400,23 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Draw nice gui items</title>
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add XP GUI item</title>
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add level GUI item</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add cooldown GUI</title>
 			<text>
 </text>
 		</todo>
@@ -731,7 +736,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="no" collapse="no">
 		<title>Creatures</title>
 		<text>
 </text>
@@ -852,6 +857,21 @@
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Add collectable items</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add ammo</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add reloading</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Show reloading in cooldown bar</title>
 			<text>
 </text>
 		</todo>

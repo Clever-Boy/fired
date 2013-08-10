@@ -15,16 +15,16 @@ namespace fired {
 		fired::Camera    *cam;
 		fired::Player    *player;
 
+
+		int          barHeight;
+		int          barWidth;
+
 		sf::Texture *barTex;
 		sf::Sprite  *barSpr;
 
-		sf::Texture        *healthTex;
-		sf::RectangleShape *healthSpr;
-
-		sf::Texture *ammoTex;
-		sf::Sprite  *ammoSpr;
-		sf::String  *ammoCnt;
-		sf::Text    *ammoTxt;
+		sf::RectangleShape *bar;
+		sf::String         *str;
+		sf::Text           *txt;
 
 	public:
 		 GUI(fired::Game *_game, fired::Camera *_cam, fired::Player *_player);

@@ -13,6 +13,7 @@ namespace fired {
 
 	public:
 		void init(fired::Game *_game);
+		~Handlers() {};
 
 		void buttonStart();
 		void buttonCredits();

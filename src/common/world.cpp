@@ -13,14 +13,15 @@ void fired::World::init(fired::Game *_game) {
 	gui       = new fired::GUI();
 	container = new fired::Container();
 	map       = new fired::Map();
+	cam       = new fired::Camera();
 
 	container->init(game, this);
-	map->init(game, &cam, this);
-	cam.init(game, map->getSize());
-	player.init(game, &cam, map->getStartPos(), this);
-	gui->init(game, &cam, &player);
+	map->init(game, cam, this);
+	cam->init(game, map->getSize());
+	player.init(game, cam, map->getStartPos(), this);
+	gui->init(game, cam, &player);
 
-	cam.setTrackObj(player.getPhys());
+	cam->setTrackObj(player.getPhys());
 	spawn(sf::Vector2f(2288, 560), "soldier");
 	spawn(sf::Vector2f(2388, 560), "soldier");
 }
@@ -32,6 +33,7 @@ void fired::World::deinit() {
 	player.deinit();
 	delete map;
 	delete gui;
+	delete cam;
 	delete container;
 
 	for (unsigned int i = 0; i < shots.size(); i++)
@@ -65,7 +67,7 @@ void fired::World::deinit() {
 void fired::World::update() {
 	checkControls();
 
-	cam.update();
+	cam->update();
 	map->update();
 	player.update();
 	gui->update();
@@ -167,7 +169,7 @@ void fired::World::processEvent(sf::Event event) {
 
 void fired::World::spawn(sf::Vector2f pos, const char *creature) {
 	creatures.push_back(new fired::Creature);
-	creatures.back()->init(game, &cam, pos, this, getCreature(creature));
+	creatures.back()->init(game, cam, pos, this, getCreature(creature));
 }
 
 //======================================================================

@@ -23,7 +23,8 @@ namespace fired {
 
 	public:
 		void init(fired::Game *_game, fired::Camera *_cam, fired::Phys *_owner);
-		void deinit();
+		~Crosshair();
+
 		void update(float distance);
 		void render();
 

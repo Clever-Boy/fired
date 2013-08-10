@@ -16,8 +16,8 @@ namespace fired {
 		fired::Settings  *settings;
 		sf::RenderWindow *app;
 
-		fired::Character character;
-		fired::Crosshair crosshair;
+		fired::Character  character;
+		fired::Crosshair *crosshair;
 
 
 	public:

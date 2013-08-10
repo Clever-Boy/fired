@@ -18,7 +18,7 @@ namespace fired {
 		sf::RenderWindow *app;
 
 		fired::Map       *map;
-		fired::Camera     cam;
+		fired::Camera    *cam;
 		fired::Player     player;
 		fired::GUI       *gui;
 		fired::Container *container;

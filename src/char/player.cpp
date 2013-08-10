@@ -8,8 +8,10 @@ void fired::Player::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _
 	settings = game->getSettings();
 	app      = game->getApp();
 
+	crosshair = new fired::Crosshair();
+
 	character.init(_game, _cam, _startpos, world, world->getCreature("player"));
-	crosshair.init(_game, _cam, &character.phys);
+	crosshair->init(_game, _cam, &character.phys);
 }
 
 //======================================================================
@@ -17,7 +19,7 @@ void fired::Player::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _
 
 void fired::Player::deinit() {
 	character.deinit();
-	crosshair.deinit();
+	delete crosshair;
 }
 
 //======================================================================
@@ -25,8 +27,8 @@ void fired::Player::deinit() {
 
 void fired::Player::update() {
 	character.update();
-	crosshair.update(character.getStats()->aimrange);
-	character.setAiming(crosshair.getAngle());
+	crosshair->update(character.getStats()->aimrange);
+	character.setAiming(crosshair->getAngle());
 }
 
 //======================================================================

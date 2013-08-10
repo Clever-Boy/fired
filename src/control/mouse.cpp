@@ -19,7 +19,7 @@ void fired::Mouse::init(fired::Game *_game) {
 //======================================================================
 
 
-void fired::Mouse::deinit() {
+fired::Mouse::~Mouse() {
 	delete mouseTex;
 	delete mouseCur;
 }

@@ -22,9 +22,13 @@ void fired::Game::init() {
 	focused   = true;
 	gameState = gsNone;
 
-	mouse.init(this);
-	keyboard.init(this);
-	handlers.init(this);
+	mouse    = new fired::Mouse();
+	keyboard = new fired::Keyboard();
+	handlers = new fired::Handlers();
+
+	mouse->init(this);
+	keyboard->init(this);
+	handlers->init(this);
 
 	musicTheme.setLoop(true);
 	musicTheme.setVolume(settings.volume.music);
@@ -39,7 +43,9 @@ void fired::Game::init() {
 
 void fired::Game::deinit() {
 	musicTheme.stop();
-	mouse.deinit();
+	delete mouse;
+	delete keyboard;
+	delete handlers;
 
 	if      (gameState == gsMainMenu)   delete mainMenu;
 	else if (gameState == gsStartScr)   delete startScr;
@@ -76,7 +82,7 @@ void fired::Game::update() {
 
 
 void fired::Game::processHandler(fired::Handler handler) {
-	(handlers.*handler)();
+	(*handlers.*handler)();
 }
 
 //======================================================================
@@ -153,7 +159,7 @@ bool fired::Game::switchGameState() {
 
 	gameState = gameStateNew;
 
-	if      (gameState == gsMainMenu)   {mainMenu   = new fired::MainMenu  ; mainMenu->init(this, &mouse);}
+	if      (gameState == gsMainMenu)   {mainMenu   = new fired::MainMenu  ; mainMenu->init(this, mouse);}
 	else if (gameState == gsStartScr)   {startScr   = new fired::StartScr  ; startScr->init(this);}
 	else if (gameState == gsCreditsScr) {creditsScr = new fired::CreditsScr; creditsScr->init(this);}
 	else if (gameState == gsWorld)      world.init(this);

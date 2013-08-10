@@ -53,15 +53,15 @@ namespace fired {
 		fired::GameState     gameState;
 		fired::GameState     gameStateNew;
 		fired::Settings      settings;
-		fired::Handlers      handlers; 
+		fired::Handlers      *handlers; 
 
 		fired::MainMenu   *mainMenu;
 		fired::StartScr   *startScr;
 		fired::CreditsScr *creditsScr;
 		fired::World       world;
 
-		fired::Keyboard keyboard;
-		fired::Mouse mouse;
+		fired::Keyboard *keyboard;
+		fired::Mouse    *mouse;
 
 
 	public:

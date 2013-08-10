@@ -22,7 +22,7 @@ void fired::Crosshair::init(fired::Game *_game, fired::Camera *_cam, fired::Phys
 //======================================================================
 
 
-void fired::Crosshair::deinit() {
+fired::Crosshair::~Crosshair() {
 	delete crosshairTex;
 	delete crosshairCur;
 }

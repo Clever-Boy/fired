@@ -3,12 +3,8 @@
 //======================================================================
 
 
-void fired::MapGenerator::generate() {
-	genClear(200, 100);
-	genLandscape(0, sizeX, 40);
-	genPlayer();
-
-	save("data/maps/test.map");
+fired::MapGenerator::MapGenerator() {
+	generate();
 }
 
 //======================================================================
@@ -19,6 +15,17 @@ fired::MapGenerator::~MapGenerator() {
 		delete tiles[i];
 
 	delete tiles;
+}
+
+//======================================================================
+
+
+void fired::MapGenerator::generate() {
+	genClear(200, 100);
+	genLandscape(0, sizeX, 40);
+	genPlayer();
+
+	save("data/maps/test.map");
 }
 
 //======================================================================

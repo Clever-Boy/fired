@@ -18,7 +18,7 @@ namespace fired {
 		} volume;
 
 
-		void init();
+		 Settings();
 		~Settings();
 
 		void save();

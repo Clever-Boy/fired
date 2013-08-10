@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::Settings::init() {
+fired::Settings::Settings() {
 	loadFromFile("data/settings.conf");
 }
 

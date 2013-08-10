@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::Container::init(fired::Game *_game, fired::World *_world) {
+fired::Container::Container(fired::Game *_game, fired::World *_world) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();

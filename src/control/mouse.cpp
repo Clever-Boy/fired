@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::Mouse::init(fired::Game *_game) {
+fired::Mouse::Mouse(fired::Game *_game) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();

@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *base) {
+fired::Character::Character(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *base) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();
@@ -29,15 +29,13 @@ void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 	fired::BaseModel *basemodel = world->getModel(base->model);
 	switch (basemodel->type) {
 		case mtHumanoid: {
-			fired::ModelHumanoid *newmodel = new fired::ModelHumanoid;
-			newmodel->init(game, this, (fired::BaseModelHumanoid*)basemodel, base->modelScale, world);
-			model = newmodel;
+			model = new fired::ModelHumanoid(game, this, (fired::BaseModelHumanoid*)basemodel, base->modelScale, world);
 			break;
 		}
 	}
 
-	weapon.init(world->getWeapon(base->weapon));
-	weapon.ammo = -1;
+	weapon = new fired::Weapon(world->getWeapon(base->weapon));
+	weapon->ammo = -1;
 
 	weaponCooldown = 0;
 
@@ -54,6 +52,7 @@ void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 
 fired::Character::~Character() {
 	delete model;
+	delete weapon;
 }
 
 //======================================================================
@@ -157,14 +156,14 @@ float fired::Character::getHpPercent() {
 
 
 int fired::Character::getDamage() {
-	return weapon.damage;
+	return weapon->damage;
 }
 
 //======================================================================
 
 
 float fired::Character::getKnockback() {
-	return weapon.knockback;
+	return weapon->knockback;
 }
 
 //======================================================================
@@ -196,11 +195,11 @@ void fired::Character::jump() {
 void fired::Character::shot() {
 	isShooting = true;
 
-	if (weapon.ammo == 0) return;
+	if (weapon->ammo == 0) return;
 	if (weaponCooldown > 0) return;
-	if (weapon.ammo > 0) weapon.ammo--;
+	if (weapon->ammo > 0) weapon->ammo--;
 
-	weaponCooldown = weapon.cooldown;
-	weapon.shotSound->play();
+	weaponCooldown = weapon->cooldown;
+	weapon->shotSound->play();
 	world->addShot(phys.center, aiming, 1000, this);
 }

@@ -27,7 +27,7 @@ namespace fired {
 		sf::Text    *ammoTxt;
 
 	public:
-		void init(fired::Game *_game, fired::Camera *_cam, fired::Player *_player);
+		 GUI(fired::Game *_game, fired::Camera *_cam, fired::Player *_player);
 		~GUI();
 
 		void update();

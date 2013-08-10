@@ -19,7 +19,7 @@ namespace fired {
 
 
 	public:
-		void init(fired::Game *_game);
+		 Mouse(fired::Game *_game);
 		~Mouse();
 
 		void update();

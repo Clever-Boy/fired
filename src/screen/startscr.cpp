@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::StartScr::init(fired::Game *_game) {
+fired::StartScr::StartScr(fired::Game *_game) {
 	game       = _game;
 	settings   = game->getSettings();
 	app        = game->getApp();

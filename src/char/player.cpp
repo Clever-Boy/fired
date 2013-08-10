@@ -3,16 +3,13 @@
 //======================================================================
 
 
-void fired::Player::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *world) {
+fired::Player::Player(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *world) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();
 
-	crosshair = new fired::Crosshair();
-	character = new fired::Character();
-
-	character->init(_game, _cam, _startpos, world, world->getCreature("player"));
-	crosshair->init(_game, _cam, &character->phys);
+	character = new fired::Character(_game, _cam, _startpos, world, world->getCreature("player"));
+	crosshair = new fired::Crosshair(_game, _cam, &character->phys);
 }
 
 //======================================================================

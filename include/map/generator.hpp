@@ -27,6 +27,7 @@ namespace fired {
 
 
 	public:
+		 MapGenerator();
 		~MapGenerator();
 
 		void generate();

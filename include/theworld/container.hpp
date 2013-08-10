@@ -23,7 +23,7 @@ namespace fired {
 
 
 	public:
-		void init(fired::Game *_game, fired::World *_world);
+		 Container(fired::Game *_game, fired::World *_world);
 		~Container();
 
 		void loadWeapons();

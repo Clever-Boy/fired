@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::Chunk::init(fired::Bodypart *bodyPart, float scale, sf::Vector2f position, sf::Vector2f speed) {
+fired::Chunk::Chunk(fired::Bodypart *bodyPart, float scale, sf::Vector2f position, sf::Vector2f speed) {
 	base = bodyPart->base;
 	scaleX = *bodyPart->direction * scale;
 	scaleY = scale;

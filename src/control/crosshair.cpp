@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::Crosshair::init(fired::Game *_game, fired::Camera *_cam, fired::Phys *_owner) {
+fired::Crosshair::Crosshair(fired::Game *_game, fired::Camera *_cam, fired::Phys *_owner) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();

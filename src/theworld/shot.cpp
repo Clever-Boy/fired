@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::Shot::init(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner) {
+fired::Shot::Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner) {
 	pos       = _pos;
 	owner     = _owner;
 	angle     = _angle;

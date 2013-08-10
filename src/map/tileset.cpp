@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::Tileset::init() {
+fired::Tileset::Tileset() {
 	maskTex = new sf::Texture();
 	maskTex->loadFromFile("data/img/world/tileset/mask.tga");
 

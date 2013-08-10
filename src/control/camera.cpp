@@ -3,11 +3,10 @@
 //======================================================================
 
 
-void fired::Camera::init(fired::Game *_game, sf::Vector2i _mapSize) {
+fired::Camera::Camera(fired::Game *_game) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();
-	mapSize  = _mapSize;
 
 	viewport = sf::FloatRect(0, 0, settings->window.width, settings->window.height);
 	view.reset(viewport);

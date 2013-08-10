@@ -31,7 +31,7 @@ namespace fired {
 
 
 	public:
-		void init(fired::Game *_game);
+		 World(fired::Game *_game);
 		~World();
 
 		void update();

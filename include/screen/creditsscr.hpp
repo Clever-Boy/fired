@@ -18,7 +18,7 @@ namespace fired {
 
 
 	public:
-		void init(fired::Game *_game);
+		 CreditsScr(fired::Game *_game);
 		~CreditsScr();
 
 		void update();

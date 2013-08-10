@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::FlyText::init(fired::Game *_game, sf::Vector2f _pos, sf::Color _color, int size, const char *text) {
+fired::FlyText::FlyText(fired::Game *_game, sf::Vector2f _pos, sf::Color _color, int size, const char *text) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();

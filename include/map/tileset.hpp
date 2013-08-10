@@ -19,7 +19,7 @@ namespace fired {
 
 
 	public:
-		void init();
+		 Tileset();
 		~Tileset();
 
 		void addTile(const char *filename);

@@ -3,6 +3,6 @@
 //======================================================================
 
 
-void fired::Keyboard::init(fired::Game *_game) {
+fired::Keyboard::Keyboard(fired::Game *_game) {
 	game = _game;
 }

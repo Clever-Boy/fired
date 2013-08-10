@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::ParticleSystemSplash::init(sf::Vector2f pos, sf::Vector2f direction, fired::World *_world, sf::Color color, float size, int count, float lifetime, float _endScale, bool _physical) {
+fired::ParticleSystemSplash::ParticleSystemSplash(sf::Vector2f pos, sf::Vector2f direction, fired::World *_world, sf::Color color, float size, int count, float lifetime, float _endScale, bool _physical) {
 	sprite = new sf::RectangleShape(sf::Vector2f(size, size));
 	sprite->setOrigin(sf::Vector2f(size / 2, size / 2));
 

@@ -66,7 +66,7 @@ namespace fired {
 
 
 	public:
-		void init();
+		 Game();
 		~Game();
 
 		void update();

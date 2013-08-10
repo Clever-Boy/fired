@@ -22,7 +22,7 @@ namespace fired {
 
 
 	public:
-		void init(fired::Game *_game);
+		 StartScr(fired::Game *_game);
 		~StartScr();
 
 		void update();

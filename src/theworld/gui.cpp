@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::GUI::init(fired::Game *_game, fired::Camera *_cam, fired::Player *_player) {
+fired::GUI::GUI(fired::Game *_game, fired::Camera *_cam, fired::Player *_player) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();

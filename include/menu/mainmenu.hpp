@@ -46,7 +46,7 @@ namespace fired {
 
 
 	public:
-		void init(fired::Game *_game, fired::Mouse *_mouse);
+		 MainMenu(fired::Game *_game, fired::Mouse *_mouse);
 		~MainMenu();
 
 		void update();

@@ -11,7 +11,7 @@ fired::BaseWeapon::~BaseWeapon() {
 //======================================================================
 
 
-void fired::Weapon::init(fired::BaseWeapon *_weapon) {
+fired::Weapon::Weapon(fired::BaseWeapon *_weapon) {
 	damage    = _weapon->damage;
 	cooldown  = _weapon->cooldown;
 	knockback = _weapon->knockback;

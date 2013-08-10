@@ -30,7 +30,7 @@ namespace fired {
 		sf::Sound *shotSound;
 
 
-		void init(fired::BaseWeapon *_weapon);
+		Weapon(fired::BaseWeapon *_weapon);
 	};
 }
 

@@ -27,7 +27,7 @@ namespace fired {
 		fired::Camera    *cam;
 
 		fired::CharacterStats  baseStats;
-		fired::Weapon          weapon;
+		fired::Weapon         *weapon;
 		fired::Model          *model;
 
 		bool  dead;
@@ -45,7 +45,7 @@ namespace fired {
 		fired::CharacterStats *getStats() { return &baseStats; };
 
 
-		void init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *base);
+		 Character(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *base);
 		~Character();
 
 		void update();
@@ -64,7 +64,7 @@ namespace fired {
 		float getHpPercent();
 		int   getDamage();
 		float getKnockback();
-		int   getAmmo()  {return weapon.ammo; };
+		int   getAmmo()  {return weapon->ammo; };
 		bool  isDead()   {return dead; };
 	};
 }

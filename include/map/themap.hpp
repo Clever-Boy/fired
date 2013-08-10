@@ -35,7 +35,7 @@ namespace fired {
 
 
 	public:
-		void init(fired::Game *_game, fired::Camera *_cam, fired::World *_world);
+		 Map(fired::Game *_game, fired::Camera *_cam, fired::World *_world);
 		~Map();
 
 		void update();

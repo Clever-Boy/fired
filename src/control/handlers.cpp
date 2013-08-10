@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::Handlers::init(fired::Game *_game) {
+fired::Handlers::Handlers(fired::Game *_game) {
 	game = _game;
 }
 

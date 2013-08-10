@@ -23,12 +23,14 @@ namespace fired {
 
 
 	public:
-		void init(fired::Game *_game, sf::Vector2i _mapSize);
+		Camera(fired::Game *_game);
+
 		void update();
 
-		void          setTrackObj(fired::Phys *phys) { objToTrack = phys; };
-		sf::Vector2f  getOffset()   { return offset; };
-		sf::FloatRect getViewport() { return viewport; };
+		void          setTrackObj(fired::Phys *phys)    { objToTrack = phys; };
+		void          setMapSize(sf::Vector2i _mapSize) {mapSize = _mapSize; };
+		sf::Vector2f  getOffset()                       { return offset; };
+		sf::FloatRect getViewport()                     { return viewport; };
 	};
 }
 

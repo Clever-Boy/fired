@@ -13,7 +13,7 @@ namespace fired {
 
 
 	public:
-		void init(fired::Game *_game);
+		Keyboard(fired::Game *_game);
 	};
 }
 

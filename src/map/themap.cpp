@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::Map::init(fired::Game *_game, fired::Camera *_cam, fired::World *_world) {
+fired::Map::Map(fired::Game *_game, fired::Camera *_cam, fired::World *_world) {
 	game     = _game;
 	settings = game->getSettings();
 	app      = game->getApp();
@@ -12,6 +12,7 @@ void fired::Map::init(fired::Game *_game, fired::Camera *_cam, fired::World *_wo
 
 	bgTex    = new sf::Texture();
 	bgSprite = new sf::RectangleShape();
+	tileset  = new fired::Tileset();
 
 	bgTex->loadFromFile("data/img/world/bg/sky.jpg");
 	bgSprite->setTexture(bgTex);
@@ -20,9 +21,6 @@ void fired::Map::init(fired::Game *_game, fired::Camera *_cam, fired::World *_wo
 
 	visibleTiles.x = settings->window.width  / TILE_SIZE + 2;
 	visibleTiles.y = settings->window.height / TILE_SIZE + 2;
-
-	tileset = new fired::Tileset();
-	tileset->init();
 
 	load("data/maps/test.map");
 }
@@ -89,7 +87,7 @@ void fired::Map::load(const char* filename) {
 	for (int i = 0; i < sizeX; i++)
 		for (int j = 0; j < sizeY; j++) {
 			fread(&tile, sizeof(tile), 1, fp);
-			tiles[i][j].init(tile.tileset, tile.isWall, i, j);
+			tiles[i][j].set(tile.tileset, tile.isWall, i, j);
 		}
 
 	findTiles(0, 0, sizeX, sizeY);

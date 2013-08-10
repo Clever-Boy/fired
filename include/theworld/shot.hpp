@@ -18,7 +18,7 @@ namespace fired {
 		fired::Character *owner;
 
 
-		void init(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner);
+		 Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner);
 		~Shot();
 
 		bool update(sf::RenderWindow *app);

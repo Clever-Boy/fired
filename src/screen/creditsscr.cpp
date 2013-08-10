@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::CreditsScr::init(fired::Game *_game) {
+fired::CreditsScr::CreditsScr(fired::Game *_game) {
 	std::string line;
 	std::ifstream creditsFile("data/img/gui/creditsscr/credits");
 	int  iOffset;

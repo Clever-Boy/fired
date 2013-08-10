@@ -3,10 +3,9 @@
 //======================================================================
 
 
-void fired::Game::init() {
+fired::Game::Game() {
 	clock    = new sf::Clock;
 	settings = new fired::Settings();
-	settings->init();
 
 	unsigned long style;
 	if (settings->window.fullScreen) style = sf::Style::Fullscreen;
@@ -25,13 +24,9 @@ void fired::Game::init() {
 	focused   = true;
 	gameState = gsNone;
 
-	mouse    = new fired::Mouse();
-	keyboard = new fired::Keyboard();
-	handlers = new fired::Handlers();
-
-	mouse->init(this);
-	keyboard->init(this);
-	handlers->init(this);
+	mouse    = new fired::Mouse(this);
+	keyboard = new fired::Keyboard(this);
+	handlers = new fired::Handlers(this);
 
 	musicTheme = new sf::Music();
 	musicTheme->setLoop(true);
@@ -101,9 +96,7 @@ void fired::Game::processHandler(fired::Handler handler) {
 
 
 void fired::Game::generateWorld() {
-	fired::MapGenerator *generator = new fired::MapGenerator();
-	generator->generate();
-	delete generator;
+	delete new fired::MapGenerator();
 }
 
 //======================================================================
@@ -171,10 +164,10 @@ bool fired::Game::switchGameState() {
 
 	gameState = gameStateNew;
 
-	if      (gameState == gsMainMenu)   {mainMenu   = new fired::MainMenu  ; mainMenu->init(this, mouse);}
-	else if (gameState == gsStartScr)   {startScr   = new fired::StartScr  ; startScr->init(this);}
-	else if (gameState == gsCreditsScr) {creditsScr = new fired::CreditsScr; creditsScr->init(this);}
-	else if (gameState == gsWorld)      {world      = new fired::World     ; world->init(this);}
+	if      (gameState == gsMainMenu)   mainMenu   = new fired::MainMenu(this, mouse);
+	else if (gameState == gsStartScr)   startScr   = new fired::StartScr(this);
+	else if (gameState == gsCreditsScr) creditsScr = new fired::CreditsScr(this);
+	else if (gameState == gsWorld)      world      = new fired::World(this);
 
 	return true;
 }

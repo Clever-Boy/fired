@@ -47,7 +47,8 @@ namespace fired {
 
 	public:
 		void init(fired::Game *_game, fired::Mouse *_mouse);
-		void deinit();
+		~MainMenu();
+
 		void update();
 		void render();
 		void click(sf::Vector2i pos);

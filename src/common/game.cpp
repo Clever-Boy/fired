@@ -41,7 +41,7 @@ void fired::Game::deinit() {
 	musicTheme.stop();
 	mouse.deinit();
 
-	if      (gameState == gsMainMenu)   mainMenu.deinit();
+	if      (gameState == gsMainMenu)   delete mainMenu;
 	else if (gameState == gsStartScr)   delete startScr;
 	else if (gameState == gsCreditsScr) delete creditsScr;
 	else if (gameState == gsWorld)      world.deinit();
@@ -64,7 +64,7 @@ void fired::Game::update() {
 
 	app.clear();
 
-	if      (gameState == gsMainMenu)   mainMenu.update();
+	if      (gameState == gsMainMenu)   mainMenu->update();
 	else if (gameState == gsStartScr)   startScr->update();
 	else if (gameState == gsCreditsScr) creditsScr->update();
 	else if (gameState == gsWorld)      world.update();
@@ -107,7 +107,7 @@ void fired::Game::processEvent(sf::Event event) {
 			break;
 
 		default:
-			if      (gameState == gsMainMenu)   mainMenu.processEvent(event);
+			if      (gameState == gsMainMenu)   mainMenu->processEvent(event);
 			else if (gameState == gsStartScr)   startScr->processEvent(event);
 			else if (gameState == gsCreditsScr) creditsScr->processEvent(event);
 			else if (gameState == gsWorld)      world.processEvent(event);
@@ -137,14 +137,14 @@ bool fired::Game::switchGameState() {
 	if (gameState == gameStateNew) return false;
 	musicTheme.stop();
 
-	if      (gameState == gsMainMenu)   mainMenu.deinit();
+	if      (gameState == gsMainMenu)   delete mainMenu;
 	else if (gameState == gsStartScr)   delete startScr;
 	else if (gameState == gsCreditsScr) delete creditsScr;
 	else if (gameState == gsWorld)      world.deinit();
 
 	gameState = gameStateNew;
 
-	if      (gameState == gsMainMenu)   mainMenu.init(this, &mouse);
+	if      (gameState == gsMainMenu)   {mainMenu   = new fired::MainMenu  ; mainMenu->init(this, &mouse);}
 	else if (gameState == gsStartScr)   {startScr   = new fired::StartScr  ; startScr->init(this);}
 	else if (gameState == gsCreditsScr) {creditsScr = new fired::CreditsScr; creditsScr->init(this);}
 	else if (gameState == gsWorld)      world.init(this);

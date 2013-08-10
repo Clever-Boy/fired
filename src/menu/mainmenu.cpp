@@ -54,9 +54,10 @@ void fired::MainMenu::init(fired::Game *_game, fired::Mouse *_mouse) {
 //======================================================================
 
 
-void fired::MainMenu::deinit() {
-	for (unsigned int i = 0; i < menuItems.size(); menuItems[i]->deinit(), free(menuItems[i]), i++);
+fired::MainMenu::~MainMenu() {
+	for (unsigned int i = 0; i < menuItems.size(); delete menuItems[i], i++);
 	menuItems.clear();
+
 	clickSound->stop();
 
 	delete clickSound;

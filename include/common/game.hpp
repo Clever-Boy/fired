@@ -56,7 +56,7 @@ namespace fired {
 		fired::Handlers     handlers; 
 		fired::MapGenerator generator;
 
-		fired::MainMenu    mainMenu;
+		fired::MainMenu   *mainMenu;
 		fired::StartScr   *startScr;
 		fired::CreditsScr *creditsScr;
 		fired::World       world;

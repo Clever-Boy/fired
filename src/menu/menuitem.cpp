@@ -28,7 +28,7 @@ void fired::MenuItem::init(fired::Game *_game, fired::MainMenu *_mainMenu, sf::S
 //======================================================================
 
 
-void fired::MenuItem::deinit() {
+fired::MenuItem::~MenuItem() {
 	delete caption;
 	delete text;
 }

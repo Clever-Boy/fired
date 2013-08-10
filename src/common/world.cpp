@@ -29,7 +29,7 @@ void fired::World::init(fired::Game *_game) {
 //======================================================================
 
 
-void fired::World::deinit() {
+fired::World::~World() {
 	player.deinit();
 	delete map;
 	delete gui;

@@ -19,6 +19,8 @@ namespace fired {
 
 
 		void init();
+		~Settings();
+
 		void save();
 		void loadFromFile(const char *filename);
 		void saveToFile(const char *filename);

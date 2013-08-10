@@ -3,12 +3,12 @@
 
 float frameClock;
 int main() {
-	fired::Game Game;
+	fired::Game *game = new fired::Game;
 	srand(time(NULL));
 
-	Game.init();
-	while(Game.isRunning()) Game.update();
-	Game.deinit();
+	game->init();
+	while(game->isRunning()) game->update();
+	delete game;
 
 	return EXIT_SUCCESS;
 }

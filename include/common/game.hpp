@@ -40,11 +40,11 @@ namespace fired {
 
 	class Game {
 	private:
-		sf::RenderWindow app;
-		sf::Clock        clock;
-		sf::Font         font;
-		sf::Image        icon;
-		sf::Music        musicTheme;
+		sf::RenderWindow *app;
+		sf::Clock        *clock;
+		sf::Font         *font;
+		sf::Image        *icon;
+		sf::Music        *musicTheme;
 
 		long lastClock;
 		bool running;
@@ -52,13 +52,14 @@ namespace fired {
 
 		fired::GameState     gameState;
 		fired::GameState     gameStateNew;
-		fired::Settings      settings;
+
+		fired::Settings      *settings;
 		fired::Handlers      *handlers; 
 
 		fired::MainMenu   *mainMenu;
 		fired::StartScr   *startScr;
 		fired::CreditsScr *creditsScr;
-		fired::World       world;
+		fired::World      *world;
 
 		fired::Keyboard *keyboard;
 		fired::Mouse    *mouse;
@@ -66,12 +67,13 @@ namespace fired {
 
 	public:
 		void init();
-		void deinit();
+		~Game();
+
 		void update();
 
-		sf::RenderWindow *getApp()      { return &app; };
-		sf::Font         *getFont()     { return &font; };
-		fired::Settings  *getSettings() { return &settings; };
+		sf::RenderWindow *getApp()      { return app; };
+		sf::Font         *getFont()     { return font; };
+		fired::Settings  *getSettings() { return settings; };
 		bool              isRunning()   { return running; };
 		void              stop()        { running = false; };
 

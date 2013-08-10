@@ -17,6 +17,13 @@ void fired::Settings::save() {
 //======================================================================
 
 
+fired::Settings::~Settings() {
+	save();
+}
+
+//======================================================================
+
+
 void fired::Settings::loadFromFile(const char *filename) {
 	FILE *fp = fopen(filename, "r");
 	fscanf(fp, "window.width=%d\n"     , &window.width);

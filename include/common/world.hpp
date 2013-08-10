@@ -32,7 +32,8 @@ namespace fired {
 
 	public:
 		void init(fired::Game *_game);
-		void deinit();
+		~World();
+
 		void update();
 
 		void processEvent(sf::Event event);

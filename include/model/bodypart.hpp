@@ -32,7 +32,7 @@ namespace fired {
 		sf::Color           color;
 		fired::BodypartType type;
 
-		void deinit();
+		~BaseBodypart();
 	};
 
 

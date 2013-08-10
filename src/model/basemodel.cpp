@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::Model::deinit() {
+fired::Model::~Model() {
 	bodyParts.clear();
 }
 

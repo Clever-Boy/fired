@@ -25,7 +25,7 @@ namespace fired {
 
 
 		void init(fired::Bodypart *bodyPart, float scale, sf::Vector2f position, sf::Vector2f speed);
-		void deinit() {};
+
 		bool update(sf::RenderWindow *app);
 		void render(sf::RenderWindow *app);
 	};

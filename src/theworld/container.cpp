@@ -19,14 +19,11 @@ void fired::Container::init(fired::Game *_game, fired::World *_world) {
 
 
 fired::Container::~Container() {
-	for (unsigned int i = 0; i < weapons.size(); i++) {
+	for (unsigned int i = 0; i < weapons.size(); i++)
 		delete weapons[i];
-	}
 
-	for (unsigned int i = 0; i < bodyparts.size(); i++) {
-		bodyparts[i]->deinit();
+	for (unsigned int i = 0; i < bodyparts.size(); i++)
 		delete bodyparts[i];
-	}
 
 	for (unsigned int i = 0; i < models.size(); i++)
 		delete models[i];

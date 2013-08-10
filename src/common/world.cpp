@@ -33,27 +33,22 @@ void fired::World::deinit() {
 	delete gui;
 	delete container;
 
-	for (unsigned int i = 0; i < shots.size(); i++) {
+	for (unsigned int i = 0; i < shots.size(); i++)
 		delete shots[i];
-	}
 
-	for (unsigned int i = 0; i < particles.size(); i++) {
+	for (unsigned int i = 0; i < particles.size(); i++)
 		delete particles[i];
-	}
 
 	for (unsigned int i = 0; i < creatures.size(); i++) {
 		creatures[i]->deinit();
 		delete creatures[i];
 	}
 
-	for (unsigned int i = 0; i < texts.size(); i++) {
+	for (unsigned int i = 0; i < texts.size(); i++)
 		delete texts[i];
-	}
 
-	for (unsigned int i = 0; i < chunks.size(); i++) {
-		chunks[i]->deinit();
+	for (unsigned int i = 0; i < chunks.size(); i++)
 		delete chunks[i];
-	}
 
 
 	shots.clear();
@@ -97,7 +92,6 @@ void fired::World::update() {
 	for (unsigned int i = 0; i < chunks.size();) {
 		map.checkChunkPhys(chunks[i]);
 		if (!chunks[i]->update(app)) {
-			chunks[i]->deinit();
 			delete chunks[i];
 			chunks.erase(chunks.begin() + i);
 		} else

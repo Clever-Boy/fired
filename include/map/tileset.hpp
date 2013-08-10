@@ -20,7 +20,8 @@ namespace fired {
 
 	public:
 		void init();
-		void deinit();
+		~Tileset();
+
 		void addTile(const char *filename);
 
 		sf::Sprite *getTile(int index) { return sprites[index]; };

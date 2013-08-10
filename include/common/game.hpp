@@ -50,11 +50,10 @@ namespace fired {
 		bool running;
 		bool focused;
 
-		fired::GameState    gameState;
-		fired::GameState    gameStateNew;
-		fired::Settings     settings;
-		fired::Handlers     handlers; 
-		fired::MapGenerator generator;
+		fired::GameState     gameState;
+		fired::GameState     gameStateNew;
+		fired::Settings      settings;
+		fired::Handlers      handlers; 
 
 		fired::MainMenu   *mainMenu;
 		fired::StartScr   *startScr;
@@ -76,7 +75,7 @@ namespace fired {
 		bool              isRunning()   { return running; };
 		void              stop()        { running = false; };
 
-		void generateWorld() { generator.generate(); };
+		void generateWorld();
 		void setGameState(fired::GameState state);
 		void setMusic(const char *musicFile);
 		bool switchGameState();

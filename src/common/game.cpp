@@ -82,6 +82,15 @@ void fired::Game::processHandler(fired::Handler handler) {
 //======================================================================
 
 
+void fired::Game::generateWorld() {
+	fired::MapGenerator *generator = new fired::MapGenerator();
+	generator->generate();
+	delete generator;
+}
+
+//======================================================================
+
+
 void fired::Game::processEvents() {
 	sf::Event event;
 	while (app.pollEvent(event)) processEvent(event);

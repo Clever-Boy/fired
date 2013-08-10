@@ -15,13 +15,6 @@ void fired::Tile::init(int _tileset, bool _isWall, int x, int y) {
 //======================================================================
 
 
-void fired::Tile::deinit() {
-	return;
-}
-
-//======================================================================
-
-
 void fired::Tile::render(sf::RenderWindow *app) {
 	if (!tileset) return;
 

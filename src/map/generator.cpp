@@ -9,13 +9,12 @@ void fired::MapGenerator::generate() {
 	genPlayer();
 
 	save("data/maps/test.map");
-	deinit();
 }
 
 //======================================================================
 
 
-void fired::MapGenerator::deinit() {
+fired::MapGenerator::~MapGenerator() {
 	for (int i = 0; i < sizeX; i++)
 		delete tiles[i];
 

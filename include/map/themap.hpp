@@ -20,8 +20,8 @@ namespace fired {
 		fired::Camera    *cam;
 		fired::World     *world;
 
-		fired::Tileset tileset;
-		fired::Tile  **tiles;
+		fired::Tileset *tileset;
+		fired::Tile   **tiles;
 
 		sf::Texture        *bgTex;
 		sf::RectangleShape *bgSprite;
@@ -36,7 +36,8 @@ namespace fired {
 
 	public:
 		void init(fired::Game *_game, fired::Camera *_cam, fired::World *_world);
-		void deinit();
+		~Map();
+
 		void update();
 		void render();
 

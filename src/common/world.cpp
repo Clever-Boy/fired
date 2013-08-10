@@ -10,13 +10,14 @@ void fired::World::init(fired::Game *_game) {
 
 	game->setMusic("data/snd/themes/world.ogg");
 
-	gui       = new fired::GUI;
-	container = new fired::Container;
+	gui       = new fired::GUI();
+	container = new fired::Container();
+	map       = new fired::Map();
 
 	container->init(game, this);
-	map.init(game, &cam, this);
-	cam.init(game, map.getSize());
-	player.init(game, &cam, map.getStartPos(), this);
+	map->init(game, &cam, this);
+	cam.init(game, map->getSize());
+	player.init(game, &cam, map->getStartPos(), this);
 	gui->init(game, &cam, &player);
 
 	cam.setTrackObj(player.getPhys());
@@ -28,8 +29,8 @@ void fired::World::init(fired::Game *_game) {
 
 
 void fired::World::deinit() {
-	map.deinit();
 	player.deinit();
+	delete map;
 	delete gui;
 	delete container;
 
@@ -65,7 +66,7 @@ void fired::World::update() {
 	checkControls();
 
 	cam.update();
-	map.update();
+	map->update();
 	player.update();
 	gui->update();
 
@@ -90,7 +91,7 @@ void fired::World::update() {
 	}
 
 	for (unsigned int i = 0; i < chunks.size();) {
-		map.checkChunkPhys(chunks[i]);
+		map->checkChunkPhys(chunks[i]);
 		if (!chunks[i]->update(app)) {
 			delete chunks[i];
 			chunks.erase(chunks.begin() + i);
@@ -146,7 +147,7 @@ void fired::World::checkShots() {
 	}
 
 	for (unsigned int i = 0; i < shots.size();) {
-		if (map.checkShot(shots[i])) {
+		if (map->checkShot(shots[i])) {
 			delete shots[i];
 			shots.erase(shots.begin() + i);
 		} else

@@ -16,7 +16,6 @@ namespace fired {
 		int sizeX;
 		int sizeY;
 
-		void deinit();
 		void save(const char* filename);
 
 		void genLandscape(int areaStart, int areaEnd, int horizon);
@@ -28,6 +27,8 @@ namespace fired {
 
 
 	public:
+		~MapGenerator();
+
 		void generate();
 	};
 }

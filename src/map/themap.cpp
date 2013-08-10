@@ -21,19 +21,20 @@ void fired::Map::init(fired::Game *_game, fired::Camera *_cam, fired::World *_wo
 	visibleTiles.x = settings->window.width  / TILE_SIZE + 2;
 	visibleTiles.y = settings->window.height / TILE_SIZE + 2;
 
-	tileset.init();
+	tileset = new fired::Tileset();
+	tileset->init();
+
 	load("data/maps/test.map");
 }
 
 //======================================================================
 
 
-void fired::Map::deinit() {
-	for (int i = 0; i < sizeX; i++)
-		delete tiles[i];
+fired::Map::~Map() {
+	for (int i = 0; i < sizeX; delete tiles[i++]);
 
 	delete tiles;
-	tileset.deinit();
+	delete tileset;
 }
 
 //======================================================================
@@ -95,7 +96,7 @@ void fired::Map::load(const char* filename) {
 
 	fclose(fp);
 	for (int i = 0; i < sizeX; i++) for (int j = 0; j < sizeY; j++)
-		tiles[i][j].setTileset(&tileset);
+		tiles[i][j].setTileset(tileset);
 }
 
 //======================================================================

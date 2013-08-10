@@ -26,16 +26,16 @@ namespace fired {
 		fired::Settings  *settings;
 		sf::RenderWindow *app;
 
-		fired::Character character;
+		fired::Character *character;
 		bool left; // Temporary for pseudo AI
 
 	public:
 		void init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *world, fired::BaseCreature *base);
-		void deinit();
+		~Creature();
 		void update();
 
-		fired::Phys *getPhys() { return &character.phys; };
-		fired::Character *getChar() { return &character; };
+		fired::Phys *getPhys() { return &character->phys; };
+		fired::Character *getChar() { return character; };
 	};
 }
 

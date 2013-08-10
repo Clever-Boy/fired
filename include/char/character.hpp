@@ -46,7 +46,8 @@ namespace fired {
 
 
 		void init(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *base);
-		void deinit();
+		~Character();
+
 		void update();
 		void render();
 

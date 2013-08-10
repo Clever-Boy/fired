@@ -52,7 +52,7 @@ void fired::Character::init(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 //======================================================================
 
 
-void fired::Character::deinit() {
+fired::Character::~Character() {
 	delete model;
 }
 

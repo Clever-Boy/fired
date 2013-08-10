@@ -19,7 +19,7 @@ namespace fired {
 
 		fired::Map       *map;
 		fired::Camera    *cam;
-		fired::Player     player;
+		fired::Player    *player;
 		fired::GUI       *gui;
 		fired::Container *container;
 

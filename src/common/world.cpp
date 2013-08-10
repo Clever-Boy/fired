@@ -14,14 +14,16 @@ void fired::World::init(fired::Game *_game) {
 	container = new fired::Container();
 	map       = new fired::Map();
 	cam       = new fired::Camera();
+	player    = new fired::Player();
 
 	container->init(game, this);
 	map->init(game, cam, this);
 	cam->init(game, map->getSize());
-	player.init(game, cam, map->getStartPos(), this);
-	gui->init(game, cam, &player);
+	player->init(game, cam, map->getStartPos(), this);
+	gui->init(game, cam, player);
 
-	cam->setTrackObj(player.getPhys());
+	cam->setTrackObj(player->getPhys());
+
 	spawn(sf::Vector2f(2288, 560), "soldier");
 	spawn(sf::Vector2f(2388, 560), "soldier");
 }
@@ -30,7 +32,7 @@ void fired::World::init(fired::Game *_game) {
 
 
 fired::World::~World() {
-	player.deinit();
+	delete player;
 	delete map;
 	delete gui;
 	delete cam;
@@ -42,10 +44,8 @@ fired::World::~World() {
 	for (unsigned int i = 0; i < particles.size(); i++)
 		delete particles[i];
 
-	for (unsigned int i = 0; i < creatures.size(); i++) {
-		creatures[i]->deinit();
+	for (unsigned int i = 0; i < creatures.size(); i++)
 		delete creatures[i];
-	}
 
 	for (unsigned int i = 0; i < texts.size(); i++)
 		delete texts[i];
@@ -69,7 +69,7 @@ void fired::World::update() {
 
 	cam->update();
 	map->update();
-	player.update();
+	player->update();
 	gui->update();
 
 
@@ -111,7 +111,6 @@ void fired::World::update() {
 
 	for (unsigned int i = 0; i < creatures.size();) {
 		if (creatures[i]->getChar()->isDead()) {
-			creatures[i]->deinit();
 			delete creatures[i];
 			creatures.erase(creatures.begin() + i);
 			spawn(sf::Vector2f(2288, 560), "soldier");
@@ -124,7 +123,7 @@ void fired::World::update() {
 
 
 void fired::World::checkControls() {
-	player.checkControls();
+	player->checkControls();
 }
 
 //======================================================================

@@ -401,6 +401,11 @@
 </text>
 		</todo>
 		<todo done="no" collapse="no">
+			<title>Draw nice gui items</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
 			<title>Add XP GUI item</title>
 			<text>
 </text>
@@ -726,7 +731,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="no">
+	<todo done="no" collapse="yes">
 		<title>Creatures</title>
 		<text>
 </text>

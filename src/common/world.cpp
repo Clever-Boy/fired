@@ -146,7 +146,7 @@ void fired::World::spawn(sf::Vector2f pos, const char *creature) {
 
 
 void fired::World::addBulletSplash(sf::Vector2f pos, sf::Vector2f direction) {
-	particles.push_back(new fired::ParticleSystemSplash(pos, direction, this, sf::Color(255, 155, 0, 255), 2, 20, 0.3, 0, false));
+	particles.push_back(new fired::ParticleSystemSplash(pos, direction, this, sf::Color(239, 231, 145, 255), 2, 20, 0.3, 0, false));
 }
 
 //======================================================================

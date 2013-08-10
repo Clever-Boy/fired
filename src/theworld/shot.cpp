@@ -13,7 +13,7 @@ fired::Shot::Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character
 	velocity = sf::Vector2f(speed * cos(angle), speed * sin(angle));
 	line = sf::VertexArray(sf::Lines, 2);
 	line[0].color = sf::Color::White;
-	line[1].color = sf::Color(150, 150, 150, 50);
+	line[1].color = sf::Color(141, 152, 141, 50);
 }
 
 //======================================================================

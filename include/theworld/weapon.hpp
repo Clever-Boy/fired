@@ -16,7 +16,7 @@ namespace fired {
 		sf::SoundBuffer *shotBuffer;
 		sf::Sound       *shotSound;
 
-		void deinit();
+		~BaseWeapon();
 	};
 
 

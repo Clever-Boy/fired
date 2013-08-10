@@ -206,7 +206,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="no" collapse="no">
 		<title>Game engine</title>
 		<text>
 </text>
@@ -216,42 +216,7 @@
 </text>
 		</todo>
 		<todo done="yes" collapse="no">
-			<title>Add tile storage class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add map storage class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add tileset storage class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add tileset loading</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add map rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add background</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
 			<title>Remove some friend classes from Game</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add testmap generation generation</title>
 			<text>
 </text>
 		</todo>
@@ -276,41 +241,6 @@
 </text>
 		</todo>
 		<todo done="yes" collapse="no">
-			<title>Add movement</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add gravity</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add physic struct (size, pos, vel, acc)</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add physics processing</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add char physics</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add collision test</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add jumps</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
 			<title>Add camera class</title>
 			<text>
 </text>
@@ -321,17 +251,72 @@
 </text>
 		</todo>
 		<todo done="yes" collapse="no">
-			<title>Add big map support</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
 			<title>Add crosshair</title>
 			<text>
 </text>
 		</todo>
 		<todo done="yes" collapse="no">
 			<title>Add world theme</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Fix viewport when moving at the edges</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Move deinit to destructors</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Move init to constructor</title>
+			<text>
+</text>
+		</todo>
+	</todo>
+	<todo done="yes" collapse="yes">
+		<title>Map</title>
+		<text>
+</text>
+		<todo done="yes" collapse="no">
+			<title>Add tile storage class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add map storage class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add tileset storage class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add tileset loading</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="yes">
+			<title>Add map rendering</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add background</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add testmap generation generation</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add big map support</title>
 			<text>
 </text>
 		</todo>
@@ -375,18 +360,18 @@
 			<text>
 </text>
 		</todo>
-		<todo done="yes" collapse="no">
-			<title>Fix viewport when moving at the edges</title>
+		<todo done="no" collapse="no">
+			<title>Add map decoration class</title>
 			<text>
 </text>
 		</todo>
 		<todo done="no" collapse="no">
-			<title>Move deinit to destructors</title>
+			<title>Add decorations</title>
 			<text>
 </text>
 		</todo>
 		<todo done="no" collapse="no">
-			<title>Move init to constructor</title>
+			<title>Add collectors (chests, etc.)</title>
 			<text>
 </text>
 		</todo>
@@ -471,7 +456,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="no">
+	<todo done="no" collapse="yes">
 		<title>GUI</title>
 		<text>
 </text>
@@ -522,6 +507,36 @@
 </text>
 		<todo done="yes" collapse="no">
 			<title>Add phys struct</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add movement</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add gravity</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add physics processing</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add char physics</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add collision test</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add jumps</title>
 			<text>
 </text>
 		</todo>
@@ -801,7 +816,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="no">
+	<todo done="no" collapse="yes">
 		<title>Creatures</title>
 		<text>
 </text>
@@ -907,26 +922,6 @@
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Turrel AI</title>
-			<text>
-</text>
-		</todo>
-	</todo>
-	<todo done="yes" collapse="yes">
-		<title>Map extensions</title>
-		<text>
-</text>
-		<todo done="no" collapse="no">
-			<title>Add map decoration class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add decorations</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add collectors (chests, etc.)</title>
 			<text>
 </text>
 		</todo>

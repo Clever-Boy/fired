@@ -18,9 +18,8 @@ void fired::Container::init(fired::Game *_game, fired::World *_world) {
 //======================================================================
 
 
-void fired::Container::deinit() {
+fired::Container::~Container() {
 	for (unsigned int i = 0; i < weapons.size(); i++) {
-		weapons[i]->deinit();
 		delete weapons[i];
 	}
 

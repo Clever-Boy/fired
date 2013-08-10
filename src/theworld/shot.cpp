@@ -19,7 +19,7 @@ void fired::Shot::init(sf::Vector2f _pos, float _angle, float speed, fired::Char
 //======================================================================
 
 
-void fired::Shot::deinit() {
+fired::Shot::~Shot() {
 	return;
 }
 

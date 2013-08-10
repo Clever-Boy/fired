@@ -34,7 +34,7 @@ void fired::GUI::init(fired::Game *_game, fired::Camera *_cam, fired::Player *_p
 //======================================================================
 
 
-void fired::GUI::deinit() {
+fired::GUI::~GUI() {
 	delete barSpr;
 	delete barTex;
 

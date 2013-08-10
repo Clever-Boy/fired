@@ -22,7 +22,7 @@ void fired::FlyText::init(fired::Game *_game, sf::Vector2f _pos, sf::Color _colo
 //======================================================================
 
 
-void fired::FlyText::deinit() {
+fired::FlyText::~FlyText() {
 	delete flyStr;
 	delete flyTxt;
 }

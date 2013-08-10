@@ -3,7 +3,7 @@
 //======================================================================
 
 
-void fired::BaseWeapon::deinit() {
+fired::BaseWeapon::~BaseWeapon() {
 	delete shotBuffer;
 	delete shotSound;
 }

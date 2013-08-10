@@ -25,7 +25,8 @@ namespace fired {
 
 	public:
 		void init(fired::Game *_game, sf::Vector2f _pos, sf::Color _color, int size, const char *text);
-		void deinit();
+		~FlyText();
+
 		bool update();
 		void render();
 	};

@@ -9,12 +9,15 @@ void fired::World::init(fired::Game *_game) {
 	app      = game->getApp();
 
 	game->setMusic("data/snd/themes/world.ogg");
-	container.init(game, this);
 
+	gui       = new fired::GUI;
+	container = new fired::Container;
+
+	container->init(game, this);
 	map.init(game, &cam, this);
 	cam.init(game, map.getSize());
 	player.init(game, &cam, map.getStartPos(), this);
-	gui.init(game, &cam, &player);
+	gui->init(game, &cam, &player);
 
 	cam.setTrackObj(player.getPhys());
 	spawn(sf::Vector2f(2288, 560), "soldier");
@@ -27,11 +30,10 @@ void fired::World::init(fired::Game *_game) {
 void fired::World::deinit() {
 	map.deinit();
 	player.deinit();
-	gui.deinit();
-	container.deinit();
+	delete gui;
+	delete container;
 
 	for (unsigned int i = 0; i < shots.size(); i++) {
-		shots[i]->deinit();
 		delete shots[i];
 	}
 
@@ -46,7 +48,6 @@ void fired::World::deinit() {
 	}
 
 	for (unsigned int i = 0; i < texts.size(); i++) {
-		texts[i]->deinit();
 		delete texts[i];
 	}
 
@@ -72,7 +73,7 @@ void fired::World::update() {
 	cam.update();
 	map.update();
 	player.update();
-	gui.update();
+	gui->update();
 
 
 	for (unsigned int i = 0; i < creatures.size(); i++)
@@ -107,7 +108,6 @@ void fired::World::update() {
 
 	for (unsigned int i = 0; i < texts.size();) {
 		if (!texts[i]->update()) {
-			texts[i]->deinit();
 			delete texts[i];
 			texts.erase(texts.begin() + i);
 		} else
@@ -143,7 +143,6 @@ void fired::World::checkShots() {
 		deleted = false;
 		for (unsigned int j = 0; j < creatures.size(); j++) {
 			if (creatures[j]->getChar()->checkShot(shots[i])) {
-				shots[i]->deinit();
 				delete shots[i];
 				shots.erase(shots.begin() + i);
 
@@ -156,7 +155,6 @@ void fired::World::checkShots() {
 
 	for (unsigned int i = 0; i < shots.size();) {
 		if (map.checkShot(shots[i])) {
-			shots[i]->deinit();
 			delete shots[i];
 			shots.erase(shots.begin() + i);
 		} else

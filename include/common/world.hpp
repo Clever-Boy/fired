@@ -17,11 +17,11 @@ namespace fired {
 		fired::Settings  *settings;
 		sf::RenderWindow *app;
 
-		fired::Map       map;
-		fired::Camera    cam;
-		fired::Player    player;
-		fired::GUI       gui;
-		fired::Container container;
+		fired::Map        map;
+		fired::Camera     cam;
+		fired::Player     player;
+		fired::GUI       *gui;
+		fired::Container *container;
 
 		std::vector<fired::ParticleSystem*> particles;
 		std::vector<fired::Shot*>           shots;
@@ -49,10 +49,10 @@ namespace fired {
 		void addBloodSplash(sf::Vector2f pos, sf::Vector2f direction, int bloodCount);
 		void addChunk(fired::Bodypart *bodyPart, float scale, sf::Vector2f position, sf::Vector2f speed);
 
-		fired::BaseWeapon   *getWeapon(const char *name) {return container.getWeapon(name); };
-		fired::BaseBodypart *getBodypart(const char *name, fired::BodypartType type) {return container.getBodypart(name, type); };
-		fired::BaseModel    *getModel(const char *name) {return container.getModel(name); };
-		fired::BaseCreature *getCreature(const char *name) {return container.getCreature(name); };
+		fired::BaseWeapon   *getWeapon(const char *name) {return container->getWeapon(name); };
+		fired::BaseBodypart *getBodypart(const char *name, fired::BodypartType type) {return container->getBodypart(name, type); };
+		fired::BaseModel    *getModel(const char *name) {return container->getModel(name); };
+		fired::BaseCreature *getCreature(const char *name) {return container->getCreature(name); };
 	};
 }
 

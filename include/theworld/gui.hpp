@@ -29,6 +29,7 @@ namespace fired {
 	public:
 		void init(fired::Game *_game, fired::Camera *_cam, fired::Player *_player);
 		~GUI();
+
 		void update();
 		void render();
 	};

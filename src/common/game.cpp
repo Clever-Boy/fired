@@ -42,8 +42,8 @@ void fired::Game::deinit() {
 	mouse.deinit();
 
 	if      (gameState == gsMainMenu)   mainMenu.deinit();
-	else if (gameState == gsStartScr)   startScr.deinit();
-	else if (gameState == gsCreditsScr) creditsScr.deinit();
+	else if (gameState == gsStartScr)   delete startScr;
+	else if (gameState == gsCreditsScr) delete creditsScr;
 	else if (gameState == gsWorld)      world.deinit();
 }
 
@@ -65,8 +65,8 @@ void fired::Game::update() {
 	app.clear();
 
 	if      (gameState == gsMainMenu)   mainMenu.update();
-	else if (gameState == gsStartScr)   startScr.update();
-	else if (gameState == gsCreditsScr) creditsScr.update();
+	else if (gameState == gsStartScr)   startScr->update();
+	else if (gameState == gsCreditsScr) creditsScr->update();
 	else if (gameState == gsWorld)      world.update();
 
 	app.display();
@@ -108,8 +108,8 @@ void fired::Game::processEvent(sf::Event event) {
 
 		default:
 			if      (gameState == gsMainMenu)   mainMenu.processEvent(event);
-			else if (gameState == gsStartScr)   startScr.processEvent(event);
-			else if (gameState == gsCreditsScr) creditsScr.processEvent(event);
+			else if (gameState == gsStartScr)   startScr->processEvent(event);
+			else if (gameState == gsCreditsScr) creditsScr->processEvent(event);
 			else if (gameState == gsWorld)      world.processEvent(event);
 	}
 }
@@ -138,15 +138,15 @@ bool fired::Game::switchGameState() {
 	musicTheme.stop();
 
 	if      (gameState == gsMainMenu)   mainMenu.deinit();
-	else if (gameState == gsStartScr)   startScr.deinit();
-	else if (gameState == gsCreditsScr) creditsScr.deinit();
+	else if (gameState == gsStartScr)   delete startScr;
+	else if (gameState == gsCreditsScr) delete creditsScr;
 	else if (gameState == gsWorld)      world.deinit();
 
 	gameState = gameStateNew;
 
 	if      (gameState == gsMainMenu)   mainMenu.init(this, &mouse);
-	else if (gameState == gsStartScr)   startScr.init(this);
-	else if (gameState == gsCreditsScr) creditsScr.init(this);
+	else if (gameState == gsStartScr)   {startScr   = new fired::StartScr  ; startScr->init(this);}
+	else if (gameState == gsCreditsScr) {creditsScr = new fired::CreditsScr; creditsScr->init(this);}
 	else if (gameState == gsWorld)      world.init(this);
 
 	return true;

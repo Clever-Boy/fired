@@ -275,6 +275,11 @@
 			<text>
 </text>
 		</todo>
+		<todo done="no" collapse="no">
+			<title>Add main class Screen to be base for menu, credits etc.</title>
+			<text>
+</text>
+		</todo>
 	</todo>
 	<todo done="yes" collapse="yes">
 		<title>Map</title>

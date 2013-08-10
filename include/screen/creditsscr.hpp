@@ -19,7 +19,8 @@ namespace fired {
 
 	public:
 		void init(fired::Game *_game);
-		void deinit();
+		~CreditsScr();
+
 		void update();
 		void render();
 		void click(sf::Vector2i pos);

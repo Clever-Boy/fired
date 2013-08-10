@@ -27,7 +27,7 @@ void fired::StartScr::init(fired::Game *_game) {
 //======================================================================
 
 
-void fired::StartScr::deinit() {
+fired::StartScr::~StartScr() {
 	for (unsigned int i = 0; i < textures.size(); delete sprites[i], delete textures[i], i++);
 }
 

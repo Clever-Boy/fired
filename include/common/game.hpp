@@ -56,10 +56,10 @@ namespace fired {
 		fired::Handlers     handlers; 
 		fired::MapGenerator generator;
 
-		fired::MainMenu   mainMenu;
-		fired::StartScr   startScr;
-		fired::CreditsScr creditsScr;
-		fired::World      world;
+		fired::MainMenu    mainMenu;
+		fired::StartScr   *startScr;
+		fired::CreditsScr *creditsScr;
+		fired::World       world;
 
 		fired::Keyboard keyboard;
 		fired::Mouse mouse;

@@ -206,7 +206,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="no">
+	<todo done="no" collapse="yes">
 		<title>Game engine</title>
 		<text>
 </text>
@@ -280,108 +280,8 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add function to delete std::vector contens</title>
-			<text>
-</text>
-		</todo>
-	</todo>
-	<todo done="yes" collapse="yes">
-		<title>Map</title>
-		<text>
-</text>
-		<todo done="yes" collapse="no">
-			<title>Add tile storage class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add map storage class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add tileset storage class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add tileset loading</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="yes">
-			<title>Add map rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add background</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add testmap generation generation</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add big map support</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Update map class to set sizes</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add saving map</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add loading map</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add tilesets system</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add finding tiles</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add walls (50 0rey tiles)</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add bricks tileset</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add yellow warning tilesets</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add map decoration class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add decorations</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add collectors (chests, etc.)</title>
 			<text>
 </text>
 		</todo>
@@ -466,7 +366,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="no" collapse="no">
 		<title>GUI</title>
 		<text>
 </text>
@@ -826,7 +726,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="no" collapse="no">
 		<title>Creatures</title>
 		<text>
 </text>
@@ -987,6 +887,106 @@
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Add items bonuses +dmg, +defence, etc.</title>
+			<text>
+</text>
+		</todo>
+	</todo>
+	<todo done="yes" collapse="yes">
+		<title>Map</title>
+		<text>
+</text>
+		<todo done="yes" collapse="no">
+			<title>Add tile storage class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add map storage class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add tileset storage class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add tileset loading</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="yes">
+			<title>Add map rendering</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add background</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add testmap generation generation</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add big map support</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Update map class to set sizes</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add saving map</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add loading map</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add tilesets system</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add finding tiles</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add walls (50 0rey tiles)</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add bricks tileset</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add yellow warning tilesets</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add map decoration class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add decorations</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add collectors (chests, etc.)</title>
 			<text>
 </text>
 		</todo>

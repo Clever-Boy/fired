@@ -19,23 +19,10 @@ fired::Container::Container(fired::Game *_game, fired::World *_world) {
 
 
 fired::Container::~Container() {
-	for (unsigned int i = 0; i < weapons.size(); i++)
-		delete weapons[i];
-
-	for (unsigned int i = 0; i < bodyparts.size(); i++)
-		delete bodyparts[i];
-
-	for (unsigned int i = 0; i < models.size(); i++)
-		delete models[i];
-
-	for (unsigned int i = 0; i < creatures.size(); i++)
-		delete creatures[i];
-
-
-	weapons.clear();
-	bodyparts.clear();
-	models.clear();
-	creatures.clear();
+	deleteList(weapons);
+	deleteList(bodyparts);
+	deleteList(models);
+	deleteList(creatures);
 }
 
 //======================================================================

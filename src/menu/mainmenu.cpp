@@ -55,9 +55,7 @@ fired::MainMenu::MainMenu(fired::Game *_game, fired::Mouse *_mouse) {
 
 
 fired::MainMenu::~MainMenu() {
-	for (unsigned int i = 0; i < menuItems.size(); delete menuItems[i], i++);
-	menuItems.clear();
-
+	deleteList(menuItems);
 	clickSound->stop();
 
 	delete clickSound;

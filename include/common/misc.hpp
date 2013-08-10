@@ -6,6 +6,9 @@
 #include <SFML/Graphics.hpp>
 
 
+#define deleteList(list) for (; !(list).empty(); delete (list)[(list).size() - 1], (list).pop_back())
+
+
 #define NUMDIM	2
 #define LEFT	-1
 #define MIDDLE	0

@@ -55,8 +55,7 @@ fired::CreditsScr::CreditsScr(fired::Game *_game) {
 
 
 fired::CreditsScr::~CreditsScr() {
-	for (unsigned int i = 0; i < credits.size(); delete credits[i], i++);
-	credits.clear();
+	deleteList(credits);
 }
 
 //======================================================================

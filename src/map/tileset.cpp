@@ -17,12 +17,9 @@ fired::Tileset::Tileset() {
 
 
 fired::Tileset::~Tileset() {
-	for (unsigned int i = 1; i < textures.size(); delete textures[i], i++);
-	for (unsigned int i = 1; i < sprites.size(); delete sprites[i], i++);
+	deleteList(textures);
+	deleteList(sprites);
 	delete maskTex;
-
-	sprites.clear();
-	textures.clear();
 }
 
 //======================================================================

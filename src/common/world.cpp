@@ -33,27 +33,11 @@ fired::World::~World() {
 	delete cam;
 	delete container;
 
-	for (unsigned int i = 0; i < shots.size(); i++)
-		delete shots[i];
-
-	for (unsigned int i = 0; i < particles.size(); i++)
-		delete particles[i];
-
-	for (unsigned int i = 0; i < creatures.size(); i++)
-		delete creatures[i];
-
-	for (unsigned int i = 0; i < texts.size(); i++)
-		delete texts[i];
-
-	for (unsigned int i = 0; i < chunks.size(); i++)
-		delete chunks[i];
-
-
-	shots.clear();
-	particles.clear();
-	creatures.clear();
-	texts.clear();
-	chunks.clear();
+	deleteList(shots);
+	deleteList(particles);
+	deleteList(creatures);
+	deleteList(texts);
+	deleteList(chunks);
 }
 
 //======================================================================
@@ -67,16 +51,9 @@ void fired::World::update() {
 	player->update();
 	gui->update();
 
-
-	for (unsigned int i = 0; i < creatures.size(); i++)
-		creatures[i]->update();
-
-
+	for (unsigned int i = 0; i < creatures.size(); creatures[i++]->update());
 	checkShots();
-
-
-	for (unsigned int i = 0; i < shots.size(); i++)
-		shots[i]->update(app);
+	for (unsigned int i = 0; i < shots.size(); shots[i++]->update(app));
 
 
 	for (unsigned int i = 0; i < particles.size();) {

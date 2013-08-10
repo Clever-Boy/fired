@@ -18,7 +18,7 @@ namespace fired {
 	};
 
 
-	class MainMenu {
+	class MainMenu : public GameScreen {
 	private:
 		std::vector<fired::MenuItem *> menuItems;
 		fired::Game      *game;

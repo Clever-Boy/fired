@@ -8,7 +8,7 @@
 
 
 namespace fired {
-	class StartScr {
+	class StartScr : public GameScreen {
 	private:
 		fired::Game      *game;
 		fired::Settings  *settings;

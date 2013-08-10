@@ -11,7 +11,7 @@
 
 
 namespace fired {
-	class World {
+	class World : public GameScreen {
 	private:
 		fired::Game      *game;
 		fired::Settings  *settings;

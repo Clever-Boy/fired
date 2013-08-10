@@ -55,11 +55,7 @@ namespace fired {
 
 		fired::Settings      *settings;
 		fired::Handlers      *handlers; 
-
-		fired::MainMenu   *mainMenu;
-		fired::StartScr   *startScr;
-		fired::CreditsScr *creditsScr;
-		fired::World      *world;
+		fired::GameScreen    *gameScreen;
 
 		fired::Keyboard *keyboard;
 		fired::Mouse    *mouse;

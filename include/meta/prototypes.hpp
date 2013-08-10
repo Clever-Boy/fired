@@ -21,6 +21,14 @@ namespace fired {
 
 
 	typedef void (Handlers::*Handler)(void);
+
+
+	class GameScreen {
+	public:
+		virtual ~GameScreen()                {};
+		virtual void update()                {};
+		virtual void processEvent(sf::Event) {};
+	};
 }
 
 #endif

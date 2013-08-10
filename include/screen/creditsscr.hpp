@@ -7,7 +7,7 @@
 
 
 namespace fired {
-	class CreditsScr {
+	class CreditsScr : public GameScreen {
 	private:
 		fired::Game      *game;
 		fired::Settings  *settings;

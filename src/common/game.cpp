@@ -47,12 +47,7 @@ fired::Game::~Game() {
 	delete mouse;
 	delete keyboard;
 	delete handlers;
-
-	if      (gameState == gsMainMenu)   delete mainMenu;
-	else if (gameState == gsStartScr)   delete startScr;
-	else if (gameState == gsCreditsScr) delete creditsScr;
-	else if (gameState == gsWorld)      delete world;
-
+	delete gameScreen;
 	delete font;
 	delete clock;
 	delete icon;
@@ -76,12 +71,7 @@ void fired::Game::update() {
 
 
 	app->clear();
-
-	if      (gameState == gsMainMenu)   mainMenu->update();
-	else if (gameState == gsStartScr)   startScr->update();
-	else if (gameState == gsCreditsScr) creditsScr->update();
-	else if (gameState == gsWorld)      world->update();
-
+	gameScreen->update();
 	app->display();
 }
 
@@ -127,10 +117,7 @@ void fired::Game::processEvent(sf::Event event) {
 			break;
 
 		default:
-			if      (gameState == gsMainMenu)   mainMenu->processEvent(event);
-			else if (gameState == gsStartScr)   startScr->processEvent(event);
-			else if (gameState == gsCreditsScr) creditsScr->processEvent(event);
-			else if (gameState == gsWorld)      world->processEvent(event);
+			gameScreen->processEvent(event);
 	}
 }
 
@@ -156,18 +143,14 @@ void fired::Game::setGameState(fired::GameState state) {
 bool fired::Game::switchGameState() {
 	if (gameState == gameStateNew) return false;
 	musicTheme->stop();
-
-	if      (gameState == gsMainMenu)   delete mainMenu;
-	else if (gameState == gsStartScr)   delete startScr;
-	else if (gameState == gsCreditsScr) delete creditsScr;
-	else if (gameState == gsWorld)      delete world;
+	delete gameScreen;
 
 	gameState = gameStateNew;
 
-	if      (gameState == gsMainMenu)   mainMenu   = new fired::MainMenu(this, mouse);
-	else if (gameState == gsStartScr)   startScr   = new fired::StartScr(this);
-	else if (gameState == gsCreditsScr) creditsScr = new fired::CreditsScr(this);
-	else if (gameState == gsWorld)      world      = new fired::World(this);
+	if      (gameState == gsMainMenu)   gameScreen = new fired::MainMenu(this, mouse);
+	else if (gameState == gsStartScr)   gameScreen = new fired::StartScr(this);
+	else if (gameState == gsCreditsScr) gameScreen = new fired::CreditsScr(this);
+	else if (gameState == gsWorld)      gameScreen = new fired::World(this);
 
 	return true;
 }

@@ -33,10 +33,9 @@ namespace fired {
 
 
 	public:
-		virtual bool update(sf::RenderWindow *app);
-		virtual void deinit() {return; };
+		virtual ~ParticleSystem();
 
-		void baseDeinit();
+		virtual bool update(sf::RenderWindow *app);
 		void render(sf::RenderWindow *app);
 	};
 }

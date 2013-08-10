@@ -38,7 +38,6 @@ void fired::World::deinit() {
 	}
 
 	for (unsigned int i = 0; i < particles.size(); i++) {
-		particles[i]->deinit();
 		delete particles[i];
 	}
 
@@ -89,7 +88,6 @@ void fired::World::update() {
 
 	for (unsigned int i = 0; i < particles.size();) {
 		if (!particles[i]->update(app)) {
-			particles[i]->deinit();
 			delete particles[i];
 			particles.erase(particles.begin() + i);
 		} else

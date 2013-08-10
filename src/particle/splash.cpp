@@ -20,7 +20,7 @@ void fired::ParticleSystemSplash::init(sf::Vector2f pos, sf::Vector2f direction,
 		particles.back()->sprite   = sprite;
 		particles.back()->pos      = pos;
 		particles.back()->scale    = 1;
-		particles.back()->speed    = direction * (float)((random() % 400) / 400.0) + normal * (float)(((random() % 400) - 200) / 400.0);
+		particles.back()->speed    = direction * (float)((random() % 400) / 400.0) + normal * (float)(((random() % 400) - 200) / 200.0);
 		particles.back()->accel    = accel;
 		particles.back()->life     = 0;
 		particles.back()->lifetime = lifetime;
@@ -44,7 +44,6 @@ bool fired::ParticleSystemSplash::update(sf::RenderWindow *app) {
 //======================================================================
 
 
-void fired::ParticleSystemSplash::deinit() {
-	baseDeinit();
+fired::ParticleSystemSplash::~ParticleSystemSplash() {
 	delete sprite;
 }

@@ -47,7 +47,7 @@ bool fired::ParticleSystem::update(sf::RenderWindow *app) {
 //======================================================================
 
 
-void fired::ParticleSystem::baseDeinit() {
+fired::ParticleSystem::~ParticleSystem() {
 	for (unsigned int i = 0; i < particles.size(); i++)
 		delete particles[i];
 

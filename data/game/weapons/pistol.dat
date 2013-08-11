@@ -4,5 +4,6 @@ cooldown=0.5
 reload=1.0
 knockback=40.0
 clip=12
-fire=rifle_shot.wav
+fire_snd=rifle_shot.wav
+reload_snd=rifle_reload.wav
 

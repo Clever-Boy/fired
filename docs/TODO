@@ -156,7 +156,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="yes" collapse="no">
+	<todo done="yes" collapse="yes">
 		<title>Sound engine</title>
 		<text>
 </text>
@@ -205,7 +205,7 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add reloading sound</title>
 			<text>
 </text>
@@ -541,7 +541,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="yes" collapse="yes">
+	<todo done="yes" collapse="no">
 		<title>Animation</title>
 		<text>
 </text>
@@ -677,6 +677,16 @@
 		</todo>
 		<todo done="yes" collapse="no">
 			<title>Add particle system rendering</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add reloading animation</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Improve shooting animation</title>
 			<text>
 </text>
 		</todo>

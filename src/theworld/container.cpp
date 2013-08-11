@@ -48,15 +48,15 @@ void fired::Container::loadWeapon(const char* filename) {
 	weapons.push_back(new fired::BaseWeapon);
 
 	FILE *fp = fopen(filename, "r");
-	fscanf(fp, "name=%s\n"     , weapons.back()->name);
-	fscanf(fp, "damage=%u\n"   , &weapons.back()->damage);
-	fscanf(fp, "cooldown=%f\n" , &weapons.back()->cooldown);
-	fscanf(fp, "reload=%f\n"   , &weapons.back()->reload);
-	fscanf(fp, "knockback=%f\n", &weapons.back()->knockback);
-	fscanf(fp, "clip=%u\n"     , &weapons.back()->clip);
-	fscanf(fp, "fire=%s\n"     , sndfile);
-	fclose(fp);
+	fscanf(fp, "name=%s\n"      , weapons.back()->name);
+	fscanf(fp, "damage=%u\n"    , &weapons.back()->damage);
+	fscanf(fp, "cooldown=%f\n"  , &weapons.back()->cooldown);
+	fscanf(fp, "reload=%f\n"    , &weapons.back()->reload);
+	fscanf(fp, "knockback=%f\n" , &weapons.back()->knockback);
+	fscanf(fp, "clip=%u\n"      , &weapons.back()->clip);
 
+
+	fscanf(fp, "fire_snd=%s\n"  , sndfile);
 	snprintf(sndpath, sizeof(sndpath), "data/snd/weapons/%s", sndfile);
 	weapons.back()->shotBuffer = new sf::SoundBuffer();
 	weapons.back()->shotBuffer->loadFromFile(sndpath);
@@ -64,6 +64,17 @@ void fired::Container::loadWeapon(const char* filename) {
 	weapons.back()->shotSound = new sf::Sound();
 	weapons.back()->shotSound->setBuffer(*weapons.back()->shotBuffer);
 	weapons.back()->shotSound->setVolume(game->getSettings()->volume.sound);
+
+
+	fscanf(fp, "reload_snd=%s\n", sndfile);
+	snprintf(sndpath, sizeof(sndpath), "data/snd/weapons/%s", sndfile);
+	weapons.back()->reloadBuffer = new sf::SoundBuffer();
+	weapons.back()->reloadBuffer->loadFromFile(sndpath);
+
+	weapons.back()->reloadSound = new sf::Sound();
+	weapons.back()->reloadSound->setBuffer(*weapons.back()->reloadBuffer);
+	weapons.back()->reloadSound->setVolume(game->getSettings()->volume.sound);
+	fclose(fp);
 }
 
 //======================================================================

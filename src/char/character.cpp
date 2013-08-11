@@ -287,6 +287,7 @@ void fired::Character::jump() {
 
 void fired::Character::reload() {
 	if (weapon->ammo == weapon->clip) return;
+	weapon->reloadSound->play();
 	weaponCooldown = weapon->reload;
 	isReloading = true;
 }

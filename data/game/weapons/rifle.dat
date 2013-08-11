@@ -1,8 +1,8 @@
 name=rifle
 damage=10
-cooldown=0.2
+cooldown=0.05
 reload=1.7
 knockback=100.0
 clip=30
-fire=rifle_shot.wav
-
+fire_snd=rifle_shot.wav
+reload_snd=rifle_reload.wav

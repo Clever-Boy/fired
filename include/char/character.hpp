@@ -33,6 +33,7 @@ namespace fired {
 
 		bool  dead;
 		bool  isShooting;
+		bool  isReloading;
 		int   direction;
 		int   watching;
 		float aiming;
@@ -59,6 +60,7 @@ namespace fired {
 		void moveLeft();
 		void moveRight();
 		void jump();
+		void reload();
 		void shot();
 
 		bool  checkShot(fired::Shot *shot);

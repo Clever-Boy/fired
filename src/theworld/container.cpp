@@ -51,6 +51,7 @@ void fired::Container::loadWeapon(const char* filename) {
 	fscanf(fp, "name=%s\n"     , weapons.back()->name);
 	fscanf(fp, "damage=%u\n"   , &weapons.back()->damage);
 	fscanf(fp, "cooldown=%f\n" , &weapons.back()->cooldown);
+	fscanf(fp, "reload=%f\n"   , &weapons.back()->reload);
 	fscanf(fp, "knockback=%f\n", &weapons.back()->knockback);
 	fscanf(fp, "clip=%u\n"     , &weapons.back()->clip);
 	fscanf(fp, "fire=%s\n"     , sndfile);

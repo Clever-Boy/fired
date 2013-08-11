@@ -35,7 +35,6 @@ fired::Character::Character(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 	}
 
 	weapon = new fired::Weapon(world->getWeapon(base->weapon));
-	weapon->ammo = -1;
 
 	weaponCooldown = 0;
 	dead           = false;
@@ -69,6 +68,11 @@ void fired::Character::update() {
 
 
 	weaponCooldown -= frameClock;
+	if (isReloading && weaponCooldown <= 0) {
+		isReloading = false;
+		weapon->ammo = weapon->clip;
+	}
+
 	phys.isMoving = false;
 	isShooting    = false;
 }
@@ -120,7 +124,7 @@ void fired::Character::damage(int damage, bool headshot, sf::Vector2f shot, floa
 
 void fired::Character::gainXP(long xp) {
 	char exp[8];
-	snprintf(exp, sizeof(exp), "+%lu", xp);
+	snprintf(exp, sizeof(exp), "+%lu XP", xp);
 
 	XP += xp;
 	world->addText(phys.pos, sf::Color(0, 255, 0, 255), 16, exp);
@@ -206,7 +210,11 @@ std::string fired::Character::getXpString() {
 
 
 float fired::Character::getCooldownPercent() {
-	if (weaponCooldown > 0) return (float)(weapon->cooldown - weaponCooldown) / (float)weapon->cooldown;
+	if (weaponCooldown > 0) {
+		if (isReloading) return (float)(weapon->reload   - weaponCooldown) / (float)weapon->reload;
+		else             return (float)(weapon->cooldown - weaponCooldown) / (float)weapon->cooldown;
+	}
+
 	return 1.0f;
 }
 
@@ -277,14 +285,24 @@ void fired::Character::jump() {
 //======================================================================
 
 
+void fired::Character::reload() {
+	if (weapon->ammo == weapon->clip) return;
+	weaponCooldown = weapon->reload;
+	isReloading = true;
+}
+
+//======================================================================
+
+
 void fired::Character::shot() {
 	isShooting = true;
 
-	if (weapon->ammo == 0) return;
 	if (weaponCooldown > 0) return;
 	if (weapon->ammo > 0) weapon->ammo--;
 
 	weaponCooldown = weapon->cooldown;
 	weapon->shotSound->play();
 	world->addShot(phys.center, aiming, 1000, this);
+
+	if (weapon->ammo == 0) reload();
 }

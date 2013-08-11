@@ -84,9 +84,11 @@ void fired::Character::move() {
 	if (abs(phys.velocity.x) < PHYS_EPSILON) phys.velocity.x = 0.0f;
 
 	if (phys.isMoving && abs(phys.velocity.x) < baseStats.speed)
-			phys.velocity.x += direction * frameClock * baseStats.accel;
+		phys.velocity.x += direction * frameClock * baseStats.accel;
+	else if (frameClock * PHYS_FRICTION_ACCEL > abs(phys.velocity.x))
+		phys.velocity.x = 0.0f;
 	else
-			phys.velocity.x -= sign(phys.velocity.x) * frameClock * PHYS_FRICTION_ACCEL;
+		phys.velocity.x -= sign(phys.velocity.x) * frameClock * PHYS_FRICTION_ACCEL;
 }
 
 //======================================================================

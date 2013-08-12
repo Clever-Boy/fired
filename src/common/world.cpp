@@ -64,14 +64,15 @@ void fired::World::update() {
 			i++;
 	}
 
-	for (unsigned int i = 0; i < chunks.size();) {
-		map->checkChunkPhys(chunks[i]);
+	for (unsigned int i = 0; i < chunks.size();)
 		if (!chunks[i]->update(app)) {
 			delete chunks[i];
 			chunks.erase(chunks.begin() + i);
-		} else
+		} else {
+			map->checkChunkPhys(chunks[i]);
 			i++;
-	}
+		}
+
 
 	for (unsigned int i = 0; i < texts.size();) {
 		if (!texts[i]->update()) {

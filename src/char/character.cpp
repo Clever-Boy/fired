@@ -60,8 +60,8 @@ fired::Character::~Character() {
 
 
 void fired::Character::update() {
-	world->checkPhys(this);
 	move();
+	world->checkPhys(this);
 
 	model->update();
 	if (phys.rect.intersects(cam->getViewport())) model->render();
@@ -89,6 +89,8 @@ void fired::Character::move() {
 		phys.velocity.x = 0.0f;
 	else
 		phys.velocity.x -= sign(phys.velocity.x) * frameClock * PHYS_FRICTION_ACCEL;
+
+	if (phys.velocity.x == 0.0f) phys.isMoving = false;
 }
 
 //======================================================================

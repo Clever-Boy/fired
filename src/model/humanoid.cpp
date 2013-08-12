@@ -3,10 +3,7 @@
 //======================================================================
 
 
-fired::ModelHumanoid::ModelHumanoid(fired::Game *_game, fired::Character *_owner, fired::BaseModelHumanoid *base, float scale, fired::World *_world) {
-	game     = _game;
-	settings = game->getSettings();
-	app      = game->getApp();
+fired::ModelHumanoid::ModelHumanoid(fired::Character *_owner, fired::BaseModelHumanoid *base, float scale, fired::World *_world) {
 	owner    = _owner;
 	world    = _world;
 

@@ -3,6 +3,6 @@
 //======================================================================
 
 
-fired::Keyboard::Keyboard(fired::Game *_game) {
-	game = _game;
+fired::Keyboard::Keyboard() {
+	return;
 }

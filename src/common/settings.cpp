@@ -10,15 +10,15 @@ fired::Settings::Settings() {
 //======================================================================
 
 
-void fired::Settings::save() {
-	saveToFile("data/settings.conf");
+fired::Settings::~Settings() {
+	save();
 }
 
 //======================================================================
 
 
-fired::Settings::~Settings() {
-	save();
+void fired::Settings::save() {
+	saveToFile("data/settings.conf");
 }
 
 //======================================================================

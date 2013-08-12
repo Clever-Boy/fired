@@ -11,9 +11,6 @@
 namespace fired {
 	class Container {
 	private:
-		fired::Game      *game;
-		fired::Settings  *settings;
-		sf::RenderWindow *app;
 		fired::World     *world;
 
 		std::vector<fired::BaseWeapon*>   weapons;
@@ -23,7 +20,7 @@ namespace fired {
 
 
 	public:
-		 Container(fired::Game *_game, fired::World *_world);
+		 Container(fired::World *_world);
 		~Container();
 
 		fired::BaseAI *getAI(const char *name, fired::Creature *owner);

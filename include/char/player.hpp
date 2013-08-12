@@ -12,10 +12,6 @@
 namespace fired {
 	class Player {
 	private:
-		fired::Game      *game;
-		fired::Settings  *settings;
-		sf::RenderWindow *app;
-
 		sf::Vector2f      startPos;
 
 		fired::Character *character;
@@ -23,7 +19,7 @@ namespace fired {
 
 
 	public:
-		 Player(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *world);
+		 Player(fired::Camera *_cam, sf::Vector2f _startpos, fired::World *world);
 		~Player();
 
 		void update();

@@ -13,10 +13,6 @@
 namespace fired {
 	class World : public GameScreen {
 	private:
-		fired::Game      *game;
-		fired::Settings  *settings;
-		sf::RenderWindow *app;
-
 		fired::Map       *map;
 		fired::Camera    *cam;
 		fired::Player    *player;
@@ -31,8 +27,10 @@ namespace fired {
 
 
 	public:
-		 World(fired::Game *_game);
+		 World();
 		~World();
+
+		std::vector<fired::Character*> chars;
 
 		void update();
 
@@ -43,6 +41,7 @@ namespace fired {
 
 		void spawn(sf::Vector2f pos, const char *creature);
 		bool isSolidPixel(sf::Vector2f pixel) {return map->isSolid(pixel.x / TILE_SIZE, pixel.y / TILE_SIZE); };
+		bool isCharExists(fired::Character *character);
 
 		void addShot(sf::Vector2f pos, float angle, float speed, fired::Character *owner);
 		void addText(sf::Vector2f pos, sf::Color color, int size, const char *text);

@@ -10,10 +10,6 @@
 namespace fired {
 	class StartScr : public GameScreen {
 	private:
-		fired::Game      *game;
-		fired::Settings  *settings;
-		sf::RenderWindow *app;
-
 		std::vector<sf::Texture*> textures;
 		std::vector<sf::Sprite*> sprites;
 
@@ -22,7 +18,7 @@ namespace fired {
 
 
 	public:
-		 StartScr(fired::Game *_game);
+		 StartScr();
 		~StartScr();
 
 		void update();

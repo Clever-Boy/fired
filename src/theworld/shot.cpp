@@ -26,16 +26,15 @@ fired::Shot::~Shot() {
 //======================================================================
 
 
-bool fired::Shot::update(sf::RenderWindow *app) {
+void fired::Shot::update() {
 	pos += velocity * frameClock;
-	render(app);
-	return true;
+	render();
 }
 
 //======================================================================
 
 
-void fired::Shot::render(sf::RenderWindow *app) {
+void fired::Shot::render() {
 	line[0].position = pos;
 	line[1].position = pos - velocity * frameClock;
 	app->draw(line);

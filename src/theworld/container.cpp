@@ -3,10 +3,7 @@
 //======================================================================
 
 
-fired::Container::Container(fired::Game *_game, fired::World *_world) {
-	game     = _game;
-	settings = game->getSettings();
-	app      = game->getApp();
+fired::Container::Container(fired::World *_world) {
 	world    = _world;
 
 	loadWeapons();
@@ -62,19 +59,11 @@ void fired::Container::loadWeapon(const char* filename) {
 	weapons.back()->shotBuffer = new sf::SoundBuffer();
 	weapons.back()->shotBuffer->loadFromFile(sndpath);
 
-	weapons.back()->shotSound = new sf::Sound();
-	weapons.back()->shotSound->setBuffer(*weapons.back()->shotBuffer);
-	weapons.back()->shotSound->setVolume(game->getSettings()->volume.sound);
-
 
 	fscanf(fp, "reload_snd=%s\n", sndfile);
 	snprintf(sndpath, sizeof(sndpath), "data/snd/weapons/%s", sndfile);
 	weapons.back()->reloadBuffer = new sf::SoundBuffer();
 	weapons.back()->reloadBuffer->loadFromFile(sndpath);
-
-	weapons.back()->reloadSound = new sf::Sound();
-	weapons.back()->reloadSound->setBuffer(*weapons.back()->reloadBuffer);
-	weapons.back()->reloadSound->setVolume(game->getSettings()->volume.sound);
 	fclose(fp);
 }
 
@@ -288,6 +277,7 @@ fired::BaseCreature* fired::Container::getCreature(const char* name) {
 
 fired::BaseAI *fired::Container::getAI(const char *name, fired::Creature *owner) {
 	if (!strcmp(name, "idle")) return new fired::IdleAI(owner);
+	if (!strcmp(name, "melee")) return new fired::MeleeAI(owner);
 
 	return new fired::BaseAI();
 }

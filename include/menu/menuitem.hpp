@@ -24,9 +24,6 @@ namespace fired {
 
 
 	private:
-		fired::Game      *game;
-		sf::RenderWindow *app;
-
 		fired::MainMenu *mainMenu;
 		sf::Sprite      *sprite;
 		sf::String      *caption;
@@ -46,7 +43,7 @@ namespace fired {
 
 
 	public:
-		 MenuItem(fired::Game *_game, fired::MainMenu *_mainMenu, sf::Sprite *_sprite, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc);
+		 MenuItem(fired::MainMenu *_mainMenu, sf::Sprite *_sprite, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc);
 		~MenuItem();
 
 		void update();

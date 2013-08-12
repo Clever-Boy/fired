@@ -4,6 +4,7 @@
 #                                                                       
 ########################################################################
 export PROJECT_NAME=fired
+export PROJECT_CAPTION=F.I.R.E.D.
 export PROJECT_VER=0.99
 
 export CC=gcc
@@ -18,7 +19,14 @@ export PROJECT_DIR="$(PWD)"
 export INCLUDE_DIR="$(PWD)/include"
 
 export LDFLAGS=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lm -lstdc++
-export CFLAGS=-I$(INCLUDE_DIR) -I$(INCLUDE_DIR)/meta -I$(INCLUDE_DIR)/common -DPROJECT_NAME="\"$(PROJECT_NAME)\"" -DPROJECT_VER="\"$(PROJECT_VER)\"" -Wall -Wextra
+export CFLAGS=-I$(INCLUDE_DIR)                           \
+              -I$(INCLUDE_DIR)/meta                      \
+              -I$(INCLUDE_DIR)/common                    \
+              -DPROJECT_NAME="\"$(PROJECT_NAME)\""       \
+              -DPROJECT_CAPTION="\"$(PROJECT_CAPTION)\"" \
+              -DPROJECT_VER="\"$(PROJECT_VER)\""         \
+              -Wall                                      \
+              -Wextra
 
 
 

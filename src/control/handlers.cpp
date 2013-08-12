@@ -3,13 +3,6 @@
 //======================================================================
 
 
-fired::Handlers::Handlers(fired::Game *_game) {
-	game = _game;
-}
-
-//======================================================================
-
-
 void fired::Handlers::buttonStart() {
 	game->generateWorld();
 	game->setGameState(gsWorld);

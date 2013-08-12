@@ -12,10 +12,6 @@
 namespace fired {
 	class FlyText {
 	private:
-		fired::Game      *game;
-		fired::Settings  *settings;
-		sf::RenderWindow *app;
-
 		sf::Vector2f pos;
 		sf::Color    color;
 		float        life;
@@ -24,7 +20,7 @@ namespace fired {
 		sf::Text    *flyTxt;
 
 	public:
-		 FlyText(fired::Game *_game, sf::Vector2f _pos, sf::Color _color, int size, const char *text);
+		 FlyText(sf::Vector2f _pos, sf::Color _color, int size, const char *text);
 		~FlyText();
 
 		bool update();

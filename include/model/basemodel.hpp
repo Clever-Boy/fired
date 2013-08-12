@@ -48,10 +48,7 @@ namespace fired {
 
 	class Model {
 	protected:
-		fired::Game      *game;
-		fired::Settings  *settings;
 		fired::Character *owner;
-		sf::RenderWindow *app;
 		fired::World     *world;
 
 		float modelScale;

@@ -3,21 +3,19 @@
 //======================================================================
 
 
-fired::World::World(fired::Game *_game) {
-	game     = _game;
-	settings = game->getSettings();
-	app      = game->getApp();
-
+fired::World::World() {
 	game->setMusic("data/snd/themes/world.ogg");
 
-	container = new fired::Container(game, this);
-	cam       = new fired::Camera(game);
-	map       = new fired::Map(game, cam, this);
-	player    = new fired::Player(game, cam, map->getStartPos(), this);
-	gui       = new fired::GUI(game, cam, player);
+	container = new fired::Container(this);
+	cam       = new fired::Camera();
+	map       = new fired::Map(cam, this);
+	player    = new fired::Player(cam, map->getStartPos(), this);
+	gui       = new fired::GUI(cam, player);
 
 	cam->setMapSize(map->getSize());
 	cam->setTrackObj(player->getPhys());
+
+	chars.push_back(player->getChar());
 
 	spawn(sf::Vector2f(2288, 560), "soldier");
 	spawn(sf::Vector2f(2388, 560), "soldier");
@@ -38,6 +36,8 @@ fired::World::~World() {
 	deleteList(creatures);
 	deleteList(texts);
 	deleteList(chunks);
+
+	chars.clear();
 }
 
 //======================================================================
@@ -51,13 +51,14 @@ void fired::World::update() {
 	player->update();
 	gui->update();
 
-	for (unsigned int i = 0; i < creatures.size(); creatures[i++]->update());
 	checkShots();
-	for (unsigned int i = 0; i < shots.size(); shots[i++]->update(app));
+
+	for (unsigned int i = 0; i < creatures.size(); creatures[i++]->update());
+	for (unsigned int i = 0; i < shots.size();     shots[i++]->update()    );
 
 
 	for (unsigned int i = 0; i < particles.size();) {
-		if (!particles[i]->update(app)) {
+		if (!particles[i]->update()) {
 			delete particles[i];
 			particles.erase(particles.begin() + i);
 		} else
@@ -65,7 +66,7 @@ void fired::World::update() {
 	}
 
 	for (unsigned int i = 0; i < chunks.size();)
-		if (!chunks[i]->update(app)) {
+		if (!chunks[i]->update()) {
 			delete chunks[i];
 			chunks.erase(chunks.begin() + i);
 		} else {
@@ -84,6 +85,12 @@ void fired::World::update() {
 
 	for (unsigned int i = 0; i < creatures.size();) {
 		if (creatures[i]->getChar()->isDead()) {
+			for (unsigned int j = 0; j < chars.size(); j++)
+				if (chars[j] == creatures[i]->getChar()) {
+					chars.erase(chars.begin() + j);
+					break;
+				}
+
 			delete creatures[i];
 			creatures.erase(creatures.begin() + i);
 			spawn(sf::Vector2f(2288, 560), "soldier");
@@ -108,33 +115,25 @@ void fired::World::checkShots() {
 
 	for (unsigned int i = 0; i < shots.size();) {
 		deleted = false;
-		for (unsigned int j = 0; j < creatures.size(); j++) {
-			if (creatures[j]->getChar()->checkShot(shots[i])) {
+
+		for (unsigned int j = 0; j < chars.size(); j++) {
+			if (chars[j]->checkShot(shots[i])) {
 				delete shots[i];
 				shots.erase(shots.begin() + i);
-
 				deleted = true;
+				break;
 			}
-			if (deleted) break;
 		}
-		if (!deleted) i++;
-	}
 
-
-	for (unsigned int i = 0; i < shots.size();)
-		if (player->getChar()->checkShot(shots[i])) {
-			delete shots[i];
-			shots.erase(shots.begin() + i);
-		} else
-			i++;
-
-
-	for (unsigned int i = 0; i < shots.size();)
+		if (deleted) continue;
 		if (map->checkShot(shots[i])) {
 			delete shots[i];
 			shots.erase(shots.begin() + i);
-		} else
-			i++;
+			continue;
+		}
+
+		i++;
+	}
 }
 
 //======================================================================
@@ -147,8 +146,19 @@ void fired::World::processEvent(sf::Event event) {
 //======================================================================
 
 
+bool fired::World::isCharExists(fired::Character *character) {
+	for (unsigned int i = 0; i < chars.size(); i++)
+		if (character == chars[i]) return true;
+
+	return false;
+}
+
+//======================================================================
+
+
 void fired::World::spawn(sf::Vector2f pos, const char *creature) {
-	creatures.push_back(new fired::Creature(game, cam, pos, this, getCreature(creature)));
+	creatures.push_back(new fired::Creature(cam, pos, this, getCreature(creature)));
+	chars.push_back(creatures.back()->getChar());
 }
 
 //======================================================================
@@ -183,5 +193,5 @@ void fired::World::addShot(sf::Vector2f pos, float angle, float speed, fired::Ch
 
 
 void fired::World::addText(sf::Vector2f pos, sf::Color color, int size, const char *text) {
-	texts.push_back(new fired::FlyText(game, pos, color, size, text));
+	texts.push_back(new fired::FlyText(pos, color, size, text));
 }

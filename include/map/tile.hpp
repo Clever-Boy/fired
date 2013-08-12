@@ -29,7 +29,7 @@ namespace fired {
 
 	public:
 		void set(int _tileset, bool _isWall, int x, int y);
-		void render(sf::RenderWindow *app);
+		void render();
 
 		void setTileset(fired::Tileset *_tileset);
 		void setTile(int _tile);

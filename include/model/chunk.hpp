@@ -26,8 +26,8 @@ namespace fired {
 
 		Chunk(fired::Bodypart *bodyPart, float scale, sf::Vector2f position, sf::Vector2f speed);
 
-		bool update(sf::RenderWindow *app);
-		void render(sf::RenderWindow *app);
+		bool update();
+		void render();
 	};
 }
 

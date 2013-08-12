@@ -34,7 +34,7 @@ namespace fired {
 
 
 	public:
-		 ModelHumanoid(fired::Game *_game, fired::Character *_owner, fired::BaseModelHumanoid *base, float scale, fired::World *_world);
+		 ModelHumanoid(fired::Character *_owner, fired::BaseModelHumanoid *base, float scale, fired::World *_world);
 		~ModelHumanoid() {};
 
 		void update();

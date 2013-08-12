@@ -8,12 +8,8 @@
 
 namespace fired {
 	class Keyboard {
-	private:
-		fired::Game *game;
-
-
 	public:
-		Keyboard(fired::Game *_game);
+		Keyboard();
 	};
 }
 

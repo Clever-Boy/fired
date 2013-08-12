@@ -32,12 +32,12 @@ fired::ParticleSystemSplash::ParticleSystemSplash(sf::Vector2f pos, sf::Vector2f
 //======================================================================
 
 
-bool fired::ParticleSystemSplash::update(sf::RenderWindow *app) {
+bool fired::ParticleSystemSplash::update() {
 	for (unsigned int i = 0; i < particles.size(); i++)
 		particles[i]->scale = endScale + (1 - endScale) * (particles[i]->lifetime - particles[i]->life) / particles[i]->lifetime;
 
 	if (particles.size() == 0) return false;
-	render(app);
+	render();
 	return true;
 }
 

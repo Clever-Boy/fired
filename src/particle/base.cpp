@@ -3,7 +3,7 @@
 //======================================================================
 
 
-bool fired::Particle::process(sf::RenderWindow *app, fired::World *world, bool physical) {
+bool fired::Particle::process(fired::World *world, bool physical) {
 	life += frameClock;
 	if (life > lifetime) return false;
 
@@ -25,11 +25,11 @@ bool fired::Particle::process(sf::RenderWindow *app, fired::World *world, bool p
 //======================================================================
 
 
-void fired::ParticleSystem::render(sf::RenderWindow *app) {
+void fired::ParticleSystem::render() {
 	unsigned int i = 0;
 
 	while (i < particles.size())
-		if (!particles[i]->process(app, world, physical)) {
+		if (!particles[i]->process(world, physical)) {
 			delete particles[i];
 			particles.erase(particles.begin() + i);
 		} else
@@ -39,8 +39,8 @@ void fired::ParticleSystem::render(sf::RenderWindow *app) {
 //======================================================================
 
 
-bool fired::ParticleSystem::update(sf::RenderWindow *app) {
-	render(app);
+bool fired::ParticleSystem::update() {
+	render();
 	return false;
 }
 

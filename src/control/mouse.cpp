@@ -3,11 +3,7 @@
 //======================================================================
 
 
-fired::Mouse::Mouse(fired::Game *_game) {
-	game     = _game;
-	settings = game->getSettings();
-	app      = game->getApp();
-
+fired::Mouse::Mouse() {
 	mouseTex = new sf::Texture();
 	mouseCur = new sf::Sprite();
 

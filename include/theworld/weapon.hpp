@@ -17,10 +17,7 @@ namespace fired {
 		int   automatic;
 
 		sf::SoundBuffer *shotBuffer;
-		sf::Sound       *shotSound;
-
 		sf::SoundBuffer *reloadBuffer;
-		sf::Sound       *reloadSound;
 
 		~BaseWeapon();
 	};
@@ -42,7 +39,8 @@ namespace fired {
 		sf::Sound *reloadSound;
 
 
-		Weapon(fired::BaseWeapon *_weapon);
+		 Weapon(fired::BaseWeapon *_weapon);
+		~Weapon();
 	};
 }
 

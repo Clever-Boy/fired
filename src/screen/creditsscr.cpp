@@ -3,15 +3,12 @@
 //======================================================================
 
 
-fired::CreditsScr::CreditsScr(fired::Game *_game) {
+fired::CreditsScr::CreditsScr() {
 	std::string line;
 	std::ifstream creditsFile("data/img/gui/creditsscr/credits");
 	int  iOffset;
 	bool isCaption;
 
-	game     = _game;
-	settings = game->getSettings();
-	app      = game->getApp();
 	yOffset  = 0;
 	iOffset  = 100;
 
@@ -19,7 +16,7 @@ fired::CreditsScr::CreditsScr(fired::Game *_game) {
 
 	credits.push_back(new sf::Text);
 	credits.back()->setFont(*game->getFont());
-	credits.back()->setString(sf::String("F.I.R.E.D. v" PROJECT_VER " credits"));
+	credits.back()->setString(sf::String(PROJECT_CAPTION " v" PROJECT_VER " credits"));
 	credits.back()->setCharacterSize(48);
 	credits.back()->setStyle(sf::Text::Bold);
 	credits.back()->setPosition((settings->window.width - credits.back()->getLocalBounds().width) / 2, settings->window.height);

@@ -25,9 +25,6 @@ namespace fired {
 
 
 	private:
-		fired::Game      *game;
-		fired::Settings  *settings;
-		sf::RenderWindow *app;
 		fired::World     *world;
 		fired::Camera    *cam;
 
@@ -54,7 +51,7 @@ namespace fired {
 		fired::CharacterStats *getStats() { return &baseStats; };
 
 
-		 Character(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *base);
+		 Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *base);
 		~Character();
 
 		void update();

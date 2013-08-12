@@ -10,10 +10,6 @@
 namespace fired {
 	class Camera {
 	private:
-		fired::Game      *game;
-		fired::Settings  *settings;
-		sf::RenderWindow *app;
-
 		sf::Vector2f  offset;
 		sf::Vector2i  mapSize;
 		sf::FloatRect viewport;
@@ -23,7 +19,7 @@ namespace fired {
 
 
 	public:
-		Camera(fired::Game *_game);
+		Camera();
 
 		void update();
 

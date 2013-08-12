@@ -1,9 +1,14 @@
 #include "game.hpp"
 
 
-float frameClock;
+float             frameClock;
+fired::Settings  *settings;
+sf::RenderWindow *app;
+fired::Game      *game;
+
+
 int main() {
-	fired::Game *game = new fired::Game;
+	game = new fired::Game;
 	srand(time(NULL));
 
 	while(game->isRunning()) game->update();

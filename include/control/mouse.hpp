@@ -9,17 +9,13 @@
 namespace fired {
 	class Mouse {
 	private:
-		fired::Game      *game;
-		fired::Settings  *settings;
-		sf::RenderWindow *app;
-
 		sf::Vector2f pos;
 		sf::Texture *mouseTex;
 		sf::Sprite  *mouseCur;
 
 
 	public:
-		 Mouse(fired::Game *_game);
+		 Mouse();
 		~Mouse();
 
 		void update();

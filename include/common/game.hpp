@@ -27,7 +27,11 @@
 #include "ai.hpp"
 
 
-extern float frameClock;
+extern float                frameClock;
+extern fired::Settings     *settings;
+extern sf::RenderWindow    *app;
+extern fired::Game         *game;
+
 
 namespace fired {
 	enum GameState {
@@ -41,7 +45,6 @@ namespace fired {
 
 	class Game {
 	private:
-		sf::RenderWindow *app;
 		sf::Clock        *clock;
 		sf::Font         *font;
 		sf::Image        *icon;
@@ -54,7 +57,6 @@ namespace fired {
 		fired::GameState     gameState;
 		fired::GameState     gameStateNew;
 
-		fired::Settings      *settings;
 		fired::Handlers      *handlers; 
 		fired::GameScreen    *gameScreen;
 
@@ -68,9 +70,7 @@ namespace fired {
 
 		void update();
 
-		sf::RenderWindow *getApp()      { return app; };
 		sf::Font         *getFont()     { return font; };
-		fired::Settings  *getSettings() { return settings; };
 		bool              isRunning()   { return running; };
 		void              stop()        { running = false; };
 

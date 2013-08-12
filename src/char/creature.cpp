@@ -3,12 +3,8 @@
 //======================================================================
 
 
-fired::Creature::Creature(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *world, fired::BaseCreature *base) {
-	game     = _game;
-	settings = game->getSettings();
-	app      = game->getApp();
-
-	character = new fired::Character(_game, _cam, _startpos, world, base);
+fired::Creature::Creature(fired::Camera *_cam, sf::Vector2f _startpos, fired::World *world, fired::BaseCreature *base) {
+	character = new fired::Character(_cam, _startpos, world, base);
 	ai        = world->getAI(base->ai, this);
 }
 
@@ -24,6 +20,6 @@ fired::Creature::~Creature() {
 
 
 void fired::Creature::update() {
-	ai->update();
+	character->shot();
 	character->update();
 }

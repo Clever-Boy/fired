@@ -24,16 +24,12 @@ namespace fired {
 
 	class Creature {
 	private:
-		fired::Game      *game;
-		fired::Settings  *settings;
-		sf::RenderWindow *app;
-
 		fired::Character *character;
 		fired::BaseAI    *ai;
 
 
 	public:
-		 Creature(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *world, fired::BaseCreature *base);
+		 Creature(fired::Camera *_cam, sf::Vector2f _startpos, fired::World *world, fired::BaseCreature *base);
 		~Creature();
 		void update();
 

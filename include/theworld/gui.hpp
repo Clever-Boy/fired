@@ -9,9 +9,6 @@
 namespace fired {
 	class GUI {
 	private:
-		fired::Game      *game;
-		fired::Settings  *settings;
-		sf::RenderWindow *app;
 		fired::Camera    *cam;
 		fired::Player    *player;
 
@@ -27,7 +24,7 @@ namespace fired {
 		sf::Text           *txt;
 
 	public:
-		 GUI(fired::Game *_game, fired::Camera *_cam, fired::Player *_player);
+		 GUI(fired::Camera *_cam, fired::Player *_player);
 		~GUI();
 
 		void update();

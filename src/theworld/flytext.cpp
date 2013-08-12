@@ -3,10 +3,7 @@
 //======================================================================
 
 
-fired::FlyText::FlyText(fired::Game *_game, sf::Vector2f _pos, sf::Color _color, int size, const char *text) {
-	game     = _game;
-	settings = game->getSettings();
-	app      = game->getApp();
+fired::FlyText::FlyText(sf::Vector2f _pos, sf::Color _color, int size, const char *text) {
 	pos      = _pos;
 	color    = _color;
 	life     = 0;

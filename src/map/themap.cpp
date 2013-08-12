@@ -3,10 +3,7 @@
 //======================================================================
 
 
-fired::Map::Map(fired::Game *_game, fired::Camera *_cam, fired::World *_world) {
-	game     = _game;
-	settings = game->getSettings();
-	app      = game->getApp();
+fired::Map::Map(fired::Camera *_cam, fired::World *_world) {
 	cam      = _cam;
 	world    = _world;
 
@@ -63,7 +60,7 @@ void fired::Map::render() {
 
 	for (int i = from.x; i < to.x; i++)
 		for (int j = from.y; j < to.y; j++)
-			tiles[i][j].render(app);
+			tiles[i][j].render();
 }
 
 //======================================================================

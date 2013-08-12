@@ -26,7 +26,7 @@ fired::Chunk::Chunk(fired::Bodypart *bodyPart, float scale, sf::Vector2f positio
 //======================================================================
 
 
-bool fired::Chunk::update(sf::RenderWindow *app) {
+bool fired::Chunk::update() {
 	if (phys.onGround) {
 		phys.velocity.x -= sign(phys.velocity.x) * PHYS_FRICTION_ACCEL * frameClock / 3.0;
 		rotationSpeed -= sign(rotationSpeed) * frameClock;
@@ -41,14 +41,14 @@ bool fired::Chunk::update(sf::RenderWindow *app) {
 	phys.pos += phys.velocity * frameClock;
 	rotation += rotationSpeed * frameClock;
 
-	render(app);
+	render();
 	return true;
 }
 
 //======================================================================
 
 
-void fired::Chunk::render(sf::RenderWindow *app) {
+void fired::Chunk::render() {
 	base->chunk->setColor(sf::Color(255, 255, 255, 255));
 	if (lifetime > CHUNK_DISAPPEARTIME) base->chunk->setColor(sf::Color(255, 255, 255, 255 * (CHUNK_LIFETIME - lifetime) / (CHUNK_LIFETIME - CHUNK_DISAPPEARTIME)));
 

@@ -18,7 +18,7 @@ namespace fired {
 		sf::Vector2f        accel;
 
 
-		bool process(sf::RenderWindow *app, fired::World *world, bool physical);
+		bool process(fired::World *world, bool physical);
 	};
 
 
@@ -35,8 +35,8 @@ namespace fired {
 	public:
 		virtual ~ParticleSystem();
 
-		virtual bool update(sf::RenderWindow *app);
-		void render(sf::RenderWindow *app);
+		virtual bool update();
+		void render();
 	};
 }
 

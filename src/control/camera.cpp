@@ -3,11 +3,7 @@
 //======================================================================
 
 
-fired::Camera::Camera(fired::Game *_game) {
-	game     = _game;
-	settings = game->getSettings();
-	app      = game->getApp();
-
+fired::Camera::Camera() {
 	viewport = sf::FloatRect(0, 0, settings->window.width, settings->window.height);
 	view.reset(viewport);
 }

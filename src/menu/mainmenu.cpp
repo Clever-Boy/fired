@@ -3,10 +3,7 @@
 //======================================================================
 
 
-fired::MainMenu::MainMenu(fired::Game *_game, fired::Mouse *_mouse) {
-	game     = _game;
-	settings = game->getSettings();
-	app      = game->getApp();
+fired::MainMenu::MainMenu(fired::Mouse *_mouse) {
 	mouse    = _mouse;
 	xOffset  = 0;
 
@@ -210,7 +207,7 @@ void fired::MainMenu::processAnimation() {
 
 
 void fired::MainMenu::menuItemAdd(const char *_caption, fired::MenuItem *_parent, fired::MenuItemType itemType = itSubmenu, fired::Handler handlerFunc = NULL) {
-	menuItems.push_back(new fired::MenuItem(game, this, menuItemSprite, _caption, _parent, itemType, handlerFunc));
+	menuItems.push_back(new fired::MenuItem(this, menuItemSprite, _caption, _parent, itemType, handlerFunc));
 }
 
 //======================================================================

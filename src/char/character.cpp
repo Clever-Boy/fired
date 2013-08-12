@@ -3,10 +3,7 @@
 //======================================================================
 
 
-fired::Character::Character(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *base) {
-	game     = _game;
-	settings = game->getSettings();
-	app      = game->getApp();
+fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *base) {
 	world    = _world;
 	cam      = _cam;
 
@@ -19,7 +16,7 @@ fired::Character::Character(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 	fired::BaseModel *basemodel = world->getModel(base->model);
 	switch (basemodel->type) {
 		case mtHumanoid: {
-			model = new fired::ModelHumanoid(game, this, (fired::BaseModelHumanoid*)basemodel, base->modelScale, world);
+			model = new fired::ModelHumanoid(this, (fired::BaseModelHumanoid*)basemodel, base->modelScale, world);
 			break;
 		}
 	}
@@ -77,7 +74,6 @@ void fired::Character::update() {
 
 	model->update();
 	if (phys.rect.intersects(cam->getViewport())) model->render();
-
 
 	weaponCooldown -= frameClock;
 	if (isReloading && weaponCooldown <= 0) {
@@ -170,7 +166,6 @@ bool fired::Character::isEnemy(int _fraction) {
 
 bool fired::Character::checkShot(fired::Shot *shot) {
 	if (dead) return false;
-	if (!isEnemy(shot->owner->getFraction())) return false;
 
 	sf::Vector2f  dir(shot->velocity * frameClock);
 	sf::FloatRect ray(shot->pos, dir);
@@ -179,6 +174,7 @@ bool fired::Character::checkShot(fired::Shot *shot) {
 	float dist;
 
 	if (lineBoxCollision(phys.rect, ray, &c, &n, &dist)) {
+		if (world->isCharExists(shot->owner)) if (!isEnemy(shot->owner->getFraction())) return false;
 
 		if (lineBoxCollision(phys.head, ray, &c2, &n2, &dist)) {
 			phys.velocity.x -= n.x * shot->knockback * 1.5;
@@ -190,7 +186,7 @@ bool fired::Character::checkShot(fired::Shot *shot) {
 			damage(shot->damage, false, c, shot->knockback);
 		}
 
-		if (dead) shot->owner->gainXP(baseStats.maxHP);
+		if (world->isCharExists(shot->owner)) if (dead) shot->owner->gainXP(baseStats.maxHP);
 		return true;
 	}
 

@@ -3,11 +3,9 @@
 //======================================================================
 
 
-fired::MenuItem::MenuItem(fired::Game *_game, fired::MainMenu *_mainMenu, sf::Sprite *_sprite, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc) {
+fired::MenuItem::MenuItem(fired::MainMenu *_mainMenu, sf::Sprite *_sprite, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc) {
 	sf::FloatRect textRect;
 
-	game        = _game;
-	app         = game->getApp();
 	font        = game->getFont();
 	mainMenu    = _mainMenu;
 	sprite      = _sprite;

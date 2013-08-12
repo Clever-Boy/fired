@@ -9,9 +9,6 @@
 namespace fired {
 	class Crosshair {
 	private:
-		fired::Game      *game;
-		fired::Settings  *settings;
-		sf::RenderWindow *app;
 		fired::Camera    *cam;
 		fired::Phys      *owner;
 
@@ -22,7 +19,7 @@ namespace fired {
 
 
 	public:
-		 Crosshair(fired::Game *_game, fired::Camera *_cam, fired::Phys *_owner);
+		 Crosshair(fired::Camera *_cam, fired::Phys *_owner);
 		~Crosshair();
 
 		void update(float distance);

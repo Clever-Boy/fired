@@ -21,9 +21,6 @@ namespace fired {
 	class MainMenu : public GameScreen {
 	private:
 		std::vector<fired::MenuItem *> menuItems;
-		fired::Game      *game;
-		fired::Settings  *settings;
-		sf::RenderWindow *app;
 		fired::Mouse     *mouse;
 
 		sf::Texture *bgTexture;
@@ -46,7 +43,7 @@ namespace fired {
 
 
 	public:
-		 MainMenu(fired::Game *_game, fired::Mouse *_mouse);
+		 MainMenu(fired::Mouse *_mouse);
 		~MainMenu();
 
 		void update();

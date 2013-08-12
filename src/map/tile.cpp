@@ -15,7 +15,7 @@ void fired::Tile::set(int _tileset, bool _isWall, int x, int y) {
 //======================================================================
 
 
-void fired::Tile::render(sf::RenderWindow *app) {
+void fired::Tile::render() {
 	if (!tileset) return;
 
 	sprite->setPosition(pos);

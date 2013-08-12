@@ -3,10 +3,7 @@
 //======================================================================
 
 
-fired::StartScr::StartScr(fired::Game *_game) {
-	game       = _game;
-	settings   = game->getSettings();
-	app        = game->getApp();
+fired::StartScr::StartScr() {
 	timeOffset = 0;
 	index      = 0;
 

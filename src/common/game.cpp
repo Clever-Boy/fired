@@ -9,11 +9,11 @@ fired::Game::Game() {
 
 	unsigned long style;
 	if (settings->window.fullScreen) style = sf::Style::Fullscreen;
-	else                            style = sf::Style::Close;
+	else                             style = sf::Style::Close;
 
 	app = new sf::RenderWindow(sf::VideoMode(settings->window.width,
 	                           settings->window.height,
-	                           settings->window.bpp), PROJECT_NAME " v" PROJECT_VER, style);
+	                           settings->window.bpp), PROJECT_CAPTION " v" PROJECT_VER, style);
 	app->setMouseCursorVisible(false);
 
 	icon = new sf::Image();
@@ -24,9 +24,9 @@ fired::Game::Game() {
 	focused   = true;
 	gameState = gsNone;
 
-	mouse    = new fired::Mouse(this);
-	keyboard = new fired::Keyboard(this);
-	handlers = new fired::Handlers(this);
+	mouse    = new fired::Mouse();
+	keyboard = new fired::Keyboard();
+	handlers = new fired::Handlers();
 
 	musicTheme = new sf::Music();
 	musicTheme->setLoop(true);
@@ -142,15 +142,19 @@ void fired::Game::setGameState(fired::GameState state) {
 
 bool fired::Game::switchGameState() {
 	if (gameState == gameStateNew) return false;
-	musicTheme->stop();
-	delete gameScreen;
+
+	if (gameState != gsNone) {
+		musicTheme->stop();
+		delete gameScreen;
+	}
 
 	gameState = gameStateNew;
 
-	if      (gameState == gsMainMenu)   gameScreen = new fired::MainMenu(this, mouse);
-	else if (gameState == gsStartScr)   gameScreen = new fired::StartScr(this);
-	else if (gameState == gsCreditsScr) gameScreen = new fired::CreditsScr(this);
-	else if (gameState == gsWorld)      gameScreen = new fired::World(this);
+	if      (gameState == gsMainMenu)   gameScreen = new fired::MainMenu(mouse);
+	else if (gameState == gsStartScr)   gameScreen = new fired::StartScr();
+	else if (gameState == gsCreditsScr) gameScreen = new fired::CreditsScr();
+	else if (gameState == gsWorld)      gameScreen = new fired::World();
 
+	lastClock = clock->getElapsedTime().asMilliseconds();
 	return true;
 }

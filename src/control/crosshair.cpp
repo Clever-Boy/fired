@@ -3,10 +3,7 @@
 //======================================================================
 
 
-fired::Crosshair::Crosshair(fired::Game *_game, fired::Camera *_cam, fired::Phys *_owner) {
-	game     = _game;
-	settings = game->getSettings();
-	app      = game->getApp();
+fired::Crosshair::Crosshair(fired::Camera *_cam, fired::Phys *_owner) {
 	cam      = _cam;
 	owner    = _owner;
 

@@ -14,6 +14,10 @@
 #include "theworld.hpp"
 
 
+#define FIRED_FRACTION_PLAYER  1
+#define FIRED_FRACTION_SOLDIER 2
+
+
 namespace fired {
 	class Character {
 		friend class Model;
@@ -38,6 +42,7 @@ namespace fired {
 		int   watching;
 		float aiming;
 		float weaponCooldown;
+		int   fraction;
 
 		int  level;
 		long XP;
@@ -54,6 +59,7 @@ namespace fired {
 
 		void update();
 		void render();
+		void respawn(sf::Vector2f pos);
 
 
 		void move();
@@ -81,6 +87,8 @@ namespace fired {
 		std::string getAmmoString();
 
 		int   getDamage();
+		int   getFraction() {return fraction; };
+		bool  isEnemy(int _fraction);
 		float getKnockback();
 		bool  isDead()   {return dead; };
 	};

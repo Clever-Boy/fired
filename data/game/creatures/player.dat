@@ -1,5 +1,6 @@
 name=player
 ai=base
+fraction=player
 model=common
 scale=1.0
 weapon=rifle

@@ -1,5 +1,6 @@
 name=soldier
-ai=base
+ai=idle
+fraction=soldier
 model=common
 scale=1.3
 weapon=rifle

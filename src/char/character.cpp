@@ -10,21 +10,11 @@ fired::Character::Character(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 	world    = _world;
 	cam      = _cam;
 
-	phys.pos          = _startpos;
-	phys.velocity     = sf::Vector2f(0, 0);
-	phys.acceleration = sf::Vector2f(0, PHYS_GRAVITY);
-	phys.onGround     = false;
-	phys.isMoving     = false;
-	isShooting        = false;
-	phys.calculate();
-
 	baseStats.speed    = base->stats.speed;
 	baseStats.accel    = base->stats.accel;
 	baseStats.jump     = base->stats.jump;
 	baseStats.aimrange = base->stats.aimrange;
 	baseStats.maxHP    = base->stats.maxHP;
-
-	baseStats.HP       = baseStats.maxHP;
 
 	fired::BaseModel *basemodel = world->getModel(base->model);
 	switch (basemodel->type) {
@@ -34,14 +24,13 @@ fired::Character::Character(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 		}
 	}
 
+	if (!strcmp(base->fraction, "player"))  fraction = FIRED_FRACTION_PLAYER;
+	if (!strcmp(base->fraction, "soldier")) fraction = FIRED_FRACTION_SOLDIER;
+
+
+	respawn(_startpos);
 	weapon = new fired::Weapon(world->getWeapon(base->weapon));
 
-	weaponCooldown = 0;
-	dead           = false;
-	isShooting     = false;
-	direction      = 1;
-	watching       = 1;
-	aiming         = 0;
 	level          = 1;
 	XP             = 0;
 	lastXP         = 0;
@@ -54,6 +43,29 @@ fired::Character::Character(fired::Game *_game, fired::Camera *_cam, sf::Vector2
 fired::Character::~Character() {
 	delete model;
 	delete weapon;
+}
+
+//======================================================================
+
+
+void fired::Character::respawn(sf::Vector2f pos) {
+	phys.pos          = pos;
+	phys.velocity     = sf::Vector2f(0, 0);
+	phys.acceleration = sf::Vector2f(0, PHYS_GRAVITY);
+	phys.onGround     = false;
+	phys.isMoving     = false;
+	isShooting        = false;
+	phys.calculate();
+
+	baseStats.HP   = baseStats.maxHP;
+	weaponCooldown = 0;
+	dead           = false;
+	isShooting     = false;
+	direction      = 1;
+	watching       = 1;
+	aiming         = 0;
+
+	model->respawn();
 }
 
 //======================================================================
@@ -148,8 +160,17 @@ void fired::Character::levelUp() {
 //======================================================================
 
 
+bool fired::Character::isEnemy(int _fraction) {
+	if (fraction != _fraction) return true;
+	return false;
+}
+
+//======================================================================
+
+
 bool fired::Character::checkShot(fired::Shot *shot) {
 	if (dead) return false;
+	if (!isEnemy(shot->owner->getFraction())) return false;
 
 	sf::Vector2f  dir(shot->velocity * frameClock);
 	sf::FloatRect ray(shot->pos, dir);

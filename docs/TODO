@@ -760,8 +760,13 @@
 			<text>
 </text>
 		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add player respawn</title>
+			<text>
+</text>
+		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="yes" collapse="no">
 		<title>Creatures</title>
 		<text>
 </text>
@@ -845,6 +850,11 @@
 			<text>
 </text>
 		</todo>
+		<todo done="no" collapse="no">
+			<title>Add melee damage</title>
+			<text>
+</text>
+		</todo>
 	</todo>
 	<todo done="yes" collapse="no">
 		<title>AI</title>
@@ -855,7 +865,7 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add fractions</title>
 			<text>
 </text>

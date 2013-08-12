@@ -63,6 +63,7 @@ namespace fired {
 
 		virtual void headshot() {};
 		virtual void update()   {};
+		virtual void respawn()  {};
 
 		void render();
 		void explode(sf::Vector2f shot, float knockback);

@@ -170,7 +170,7 @@ void fired::Map::checkCollision(fired::Character *character, int tile_x, int til
 		if (intersection.width > intersection.height) {
 			if (phys->pos.y < tile_y * TILE_SIZE) {
 				phys->pos.y -= intersection.height;
-				if (phys->velocity.y > PHYS_SAFE_FALL) character->damage((phys->velocity.y - PHYS_SAFE_FALL) / 10.0, false, sf::Vector2f(phys->size.x / 2, 0), 1000.0);
+				if (phys->velocity.y > PHYS_SAFE_FALL) character->damage((phys->velocity.y - PHYS_SAFE_FALL) / 10.0f, false, sf::Vector2f(phys->size.x / 2, phys->size.y), 100.0);
 				if (phys->velocity.y > 0.0) phys->velocity.y = 0.0;
 				phys->onGround = true;
 			} else {

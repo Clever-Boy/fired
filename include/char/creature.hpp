@@ -15,6 +15,7 @@ namespace fired {
 		char  model[32];
 		char  weapon[32];
 		char  ai[32];
+		char  fraction[32];
 		float modelScale;
 
 		CharacterStats stats;

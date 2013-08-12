@@ -38,6 +38,7 @@ namespace fired {
 		~ModelHumanoid() {};
 
 		void update();
+		void respawn();
 		void headshot();
 
 		void processAnimation();

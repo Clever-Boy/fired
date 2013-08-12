@@ -29,24 +29,7 @@ fired::ModelHumanoid::ModelHumanoid(fired::Game *_game, fired::Character *_owner
 	initPart(&partArms  , base->partArms, &owner->watching);
 	initPart(&partWeapon, base->partWeapon, &owner->watching);
 
-	bodyParts.push_back(&partFistB );
-	bodyParts.push_back(&partLegsB );
-	bodyParts.push_back(&partShoeB );
-	bodyParts.push_back(&partBody  );
-	bodyParts.push_back(&partHead  );
-	bodyParts.push_back(&partHair  );
-	bodyParts.push_back(&partLegsF );
-	bodyParts.push_back(&partShoeF );
-	bodyParts.push_back(&partWeapon);
-	bodyParts.push_back(&partArms  );
-	bodyParts.push_back(&partFistF );
-
-
-	bodyAnimation = caNone;
-	armsAnimation = caNone;
-
-	bodyAnimationTime = 0;
-	armsAnimationTime = 0;
+	respawn();
 }
 
 //======================================================================
@@ -69,6 +52,29 @@ void fired::ModelHumanoid::update() {
 	}
 
 	processAnimation();
+}
+
+//======================================================================
+
+
+void fired::ModelHumanoid::respawn() {
+	bodyParts.push_back(&partFistB );
+	bodyParts.push_back(&partLegsB );
+	bodyParts.push_back(&partShoeB );
+	bodyParts.push_back(&partBody  );
+	bodyParts.push_back(&partHead  );
+	bodyParts.push_back(&partHair  );
+	bodyParts.push_back(&partLegsF );
+	bodyParts.push_back(&partShoeF );
+	bodyParts.push_back(&partWeapon);
+	bodyParts.push_back(&partArms  );
+	bodyParts.push_back(&partFistF );
+
+	bodyAnimation = caNone;
+	armsAnimation = caNone;
+
+	bodyAnimationTime = 0;
+	armsAnimationTime = 0;
 }
 
 //======================================================================

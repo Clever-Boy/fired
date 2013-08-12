@@ -120,13 +120,21 @@ void fired::World::checkShots() {
 		if (!deleted) i++;
 	}
 
-	for (unsigned int i = 0; i < shots.size();) {
+
+	for (unsigned int i = 0; i < shots.size();)
+		if (player->getChar()->checkShot(shots[i])) {
+			delete shots[i];
+			shots.erase(shots.begin() + i);
+		} else
+			i++;
+
+
+	for (unsigned int i = 0; i < shots.size();)
 		if (map->checkShot(shots[i])) {
 			delete shots[i];
 			shots.erase(shots.begin() + i);
 		} else
 			i++;
-	}
 }
 
 //======================================================================

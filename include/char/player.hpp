@@ -16,6 +16,8 @@ namespace fired {
 		fired::Settings  *settings;
 		sf::RenderWindow *app;
 
+		sf::Vector2f      startPos;
+
 		fired::Character *character;
 		fired::Crosshair *crosshair;
 

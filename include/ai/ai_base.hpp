@@ -1,5 +1,5 @@
-#ifndef __BASEAI
-#define __BASEAI
+#ifndef __AI_BASE
+#define __AI_BASE
 
 
 #include "char.hpp"
@@ -11,7 +11,7 @@ namespace fired {
 
 
 	public:
-		 BaseAI(fired::Creature *_owner) { owner = _owner; };
+		 BaseAI() {};
 
 		virtual ~BaseAI() {};
 		virtual void update() {};

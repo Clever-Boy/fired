@@ -14,23 +14,16 @@
 
 
 #include "prototypes.hpp"
-#include "menu.hpp"
 #include "control.hpp"
+#include "menu.hpp"
 #include "settings.hpp"
 #include "screen.hpp"
 #include "model.hpp"
 #include "char.hpp"
-#include "world.hpp"
+#include "particle.hpp"
 #include "theworld.hpp"
 #include "misc.hpp"
-#include "particle.hpp"
 #include "ai.hpp"
-
-
-extern float                frameClock;
-extern fired::Settings     *settings;
-extern sf::RenderWindow    *app;
-extern fired::Game         *game;
 
 
 namespace fired {
@@ -84,5 +77,11 @@ namespace fired {
 		void processEvent(sf::Event event);
 	};
 }
+
+
+extern float                frameClock;
+extern fired::Settings     *settings;
+extern sf::RenderWindow    *app;
+extern fired::Game         *game;
 
 #endif

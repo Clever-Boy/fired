@@ -7,6 +7,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "prototypes.hpp"
+#include "tileset.hpp"
 
 
 namespace fired {

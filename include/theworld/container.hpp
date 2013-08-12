@@ -3,9 +3,9 @@
 
 
 #include <SFML/Graphics.hpp>
-#include "prototypes.hpp"
 #include "char.hpp"
 #include "theworld.hpp"
+#include "prototypes.hpp"
 
 
 namespace fired {

@@ -2,8 +2,15 @@
 #define __CREATURE
 
 
+namespace fired {
+	class BaseCreature;
+	class Creature;
+}
+
+
 #include <SFML/Graphics.hpp>
 #include "prototypes.hpp"
+#include "ai.hpp"
 #include "character.hpp"
 #include "stats.hpp"
 #include "phys.hpp"

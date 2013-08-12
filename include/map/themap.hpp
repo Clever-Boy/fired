@@ -7,7 +7,6 @@
 #include "tileset.hpp"
 #include "prototypes.hpp"
 #include "phys.hpp"
-#include "world.hpp"
 #include "theworld.hpp"
 
 

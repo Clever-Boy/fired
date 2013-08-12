@@ -3,8 +3,8 @@
 
 
 #include <SFML/Graphics.hpp>
-#include "map.hpp"
 #include "char.hpp"
+#include "map.hpp"
 #include "prototypes.hpp"
 #include "particle.hpp"
 #include "theworld.hpp"

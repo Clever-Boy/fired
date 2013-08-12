@@ -12,6 +12,8 @@ namespace fired {
 		void buttonCredits();
 		void buttonExit();
 	};
+
+	typedef void (Handlers::*Handler)(void);
 }
 
 #endif

@@ -4,6 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "prototypes.hpp"
+#include "char.hpp"
 
 
 namespace fired {

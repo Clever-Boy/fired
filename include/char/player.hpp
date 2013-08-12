@@ -2,11 +2,16 @@
 #define __PLAYER
 
 
+namespace fired {
+	class Player;
+}
+
+
 #include <SFML/Graphics.hpp>
 #include "prototypes.hpp"
+#include "phys.hpp"
 #include "character.hpp"
 #include "stats.hpp"
-#include "phys.hpp"
 
 
 namespace fired {

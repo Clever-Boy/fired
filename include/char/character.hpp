@@ -5,6 +5,11 @@
 #define ROTTEN_TIME 5.0
 
 
+namespace fired {
+	class Character;
+}
+
+
 #include <SFML/Graphics.hpp>
 #include <string>
 #include "prototypes.hpp"
@@ -12,7 +17,6 @@
 #include "phys.hpp"
 #include "model.hpp"
 #include "theworld.hpp"
-
 
 #define FIRED_FRACTION_PLAYER  1
 #define FIRED_FRACTION_SOLDIER 2

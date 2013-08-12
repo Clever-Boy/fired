@@ -5,7 +5,13 @@
 #define MENU_BG_SPEED 100.0
 
 
+namespace fired {
+	class MainMenu;
+}
+
+
 #include <SFML/Graphics.hpp>
+#include "control.hpp"
 #include "menuitem.hpp"
 #include "prototypes.hpp"
 

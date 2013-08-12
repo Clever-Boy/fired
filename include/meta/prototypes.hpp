@@ -5,6 +5,7 @@ namespace fired {
 	class Character;
 	class Player;
 	class World;
+	class BaseWeapon;
 
 
 	class GameScreen {

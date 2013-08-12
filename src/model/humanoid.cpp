@@ -24,7 +24,6 @@ fired::ModelHumanoid::ModelHumanoid(fired::Character *_owner, fired::BaseModelHu
 	initPart(&partHead  , base->partHead, &owner->watching);
 	initPart(&partHair  , base->partHair, &owner->watching);
 	initPart(&partArms  , base->partArms, &owner->watching);
-	initPart(&partWeapon, base->partWeapon, &owner->watching);
 
 	respawn();
 }
@@ -81,6 +80,13 @@ void fired::ModelHumanoid::headshot() {
 	bodyParts.erase(bodyParts.begin() + 4);
 	bodyParts.erase(bodyParts.begin() + 4);
 	world->addBloodSplash(owner->phys.pos + owner->phys.headOffset + owner->phys.headSize / 2.0f, sf::Vector2f(0.0f, -400.0f), 50);
+}
+
+//======================================================================
+
+
+void fired::ModelHumanoid::setWeapon(fired::BaseWeapon *weapon) {
+	initPart(&partWeapon, world->getBodypart(weapon->model, bptWeapon), &owner->watching);
 }
 
 //======================================================================

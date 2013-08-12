@@ -76,6 +76,7 @@ namespace fired {
 		void  gainXP(long xp);
 		void  levelUp();
 		void  setAiming(float _aiming);
+		void  setWeapon(fired::BaseWeapon *_weapon);
 
 		float getHpPercent();
 		float getXpPercent();

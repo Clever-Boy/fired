@@ -541,7 +541,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="yes" collapse="no">
+	<todo done="yes" collapse="yes">
 		<title>Animation</title>
 		<text>
 </text>
@@ -685,7 +685,12 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
+			<title>Add NULL bodypart</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
 			<title>Add weapon model in hands</title>
 			<text>
 </text>
@@ -776,7 +781,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="yes" collapse="no">
+	<todo done="yes" collapse="yes">
 		<title>Creatures</title>
 		<text>
 </text>
@@ -866,7 +871,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="yes" collapse="no">
+	<todo done="yes" collapse="yes">
 		<title>AI</title>
 		<text>
 </text>

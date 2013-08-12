@@ -1,4 +1,5 @@
 name=fist
+model=null
 damage=10
 cooldown=0.2
 reload=1.0

@@ -40,6 +40,7 @@ namespace fired {
 		void update();
 		void respawn();
 		void headshot();
+		void setWeapon(fired::BaseWeapon *weapon);
 
 		void processAnimation();
 		void processBodyAnimation();

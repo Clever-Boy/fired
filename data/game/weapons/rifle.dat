@@ -1,4 +1,5 @@
 name=rifle
+model=rifle
 damage=10
 cooldown=0.05
 reload=1.7

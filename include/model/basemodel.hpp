@@ -41,7 +41,6 @@ namespace fired {
 		fired::BaseBodypart *partBody;
 		fired::BaseBodypart *partArms;
 		fired::BaseBodypart *partHead;
-		fired::BaseBodypart *partWeapon;
 	};
 
 
@@ -61,6 +60,7 @@ namespace fired {
 		virtual void headshot() {};
 		virtual void update()   {};
 		virtual void respawn()  {};
+		virtual void setWeapon(fired::BaseWeapon*) {};
 
 		void render();
 		void explode(sf::Vector2f shot, float knockback);

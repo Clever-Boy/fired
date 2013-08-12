@@ -26,7 +26,7 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 
 
 	respawn(_startpos);
-	weapon = new fired::Weapon(world->getWeapon(base->weapon));
+	setWeapon(world->getWeapon(base->weapon));
 
 	level          = 1;
 	XP             = 0;
@@ -108,6 +108,14 @@ void fired::Character::setAiming(float _aiming) {
 	aiming = _aiming;
 	if (cos(aiming) < 0) watching = -1;
 	else                 watching =  1;
+}
+
+//======================================================================
+
+
+void fired::Character::setWeapon(fired::BaseWeapon *_weapon) {
+	weapon = new fired::Weapon(_weapon);
+	model->setWeapon(_weapon);
 }
 
 //======================================================================

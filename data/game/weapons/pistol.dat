@@ -1,4 +1,5 @@
 name=pistol
+model=pistol
 damage=10
 cooldown=0.2
 reload=1.0

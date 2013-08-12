@@ -9,6 +9,7 @@
 namespace fired {
 	struct BaseWeapon {
 		char  name[32];
+		char  model[32];
 		int   damage;
 		int   clip;
 		float cooldown;

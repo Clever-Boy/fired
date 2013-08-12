@@ -46,6 +46,7 @@ void fired::Container::loadWeapon(const char* filename) {
 
 	FILE *fp = fopen(filename, "r");
 	fscanf(fp, "name=%s\n"      , weapons.back()->name);
+	fscanf(fp, "model=%s\n"     , weapons.back()->model);
 	fscanf(fp, "damage=%u\n"    , &weapons.back()->damage);
 	fscanf(fp, "cooldown=%f\n"  , &weapons.back()->cooldown);
 	fscanf(fp, "reload=%f\n"    , &weapons.back()->reload);
@@ -101,6 +102,16 @@ void fired::Container::loadBodypartsInDir(const char *dir, fired::BodypartType t
 	std::vector<std::string> files;
 	char dirname[128];
 	char filename[128];
+
+	bodyparts.push_back(new fired::BaseBodypart);
+	bodyparts.back()->texture = new sf::Texture;
+	bodyparts.back()->type = type;
+	bodyparts.back()->offset = sf::Vector2f(0, 0);
+	bodyparts.back()->color = sf::Color(0, 0, 0, 0);
+	bodyparts.back()->sprite = new sf::Sprite;
+	bodyparts.back()->chunk = new sf::Sprite;
+	strncpy(bodyparts.back()->name, "null", 5);
+
 
 	snprintf(dirname, sizeof(dirname), "data/game/bodyparts/%s", dir);
 	directoryContents(dirname, &files);
@@ -209,9 +220,6 @@ void fired::Container::loadModel(const char* filename) {
 
 		fscanf(fp, "body=%s\n", field);
 		model->partBody = getBodypart(field, bptBody);
-
-		fscanf(fp, "weapon=%s\n", field);
-		model->partWeapon = getBodypart(field, bptWeapon);
 
 		models.push_back(model);
 	}

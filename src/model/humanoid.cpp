@@ -65,6 +65,7 @@ void fired::ModelHumanoid::update() {
 		if (owner->phys.isMoving)  bodyAnimation = caMoving;
 		if (!owner->phys.onGround) bodyAnimation = caJumping;
 		if (owner->isShooting)     armsAnimation = caShooting;
+		if (owner->isReloading)    armsAnimation = caReloading;
 	}
 
 	processAnimation();
@@ -95,6 +96,7 @@ void fired::ModelHumanoid::processBodyAnimation() {
 	switch (bodyAnimation) {
 		case caNone:
 		case caShooting:
+		case caReloading:
 			bodyAnimationTime = 0.0;
 			break;
 
@@ -134,9 +136,12 @@ void fired::ModelHumanoid::processArmsAnimation() {
 		case caNone:
 		case caJumping:
 		case caMoving:
+			armsAnimationTime = 0.0f;
+
 			switch (bodyAnimation) {
 				case caNone:
 				case caShooting:
+				case caReloading:
 					partWeapon.animOffset = sf::Vector2f(7, 0);
 					partWeapon.animRotation = 90;
 					break;
@@ -167,6 +172,8 @@ void fired::ModelHumanoid::processArmsAnimation() {
 
 
 		case caShooting:
+			armsAnimationTime = 0.0f;
+
 			partWeapon.animOffset = sf::Vector2f(5.0 + 4.0 * cos(owner->aiming - 1.54), -4.0);
 			partWeapon.animRotation = owner->aiming * 180 / 3.14;
 			if (*partWeapon.direction < 0) partWeapon.animRotation = 180 - partWeapon.animRotation;
@@ -175,6 +182,20 @@ void fired::ModelHumanoid::processArmsAnimation() {
 			partFistF.animRotation = -90.0;
 
 			partFistB.animOffset = sf::Vector2f(-5.0, 0.0);
+			break;
+
+
+		case caReloading:
+			armsAnimationTime += frameClock;
+
+			partArms.animRotation = -cos(0.449 * (bodyFrame - 7)) * 7.0;
+			partWeapon.animOffset = sf::Vector2f(5.0 + cos(0.449 * (bodyFrame - 7)), -4.0);
+
+			partFistF.animOffset = sf::Vector2f(5.0 + cos(0.449 * (bodyFrame - 7)), 4.0);
+			partFistB.animOffset = sf::Vector2f(5.0 - cos(0.449 * (bodyFrame - 7)), 4.0 + 5.0 * sin(3.14 * (owner->weapon->reload - armsAnimationTime) / owner->weapon->reload));
+
+			partFistF.animRotation = -90.0;
+			partFistB.animRotation = -90.0;
 			break;
 	}
 }

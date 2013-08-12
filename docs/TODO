@@ -541,7 +541,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="yes" collapse="no">
+	<todo done="yes" collapse="yes">
 		<title>Animation</title>
 		<text>
 </text>
@@ -680,18 +680,13 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
-			<title>Add reloading animation</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Improve shooting animation</title>
 			<text>
 </text>
 		</todo>
 	</todo>
-	<todo done="yes" collapse="yes">
+	<todo done="yes" collapse="no">
 		<title>Character</title>
 		<text>
 </text>
@@ -757,6 +752,11 @@
 		</todo>
 		<todo done="yes" collapse="no">
 			<title>Add reloading</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add non-automatic weapons</title>
 			<text>
 </text>
 		</todo>
@@ -852,6 +852,16 @@
 </text>
 		<todo done="no" collapse="no">
 			<title>Add creatures AI prototype</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add fractions</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add vector with all characters</title>
 			<text>
 </text>
 		</todo>

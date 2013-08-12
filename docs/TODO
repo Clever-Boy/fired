@@ -541,7 +541,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="yes" collapse="yes">
+	<todo done="yes" collapse="no">
 		<title>Animation</title>
 		<text>
 </text>
@@ -681,7 +681,17 @@
 </text>
 		</todo>
 		<todo done="yes" collapse="no">
-			<title>Improve shooting animation</title>
+			<title>Add reloading animation</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add weapon model in hands</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add melee weapon animation</title>
 			<text>
 </text>
 		</todo>

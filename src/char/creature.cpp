@@ -20,6 +20,6 @@ fired::Creature::~Creature() {
 
 
 void fired::Creature::update() {
-	character->shot();
+	ai->update();
 	character->update();
 }

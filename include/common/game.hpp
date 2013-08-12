@@ -24,6 +24,7 @@
 #include "theworld.hpp"
 #include "misc.hpp"
 #include "particle.hpp"
+#include "ai.hpp"
 
 
 extern float frameClock;

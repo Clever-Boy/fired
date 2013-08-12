@@ -9,7 +9,7 @@ fired::Creature::Creature(fired::Game *_game, fired::Camera *_cam, sf::Vector2f 
 	app      = game->getApp();
 
 	character = new fired::Character(_game, _cam, _startpos, world, base);
-	left = false;
+	ai        = world->getAI(base->ai, this);
 }
 
 //======================================================================
@@ -17,21 +17,13 @@ fired::Creature::Creature(fired::Game *_game, fired::Camera *_cam, sf::Vector2f 
 
 fired::Creature::~Creature() {
 	delete character;
+	delete ai;
 }
 
 //======================================================================
 
 
 void fired::Creature::update() {
-	if (left) {
-		if (character->phys.pos.x < 140*16.0) left = false;
-		character->moveLeft();
-		character->setAiming(3.14);
-	} else {
-		if (character->phys.pos.x > 158*16.0) left = true;
-		character->moveRight();
-		character->setAiming(0);
-	}
-
+	ai->update();
 	character->update();
 }

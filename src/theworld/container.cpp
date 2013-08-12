@@ -260,6 +260,7 @@ void fired::Container::loadCreature(const char* filename) {
 
 	FILE *fp = fopen(filename, "r");
 	fscanf(fp, "name=%s\n"    ,  creatures.back()->name);
+	fscanf(fp, "ai=%s\n"      ,  creatures.back()->ai);
 	fscanf(fp, "model=%s\n"   ,  creatures.back()->model);
 	fscanf(fp, "scale=%f\n"   , &creatures.back()->modelScale);
 	fscanf(fp, "weapon=%s\n"  ,  creatures.back()->weapon);
@@ -277,6 +278,15 @@ void fired::Container::loadCreature(const char* filename) {
 fired::BaseCreature* fired::Container::getCreature(const char* name) {
 	for (unsigned int i = 0; i < creatures.size(); i++)
 		if (!strcmp(name, creatures[i]->name)) return creatures[i];
+
+	return NULL;
+}
+
+//======================================================================
+
+
+fired::BaseAI *fired::Container::getAI(const char *name, fired::Creature *owner) {
+	if (!strcmp(name, "base")) return new fired::BaseAI(owner);
 
 	return NULL;
 }

@@ -1,4 +1,5 @@
 name=soldier
+ai=base
 model=common
 scale=1.3
 weapon=rifle

@@ -850,7 +850,7 @@
 		<title>AI</title>
 		<text>
 </text>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add creatures AI prototype</title>
 			<text>
 </text>

@@ -18,6 +18,8 @@ namespace fired {
 	class Tileset;
 	class BaseWeapon;
 	class BaseCreature;
+	class Creature;
+	class BaseAI;
 
 
 	typedef void (Handlers::*Handler)(void);

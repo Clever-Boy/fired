@@ -26,6 +26,8 @@ namespace fired {
 		 Container(fired::Game *_game, fired::World *_world);
 		~Container();
 
+		fired::BaseAI *getAI(const char *name, fired::Creature *owner);
+
 		void loadWeapons();
 		void loadWeapon(const char* filename);
 		fired::BaseWeapon *getWeapon(const char* name);

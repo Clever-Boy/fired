@@ -14,6 +14,7 @@ namespace fired {
 		char  name[32];
 		char  model[32];
 		char  weapon[32];
+		char  ai[32];
 		float modelScale;
 
 		CharacterStats stats;
@@ -27,7 +28,8 @@ namespace fired {
 		sf::RenderWindow *app;
 
 		fired::Character *character;
-		bool left; // Temporary for pseudo AI
+		fired::BaseAI    *ai;
+
 
 	public:
 		 Creature(fired::Game *_game, fired::Camera *_cam, sf::Vector2f _startpos, fired::World *world, fired::BaseCreature *base);

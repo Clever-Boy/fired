@@ -303,10 +303,12 @@ void fired::Character::shot() {
 	isShooting = true;
 
 	if (weaponCooldown > 0) return;
+	if (!weapon->automatic && weapon->wasShot) return;
 	if (weapon->ammo > 0) weapon->ammo--;
 
 	weaponCooldown = weapon->cooldown;
 	weapon->shotSound->play();
+	weapon->wasShot = true;
 	world->addShot(phys.center, aiming, 1000, this);
 
 	if (weapon->ammo == 0) reload();

@@ -62,6 +62,7 @@ namespace fired {
 		void jump();
 		void reload();
 		void shot();
+		void unshot() {weapon->wasShot = false; };
 
 		bool  checkShot(fired::Shot *shot);
 		void  damage(int damage, bool headshot, sf::Vector2f shot, float knockback);

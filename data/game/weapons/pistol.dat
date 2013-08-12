@@ -1,9 +1,10 @@
 name=pistol
 damage=10
-cooldown=0.5
+cooldown=0.2
 reload=1.0
 knockback=40.0
 clip=12
+auto=0
 fire_snd=rifle_shot.wav
 reload_snd=rifle_reload.wav
 

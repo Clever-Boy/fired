@@ -14,6 +14,7 @@ namespace fired {
 		float cooldown;
 		float reload;
 		float knockback;
+		int   automatic;
 
 		sf::SoundBuffer *shotBuffer;
 		sf::Sound       *shotSound;
@@ -31,8 +32,11 @@ namespace fired {
 		float cooldown;
 		float reload;
 		float knockback;
-		int ammo;
-		int clip;
+		int   ammo;
+		int   clip;
+		int   automatic;
+
+		bool  wasShot;
 
 		sf::Sound *shotSound;
 		sf::Sound *reloadSound;

@@ -187,8 +187,12 @@ void fired::ModelHumanoid::processArmsAnimation() {
 			partWeapon.animRotation = owner->aiming * 180 / 3.14;
 			if (*partWeapon.direction < 0) partWeapon.animRotation = 180 - partWeapon.animRotation;
 
+			partArms.animRotation = -90 + owner->aiming * 180 / 3.14;
+			if (*partArms.direction < 0) partArms.animRotation = -partArms.animRotation;
+			//partArms.animOffset = sf::Vector2f(0.0f, 2.0f * sin((partArms.animRotation * 3.14 / 180) / 2));
+
+			partFistF.animRotation = partArms.animRotation;
 			partFistF.animOffset = sf::Vector2f(5.0, 3.0);
-			partFistF.animRotation = -90.0;
 
 			partFistB.animOffset = sf::Vector2f(-5.0, 0.0);
 			break;

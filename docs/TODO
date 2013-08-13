@@ -695,6 +695,11 @@
 			<text>
 </text>
 		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add origin to bodyparts</title>
+			<text>
+</text>
+		</todo>
 		<todo done="no" collapse="no">
 			<title>Add melee weapon animation</title>
 			<text>

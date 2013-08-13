@@ -127,11 +127,13 @@ void fired::Container::loadBodypartsInDir(const char *dir, fired::BodypartType t
 void fired::Container::loadBodypart(const char *dir, const char* filename, fired::BodypartType type) {
 	char imgfile[128];
 	char imgpath[128];
+	sf::Vector2f origin;
 	bodyparts.push_back(new fired::BaseBodypart);
 
 	FILE *fp = fopen(filename, "r");
 	fscanf(fp, "name=%s\n"     , bodyparts.back()->name);
 	fscanf(fp, "offset=%f,%f\n", &bodyparts.back()->offset.x, &bodyparts.back()->offset.y);
+	fscanf(fp, "origin=%f,%f\n", &origin.x, &origin.y);
 	fscanf(fp, "color=%hhu,%hhu,%hhu,%hhu\n", &bodyparts.back()->color.r, &bodyparts.back()->color.g, &bodyparts.back()->color.b, &bodyparts.back()->color.a);
 	fscanf(fp, "image=%s\n"    , imgfile);
 	fclose(fp);
@@ -146,6 +148,7 @@ void fired::Container::loadBodypart(const char *dir, const char* filename, fired
 
 	bodyparts.back()->sprite = new sf::Sprite;
 	bodyparts.back()->sprite->setTexture(*bodyparts.back()->texture);
+	bodyparts.back()->sprite->setOrigin(origin);
 
 	bodyparts.back()->chunk = new sf::Sprite;
 	bodyparts.back()->chunk->setTexture(*bodyparts.back()->texture);

@@ -1,4 +1,5 @@
 name=common
 offset=8,4
+origin=0,0
 color=255,255,255,255
 image=common.tga

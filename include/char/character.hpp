@@ -89,6 +89,7 @@ namespace fired {
 		std::string getAmmoString();
 
 		int   getDamage();
+		float getRange();
 		int   getFraction() {return fraction; };
 		bool  isEnemy(int _fraction);
 		float getKnockback();

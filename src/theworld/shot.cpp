@@ -9,6 +9,7 @@ fired::Shot::Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character
 	angle     = _angle;
 	damage    = owner->getDamage();
 	knockback = owner->getKnockback();
+	leftToFly = owner->getRange();
 
 	velocity = sf::Vector2f(speed * cos(angle), speed * sin(angle));
 	line = sf::VertexArray(sf::Lines, 2);
@@ -26,9 +27,13 @@ fired::Shot::~Shot() {
 //======================================================================
 
 
-void fired::Shot::update() {
+bool fired::Shot::update() {
+	leftToFly -= vLen(velocity) * frameClock;
+	if (leftToFly < 0) return false;
+
 	pos += velocity * frameClock;
 	render();
+	return true;
 }
 
 //======================================================================

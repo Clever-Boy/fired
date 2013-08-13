@@ -1,10 +1,12 @@
 name=fist
 model=null
 damage=10
+range=20
 cooldown=0.2
-reload=1.0
+speed=50
+reload=0.0
 knockback=70.0
-clip=12
+clip=-1
 auto=0
 fire_snd=rifle_shot.wav
 reload_snd=rifle_reload.wav

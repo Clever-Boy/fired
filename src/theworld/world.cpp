@@ -54,8 +54,14 @@ void fired::World::update() {
 	checkShots();
 
 	for (unsigned int i = 0; i < creatures.size(); creatures[i++]->update());
-	for (unsigned int i = 0; i < shots.size();     shots[i++]->update()    );
 
+	for (unsigned int i = 0; i < shots.size();) {
+		if (!shots[i]->update()) {
+			delete shots[i];
+			shots.erase(shots.begin() + i);
+		} else
+			i++;
+	}
 
 	for (unsigned int i = 0; i < particles.size();) {
 		if (!particles[i]->update()) {

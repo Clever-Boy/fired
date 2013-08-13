@@ -1,7 +1,9 @@
 name=rifle
 model=rifle
 damage=10
-cooldown=0.05
+range=400
+cooldown=0.2
+speed=900
 reload=1.7
 knockback=100.0
 clip=30

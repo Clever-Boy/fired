@@ -13,7 +13,9 @@ fired::BaseWeapon::~BaseWeapon() {
 
 fired::Weapon::Weapon(fired::BaseWeapon *_weapon) {
 	damage      = _weapon->damage;
+	range       = _weapon->range;
 	cooldown    = _weapon->cooldown;
+	speed       = _weapon->speed;
 	reload      = _weapon->reload;
 	knockback   = _weapon->knockback;
 	clip        = _weapon->clip;

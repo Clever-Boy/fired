@@ -284,6 +284,13 @@ int fired::Character::getDamage() {
 //======================================================================
 
 
+float fired::Character::getRange() {
+	return weapon->range;
+}
+
+//======================================================================
+
+
 float fired::Character::getKnockback() {
 	return weapon->knockback;
 }
@@ -334,7 +341,7 @@ void fired::Character::shot() {
 	weaponCooldown = weapon->cooldown;
 	weapon->shotSound->play();
 	weapon->wasShot = true;
-	world->addShot(phys.center, aiming, 1000, this);
+	world->addShot(phys.center, aiming, weapon->speed, this);
 
 	if (weapon->ammo == 0) reload();
 }

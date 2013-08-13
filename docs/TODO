@@ -541,7 +541,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="yes" collapse="yes">
+	<todo done="no" collapse="yes">
 		<title>Animation</title>
 		<text>
 </text>
@@ -700,13 +700,8 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
-			<title>Add melee weapon animation</title>
-			<text>
-</text>
-		</todo>
 	</todo>
-	<todo done="yes" collapse="yes">
+	<todo done="yes" collapse="no">
 		<title>Character</title>
 		<text>
 </text>
@@ -782,6 +777,21 @@
 		</todo>
 		<todo done="yes" collapse="no">
 			<title>Add player respawn</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add weapon shot range</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add special sprites to shots</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add shot speed</title>
 			<text>
 </text>
 		</todo>
@@ -871,7 +881,12 @@
 </text>
 		</todo>
 		<todo done="no" collapse="no">
-			<title>Add melee damage</title>
+			<title>Add contact damage</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add undamageble player state</title>
 			<text>
 </text>
 		</todo>

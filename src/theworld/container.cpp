@@ -48,7 +48,9 @@ void fired::Container::loadWeapon(const char* filename) {
 	fscanf(fp, "name=%s\n"      , weapons.back()->name);
 	fscanf(fp, "model=%s\n"     , weapons.back()->model);
 	fscanf(fp, "damage=%u\n"    , &weapons.back()->damage);
+	fscanf(fp, "range=%f\n"     , &weapons.back()->range);
 	fscanf(fp, "cooldown=%f\n"  , &weapons.back()->cooldown);
+	fscanf(fp, "speed=%f\n"     , &weapons.back()->speed);
 	fscanf(fp, "reload=%f\n"    , &weapons.back()->reload);
 	fscanf(fp, "knockback=%f\n" , &weapons.back()->knockback);
 	fscanf(fp, "clip=%u\n"      , &weapons.back()->clip);

@@ -13,6 +13,8 @@ namespace fired {
 		int   damage;
 		int   clip;
 		float cooldown;
+		float range;
+		float speed;
 		float reload;
 		float knockback;
 		int   automatic;
@@ -28,6 +30,8 @@ namespace fired {
 	struct Weapon {
 		float damage;
 		float cooldown;
+		float range;
+		float speed;
 		float reload;
 		float knockback;
 		int   ammo;

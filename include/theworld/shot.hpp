@@ -13,6 +13,7 @@ namespace fired {
 		float        angle;
 		int          damage;
 		float        knockback;
+		float        leftToFly;
 
 		sf::VertexArray  line;
 		fired::Character *owner;
@@ -21,7 +22,7 @@ namespace fired {
 		 Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner);
 		~Shot();
 
-		void update();
+		bool update();
 		void render();
 	};
 }

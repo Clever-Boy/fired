@@ -1,7 +1,9 @@
 name=pistol
 model=pistol
 damage=10
+range=200
 cooldown=0.2
+speed=650
 reload=1.0
 knockback=40.0
 clip=12

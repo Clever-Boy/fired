@@ -541,7 +541,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="no">
+	<todo done="no" collapse="yes">
 		<title>Animation</title>
 		<text>
 </text>
@@ -805,6 +805,16 @@
 			<text>
 </text>
 		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add melee weapons</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add melee attacks</title>
+			<text>
+</text>
+		</todo>
 	</todo>
 	<todo done="yes" collapse="yes">
 		<title>Creatures</title>
@@ -887,16 +897,6 @@
 		</todo>
 		<todo done="yes" collapse="no">
 			<title>Add knockback</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add contact damage</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add undamageble player state</title>
 			<text>
 </text>
 		</todo>

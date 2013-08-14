@@ -6,17 +6,23 @@
 #include "prototypes.hpp"
 
 
+#define WEAPON_TYPE_RANGED 1
+#define WEAPON_TYPE_MELEE  2
+#define WEAPON_TYPE_BROAD  3
+
+
 namespace fired {
 	struct BaseWeapon {
 		char  name[32];
 		char  model[32];
-		int   damage;
-		int   clip;
 		float cooldown;
 		float range;
 		float speed;
 		float reload;
 		float knockback;
+		int   damage;
+		int   type;
+		int   clip;
 		int   automatic;
 
 		sf::SoundBuffer *shotBuffer;
@@ -34,6 +40,7 @@ namespace fired {
 		float speed;
 		float reload;
 		float knockback;
+		int   type;
 		int   ammo;
 		int   clip;
 		int   automatic;

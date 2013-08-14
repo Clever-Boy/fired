@@ -19,6 +19,7 @@ fired::Weapon::Weapon(fired::BaseWeapon *_weapon) {
 	reload      = _weapon->reload;
 	knockback   = _weapon->knockback;
 	clip        = _weapon->clip;
+	type        = _weapon->type;
 	automatic   = _weapon->automatic;
 
 	shotSound = new sf::Sound();

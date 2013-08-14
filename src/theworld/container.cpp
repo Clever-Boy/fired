@@ -40,6 +40,7 @@ void fired::Container::loadWeapons() {
 
 
 void fired::Container::loadWeapon(const char* filename) {
+	char type[16];
 	char sndfile[128];
 	char sndpath[128];
 	weapons.push_back(new fired::BaseWeapon);
@@ -50,23 +51,30 @@ void fired::Container::loadWeapon(const char* filename) {
 	fscanf(fp, "damage=%u\n"    , &weapons.back()->damage);
 	fscanf(fp, "range=%f\n"     , &weapons.back()->range);
 	fscanf(fp, "cooldown=%f\n"  , &weapons.back()->cooldown);
-	fscanf(fp, "speed=%f\n"     , &weapons.back()->speed);
-	fscanf(fp, "reload=%f\n"    , &weapons.back()->reload);
 	fscanf(fp, "knockback=%f\n" , &weapons.back()->knockback);
-	fscanf(fp, "clip=%u\n"      , &weapons.back()->clip);
 	fscanf(fp, "auto=%u\n"      , &weapons.back()->automatic);
+	fscanf(fp, "type=%s\n"      , type);
 
+	if (!strcmp(type, "melee")) {
+		weapons.back()->type = WEAPON_TYPE_MELEE;
+		weapons.back()->clip = -1;
+	} else if (!strcmp(type, "ranged")) {
+		weapons.back()->type = WEAPON_TYPE_RANGED;
+		fscanf(fp, "speed=%f\n"     , &weapons.back()->speed);
+		fscanf(fp, "reload=%f\n"    , &weapons.back()->reload);
+		fscanf(fp, "clip=%u\n"      , &weapons.back()->clip);
 
-	fscanf(fp, "fire_snd=%s\n"  , sndfile);
-	snprintf(sndpath, sizeof(sndpath), "data/snd/weapons/%s", sndfile);
-	weapons.back()->shotBuffer = new sf::SoundBuffer();
-	weapons.back()->shotBuffer->loadFromFile(sndpath);
+		fscanf(fp, "fire_snd=%s\n"  , sndfile);
+		snprintf(sndpath, sizeof(sndpath), "data/snd/weapons/%s", sndfile);
+		weapons.back()->shotBuffer = new sf::SoundBuffer();
+		weapons.back()->shotBuffer->loadFromFile(sndpath);
 
+		fscanf(fp, "reload_snd=%s\n", sndfile);
+		snprintf(sndpath, sizeof(sndpath), "data/snd/weapons/%s", sndfile);
+		weapons.back()->reloadBuffer = new sf::SoundBuffer();
+		weapons.back()->reloadBuffer->loadFromFile(sndpath);
+	}
 
-	fscanf(fp, "reload_snd=%s\n", sndfile);
-	snprintf(sndpath, sizeof(sndpath), "data/snd/weapons/%s", sndfile);
-	weapons.back()->reloadBuffer = new sf::SoundBuffer();
-	weapons.back()->reloadBuffer->loadFromFile(sndpath);
 	fclose(fp);
 }
 

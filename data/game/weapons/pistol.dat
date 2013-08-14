@@ -3,11 +3,12 @@ model=pistol
 damage=10
 range=200
 cooldown=0.2
+knockback=40.0
+auto=0
+type=ranged
 speed=650
 reload=1.0
-knockback=40.0
 clip=12
-auto=0
 fire_snd=rifle_shot.wav
 reload_snd=rifle_reload.wav
 

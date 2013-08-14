@@ -339,9 +339,12 @@ void fired::Character::shot() {
 	if (weapon->ammo > 0) weapon->ammo--;
 
 	weaponCooldown = weapon->cooldown;
-	weapon->shotSound->play();
 	weapon->wasShot = true;
-	world->addShot(phys.center, aiming, weapon->speed, this);
+
+	if (weapon->type == WEAPON_TYPE_RANGED) {
+		weapon->shotSound->play();
+		world->addShot(phys.center, aiming, weapon->speed, this);
+	}
 
 	if (weapon->ammo == 0) reload();
 }

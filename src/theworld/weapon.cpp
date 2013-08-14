@@ -4,8 +4,10 @@
 
 
 fired::BaseWeapon::~BaseWeapon() {
-	delete shotBuffer;
-	delete reloadBuffer;
+	if (type == WEAPON_TYPE_RANGED) {
+		delete shotBuffer;
+		delete reloadBuffer;
+	}
 }
 
 //======================================================================
@@ -22,13 +24,15 @@ fired::Weapon::Weapon(fired::BaseWeapon *_weapon) {
 	type        = _weapon->type;
 	automatic   = _weapon->automatic;
 
-	shotSound = new sf::Sound();
-	shotSound->setBuffer(*_weapon->shotBuffer);
-	shotSound->setVolume(settings->volume.sound);
+	if (type == WEAPON_TYPE_RANGED) {
+		shotSound = new sf::Sound();
+		shotSound->setBuffer(*_weapon->shotBuffer);
+		shotSound->setVolume(settings->volume.sound);
 
-	reloadSound = new sf::Sound();
-	reloadSound->setBuffer(*_weapon->reloadBuffer);
-	reloadSound->setVolume(settings->volume.sound);
+		reloadSound = new sf::Sound();
+		reloadSound->setBuffer(*_weapon->reloadBuffer);
+		reloadSound->setVolume(settings->volume.sound);
+	}
 
 	ammo        = clip;
 	wasShot     = false;
@@ -38,6 +42,8 @@ fired::Weapon::Weapon(fired::BaseWeapon *_weapon) {
 
 
 fired::Weapon::~Weapon() {
-	delete reloadSound;
-	delete shotSound;
+	if (type == WEAPON_TYPE_RANGED) {
+		delete reloadSound;
+		delete shotSound;
+	}
 }

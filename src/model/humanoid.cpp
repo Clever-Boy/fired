@@ -39,11 +39,17 @@ void fired::ModelHumanoid::update() {
 		}
 	} else {
 		bodyAnimation = caNone;
-		armsAnimation = caNone;
+		if (armsAnimation == caShooting) armsAnimation = caNone;
 
 		if (owner->phys.isMoving)  bodyAnimation = caMoving;
 		if (!owner->phys.onGround) bodyAnimation = caJumping;
-		if (owner->isShooting)     armsAnimation = caShooting;
+
+		if (owner->isShooting) {
+			if (owner->weapon->type == WEAPON_TYPE_RANGED) armsAnimation = caShooting;
+			if (owner->weapon->type == WEAPON_TYPE_MELEE)  armsAnimation = caMeleeAttack;
+			if (owner->weapon->type == WEAPON_TYPE_BROAD)  armsAnimation = caBroadAttack;
+		}
+
 		if (owner->isReloading)    armsAnimation = caReloading;
 	}
 

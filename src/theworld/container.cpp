@@ -58,6 +58,9 @@ void fired::Container::loadWeapon(const char* filename) {
 	if (!strcmp(type, "melee")) {
 		weapons.back()->type = WEAPON_TYPE_MELEE;
 		weapons.back()->clip = -1;
+	} else if (!strcmp(type, "broad")) {
+		weapons.back()->type = WEAPON_TYPE_BROAD;
+		weapons.back()->clip = -1;
 	} else if (!strcmp(type, "ranged")) {
 		weapons.back()->type = WEAPON_TYPE_RANGED;
 		fscanf(fp, "speed=%f\n"     , &weapons.back()->speed);

@@ -332,8 +332,12 @@ void fired::Character::reload() {
 
 
 void fired::Character::shot() {
-	isShooting = true;
+	if (weaponCooldown > 0) {
+		if (weapon->type == WEAPON_TYPE_RANGED) isShooting = true;
+		return;
+	}
 
+	isShooting = true;
 	if (weaponCooldown > 0) return;
 	if (!weapon->automatic && weapon->wasShot) return;
 	if (weapon->ammo > 0) weapon->ammo--;

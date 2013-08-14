@@ -7,13 +7,18 @@
 #include "bodypart.hpp"
 
 
+#define BROAD_ATTACK_TIME 0.25f
+
+
 namespace fired {
 	enum CharAnimationType {
 		caNone,
 		caMoving,
 		caJumping,
 		caShooting,
-		caReloading
+		caReloading,
+		caMeleeAttack,
+		caBroadAttack
 	};
 
 

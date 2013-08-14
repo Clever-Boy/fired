@@ -106,6 +106,8 @@ void fired::ModelHumanoid::processBodyAnimation() {
 		case caNone:
 		case caShooting:
 		case caReloading:
+		case caMeleeAttack:
+		case caBroadAttack:
 			bodyAnimationTime = 0.0;
 			break;
 
@@ -146,11 +148,12 @@ void fired::ModelHumanoid::processArmsAnimation() {
 		case caJumping:
 		case caMoving:
 			armsAnimationTime = 0.0f;
-
 			switch (bodyAnimation) {
 				case caNone:
 				case caShooting:
 				case caReloading:
+				case caMeleeAttack:
+				case caBroadAttack:
 					partWeapon.animRotation = 90;
 					break;
 
@@ -213,6 +216,48 @@ void fired::ModelHumanoid::processArmsAnimation() {
 
 			partFistF.animRotation = -90.0;
 			partFistB.animRotation = -90.0;
+			break;
+
+
+		case caMeleeAttack:
+			if (armsAnimationTime < 0.2) {
+				armsAnimationTime += frameClock;
+
+				partArms.animRotation = -90 + owner->aiming * 180 / 3.14;
+				if (*partArms.direction < 0) partArms.animRotation = -partArms.animRotation;
+
+				partFistF.animRotation = partArms.animRotation;
+				partFistF.animOffset = sf::Vector2f(0.0, -8.0) + sf::Vector2f(8.0 * cos(owner->aiming), 8.0 * sin(owner->aiming));
+				partFistB.animOffset = sf::Vector2f(-5.0, 0.0);
+
+				if (*partFistF.direction < 0) {
+					partFistF.animOffset.x = -partFistF.animOffset.x;
+				}
+
+				partWeapon.animOffset = sf::Vector2f(0.0, -12.0) + sf::Vector2f(12.0 * cos(owner->aiming), 12.0 * sin(owner->aiming));
+				partWeapon.animRotation = owner->aiming * 180 / 3.14;
+
+				if (*partWeapon.direction < 0) {
+					partWeapon.animRotation = 180 - partWeapon.animRotation;
+					partWeapon.animOffset.x = -partWeapon.animOffset.x;
+				}
+			} else armsAnimation = caNone;
+			break;
+
+
+		case caBroadAttack:
+			if (armsAnimationTime < BROAD_ATTACK_TIME) {
+				armsAnimationTime += frameClock;
+
+				partArms.animRotation = (armsAnimationTime / BROAD_ATTACK_TIME - 1.0f) * 180;
+
+				partFistF.animRotation = partArms.animRotation;
+				partFistF.animOffset = sf::Vector2f(0.0, -8.0) + sf::Vector2f(8.0 * cos(3.14 * (armsAnimationTime / BROAD_ATTACK_TIME - 1.0f) + 1.57), 8.0 * sin(3.14 * (armsAnimationTime / BROAD_ATTACK_TIME - 1.0f) + 1.57));
+				partFistB.animOffset = sf::Vector2f(-5.0, 0.0);
+
+				partWeapon.animOffset = sf::Vector2f(0.0, -12.0) + sf::Vector2f(12.0 * cos(3.14 * (armsAnimationTime / BROAD_ATTACK_TIME - 1.0f) + 1.57), 12.0 * sin(3.14 * (armsAnimationTime / BROAD_ATTACK_TIME - 1.0f) + 1.57));
+				partWeapon.animRotation = partArms.animRotation + 90;
+			} else armsAnimation = caNone;
 			break;
 	}
 }

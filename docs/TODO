@@ -705,18 +705,18 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add melee attack animation</title>
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add melee broad attack animation</title>
 			<text>
 </text>
 		</todo>
 	</todo>
-	<todo done="yes" collapse="yes">
+	<todo done="yes" collapse="no">
 		<title>Character</title>
 		<text>
 </text>

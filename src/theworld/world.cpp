@@ -140,6 +140,13 @@ void fired::World::checkShots() {
 
 		i++;
 	}
+
+
+	for (unsigned int i = 0; i < meleeShots.size(); i++)
+		for (unsigned int j = 0; j < chars.size(); j++)
+			chars[j]->checkMeleeShot(meleeShots[i]);
+
+	meleeShots.clear();
 }
 
 //======================================================================

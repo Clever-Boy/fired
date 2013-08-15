@@ -205,6 +205,32 @@ bool fired::Character::checkShot(fired::Shot *shot) {
 //======================================================================
 
 
+void fired::Character::checkMeleeShot(fired::MeleeShot *shot) {
+	if (dead) return;
+	sf::Vector2f c;
+
+	if (phys.rect.intersects(shot->shot)) {
+		if (world->isCharExists(shot->owner)) if (!isEnemy(shot->owner->getFraction())) return;
+
+		if (phys.head.intersects(shot->shot)) {
+			c = rectCenter(phys.head);
+			phys.velocity -= shot->normal * shot->knockback * 1.5f;
+			world->addBloodSplash(c, shot->normal * 200.0f, 30);
+			damage(shot->damage * 1.5, true, c, shot->knockback * 1.5f);
+		} else {
+			c = rectCenter(phys.rect);
+			phys.velocity -= shot->normal * shot->knockback;
+			world->addBloodSplash(c, shot->normal * 200.0f, 20);
+			damage(shot->damage, false, c, shot->knockback);
+		}
+
+		if (world->isCharExists(shot->owner)) if (dead) shot->owner->gainXP(baseStats.maxHP);
+	}
+}
+
+//======================================================================
+
+
 float fired::Character::getHpPercent() {
 	if (baseStats.HP > 0) return (float)baseStats.HP / (float)baseStats.maxHP;
 	return 0.0f;

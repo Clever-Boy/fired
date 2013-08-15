@@ -44,3 +44,22 @@ void fired::Shot::render() {
 	line[1].position = pos - velocity * frameClock;
 	app->draw(line);
 }
+
+//======================================================================
+
+
+fired::MeleeShot::MeleeShot(sf::FloatRect _shot, sf::Vector2f _normal, fired::Character *_owner) {
+	shot      = _shot;
+	owner     = _owner;
+	normal    = _normal;
+	damage    = owner->getDamage();
+	knockback = owner->getKnockback();
+}
+
+//======================================================================
+
+
+fired::MeleeShot::~MeleeShot() {
+	return;
+}
+

@@ -25,6 +25,20 @@ namespace fired {
 		bool update();
 		void render();
 	};
+
+
+	struct MeleeShot {
+		sf::FloatRect shot;
+		sf::Vector2f  normal;
+		int           damage;
+		float         knockback;
+
+		fired::Character *owner;
+
+
+		 MeleeShot(sf::FloatRect _shot, sf::Vector2f _normal, fired::Character *_owner);
+		~MeleeShot();
+	};
 }
 
 #endif

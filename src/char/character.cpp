@@ -373,7 +373,7 @@ void fired::Character::shot() {
 
 	if (weapon->type == WEAPON_TYPE_RANGED) {
 		weapon->shotSound->play();
-		world->addShot(phys.center, aiming, weapon->speed, this);
+		world->addShot(phys.center, aiming, weapon->speed, this, weapon->shotSprite);
 	} else if (weapon->type == WEAPON_TYPE_MELEE) {
 		world->addMeleeShot(phys.rect, sf::Vector2f(cos(aiming), sin(aiming)), this);
 	} else if (weapon->type == WEAPON_TYPE_BROAD) {

@@ -44,7 +44,7 @@ namespace fired {
 		bool isSolidPixel(sf::Vector2f pixel) {return map->isSolid(pixel.x / TILE_SIZE, pixel.y / TILE_SIZE); };
 		bool isCharExists(fired::Character *character);
 
-		void addShot(sf::Vector2f pos, float angle, float speed, fired::Character *owner);
+		void addShot(sf::Vector2f pos, float angle, float speed, fired::Character *owner, sf::Sprite *sprite);
 		void addMeleeShot(sf::FloatRect _shot, sf::Vector2f _normal, fired::Character *_owner);
 		void addText(sf::Vector2f pos, sf::Color color, int size, const char *text);
 		void addBulletSplash(sf::Vector2f pos, sf::Vector2f direction);

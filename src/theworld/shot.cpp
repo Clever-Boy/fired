@@ -3,10 +3,11 @@
 //======================================================================
 
 
-fired::Shot::Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner) {
+fired::Shot::Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner, sf::Sprite *_sprite) {
 	pos       = _pos;
 	owner     = _owner;
 	angle     = _angle;
+	sprite    = _sprite;
 	damage    = owner->getDamage();
 	knockback = owner->getKnockback();
 	leftToFly = owner->getRange();
@@ -40,9 +41,15 @@ bool fired::Shot::update() {
 
 
 void fired::Shot::render() {
-	line[0].position = pos;
-	line[1].position = pos - velocity * frameClock;
-	app->draw(line);
+	if (sprite != NULL) {
+		sprite->setRotation(angle * 180 / 3.14);
+		sprite->setPosition(pos);
+		app->draw(*sprite);
+	} else {
+		line[0].position = pos;
+		line[1].position = pos - velocity * frameClock;
+		app->draw(line);
+	}
 }
 
 //======================================================================

@@ -1,4 +1,4 @@
-name=rifle
+name=plasmagun
 model=rifle
 damage=10
 range=400
@@ -11,4 +11,4 @@ reload=1.7
 clip=30
 fire_snd=rifle_shot.wav
 reload_snd=rifle_reload.wav
-sprite=null
+sprite=plasma

@@ -15,11 +15,12 @@ namespace fired {
 		float        knockback;
 		float        leftToFly;
 
-		sf::VertexArray  line;
+		sf::VertexArray   line;
+		sf::Sprite       *sprite;
 		fired::Character *owner;
 
 
-		 Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner);
+		 Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner, sf::Sprite *_sprite);
 		~Shot();
 
 		bool update();

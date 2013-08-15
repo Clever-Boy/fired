@@ -25,6 +25,7 @@ namespace fired {
 		int   clip;
 		int   automatic;
 
+		sf::Sprite      *shotSprite;
 		sf::SoundBuffer *shotBuffer;
 		sf::SoundBuffer *reloadBuffer;
 
@@ -47,8 +48,9 @@ namespace fired {
 
 		bool  wasShot;
 
-		sf::Sound *shotSound;
-		sf::Sound *reloadSound;
+		sf::Sprite *shotSprite;
+		sf::Sound  *shotSound;
+		sf::Sound  *reloadSound;
 
 
 		 Weapon(fired::BaseWeapon *_weapon);

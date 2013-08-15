@@ -32,6 +32,8 @@ fired::Weapon::Weapon(fired::BaseWeapon *_weapon) {
 		reloadSound = new sf::Sound();
 		reloadSound->setBuffer(*_weapon->reloadBuffer);
 		reloadSound->setVolume(settings->volume.sound);
+
+		shotSprite  = _weapon->shotSprite;
 	}
 
 	ammo        = clip;

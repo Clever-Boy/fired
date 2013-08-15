@@ -198,8 +198,8 @@ void fired::World::addChunk(fired::Bodypart *bodyPart, float scale, sf::Vector2f
 //======================================================================
 
 
-void fired::World::addShot(sf::Vector2f pos, float angle, float speed, fired::Character *owner) {
-	shots.push_back(new fired::Shot(pos, angle, speed, owner));
+void fired::World::addShot(sf::Vector2f pos, float angle, float speed, fired::Character *owner, sf::Sprite *sprite) {
+	shots.push_back(new fired::Shot(pos, angle, speed, owner, sprite));
 }
 
 //======================================================================

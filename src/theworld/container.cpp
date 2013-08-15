@@ -6,8 +6,8 @@
 fired::Container::Container(fired::World *_world) {
 	world    = _world;
 
-	loadWeapons();
 	loadBodyparts();
+	loadWeapons();
 	loadModels();
 	loadCreatures();
 }
@@ -41,8 +41,8 @@ void fired::Container::loadWeapons() {
 
 void fired::Container::loadWeapon(const char* filename) {
 	char type[16];
-	char sndfile[128];
-	char sndpath[128];
+	char file[128];
+	char path[128];
 	weapons.push_back(new fired::BaseWeapon);
 
 	FILE *fp = fopen(filename, "r");
@@ -67,15 +67,19 @@ void fired::Container::loadWeapon(const char* filename) {
 		fscanf(fp, "reload=%f\n"    , &weapons.back()->reload);
 		fscanf(fp, "clip=%u\n"      , &weapons.back()->clip);
 
-		fscanf(fp, "fire_snd=%s\n"  , sndfile);
-		snprintf(sndpath, sizeof(sndpath), "data/snd/weapons/%s", sndfile);
+		fscanf(fp, "fire_snd=%s\n"  , file);
+		snprintf(path, sizeof(path), "data/snd/weapons/%s", file);
 		weapons.back()->shotBuffer = new sf::SoundBuffer();
-		weapons.back()->shotBuffer->loadFromFile(sndpath);
+		weapons.back()->shotBuffer->loadFromFile(path);
 
-		fscanf(fp, "reload_snd=%s\n", sndfile);
-		snprintf(sndpath, sizeof(sndpath), "data/snd/weapons/%s", sndfile);
+		fscanf(fp, "reload_snd=%s\n", file);
+		snprintf(path, sizeof(path), "data/snd/weapons/%s", file);
 		weapons.back()->reloadBuffer = new sf::SoundBuffer();
-		weapons.back()->reloadBuffer->loadFromFile(sndpath);
+		weapons.back()->reloadBuffer->loadFromFile(path);
+
+		fscanf(fp, "sprite=%s\n", path);
+		if (!strcmp(path, "null")) weapons.back()->shotSprite = NULL;
+		else weapons.back()->shotSprite = getBodypart(path, bptShot)->sprite;
 	}
 
 	fclose(fp);
@@ -105,6 +109,7 @@ void fired::Container::loadBodyparts() {
 	loadBodypartsInDir("legsB" , bptLegsB);
 	loadBodypartsInDir("shoeF" , bptShoeF);
 	loadBodypartsInDir("shoeB" , bptShoeB);
+	loadBodypartsInDir("shot"  , bptShot);
 	loadBodypartsInDir("weapon", bptWeapon);
 }
 

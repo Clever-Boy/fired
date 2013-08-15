@@ -205,6 +205,13 @@ void fired::World::addShot(sf::Vector2f pos, float angle, float speed, fired::Ch
 //======================================================================
 
 
+void fired::World::addMeleeShot(sf::FloatRect _shot, sf::Vector2f _normal, fired::Character *_owner) {
+	meleeShots.push_back(new fired::MeleeShot(_shot, _normal, _owner));
+}
+
+//======================================================================
+
+
 void fired::World::addText(sf::Vector2f pos, sf::Color color, int size, const char *text) {
 	texts.push_back(new fired::FlyText(pos, color, size, text));
 }

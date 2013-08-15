@@ -146,7 +146,7 @@ void fired::World::checkShots() {
 		for (unsigned int j = 0; j < chars.size(); j++)
 			chars[j]->checkMeleeShot(meleeShots[i]);
 
-	meleeShots.clear();
+	deleteList(meleeShots);
 }
 
 //======================================================================

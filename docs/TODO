@@ -816,6 +816,11 @@
 </text>
 		</todo>
 		<todo done="no" collapse="no">
+			<title>Add pause before respawn</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
 			<title>Add melee attacks</title>
 			<text>
 </text>
@@ -931,7 +936,7 @@
 </text>
 		</todo>
 		<todo done="no" collapse="no">
-			<title>Warrior AI</title>
+			<title>Melee AI</title>
 			<text>
 </text>
 		</todo>
@@ -942,66 +947,6 @@
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Turrel AI</title>
-			<text>
-</text>
-		</todo>
-	</todo>
-	<todo done="yes" collapse="yes">
-		<title>Inventory</title>
-		<text>
-</text>
-		<todo done="no" collapse="no">
-			<title>Add money</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add collectable items</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add ammo</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add creatures drop</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add InGameMenu</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add CharacterMenu</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add inventory</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add armor</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add crafting recipes</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add QuestItems</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add items bonuses +dmg, +defence, etc.</title>
 			<text>
 </text>
 		</todo>
@@ -1100,8 +1045,68 @@
 			<text>
 </text>
 		</todo>
+	</todo>
+	<todo done="yes" collapse="yes">
+		<title>Inventory</title>
+		<text>
+</text>
+		<todo done="no" collapse="no">
+			<title>Add money</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add collectable items</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add ammo</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add creatures drop</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add InGameMenu</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add CharacterMenu</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add inventory</title>
+			<text>
+</text>
+		</todo>
 		<todo done="no" collapse="no">
 			<title>Add collectors (chests, etc.)</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add equip slots</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add crafting recipes</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add QuestItems</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add items bonuses +dmg, +defence, etc.</title>
 			<text>
 </text>
 		</todo>
@@ -1117,6 +1122,11 @@
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Add some armors</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add rendering armor on model</title>
 			<text>
 </text>
 		</todo>
@@ -1141,12 +1151,12 @@
 </text>
 		</todo>
 		<todo done="no" collapse="no">
-			<title>Blur</title>
+			<title>Add explosive weapon</title>
 			<text>
 </text>
 		</todo>
 		<todo done="no" collapse="no">
-			<title>Day and night</title>
+			<title>Blur</title>
 			<text>
 </text>
 		</todo>
@@ -1157,26 +1167,6 @@
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Fog</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add body parts system</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add char model config</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add char model reading from config</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add rendering armor on model</title>
 			<text>
 </text>
 		</todo>

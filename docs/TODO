@@ -211,7 +211,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="yes" collapse="yes">
 		<title>Game engine</title>
 		<text>
 </text>
@@ -371,7 +371,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="yes" collapse="yes">
 		<title>GUI</title>
 		<text>
 </text>
@@ -431,7 +431,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="yes" collapse="yes">
 		<title>Physics engine</title>
 		<text>
 </text>
@@ -541,7 +541,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="yes" collapse="yes">
 		<title>Animation</title>
 		<text>
 </text>
@@ -916,7 +916,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="yes" collapse="no">
+	<todo done="no" collapse="no">
 		<title>AI</title>
 		<text>
 </text>
@@ -941,17 +941,12 @@
 </text>
 		</todo>
 		<todo done="no" collapse="no">
-			<title>Shooter AI</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Turrel AI</title>
+			<title>Broad AI</title>
 			<text>
 </text>
 		</todo>
 	</todo>
-	<todo done="yes" collapse="yes">
+	<todo done="no" collapse="yes">
 		<title>Map</title>
 		<text>
 </text>
@@ -1046,7 +1041,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="yes" collapse="yes">
+	<todo done="no" collapse="yes">
 		<title>Inventory</title>
 		<text>
 </text>
@@ -1111,7 +1106,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="yes" collapse="yes">
+	<todo done="no" collapse="yes">
 		<title>Advanced</title>
 		<text>
 </text>

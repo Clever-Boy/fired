@@ -253,7 +253,7 @@ void fired::Map::checkPhys(fired::Character *character) {
 	if (velocity == 0.0)
 		frameChunk = frameClock;
 	else
-		frameChunk = PHYS_TUNNEL_CHUNK / velocity;
+		frameChunk = PHYS_TUNNEL_TIME / velocity;
 
 
 	while (frameLeft > 0.0) {

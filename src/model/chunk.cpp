@@ -38,10 +38,9 @@ bool fired::Chunk::update() {
 	if (abs(phys.velocity.x) < PHYS_EPSILON) phys.velocity.x = 0;
 	if (abs(rotationSpeed)   < PHYS_EPSILON) rotationSpeed   = 0;
 
-	phys.pos += phys.velocity * frameClock;
 	rotation += rotationSpeed * frameClock;
-
 	render();
+
 	return true;
 }
 

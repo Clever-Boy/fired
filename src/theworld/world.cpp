@@ -147,6 +147,13 @@ void fired::World::checkShots() {
 			chars[j]->checkMeleeShot(meleeShots[i]);
 
 	deleteList(meleeShots);
+
+
+	for (unsigned int i = 0; i < broadShots.size(); i++)
+		for (unsigned int j = 0; j < chars.size(); j++)
+			chars[j]->checkBroadShot(broadShots[i]);
+
+	deleteList(broadShots);
 }
 
 //======================================================================
@@ -205,8 +212,15 @@ void fired::World::addShot(sf::Vector2f pos, float angle, float speed, fired::Ch
 //======================================================================
 
 
-void fired::World::addMeleeShot(sf::FloatRect _shot, sf::Vector2f _normal, fired::Character *_owner) {
-	meleeShots.push_back(new fired::MeleeShot(_shot, _normal, _owner));
+void fired::World::addBroadShot(sf::FloatRect _shot, sf::Vector2f _normal, fired::Character *_owner) {
+	broadShots.push_back(new fired::BroadShot(_shot, _normal, _owner));
+}
+
+//======================================================================
+
+
+void fired::World::addMeleeShot(sf::Vector2f _pos, sf::Vector2f _direction, fired::Character *_owner) {
+	meleeShots.push_back(new fired::MeleeShot(_pos, _direction, _owner));
 }
 
 //======================================================================

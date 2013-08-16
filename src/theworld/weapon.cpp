@@ -23,6 +23,9 @@ fired::Weapon::Weapon(fired::BaseWeapon *_weapon) {
 	clip        = _weapon->clip;
 	type        = _weapon->type;
 	automatic   = _weapon->automatic;
+	ammo        = clip;
+	wasShot     = false;
+
 
 	if (type == WEAPON_TYPE_RANGED) {
 		shotSound = new sf::Sound();
@@ -34,10 +37,10 @@ fired::Weapon::Weapon(fired::BaseWeapon *_weapon) {
 		reloadSound->setVolume(settings->volume.sound);
 
 		shotSprite  = _weapon->shotSprite;
+	} else {
+		shotSound   = NULL;
+		reloadSound = NULL;
 	}
-
-	ammo        = clip;
-	wasShot     = false;
 }
 
 //======================================================================

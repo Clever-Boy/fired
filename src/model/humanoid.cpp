@@ -171,6 +171,8 @@ void fired::ModelHumanoid::processArmsAnimation() {
 
 					partFistF.animOffset = sf::Vector2f(-3.0, -3.0);
 					partFistB.animOffset = sf::Vector2f(-3.0, -3.0);
+
+					if (owner->weapon->type == WEAPON_TYPE_BROAD) partWeapon.animRotation = -90;
 					break;
 
 				case caMoving:
@@ -182,6 +184,8 @@ void fired::ModelHumanoid::processArmsAnimation() {
 
 					partFistF.animRotation = -90.0;
 					partFistB.animRotation = -90.0;
+
+					if (owner->weapon->type == WEAPON_TYPE_BROAD) partWeapon.animRotation = -90;
 					break;
 			}
 			break;

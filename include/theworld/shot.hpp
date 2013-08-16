@@ -28,7 +28,7 @@ namespace fired {
 	};
 
 
-	struct MeleeShot {
+	struct BroadShot {
 		sf::FloatRect shot;
 		sf::Vector2f  normal;
 		int           damage;
@@ -37,7 +37,21 @@ namespace fired {
 		fired::Character *owner;
 
 
-		 MeleeShot(sf::FloatRect _shot, sf::Vector2f _normal, fired::Character *_owner);
+		 BroadShot(sf::FloatRect _shot, sf::Vector2f _normal, fired::Character *_owner);
+		~BroadShot();
+	};
+
+
+	struct MeleeShot {
+		sf::Vector2f  pos;
+		sf::Vector2f  direction;
+		int           damage;
+		float         knockback;
+
+		fired::Character *owner;
+
+
+		 MeleeShot(sf::Vector2f _pos, sf::Vector2f _direction, fired::Character *_owner);
 		~MeleeShot();
 	};
 }

@@ -205,7 +205,7 @@ bool fired::Character::checkShot(fired::Shot *shot) {
 //======================================================================
 
 
-void fired::Character::checkMeleeShot(fired::MeleeShot *shot) {
+void fired::Character::checkBroadShot(fired::BroadShot *shot) {
 	if (dead) return;
 	sf::Vector2f c;
 
@@ -221,6 +221,33 @@ void fired::Character::checkMeleeShot(fired::MeleeShot *shot) {
 			c = rectCenter(phys.rect);
 			phys.velocity -= shot->normal * shot->knockback;
 			world->addBloodSplash(c, shot->normal * 200.0f, 20);
+			damage(shot->damage, false, c, shot->knockback);
+		}
+
+		if (world->isCharExists(shot->owner)) if (dead) shot->owner->gainXP(baseStats.maxHP);
+	}
+}
+
+//======================================================================
+
+
+void fired::Character::checkMeleeShot(fired::MeleeShot *shot) {
+	if (dead) return;
+
+	sf::FloatRect ray(shot->pos, shot->direction);
+	sf::Vector2f c, n, c2, n2;
+	float dist;
+
+	if (lineBoxCollision(phys.rect, ray, &c, &n, &dist)) {
+		if (world->isCharExists(shot->owner)) if (!isEnemy(shot->owner->getFraction())) return;
+
+		if (lineBoxCollision(phys.head, ray, &c2, &n2, &dist)) {
+			phys.velocity += vNorm(shot->direction) * shot->knockback * 1.5f;
+			world->addBloodSplash(c, n * 200.0f, 30);
+			damage(shot->damage * 1.5, true, c, shot->knockback * 1.5);
+		} else {
+			phys.velocity += vNorm(shot->direction) * shot->knockback;
+			world->addBloodSplash(c, n * 200.0f, 20);
 			damage(shot->damage, false, c, shot->knockback);
 		}
 
@@ -349,7 +376,7 @@ void fired::Character::jump() {
 
 void fired::Character::reload() {
 	if (weapon->ammo == weapon->clip) return;
-	weapon->reloadSound->play();
+	if (weapon->reloadSound) weapon->reloadSound->play();
 	weaponCooldown = weapon->reload;
 	isReloading = true;
 }
@@ -371,13 +398,15 @@ void fired::Character::shot() {
 	weaponCooldown = weapon->cooldown;
 	weapon->wasShot = true;
 
-	if (weapon->type == WEAPON_TYPE_RANGED) {
-		weapon->shotSound->play();
-		world->addShot(phys.center, aiming, weapon->speed, this, weapon->shotSprite);
-	} else if (weapon->type == WEAPON_TYPE_MELEE) {
-		world->addMeleeShot(phys.rect, sf::Vector2f(cos(aiming), sin(aiming)), this);
-	} else if (weapon->type == WEAPON_TYPE_BROAD) {
-		world->addMeleeShot(phys.rect, sf::Vector2f(watching, 0), this);
+	if (weapon->shotSound) weapon->shotSound->play();
+
+	if (weapon->type == WEAPON_TYPE_RANGED)     world->addShot(phys.center, aiming, weapon->speed, this, weapon->shotSprite);
+	else if (weapon->type == WEAPON_TYPE_MELEE) world->addMeleeShot(rectCenter(phys.rect), sf::Vector2f(cos(aiming) * weapon->range, sin(aiming) * weapon->range), this);
+	else if (weapon->type == WEAPON_TYPE_BROAD) {
+		if (watching == 1)
+			world->addBroadShot(sf::FloatRect(phys.pos.x + phys.size.x / 2, phys.pos.y - weapon->range, phys.size.x / 2 + weapon->range, phys.size.y + weapon->range * 2), sf::Vector2f(-watching, 0), this);
+		else
+			world->addBroadShot(sf::FloatRect(phys.pos.x - weapon->range, phys.pos.y - weapon->range, phys.size.x / 2 + weapon->range, phys.size.y + weapon->range * 2), sf::Vector2f(-watching, 0), this);
 	}
 
 	if (weapon->ammo == 0) reload();

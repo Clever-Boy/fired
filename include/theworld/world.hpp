@@ -22,6 +22,7 @@ namespace fired {
 		std::vector<fired::ParticleSystem*> particles;
 		std::vector<fired::Shot*>           shots;
 		std::vector<fired::MeleeShot*>      meleeShots;
+		std::vector<fired::BroadShot*>      broadShots;
 		std::vector<fired::Creature*>       creatures;
 		std::vector<fired::FlyText*>        texts;
 		std::vector<fired::Chunk*>          chunks;
@@ -45,7 +46,9 @@ namespace fired {
 		bool isCharExists(fired::Character *character);
 
 		void addShot(sf::Vector2f pos, float angle, float speed, fired::Character *owner, sf::Sprite *sprite);
-		void addMeleeShot(sf::FloatRect _shot, sf::Vector2f _normal, fired::Character *_owner);
+		void addBroadShot(sf::FloatRect _shot, sf::Vector2f _normal, fired::Character *_owner);
+		void addMeleeShot(sf::Vector2f _pos, sf::Vector2f _direction, fired::Character *_owner);
+
 		void addText(sf::Vector2f pos, sf::Color color, int size, const char *text);
 		void addBulletSplash(sf::Vector2f pos, sf::Vector2f direction);
 		void addBloodSplash(sf::Vector2f pos, sf::Vector2f direction, int bloodCount);

@@ -55,7 +55,7 @@ void fired::Shot::render() {
 //======================================================================
 
 
-fired::MeleeShot::MeleeShot(sf::FloatRect _shot, sf::Vector2f _normal, fired::Character *_owner) {
+fired::BroadShot::BroadShot(sf::FloatRect _shot, sf::Vector2f _normal, fired::Character *_owner) {
 	shot      = _shot;
 	owner     = _owner;
 	normal    = _normal;
@@ -66,7 +66,24 @@ fired::MeleeShot::MeleeShot(sf::FloatRect _shot, sf::Vector2f _normal, fired::Ch
 //======================================================================
 
 
-fired::MeleeShot::~MeleeShot() {
+fired::BroadShot::~BroadShot() {
 	return;
 }
 
+//======================================================================
+
+
+fired::MeleeShot::MeleeShot(sf::Vector2f _pos, sf::Vector2f _direction, fired::Character *_owner) {
+	pos       = _pos;
+	owner     = _owner;
+	direction = _direction;
+	damage    = owner->getDamage();
+	knockback = owner->getKnockback();
+}
+
+//======================================================================
+
+
+fired::MeleeShot::~MeleeShot() {
+	return;
+}

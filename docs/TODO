@@ -716,7 +716,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="yes" collapse="no">
+	<todo done="yes" collapse="yes">
 		<title>Character</title>
 		<text>
 </text>
@@ -815,7 +815,7 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add pause before respawn</title>
 			<text>
 </text>
@@ -916,7 +916,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="yes" collapse="yes">
+	<todo done="yes" collapse="no">
 		<title>AI</title>
 		<text>
 </text>

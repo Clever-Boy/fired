@@ -39,7 +39,7 @@ void fired::ModelHumanoid::update() {
 		}
 	} else {
 		bodyAnimation = caNone;
-		if (armsAnimation == caShooting) armsAnimation = caNone;
+		if (armsAnimation == caShooting || armsAnimation == caReloading) armsAnimation = caNone;
 
 		if (owner->phys.isMoving)  bodyAnimation = caMoving;
 		if (!owner->phys.onGround) bodyAnimation = caJumping;

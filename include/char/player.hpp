@@ -14,10 +14,14 @@ namespace fired {
 #include "stats.hpp"
 
 
+#define PLAYER_RESPAWN_TIME 3.0f
+
+
 namespace fired {
 	class Player {
 	private:
 		sf::Vector2f      startPos;
+		float             deadTime;
 
 		fired::Character *character;
 		fired::Crosshair *crosshair;

@@ -29,6 +29,7 @@ namespace fired {
 		sf::Sprite         *chunk;
 		sf::Texture        *texture;
 		sf::Vector2f        offset;
+		sf::Vector2f        origin;
 		sf::Vector2f        size;
 		sf::Color           color;
 		fired::BodypartType type;

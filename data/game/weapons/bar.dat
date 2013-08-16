@@ -1,0 +1,11 @@
+name=bar
+model=bar
+damage=15
+range=20
+cooldown=0.2
+knockback=170.0
+auto=0
+type=broad
+fire_snd=rifle_shot.wav
+reload_snd=rifle_reload.wav
+

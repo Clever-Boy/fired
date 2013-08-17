@@ -7,10 +7,11 @@
 namespace fired {
 	class MeleeAI : public BaseAI {
 	public:
-		 MeleeAI(fired::Creature *_owner) { owner = _owner; };
+		 MeleeAI(fired::Creature *_owner, fired::World *_world);
 		~MeleeAI() {};
 
 		void update();
+		void selectTarget();
 	};
 }
 #endif

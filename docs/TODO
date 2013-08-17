@@ -1106,10 +1106,15 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="no" collapse="no">
 		<title>Advanced</title>
 		<text>
 </text>
+		<todo done="no" collapse="no">
+			<title>Move data to crypted sqlite db</title>
+			<text>
+</text>
+		</todo>
 		<todo done="no" collapse="no">
 			<title>Add some weapons</title>
 			<text>

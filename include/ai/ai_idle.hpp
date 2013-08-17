@@ -7,10 +7,11 @@
 namespace fired {
 	class IdleAI : public BaseAI {
 	public:
-		 IdleAI(fired::Creature *_owner) { owner = _owner; };
+		 IdleAI(fired::Creature *_owner, fired::World *_world);
 		~IdleAI() {};
 
 		void update();
+		void selectTarget() {};
 	};
 }
 #endif

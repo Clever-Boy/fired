@@ -5,10 +5,10 @@
 #include "char.hpp"
 
 namespace fired {
-	class MeleeAI : public BaseAI {
+	class BasicAI : public BaseAI {
 	public:
-		 MeleeAI(fired::Creature *_owner, fired::World *_world);
-		~MeleeAI() {};
+		 BasicAI(fired::Creature *_owner, fired::World *_world);
+		~BasicAI() {};
 
 		void update();
 		void selectTarget();

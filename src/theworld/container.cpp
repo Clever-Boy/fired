@@ -305,7 +305,7 @@ fired::BaseCreature* fired::Container::getCreature(const char* name) {
 
 fired::BaseAI *fired::Container::getAI(const char *name, fired::Creature *owner) {
 	if (!strcmp(name, "idle")) return new fired::IdleAI(owner, world);
-	if (!strcmp(name, "melee")) return new fired::MeleeAI(owner, world);
+	if (!strcmp(name, "basic")) return new fired::BasicAI(owner, world);
 
 	return new fired::BaseAI();
 }

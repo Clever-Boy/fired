@@ -4,7 +4,7 @@
 //======================================================================
 
 
-fired::MeleeAI::MeleeAI(fired::Creature *_owner, fired::World *_world) {
+fired::BasicAI::BasicAI(fired::Creature *_owner, fired::World *_world) {
 	target = NULL;
 	owner  = _owner;
 	world  = _world;
@@ -13,21 +13,31 @@ fired::MeleeAI::MeleeAI(fired::Creature *_owner, fired::World *_world) {
 //======================================================================
 
 
-void fired::MeleeAI::update() {
+void fired::BasicAI::update() {
 	if (target) if (target->isDead()) target = NULL;
 	if (!target) selectTarget();
 
 	owner->getChar()->setAiming(atan2(target->phys.center.y - owner->getChar()->phys.center.y, 
 	                                  target->phys.center.x - owner->getChar()->phys.center.x));
 
-	if (target->phys.center.x < owner->getChar()->phys.center.x) owner->getChar()->moveLeft();
-	else owner->getChar()->moveRight();
+	if (target->phys.center.x < owner->getChar()->phys.center.x)
+		owner->getChar()->moveLeft();
+	else
+		owner->getChar()->moveRight();
+
+
+	if (target->phys.center.y < owner->getChar()->phys.center.y) owner->getChar()->jump();
+
+	if (vLen(owner->getChar()->phys.center - target->phys.center) < owner->getChar()->phys.size.x / 2 + owner->getChar()->getRange()) {
+		owner->getChar()->shot();
+		owner->getChar()->unshot();
+	}
 }
 
 //======================================================================
 
 
-void fired::MeleeAI::selectTarget() {
+void fired::BasicAI::selectTarget() {
 	float minDist, dist;
 	minDist = -1;
 

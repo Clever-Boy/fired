@@ -916,7 +916,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="no">
+	<todo done="yes" collapse="yes">
 		<title>AI</title>
 		<text>
 </text>
@@ -935,18 +935,13 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
-			<title>Melee AI</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Broad AI</title>
+		<todo done="yes" collapse="no">
+			<title>Basic AI</title>
 			<text>
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="no" collapse="no">
 		<title>Map</title>
 		<text>
 </text>
@@ -1106,7 +1101,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="no">
+	<todo done="no" collapse="yes">
 		<title>Advanced</title>
 		<text>
 </text>

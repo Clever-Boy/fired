@@ -4,6 +4,6 @@
 
 #include "ai/ai_base.hpp"
 #include "ai/ai_idle.hpp"
-#include "ai/ai_melee.hpp"
+#include "ai/ai_basic.hpp"
 
 #endif

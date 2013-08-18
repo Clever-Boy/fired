@@ -17,6 +17,7 @@ namespace fired {
 		std::vector<fired::BaseBodypart*> bodyparts;
 		std::vector<fired::BaseModel*>    models;
 		std::vector<fired::BaseCreature*> creatures;
+		std::vector<fired::BaseDecor*>    decors;
 
 
 	public:
@@ -36,6 +37,10 @@ namespace fired {
 		void loadCreatures();
 		void loadCreature(const char* filename);
 		fired::BaseCreature *getCreature(const char* name);
+
+		void loadDecors();
+		void loadDecor(const char* filename);
+		fired::BaseDecor *getDecor(const char* name);
 
 		void loadBodyparts();
 		void loadBodypartsInDir(const char *dir, fired::BodypartType type);

@@ -1,8 +1,5 @@
-#ifndef __TILE
+#ifndef __DECOR
 #define __DECOR
-
-
-#define TILE_SIZE 16.0
 
 
 #include <SFML/Graphics.hpp>
@@ -12,8 +9,19 @@
 
 namespace fired {
 	struct MapDecor {
-		int ID;
+		char name[16];
 		sf::Vector2f pos;
+	};
+
+
+	struct BaseDecor {
+		char name[16];
+		sf::Texture *tex;
+		sf::Sprite  *spr;
+		sf::Vector2f size;
+
+		 BaseDecor(const char *_name, const char *filename);
+		~BaseDecor();
 	};
 
 
@@ -25,6 +33,8 @@ namespace fired {
 
 
 	public:
+		Decor(fired::BaseDecor *base, sf::Vector2f _pos);
+
 		void render();
 	};
 }

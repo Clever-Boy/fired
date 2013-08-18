@@ -10,6 +10,7 @@ fired::Container::Container(fired::World *_world) {
 	loadWeapons();
 	loadModels();
 	loadCreatures();
+	loadDecors();
 }
 
 //======================================================================
@@ -308,5 +309,48 @@ fired::BaseAI *fired::Container::getAI(const char *name, fired::Creature *owner)
 	if (!strcmp(name, "basic")) return new fired::BasicAI(owner, world);
 
 	return new fired::BaseAI();
+}
+
+//======================================================================
+
+
+void fired::Container::loadDecors() {
+	std::vector<std::string> files;
+	char filename[128];
+
+	directoryContents("data/game/decors", &files);
+	for (unsigned int i = 0; i < files.size(); i++) {
+		snprintf(filename, sizeof(filename), "data/game/decors/%s", files[i].c_str());
+		loadDecor(filename);
+	}
+}
+
+//======================================================================
+
+
+void fired::Container::loadDecor(const char* filename) {
+	char name[16];
+	char imgf[32];
+	char img[128];
+
+	FILE *fp = fopen(filename, "r");
+	fscanf(fp, "name=%s\n"  , name);
+	fscanf(fp, "sprite=%s\n", imgf);
+
+	snprintf(img, sizeof(img), "data/img/world/decors/%s", imgf);
+	decors.push_back(new fired::BaseDecor(name, img));
+
+	fscanf(fp, "size=%f,%f\n", &decors.back()->size.x, &decors.back()->size.y);
+	fclose(fp);
+}
+
+//======================================================================
+
+
+fired::BaseDecor* fired::Container::getDecor(const char* name) {
+	for (unsigned int i = 0; i < decors.size(); i++)
+		if (!strcmp(name, decors[i]->name)) return decors[i];
+
+	return NULL;
 }
 

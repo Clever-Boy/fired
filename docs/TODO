@@ -941,7 +941,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="no">
+	<todo done="yes" collapse="yes">
 		<title>Map</title>
 		<text>
 </text>
@@ -1030,13 +1030,13 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add decorations</title>
 			<text>
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="no" collapse="no">
 		<title>Inventory</title>
 		<text>
 </text>

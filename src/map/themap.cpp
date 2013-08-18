@@ -30,6 +30,7 @@ fired::Map::~Map() {
 
 	delete tiles;
 	delete tileset;
+	deleteList(decors);
 }
 
 //======================================================================
@@ -61,6 +62,9 @@ void fired::Map::render() {
 	for (int i = from.x; i < to.x; i++)
 		for (int j = from.y; j < to.y; j++)
 			tiles[i][j].render();
+
+	for (unsigned int i = 0; i < decors.size(); i++)
+		decors[i]->render();
 }
 
 //======================================================================
@@ -88,10 +92,20 @@ void fired::Map::load(const char* filename) {
 		}
 
 	findTiles(0, 0, sizeX, sizeY);
-
-	fclose(fp);
 	for (int i = 0; i < sizeX; i++) for (int j = 0; j < sizeY; j++)
 		tiles[i][j].setTileset(tileset);
+
+
+	int decorCount;
+	fired::MapDecor decor;
+
+	fread(&decorCount, sizeof(decorCount), 1, fp);
+	for (int i = 0; i < decorCount; i++) {
+		fread(&decor, sizeof(decor), 1, fp);
+		decors.push_back(new fired::Decor(world->getDecor(decor.name), decor.pos));
+	}
+
+	fclose(fp);
 }
 
 //======================================================================
@@ -114,6 +128,15 @@ void fired::Map::save(const char* filename) {
 			tile.isWall  = tiles[i][j].isSolid();
 			fwrite(&tile, sizeof(tile), 1, fp);
 		}
+
+
+	unsigned int decorCount = decors.size();
+	fwrite(&decorCount, sizeof(decorCount), 1, fp);
+
+	for (unsigned int i = 0; i < decorCount; i++) {
+		fired::MapDecor decor(decors[i]->name, decors[i]->pos);
+		fwrite(&decor, sizeof(decor), 1, fp);
+	}
 
 	fclose(fp);
 }

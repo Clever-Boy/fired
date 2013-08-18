@@ -21,6 +21,7 @@ fired::Container::~Container() {
 	deleteList(bodyparts);
 	deleteList(models);
 	deleteList(creatures);
+	deleteList(decors);
 }
 
 //======================================================================

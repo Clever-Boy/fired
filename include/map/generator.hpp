@@ -16,11 +16,14 @@ namespace fired {
 		int sizeX;
 		int sizeY;
 
+		std::vector<fired::MapDecor*> decors;
+
 		void save(const char* filename);
 
 		void genLandscape(int areaStart, int areaEnd, int horizon);
 		void genClear(int xSize, int ySize);
 		void genPlayer();
+		void genDecors();
 
 		void genBar(int x, int startHeight, int endHeight, int tileset, bool isWall);
 		void genFill(int x1, int y1, int x2, int y2, int tileset, bool isWall);

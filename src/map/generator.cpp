@@ -23,6 +23,7 @@ fired::MapGenerator::~MapGenerator() {
 void fired::MapGenerator::generate() {
 	genClear(200, 100);
 	genLandscape(0, sizeX, 40);
+	genDecors();
 	genPlayer();
 
 	save("data/maps/test.map");
@@ -47,6 +48,14 @@ void fired::MapGenerator::save(const char* filename) {
 			fwrite(&tiles[i][j], sizeof(fired::MapTile), 1, fp);
 		}
 
+
+	unsigned int decorCount = decors.size();
+	fwrite(&decorCount, sizeof(decorCount), 1, fp);
+
+	for (unsigned int i = 0; i < decorCount; i++) {
+		fwrite(decors[i], sizeof(fired::MapDecor), 1, fp);
+	}
+
 	fclose(fp);
 }
 
@@ -62,6 +71,7 @@ void fired::MapGenerator::genClear(int xSize, int ySize) {
 		tiles[i] = new fired::MapTile[sizeY];
 
 	genFill(0, 0, sizeX, sizeY, 0, false);
+	decors.clear();
 }
 
 //======================================================================
@@ -99,6 +109,19 @@ void fired::MapGenerator::genLandscape(int areaStart, int areaEnd, int horizon) 
 	genFill(144, horizon - 12, 156, horizon - 11, 3, true);
 	genFill(146, horizon - 13, 154, horizon - 12, 3, true);
 	genFill(148, horizon - 14, 152, horizon - 13, 3, true);
+}
+
+//======================================================================
+
+
+void fired::MapGenerator::genDecors() {
+	decors.push_back(new fired::MapDecor("box", sf::Vector2f(1900, 608)));
+	decors.push_back(new fired::MapDecor("box", sf::Vector2f(1932, 608)));
+	decors.push_back(new fired::MapDecor("box", sf::Vector2f(1916, 576)));
+
+	decors.push_back(new fired::MapDecor("barrel", sf::Vector2f(2288, 608)));
+	decors.push_back(new fired::MapDecor("barrel", sf::Vector2f(2368, 608)));
+	decors.push_back(new fired::MapDecor("barrel", sf::Vector2f(2400, 608)));
 }
 
 //======================================================================

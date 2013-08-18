@@ -19,8 +19,12 @@ namespace fired {
 		fired::Tileset *tileset;
 		fired::Tile   **tiles;
 
+		std::vector<fired::Decor*> decors;
+
+
 		sf::Texture        *bgTex;
 		sf::RectangleShape *bgSprite;
+
 
 		sf::Vector2i        visibleTiles;
 		sf::Vector2i        mapSize;

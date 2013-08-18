@@ -11,6 +11,10 @@ namespace fired {
 	struct MapDecor {
 		char name[16];
 		sf::Vector2f pos;
+
+
+		MapDecor() {};
+		MapDecor(const char *_name, sf::Vector2f _pos);
 	};
 
 
@@ -20,21 +24,20 @@ namespace fired {
 		sf::Sprite  *spr;
 		sf::Vector2f size;
 
+
 		 BaseDecor(const char *_name, const char *filename);
 		~BaseDecor();
 	};
 
 
-	class Decor {
-	private:
+	struct Decor {
+		char name[16];
 		sf::Vector2f pos;
 		sf::Sprite  *sprite;
 		sf::Color    color;
 
 
-	public:
 		Decor(fired::BaseDecor *base, sf::Vector2f _pos);
-
 		void render();
 	};
 }

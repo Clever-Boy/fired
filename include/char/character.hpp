@@ -16,6 +16,7 @@ namespace fired {
 #include "stats.hpp"
 #include "phys.hpp"
 #include "model.hpp"
+#include "inventory.hpp"
 #include "theworld.hpp"
 
 #define FIRED_FRACTION_PLAYER  1
@@ -35,6 +36,7 @@ namespace fired {
 		fired::CharacterStats  baseStats;
 		fired::Weapon         *weapon;
 		fired::Model          *model;
+		fired::Inventory      *inventory;
 
 		bool  dead;
 		bool  isShooting;

@@ -1051,6 +1051,16 @@
 </text>
 		</todo>
 		<todo done="no" collapse="no">
+			<title>Add inventory slots</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add inventory item class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
 			<title>Add collectable items class</title>
 			<text>
 </text>

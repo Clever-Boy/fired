@@ -24,6 +24,7 @@
 #include "theworld.hpp"
 #include "misc.hpp"
 #include "ai.hpp"
+#include "sqlite.hpp"
 
 
 namespace fired {

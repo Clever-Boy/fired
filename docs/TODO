@@ -1110,6 +1110,11 @@
 		<title>Advanced</title>
 		<text>
 </text>
+		<todo done="yes" collapse="no">
+			<title>Add crypto API for sqlite</title>
+			<text>
+</text>
+		</todo>
 		<todo done="no" collapse="no">
 			<title>Move data to sqlite db</title>
 			<text>

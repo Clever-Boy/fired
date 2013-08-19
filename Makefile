@@ -18,7 +18,7 @@ export MAKESUB=$(MAKE) -j8 -C $$$$dir -f $(PWD)/Makefile.sub
 export PROJECT_DIR="$(PWD)"
 export INCLUDE_DIR="$(PWD)/include"
 
-export LDFLAGS=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lm -lstdc++
+export LDFLAGS=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lm -lstdc++ -lsqlite3
 export CFLAGS=-I$(INCLUDE_DIR)                           \
               -I$(INCLUDE_DIR)/meta                      \
               -I$(INCLUDE_DIR)/common                    \

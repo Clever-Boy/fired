@@ -3,15 +3,27 @@
 
 
 namespace fired {
-	struct BaseInventoryItem {
+	struct InventoryItem {
 		char        name[32];
 		sf::Sprite *sprite;
 
 
-		 BaseInventoryItem() {};
-		~BaseInventoryItem() {};
+		 InventoryItem() {};
+		~InventoryItem() {};
 
 		void render(sf::Vector2f pos);
+	};
+
+
+	struct CollectableItem {
+		fired::InventoryItem *item;
+		fired::Phys           phys;
+
+
+		 CollectableItem() {};
+		~CollectableItem() {};
+
+		void render();
 	};
 }
 

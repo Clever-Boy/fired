@@ -9,12 +9,15 @@ namespace fired {
 	struct Inventory {
 		fired::Character *owner;
 
-		fired::BaseInventoryItem *items[10][5];
+		fired::InventoryItem *items[10][5];
 		unsigned long credits;
 
 
 		 Inventory(fired::Character *_owner);
 		~Inventory() {};
+
+		void pickup(fired::CollectableItem *item);
+		bool canPickup();
 	};
 }
 

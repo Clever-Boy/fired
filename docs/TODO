@@ -1050,13 +1050,13 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
-			<title>Add inventory slots</title>
+		<todo done="yes" collapse="no">
+			<title>Add inventory item class</title>
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
-			<title>Add inventory item class</title>
+		<todo done="yes" collapse="no">
+			<title>Add inventory slots</title>
 			<text>
 </text>
 		</todo>

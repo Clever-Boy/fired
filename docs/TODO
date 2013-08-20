@@ -1066,17 +1066,32 @@
 </text>
 		</todo>
 		<todo done="no" collapse="no">
+			<title>Add items container</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add money item</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add weapon item</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add ammo item</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
 			<title>Add collectable items rendering</title>
 			<text>
 </text>
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Add picking collectable items</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add ammo</title>
 			<text>
 </text>
 		</todo>
@@ -1146,21 +1161,6 @@
 </text>
 		</todo>
 		<todo done="no" collapse="no">
-			<title>Add crafting recipes</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add quests</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add QuestItems</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
 			<title>Add primary skills (Strength, Agility, Accuracy etc.)</title>
 			<text>
 </text>
@@ -1200,8 +1200,53 @@
 			<text>
 </text>
 		</todo>
+	</todo>
+	<todo done="yes" collapse="no">
+		<title>----------------------------------</title>
+		<text>
+</text>
+	</todo>
+	<todo done="no" collapse="yes">
+		<title>Release Alpha</title>
+		<text>
+</text>
 		<todo done="no" collapse="no">
-			<title>Add Trigger–Action system</title>
+			<title>Add player home</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add main quest NPC</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add quests</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add quest world generation</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add quest items</title>
+			<text>
+</text>
+		</todo>
+	</todo>
+	<todo done="no" collapse="yes">
+		<title>Release Beta</title>
+		<text>
+</text>
+		<todo done="no" collapse="no">
+			<title>Fix game balance</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Fix alpha bugs</title>
 			<text>
 </text>
 		</todo>

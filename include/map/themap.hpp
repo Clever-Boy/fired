@@ -52,7 +52,7 @@ namespace fired {
 
 		void checkPhys(fired::Character *character);
 		bool checkShot(fired::Shot *shot);
-		void checkChunkPhys(fired::Chunk *chunk);
+		void checkChunkPhys(fired::Phys *phys);
 
 		bool isSolid(int i, int j);
 		sf::Vector2i getSize() { return mapSize; };

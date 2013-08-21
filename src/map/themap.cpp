@@ -319,8 +319,7 @@ void fired::Map::checkPhys(fired::Character *character) {
 //======================================================================
 
 
-void fired::Map::checkChunkPhys(fired::Chunk *chunk) {
-	fired::Phys *phys = &chunk->phys;
+void fired::Map::checkChunkPhys(fired::Phys *phys) {
 	int i, j;
 
 	phys->onGround = false;

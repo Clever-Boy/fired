@@ -75,7 +75,7 @@ void fired::World::update() {
 			delete chunks[i];
 			chunks.erase(chunks.begin() + i);
 		} else {
-			map->checkChunkPhys(chunks[i]);
+			map->checkChunkPhys(&chunks[i]->phys);
 			i++;
 		}
 
@@ -88,17 +88,25 @@ void fired::World::update() {
 			i++;
 	}
 
-	for (unsigned int i = 0; i < items.size(); items[i++]->render());
-	for (unsigned int i = 0; i < chars.size(); i++) {
-		if (!chars[i]->canPickup()) continue;
 
-		for (unsigned int j = 0; j < items.size();)
-			if (chars[i]->phys.rect.intersects(items[i]->phys.rect)) {
-				chars[i]->pickup(items[i]);
+	for (unsigned int i = 0; i < items.size(); i++) {
+		map->checkChunkPhys(&items[i]->phys);
+		items[i]->render();
+
+		for (unsigned int j = 0; j < chars.size(); j++) {
+			if ( chars[j]->isDead()) continue;
+			if (!chars[j]->canPickup()) continue;
+
+			if (chars[j]->phys.rect.intersects(items[i]->phys.rect)) {
+				printf("Collecting\n");
+				chars[j]->pickup(items[i]);
+
 				delete items[i];
 				items.erase(items.begin() + i);
-			} else
-				j++;
+				i++;
+				break;
+			}
+		}
 	}
 
 

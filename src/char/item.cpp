@@ -13,7 +13,7 @@ fired::InventoryItem::InventoryItem(fired::ItemType _type, unsigned int _count, 
 
 	switch (type) {
 		case itMoney:
-			sprite = NULL;
+			sprite = world->getSprite("coin");
 			break;
 
 		case itWeapon:

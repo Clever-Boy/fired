@@ -1070,7 +1070,7 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add money item</title>
 			<text>
 </text>

@@ -61,6 +61,7 @@ namespace fired {
 		fired::BaseCreature *getCreature(const char *name) {return container->getCreature(name); };
 		fired::BaseAI       *getAI(const char *name, fired::Creature* owner) {return container->getAI(name, owner); };
 		fired::BaseDecor    *getDecor(const char *name) {return container->getDecor(name); };
+		sf::Sprite          *getSprite(const char *name) {return container->getSprite(name); };
 	};
 }
 

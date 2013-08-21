@@ -10,10 +10,10 @@ namespace fired {
 		fired::Character *owner;
 
 		fired::InventoryItem *items[10][5];
-		unsigned long credits;
+		fired::InventoryItem *credits;
 
 
-		 Inventory(fired::Character *_owner);
+		 Inventory(fired::Character *_owner, fired::World *world);
 		~Inventory() {};
 
 		void pickup(fired::CollectableItem *item);

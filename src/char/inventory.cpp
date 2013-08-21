@@ -4,9 +4,9 @@
 //======================================================================
 
 
-fired::Inventory::Inventory(fired::Character *_owner) {
+fired::Inventory::Inventory(fired::Character *_owner, fired::World *world) {
 	owner   = _owner;
-	credits = 0;
+	credits = new fired::InventoryItem(itMoney, 0, "credits", world);
 
 	for (int i = 0; i < 10; i++)
 		for (int j = 0; j < 5; j++)
@@ -18,8 +18,9 @@ fired::Inventory::Inventory(fired::Character *_owner) {
 
 void fired::Inventory::pickup(fired::CollectableItem *item) {
 	if (item->item->type == itMoney) {
-		credits += item->item->count;
+		credits->count += item->item->count;
 		delete item->item;
+		printf("Credits: %u\n", credits->count);
 		return;
 	}
 

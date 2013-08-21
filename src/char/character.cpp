@@ -24,7 +24,7 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 	if (!strcmp(base->fraction, "player"))  fraction = FIRED_FRACTION_PLAYER;
 	if (!strcmp(base->fraction, "soldier")) fraction = FIRED_FRACTION_SOLDIER;
 
-	inventory = new fired::Inventory(this);
+	inventory = new fired::Inventory(this, world);
 
 	respawn(_startpos);
 	setWeapon(world->getWeapon(base->weapon));

@@ -6,6 +6,7 @@
 fired::Container::Container(fired::World *_world) {
 	world    = _world;
 
+	loadSprites();
 	loadBodyparts();
 	loadWeapons();
 	loadModels();
@@ -22,6 +23,7 @@ fired::Container::~Container() {
 	deleteList(models);
 	deleteList(creatures);
 	deleteList(decors);
+	deleteList(sprites);
 }
 
 //======================================================================
@@ -355,3 +357,41 @@ fired::BaseDecor* fired::Container::getDecor(const char* name) {
 	return NULL;
 }
 
+//======================================================================
+
+
+void fired::Container::loadSprites() {
+	std::vector<std::string> files;
+	char filename[128];
+
+	directoryContents("data/game/sprites", &files);
+	for (unsigned int i = 0; i < files.size(); i++) {
+		snprintf(filename, sizeof(filename), "data/game/sprites/%s", files[i].c_str());
+		loadWeapon(filename);
+	}
+}
+
+//======================================================================
+
+
+void fired::Container::loadSprite(const char* filename) {
+	char name[32];
+	char file[128];
+
+	FILE *fp = fopen(filename, "r");
+	fscanf(fp, "name=%s\n"  , name);
+	fscanf(fp, "sprite=%s\n", file);
+	fclose(fp);
+
+	sprites.push_back(new fired::GameSprite(name, file));
+}
+
+//======================================================================
+
+
+sf::Sprite* fired::Container::getSprite(const char* name) {
+	for (unsigned int i = 0; i < sprites.size(); i++)
+		if (!strcmp(name, sprites[i]->name)) return sprites[i]->spr;
+
+	return NULL;
+}

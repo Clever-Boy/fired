@@ -1090,6 +1090,11 @@
 			<text>
 </text>
 		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add container with sprites</title>
+			<text>
+</text>
+		</todo>
 		<todo done="no" collapse="no">
 			<title>Add creatures generating inventory</title>
 			<text>

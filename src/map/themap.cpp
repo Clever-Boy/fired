@@ -14,6 +14,7 @@ fired::Map::Map(fired::Camera *_cam, fired::World *_world) {
 	bgTex->loadFromFile("data/img/world/bg/sky.jpg");
 	bgSprite->setTexture(bgTex);
 	bgTex->setRepeated(true);
+	bgTex->setSmooth(true);
 	bgSprite->setSize(sf::Vector2f(settings->window.width, settings->window.height));
 
 	visibleTiles.x = settings->window.width  / TILE_SIZE + 2;

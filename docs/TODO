@@ -1075,7 +1075,7 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add increment count instead of duplicating</title>
 			<text>
 </text>

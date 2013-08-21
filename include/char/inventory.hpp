@@ -17,7 +17,7 @@ namespace fired {
 		~Inventory() {};
 
 		void pickup(fired::CollectableItem *item);
-		bool canPickup();
+		bool canPickup(fired::CollectableItem *item);
 	};
 }
 

@@ -95,10 +95,9 @@ void fired::World::update() {
 
 		for (unsigned int j = 0; j < chars.size(); j++) {
 			if ( chars[j]->isDead()) continue;
-			if (!chars[j]->canPickup()) continue;
+			if (!chars[j]->canPickup(items[i])) continue;
 
 			if (chars[j]->phys.rect.intersects(items[i]->phys.rect)) {
-				printf("Collecting\n");
 				chars[j]->pickup(items[i]);
 
 				delete items[i];

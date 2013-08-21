@@ -17,7 +17,7 @@ namespace fired {
 		sf::Sprite     *sprite;
 
 
-		 InventoryItem(fired::ItemType _type, unsigned int _count, const char *_name);
+		 InventoryItem(fired::ItemType _type, unsigned int _count, const char *_name, fired::World *world);
 		~InventoryItem() {};
 
 		void render(sf::Vector2f pos);

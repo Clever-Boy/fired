@@ -4,18 +4,30 @@
 //======================================================================
 
 
-fired::InventoryItem::InventoryItem(fired::ItemType _type, unsigned int _count, const char *_name) {
+fired::InventoryItem::InventoryItem(fired::ItemType _type, unsigned int _count, const char *_name, fired::World *world) {
 	strncpy(name   , _name, sizeof(name));
 	strncpy(caption, _name, sizeof(caption));
 
 	count = _count;
 	type  = _type;
+
+	switch (type) {
+		case itMoney:
+			sprite = NULL;
+			break;
+
+		case itWeapon:
+			sprite = world->getBodypart(world->getWeapon(name)->model, bptWeapon)->chunk;
+			break;
+	}
 }
 
 //======================================================================
 
 
 void fired::InventoryItem::render(sf::Vector2f pos) {
+	if (sprite == NULL) return;
+
 	sprite->setPosition(pos);
 	app->draw(*sprite);
 }

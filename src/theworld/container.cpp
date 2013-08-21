@@ -83,7 +83,7 @@ void fired::Container::loadWeapon(const char* filename) {
 
 		fscanf(fp, "sprite=%s\n", path);
 		if (!strcmp(path, "null")) weapons.back()->shotSprite = NULL;
-		else weapons.back()->shotSprite = getBodypart(path, bptShot)->sprite;
+		else weapons.back()->shotSprite = getSprite(path);
 	}
 
 	fclose(fp);
@@ -113,7 +113,6 @@ void fired::Container::loadBodyparts() {
 	loadBodypartsInDir("legsB" , bptLegsB);
 	loadBodypartsInDir("shoeF" , bptShoeF);
 	loadBodypartsInDir("shoeB" , bptShoeB);
-	loadBodypartsInDir("shot"  , bptShot);
 	loadBodypartsInDir("weapon", bptWeapon);
 }
 
@@ -367,7 +366,7 @@ void fired::Container::loadSprites() {
 	directoryContents("data/game/sprites", &files);
 	for (unsigned int i = 0; i < files.size(); i++) {
 		snprintf(filename, sizeof(filename), "data/game/sprites/%s", files[i].c_str());
-		loadWeapon(filename);
+		loadSprite(filename);
 	}
 }
 
@@ -377,13 +376,15 @@ void fired::Container::loadSprites() {
 void fired::Container::loadSprite(const char* filename) {
 	char name[32];
 	char file[128];
+	char path[128];
 
 	FILE *fp = fopen(filename, "r");
 	fscanf(fp, "name=%s\n"  , name);
 	fscanf(fp, "sprite=%s\n", file);
 	fclose(fp);
 
-	sprites.push_back(new fired::GameSprite(name, file));
+	snprintf(path, sizeof(path), "data/img/world/sprites/%s", file);
+	sprites.push_back(new fired::GameSprite(name, path));
 }
 
 //======================================================================

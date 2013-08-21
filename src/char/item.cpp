@@ -12,6 +12,13 @@ void fired::InventoryItem::render(sf::Vector2f pos) {
 //======================================================================
 
 
+fired::CollectableItem::CollectableItem() {
+	return;
+}
+
+//======================================================================
+
+
 void fired::CollectableItem::render() {
 	item->sprite->setPosition(phys.pos);
 	app->draw(*item->sprite);

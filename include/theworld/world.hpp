@@ -19,13 +19,14 @@ namespace fired {
 		fired::GUI       *gui;
 		fired::Container *container;
 
-		std::vector<fired::ParticleSystem*> particles;
-		std::vector<fired::Shot*>           shots;
-		std::vector<fired::MeleeShot*>      meleeShots;
-		std::vector<fired::BroadShot*>      broadShots;
-		std::vector<fired::Creature*>       creatures;
-		std::vector<fired::FlyText*>        texts;
-		std::vector<fired::Chunk*>          chunks;
+		std::vector<fired::ParticleSystem*>  particles;
+		std::vector<fired::Shot*>            shots;
+		std::vector<fired::MeleeShot*>       meleeShots;
+		std::vector<fired::BroadShot*>       broadShots;
+		std::vector<fired::Creature*>        creatures;
+		std::vector<fired::FlyText*>         texts;
+		std::vector<fired::Chunk*>           chunks;
+		std::vector<fired::CollectableItem*> items;
 
 
 	public:

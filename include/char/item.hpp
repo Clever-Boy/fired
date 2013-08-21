@@ -3,9 +3,17 @@
 
 
 namespace fired {
+	enum ItemType {
+		itMoney,
+		itWeapon
+	};
+
+
 	struct InventoryItem {
-		char        name[32];
-		sf::Sprite *sprite;
+		fired::ItemType type;
+		char            name[32];
+		unsigned int    count;
+		sf::Sprite     *sprite;
 
 
 		 InventoryItem() {};
@@ -20,7 +28,7 @@ namespace fired {
 		fired::Phys           phys;
 
 
-		 CollectableItem() {};
+		 CollectableItem();
 		~CollectableItem() {};
 
 		void render();

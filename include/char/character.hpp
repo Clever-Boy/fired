@@ -99,6 +99,9 @@ namespace fired {
 		bool  isEnemy(int _fraction);
 		float getKnockback();
 		bool  isDead()   {return dead; };
+
+		void pickup(fired::CollectableItem *item) {inventory->pickup(item);};
+		bool canPickup()                          {return inventory->canPickup();};
 	};
 }
 

@@ -1066,7 +1066,7 @@
 </text>
 		</todo>
 		<todo done="no" collapse="no">
-			<title>Add items container</title>
+			<title>Add weapon item</title>
 			<text>
 </text>
 		</todo>
@@ -1075,22 +1075,12 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
-			<title>Add weapon item</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add ammo item</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add collectable items rendering</title>
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add picking collectable items</title>
 			<text>
 </text>

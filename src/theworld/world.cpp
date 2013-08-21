@@ -49,7 +49,6 @@ void fired::World::update() {
 	cam->update();
 	map->update();
 	player->update();
-	gui->update();
 
 	checkShots();
 
@@ -89,6 +88,20 @@ void fired::World::update() {
 			i++;
 	}
 
+	for (unsigned int i = 0; i < items.size(); items[i++]->render());
+	for (unsigned int i = 0; i < chars.size(); i++) {
+		if (!chars[i]->canPickup()) continue;
+
+		for (unsigned int j = 0; j < items.size();)
+			if (chars[i]->phys.rect.intersects(items[i]->phys.rect)) {
+				chars[i]->pickup(items[i]);
+				delete items[i];
+				items.erase(items.begin() + i);
+			} else
+				j++;
+	}
+
+
 	for (unsigned int i = 0; i < creatures.size();) {
 		if (creatures[i]->getChar()->isDead()) {
 			for (unsigned int j = 0; j < chars.size(); j++)
@@ -103,6 +116,8 @@ void fired::World::update() {
 		} else
 			i++;
 	}
+
+	gui->update();
 }
 
 //======================================================================

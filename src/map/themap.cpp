@@ -221,6 +221,7 @@ void fired::Map::checkCollision(fired::Phys *phys, fired::Character *character, 
 
 
 void fired::Map::checkPhys(fired::Phys *phys, fired::Character *character) {
+	if (character) if (character->isDead()) return;
 	int i, j;
 
 	phys->onGround = false;

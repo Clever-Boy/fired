@@ -12,11 +12,12 @@ namespace fired {
 	struct InventoryItem {
 		fired::ItemType type;
 		char            name[32];
+		char            caption[32];
 		unsigned int    count;
 		sf::Sprite     *sprite;
 
 
-		 InventoryItem() {};
+		 InventoryItem(fired::ItemType _type, unsigned int _count, const char *_name);
 		~InventoryItem() {};
 
 		void render(sf::Vector2f pos);
@@ -28,7 +29,7 @@ namespace fired {
 		fired::Phys           phys;
 
 
-		 CollectableItem();
+		 CollectableItem(fired::InventoryItem *_item, sf::Vector2f pos, sf::Vector2f velocity);
 		~CollectableItem() {};
 
 		void render();

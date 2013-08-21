@@ -46,8 +46,6 @@ fired::World::~World() {
 
 
 void fired::World::update() {
-	checkControls();
-
 	cam->update();
 	map->update();
 	player->update();
@@ -135,9 +133,9 @@ void fired::World::checkCreatures() {
 
 
 void fired::World::checkPhys() {
-	for (unsigned int i = 0; i < chars.size(); map->checkPhys(chars[i++]));
-	for (unsigned int i = 0; i < chunks.size(); map->checkChunkPhys(&chunks[i++]->phys));
-	for (unsigned int i = 0; i < items.size(); map->checkChunkPhys(&items[i++]->phys));
+	for (unsigned int i = 0; i < chars.size() ; map->checkPhys(&chars[i]->phys, chars[i]), i++);
+	for (unsigned int i = 0; i < chunks.size(); map->checkPhys(&chunks[i++]->phys, NULL));
+	for (unsigned int i = 0; i < items.size() ; map->checkPhys(&items[i++]->phys, NULL));
 }
 
 //======================================================================

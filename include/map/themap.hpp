@@ -44,18 +44,15 @@ namespace fired {
 		void load(const char* filename);
 		void save(const char* filename);
 
-		void findTiles(int x1, int y1, int x2, int y2);
-		void findTile(int i, int j);
-
-		void checkCollision(fired::Character *character, int tile_x, int tile_y);
-		void checkPhysCollision(fired::Phys *phys, int tile_x, int tile_y);
-
-		void checkPhys(fired::Character *character);
-		bool checkShot(fired::Shot *shot);
-		void checkChunkPhys(fired::Phys *phys);
-
 		bool isSolid(int i, int j);
-		sf::Vector2i getSize() { return mapSize; };
+		void findTile(int i, int j);
+		void findTiles(int x1, int y1, int x2, int y2) {for (int i = x1; i < x2; i++) for (int j = y1; j < y2; j++) findTile(i, j); };
+
+		void checkCollision(fired::Phys *phys, fired::Character *character, int tile_x, int tile_y);
+		void checkPhys(fired::Phys *phys, fired::Character *character);
+		bool checkShot(fired::Shot *shot);
+
+		sf::Vector2i getSize()     { return mapSize; };
 		sf::Vector2f getStartPos() { return startPos; };
 	};
 }

@@ -145,9 +145,13 @@ void fired::Map::save(const char* filename) {
 //======================================================================
 
 
-void fired::Map::findTiles(int x1, int y1, int x2, int y2) {
-	for (int i = x1; i < x2; i++) for (int j = y1; j < y2; j++) 
-		findTile(i, j);
+bool fired::Map::isSolid(int i, int j) {
+	if (i < 0)      return true;
+	if (i >= sizeX) return true;
+	if (j < 0)      return true;
+	if (j >= sizeY) return true;
+
+	return tiles[i][j].isSolid();
 }
 
 //======================================================================
@@ -183,15 +187,14 @@ void fired::Map::findTile(int i, int j) {
 //======================================================================
 
 
-void fired::Map::checkCollision(fired::Character *character, int tile_x, int tile_y) {
-	fired::Phys *phys = &character->phys;
+void fired::Map::checkCollision(fired::Phys *phys, fired::Character *character, int tile_x, int tile_y) {
 	sf::FloatRect intersection;
 
 	if (phys->rect.intersects(sf::FloatRect(tile_x * TILE_SIZE, tile_y * TILE_SIZE, TILE_SIZE, TILE_SIZE), intersection)) {
 		if (intersection.width > intersection.height) {
 			if (phys->pos.y < tile_y * TILE_SIZE) {
 				phys->pos.y -= intersection.height;
-				if (phys->velocity.y > PHYS_SAFE_FALL) character->damage((phys->velocity.y - PHYS_SAFE_FALL) / 10.0f, false, sf::Vector2f(phys->size.x / 2, phys->size.y), 100.0);
+				if (character) if (phys->velocity.y > PHYS_SAFE_FALL) character->damage((phys->velocity.y - PHYS_SAFE_FALL) / 10.0f, false, sf::Vector2f(phys->size.x / 2, phys->size.y), 100.0);
 				if (phys->velocity.y > 0.0) phys->velocity.y = 0.0;
 				phys->onGround = true;
 			} else {
@@ -217,52 +220,7 @@ void fired::Map::checkCollision(fired::Character *character, int tile_x, int til
 //======================================================================
 
 
-void fired::Map::checkPhysCollision(fired::Phys *phys, int tile_x, int tile_y) {
-	sf::FloatRect intersection;
-
-	if (phys->rect.intersects(sf::FloatRect(tile_x * TILE_SIZE, tile_y * TILE_SIZE, TILE_SIZE, TILE_SIZE), intersection)) {
-		if (intersection.width > intersection.height) {
-			if (phys->pos.y < tile_y * TILE_SIZE) {
-				phys->pos.y -= intersection.height;
-				if (phys->velocity.y > 0.0) phys->velocity.y = 0.0;
-				phys->onGround = true;
-			} else {
-				phys->pos.y += intersection.height;
-				if (phys->velocity.y < 0.0) phys->velocity.y = 0.0;
-			}
-		} else {
-			if (phys->pos.x < tile_x * TILE_SIZE) {
-				phys->pos.x -= intersection.width;
-				if (phys->velocity.x > 0.0) phys->velocity.x = 0.0;
-				phys->isMoving = false;
-			} else {
-				phys->pos.x += intersection.width;
-				if (phys->velocity.x < 0.0) phys->velocity.x = 0.0;
-				phys->isMoving = false;
-			}
-		}
-
-		phys->calculate();
-	}
-}
-
-//======================================================================
-
-
-bool fired::Map::isSolid(int i, int j) {
-	if (i < 0)      return true;
-	if (i >= sizeX) return true;
-	if (j < 0)      return true;
-	if (j >= sizeY) return true;
-
-	return tiles[i][j].isSolid();
-}
-
-//======================================================================
-
-
-void fired::Map::checkPhys(fired::Character *character) {
-	fired::Phys *phys = &character->phys;
+void fired::Map::checkPhys(fired::Phys *phys, fired::Character *character) {
 	int i, j;
 
 	phys->onGround = false;
@@ -292,83 +250,25 @@ void fired::Map::checkPhys(fired::Character *character) {
 
 
 		for (i = tiles_from.x + 1; i <= tiles_to.x - 1; i++) {
-			if (isSolid(i, tiles_from.y)) checkCollision(character, i, tiles_from.y);
-			if (isSolid(i, tiles_to.y  )) checkCollision(character, i, tiles_to.y);
+			if (isSolid(i, tiles_from.y)) checkCollision(phys, character, i, tiles_from.y);
+			if (isSolid(i, tiles_to.y  )) checkCollision(phys, character, i, tiles_to.y  );
 		}
 
 		for (j = tiles_from.y + 1; j <= tiles_to.y - 1; j++) {
-			if (isSolid(tiles_from.x, j)) checkCollision(character, tiles_from.x, j);
-			if (isSolid(tiles_to.x  , j)) checkCollision(character, tiles_to.x, j);
+			if (isSolid(tiles_from.x, j)) checkCollision(phys, character, tiles_from.x, j);
+			if (isSolid(tiles_to.x  , j)) checkCollision(phys, character, tiles_to.x  , j);
 		}
 
 		if (phys->velocity.x > 0) {
-			if (isSolid(tiles_from.x, tiles_from.y)) checkCollision(character, tiles_from.x, tiles_from.y);
-			if (isSolid(tiles_from.x, tiles_to.y  )) checkCollision(character, tiles_from.x, tiles_to.y  );
-			if (isSolid(tiles_to.x  , tiles_from.y)) checkCollision(character, tiles_to.x  , tiles_from.y);
-			if (isSolid(tiles_to.x  , tiles_to.y  )) checkCollision(character, tiles_to.x  , tiles_to.y  );
+			if (isSolid(tiles_from.x, tiles_from.y)) checkCollision(phys, character, tiles_from.x, tiles_from.y);
+			if (isSolid(tiles_from.x, tiles_to.y  )) checkCollision(phys, character, tiles_from.x, tiles_to.y  );
+			if (isSolid(tiles_to.x  , tiles_from.y)) checkCollision(phys, character, tiles_to.x  , tiles_from.y);
+			if (isSolid(tiles_to.x  , tiles_to.y  )) checkCollision(phys, character, tiles_to.x  , tiles_to.y  );
 		} else {
-			if (isSolid(tiles_to.x  , tiles_from.y)) checkCollision(character, tiles_to.x  , tiles_from.y);
-			if (isSolid(tiles_to.x  , tiles_to.y  )) checkCollision(character, tiles_to.x  , tiles_to.y  );
-			if (isSolid(tiles_from.x, tiles_from.y)) checkCollision(character, tiles_from.x, tiles_from.y);
-			if (isSolid(tiles_from.x, tiles_to.y  )) checkCollision(character, tiles_from.x, tiles_to.y  );
-		}
-
-		frameLeft -= frameChunk;
-	}
-}
-
-//======================================================================
-
-
-void fired::Map::checkChunkPhys(fired::Phys *phys) {
-	int i, j;
-
-	phys->onGround = false;
-
-	if (phys->velocity.x > PHYS_MAX_FALL) phys->velocity.x = PHYS_MAX_FALL;
-	if (phys->velocity.y > PHYS_MAX_FALL) phys->velocity.y = PHYS_MAX_FALL;
-
-	float frameLeft = frameClock;
-	float frameChunk;
-	float velocity = vLen(phys->velocity + phys->acceleration * frameClock);
-
-	if (velocity == 0.0)
-		frameChunk = frameClock;
-	else
-		frameChunk = PHYS_TUNNEL_CHUNK / velocity;
-
-
-	while (frameLeft > 0.0) {
-		if (frameChunk > frameLeft) frameChunk = frameLeft;
-
-		phys->velocity += phys->acceleration * frameChunk;
-		phys->pos += phys->velocity * frameChunk;
-		phys->calculate();
-
-		sf::Vector2i  tiles_from(floor(phys->pos.x / TILE_SIZE), floor(phys->pos.y / TILE_SIZE));
-		sf::Vector2i  tiles_to(floor((phys->pos.x + phys->size.x) / TILE_SIZE), floor((phys->pos.y + phys->size.y) / TILE_SIZE));
-
-
-		for (i = tiles_from.x + 1; i <= tiles_to.x - 1; i++) {
-			if (isSolid(i, tiles_from.y)) checkPhysCollision(phys, i, tiles_from.y);
-			if (isSolid(i, tiles_to.y  )) checkPhysCollision(phys, i, tiles_to.y);
-		}
-
-		for (j = tiles_from.y + 1; j <= tiles_to.y - 1; j++) {
-			if (isSolid(tiles_from.x, j)) checkPhysCollision(phys, tiles_from.x, j);
-			if (isSolid(tiles_to.x  , j)) checkPhysCollision(phys, tiles_to.x, j);
-		}
-
-		if (phys->velocity.x > 0) {
-			if (isSolid(tiles_from.x, tiles_from.y)) checkPhysCollision(phys, tiles_from.x, tiles_from.y);
-			if (isSolid(tiles_from.x, tiles_to.y  )) checkPhysCollision(phys, tiles_from.x, tiles_to.y  );
-			if (isSolid(tiles_to.x  , tiles_from.y)) checkPhysCollision(phys, tiles_to.x  , tiles_from.y);
-			if (isSolid(tiles_to.x  , tiles_to.y  )) checkPhysCollision(phys, tiles_to.x  , tiles_to.y  );
-		} else {
-			if (isSolid(tiles_to.x  , tiles_from.y)) checkPhysCollision(phys, tiles_to.x  , tiles_from.y);
-			if (isSolid(tiles_to.x  , tiles_to.y  )) checkPhysCollision(phys, tiles_to.x  , tiles_to.y  );
-			if (isSolid(tiles_from.x, tiles_from.y)) checkPhysCollision(phys, tiles_from.x, tiles_from.y);
-			if (isSolid(tiles_from.x, tiles_to.y  )) checkPhysCollision(phys, tiles_from.x, tiles_to.y  );
+			if (isSolid(tiles_to.x  , tiles_from.y)) checkCollision(phys, character, tiles_to.x  , tiles_from.y);
+			if (isSolid(tiles_to.x  , tiles_to.y  )) checkCollision(phys, character, tiles_to.x  , tiles_to.y  );
+			if (isSolid(tiles_from.x, tiles_from.y)) checkCollision(phys, character, tiles_from.x, tiles_from.y);
+			if (isSolid(tiles_from.x, tiles_to.y  )) checkCollision(phys, character, tiles_from.x, tiles_to.y  );
 		}
 
 		frameLeft -= frameChunk;

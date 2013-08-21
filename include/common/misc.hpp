@@ -7,6 +7,7 @@
 
 
 #define deleteList(list) for (; !(list).empty(); delete (list)[(list).size() - 1], (list).pop_back())
+#define updateList(list) for (unsigned int i = 0; i < (list).size();) { if (!(list)[i]->update()) {delete (list)[i]; (list).erase((list).begin() + i);} else i++;}
 
 
 #define NUMDIM	2

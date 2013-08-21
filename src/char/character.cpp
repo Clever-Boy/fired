@@ -72,7 +72,6 @@ void fired::Character::respawn(sf::Vector2f pos) {
 
 void fired::Character::update() {
 	move();
-	world->checkPhys(this);
 
 	model->update();
 	if (phys.rect.intersects(cam->getViewport())) model->render();

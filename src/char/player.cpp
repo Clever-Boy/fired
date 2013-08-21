@@ -33,6 +33,7 @@ void fired::Player::update() {
 		}
 	}
 
+	checkControls();
 	character->setAiming(crosshair->getAngle());
 
 	character->update();

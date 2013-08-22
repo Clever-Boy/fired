@@ -12,6 +12,16 @@ namespace fired {
 	};
 
 
+	struct LootItem {
+		fired::ItemType type;
+		char            name[32];
+
+		unsigned int    minCount;
+		unsigned int    maxCount;
+		float           probability;
+	};
+
+
 	struct InventoryItem {
 		fired::ItemType type;
 		char            name[32];

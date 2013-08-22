@@ -1095,6 +1095,21 @@
 			<text>
 </text>
 		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add loot generator struct</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add loot loading in base creatures</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add loot generating</title>
+			<text>
+</text>
+		</todo>
 		<todo done="no" collapse="no">
 			<title>Add creatures generating inventory</title>
 			<text>
@@ -1122,11 +1137,6 @@
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Add equip slots</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add items bonuses +dmg, +defence, etc.</title>
 			<text>
 </text>
 		</todo>
@@ -1197,6 +1207,16 @@
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Fog</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add weather</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add items bonuses +dmg, +defence, etc.</title>
 			<text>
 </text>
 		</todo>

@@ -147,10 +147,10 @@ void fired::World::checkItems() {
 
 		for (unsigned int j = 0; j < chars.size(); j++) {
 			if ( chars[j]->isDead()) continue;
-			if (!chars[j]->canPickup(items[i])) continue;
+			if (!chars[j]->canPickup(items[i]->item)) continue;
 
 			if (chars[j]->phys.rect.intersects(items[i]->phys.rect)) {
-				chars[j]->pickup(items[i]);
+				chars[j]->pickup(items[i]->item);
 
 				delete items[i];
 				items.erase(items.begin() + i);

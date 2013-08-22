@@ -100,8 +100,8 @@ namespace fired {
 		float getKnockback();
 		bool  isDead()   {return dead; };
 
-		void pickup(fired::CollectableItem *item)    {inventory->pickup(item);};
-		bool canPickup(fired::CollectableItem *item) {return inventory->canPickup(item);};
+		void pickup(fired::InventoryItem *item)    {inventory->pickup(item);};
+		bool canPickup(fired::InventoryItem *item) {return inventory->canPickup(item);};
 	};
 }
 

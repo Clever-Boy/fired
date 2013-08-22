@@ -2,6 +2,7 @@
 #define __INVENTORY
 
 
+#include <stdlib.h>
 #include "item.hpp"
 
 
@@ -16,9 +17,10 @@ namespace fired {
 		 Inventory(fired::Character *_owner, fired::World *world);
 		~Inventory() {};
 
-		void pickup(fired::CollectableItem *item);
-		bool canPickup(fired::CollectableItem *item);
+		void pickup(fired::InventoryItem *item);
+		bool canPickup(fired::InventoryItem *item);
 		void dropAll(fired::World *world);
+		void generateLoot(std::vector<fired::LootItem*> *_items, fired::World *world);
 	};
 }
 

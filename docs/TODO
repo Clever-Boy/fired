@@ -1100,7 +1100,7 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add loot loading in base creatures</title>
 			<text>
 </text>
@@ -1221,13 +1221,8 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="yes" collapse="no">
-		<title>----------------------------------</title>
-		<text>
-</text>
-	</todo>
 	<todo done="no" collapse="yes">
-		<title>Release Alpha</title>
+		<title>--- Release Alpha</title>
 		<text>
 </text>
 		<todo done="no" collapse="no">
@@ -1257,7 +1252,7 @@
 		</todo>
 	</todo>
 	<todo done="no" collapse="yes">
-		<title>Release Beta</title>
+		<title>--- Release Beta</title>
 		<text>
 </text>
 		<todo done="no" collapse="no">

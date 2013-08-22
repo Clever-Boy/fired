@@ -89,10 +89,11 @@ void fired::Inventory::generateLoot(std::vector<fired::LootItem*> *_items, fired
 
 	for (unsigned int i = 0; i < _items->size(); i++) {
 		lootItem = (*_items)[i];
-
 		if (((random() % 100) / 100.0f) > lootItem->probability) continue;
+
 		count = lootItem->minCount + (random() % (lootItem->maxCount - lootItem->minCount + 1));
 		item = new fired::InventoryItem(lootItem->type, count, lootItem->name, world);
+
 		if (canPickup(item)) pickup(item);
 		else delete item;
 	}

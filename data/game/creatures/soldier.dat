@@ -9,4 +9,5 @@ accel=800.0
 jump=520.0
 aimrange=100.0
 maxHP=50
-
+loot=money,credits,10,20,1.0
+loot=weapon,pistol,1,1,0.5

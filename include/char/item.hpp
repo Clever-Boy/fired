@@ -19,6 +19,9 @@ namespace fired {
 		unsigned int    minCount;
 		unsigned int    maxCount;
 		float           probability;
+
+
+		LootItem(fired::ItemType _type, const char *_name, unsigned int _minCount, unsigned int _maxCount, float _probability);
 	};
 
 

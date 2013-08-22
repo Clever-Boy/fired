@@ -276,6 +276,14 @@ void fired::Container::loadCreatures() {
 
 
 void fired::Container::loadCreature(const char* filename) {
+	fired::ItemType type;
+	char            strtype[32];
+	char            name[32];
+	unsigned int    minCount;
+	unsigned int    maxCount;
+	float           probability;
+
+
 	creatures.push_back(new fired::BaseCreature);
 	creatures.back()->loot.clear();
 
@@ -291,6 +299,14 @@ void fired::Container::loadCreature(const char* filename) {
 	fscanf(fp, "jump=%f\n"    , &creatures.back()->stats.jump);
 	fscanf(fp, "aimrange=%f\n", &creatures.back()->stats.aimrange);
 	fscanf(fp, "maxHP=%u\n"   , &creatures.back()->stats.maxHP);
+
+	while (fscanf(fp, "loot=%[^,],%[^,],%u,%u,%f\n", strtype, name, &minCount, &maxCount, &probability) != EOF) {
+		if (!strcmp(strtype, "money" )) type = itMoney;
+		if (!strcmp(strtype, "weapon")) type = itWeapon;
+
+		creatures.back()->loot.push_back(new fired::LootItem(type, name, minCount, maxCount, probability));
+	}
+
 	fclose(fp);
 }
 

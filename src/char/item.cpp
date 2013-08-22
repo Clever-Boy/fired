@@ -4,6 +4,18 @@
 //======================================================================
 
 
+fired::LootItem::LootItem(fired::ItemType _type, const char *_name, unsigned int _minCount, unsigned int _maxCount, float _probability) {
+	type        = _type;
+	minCount    = _minCount;
+	maxCount    = _maxCount;
+	probability = _probability;
+
+	strncpy(name, _name, sizeof(name));
+}
+
+//======================================================================
+
+
 fired::InventoryItem::InventoryItem(fired::ItemType _type, unsigned int _count, const char *_name, fired::World *world) {
 	strncpy(name   , _name, sizeof(name));
 	strncpy(caption, _name, sizeof(caption));

@@ -143,7 +143,7 @@ void fired::World::checkPhys() {
 
 void fired::World::checkItems() {
 	for (unsigned int i = 0; i < items.size(); i++) {
-		items[i]->render();
+		items[i]->update();
 
 		for (unsigned int j = 0; j < chars.size(); j++) {
 			if ( chars[j]->isDead()) continue;

@@ -130,6 +130,7 @@ void fired::Character::damage(int damage, bool headshot, sf::Vector2f shot, floa
 		dead = true;
 		if (headshot) model->headshot();
 		model->explode(shot - phys.pos, knockback);
+		inventory->dropAll(world);
 	}
 
 	snprintf(dmg, sizeof(dmg), "-%u", damage);

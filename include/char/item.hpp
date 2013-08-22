@@ -2,6 +2,9 @@
 #define __ITEM
 
 
+#define ITEM_SPEED 100.0f
+
+
 namespace fired {
 	enum ItemType {
 		itMoney,
@@ -32,6 +35,7 @@ namespace fired {
 		 CollectableItem(fired::InventoryItem *_item, sf::Vector2f pos, sf::Vector2f velocity);
 		~CollectableItem() {};
 
+		void update();
 		void render();
 	};
 }

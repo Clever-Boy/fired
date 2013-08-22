@@ -20,7 +20,6 @@ void fired::Inventory::pickup(fired::CollectableItem *item) {
 	if (item->item->type == itMoney) {
 		credits->count += item->item->count;
 		delete item->item;
-		printf("Credits: %u\n", credits->count);
 		return;
 	}
 
@@ -55,4 +54,26 @@ bool fired::Inventory::canPickup(fired::CollectableItem *item) {
 				return true;
 
 	return false;
+}
+
+//======================================================================
+
+
+void fired::Inventory::dropAll(fired::World *world) {
+	float angle;
+	sf::Vector2f pos = owner->phys.center;
+
+
+	if (credits->count > 0) {
+		angle = -(random() % 180) * 3.14f / 180.0f;
+		world->addItem(credits, pos, sf::Vector2f(ITEM_SPEED * cos(angle), ITEM_SPEED * sin(angle)));
+	}
+
+
+	for (int i = 0; i < 10; i++)
+		for (int j = 0; j < 5; j++)
+			if (items[i][j] != NULL) {
+				angle = -(random() % 180) * 3.14f / 180.0f;
+				world->addItem(items[i][j], pos, sf::Vector2f(ITEM_SPEED * cos(angle), ITEM_SPEED * sin(angle)));
+			}
 }

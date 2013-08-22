@@ -41,13 +41,21 @@ fired::CollectableItem::CollectableItem(fired::InventoryItem *_item, sf::Vector2
 	phys.size         = sf::Vector2f(8, 8);
 	phys.pos          = pos;
 	phys.velocity     = velocity;
-	phys.acceleration = sf::Vector2f(0, PHYS_GRAVITY);
+	phys.acceleration = sf::Vector2f(0, PHYS_GRAVITY / 4);
 
 	phys.headSize   = sf::Vector2f(0, 0);
 	phys.headOffset = sf::Vector2f(0, 0);
 
 	phys.isMoving = false;
 	phys.onGround = false;
+}
+
+//======================================================================
+
+void fired::CollectableItem::update() {
+	if (phys.onGround) phys.velocity.x = 0;
+
+	render();
 }
 
 //======================================================================

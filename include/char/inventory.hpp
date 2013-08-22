@@ -18,6 +18,7 @@ namespace fired {
 
 		void pickup(fired::CollectableItem *item);
 		bool canPickup(fired::CollectableItem *item);
+		void dropAll(fired::World *world);
 	};
 }
 

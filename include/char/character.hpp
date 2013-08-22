@@ -100,8 +100,9 @@ namespace fired {
 		float getKnockback();
 		bool  isDead()   {return dead; };
 
-		void pickup(fired::InventoryItem *item)    {inventory->pickup(item);};
-		bool canPickup(fired::InventoryItem *item) {return inventory->canPickup(item);};
+		void pickup(fired::InventoryItem *item)                  {inventory->pickup(item); };
+		bool canPickup(fired::InventoryItem *item)               {return inventory->canPickup(item); };
+		void generateLoot(std::vector<fired::LootItem*> *_items) {inventory->generateLoot(_items, world); };
 	};
 }
 

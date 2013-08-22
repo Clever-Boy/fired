@@ -26,6 +26,10 @@ namespace fired {
 		float modelScale;
 
 		CharacterStats stats;
+		std::vector<fired::LootItem*> loot;
+
+		 BaseCreature();
+		~BaseCreature();
 	};
 
 

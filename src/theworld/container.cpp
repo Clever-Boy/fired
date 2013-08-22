@@ -277,6 +277,7 @@ void fired::Container::loadCreatures() {
 
 void fired::Container::loadCreature(const char* filename) {
 	creatures.push_back(new fired::BaseCreature);
+	creatures.back()->loot.clear();
 
 	FILE *fp = fopen(filename, "r");
 	fscanf(fp, "name=%s\n"    ,  creatures.back()->name);

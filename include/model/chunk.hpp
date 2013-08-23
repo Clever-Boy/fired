@@ -6,8 +6,7 @@
 #define CHUNK_DISAPPEARTIME 12.5
 
 
-#include <SFML/Graphics.hpp>
-#include "prototypes.hpp"
+#include "bodypart.hpp"
 
 
 namespace fired {

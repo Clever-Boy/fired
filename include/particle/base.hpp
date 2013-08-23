@@ -2,9 +2,6 @@
 #define __BASE
 
 
-#include <SFML/Graphics.hpp>
-
-
 namespace fired {
 	struct Particle {
 		float lifetime;

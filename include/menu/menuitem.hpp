@@ -7,7 +7,6 @@
 #define MENU_Y_DIFF   75
 
 
-#include <SFML/Graphics.hpp>
 #include "control.hpp"
 
 

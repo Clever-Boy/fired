@@ -1,14 +1,7 @@
-#ifndef __PROTOTYPES
-#define __PROTOTYPES
+#ifndef __GAMESCREEN
+#define __GAMESCREEN
 
 namespace fired {
-	class Character;
-	class Player;
-	class World;
-	class BaseWeapon;
-	class BaseDecor;
-
-
 	class GameScreen {
 	public:
 		virtual ~GameScreen()                {};

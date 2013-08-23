@@ -2,8 +2,6 @@
 #define __BASEMODEL
 
 
-#include <SFML/Graphics.hpp>
-#include "prototypes.hpp"
 #include "bodypart.hpp"
 
 

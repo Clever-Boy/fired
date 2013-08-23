@@ -13,14 +13,11 @@
 #include <math.h>
 
 
-#include "prototypes.hpp"
+#include "gamescreen.hpp"
 #include "control.hpp"
 #include "menu.hpp"
 #include "settings.hpp"
 #include "screen.hpp"
-#include "model.hpp"
-#include "char.hpp"
-#include "particle.hpp"
 #include "theworld.hpp"
 #include "misc.hpp"
 #include "ai.hpp"

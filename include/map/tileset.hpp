@@ -2,9 +2,6 @@
 #define __TILESET
 
 
-#include <SFML/Graphics.hpp>
-
-
 namespace fired {
 	class Tileset {
 		friend class Tile;

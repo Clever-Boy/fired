@@ -8,8 +8,8 @@ namespace fired {
 }
 
 
-#include "ai.hpp"
 #include "character.hpp"
+#include "ai.hpp"
 
 
 namespace fired {

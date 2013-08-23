@@ -2,8 +2,14 @@
 #define __SHOT
 
 
-#include <SFML/Graphics.hpp>
-#include "prototypes.hpp"
+namespace fired {
+	class Shot;
+	class BroadShot;
+	class MeleeShot;
+}
+
+
+#include "char.hpp"
 
 
 namespace fired {

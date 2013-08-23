@@ -2,10 +2,6 @@
 #define __BODYPART
 
 
-#include <SFML/Graphics.hpp>
-#include "prototypes.hpp"
-
-
 namespace fired {
 	enum BodypartType {
 		bptLegsF,

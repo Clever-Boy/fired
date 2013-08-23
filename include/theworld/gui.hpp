@@ -2,8 +2,6 @@
 #define __GUI
 
 
-#include <SFML/Graphics.hpp>
-#include "prototypes.hpp"
 #include "char.hpp"
 
 

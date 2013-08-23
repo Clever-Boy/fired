@@ -2,10 +2,6 @@
 #define __WEAPON
 
 
-#include <SFML/Graphics.hpp>
-#include "prototypes.hpp"
-
-
 #define WEAPON_TYPE_RANGED 1
 #define WEAPON_TYPE_MELEE  2
 #define WEAPON_TYPE_BROAD  3

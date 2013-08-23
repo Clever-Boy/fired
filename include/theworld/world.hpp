@@ -2,12 +2,19 @@
 #define __WORLD
 
 
-#include <SFML/Graphics.hpp>
-#include "char.hpp"
-#include "map.hpp"
-#include "prototypes.hpp"
+namespace fired {
+	class World;
+}
+
+
 #include "particle.hpp"
-#include "theworld.hpp"
+#include "flytext.hpp"
+#include "weapon.hpp"
+#include "shot.hpp"
+#include "char.hpp"
+#include "container.hpp"
+#include "map.hpp"
+#include "gui.hpp"
 
 
 namespace fired {

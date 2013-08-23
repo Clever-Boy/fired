@@ -2,8 +2,6 @@
 #define __HUMANOID
 
 
-#include <SFML/Graphics.hpp>
-#include "prototypes.hpp"
 #include "basemodel.hpp"
 
 

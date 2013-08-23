@@ -2,11 +2,10 @@
 #define __CONTAINER
 
 
-#include <SFML/Graphics.hpp>
 #include "char.hpp"
-#include "theworld.hpp"
 #include "sprites.hpp"
-#include "prototypes.hpp"
+#include "map.hpp"
+#include "weapon.hpp"
 
 
 namespace fired {

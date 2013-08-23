@@ -2,10 +2,6 @@
 #define __CREDITSSCR
 
 
-#define CREDITSSCR_SPEED 50
-#define CREDITSSCR_WIDTH 700
-
-
 namespace fired {
 	class CreditsScr : public GameScreen {
 	private:

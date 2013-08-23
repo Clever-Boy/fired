@@ -2,9 +2,6 @@
 #define __MAINMENU
 
 
-#define MENU_BG_SPEED 100.0
-
-
 namespace fired {
 	class MainMenu;
 }

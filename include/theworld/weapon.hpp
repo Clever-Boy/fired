@@ -2,11 +2,6 @@
 #define __WEAPON
 
 
-#define WEAPON_TYPE_RANGED 1
-#define WEAPON_TYPE_MELEE  2
-#define WEAPON_TYPE_BROAD  3
-
-
 namespace fired {
 	struct BaseWeapon {
 		char  name[32];

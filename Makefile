@@ -3,10 +3,7 @@
 #                   Main Makefile for FIRED project                     
 #                                                                       
 ########################################################################
-export PROJECT_NAME=fired
-export PROJECT_CAPTION=F.I.R.E.D.
-export PROJECT_VER=0.99
-
+export PROJECT=fired
 export CC=gcc
 export STRIP=strip
 export LD=ld
@@ -15,26 +12,21 @@ export MAKE=make
 export MAKESRC=$(MAKE) -f $(PWD)/Makefile.src
 export MAKESUB=$(MAKE) -j8 -C $$$$dir -f $(PWD)/Makefile.sub
 
-export PROJECT_DIR="$(PWD)"
-export INCLUDE_DIR="$(PWD)/include"
-
+export INCLUDE_DIR=$(PWD)/include
 export LDFLAGS=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lm -lstdc++ -lsqlite3
-export CFLAGS=-I$(INCLUDE_DIR)                           \
-              -I$(INCLUDE_DIR)/meta                      \
-              -I$(INCLUDE_DIR)/common                    \
-              -DPROJECT_NAME="\"$(PROJECT_NAME)\""       \
-              -DPROJECT_CAPTION="\"$(PROJECT_CAPTION)\"" \
-              -DPROJECT_VER="\"$(PROJECT_VER)\""         \
-              -Wall                                      \
-              -Wextra
+export CFLAGS=-Wall                   \
+              -Wextra                 \
+              -I$(INCLUDE_DIR)        \
+              -I$(INCLUDE_DIR)/meta   \
+              -I$(INCLUDE_DIR)/common
 
 
 
 all: clean src
 	$(MAKESRC) -C src
-	cp -f src/$(PROJECT_NAME) ./
+	cp -f src/$(PROJECT) ./
 
 
 clean: src
 	$(MAKESRC) -C src clean
-	$(CLEAN) $(PROJECT_NAME)
+	$(CLEAN) $(PROJECT)

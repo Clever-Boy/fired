@@ -13,6 +13,7 @@
 #include <math.h>
 
 
+#include "defines.hpp"
 #include "gamescreen.hpp"
 #include "control.hpp"
 #include "menu.hpp"

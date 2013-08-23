@@ -4,13 +4,13 @@
 //======================================================================
 
 
-void sqliteSaveDB(sqlite3 *db, const char *filename, bool crypt) {
+void sqliteSaveDB(sqlite3 *db, const char *filename, bool crypt, const char *key) {
 	char *sql = NULL;
 	unsigned int size;
 	dumpDb(db, &sql);
 
 	size = strlen(sql);
-	if (crypt) sqlite_crypt(sql, size, SQLITE_KEY, strlen(SQLITE_KEY));
+	if (crypt) sqlite_crypt(sql, size, key, strlen(key));
 
 	FILE *fp = fopen(filename, "w");
 	fwrite(sql, size, 1, fp);
@@ -21,7 +21,7 @@ void sqliteSaveDB(sqlite3 *db, const char *filename, bool crypt) {
 //======================================================================
 
 
-void sqliteLoadDB(sqlite3 **db, const char *filename, bool crypt) {
+void sqliteLoadDB(sqlite3 **db, const char *filename, bool crypt, const char *key) {
 	char *sql = NULL;
 	struct stat buf;
 	unsigned int filesize;
@@ -36,7 +36,7 @@ void sqliteLoadDB(sqlite3 **db, const char *filename, bool crypt) {
 	sql[filesize] = 0;
 	fclose(fp);
 
-	if (crypt) sqlite_crypt(sql, filesize, SQLITE_KEY, strlen(SQLITE_KEY));
+	if (crypt) sqlite_crypt(sql, filesize, key, strlen(key));
 	sqlite3_exec(*db, sql, 0, 0, 0);
 	free(sql);
 }

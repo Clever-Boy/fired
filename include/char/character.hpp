@@ -2,9 +2,6 @@
 #define __CHARACTER
 
 
-#define ROTTEN_TIME 5.0
-
-
 namespace fired {
 	class Character;
 }

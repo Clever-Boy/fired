@@ -5,7 +5,7 @@
 #include <sqlite3.h>
 
 
-void sqliteSaveDB(sqlite3 *db, const char *filename, bool crypt);
-void sqliteLoadDB(sqlite3 **db, const char *filename, bool crypt);
+void sqliteSaveDB(sqlite3 *db, const char *filename, bool crypt, const char *key);
+void sqliteLoadDB(sqlite3 **db, const char *filename, bool crypt, const char *key);
 
 #endif

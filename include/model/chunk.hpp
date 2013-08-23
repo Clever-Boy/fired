@@ -2,10 +2,6 @@
 #define __CHUNK
 
 
-#define CHUNK_LIFETIME      15.0
-#define CHUNK_DISAPPEARTIME 12.5
-
-
 #include "bodypart.hpp"
 
 

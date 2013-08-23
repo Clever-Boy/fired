@@ -3,12 +3,12 @@ OBJS    += $(SUBDIRS:=.o)
 
 
 
-all: $(PROJECT_NAME)
+all: $(PROJECT)
 
 
-$(PROJECT_NAME): subdirs $(OBJS)
-	$(CC) $(OBJS) -o $(PROJECT_NAME) $(LDFLAGS)
-	$(STRIP) $(PROJECT_NAME)
+$(PROJECT): subdirs $(OBJS)
+	$(CC) $(OBJS) -o $(PROJECT) $(LDFLAGS)
+	$(STRIP) $(PROJECT)
 
 
 subdirs: $(SUBDIRS)
@@ -19,7 +19,7 @@ subdirs: $(SUBDIRS)
 
 
 clean: clean-subdirs
-	$(CLEAN) $(PROJECT_NAME) $(OBJS)
+	$(CLEAN) $(PROJECT) $(OBJS)
 
 
 clean-subdirs:

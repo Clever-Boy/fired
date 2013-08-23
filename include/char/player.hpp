@@ -2,15 +2,7 @@
 #define __PLAYER
 
 
-namespace fired {
-	class Player;
-}
-
-
 #include "character.hpp"
-
-
-#define PLAYER_RESPAWN_TIME 3.0f
 
 
 namespace fired {

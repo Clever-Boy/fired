@@ -2,9 +2,6 @@
 #define __ITEM
 
 
-#define ITEM_SPEED 100.0f
-
-
 namespace fired {
 	enum ItemType {
 		itMoney,

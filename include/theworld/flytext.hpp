@@ -2,10 +2,6 @@
 #define __FLYTEXT
 
 
-#define FLYTEXT_LIFETIME 0.5
-#define FLYTEXT_OFFSET   20.0
-
-
 namespace fired {
 	class FlyText {
 	private:

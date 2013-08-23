@@ -2,7 +2,8 @@
 #define __AI_MELEE
 
 
-#include "char.hpp"
+#include "ai_base.hpp"
+
 
 namespace fired {
 	class BasicAI : public BaseAI {

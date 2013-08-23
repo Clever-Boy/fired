@@ -5,9 +5,6 @@
 #include "bodypart.hpp"
 
 
-#define BROAD_ATTACK_TIME 0.25f
-
-
 namespace fired {
 	enum CharAnimationType {
 		caNone,

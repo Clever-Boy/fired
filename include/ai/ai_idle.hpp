@@ -2,7 +2,8 @@
 #define __AI_IDLE
 
 
-#include "char.hpp"
+#include "ai_base.hpp"
+
 
 namespace fired {
 	class IdleAI : public BaseAI {

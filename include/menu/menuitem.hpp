@@ -2,11 +2,6 @@
 #define __MENUITEM
 
 
-#define MENU_X_OFFSET 50
-#define MENU_Y_OFFSET 150
-#define MENU_Y_DIFF   75
-
-
 #include "control.hpp"
 
 

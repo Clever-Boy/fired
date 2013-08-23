@@ -2,9 +2,6 @@
 #define __TILE
 
 
-#define TILE_SIZE 16.0
-
-
 #include "tileset.hpp"
 
 

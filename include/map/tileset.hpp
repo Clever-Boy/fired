@@ -3,8 +3,6 @@
 
 
 #include <SFML/Graphics.hpp>
-#include "tile.hpp"
-#include "prototypes.hpp"
 
 
 namespace fired {

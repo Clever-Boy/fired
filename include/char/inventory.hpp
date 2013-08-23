@@ -2,7 +2,6 @@
 #define __INVENTORY
 
 
-#include <stdlib.h>
 #include "item.hpp"
 
 

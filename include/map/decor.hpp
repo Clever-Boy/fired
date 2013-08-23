@@ -2,11 +2,6 @@
 #define __DECOR
 
 
-#include <SFML/Graphics.hpp>
-#include "prototypes.hpp"
-#include "tileset.hpp"
-
-
 namespace fired {
 	struct MapDecor {
 		char name[16];
@@ -17,6 +12,7 @@ namespace fired {
 		MapDecor(const char *_name, sf::Vector2f _pos);
 	};
 
+/*--------------------------------------------------------------------*/
 
 	struct BaseDecor {
 		char name[16];
@@ -29,6 +25,7 @@ namespace fired {
 		~BaseDecor();
 	};
 
+/*--------------------------------------------------------------------*/
 
 	struct Decor {
 		char name[16];

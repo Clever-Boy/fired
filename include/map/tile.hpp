@@ -5,8 +5,6 @@
 #define TILE_SIZE 16.0
 
 
-#include <SFML/Graphics.hpp>
-#include "prototypes.hpp"
 #include "tileset.hpp"
 
 

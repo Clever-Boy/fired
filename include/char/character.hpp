@@ -10,9 +10,6 @@ namespace fired {
 }
 
 
-#include <SFML/Graphics.hpp>
-#include <string>
-#include "prototypes.hpp"
 #include "stats.hpp"
 #include "phys.hpp"
 #include "model.hpp"

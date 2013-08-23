@@ -2,10 +2,6 @@
 #define __MOUSE
 
 
-#include <SFML/Graphics.hpp>
-#include "prototypes.hpp"
-
-
 namespace fired {
 	class Mouse {
 	private:

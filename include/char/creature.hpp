@@ -8,12 +8,8 @@ namespace fired {
 }
 
 
-#include <SFML/Graphics.hpp>
-#include "prototypes.hpp"
 #include "ai.hpp"
 #include "character.hpp"
-#include "stats.hpp"
-#include "phys.hpp"
 
 
 namespace fired {

@@ -2,8 +2,6 @@
 #define __CAMERA
 
 
-#include <SFML/Graphics.hpp>
-#include "prototypes.hpp"
 #include "phys.hpp"
 
 

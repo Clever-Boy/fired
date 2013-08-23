@@ -2,10 +2,8 @@
 #define __GENERATOR
 
 
-#include <SFML/Graphics.hpp>
 #include "tile.hpp"
-#include "tileset.hpp"
-#include "prototypes.hpp"
+#include "decor.hpp"
 
 
 namespace fired {

@@ -9,7 +9,6 @@
 
 #include <SFML/Graphics.hpp>
 #include "control.hpp"
-#include "prototypes.hpp"
 
 
 namespace fired {

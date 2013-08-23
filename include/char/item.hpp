@@ -11,6 +11,7 @@ namespace fired {
 		itWeapon
 	};
 
+/*--------------------------------------------------------------------*/
 
 	struct LootItem {
 		fired::ItemType type;
@@ -24,6 +25,7 @@ namespace fired {
 		LootItem(fired::ItemType _type, const char *_name, unsigned int _minCount, unsigned int _maxCount, float _probability);
 	};
 
+/*--------------------------------------------------------------------*/
 
 	struct InventoryItem {
 		fired::ItemType type;
@@ -39,6 +41,7 @@ namespace fired {
 		void render(sf::Vector2f pos);
 	};
 
+/*--------------------------------------------------------------------*/
 
 	struct CollectableItem {
 		fired::InventoryItem *item;

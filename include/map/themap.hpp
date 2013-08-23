@@ -2,10 +2,8 @@
 #define __THEMAP
 
 
-#include <SFML/Graphics.hpp>
 #include "tile.hpp"
-#include "tileset.hpp"
-#include "prototypes.hpp"
+#include "decor.hpp"
 #include "phys.hpp"
 #include "theworld.hpp"
 

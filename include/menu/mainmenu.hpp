@@ -10,10 +10,7 @@ namespace fired {
 }
 
 
-#include <SFML/Graphics.hpp>
-#include "control.hpp"
 #include "menuitem.hpp"
-#include "prototypes.hpp"
 
 
 namespace fired {

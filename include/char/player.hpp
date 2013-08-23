@@ -7,11 +7,7 @@ namespace fired {
 }
 
 
-#include <SFML/Graphics.hpp>
-#include "prototypes.hpp"
-#include "phys.hpp"
 #include "character.hpp"
-#include "stats.hpp"
 
 
 #define PLAYER_RESPAWN_TIME 3.0f

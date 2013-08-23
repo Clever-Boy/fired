@@ -2,9 +2,6 @@
 #define __HANDLERS
 
 
-#include "prototypes.hpp"
-
-
 namespace fired {
 	class Handlers {
 	public:
@@ -12,6 +9,7 @@ namespace fired {
 		void buttonCredits();
 		void buttonExit();
 	};
+
 
 	typedef void (Handlers::*Handler)(void);
 }

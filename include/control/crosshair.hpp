@@ -2,8 +2,7 @@
 #define __CROSSHAIR
 
 
-#include <SFML/Graphics.hpp>
-#include "prototypes.hpp"
+#include "phys.hpp"
 
 
 namespace fired {

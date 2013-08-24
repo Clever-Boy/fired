@@ -371,7 +371,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="yes" collapse="yes">
+	<todo done="no" collapse="no">
 		<title>GUI</title>
 		<text>
 </text>
@@ -427,6 +427,16 @@
 		</todo>
 		<todo done="yes" collapse="no">
 			<title>Add reloading process in cooldown bar</title>
+			<text>
+</text>
+		</todo>
+		<todo done="yes" collapse="no">
+			<title>Add window class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add window rendering</title>
 			<text>
 </text>
 		</todo>
@@ -1036,7 +1046,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="no">
+	<todo done="no" collapse="yes">
 		<title>Inventory</title>
 		<text>
 </text>

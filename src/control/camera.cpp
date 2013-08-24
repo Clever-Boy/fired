@@ -27,3 +27,10 @@ void fired::Camera::update() {
 	view.setCenter(offset + sf::Vector2f(settings->window.width / 2, settings->window.height / 2));
 	app->setView(view);
 }
+
+//======================================================================
+
+
+bool fired::Camera::isRectVisible(sf::FloatRect rect) {
+	return viewport.intersects(rect);
+}

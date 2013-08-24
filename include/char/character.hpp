@@ -13,9 +13,6 @@ namespace fired {
 #include "inventory.hpp"
 #include "theworld.hpp"
 
-#define FIRED_FRACTION_PLAYER  1
-#define FIRED_FRACTION_SOLDIER 2
-
 
 namespace fired {
 	class Character {

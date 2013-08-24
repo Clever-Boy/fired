@@ -55,7 +55,8 @@ namespace fired {
 
 		void spawn(sf::Vector2f pos, const char *creature);
 		bool isCharExists(fired::Character *character);
-		bool isSolidPixel(sf::Vector2f pixel) {return map->isSolid(pixel.x / TILE_SIZE, pixel.y / TILE_SIZE); };
+		bool isSolidPixel(sf::Vector2f pixel)  {return map->isSolid(pixel.x / TILE_SIZE, pixel.y / TILE_SIZE); };
+		bool isRectVisible(sf::FloatRect rect) {return cam->isRectVisible(rect); };
 
 
 		void addShot     (sf::Vector2f pos, float angle, float speed, fired::Character *owner, sf::Sprite *sprite) { shots.push_back(new fired::Shot(pos, angle, speed, owner, sprite)); };

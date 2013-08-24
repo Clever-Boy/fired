@@ -74,7 +74,7 @@ void fired::Character::update() {
 	move();
 
 	model->update();
-	if (phys.rect.intersects(cam->getViewport())) model->render();
+	if (world->isRectVisible(phys.rect)) model->render();
 
 	weaponCooldown -= frameClock;
 	if (isReloading && weaponCooldown <= 0) {

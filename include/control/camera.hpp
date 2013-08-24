@@ -20,11 +20,12 @@ namespace fired {
 		Camera();
 
 		void update();
+		bool isRectVisible(sf::FloatRect rect);
 
-		void          setTrackObj(fired::Phys *phys)    { objToTrack = phys; };
-		void          setMapSize(sf::Vector2i _mapSize) {mapSize = _mapSize; };
-		sf::Vector2f  getOffset()                       { return offset; };
-		sf::FloatRect getViewport()                     { return viewport; };
+		void          setTrackObj(fired::Phys *phys)    { objToTrack = phys;  };
+		void          setMapSize(sf::Vector2i _mapSize) { mapSize = _mapSize; };
+		sf::Vector2f  getOffset()                       { return offset;      };
+		sf::FloatRect getViewport()                     { return viewport;    };
 	};
 }
 

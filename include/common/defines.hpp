@@ -58,4 +58,8 @@
 #define FLYTEXT_LIFETIME        0.5f
 #define FLYTEXT_OFFSET          20.0f
 
+
+#define FIRED_FRACTION_PLAYER  1
+#define FIRED_FRACTION_SOLDIER 2
+
 #endif

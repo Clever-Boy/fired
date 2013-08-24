@@ -1156,6 +1156,16 @@
 </text>
 		</todo>
 		<todo done="no" collapse="no">
+			<title>Deprecate rendering non-visible items</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Deprecate rendering non-visible chunks</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
 			<title>Add some weapons</title>
 			<text>
 </text>
@@ -1192,11 +1202,6 @@
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Add explosive weapon</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Blur</title>
 			<text>
 </text>
 		</todo>

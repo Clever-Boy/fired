@@ -371,7 +371,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="no">
+	<todo done="no" collapse="yes">
 		<title>GUI</title>
 		<text>
 </text>
@@ -435,7 +435,7 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add window rendering</title>
 			<text>
 </text>
@@ -1046,7 +1046,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="no" collapse="no">
 		<title>Inventory</title>
 		<text>
 </text>

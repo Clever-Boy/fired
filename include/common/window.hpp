@@ -34,7 +34,7 @@ namespace fired {
 		~Window();
 
 		void render();
-		void initPart(sf::Texture **tex, sf::RectangleShape **spr, sf::Vector2i _size, const char *texFile);
+		void initPart(sf::Texture **tex, sf::RectangleShape **spr, sf::Vector2i _size, sf::Vector2f _pos, const char *texFile);
 	};
 }
 

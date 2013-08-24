@@ -35,6 +35,8 @@ namespace fired {
 		std::vector<fired::Chunk*>           chunks;
 		std::vector<fired::CollectableItem*> items;
 
+		bool paused;
+
 
 	public:
 		 World();
@@ -78,6 +80,9 @@ namespace fired {
 		fired::BaseAI       *getAI      (const char *name, fired::Creature* owner)   {return container->getAI(name, owner); };
 		fired::BaseDecor    *getDecor   (const char *name)                           {return container->getDecor(name); };
 		sf::Sprite          *getSprite  (const char *name)                           {return container->getSprite(name); };
+
+
+		void togglePause() {paused = !paused; };
 	};
 }
 

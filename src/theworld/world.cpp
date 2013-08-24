@@ -5,6 +5,7 @@
 
 fired::World::World() {
 	game->setMusic("data/snd/themes/world.ogg");
+	paused = false;
 
 	container = new fired::Container(this);
 	cam       = new fired::Camera();
@@ -46,6 +47,8 @@ fired::World::~World() {
 
 
 void fired::World::update() {
+	if (paused) frameClock = 0.0f;
+
 	cam->update();
 	map->update();
 	player->update();

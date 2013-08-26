@@ -21,8 +21,9 @@ namespace fired {
 
 	class InventoryWindow {
 	private:
-		fired::Window    *win;
-		fired::Character *owner;
+		fired::Window              *win;
+		fired::Character           *owner;
+		fired::InventoryWindowItem *inHand; 
 
 		std::vector<fired::InventoryWindowItem*> items;
 
@@ -44,6 +45,7 @@ namespace fired {
 
 		void update(sf::Vector2f mousePos);
 		void render();
+		void click(sf::Vector2f mousePos);
 	};
 }
 

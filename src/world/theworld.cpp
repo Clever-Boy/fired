@@ -183,6 +183,11 @@ void fired::World::processEvent(sf::Event event) {
 		if (state != wsInventory) state = wsInventory;
 		else                      state = wsNormal;
 	}
+
+
+	if ((event.type == sf::Event::MouseButtonPressed) && (event.mouseButton.button == sf::Mouse::Left)) {
+		if (state == wsInventory) inventoryWin->click(mouse->getPos());
+	}
 }
 
 //======================================================================

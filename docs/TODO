@@ -1170,7 +1170,7 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add inventory menu click handling</title>
 			<text>
 </text>

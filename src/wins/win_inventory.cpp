@@ -36,8 +36,9 @@ void fired::InventoryWindowItem::render(sf::Sprite *spr, sf::Text *count) {
 
 
 fired::InventoryWindow::InventoryWindow(fired::Character *_owner) {
-	owner = _owner;
-	win = new fired::Window(sf::Vector2f(450, 500));
+	owner  = _owner;
+	win    = new fired::Window(sf::Vector2f(450, 500));
+	inHand = new fired::InventoryWindowItem(sf::Vector2f(0.0f, 0.0f), NULL);
 
 	emptyTex = new sf::Texture();
 	hoverTex = new sf::Texture();
@@ -122,8 +123,10 @@ void fired::InventoryWindow::render() {
 	win->render();
 
 	for (unsigned int i = 0; i < items.size(); i++)
-		if (items[i]->hover) items[i]->render(hoverSpr, countText);
-		else                 items[i]->render(normalSpr, countText);
+		if      ( items[i]->hover)        items[i]->render(hoverSpr, countText);
+		else if ( items[i]->item == NULL) items[i]->render(emptySpr, countText);
+		else if (*items[i]->item == NULL) items[i]->render(emptySpr, countText);
+		else                              items[i]->render(normalSpr, countText);
 
 
 	owner->inventory->credits->sprite->setPosition(win->getOffset() + sf::Vector2f(30.0f, 490.0f));
@@ -134,3 +137,11 @@ void fired::InventoryWindow::render() {
 	moneyText->setString(sf::String(credits));
 	app->draw(*moneyText);
 }
+
+//======================================================================
+
+
+void fired::InventoryWindow::click(sf::Vector2f mousePos) {
+	return;
+}
+

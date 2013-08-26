@@ -35,6 +35,9 @@ namespace fired {
 
 		void render();
 		void initPart(sf::Texture **tex, sf::RectangleShape **spr, sf::Vector2i _size, sf::Vector2f _pos, const char *texFile);
+
+		sf::Vector2f getOffset() {return offset; };
+		sf::Vector2f getSize()   {return size;   };
 	};
 }
 

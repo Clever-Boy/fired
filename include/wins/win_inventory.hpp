@@ -6,10 +6,33 @@
 
 
 namespace fired {
+	struct InventoryWindowItem {
+		fired::InventoryItem **item;
+		sf::FloatRect          rect;
+		bool                   hover;
+
+
+		 InventoryWindowItem(sf::Vector2f pos, fired::InventoryItem **_item);
+		~InventoryWindowItem() {};
+
+		void render(sf::Sprite *spr);
+	};
+
+
 	class InventoryWindow {
 	private:
 		fired::Window    *win;
 		fired::Character *owner;
+
+		std::vector<fired::InventoryWindowItem*> items;
+
+		sf::Texture *emptyTex;
+		sf::Texture *hoverTex;
+		sf::Texture *normalTex;
+
+		sf::Sprite *emptySpr;
+		sf::Sprite *hoverSpr;
+		sf::Sprite *normalSpr;
 
 
 	public:

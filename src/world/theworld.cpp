@@ -177,6 +177,12 @@ void fired::World::checkItems() {
 
 void fired::World::processEvent(sf::Event event) {
 	if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)) game->stop();
+
+
+	if ((event.type == sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::I)) {
+		if (state != wsInventory) state = wsInventory;
+		else                      state = wsNormal;
+	}
 }
 
 //======================================================================
@@ -222,7 +228,7 @@ void fired::World::postUpdateState() {
 			break;
 
 		case wsInventory:
-			inventoryWin->render();
+			inventoryWin->update();
 			break;
 	}
 }

@@ -34,3 +34,11 @@ void fired::Camera::update() {
 bool fired::Camera::isRectVisible(sf::FloatRect rect) {
 	return viewport.intersects(rect);
 }
+
+//======================================================================
+
+
+void fired::Camera::reset() {
+	view.setCenter(sf::Vector2f(settings->window.width / 2, settings->window.height / 2));
+	app->setView(view);
+}

@@ -20,6 +20,7 @@ namespace fired {
 		Camera();
 
 		void update();
+		void reset();
 		bool isRectVisible(sf::FloatRect rect);
 
 		void          setTrackObj(fired::Phys *phys)    { objToTrack = phys;  };

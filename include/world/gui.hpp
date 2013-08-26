@@ -8,7 +8,6 @@
 namespace fired {
 	class GUI {
 	private:
-		fired::Camera    *cam;
 		fired::Player    *player;
 
 
@@ -23,7 +22,7 @@ namespace fired {
 		sf::Text           *txt;
 
 	public:
-		 GUI(fired::Camera *_cam, fired::Player *_player);
+		 GUI(fired::Player *_player);
 		~GUI();
 
 		void update();

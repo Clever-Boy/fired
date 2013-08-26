@@ -11,7 +11,7 @@ fired::World::World() {
 	cam       = new fired::Camera();
 	map       = new fired::Map(cam, this);
 	player    = new fired::Player(cam, map->getStartPos(), this);
-	gui       = new fired::GUI(cam, player);
+	gui       = new fired::GUI(player);
 
 	inventoryWin = new fired::InventoryWindow(player->getChar());
 
@@ -67,6 +67,7 @@ void fired::World::update() {
 	updateList(particles);
 	updateList(texts);
 
+	cam->reset();
 	gui->update();
 }
 

@@ -79,15 +79,12 @@ fired::InventoryWindow::~InventoryWindow() {
 //======================================================================
 
 
-void fired::InventoryWindow::update() {
-	win->render();
-
+void fired::InventoryWindow::update(sf::Vector2f mousePos) {
 	for (unsigned int i = 0; i < items.size(); i++)
-		items[i]->hover = false;
+		if (items[i]->rect.contains(mousePos)) items[i]->hover = true;
+		else                                   items[i]->hover = false;
 
-
-	for (unsigned int i = 0; i < items.size(); i++)
-		items[i]->render(normalSpr);
+	render();
 }
 
 //======================================================================
@@ -97,5 +94,6 @@ void fired::InventoryWindow::render() {
 	win->render();
 
 	for (unsigned int i = 0; i < items.size(); i++)
-		items[i]->render(normalSpr);
+		if (items[i]->hover) items[i]->render(hoverSpr);
+		else                 items[i]->render(normalSpr);
 }

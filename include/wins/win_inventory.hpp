@@ -39,7 +39,7 @@ namespace fired {
 		 InventoryWindow(fired::Character *_owner);
 		~InventoryWindow();
 
-		void update();
+		void update(sf::Vector2f mousePos);
 		void render();
 	};
 }

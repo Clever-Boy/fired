@@ -234,7 +234,7 @@ void fired::World::postUpdateState() {
 		case wsInventory:
 			cam->reset();
 			gui->update();
-			inventoryWin->update();
+			inventoryWin->update(mouse->getPos());
 			mouse->update();
 			break;
 	}

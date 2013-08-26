@@ -1150,8 +1150,13 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add inventory menu hover handling</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add inventory money rendering</title>
 			<text>
 </text>
 		</todo>

@@ -16,6 +16,8 @@ namespace fired {
 
 		void update();
 		void render();
+
+		sf::Vector2f getPos() {return pos; };
 	};
 }
 

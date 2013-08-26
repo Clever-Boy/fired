@@ -1155,7 +1155,7 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add inventory money rendering</title>
 			<text>
 </text>
@@ -1197,6 +1197,16 @@
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Move data to sqlite db</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Move classes to structs</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Remove "get" methods</title>
 			<text>
 </text>
 		</todo>

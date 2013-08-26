@@ -34,6 +34,8 @@ namespace fired {
 		sf::Sprite *hoverSpr;
 		sf::Sprite *normalSpr;
 
+		sf::Text   *moneyText;
+
 
 	public:
 		 InventoryWindow(fired::Character *_owner);

@@ -43,6 +43,11 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner) {
 	hoverSpr->setOrigin(sf::Vector2f(hoverTex->getSize())   / 2.0f);
 	normalSpr->setOrigin(sf::Vector2f(normalTex->getSize()) / 2.0f);
 
+	moneyText = new sf::Text();
+	moneyText->setFont(*game->getFont());
+	moneyText->setCharacterSize(16);
+	moneyText->setPosition(win->getOffset() + sf::Vector2f(40.0f, 480.0f));
+	moneyText->setColor(sf::Color::White);
 
 	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(205.0f,  25.0f), NULL)); //Helm
 	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(205.0f,  85.0f), NULL)); //Body
@@ -64,6 +69,7 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner) {
 
 fired::InventoryWindow::~InventoryWindow() {
 	delete win;
+	delete moneyText;
 
 	delete emptySpr;
 	delete hoverSpr;
@@ -96,4 +102,13 @@ void fired::InventoryWindow::render() {
 	for (unsigned int i = 0; i < items.size(); i++)
 		if (items[i]->hover) items[i]->render(hoverSpr);
 		else                 items[i]->render(normalSpr);
+
+
+	owner->inventory->credits->sprite->setPosition(win->getOffset() + sf::Vector2f(30.0f, 490.0f));
+	app->draw(*owner->inventory->credits->sprite);
+
+	char credits[16];
+	snprintf(credits, sizeof(credits), "%u", owner->inventory->credits->count);
+	moneyText->setString(sf::String(credits));
+	app->draw(*moneyText);
 }

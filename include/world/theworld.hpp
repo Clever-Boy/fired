@@ -4,6 +4,12 @@
 
 namespace fired {
 	class World;
+
+
+	enum WorldState {
+		wsNormal,
+		wsInventory
+	};
 }
 
 
@@ -37,7 +43,9 @@ namespace fired {
 		std::vector<fired::Chunk*>           chunks;
 		std::vector<fired::CollectableItem*> items;
 
+
 		bool paused;
+		fired::WorldState state;
 
 
 	public:
@@ -50,6 +58,9 @@ namespace fired {
 		void update();
 		void processEvent(sf::Event event);
 
+		void preUpdateState();
+		void postUpdateState();
+		void setState(fired::WorldState newState) {state = newState; };
 
 		void checkShots();
 		void checkPhys();

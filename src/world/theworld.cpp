@@ -6,6 +6,7 @@
 fired::World::World() {
 	game->setMusic("data/snd/themes/world.ogg");
 	paused = false;
+	state  = wsNormal;
 
 	container = new fired::Container(this);
 	cam       = new fired::Camera();
@@ -51,7 +52,7 @@ fired::World::~World() {
 
 
 void fired::World::update() {
-	if (paused) frameClock = 0.0f;
+	preUpdateState();
 
 	cam->update();
 	map->update();
@@ -69,6 +70,8 @@ void fired::World::update() {
 
 	cam->reset();
 	gui->update();
+
+	postUpdateState();
 }
 
 //======================================================================
@@ -192,4 +195,34 @@ bool fired::World::isCharExists(fired::Character *character) {
 void fired::World::spawn(sf::Vector2f pos, const char *creature) {
 	creatures.push_back(new fired::Creature(cam, pos, this, getCreature(creature)));
 	chars.push_back(creatures.back()->getChar());
+}
+
+//======================================================================
+
+
+void fired::World::preUpdateState() {
+	if (paused) frameClock = 0.0f;
+
+	switch (state) {
+		case wsNormal:
+			break;
+
+		case wsInventory:
+			frameClock = 0.0f;
+			break;
+	}
+}
+
+//======================================================================
+
+
+void fired::World::postUpdateState() {
+	switch (state) {
+		case wsNormal:
+			break;
+
+		case wsInventory:
+			inventoryWin->render();
+			break;
+	}
 }

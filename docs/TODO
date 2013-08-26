@@ -371,7 +371,7 @@
 </text>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes">
+	<todo done="yes" collapse="yes">
 		<title>GUI</title>
 		<text>
 </text>
@@ -1131,7 +1131,22 @@
 </text>
 		</todo>
 		<todo done="no" collapse="no">
-			<title>Add InGameMenu</title>
+			<title>Add inventory menu class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add inventory menu rendering</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add inventory menu click handling</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add inventory rendering in slots</title>
 			<text>
 </text>
 		</todo>

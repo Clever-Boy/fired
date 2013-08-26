@@ -15,6 +15,13 @@ void fired::InventoryWindowItem::render(sf::Sprite *spr, sf::Text *count) {
 	spr->setPosition(rectCenter(rect));
 	app->draw(*spr);
 
+	renderItem(count);
+}
+
+//======================================================================
+
+
+void fired::InventoryWindowItem::renderItem(sf::Text *count) {
 	if ( item == NULL) return;
 	if (*item == NULL) return;
 
@@ -38,7 +45,7 @@ void fired::InventoryWindowItem::render(sf::Sprite *spr, sf::Text *count) {
 fired::InventoryWindow::InventoryWindow(fired::Character *_owner) {
 	owner  = _owner;
 	win    = new fired::Window(sf::Vector2f(450, 500));
-	inHand = new fired::InventoryWindowItem(sf::Vector2f(0.0f, 0.0f), NULL);
+	inHand = new fired::InventoryWindowItem(sf::Vector2f(0.0f, 0.0f), new fired::InventoryItem*);
 
 	emptyTex = new sf::Texture();
 	hoverTex = new sf::Texture();
@@ -113,6 +120,9 @@ void fired::InventoryWindow::update(sf::Vector2f mousePos) {
 		if (items[i]->rect.contains(mousePos)) items[i]->hover = true;
 		else                                   items[i]->hover = false;
 
+	inHand->rect.left = mousePos.x + 16.0f;
+	inHand->rect.top  = mousePos.y + 16.0f;
+
 	render();
 }
 
@@ -136,12 +146,48 @@ void fired::InventoryWindow::render() {
 	snprintf(credits, sizeof(credits), "%u", owner->inventory->credits->count);
 	moneyText->setString(sf::String(credits));
 	app->draw(*moneyText);
+
+	inHand->renderItem(countText);
 }
 
 //======================================================================
 
 
 void fired::InventoryWindow::click(sf::Vector2f mousePos) {
-	return;
+	fired::InventoryWindowItem *selected = NULL;
+
+	for (unsigned int i = 0; i < items.size(); i++)
+		if (items[i]->rect.contains(mousePos)) {
+			selected = items[i];
+			break;
+		}
+
+	if (selected       == NULL) return;
+	if (selected->item == NULL) return;
+
+
+	if (*inHand->item == NULL) {
+		if (*selected->item == NULL) return;
+
+		*inHand->item   = *selected->item;
+		*selected->item = NULL;
+		return;
+	} else if (*selected->item == NULL) {
+		*selected->item = *inHand->item;
+		*inHand->item   = NULL;
+	} else {
+		if ((*selected->item)->type == (*inHand->item)->type && !strcmp((*selected->item)->caption, (*inHand->item)->caption)) {
+			(*selected->item)->count += (*inHand->item)->count;
+
+			delete (*inHand->item);
+			*inHand->item = NULL;
+		} else {
+			fired::InventoryItem *tmp;
+
+			tmp = *selected->item;
+			*selected->item = *inHand->item;
+			*inHand->item   = tmp;
+		}
+	}
 }
 

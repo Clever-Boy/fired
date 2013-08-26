@@ -16,6 +16,7 @@ namespace fired {
 		~InventoryWindowItem() {};
 
 		void render(sf::Sprite *spr, sf::Text *count);
+		void renderItem(sf::Text *count);
 	};
 
 

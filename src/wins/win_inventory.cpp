@@ -11,7 +11,7 @@ fired::InventoryWindowItem::InventoryWindowItem(sf::Vector2f pos, fired::Invento
 //======================================================================
 
 
-void fired::InventoryWindowItem::render(sf::Sprite *spr) {
+void fired::InventoryWindowItem::render(sf::Sprite *spr, sf::Text *count) {
 	spr->setPosition(rectCenter(rect));
 	app->draw(*spr);
 
@@ -20,6 +20,16 @@ void fired::InventoryWindowItem::render(sf::Sprite *spr) {
 
 	(*item)->sprite->setPosition(rectCenter(rect));
 	app->draw(*(*item)->sprite);
+
+	if ((*item)->count > 1) {
+		char objCount[16];
+		snprintf(objCount, sizeof(objCount), "%u", (*item)->count);
+
+		count->setString(sf::String(objCount));
+		count->setPosition(sf::Vector2f(rect.left + rect.width  - count->getGlobalBounds().width  - 7,
+		                                rect.top  + rect.height - count->getGlobalBounds().height - 7));
+		app->draw(*count);
+	}
 }
 
 //======================================================================
@@ -55,6 +65,11 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner) {
 	moneyText->setPosition(win->getOffset() + sf::Vector2f(40.0f, 480.0f));
 	moneyText->setColor(sf::Color::White);
 
+	countText = new sf::Text();
+	countText->setFont(*game->getFont());
+	countText->setCharacterSize(12);
+	countText->setColor(sf::Color::White);
+
 	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(205.0f,  25.0f), NULL)); //Helm
 	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(205.0f,  85.0f), NULL)); //Body
 	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(155.0f,  45.0f), NULL)); //Arms
@@ -76,6 +91,7 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner) {
 fired::InventoryWindow::~InventoryWindow() {
 	delete win;
 	delete moneyText;
+	delete countText;
 
 	delete emptySpr;
 	delete hoverSpr;
@@ -106,8 +122,8 @@ void fired::InventoryWindow::render() {
 	win->render();
 
 	for (unsigned int i = 0; i < items.size(); i++)
-		if (items[i]->hover) items[i]->render(hoverSpr);
-		else                 items[i]->render(normalSpr);
+		if (items[i]->hover) items[i]->render(hoverSpr, countText);
+		else                 items[i]->render(normalSpr, countText);
 
 
 	owner->inventory->credits->sprite->setPosition(win->getOffset() + sf::Vector2f(30.0f, 490.0f));

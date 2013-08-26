@@ -15,7 +15,7 @@ namespace fired {
 		 InventoryWindowItem(sf::Vector2f pos, fired::InventoryItem **_item);
 		~InventoryWindowItem() {};
 
-		void render(sf::Sprite *spr);
+		void render(sf::Sprite *spr, sf::Text *count);
 	};
 
 
@@ -35,6 +35,7 @@ namespace fired {
 		sf::Sprite *normalSpr;
 
 		sf::Text   *moneyText;
+		sf::Text   *countText;
 
 
 	public:

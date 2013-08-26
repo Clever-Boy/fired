@@ -1,1384 +1,296 @@
 <?xml version="1.0"?>
 <!DOCTYPE tudu SYSTEM "/usr/local/share/tudu/tudu.dtd">
 <todo>
-	<todo done="yes" collapse="yes">
-		<title>Menu engine</title>
-		<text>
-</text>
-		<todo done="yes" collapse="no">
-			<title>Window initialization</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Event handling</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Mouse and keyboard classes</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add game class (for inclusion menu, input devices,etc.)</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add main menu class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add menu textures (Logo, BG and Item)</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Main menu textures loading</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add system clock</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add argue Clock to Update functions</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Main menu render</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Main menu BG animation</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add settings class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add settings file</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Loading settings</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Saving settings</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Menu structure loading</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Menu items rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Mouse cursor</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Mouse click events</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Menu click handlers</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Menu items browsing</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>«Back» button in menus</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>«Exit» button in menu</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Menu items animation</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add "StartScr"</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>StartScr rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add "Credits"</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Credits rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add deinit function with freeing objects</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add button handlers</title>
-			<text>
-</text>
-		</todo>
+	<todo done="yes" collapse="yes"><title>Menu engine</title>
+		<todo done="yes" collapse="no"><title>Window initialization</title></todo>
+		<todo done="yes" collapse="no"><title>Event handling</title></todo>
+		<todo done="yes" collapse="no"><title>Mouse and keyboard classes</title></todo>
+		<todo done="yes" collapse="no"><title>Add game class (for inclusion menu, input devices,etc.)</title></todo>
+		<todo done="yes" collapse="no"><title>Add main menu class</title></todo>
+		<todo done="yes" collapse="no"><title>Add menu textures (Logo, BG and Item)</title></todo>
+		<todo done="yes" collapse="no"><title>Main menu textures loading</title></todo>
+		<todo done="yes" collapse="no"><title>Add system clock</title></todo>
+		<todo done="yes" collapse="no"><title>Add argue Clock to Update functions</title></todo>
+		<todo done="yes" collapse="no"><title>Main menu render</title></todo>
+		<todo done="yes" collapse="no"><title>Main menu BG animation</title></todo>
+		<todo done="yes" collapse="no"><title>Add settings class</title></todo>
+		<todo done="yes" collapse="no"><title>Add settings file</title></todo>
+		<todo done="yes" collapse="no"><title>Loading settings</title></todo>
+		<todo done="yes" collapse="no"><title>Saving settings</title></todo>
+		<todo done="yes" collapse="no"><title>Menu structure loading</title></todo>
+		<todo done="yes" collapse="no"><title>Menu items rendering</title></todo>
+		<todo done="yes" collapse="no"><title>Mouse cursor</title></todo>
+		<todo done="yes" collapse="no"><title>Mouse click events</title></todo>
+		<todo done="yes" collapse="no"><title>Menu click handlers</title></todo>
+		<todo done="yes" collapse="no"><title>Menu items browsing</title></todo>
+		<todo done="yes" collapse="no"><title>«Back» button in menus</title></todo>
+		<todo done="yes" collapse="no"><title>«Exit» button in menu</title></todo>
+		<todo done="yes" collapse="no"><title>Menu items animation</title></todo>
+		<todo done="yes" collapse="no"><title>Add "StartScr"</title></todo>
+		<todo done="yes" collapse="no"><title>StartScr rendering</title></todo>
+		<todo done="yes" collapse="no"><title>Add "Credits"</title></todo>
+		<todo done="yes" collapse="no"><title>Credits rendering</title></todo>
+		<todo done="yes" collapse="no"><title>Add deinit function with freeing objects</title></todo>
+		<todo done="yes" collapse="no"><title>Add button handlers</title></todo>
 	</todo>
-	<todo done="yes" collapse="yes">
-		<title>Sound engine</title>
-		<text>
-</text>
-		<todo done="yes" collapse="no">
-			<title>Add sound system</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add music system</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add sounds of menu clicks</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add start screen theme</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add main menu theme</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add credits theme</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add theme objects to CreditsScr, StartScr and MainMenu</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add volume into settings</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add shooting sound</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add reloading sound</title>
-			<text>
-</text>
-		</todo>
+	<todo done="yes" collapse="yes"><title>Sound engine</title>
+		<todo done="yes" collapse="no"><title>Add sound system</title></todo>
+		<todo done="yes" collapse="no"><title>Add music system</title></todo>
+		<todo done="yes" collapse="no"><title>Add sounds of menu clicks</title></todo>
+		<todo done="yes" collapse="no"><title>Add start screen theme</title></todo>
+		<todo done="yes" collapse="no"><title>Add main menu theme</title></todo>
+		<todo done="yes" collapse="no"><title>Add credits theme</title></todo>
+		<todo done="yes" collapse="no"><title>Add theme objects to CreditsScr, StartScr and MainMenu</title></todo>
+		<todo done="yes" collapse="no"><title>Add volume into settings</title></todo>
+		<todo done="yes" collapse="no"><title>Add shooting sound</title></todo>
+		<todo done="yes" collapse="no"><title>Add reloading sound</title></todo>
 	</todo>
-	<todo done="yes" collapse="yes">
-		<title>Game engine</title>
-		<text>
-</text>
-		<todo done="yes" collapse="no">
-			<title>Add world class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Remove some friend classes from Game</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add char class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Create pointers to main project objects</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add char rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add char controls</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add camera class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Move BG with camera</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add crosshair</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add world theme</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Fix viewport when moving at the edges</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Move deinit to destructors</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Move init to constructor</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add main class Screen to be base for menu, credits etc.</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add function to delete std::vector contens</title>
-			<text>
-</text>
-		</todo>
+	<todo done="yes" collapse="yes"><title>Game engine</title>
+		<todo done="yes" collapse="no"><title>Add world class</title></todo>
+		<todo done="yes" collapse="no"><title>Remove some friend classes from Game</title></todo>
+		<todo done="yes" collapse="no"><title>Add char class</title></todo>
+		<todo done="yes" collapse="no"><title>Create pointers to main project objects</title></todo>
+		<todo done="yes" collapse="no"><title>Add char rendering</title></todo>
+		<todo done="yes" collapse="no"><title>Add char controls</title></todo>
+		<todo done="yes" collapse="no"><title>Add camera class</title></todo>
+		<todo done="yes" collapse="no"><title>Move BG with camera</title></todo>
+		<todo done="yes" collapse="no"><title>Add crosshair</title></todo>
+		<todo done="yes" collapse="no"><title>Add world theme</title></todo>
+		<todo done="yes" collapse="no"><title>Fix viewport when moving at the edges</title></todo>
+		<todo done="yes" collapse="no"><title>Move deinit to destructors</title></todo>
+		<todo done="yes" collapse="no"><title>Move init to constructor</title></todo>
+		<todo done="yes" collapse="no"><title>Add main class Screen to be base for menu, credits etc.</title></todo>
+		<todo done="yes" collapse="no"><title>Add function to delete std::vector contens</title></todo>
 	</todo>
-	<todo done="yes" collapse="yes">
-		<title>Container</title>
-		<text>
-</text>
-		<todo done="yes" collapse="no">
-			<title>Add container class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add weapon config</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add weapon container</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add weapon selection</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add bodypart config</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add bodypart container</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add bodypart selecting</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add model config</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add model container</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add model selecting</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add creature config</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add creature container</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add creature selecting</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add size to model config</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add scalable models</title>
-			<text>
-</text>
-		</todo>
+	<todo done="yes" collapse="yes"><title>Container</title>
+		<todo done="yes" collapse="no"><title>Add container class</title></todo>
+		<todo done="yes" collapse="no"><title>Add weapon config</title></todo>
+		<todo done="yes" collapse="no"><title>Add weapon container</title></todo>
+		<todo done="yes" collapse="no"><title>Add weapon selection</title></todo>
+		<todo done="yes" collapse="no"><title>Add bodypart config</title></todo>
+		<todo done="yes" collapse="no"><title>Add bodypart container</title></todo>
+		<todo done="yes" collapse="no"><title>Add bodypart selecting</title></todo>
+		<todo done="yes" collapse="no"><title>Add model config</title></todo>
+		<todo done="yes" collapse="no"><title>Add model container</title></todo>
+		<todo done="yes" collapse="no"><title>Add model selecting</title></todo>
+		<todo done="yes" collapse="no"><title>Add creature config</title></todo>
+		<todo done="yes" collapse="no"><title>Add creature container</title></todo>
+		<todo done="yes" collapse="no"><title>Add creature selecting</title></todo>
+		<todo done="yes" collapse="no"><title>Add size to model config</title></todo>
+		<todo done="yes" collapse="no"><title>Add scalable models</title></todo>
 	</todo>
-	<todo done="yes" collapse="yes">
-		<title>GUI</title>
-		<text>
-</text>
-		<todo done="yes" collapse="no">
-			<title>Add GUI</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add flying text class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add flying text rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add flying text animation</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add GUI item HP</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add GUI item ammo</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Draw nice gui items</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add XP GUI item</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add level GUI item</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add cooldown GUI</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add reloading process in cooldown bar</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add window class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add window rendering</title>
-			<text>
-</text>
-		</todo>
+	<todo done="yes" collapse="yes"><title>GUI</title>
+		<todo done="yes" collapse="no"><title>Add GUI</title></todo>
+		<todo done="yes" collapse="no"><title>Add flying text class</title></todo>
+		<todo done="yes" collapse="no"><title>Add flying text rendering</title></todo>
+		<todo done="yes" collapse="no"><title>Add flying text animation</title></todo>
+		<todo done="yes" collapse="no"><title>Add GUI item HP</title></todo>
+		<todo done="yes" collapse="no"><title>Add GUI item ammo</title></todo>
+		<todo done="yes" collapse="no"><title>Draw nice gui items</title></todo>
+		<todo done="yes" collapse="no"><title>Add XP GUI item</title></todo>
+		<todo done="yes" collapse="no"><title>Add level GUI item</title></todo>
+		<todo done="yes" collapse="no"><title>Add cooldown GUI</title></todo>
+		<todo done="yes" collapse="no"><title>Add reloading process in cooldown bar</title></todo>
+		<todo done="yes" collapse="no"><title>Add window class</title></todo>
+		<todo done="yes" collapse="no"><title>Add window rendering</title></todo>
 	</todo>
-	<todo done="yes" collapse="yes">
-		<title>Physics engine</title>
-		<text>
-</text>
-		<todo done="yes" collapse="no">
-			<title>Add phys struct</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add movement</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add gravity</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add physics processing</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add char physics</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add collision test</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add jumps</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add tile collision test</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add collision offset</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add physics processing</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add movement</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add jumping</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Prevent tunnelong effect</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add edges phys collision</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add chunks physics</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add chunks rotation</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add simple blood collision</title>
-			<text>
-</text>
-		</todo>
+	<todo done="yes" collapse="yes"><title>Physics engine</title>
+		<todo done="yes" collapse="no"><title>Add phys struct</title></todo>
+		<todo done="yes" collapse="no"><title>Add movement</title></todo>
+		<todo done="yes" collapse="no"><title>Add gravity</title></todo>
+		<todo done="yes" collapse="no"><title>Add physics processing</title></todo>
+		<todo done="yes" collapse="no"><title>Add char physics</title></todo>
+		<todo done="yes" collapse="no"><title>Add collision test</title></todo>
+		<todo done="yes" collapse="no"><title>Add jumps</title></todo>
+		<todo done="yes" collapse="no"><title>Add tile collision test</title></todo>
+		<todo done="yes" collapse="no"><title>Add collision offset</title></todo>
+		<todo done="yes" collapse="no"><title>Add physics processing</title></todo>
+		<todo done="yes" collapse="no"><title>Add movement</title></todo>
+		<todo done="yes" collapse="no"><title>Add jumping</title></todo>
+		<todo done="yes" collapse="no"><title>Prevent tunnelong effect</title></todo>
+		<todo done="yes" collapse="no"><title>Add edges phys collision</title></todo>
+		<todo done="yes" collapse="no"><title>Add chunks physics</title></todo>
+		<todo done="yes" collapse="no"><title>Add chunks rotation</title></todo>
+		<todo done="yes" collapse="no"><title>Add simple blood collision</title></todo>
 	</todo>
-	<todo done="yes" collapse="yes">
-		<title>Map generator</title>
-		<text>
-</text>
-		<todo done="yes" collapse="no">
-			<title>Add MapGenerator class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add landscape generation</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add saving player position to map file</title>
-			<text>
-</text>
-		</todo>
+	<todo done="yes" collapse="yes"><title>Map generator</title>
+		<todo done="yes" collapse="no"><title>Add MapGenerator class</title></todo>
+		<todo done="yes" collapse="no"><title>Add landscape generation</title></todo>
+		<todo done="yes" collapse="no"><title>Add saving player position to map file</title></todo>
 	</todo>
-	<todo done="yes" collapse="yes">
-		<title>Animation</title>
-		<text>
-</text>
-		<todo done="yes" collapse="no">
-			<title>Add model class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add model parts (legs, body, head, hair, arms, shoe, fist)</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add hair sprite</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add hair render</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add head sprite</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add head render</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add body sprite</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add body render</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add legs sprite</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add legs render</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add arms sprite</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add arms render</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add shoe sprite</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add shoe render</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add fist sprite</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add fist render</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Use sprite offset instead the offset of the image</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add flipping on left/right moving</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add structure to define bodyPart</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add vector to store pointers to bodyparts</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add body flipping depending on crosshair position</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add processing animation</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add jump animation</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add walk animation</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add particle system virtual class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add particle system generation</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add particle system rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add reloading animation</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add NULL bodypart</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add weapon model in hands</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add origin to bodyparts</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Improove shooting animation</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add melee attack animation</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add melee broad attack animation</title>
-			<text>
-</text>
-		</todo>
+	<todo done="yes" collapse="yes"><title>Animation</title>
+		<todo done="yes" collapse="no"><title>Add model class</title></todo>
+		<todo done="yes" collapse="no"><title>Add model parts (legs, body, head, hair, arms, shoe, fist)</title></todo>
+		<todo done="yes" collapse="no"><title>Add hair sprite</title></todo>
+		<todo done="yes" collapse="no"><title>Add hair render</title></todo>
+		<todo done="yes" collapse="no"><title>Add head sprite</title></todo>
+		<todo done="yes" collapse="no"><title>Add head render</title></todo>
+		<todo done="yes" collapse="no"><title>Add body sprite</title></todo>
+		<todo done="yes" collapse="no"><title>Add body render</title></todo>
+		<todo done="yes" collapse="no"><title>Add legs sprite</title></todo>
+		<todo done="yes" collapse="no"><title>Add legs render</title></todo>
+		<todo done="yes" collapse="no"><title>Add arms sprite</title></todo>
+		<todo done="yes" collapse="no"><title>Add arms render</title></todo>
+		<todo done="yes" collapse="no"><title>Add shoe sprite</title></todo>
+		<todo done="yes" collapse="no"><title>Add shoe render</title></todo>
+		<todo done="yes" collapse="no"><title>Add fist sprite</title></todo>
+		<todo done="yes" collapse="no"><title>Add fist render</title></todo>
+		<todo done="yes" collapse="no"><title>Use sprite offset instead the offset of the image</title></todo>
+		<todo done="yes" collapse="no"><title>Add flipping on left/right moving</title></todo>
+		<todo done="yes" collapse="no"><title>Add structure to define bodyPart</title></todo>
+		<todo done="yes" collapse="no"><title>Add vector to store pointers to bodyparts</title></todo>
+		<todo done="yes" collapse="no"><title>Add body flipping depending on crosshair position</title></todo>
+		<todo done="yes" collapse="no"><title>Add processing animation</title></todo>
+		<todo done="yes" collapse="no"><title>Add jump animation</title></todo>
+		<todo done="yes" collapse="no"><title>Add walk animation</title></todo>
+		<todo done="yes" collapse="no"><title>Add particle system virtual class</title></todo>
+		<todo done="yes" collapse="no"><title>Add particle system generation</title></todo>
+		<todo done="yes" collapse="no"><title>Add particle system rendering</title></todo>
+		<todo done="yes" collapse="no"><title>Add reloading animation</title></todo>
+		<todo done="yes" collapse="no"><title>Add NULL bodypart</title></todo>
+		<todo done="yes" collapse="no"><title>Add weapon model in hands</title></todo>
+		<todo done="yes" collapse="no"><title>Add origin to bodyparts</title></todo>
+		<todo done="yes" collapse="no"><title>Improove shooting animation</title></todo>
+		<todo done="yes" collapse="no"><title>Add melee attack animation</title></todo>
+		<todo done="yes" collapse="no"><title>Add melee broad attack animation</title></todo>
 	</todo>
-	<todo done="yes" collapse="yes">
-		<title>Character</title>
-		<text>
-</text>
-		<todo done="yes" collapse="no">
-			<title>Add shot</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add shot rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add shot collision</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add shot splash</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add shot splash creation</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add weapon model</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add weapon cooldown</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add weapon rendering in fist</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add shooting animation with weapon aiming</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add HP</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add ammo</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add damage when falling down</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add reloading</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add non-automatic weapons</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add player respawn</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add weapon shot range</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add special sprites to shots</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add shot speed</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add melee weapons</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add pause before respawn</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add melee attacks</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add melee broad attack</title>
-			<text>
-</text>
-		</todo>
+	<todo done="yes" collapse="yes"><title>Character</title>
+		<todo done="yes" collapse="no"><title>Add shot</title></todo>
+		<todo done="yes" collapse="no"><title>Add shot rendering</title></todo>
+		<todo done="yes" collapse="no"><title>Add shot collision</title></todo>
+		<todo done="yes" collapse="no"><title>Add shot splash</title></todo>
+		<todo done="yes" collapse="no"><title>Add shot splash creation</title></todo>
+		<todo done="yes" collapse="no"><title>Add weapon model</title></todo>
+		<todo done="yes" collapse="no"><title>Add weapon cooldown</title></todo>
+		<todo done="yes" collapse="no"><title>Add weapon rendering in fist</title></todo>
+		<todo done="yes" collapse="no"><title>Add shooting animation with weapon aiming</title></todo>
+		<todo done="yes" collapse="no"><title>Add HP</title></todo>
+		<todo done="yes" collapse="no"><title>Add ammo</title></todo>
+		<todo done="yes" collapse="no"><title>Add damage when falling down</title></todo>
+		<todo done="yes" collapse="no"><title>Add reloading</title></todo>
+		<todo done="yes" collapse="no"><title>Add non-automatic weapons</title></todo>
+		<todo done="yes" collapse="no"><title>Add player respawn</title></todo>
+		<todo done="yes" collapse="no"><title>Add weapon shot range</title></todo>
+		<todo done="yes" collapse="no"><title>Add special sprites to shots</title></todo>
+		<todo done="yes" collapse="no"><title>Add shot speed</title></todo>
+		<todo done="yes" collapse="no"><title>Add melee weapons</title></todo>
+		<todo done="yes" collapse="no"><title>Add pause before respawn</title></todo>
+		<todo done="yes" collapse="no"><title>Add melee attacks</title></todo>
+		<todo done="yes" collapse="no"><title>Add melee broad attack</title></todo>
 	</todo>
-	<todo done="yes" collapse="yes">
-		<title>Creatures</title>
-		<text>
-</text>
-		<todo done="yes" collapse="no">
-			<title>Add creatures</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add creatures rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add creatures damage</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add floating text with damage</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add headshot</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add death</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Remove head when dead after headshot</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add chunks centered spites for body explosions</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add chunk class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add chunk creating</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add chunk rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add creating chunks on death</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add creature respawn</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add XP</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add LevelUp</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add knockback</title>
-			<text>
-</text>
-		</todo>
+	<todo done="yes" collapse="yes"><title>Creatures</title>
+		<todo done="yes" collapse="no"><title>Add creatures</title></todo>
+		<todo done="yes" collapse="no"><title>Add creatures rendering</title></todo>
+		<todo done="yes" collapse="no"><title>Add creatures damage</title></todo>
+		<todo done="yes" collapse="no"><title>Add floating text with damage</title></todo>
+		<todo done="yes" collapse="no"><title>Add headshot</title></todo>
+		<todo done="yes" collapse="no"><title>Add death</title></todo>
+		<todo done="yes" collapse="no"><title>Remove head when dead after headshot</title></todo>
+		<todo done="yes" collapse="no"><title>Add chunks centered spites for body explosions</title></todo>
+		<todo done="yes" collapse="no"><title>Add chunk class</title></todo>
+		<todo done="yes" collapse="no"><title>Add chunk creating</title></todo>
+		<todo done="yes" collapse="no"><title>Add chunk rendering</title></todo>
+		<todo done="yes" collapse="no"><title>Add creating chunks on death</title></todo>
+		<todo done="yes" collapse="no"><title>Add creature respawn</title></todo>
+		<todo done="yes" collapse="no"><title>Add XP</title></todo>
+		<todo done="yes" collapse="no"><title>Add LevelUp</title></todo>
+		<todo done="yes" collapse="no"><title>Add knockback</title></todo>
 	</todo>
-	<todo done="yes" collapse="yes">
-		<title>AI</title>
-		<text>
-</text>
-		<todo done="yes" collapse="no">
-			<title>Add creatures AI prototype</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add fractions</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add vector with all characters</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Basic AI</title>
-			<text>
-</text>
-		</todo>
+	<todo done="yes" collapse="yes"><title>AI</title>
+		<todo done="yes" collapse="no"><title>Add creatures AI prototype</title></todo>
+		<todo done="yes" collapse="no"><title>Add fractions</title></todo>
+		<todo done="yes" collapse="no"><title>Add vector with all characters</title></todo>
+		<todo done="yes" collapse="no"><title>Basic AI</title></todo>
 	</todo>
-	<todo done="yes" collapse="yes">
-		<title>Map</title>
-		<text>
-</text>
-		<todo done="yes" collapse="no">
-			<title>Add tile storage class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add map storage class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add tileset storage class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add tileset loading</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="yes">
-			<title>Add map rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add background</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add testmap generation generation</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add big map support</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Update map class to set sizes</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add saving map</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add loading map</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add tilesets system</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add finding tiles</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add walls (50 0rey tiles)</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add bricks tileset</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add yellow warning tilesets</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add map decoration class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add decorations</title>
-			<text>
-</text>
-		</todo>
+	<todo done="yes" collapse="yes"><title>Map</title>
+		<todo done="yes" collapse="no"><title>Add tile storage class</title></todo>
+		<todo done="yes" collapse="no"><title>Add map storage class</title></todo>
+		<todo done="yes" collapse="no"><title>Add tileset storage class</title></todo>
+		<todo done="yes" collapse="no"><title>Add tileset loading</title></todo>
+		<todo done="yes" collapse="yes"><title>Add map rendering</title></todo>
+		<todo done="yes" collapse="no"><title>Add background</title></todo>
+		<todo done="yes" collapse="no"><title>Add testmap generation generation</title></todo>
+		<todo done="yes" collapse="no"><title>Add big map support</title></todo>
+		<todo done="yes" collapse="no"><title>Update map class to set sizes</title></todo>
+		<todo done="yes" collapse="no"><title>Add saving map</title></todo>
+		<todo done="yes" collapse="no"><title>Add loading map</title></todo>
+		<todo done="yes" collapse="no"><title>Add tilesets system</title></todo>
+		<todo done="yes" collapse="no"><title>Add finding tiles</title></todo>
+		<todo done="yes" collapse="no"><title>Add walls (50 0rey tiles)</title></todo>
+		<todo done="yes" collapse="no"><title>Add bricks tileset</title></todo>
+		<todo done="yes" collapse="no"><title>Add yellow warning tilesets</title></todo>
+		<todo done="yes" collapse="no"><title>Add map decoration class</title></todo>
+		<todo done="yes" collapse="no"><title>Add decorations</title></todo>
 	</todo>
-	<todo done="no" collapse="no">
-		<title>Inventory</title>
-		<text>
-</text>
-		<todo done="yes" collapse="no">
-			<title>Add Inventory class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add money</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add inventory item class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add inventory slots</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add collectable items class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add weapon item</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add money item</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add increment count instead of duplicating</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add collectable items rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add picking collectable items</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add container with sprites</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add loot generator struct</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add loot loading in base creatures</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add loot generating</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add creatures generating inventory</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add drop inventory on death</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add inventory menu class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add inventory menu rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add inventory menu slots rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add inventory menu mouse rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add inventory menu hover handling</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add inventory money rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add inventory rendering in slots</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add count items in slots</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add inventory menu click handling</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add inventory dragging</title>
-			<text>
-</text>
-		</todo>
-		<todo done="yes" collapse="no">
-			<title>Add equip slots</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add interactive objects (to use, like chests)</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add collectors (chests, etc.)</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add collectors menu (Inventory + 50 slots of collector)</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add Character menu class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add Character menu rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add armor</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add armor calculating</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add armor sprite (bodypart + color)</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add armor equipping filter (weapons is not for legs, etc.)</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add armor rendering</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add hint class</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add hints when hovering item</title>
-			<text>
-</text>
-		</todo>
+	<todo done="no" collapse="no"><title>Inventory</title>
+		<todo done="yes" collapse="no"><title>Add Inventory class</title></todo>
+		<todo done="yes" collapse="no"><title>Add money</title></todo>
+		<todo done="yes" collapse="no"><title>Add inventory item class</title></todo>
+		<todo done="yes" collapse="no"><title>Add inventory slots</title></todo>
+		<todo done="yes" collapse="no"><title>Add collectable items class</title></todo>
+		<todo done="yes" collapse="no"><title>Add weapon item</title></todo>
+		<todo done="yes" collapse="no"><title>Add money item</title></todo>
+		<todo done="yes" collapse="no"><title>Add increment count instead of duplicating</title></todo>
+		<todo done="yes" collapse="no"><title>Add collectable items rendering</title></todo>
+		<todo done="yes" collapse="no"><title>Add picking collectable items</title></todo>
+		<todo done="yes" collapse="no"><title>Add container with sprites</title></todo>
+		<todo done="yes" collapse="no"><title>Add loot generator struct</title></todo>
+		<todo done="yes" collapse="no"><title>Add loot loading in base creatures</title></todo>
+		<todo done="yes" collapse="no"><title>Add loot generating</title></todo>
+		<todo done="yes" collapse="no"><title>Add creatures generating inventory</title></todo>
+		<todo done="yes" collapse="no"><title>Add drop inventory on death</title></todo>
+		<todo done="yes" collapse="no"><title>Add inventory menu class</title></todo>
+		<todo done="yes" collapse="no"><title>Add inventory menu rendering</title></todo>
+		<todo done="yes" collapse="no"><title>Add inventory menu slots rendering</title></todo>
+		<todo done="yes" collapse="no"><title>Add inventory menu mouse rendering</title></todo>
+		<todo done="yes" collapse="no"><title>Add inventory menu hover handling</title></todo>
+		<todo done="yes" collapse="no"><title>Add inventory money rendering</title></todo>
+		<todo done="yes" collapse="no"><title>Add inventory rendering in slots</title></todo>
+		<todo done="yes" collapse="no"><title>Add count items in slots</title></todo>
+		<todo done="yes" collapse="no"><title>Add inventory menu click handling</title></todo>
+		<todo done="yes" collapse="no"><title>Add inventory dragging</title></todo>
+		<todo done="yes" collapse="no"><title>Add equip slots</title></todo>
+		<todo done="no" collapse="no"><title>Add interactive objects (to use, like chests)</title></todo>
+		<todo done="no" collapse="no"><title>Add collectors (chests, etc.)</title></todo>
+		<todo done="no" collapse="no"><title>Add collectors menu (Inventory + 50 slots of collector)</title></todo>
+		<todo done="no" collapse="no"><title>Add Character menu class</title></todo>
+		<todo done="no" collapse="no"><title>Add Character menu rendering</title></todo>
+		<todo done="no" collapse="no"><title>Add armor</title></todo>
+		<todo done="no" collapse="no"><title>Add armor calculating</title></todo>
+		<todo done="no" collapse="no"><title>Add armor sprite (bodypart + color)</title></todo>
+		<todo done="no" collapse="no"><title>Add armor equipping filter (weapons is not for legs, etc.)</title></todo>
+		<todo done="no" collapse="no"><title>Add armor rendering</title></todo>
+		<todo done="no" collapse="no"><title>Add hint class</title></todo>
+		<todo done="no" collapse="no"><title>Add hints when hovering item</title></todo>
 	</todo>
-	<todo done="no" collapse="yes">
-		<title>Advanced</title>
-		<text>
-</text>
-		<todo done="yes" collapse="no">
-			<title>Add crypto API for sqlite</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Move data to sqlite db</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Move classes to structs</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Remove "get" methods</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Deprecate rendering non-visible items</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Deprecate rendering non-visible chunks</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add some weapons</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add some armors</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add primary skills (Strength, Agility, Accuracy etc.)</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add secondary skills (Healing, Crafting etc.)</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add weapon skills (each weapon has it's own XP value)</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add explosives</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add explosive weapon</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add items bonuses +dmg, +defence, etc.</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Fog</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add weather</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Lighting</title>
-			<text>
-</text>
-		</todo>
+	<todo done="no" collapse="yes"><title>Advanced</title>
+		<todo done="yes" collapse="no"><title>Add crypto API for sqlite</title></todo>
+		<todo done="no" collapse="no"><title>Move data to sqlite db</title></todo>
+		<todo done="no" collapse="no"><title>Move classes to structs</title></todo>
+		<todo done="no" collapse="no"><title>Remove "get" methods</title></todo>
+		<todo done="no" collapse="no"><title>Deprecate rendering non-visible items</title></todo>
+		<todo done="no" collapse="no"><title>Deprecate rendering non-visible chunks</title></todo>
+		<todo done="no" collapse="no"><title>Add some weapons</title></todo>
+		<todo done="no" collapse="no"><title>Add some armors</title></todo>
+		<todo done="no" collapse="no"><title>Add primary skills (Strength, Agility, Accuracy etc.)</title></todo>
+		<todo done="no" collapse="no"><title>Add secondary skills (Healing, Crafting etc.)</title></todo>
+		<todo done="no" collapse="no"><title>Add weapon skills (each weapon has it's own XP value)</title></todo>
+		<todo done="no" collapse="no"><title>Add explosives</title></todo>
+		<todo done="no" collapse="no"><title>Add explosive weapon</title></todo>
+		<todo done="no" collapse="no"><title>Add items bonuses +dmg, +defence, etc.</title></todo>
+		<todo done="no" collapse="no"><title>Fog</title></todo>
+		<todo done="no" collapse="no"><title>Add weather</title></todo>
+		<todo done="no" collapse="no"><title>Lighting</title></todo>
 	</todo>
-	<todo done="no" collapse="yes">
-		<title>--- Release Alpha</title>
-		<text>
-</text>
-		<todo done="no" collapse="no">
-			<title>Add player home</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add main quest NPC</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add quests</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add quest world generation</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Add quest items</title>
-			<text>
-</text>
-		</todo>
+	<todo done="no" collapse="yes"><title>--- Release Alpha</title>
+		<todo done="no" collapse="no"><title>Add player home</title></todo>
+		<todo done="no" collapse="no"><title>Add main quest NPC</title></todo>
+		<todo done="no" collapse="no"><title>Add quests</title></todo>
+		<todo done="no" collapse="no"><title>Add quest world generation</title></todo>
+		<todo done="no" collapse="no"><title>Add quest items</title></todo>
 	</todo>
-	<todo done="no" collapse="yes">
-		<title>--- Release Beta</title>
-		<text>
-</text>
-		<todo done="no" collapse="no">
-			<title>Fix game balance</title>
-			<text>
-</text>
-		</todo>
-		<todo done="no" collapse="no">
-			<title>Fix alpha bugs</title>
-			<text>
-</text>
-		</todo>
+	<todo done="no" collapse="yes"><title>--- Release Beta</title>
+		<todo done="no" collapse="no"><title>Fix game balance</title></todo>
+		<todo done="no" collapse="no"><title>Fix alpha bugs</title></todo>
 	</todo>
 </todo>

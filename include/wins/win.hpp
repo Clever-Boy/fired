@@ -1,5 +1,5 @@
-#ifndef __WINDOW
-#define __WINDOW
+#ifndef __WIN
+#define __WIN
 
 
 namespace fired {

@@ -1,5 +1,5 @@
-#ifndef __WORLD
-#define __WORLD
+#ifndef __THEWORLD
+#define __THEWORLD
 
 
 namespace fired {

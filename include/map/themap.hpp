@@ -5,7 +5,7 @@
 #include "tile.hpp"
 #include "decor.hpp"
 #include "phys.hpp"
-#include "theworld.hpp"
+#include "world.hpp"
 
 
 namespace fired {

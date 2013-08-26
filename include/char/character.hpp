@@ -11,7 +11,7 @@ namespace fired {
 #include "phys.hpp"
 #include "model.hpp"
 #include "inventory.hpp"
-#include "theworld.hpp"
+#include "world.hpp"
 
 
 namespace fired {

@@ -13,6 +13,8 @@ fired::World::World() {
 	player    = new fired::Player(cam, map->getStartPos(), this);
 	gui       = new fired::GUI(cam, player);
 
+	inventoryWin = new fired::InventoryWindow(player->getChar());
+
 	cam->setMapSize(map->getSize());
 	cam->setTrackObj(player->getPhys());
 
@@ -31,6 +33,8 @@ fired::World::~World() {
 	delete gui;
 	delete cam;
 	delete container;
+
+	delete inventoryWin;
 
 	deleteList(shots);
 	deleteList(meleeShots);

@@ -26,6 +26,8 @@ namespace fired {
 		fired::GUI       *gui;
 		fired::Container *container;
 
+		fired::InventoryWindow *inventoryWin;
+
 		std::vector<fired::ParticleSystem*>  particles;
 		std::vector<fired::Shot*>            shots;
 		std::vector<fired::MeleeShot*>       meleeShots;

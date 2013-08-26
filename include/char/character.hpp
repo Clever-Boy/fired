@@ -11,6 +11,7 @@ namespace fired {
 #include "phys.hpp"
 #include "model.hpp"
 #include "inventory.hpp"
+#include "wins.hpp"
 #include "world.hpp"
 
 

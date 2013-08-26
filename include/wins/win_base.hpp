@@ -1,5 +1,5 @@
-#ifndef __WIN
-#define __WIN
+#ifndef __WIN_BASE
+#define __WIN_BASE
 
 
 namespace fired {

@@ -1130,7 +1130,7 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add inventory menu class</title>
 			<text>
 </text>
@@ -1141,12 +1141,22 @@
 </text>
 		</todo>
 		<todo done="no" collapse="no">
-			<title>Add inventory menu click handling</title>
+			<title>Add inventory menu slots rendering</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add inventory menu hover handling</title>
 			<text>
 </text>
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Add inventory rendering in slots</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add inventory menu click handling</title>
 			<text>
 </text>
 		</todo>

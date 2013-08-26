@@ -2,6 +2,6 @@
 #define __WINS
 
 
-#include "wins/win.hpp"
+#include "wins/win_inventory.hpp"
 
 #endif

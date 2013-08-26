@@ -15,7 +15,6 @@
 
 #include "defines.hpp"
 #include "gamescreen.hpp"
-#include "wins.hpp"
 #include "control.hpp"
 #include "menu.hpp"
 #include "settings.hpp"

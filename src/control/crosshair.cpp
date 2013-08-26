@@ -3,9 +3,8 @@
 //======================================================================
 
 
-fired::Crosshair::Crosshair(fired::Camera *_cam, fired::Phys *_owner) {
+fired::Crosshair::Crosshair(fired::Camera *_cam) {
 	cam      = _cam;
-	owner    = _owner;
 
 	crosshairTex = new sf::Texture();
 	crosshairCur = new sf::Sprite();

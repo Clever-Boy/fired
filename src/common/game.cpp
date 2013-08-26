@@ -153,7 +153,7 @@ bool fired::Game::switchGameState() {
 	if      (gameState == gsMainMenu)   gameScreen = new fired::MainMenu(mouse);
 	else if (gameState == gsStartScr)   gameScreen = new fired::StartScr();
 	else if (gameState == gsCreditsScr) gameScreen = new fired::CreditsScr();
-	else if (gameState == gsWorld)      gameScreen = new fired::World();
+	else if (gameState == gsWorld)      gameScreen = new fired::World(mouse);
 
 	lastClock = clock->getElapsedTime().asMilliseconds();
 	return true;

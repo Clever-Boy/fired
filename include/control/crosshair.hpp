@@ -18,13 +18,14 @@ namespace fired {
 
 
 	public:
-		 Crosshair(fired::Camera *_cam, fired::Phys *_owner);
+		 Crosshair(fired::Camera *_cam);
 		~Crosshair();
 
 		void update(float distance);
 		void render();
 
-		float getAngle() { return angle; };
+		float getAngle()                    { return angle; };
+		void  setOwner(fired::Phys *_owner) {owner = _owner; };
 	};
 }
 

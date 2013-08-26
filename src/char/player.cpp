@@ -3,12 +3,14 @@
 //======================================================================
 
 
-fired::Player::Player(fired::Camera *_cam, sf::Vector2f _startpos, fired::World *world) {
+fired::Player::Player(fired::Camera *_cam, sf::Vector2f _startpos, fired::Crosshair *_crosshair, fired::World *world) {
 	startPos = _startpos;
 	deadTime = 0;
 
 	character = new fired::Character(_cam, _startpos, world, world->getCreature("player"));
-	crosshair = new fired::Crosshair(_cam, &character->phys);
+	crosshair = _crosshair;
+
+	crosshair->setOwner(&character->phys);
 }
 
 //======================================================================
@@ -16,7 +18,6 @@ fired::Player::Player(fired::Camera *_cam, sf::Vector2f _startpos, fired::World 
 
 fired::Player::~Player() {
 	delete character;
-	delete crosshair;
 }
 
 //======================================================================
@@ -33,11 +34,9 @@ void fired::Player::update() {
 		}
 	}
 
-	checkControls();
 	character->setAiming(crosshair->getAngle());
 
 	character->update();
-	crosshair->update(character->getStats()->aimrange);
 }
 
 //======================================================================

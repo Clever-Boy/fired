@@ -28,6 +28,8 @@ namespace fired {
 	private:
 		fired::Map       *map;
 		fired::Camera    *cam;
+		fired::Crosshair *crosshair;
+		fired::Mouse     *mouse;
 		fired::Player    *player;
 		fired::GUI       *gui;
 		fired::Container *container;
@@ -49,7 +51,7 @@ namespace fired {
 
 
 	public:
-		 World();
+		 World(fired::Mouse *_mouse);
 		~World();
 
 		std::vector<fired::Character*> chars;

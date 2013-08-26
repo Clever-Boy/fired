@@ -16,7 +16,7 @@ namespace fired {
 
 
 	public:
-		 Player(fired::Camera *_cam, sf::Vector2f _startpos, fired::World *world);
+		 Player(fired::Camera *_cam, sf::Vector2f _startpos, fired::Crosshair *_crosshair, fired::World *world);
 		~Player();
 
 		void update();

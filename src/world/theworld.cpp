@@ -3,15 +3,17 @@
 //======================================================================
 
 
-fired::World::World() {
+fired::World::World(fired::Mouse *_mouse) {
 	game->setMusic("data/snd/themes/world.ogg");
 	paused = false;
+	mouse  = _mouse;
 	state  = wsNormal;
 
 	container = new fired::Container(this);
 	cam       = new fired::Camera();
 	map       = new fired::Map(cam, this);
-	player    = new fired::Player(cam, map->getStartPos(), this);
+	crosshair = new fired::Crosshair(cam);
+	player    = new fired::Player(cam, map->getStartPos(), crosshair, this);
 	gui       = new fired::GUI(player);
 
 	inventoryWin = new fired::InventoryWindow(player->getChar());
@@ -30,6 +32,7 @@ fired::World::World() {
 
 fired::World::~World() {
 	delete player;
+	delete crosshair;
 	delete map;
 	delete gui;
 	delete cam;
@@ -67,9 +70,6 @@ void fired::World::update() {
 	updateList(shots);
 	updateList(particles);
 	updateList(texts);
-
-	cam->reset();
-	gui->update();
 
 	postUpdateState();
 }
@@ -211,6 +211,7 @@ void fired::World::preUpdateState() {
 
 	switch (state) {
 		case wsNormal:
+			player->checkControls();
 			break;
 
 		case wsInventory:
@@ -225,10 +226,16 @@ void fired::World::preUpdateState() {
 void fired::World::postUpdateState() {
 	switch (state) {
 		case wsNormal:
+			crosshair->update(player->getChar()->getStats()->aimrange);
+			cam->reset();
+			gui->update();
 			break;
 
 		case wsInventory:
+			cam->reset();
+			gui->update();
 			inventoryWin->update();
+			mouse->update();
 			break;
 	}
 }

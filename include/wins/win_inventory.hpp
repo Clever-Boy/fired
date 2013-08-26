@@ -39,6 +39,7 @@ namespace fired {
 		 InventoryWindow(fired::Character *_owner);
 		~InventoryWindow();
 
+		void update();
 		void render();
 	};
 }

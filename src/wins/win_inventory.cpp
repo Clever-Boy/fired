@@ -14,6 +14,12 @@ fired::InventoryWindowItem::InventoryWindowItem(sf::Vector2f pos, fired::Invento
 void fired::InventoryWindowItem::render(sf::Sprite *spr) {
 	spr->setPosition(rectCenter(rect));
 	app->draw(*spr);
+
+	if ( item == NULL) return;
+	if (*item == NULL) return;
+
+	(*item)->sprite->setPosition(rectCenter(rect));
+	app->draw(*(*item)->sprite);
 }
 
 //======================================================================
@@ -61,7 +67,7 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner) {
 
 	for (int i = 0; i < 10; i++)
 		for (int j = 0; j < 5; j++)
-			items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(25.0f + 40.0f * i, 275.0f + 40.0f * j), NULL));
+			items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(25.0f + 40.0f * i, 275.0f + 40.0f * j), &owner->inventory->items[i][j]));
 }
 
 //======================================================================

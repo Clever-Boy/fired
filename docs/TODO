@@ -1160,8 +1160,13 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add inventory rendering in slots</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add count items in slots</title>
 			<text>
 </text>
 		</todo>

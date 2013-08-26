@@ -8,6 +8,16 @@ fired::Inventory::Inventory(fired::Character *_owner, fired::World *world) {
 	owner   = _owner;
 	credits = new fired::InventoryItem(itMoney, 0, "credits", world);
 
+	helm = NULL;
+	body = NULL;
+	arms = NULL;
+	fist = NULL;
+	legs = NULL;
+	shoe = NULL;
+
+	primaryWeapon   = NULL;
+	secondaryWeapon = NULL;
+
 	for (int i = 0; i < 10; i++)
 		for (int j = 0; j < 5; j++)
 			items[i][j] = NULL;

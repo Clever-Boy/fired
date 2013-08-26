@@ -78,14 +78,15 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner) {
 	countText->setCharacterSize(12);
 	countText->setColor(sf::Color::White);
 
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(205.0f,  25.0f), NULL)); //Helm
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(205.0f,  85.0f), NULL)); //Body
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(155.0f,  45.0f), NULL)); //Arms
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(155.0f, 125.0f), NULL)); //Fist
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(255.0f,  45.0f), NULL)); //Legs
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(255.0f, 125.0f), NULL)); //Shoe
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(180.0f, 185.0f), NULL)); //Prim
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(230.0f, 185.0f), NULL)); //Sec
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(205.0f,  25.0f), &owner->inventory->helm));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(205.0f,  85.0f), &owner->inventory->body));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(155.0f,  45.0f), &owner->inventory->arms));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(155.0f, 125.0f), &owner->inventory->fist));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(255.0f,  45.0f), &owner->inventory->legs));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(255.0f, 125.0f), &owner->inventory->shoe));
+
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(180.0f, 185.0f), &owner->inventory->primaryWeapon));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(230.0f, 185.0f), &owner->inventory->secondaryWeapon));
 
 
 	for (int i = 0; i < 10; i++)

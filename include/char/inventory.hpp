@@ -12,6 +12,16 @@ namespace fired {
 		fired::InventoryItem *items[10][5];
 		fired::InventoryItem *credits;
 
+		fired::InventoryItem *helm;
+		fired::InventoryItem *body;
+		fired::InventoryItem *arms;
+		fired::InventoryItem *fist;
+		fired::InventoryItem *legs;
+		fired::InventoryItem *shoe;
+
+		fired::InventoryItem *primaryWeapon;
+		fired::InventoryItem *secondaryWeapon;
+
 
 		 Inventory(fired::Character *_owner, fired::World *world);
 		~Inventory() {};

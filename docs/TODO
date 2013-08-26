@@ -1180,7 +1180,7 @@
 			<text>
 </text>
 		</todo>
-		<todo done="no" collapse="no">
+		<todo done="yes" collapse="no">
 			<title>Add equip slots</title>
 			<text>
 </text>
@@ -1226,12 +1226,22 @@
 </text>
 		</todo>
 		<todo done="no" collapse="no">
-			<title>Add armor equipping</title>
+			<title>Add armor equipping filter (weapons is not for legs, etc.)</title>
 			<text>
 </text>
 		</todo>
 		<todo done="no" collapse="no">
 			<title>Add armor rendering</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add hint class</title>
+			<text>
+</text>
+		</todo>
+		<todo done="no" collapse="no">
+			<title>Add hints when hovering item</title>
 			<text>
 </text>
 		</todo>

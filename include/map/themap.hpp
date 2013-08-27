@@ -3,7 +3,7 @@
 
 
 #include "tile.hpp"
-#include "decor.hpp"
+#include "objects.hpp"
 #include "phys.hpp"
 #include "world.hpp"
 

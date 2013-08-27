@@ -29,6 +29,7 @@ namespace fired {
 		char            name[32];
 		unsigned int    count;
 
+		MapItem() {};
 		MapItem(fired::ItemType _type, unsigned int _count, const char *_name);
 	};
 

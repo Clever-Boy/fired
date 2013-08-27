@@ -119,7 +119,7 @@
 		<todo done="yes" collapse="no"><title>Add landscape generation</title></todo>
 		<todo done="yes" collapse="no"><title>Add saving player position to map file</title></todo>
 	</todo>
-	<todo done="yes" collapse="yes"><title>Animation</title>
+	<todo done="no" collapse="yes"><title>Animation</title>
 		<todo done="yes" collapse="no"><title>Add model class</title></todo>
 		<todo done="yes" collapse="no"><title>Add model parts (legs, body, head, hair, arms, shoe, fist)</title></todo>
 		<todo done="yes" collapse="no"><title>Add hair sprite</title></todo>
@@ -154,8 +154,9 @@
 		<todo done="yes" collapse="no"><title>Improove shooting animation</title></todo>
 		<todo done="yes" collapse="no"><title>Add melee attack animation</title></todo>
 		<todo done="yes" collapse="no"><title>Add melee broad attack animation</title></todo>
+		<todo done="no" collapse="no"><title>Add armor rendering on model</title></todo>
 	</todo>
-	<todo done="yes" collapse="yes"><title>Character</title>
+	<todo done="no" collapse="yes"><title>Character</title>
 		<todo done="yes" collapse="no"><title>Add shot</title></todo>
 		<todo done="yes" collapse="no"><title>Add shot rendering</title></todo>
 		<todo done="yes" collapse="no"><title>Add shot collision</title></todo>
@@ -178,6 +179,11 @@
 		<todo done="yes" collapse="no"><title>Add pause before respawn</title></todo>
 		<todo done="yes" collapse="no"><title>Add melee attacks</title></todo>
 		<todo done="yes" collapse="no"><title>Add melee broad attack</title></todo>
+		<todo done="no" collapse="no"><title>Add Character menu class</title></todo>
+		<todo done="no" collapse="no"><title>Add Character menu rendering</title></todo>
+		<todo done="no" collapse="no"><title>Add armor</title></todo>
+		<todo done="no" collapse="no"><title>Add armor calculating</title></todo>
+		<todo done="no" collapse="no"><title>Add armor sprite (bodypart + color)</title></todo>
 	</todo>
 	<todo done="yes" collapse="yes"><title>Creatures</title>
 		<todo done="yes" collapse="no"><title>Add creatures</title></todo>
@@ -224,7 +230,7 @@
 		<todo done="yes" collapse="no"><title>Add decorations</title></todo>
 		<todo done="no" collapse="no"><title>Add platforms</title></todo>
 	</todo>
-	<todo done="no" collapse="no"><title>Inventory</title>
+	<todo done="no" collapse="yes"><title>Inventory</title>
 		<todo done="yes" collapse="no"><title>Add Inventory class</title></todo>
 		<todo done="yes" collapse="no"><title>Add money</title></todo>
 		<todo done="yes" collapse="no"><title>Add inventory item class</title></todo>
@@ -255,20 +261,16 @@
 		<todo done="yes" collapse="no"><title>Add interactive objects (to use, like chests)</title></todo>
 		<todo done="yes" collapse="no"><title>Add collectors (chests, etc.)</title></todo>
 		<todo done="yes" collapse="no"><title>Add collectors menu (Inventory + 50 slots of collector)</title></todo>
-		<todo done="no" collapse="no"><title>Add chests loot generating</title></todo>
-		<todo done="no" collapse="no"><title>Add Character menu class</title></todo>
-		<todo done="no" collapse="no"><title>Add Character menu rendering</title></todo>
-		<todo done="no" collapse="no"><title>Add armor</title></todo>
-		<todo done="no" collapse="no"><title>Add armor calculating</title></todo>
-		<todo done="no" collapse="no"><title>Add armor sprite (bodypart + color)</title></todo>
+		<todo done="yes" collapse="no"><title>Add chests loot generating</title></todo>
+		<todo done="no" collapse="no"><title>Add armor items</title></todo>
 		<todo done="no" collapse="no"><title>Add armor equipping filter (weapons is not for legs, etc.)</title></todo>
-		<todo done="no" collapse="no"><title>Add armor rendering on model</title></todo>
 		<todo done="no" collapse="no"><title>Add hint class</title></todo>
 		<todo done="no" collapse="no"><title>Add hints when hovering item</title></todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>Advanced</title>
 		<todo done="yes" collapse="no"><title>Add crypto API for sqlite</title></todo>
 		<todo done="no" collapse="no"><title>Move data to sqlite db</title></todo>
+		<todo done="no" collapse="no"><title>Move map save &amp; load to another file</title></todo>
 		<todo done="no" collapse="no"><title>Move inventory &amp; item to new folder "inventory"</title></todo>
 		<todo done="no" collapse="no"><title>Move map objects to new folder "objects"</title></todo>
 		<todo done="no" collapse="no"><title>Move classes to structs</title></todo>

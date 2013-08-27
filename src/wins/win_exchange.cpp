@@ -160,9 +160,11 @@ void fired::ExchangeWindow::click(sf::Vector2f mousePos) {
 
 
 	if (ownSelected && *inHand->item != NULL) {
-		if ((*inHand->item)->type == itMoney) owner->pickup(*inHand->item);
-		*inHand->item = NULL;
-		return;
+		if ((*inHand->item)->type == itMoney) {
+			owner->pickup(*inHand->item);
+			*inHand->item = NULL;
+			return;
+		}
 	}
 
 

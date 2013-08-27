@@ -117,8 +117,20 @@ void fired::Map::load(const char* filename) {
 	for (unsigned int i = 0; i < objCount; i++) {
 		fread(&obj, sizeof(obj), 1, fp);
 
-		if (obj.type == moCollector) objects.push_back(new fired::MapObjectCollector(new fired::Decor(world->getDecor(obj.decorName), obj.pos)));
 		if (obj.type == moNone)      objects.push_back(new fired::MapObject(new fired::Decor(world->getDecor(obj.decorName), obj.pos)));
+		if (obj.type == moCollector) {
+			objects.push_back(new fired::MapObjectCollector(new fired::Decor(world->getDecor(obj.decorName), obj.pos)));
+
+			unsigned int itemCount;
+			fired::MapItem item;
+			fired::MapObjectCollector *collObj = (fired::MapObjectCollector*)objects.back();
+
+			fread(&itemCount, sizeof(itemCount), 1, fp);
+			for (unsigned int j = 0; j < itemCount; j++) {
+				fread(&item, sizeof(item), 1, fp);
+				collObj->items[j%10][j/5] = new fired::InventoryItem(&item, world);
+			}
+		}
 	}
 
 	fclose(fp);

@@ -29,9 +29,10 @@ namespace fired {
 
 
 		BaseMapObjectCollector() {};
-		BaseMapObjectCollector(const char *_name, sf::Vector2f _pos, fired::MapObjectType _type);
+		BaseMapObjectCollector(const char *_name, sf::Vector2f _pos);
 
 		void generateLoot();
+		void addItem(fired::ItemType _type, unsigned int _count, const char *_name);
 	};
 
 

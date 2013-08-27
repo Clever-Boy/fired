@@ -58,9 +58,22 @@ void fired::MapGenerator::save(const char* filename) {
 	for (unsigned int i = 0; i < decorCount; i++) fwrite(decors[i], sizeof(fired::MapDecor), 1, fp);
 
 
+	fired::BaseMapObject curObj;
 	unsigned int objCount = objects.size();
 	fwrite(&objCount, sizeof(objCount), 1, fp);
-	for (unsigned int i = 0; i < objCount; i++) fwrite(objects[i], sizeof(fired::BaseMapObject), 1, fp);
+	for (unsigned int i = 0; i < objCount; i++) {
+		curObj = fired::BaseMapObject(objects[i]->decorName, objects[i]->pos, objects[i]->type);
+		fwrite(&curObj, sizeof(curObj), 1, fp);
+
+		if (curObj.type == moCollector) {
+			fired::BaseMapObjectCollector *collObj = (fired::BaseMapObjectCollector*)objects[i];
+			unsigned int itemCount = collObj->items.size();
+
+			fwrite(&itemCount, sizeof(itemCount), 1, fp);
+			for (unsigned int j = 0; j < itemCount; j++)
+				fwrite(collObj->items[j], sizeof(fired::MapItem), 1, fp);
+		}
+	}
 
 	fclose(fp);
 }
@@ -134,8 +147,11 @@ void fired::MapGenerator::genDecors() {
 
 
 void fired::MapGenerator::genCollectors() {
-	objects.push_back(new fired::BaseMapObject("chest", sf::Vector2f(44*TILE_SIZE, 33*TILE_SIZE), moCollector));
-	objects.push_back(new fired::BaseMapObject("chest", sf::Vector2f(84*TILE_SIZE, 33*TILE_SIZE), moCollector));
+	objects.push_back(new fired::BaseMapObjectCollector("chest", sf::Vector2f(44*TILE_SIZE, 33*TILE_SIZE)));
+	((fired::BaseMapObjectCollector*)objects.back())->generateLoot();
+
+	objects.push_back(new fired::BaseMapObjectCollector("chest", sf::Vector2f(84*TILE_SIZE, 33*TILE_SIZE)));
+	((fired::BaseMapObjectCollector*)objects.back())->generateLoot();
 }
 
 //======================================================================

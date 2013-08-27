@@ -98,6 +98,7 @@ namespace fired {
 
 
 		void togglePause() {paused = !paused; };
+		void interact(fired::Character *owner);
 	};
 }
 

@@ -211,6 +211,13 @@ void fired::World::spawn(sf::Vector2f pos, const char *creature) {
 //======================================================================
 
 
+void fired::World::interact(fired::Character *owner) {
+	fired::MapObject *obj = map->checkInteraction(owner);
+}
+
+//======================================================================
+
+
 void fired::World::preUpdateState() {
 	if (paused) frameClock = 0.0f;
 

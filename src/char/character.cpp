@@ -376,6 +376,13 @@ void fired::Character::jump() {
 //======================================================================
 
 
+void fired::Character::interact() {
+	world->interact(this);
+}
+
+//======================================================================
+
+
 void fired::Character::reload() {
 	if (weapon->ammo == weapon->clip) return;
 	if (weapon->reloadSound) weapon->reloadSound->play();

@@ -64,6 +64,7 @@ namespace fired {
 		void jump();
 		void reload();
 		void shot();
+		void interact();
 		void unshot() {weapon->wasShot = false; };
 
 		bool  checkShot(fired::Shot *shot);

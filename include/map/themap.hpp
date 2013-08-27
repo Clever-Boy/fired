@@ -51,6 +51,8 @@ namespace fired {
 		void checkPhys(fired::Phys *phys, fired::Character *character);
 		bool checkShot(fired::Shot *shot);
 
+		fired::MapObject *checkInteraction(fired::Character *owner);
+
 		sf::Vector2i getSize()     { return mapSize; };
 		sf::Vector2f getStartPos() { return startPos; };
 	};

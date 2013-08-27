@@ -325,3 +325,13 @@ bool fired::Map::checkShot(fired::Shot *shot) {
 
 	return false;
 }
+
+
+//======================================================================
+
+fired::MapObject *fired::Map::checkInteraction(fired::Character *owner) {
+	for (unsigned int i = 0; i < objects.size(); i++)
+		if (objects[i]->decor->rect.intersects(owner->phys.rect)) return objects[i];
+
+	return NULL;
+}

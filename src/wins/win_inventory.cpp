@@ -5,7 +5,7 @@
 
 fired::InventoryWindowItem::InventoryWindowItem(sf::Vector2f pos, fired::InventoryItem **_item) {
 	item = _item;
-	rect = sf::FloatRect(pos, sf::Vector2f(40.0f, 40.0f));
+	rect = sf::FloatRect(pos, sf::Vector2f(35.0f, 35.0f));
 }
 
 //======================================================================
@@ -44,7 +44,7 @@ void fired::InventoryWindowItem::renderItem(sf::Text *count) {
 
 fired::InventoryWindow::InventoryWindow(fired::Character *_owner) {
 	owner  = _owner;
-	win    = new fired::Window(sf::Vector2f(450, 500));
+	win    = new fired::Window(sf::Vector2f(370, 380));
 	inHand = new fired::InventoryWindowItem(sf::Vector2f(0.0f, 0.0f), new fired::InventoryItem*);
 
 	emptyTex = new sf::Texture();
@@ -70,7 +70,7 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner) {
 	moneyText = new sf::Text();
 	moneyText->setFont(*game->getFont());
 	moneyText->setCharacterSize(16);
-	moneyText->setPosition(win->getOffset() + sf::Vector2f(40.0f, 480.0f));
+	moneyText->setPosition(win->getOffset() + sf::Vector2f(30.0f, 360.0f));
 	moneyText->setColor(sf::Color::White);
 
 	countText = new sf::Text();
@@ -78,20 +78,20 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner) {
 	countText->setCharacterSize(12);
 	countText->setColor(sf::Color::White);
 
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(205.0f,  25.0f), &owner->inventory->helm));
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(205.0f,  85.0f), &owner->inventory->body));
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(155.0f,  45.0f), &owner->inventory->arms));
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(155.0f, 125.0f), &owner->inventory->fist));
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(255.0f,  45.0f), &owner->inventory->legs));
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(255.0f, 125.0f), &owner->inventory->shoe));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(175.0f,  10.0f), &owner->inventory->helm));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(175.0f,  65.0f), &owner->inventory->body));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(130.0f,  22.0f), &owner->inventory->arms));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(130.0f,  85.0f), &owner->inventory->fist));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(220.0f,  25.0f), &owner->inventory->legs));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(220.0f,  85.0f), &owner->inventory->shoe));
 
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(180.0f, 185.0f), &owner->inventory->primaryWeapon));
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(230.0f, 185.0f), &owner->inventory->secondaryWeapon));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(155.0f, 130.0f), &owner->inventory->primaryWeapon));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(195.0f, 130.0f), &owner->inventory->secondaryWeapon));
 
 
 	for (int i = 0; i < 10; i++)
 		for (int j = 0; j < 5; j++)
-			items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(25.0f + 40.0f * i, 275.0f + 40.0f * j), &owner->inventory->items[i][j]));
+			items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(10.0f + 35.0f * i, 185.0f + 35.0f * j), &owner->inventory->items[i][j]));
 }
 
 //======================================================================
@@ -140,7 +140,7 @@ void fired::InventoryWindow::render() {
 		else                              items[i]->render(normalSpr, countText);
 
 
-	owner->inventory->credits->sprite->setPosition(win->getOffset() + sf::Vector2f(30.0f, 490.0f));
+	owner->inventory->credits->sprite->setPosition(win->getOffset() + sf::Vector2f(20.0f, 370.0f));
 	app->draw(*owner->inventory->credits->sprite);
 
 	char credits[16];

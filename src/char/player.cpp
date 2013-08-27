@@ -49,6 +49,7 @@ void fired::Player::checkControls() {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))     character->moveRight();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) character->jump();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))     character->reload();
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))     character->interact();
 
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))     character->shot();
 	if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))    character->unshot();

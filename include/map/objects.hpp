@@ -25,7 +25,7 @@ namespace fired {
 
 
 	struct BaseMapObjectCollector : BaseMapObject {
-		std::vector<MapItem*> items;
+		std::vector<fired::MapItem*> items;
 
 
 		BaseMapObjectCollector() {};

@@ -254,7 +254,7 @@
 		<todo done="yes" collapse="no"><title>Add equip slots</title></todo>
 		<todo done="yes" collapse="no"><title>Add interactive objects (to use, like chests)</title></todo>
 		<todo done="yes" collapse="no"><title>Add collectors (chests, etc.)</title></todo>
-		<todo done="no" collapse="no"><title>Add collectors menu (Inventory + 50 slots of collector)</title></todo>
+		<todo done="yes" collapse="no"><title>Add collectors menu (Inventory + 50 slots of collector)</title></todo>
 		<todo done="no" collapse="no"><title>Add chests loot generating</title></todo>
 		<todo done="no" collapse="no"><title>Add Character menu class</title></todo>
 		<todo done="no" collapse="no"><title>Add Character menu rendering</title></todo>

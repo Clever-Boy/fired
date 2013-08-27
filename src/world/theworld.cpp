@@ -17,6 +17,7 @@ fired::World::World(fired::Mouse *_mouse) {
 	gui       = new fired::GUI(player);
 
 	inventoryWin = new fired::InventoryWindow(player->getChar());
+	exchangeWin  = new fired::ExchangeWindow(player->getChar());
 
 	cam->setMapSize(map->getSize());
 	cam->setTrackObj(player->getPhys());
@@ -39,6 +40,7 @@ fired::World::~World() {
 	delete container;
 
 	delete inventoryWin;
+	delete exchangeWin;
 
 	deleteList(shots);
 	deleteList(meleeShots);
@@ -176,7 +178,11 @@ void fired::World::checkItems() {
 
 
 void fired::World::processEvent(sf::Event event) {
-	if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)) game->stop();
+	if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)) {
+		if      (state == wsNormal)    game->stop();
+		else if (state == wsInventory) state = wsNormal;
+		else if (state == wsExchange)  state = wsNormal;
+	}
 
 
 	if ((event.type == sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::I)) {
@@ -187,6 +193,7 @@ void fired::World::processEvent(sf::Event event) {
 
 	if ((event.type == sf::Event::MouseButtonPressed) && (event.mouseButton.button == sf::Mouse::Left)) {
 		if (state == wsInventory) inventoryWin->click(mouse->getPos());
+		if (state == wsExchange)  exchangeWin->click(mouse->getPos());
 	}
 }
 
@@ -213,6 +220,12 @@ void fired::World::spawn(sf::Vector2f pos, const char *creature) {
 
 void fired::World::interact(fired::Character *owner) {
 	fired::MapObject *obj = map->checkInteraction(owner);
+	if (obj == NULL) return;
+
+	if (obj->type == moCollector) {
+		exchangeWin->init((fired::MapObjectCollector*)obj);
+		state = wsExchange;
+	}
 }
 
 //======================================================================
@@ -227,6 +240,10 @@ void fired::World::preUpdateState() {
 			break;
 
 		case wsInventory:
+			frameClock = 0.0f;
+			break;
+
+		case wsExchange:
 			frameClock = 0.0f;
 			break;
 	}
@@ -247,6 +264,13 @@ void fired::World::postUpdateState() {
 			cam->reset();
 			gui->update();
 			inventoryWin->update(mouse->getPos());
+			mouse->update();
+			break;
+
+		case wsExchange:
+			cam->reset();
+			gui->update();
+			exchangeWin->update(mouse->getPos());
 			mouse->update();
 			break;
 	}

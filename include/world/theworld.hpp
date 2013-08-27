@@ -8,7 +8,8 @@ namespace fired {
 
 	enum WorldState {
 		wsNormal,
-		wsInventory
+		wsInventory,
+		wsExchange
 	};
 }
 
@@ -35,6 +36,7 @@ namespace fired {
 		fired::Container *container;
 
 		fired::InventoryWindow *inventoryWin;
+		fired::ExchangeWindow  *exchangeWin;
 
 		std::vector<fired::ParticleSystem*>  particles;
 		std::vector<fired::Shot*>            shots;

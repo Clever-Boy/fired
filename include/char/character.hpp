@@ -19,7 +19,9 @@ namespace fired {
 	class Character {
 		friend class Model;
 		friend class ModelHumanoid;
+
 		friend class InventoryWindow;
+		friend class ExchangeWindow;
 
 
 	private:

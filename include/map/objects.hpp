@@ -24,6 +24,18 @@ namespace fired {
 
 
 
+	struct BaseMapObjectCollector : BaseMapObject {
+		std::vector<MapItem*> items;
+
+
+		BaseMapObjectCollector() {};
+		BaseMapObjectCollector(const char *_name, sf::Vector2f _pos, fired::MapObjectType _type);
+
+		void generateLoot();
+	};
+
+
+
 	struct MapObject {
 		fired::Decor        *decor;
 		fired::MapObjectType type;

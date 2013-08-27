@@ -270,7 +270,8 @@
 	<todo done="no" collapse="yes"><title>Advanced</title>
 		<todo done="yes" collapse="no"><title>Add crypto API for sqlite</title></todo>
 		<todo done="no" collapse="no"><title>Move data to sqlite db</title></todo>
-		<todo done="no" collapse="no"><title>Move map save &amp; load to another file</title></todo>
+		<todo done="yes" collapse="no"><title>Move map save &amp; load to another file</title></todo>
+		<todo done="no" collapse="no"><title>Move saving map objects to new methods</title></todo>
 		<todo done="no" collapse="no"><title>Move inventory &amp; item to new folder "inventory"</title></todo>
 		<todo done="no" collapse="no"><title>Move map objects to new folder "objects"</title></todo>
 		<todo done="no" collapse="no"><title>Move classes to structs</title></todo>

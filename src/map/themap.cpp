@@ -20,7 +20,7 @@ fired::Map::Map(fired::Camera *_cam, fired::World *_world) {
 	visibleTiles.x = settings->window.width  / TILE_SIZE + 2;
 	visibleTiles.y = settings->window.height / TILE_SIZE + 2;
 
-	load("data/maps/test.map");
+	mapLoad(this, "data/maps/test.map");
 }
 
 //======================================================================
@@ -70,112 +70,6 @@ void fired::Map::render() {
 
 	for (unsigned int i = 0; i < objects.size(); i++)
 		objects[i]->render();
-}
-
-//======================================================================
-
-
-void fired::Map::load(const char* filename) {
-	FILE *fp;
-	fired::MapTile tile;
-
-
-	if ((fp = fopen(filename, "r")) == NULL) return;
-	fread(&startPos, sizeof(startPos), 1, fp);
-	fread(&sizeX, sizeof(int), 1, fp);
-	fread(&sizeY, sizeof(int), 1, fp);
-	mapSize = sf::Vector2i(sizeX * TILE_SIZE, sizeY * TILE_SIZE);
-
-	tiles = new fired::Tile*[sizeX];
-	for (int i = 0; i < sizeX; i++)
-		tiles[i] = new fired::Tile[sizeY];
-
-	for (int i = 0; i < sizeX; i++)
-		for (int j = 0; j < sizeY; j++) {
-			fread(&tile, sizeof(tile), 1, fp);
-			tiles[i][j].set(tile.tileset, tile.isWall, i, j);
-		}
-
-	findTiles(0, 0, sizeX, sizeY);
-	for (int i = 0; i < sizeX; i++) for (int j = 0; j < sizeY; j++)
-		tiles[i][j].setTileset(tileset);
-
-
-	unsigned int decorCount;
-	fired::MapDecor decor;
-
-	fread(&decorCount, sizeof(decorCount), 1, fp);
-	for (unsigned int i = 0; i < decorCount; i++) {
-		fread(&decor, sizeof(decor), 1, fp);
-		decors.push_back(new fired::Decor(world->getDecor(decor.name), decor.pos));
-	}
-
-	unsigned int objCount;
-	fired::BaseMapObject obj;
-
-	fread(&objCount, sizeof(objCount), 1, fp);
-	for (unsigned int i = 0; i < objCount; i++) {
-		fread(&obj, sizeof(obj), 1, fp);
-
-		if (obj.type == moNone)      objects.push_back(new fired::MapObject(new fired::Decor(world->getDecor(obj.decorName), obj.pos)));
-		if (obj.type == moCollector) {
-			objects.push_back(new fired::MapObjectCollector(new fired::Decor(world->getDecor(obj.decorName), obj.pos)));
-
-			unsigned int itemCount;
-			fired::MapItem item;
-			fired::MapObjectCollector *collObj = (fired::MapObjectCollector*)objects.back();
-
-			fread(&itemCount, sizeof(itemCount), 1, fp);
-			for (unsigned int j = 0; j < itemCount; j++) {
-				fread(&item, sizeof(item), 1, fp);
-				collObj->items[j%10][j/5] = new fired::InventoryItem(&item, world);
-			}
-		}
-	}
-
-	fclose(fp);
-}
-
-//======================================================================
-
-
-void fired::Map::save(const char* filename) {
-	FILE *fp;
-	struct stat buf;
-	fired::MapTile tile;
-
-	if (stat("data/maps", &buf) == -1) mkdir("data/maps", 0755);
-	if ((fp = fopen(filename, "w")) == NULL) return;
-	fwrite(&startPos, sizeof(startPos), 1, fp);
-	fwrite(&sizeX, sizeof(int), 1, fp);
-	fwrite(&sizeY, sizeof(int), 1, fp);
-
-	for (int i = 0; i < sizeX; i++)
-		for (int j = 0; j < sizeY; j++) {
-			tile.tileset = tiles[i][j].getIndex();
-			tile.isWall  = tiles[i][j].isSolid();
-			fwrite(&tile, sizeof(tile), 1, fp);
-		}
-
-
-	unsigned int decorCount = decors.size();
-	fwrite(&decorCount, sizeof(decorCount), 1, fp);
-
-	for (unsigned int i = 0; i < decorCount; i++) {
-		fired::MapDecor decor(decors[i]->name, decors[i]->pos);
-		fwrite(&decor, sizeof(decor), 1, fp);
-	}
-
-
-	unsigned int objCount = objects.size();
-	fwrite(&objCount, sizeof(objCount), 1, fp);
-
-	for (unsigned int i = 0; i < objCount; i++) {
-		fired::BaseMapObject obj(objects[i]->decor->name, objects[i]->decor->pos, objects[i]->type);
-		fwrite(&obj, sizeof(obj), 1, fp);
-	}
-
-	fclose(fp);
 }
 
 //======================================================================

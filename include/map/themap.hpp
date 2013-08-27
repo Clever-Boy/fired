@@ -9,8 +9,7 @@
 
 
 namespace fired {
-	class Map {
-	private:
+	struct Map {
 		fired::Camera    *cam;
 		fired::World     *world;
 
@@ -20,10 +19,8 @@ namespace fired {
 		std::vector<fired::Decor*>     decors;
 		std::vector<fired::MapObject*> objects;
 
-
 		sf::Texture        *bgTex;
 		sf::RectangleShape *bgSprite;
-
 
 		sf::Vector2i        visibleTiles;
 		sf::Vector2i        mapSize;
@@ -33,15 +30,11 @@ namespace fired {
 		int sizeY;
 
 
-	public:
 		 Map(fired::Camera *_cam, fired::World *_world);
 		~Map();
 
 		void update();
 		void render();
-
-		void load(const char* filename);
-		void save(const char* filename);
 
 		bool isSolid(int i, int j);
 		void findTile(int i, int j);

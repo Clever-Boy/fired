@@ -7,8 +7,7 @@
 
 
 namespace fired {
-	class MapGenerator {
-	private:
+	struct MapGenerator {
 		fired::MapTile **tiles;
 		sf::Vector2f     startPos;
 		int sizeX;
@@ -16,8 +15,6 @@ namespace fired {
 
 		std::vector<fired::MapDecor*> decors;
 		std::vector<fired::BaseMapObject*> objects;
-
-		void save(const char* filename);
 
 		void genLandscape(int areaStart, int areaEnd, int horizon);
 		void genClear(int xSize, int ySize);
@@ -29,7 +26,6 @@ namespace fired {
 		void genFill(int x1, int y1, int x2, int y2, int tileset, bool isWall);
 
 
-	public:
 		 MapGenerator();
 		~MapGenerator();
 

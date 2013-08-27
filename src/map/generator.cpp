@@ -30,52 +30,7 @@ void fired::MapGenerator::generate() {
 	genCollectors();
 	genPlayer();
 
-	save("data/maps/test.map");
-}
-
-//======================================================================
-
-
-void fired::MapGenerator::save(const char* filename) {
-	FILE *fp;
-	struct stat buf;
-
-	if (stat("data/maps", &buf) == -1) mkdir("data/maps", 0755);
-	if ((fp = fopen(filename, "w")) == NULL) return;
-
-	fwrite(&startPos, sizeof(startPos), 1, fp);
-	fwrite(&sizeX, sizeof(int), 1, fp);
-	fwrite(&sizeY, sizeof(int), 1, fp);
-
-	for (int i = 0; i < sizeX; i++)
-		for (int j = 0; j < sizeY; j++) {
-			fwrite(&tiles[i][j], sizeof(fired::MapTile), 1, fp);
-		}
-
-
-	unsigned int decorCount = decors.size();
-	fwrite(&decorCount, sizeof(decorCount), 1, fp);
-	for (unsigned int i = 0; i < decorCount; i++) fwrite(decors[i], sizeof(fired::MapDecor), 1, fp);
-
-
-	fired::BaseMapObject curObj;
-	unsigned int objCount = objects.size();
-	fwrite(&objCount, sizeof(objCount), 1, fp);
-	for (unsigned int i = 0; i < objCount; i++) {
-		curObj = fired::BaseMapObject(objects[i]->decorName, objects[i]->pos, objects[i]->type);
-		fwrite(&curObj, sizeof(curObj), 1, fp);
-
-		if (curObj.type == moCollector) {
-			fired::BaseMapObjectCollector *collObj = (fired::BaseMapObjectCollector*)objects[i];
-			unsigned int itemCount = collObj->items.size();
-
-			fwrite(&itemCount, sizeof(itemCount), 1, fp);
-			for (unsigned int j = 0; j < itemCount; j++)
-				fwrite(collObj->items[j], sizeof(fired::MapItem), 1, fp);
-		}
-	}
-
-	fclose(fp);
+	genSave(this, "data/maps/test.map");
 }
 
 //======================================================================

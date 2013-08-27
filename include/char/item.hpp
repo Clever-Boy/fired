@@ -8,7 +8,7 @@ namespace fired {
 		itWeapon
 	};
 
-/*--------------------------------------------------------------------*/
+
 
 	struct LootItem {
 		fired::ItemType type;
@@ -22,7 +22,17 @@ namespace fired {
 		LootItem(fired::ItemType _type, const char *_name, unsigned int _minCount, unsigned int _maxCount, float _probability);
 	};
 
-/*--------------------------------------------------------------------*/
+
+
+	struct MapItem {
+		fired::ItemType type;
+		char            name[32];
+		unsigned int    count;
+
+		MapItem(fired::ItemType _type, unsigned int _count, const char *_name);
+	};
+
+
 
 	struct InventoryItem {
 		fired::ItemType type;
@@ -33,12 +43,13 @@ namespace fired {
 
 
 		 InventoryItem(fired::ItemType _type, unsigned int _count, const char *_name, fired::World *world);
+		 InventoryItem(fired::MapItem *base, fired::World *world);
 		~InventoryItem() {};
 
 		void render(sf::Vector2f pos);
 	};
 
-/*--------------------------------------------------------------------*/
+
 
 	struct CollectableItem {
 		fired::InventoryItem *item;

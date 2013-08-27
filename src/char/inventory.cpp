@@ -26,6 +26,26 @@ fired::Inventory::Inventory(fired::Character *_owner, fired::World *world) {
 //======================================================================
 
 
+fired::Inventory::~Inventory() {
+	if (helm) delete helm;
+	if (body) delete body;
+	if (arms) delete arms;
+	if (fist) delete fist;
+	if (legs) delete legs;
+	if (shoe) delete shoe;
+
+	if (credits)         delete credits;
+	if (primaryWeapon)   delete primaryWeapon;
+	if (secondaryWeapon) delete secondaryWeapon;
+
+	for (int i = 0; i < 10; i++)
+		for (int j = 0; j < 5; j++)
+			if(items[i][j]) delete items[i][j];
+}
+
+//======================================================================
+
+
 void fired::Inventory::pickup(fired::InventoryItem *item) {
 	if (item->type == itMoney) {
 		credits->count += item->count;
@@ -77,6 +97,7 @@ void fired::Inventory::dropAll(fired::World *world) {
 	if (credits->count > 0) {
 		angle = -(random() % 180) * 3.14f / 180.0f;
 		world->addItem(credits, pos, sf::Vector2f(ITEM_SPEED * cos(angle), ITEM_SPEED * sin(angle)));
+		credits = NULL;
 	}
 
 
@@ -85,6 +106,7 @@ void fired::Inventory::dropAll(fired::World *world) {
 			if (items[i][j] != NULL) {
 				angle = -(random() % 180) * 3.14f / 180.0f;
 				world->addItem(items[i][j], pos, sf::Vector2f(ITEM_SPEED * cos(angle), ITEM_SPEED * sin(angle)));
+				items[i][j] = NULL;
 			}
 }
 

@@ -29,9 +29,10 @@ namespace fired {
 
 	struct Decor {
 		char name[16];
-		sf::Vector2f pos;
-		sf::Sprite  *sprite;
-		sf::Color    color;
+		sf::Vector2f  pos;
+		sf::FloatRect rect;
+		sf::Sprite   *sprite;
+		sf::Color     color;
 
 
 		Decor(fired::BaseDecor *base, sf::Vector2f _pos);

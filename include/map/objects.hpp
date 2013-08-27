@@ -11,26 +11,28 @@ namespace fired {
 	};
 
 
-/*
+
 	struct BaseMapObject {
 		char                 decorName[16];
 		sf::Vector2f         pos;
 		fired::MapObjectType type;
 
 
-		MapObject() {};
-		MapObject(const char *_name, sf::Vector2f _pos);
+		BaseMapObject() {};
+		BaseMapObject(const char *_name, sf::Vector2f _pos, fired::MapObjectType _type);
 	};
-*/
+
 
 
 	struct MapObject {
 		fired::Decor        *decor;
-		sf::Vector2f         pos;
 		fired::MapObjectType type;
 
 
-		MapObject();
+		 MapObject() {};
+		 MapObject(fired::Decor *_decor);
+		~MapObject();
+
 		void render();
 	};
 
@@ -40,7 +42,7 @@ namespace fired {
 		fired::InventoryItem *items[10][5];
 
 
-		 MapObjectCollector();
+		 MapObjectCollector(fired::Decor *_decor);
 		~MapObjectCollector();
 	};
 }

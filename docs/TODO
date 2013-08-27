@@ -94,7 +94,7 @@
 		<todo done="yes" collapse="no"><title>Add window class</title></todo>
 		<todo done="yes" collapse="no"><title>Add window rendering</title></todo>
 	</todo>
-	<todo done="yes" collapse="yes"><title>Physics engine</title>
+	<todo done="no" collapse="yes"><title>Physics engine</title>
 		<todo done="yes" collapse="no"><title>Add phys struct</title></todo>
 		<todo done="yes" collapse="no"><title>Add movement</title></todo>
 		<todo done="yes" collapse="no"><title>Add gravity</title></todo>
@@ -112,6 +112,7 @@
 		<todo done="yes" collapse="no"><title>Add chunks physics</title></todo>
 		<todo done="yes" collapse="no"><title>Add chunks rotation</title></todo>
 		<todo done="yes" collapse="no"><title>Add simple blood collision</title></todo>
+		<todo done="no" collapse="no"><title>Add platform physics</title></todo>
 	</todo>
 	<todo done="yes" collapse="yes"><title>Map generator</title>
 		<todo done="yes" collapse="no"><title>Add MapGenerator class</title></todo>
@@ -202,7 +203,7 @@
 		<todo done="yes" collapse="no"><title>Add vector with all characters</title></todo>
 		<todo done="yes" collapse="no"><title>Basic AI</title></todo>
 	</todo>
-	<todo done="yes" collapse="yes"><title>Map</title>
+	<todo done="no" collapse="yes"><title>Map</title>
 		<todo done="yes" collapse="no"><title>Add tile storage class</title></todo>
 		<todo done="yes" collapse="no"><title>Add map storage class</title></todo>
 		<todo done="yes" collapse="no"><title>Add tileset storage class</title></todo>
@@ -221,6 +222,7 @@
 		<todo done="yes" collapse="no"><title>Add yellow warning tilesets</title></todo>
 		<todo done="yes" collapse="no"><title>Add map decoration class</title></todo>
 		<todo done="yes" collapse="no"><title>Add decorations</title></todo>
+		<todo done="no" collapse="no"><title>Add platforms</title></todo>
 	</todo>
 	<todo done="no" collapse="no"><title>Inventory</title>
 		<todo done="yes" collapse="no"><title>Add Inventory class</title></todo>
@@ -251,8 +253,9 @@
 		<todo done="yes" collapse="no"><title>Add inventory dragging</title></todo>
 		<todo done="yes" collapse="no"><title>Add equip slots</title></todo>
 		<todo done="no" collapse="no"><title>Add interactive objects (to use, like chests)</title></todo>
-		<todo done="no" collapse="no"><title>Add collectors (chests, etc.)</title></todo>
+		<todo done="yes" collapse="no"><title>Add collectors (chests, etc.)</title></todo>
 		<todo done="no" collapse="no"><title>Add collectors menu (Inventory + 50 slots of collector)</title></todo>
+		<todo done="no" collapse="no"><title>Add chests loot generating</title></todo>
 		<todo done="no" collapse="no"><title>Add Character menu class</title></todo>
 		<todo done="no" collapse="no"><title>Add Character menu rendering</title></todo>
 		<todo done="no" collapse="no"><title>Add armor</title></todo>

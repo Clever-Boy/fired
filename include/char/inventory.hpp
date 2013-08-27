@@ -24,7 +24,7 @@ namespace fired {
 
 
 		 Inventory(fired::Character *_owner, fired::World *world);
-		~Inventory() {};
+		~Inventory();
 
 		void pickup(fired::InventoryItem *item);
 		bool canPickup(fired::InventoryItem *item);

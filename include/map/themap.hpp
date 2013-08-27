@@ -17,7 +17,8 @@ namespace fired {
 		fired::Tileset *tileset;
 		fired::Tile   **tiles;
 
-		std::vector<fired::Decor*> decors;
+		std::vector<fired::Decor*>     decors;
+		std::vector<fired::MapObject*> objects;
 
 
 		sf::Texture        *bgTex;

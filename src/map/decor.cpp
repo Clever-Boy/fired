@@ -36,6 +36,7 @@ fired::BaseDecor::~BaseDecor() {
 
 fired::Decor::Decor(fired::BaseDecor *base, sf::Vector2f _pos) {
 	pos    = _pos;
+	rect   = sf::FloatRect(pos, base->size);
 	sprite = base->spr;
 	color  = sf::Color::White;
 	strncpy(name, base->name, sizeof(name));

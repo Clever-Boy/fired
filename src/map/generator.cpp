@@ -15,6 +15,9 @@ fired::MapGenerator::~MapGenerator() {
 		delete tiles[i];
 
 	delete tiles;
+
+	deleteList(decors);
+	deleteList(objects);
 }
 
 //======================================================================
@@ -24,6 +27,7 @@ void fired::MapGenerator::generate() {
 	genClear(200, 100);
 	genLandscape(0, sizeX, 40);
 	genDecors();
+	genCollectors();
 	genPlayer();
 
 	save("data/maps/test.map");
@@ -51,10 +55,12 @@ void fired::MapGenerator::save(const char* filename) {
 
 	unsigned int decorCount = decors.size();
 	fwrite(&decorCount, sizeof(decorCount), 1, fp);
+	for (unsigned int i = 0; i < decorCount; i++) fwrite(decors[i], sizeof(fired::MapDecor), 1, fp);
 
-	for (unsigned int i = 0; i < decorCount; i++) {
-		fwrite(decors[i], sizeof(fired::MapDecor), 1, fp);
-	}
+
+	unsigned int objCount = objects.size();
+	fwrite(&objCount, sizeof(objCount), 1, fp);
+	for (unsigned int i = 0; i < objCount; i++) fwrite(objects[i], sizeof(fired::BaseMapObject), 1, fp);
 
 	fclose(fp);
 }
@@ -122,6 +128,14 @@ void fired::MapGenerator::genDecors() {
 	decors.push_back(new fired::MapDecor("barrel", sf::Vector2f(2288, 608)));
 	decors.push_back(new fired::MapDecor("barrel", sf::Vector2f(2368, 608)));
 	decors.push_back(new fired::MapDecor("barrel", sf::Vector2f(2400, 608)));
+}
+
+//======================================================================
+
+
+void fired::MapGenerator::genCollectors() {
+	objects.push_back(new fired::BaseMapObject("chest", sf::Vector2f(44*TILE_SIZE, 33*TILE_SIZE), moCollector));
+	objects.push_back(new fired::BaseMapObject("chest", sf::Vector2f(84*TILE_SIZE, 33*TILE_SIZE), moCollector));
 }
 
 //======================================================================

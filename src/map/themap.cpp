@@ -32,6 +32,7 @@ fired::Map::~Map() {
 	delete tiles;
 	delete tileset;
 	deleteList(decors);
+	deleteList(objects);
 }
 
 //======================================================================
@@ -66,6 +67,9 @@ void fired::Map::render() {
 
 	for (unsigned int i = 0; i < decors.size(); i++)
 		decors[i]->render();
+
+	for (unsigned int i = 0; i < objects.size(); i++)
+		objects[i]->render();
 }
 
 //======================================================================
@@ -97,13 +101,24 @@ void fired::Map::load(const char* filename) {
 		tiles[i][j].setTileset(tileset);
 
 
-	int decorCount;
+	unsigned int decorCount;
 	fired::MapDecor decor;
 
 	fread(&decorCount, sizeof(decorCount), 1, fp);
-	for (int i = 0; i < decorCount; i++) {
+	for (unsigned int i = 0; i < decorCount; i++) {
 		fread(&decor, sizeof(decor), 1, fp);
 		decors.push_back(new fired::Decor(world->getDecor(decor.name), decor.pos));
+	}
+
+	unsigned int objCount;
+	fired::BaseMapObject obj;
+
+	fread(&objCount, sizeof(objCount), 1, fp);
+	for (unsigned int i = 0; i < objCount; i++) {
+		fread(&obj, sizeof(obj), 1, fp);
+
+		if (obj.type == moCollector) objects.push_back(new fired::MapObjectCollector(new fired::Decor(world->getDecor(obj.decorName), obj.pos)));
+		if (obj.type == moNone)      objects.push_back(new fired::MapObject(new fired::Decor(world->getDecor(obj.decorName), obj.pos)));
 	}
 
 	fclose(fp);
@@ -137,6 +152,15 @@ void fired::Map::save(const char* filename) {
 	for (unsigned int i = 0; i < decorCount; i++) {
 		fired::MapDecor decor(decors[i]->name, decors[i]->pos);
 		fwrite(&decor, sizeof(decor), 1, fp);
+	}
+
+
+	unsigned int objCount = objects.size();
+	fwrite(&objCount, sizeof(objCount), 1, fp);
+
+	for (unsigned int i = 0; i < objCount; i++) {
+		fired::BaseMapObject obj(objects[i]->decor->name, objects[i]->decor->pos, objects[i]->type);
+		fwrite(&obj, sizeof(obj), 1, fp);
 	}
 
 	fclose(fp);

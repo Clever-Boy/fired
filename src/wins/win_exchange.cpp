@@ -7,6 +7,7 @@ fired::ExchangeWindow::ExchangeWindow(fired::Character *_owner) {
 	owner  = _owner;
 	win    = new fired::Window(sf::Vector2f(740, 380));
 	inHand = new fired::InventoryWindowItem(sf::Vector2f(0.0f, 0.0f), new fired::InventoryItem*);
+	*(inHand->item) = NULL;
 
 	emptyTex = new sf::Texture();
 	hoverTex = new sf::Texture();

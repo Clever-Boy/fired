@@ -47,6 +47,7 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner) {
 	owner  = _owner;
 	win    = new fired::Window(sf::Vector2f(370, 380));
 	inHand = new fired::InventoryWindowItem(sf::Vector2f(0.0f, 0.0f), new fired::InventoryItem*);
+	*(inHand->item) = NULL;
 
 	emptyTex = new sf::Texture();
 	hoverTex = new sf::Texture();
@@ -150,6 +151,7 @@ void fired::InventoryWindow::render() {
 	app->draw(*moneyText);
 
 	inHand->renderItem(countText);
+
 }
 
 //======================================================================

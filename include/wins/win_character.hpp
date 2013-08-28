@@ -20,7 +20,7 @@ namespace fired {
 
 		void update();
 		void render();
-		void renderText(float x, float y, const char *caption);
+		void renderText(float x, float y, const char *caption, bool rightAligned);
 	};
 }
 

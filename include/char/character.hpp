@@ -22,6 +22,7 @@ namespace fired {
 
 		friend class InventoryWindow;
 		friend class ExchangeWindow;
+		friend class CharacterWindow;
 
 
 	private:

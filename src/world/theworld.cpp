@@ -18,6 +18,7 @@ fired::World::World(fired::Mouse *_mouse) {
 
 	inventoryWin = new fired::InventoryWindow(player->getChar());
 	exchangeWin  = new fired::ExchangeWindow(player->getChar());
+	characterWin = new fired::CharacterWindow(player->getChar());
 
 	cam->setMapSize(map->getSize());
 	cam->setTrackObj(player->getPhys());
@@ -41,6 +42,7 @@ fired::World::~World() {
 
 	delete inventoryWin;
 	delete exchangeWin;
+	delete characterWin;
 
 	deleteList(shots);
 	deleteList(meleeShots);
@@ -182,11 +184,18 @@ void fired::World::processEvent(sf::Event event) {
 		if      (state == wsNormal)    game->stop();
 		else if (state == wsInventory) state = wsNormal;
 		else if (state == wsExchange)  state = wsNormal;
+		else if (state == wsCharacter) state = wsNormal;
 	}
 
 
 	if ((event.type == sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::I)) {
 		if (state != wsInventory) state = wsInventory;
+		else                      state = wsNormal;
+	}
+
+
+	if ((event.type == sf::Event::KeyReleased) && (event.key.code == sf::Keyboard::C)) {
+		if (state != wsCharacter) state = wsCharacter;
 		else                      state = wsNormal;
 	}
 
@@ -246,6 +255,10 @@ void fired::World::preUpdateState() {
 		case wsExchange:
 			frameClock = 0.0f;
 			break;
+
+		case wsCharacter:
+			frameClock = 0.0f;
+			break;
 	}
 }
 
@@ -271,6 +284,13 @@ void fired::World::postUpdateState() {
 			cam->reset();
 			gui->update();
 			exchangeWin->update(mouse->getPos());
+			mouse->update();
+			break;
+
+		case wsCharacter:
+			cam->reset();
+			gui->update();
+			characterWin->update();
 			mouse->update();
 			break;
 	}

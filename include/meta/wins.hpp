@@ -3,5 +3,6 @@
 
 
 #include "wins/win_exchange.hpp"
+#include "wins/win_character.hpp"
 
 #endif

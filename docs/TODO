@@ -155,7 +155,7 @@
 		<todo done="yes" collapse="no"><title>Melee broad attack animation</title></todo>
 		<todo done="no" collapse="no"><title>Armor rendering on model</title></todo>
 	</todo>
-	<todo done="no" collapse="yes"><title>Character</title>
+	<todo done="no" collapse="no"><title>Character</title>
 		<todo done="yes" collapse="no"><title>Shot</title></todo>
 		<todo done="yes" collapse="no"><title>Shot rendering</title></todo>
 		<todo done="yes" collapse="no"><title>Shot collision</title></todo>
@@ -178,7 +178,7 @@
 		<todo done="yes" collapse="no"><title>Pause before respawn</title></todo>
 		<todo done="yes" collapse="no"><title>Melee attacks</title></todo>
 		<todo done="yes" collapse="no"><title>Melee broad attack</title></todo>
-		<todo done="no" collapse="no"><title>Character menu class</title></todo>
+		<todo done="yes" collapse="no"><title>Character menu class</title></todo>
 		<todo done="no" collapse="no"><title>Character menu rendering</title></todo>
 		<todo done="no" collapse="no"><title>Armor stat</title></todo>
 		<todo done="no" collapse="no"><title>Armor calculating</title></todo>

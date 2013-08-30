@@ -9,6 +9,7 @@ namespace fired {
 	struct MapTile {
 		int tileset;
 		bool isWall;
+		bool isPlatform;
 	};
 
 
@@ -21,6 +22,7 @@ namespace fired {
 		int tileset;
 		int tile;
 		bool isWall;
+		bool isPlatform;
 
 
 	public:

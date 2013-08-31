@@ -18,7 +18,7 @@ subdirs: $(SUBDIRS)
 
 
 clean: clean-subdirs
-	$(CLEAN) $(PROJECT) $(OBJS)
+	$(CLEAN) $(OBJS)
 
 
 clean-subdirs:

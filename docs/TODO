@@ -156,7 +156,7 @@
 		<todo done="yes" collapse="no"><title>Melee broad attack animation</title></todo>
 		<todo done="no" collapse="no"><title>Armor rendering on model</title></todo>
 	</todo>
-	<todo done="no" collapse="no"><title>Character</title>
+	<todo done="no" collapse="yes"><title>Character</title>
 		<todo done="yes" collapse="no"><title>Shot</title></todo>
 		<todo done="yes" collapse="no"><title>Shot rendering</title></todo>
 		<todo done="yes" collapse="no"><title>Shot collision</title></todo>

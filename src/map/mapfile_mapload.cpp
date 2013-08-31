@@ -23,7 +23,7 @@ void mapLoadTiles(fired::Map *map, FILE *fp) {
 	for (int i = 0; i < map->sizeX; i++)
 		for (int j = 0; j < map->sizeY; j++) {
 			fread(&tile, sizeof(tile), 1, fp);
-			map->tiles[i][j].set(tile.tileset, tile.isWall, i, j);
+			map->tiles[i][j].set(tile.tileset, tile.isWall, tile.isPlatform, i, j);
 		}
 
 	map->findTiles(0, 0, map->sizeX, map->sizeY);

@@ -27,6 +27,7 @@ void fired::MapGenerator::generate() {
 	genClear(200, 100);
 	genLandscape(0, sizeX, 40);
 	genDecors();
+	genPlatforms();
 	genCollectors();
 	genPlayer();
 
@@ -101,6 +102,17 @@ void fired::MapGenerator::genDecors() {
 //======================================================================
 
 
+void fired::MapGenerator::genPlatforms() {
+	int x, y = 35;
+	for (x = 49; x < 80; x++) {
+		decors.push_back(new fired::MapDecor("bridge_metal", sf::Vector2f(x*TILE_SIZE, y*TILE_SIZE)));
+		tiles[x][y].isPlatform = true;
+	}
+}
+
+//======================================================================
+
+
 void fired::MapGenerator::genCollectors() {
 	objects.push_back(new fired::BaseMapObjectCollector("chest", sf::Vector2f(44*TILE_SIZE, 33*TILE_SIZE)));
 	((fired::BaseMapObjectCollector*)objects.back())->generateLoot();
@@ -125,8 +137,9 @@ void fired::MapGenerator::genPlayer() {
 
 void fired::MapGenerator::genBar(int x, int startHeight, int endHeight, int tileset, bool isWall) {
 	for (int j = startHeight; j < endHeight; j++) {
-		tiles[x][j].tileset = tileset;
-		tiles[x][j].isWall  = isWall;
+		tiles[x][j].tileset    = tileset;
+		tiles[x][j].isWall     = isWall;
+		tiles[x][j].isPlatform = false;
 	}
 }
 
@@ -135,7 +148,8 @@ void fired::MapGenerator::genBar(int x, int startHeight, int endHeight, int tile
 
 void fired::MapGenerator::genFill(int x1, int y1, int x2, int y2, int tileset, bool isWall) {
 	for (int i = x1; i < x2; i++) for (int j = y1; j < y2; j++) {
-		tiles[i][j].tileset = tileset;
-		tiles[i][j].isWall  = isWall;
+		tiles[i][j].tileset    = tileset;
+		tiles[i][j].isWall     = isWall;
+		tiles[i][j].isPlatform = false;
 	}
 }

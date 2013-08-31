@@ -26,13 +26,14 @@ namespace fired {
 
 
 	public:
-		void set(int _tileset, bool _isWall, int x, int y);
+		void set(int _tileset, bool _isWall, bool _isPlatform, int x, int y);
 		void render();
 
 		void setTileset(fired::Tileset *_tileset);
 		void setTile(int _tile);
 		int  getIndex() { return tileset; };
 		bool isSolid()  { return isWall; };
+		bool platform() { return isPlatform; };
 	};
 }
 

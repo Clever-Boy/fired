@@ -20,6 +20,7 @@ namespace fired {
 		void genClear(int xSize, int ySize);
 		void genPlayer();
 		void genDecors();
+		void genPlatforms();
 		void genCollectors();
 
 		void genBar(int x, int startHeight, int endHeight, int tileset, bool isWall);

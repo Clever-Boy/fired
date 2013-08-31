@@ -87,6 +87,18 @@ bool fired::Map::isSolid(int i, int j) {
 //======================================================================
 
 
+bool fired::Map::isPlatform(int i, int j) {
+	if (i < 0)      return true;
+	if (i >= sizeX) return true;
+	if (j < 0)      return true;
+	if (j >= sizeY) return true;
+
+	return tiles[i][j].platform();
+}
+
+//======================================================================
+
+
 void fired::Map::findTile(int i, int j) {
 	int resultTile;
 	int top    = 0;
@@ -183,6 +195,7 @@ void fired::Map::checkPhys(fired::Phys *phys, fired::Character *character) {
 		for (i = tiles_from.x + 1; i <= tiles_to.x - 1; i++) {
 			if (isSolid(i, tiles_from.y)) checkCollision(phys, character, i, tiles_from.y);
 			if (isSolid(i, tiles_to.y  )) checkCollision(phys, character, i, tiles_to.y  );
+			if (isPlatform(i, tiles_to.y) && phys->velocity.y > 0) checkCollision(phys, character, i, tiles_to.y  );
 		}
 
 		for (j = tiles_from.y + 1; j <= tiles_to.y - 1; j++) {
@@ -193,13 +206,19 @@ void fired::Map::checkPhys(fired::Phys *phys, fired::Character *character) {
 		if (phys->velocity.x > 0) {
 			if (isSolid(tiles_from.x, tiles_from.y)) checkCollision(phys, character, tiles_from.x, tiles_from.y);
 			if (isSolid(tiles_from.x, tiles_to.y  )) checkCollision(phys, character, tiles_from.x, tiles_to.y  );
+			if (isPlatform(tiles_from.x, tiles_to.y) && phys->velocity.y > 0) checkCollision(phys, character, tiles_from.x, tiles_to.y  );
+
 			if (isSolid(tiles_to.x  , tiles_from.y)) checkCollision(phys, character, tiles_to.x  , tiles_from.y);
 			if (isSolid(tiles_to.x  , tiles_to.y  )) checkCollision(phys, character, tiles_to.x  , tiles_to.y  );
+			if (isPlatform(tiles_to.x, tiles_to.y) && phys->velocity.y > 0) checkCollision(phys, character, tiles_to.x, tiles_to.y  );
 		} else {
 			if (isSolid(tiles_to.x  , tiles_from.y)) checkCollision(phys, character, tiles_to.x  , tiles_from.y);
 			if (isSolid(tiles_to.x  , tiles_to.y  )) checkCollision(phys, character, tiles_to.x  , tiles_to.y  );
+			if (isPlatform(tiles_to.x, tiles_to.y) && phys->velocity.y > 0) checkCollision(phys, character, tiles_to.x, tiles_to.y  );
+
 			if (isSolid(tiles_from.x, tiles_from.y)) checkCollision(phys, character, tiles_from.x, tiles_from.y);
 			if (isSolid(tiles_from.x, tiles_to.y  )) checkCollision(phys, character, tiles_from.x, tiles_to.y  );
+			if (isPlatform(tiles_from.x, tiles_to.y) && phys->velocity.y > 0) checkCollision(phys, character, tiles_from.x, tiles_to.y  );
 		}
 
 		frameLeft -= frameChunk;

@@ -97,7 +97,7 @@ void fired::Inventory::dropAll(fired::World *world) {
 	if (credits->count > 0) {
 		angle = -(random() % 180) * 3.14f / 180.0f;
 		world->addItem(credits, pos, sf::Vector2f(ITEM_SPEED * cos(angle), ITEM_SPEED * sin(angle)));
-		credits = NULL;
+		credits = new fired::InventoryItem(itMoney, 0, "credits", world);
 	}
 
 

@@ -15,10 +15,13 @@ bool fired::Particle::process(fired::World *world, bool physical) {
 	speed += accel * frameClock;
 	pos += speed * frameClock;
 
-	sprite->setPosition(pos);
-	sprite->setFillColor(color);
-	sprite->setScale(scale, scale);
-	app->draw(*sprite);
+	if (world->isPixelVisible(pos)) {
+		sprite->setPosition(pos);
+		sprite->setFillColor(color);
+		sprite->setScale(scale, scale);
+		app->draw(*sprite);
+	}
+
 	return true;
 }
 

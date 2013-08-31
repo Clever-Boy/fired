@@ -281,7 +281,7 @@
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible items</title></todo>
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible chunks</title></todo>
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible shots</title></todo>
-		<todo done="no" collapse="no"><title>Deprecate rendering non-visible particles</title></todo>
+		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible particles</title></todo>
 		<todo done="no" collapse="no"><title>Add some weapons</title></todo>
 		<todo done="no" collapse="no"><title>Add some armors</title></todo>
 		<todo done="no" collapse="no"><title>Primary skills (Strength, Agility, Accuracy etc.)</title></todo>

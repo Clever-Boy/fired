@@ -15,10 +15,14 @@ namespace fired {
 		sf::FloatRect rect;
 		sf::FloatRect head;
 		sf::Vector2f  center;
+
 		bool isMoving;
 		bool onGround;
 
+		bool jumpdown;
+		int  jumpdownLevel;
 
+		Phys();
 		void calculate();
 	};
 }

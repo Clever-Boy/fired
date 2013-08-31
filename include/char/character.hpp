@@ -65,6 +65,7 @@ namespace fired {
 		void moveLeft();
 		void moveRight();
 		void jump();
+		void jumpdown();
 		void reload();
 		void shot();
 		void interact();

@@ -26,7 +26,11 @@ void fired::BasicAI::update() {
 		owner->getChar()->moveRight();
 
 
-	if (target->phys.center.y < owner->getChar()->phys.center.y) owner->getChar()->jump();
+	if (target->phys.center.y < owner->getChar()->phys.center.y - 32)
+		owner->getChar()->jump();
+	else if (target->phys.center.y > owner->getChar()->phys.center.y + 32)
+		owner->getChar()->jumpdown();
+
 
 	if (vLen(owner->getChar()->phys.center - target->phys.center) < owner->getChar()->phys.size.x / 2 + owner->getChar()->getRange()) {
 		owner->getChar()->shot();

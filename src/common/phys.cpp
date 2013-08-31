@@ -3,6 +3,14 @@
 //======================================================================
 
 
+fired::Phys::Phys() {
+	jumpdown      = false;
+	jumpdownLevel = 0;
+}
+
+//======================================================================
+
+
 void fired::Phys::calculate() {
 	rect   = sf::FloatRect(pos, size);
 	head   = sf::FloatRect(pos + headOffset, headSize);

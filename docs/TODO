@@ -94,7 +94,7 @@
 		<todo done="yes" collapse="no"><title>Window class</title></todo>
 		<todo done="yes" collapse="no"><title>Window rendering</title></todo>
 	</todo>
-	<todo done="no" collapse="no"><title>Physics engine</title>
+	<todo done="yes" collapse="yes"><title>Physics engine</title>
 		<todo done="yes" collapse="no"><title>Phys struct</title></todo>
 		<todo done="yes" collapse="no"><title>Movement</title></todo>
 		<todo done="yes" collapse="no"><title>Gravity</title></todo>
@@ -112,7 +112,7 @@
 		<todo done="yes" collapse="no"><title>Chunks rotation</title></todo>
 		<todo done="yes" collapse="no"><title>Simple blood collision</title></todo>
 		<todo done="yes" collapse="no"><title>Platform physics</title></todo>
-		<todo done="no" collapse="no"><title>Platform jumpdown</title></todo>
+		<todo done="yes" collapse="no"><title>Platform jumpdown</title></todo>
 	</todo>
 	<todo done="yes" collapse="yes"><title>Map generator</title>
 		<todo done="yes" collapse="no"><title>MapGenerator class</title></todo>

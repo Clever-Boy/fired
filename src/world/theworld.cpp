@@ -66,8 +66,8 @@ void fired::World::update() {
 	player->update();
 
 	checkShots();
-	checkPhys();
 	checkCreatures();
+	checkPhys();
 	checkItems();
 
 	updateList(chunks);
@@ -245,17 +245,10 @@ void fired::World::preUpdateState() {
 
 	switch (state) {
 		case wsNormal:
-			player->checkControls();
 			break;
 
 		case wsInventory:
-			frameClock = 0.0f;
-			break;
-
 		case wsExchange:
-			frameClock = 0.0f;
-			break;
-
 		case wsCharacter:
 			frameClock = 0.0f;
 			break;

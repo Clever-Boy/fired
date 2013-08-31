@@ -376,6 +376,13 @@ void fired::Character::jump() {
 //======================================================================
 
 
+void fired::Character::jumpdown() {
+	phys.jumpdown = true;
+}
+
+//======================================================================
+
+
 void fired::Character::interact() {
 	world->interact(this);
 }

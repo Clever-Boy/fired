@@ -24,6 +24,9 @@ fired::Player::~Player() {
 
 
 void fired::Player::update() {
+	character->phys.jumpdown = false;
+	checkControls();
+
 	if (character->isDead()) {
 		if (deadTime < PLAYER_RESPAWN_TIME) {
 			deadTime += frameClock;
@@ -47,10 +50,11 @@ void fired::Player::checkControls() {
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))     character->moveLeft();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))     character->moveRight();
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))     character->jumpdown();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) character->jump();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))     character->reload();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))     character->interact();
 
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))     character->shot();
-	if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))    character->unshot();
+	else                                                 character->unshot();
 }

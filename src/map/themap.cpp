@@ -75,7 +75,7 @@ void fired::Map::render() {
 //======================================================================
 
 
-bool fired::Map::isSolid(int i, int j) {
+bool inline fired::Map::isSolid(int i, int j) {
 	if (i < 0)      return true;
 	if (i >= sizeX) return true;
 	if (j < 0)      return true;
@@ -87,7 +87,7 @@ bool fired::Map::isSolid(int i, int j) {
 //======================================================================
 
 
-bool fired::Map::isPlatform(int i, int j, fired::Phys *phys) {
+bool inline fired::Map::isPlatform(int i, int j, fired::Phys *phys) {
 	if (i < 0)      return true;
 	if (i >= sizeX) return true;
 	if (j < 0)      return true;
@@ -138,7 +138,7 @@ void fired::Map::findTile(int i, int j) {
 //======================================================================
 
 
-void fired::Map::checkCollision(fired::Phys *phys, fired::Character *character, int tile_x, int tile_y) {
+void inline fired::Map::checkCollision(fired::Phys *phys, fired::Character *character, int tile_x, int tile_y) {
 	sf::FloatRect intersection;
 
 	if (phys->rect.intersects(sf::FloatRect(tile_x * TILE_SIZE, tile_y * TILE_SIZE, TILE_SIZE, TILE_SIZE), intersection)) {

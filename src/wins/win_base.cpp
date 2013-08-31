@@ -9,7 +9,7 @@ fired::Window::Window(sf::Vector2f _size) {
 
 	window = new sf::RectangleShape(size);
 	window->setPosition(offset);
-	window->setFillColor(sf::Color(0, 0, 0, 155));
+	window->setFillColor(sf::Color(0, 0, 0, 200));
 	window->setOutlineThickness(2);
 	window->setOutlineColor(sf::Color(44, 88, 22));
 }

@@ -3,11 +3,12 @@
 //======================================================================
 
 
-fired::Shot::Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner, sf::Sprite *_sprite) {
+fired::Shot::Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner, sf::Sprite *_sprite, fired::World *_world) {
 	pos       = _pos;
 	owner     = _owner;
 	angle     = _angle;
 	sprite    = _sprite;
+	world     = _world;
 	damage    = owner->getDamage();
 	knockback = owner->getKnockback();
 	leftToFly = owner->getRange();
@@ -33,7 +34,8 @@ bool fired::Shot::update() {
 	if (leftToFly < 0) return false;
 
 	pos += velocity * frameClock;
-	render();
+	if (world->isPixelVisible(pos)) render();
+
 	return true;
 }
 

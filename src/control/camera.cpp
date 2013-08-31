@@ -38,6 +38,13 @@ bool fired::Camera::isRectVisible(sf::FloatRect rect) {
 //======================================================================
 
 
+bool fired::Camera::isPixelVisible(sf::Vector2f pixel) {
+	return viewport.contains(pixel);
+}
+
+//======================================================================
+
+
 void fired::Camera::reset() {
 	view.setCenter(sf::Vector2f(settings->window.width / 2, settings->window.height / 2));
 	app->setView(view);

@@ -24,7 +24,7 @@ export CFLAGS=-Wall                   \
 
 all: clean src
 	$(MAKESRC) -C src
-	cp -f src/$(PROJECT) ./
+	$(STRIP) $(PROJECT)
 
 
 clean: src

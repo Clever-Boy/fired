@@ -24,9 +24,10 @@ namespace fired {
 		sf::VertexArray   line;
 		sf::Sprite       *sprite;
 		fired::Character *owner;
+		fired::World     *world;
 
 
-		 Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner, sf::Sprite *_sprite);
+		 Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner, sf::Sprite *_sprite, fired::World *_world);
 		~Shot();
 
 		bool update();

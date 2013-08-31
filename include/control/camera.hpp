@@ -22,6 +22,7 @@ namespace fired {
 		void update();
 		void reset();
 		bool isRectVisible(sf::FloatRect rect);
+		bool isPixelVisible(sf::Vector2f pixel);
 
 		void          setTrackObj(fired::Phys *phys)    { objToTrack = phys;  };
 		void          setMapSize(sf::Vector2i _mapSize) { mapSize = _mapSize; };

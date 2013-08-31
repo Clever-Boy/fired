@@ -76,11 +76,12 @@ namespace fired {
 
 		void spawn(sf::Vector2f pos, const char *creature);
 		bool isCharExists(fired::Character *character);
-		bool isSolidPixel(sf::Vector2f pixel)  {return map->isSolid(pixel.x / TILE_SIZE, pixel.y / TILE_SIZE); };
-		bool isRectVisible(sf::FloatRect rect) {return cam->isRectVisible(rect); };
+		bool isSolidPixel(sf::Vector2f pixel)   {return map->isSolid(pixel.x / TILE_SIZE, pixel.y / TILE_SIZE); };
+		bool isRectVisible(sf::FloatRect rect)  {return cam->isRectVisible(rect); };
+		bool isPixelVisible(sf::Vector2f pixel) {return cam->isPixelVisible(pixel); };
 
 
-		void addShot     (sf::Vector2f pos, float angle, float speed, fired::Character *owner, sf::Sprite *sprite) { shots.push_back(new fired::Shot(pos, angle, speed, owner, sprite)); };
+		void addShot     (sf::Vector2f pos, float angle, float speed, fired::Character *owner, sf::Sprite *sprite) { shots.push_back(new fired::Shot(pos, angle, speed, owner, sprite, this)); };
 		void addBroadShot(sf::FloatRect _shot, sf::Vector2f _normal, fired::Character *_owner)                     { broadShots.push_back(new fired::BroadShot(_shot, _normal, _owner)); };
 		void addMeleeShot(sf::Vector2f _pos, sf::Vector2f _direction, fired::Character *_owner)                    { meleeShots.push_back(new fired::MeleeShot(_pos, _direction, _owner)); };
 

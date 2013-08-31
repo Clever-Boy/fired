@@ -78,8 +78,9 @@ void fired::InventoryItem::render(sf::Vector2f pos) {
 //======================================================================
 
 
-fired::CollectableItem::CollectableItem(fired::InventoryItem *_item, sf::Vector2f pos, sf::Vector2f velocity) {
-	item = _item;
+fired::CollectableItem::CollectableItem(fired::InventoryItem *_item, sf::Vector2f pos, sf::Vector2f velocity, fired::World *_world) {
+	item  = _item;
+	world = _world;
 
 	phys.size         = sf::Vector2f(8, 8);
 	phys.pos          = pos;
@@ -98,7 +99,7 @@ fired::CollectableItem::CollectableItem(fired::InventoryItem *_item, sf::Vector2
 void fired::CollectableItem::update() {
 	if (phys.onGround) phys.velocity.x = 0;
 
-	render();
+	if (world->isRectVisible(phys.rect)) render();
 }
 
 //======================================================================

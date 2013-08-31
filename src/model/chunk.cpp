@@ -3,11 +3,12 @@
 //======================================================================
 
 
-fired::Chunk::Chunk(fired::Bodypart *bodyPart, float scale, sf::Vector2f position, sf::Vector2f speed) {
-	base = bodyPart->base;
+fired::Chunk::Chunk(fired::Bodypart *bodyPart, float scale, sf::Vector2f position, sf::Vector2f speed, fired::World *_world) {
+	base   = bodyPart->base;
 	scaleX = *bodyPart->direction * scale;
 	scaleY = scale;
-	pos = position;
+	pos    = position;
+	world  = _world;
 
 	phys.pos          = position;
 	phys.size         = sf::Vector2f(6, 6);
@@ -39,7 +40,7 @@ bool fired::Chunk::update() {
 	if (abs(rotationSpeed)   < PHYS_EPSILON) rotationSpeed   = 0;
 
 	rotation += rotationSpeed * frameClock;
-	render();
+	if (world->isRectVisible(phys.rect)) render();
 
 	return true;
 }

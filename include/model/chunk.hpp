@@ -8,6 +8,7 @@
 namespace fired {
 	struct Chunk {
 		fired::BaseBodypart *base;
+		fired::World        *world;
 		fired::Phys          phys;
 
 		sf::Vector2f speed;
@@ -19,7 +20,7 @@ namespace fired {
 		float        lifetime;
 
 
-		Chunk(fired::Bodypart *bodyPart, float scale, sf::Vector2f position, sf::Vector2f speed);
+		Chunk(fired::Bodypart *bodyPart, float scale, sf::Vector2f position, sf::Vector2f speed, fired::World *_world);
 
 		bool update();
 		void render();

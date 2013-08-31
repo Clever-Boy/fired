@@ -156,7 +156,7 @@
 		<todo done="yes" collapse="no"><title>Melee broad attack animation</title></todo>
 		<todo done="no" collapse="no"><title>Armor rendering on model</title></todo>
 	</todo>
-	<todo done="no" collapse="yes"><title>Character</title>
+	<todo done="no" collapse="no"><title>Character</title>
 		<todo done="yes" collapse="no"><title>Shot</title></todo>
 		<todo done="yes" collapse="no"><title>Shot rendering</title></todo>
 		<todo done="yes" collapse="no"><title>Shot collision</title></todo>
@@ -181,9 +181,9 @@
 		<todo done="yes" collapse="no"><title>Melee broad attack</title></todo>
 		<todo done="yes" collapse="no"><title>Character menu class</title></todo>
 		<todo done="yes" collapse="no"><title>Character menu rendering</title></todo>
-		<todo done="no" collapse="no"><title>Armor stat</title></todo>
+		<todo done="yes" collapse="no"><title>Armor stat</title></todo>
 		<todo done="no" collapse="no"><title>Armor calculating</title></todo>
-		<todo done="no" collapse="no"><title>Damage reducing by armor</title></todo>
+		<todo done="yes" collapse="no"><title>Damage reducing by armor</title></todo>
 		<todo done="no" collapse="no"><title>Armor sprite (bodypart + color)</title></todo>
 	</todo>
 	<todo done="yes" collapse="yes"><title>Creatures</title>
@@ -269,7 +269,7 @@
 		<todo done="no" collapse="no"><title>Hints when hovering item</title></todo>
 		<todo done="no" collapse="no"><title>MaxStack checking</title></todo>
 	</todo>
-	<todo done="no" collapse="no"><title>Advanced</title>
+	<todo done="no" collapse="yes"><title>Advanced</title>
 		<todo done="yes" collapse="no"><title>Crypto API for sqlite</title></todo>
 		<todo done="no" collapse="no"><title>Move data to sqlite db</title></todo>
 		<todo done="yes" collapse="no"><title>Move map save &amp; load to another file</title></todo>

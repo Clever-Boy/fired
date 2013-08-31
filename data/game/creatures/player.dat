@@ -4,6 +4,7 @@ fraction=player
 model=common
 scale=1.0
 weapon=rifle
+armor=0
 speed=180.0
 accel=1200.0
 jump=520.0

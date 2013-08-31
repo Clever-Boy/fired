@@ -21,7 +21,7 @@ namespace fired {
 		char  fraction[32];
 		float modelScale;
 
-		CharacterStats stats;
+		fired::CharacterStats stats;
 		std::vector<fired::LootItem*> loot;
 
 		 BaseCreature();

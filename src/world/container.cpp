@@ -294,6 +294,7 @@ void fired::Container::loadCreature(const char* filename) {
 	fscanf(fp, "model=%s\n"   ,  creatures.back()->model);
 	fscanf(fp, "scale=%f\n"   , &creatures.back()->modelScale);
 	fscanf(fp, "weapon=%s\n"  ,  creatures.back()->weapon);
+	fscanf(fp, "armor=%u\n"   , &creatures.back()->stats.armor);
 	fscanf(fp, "speed=%f\n"   , &creatures.back()->stats.speed);
 	fscanf(fp, "accel=%f\n"   , &creatures.back()->stats.accel);
 	fscanf(fp, "jump=%f\n"    , &creatures.back()->stats.jump);

@@ -11,6 +11,8 @@ namespace fired {
 
 		int maxHP;
 		int HP;
+
+		int armor;
 	};
 }
 

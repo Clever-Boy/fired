@@ -12,6 +12,8 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 	baseStats.jump     = base->stats.jump;
 	baseStats.aimrange = base->stats.aimrange;
 	baseStats.maxHP    = base->stats.maxHP;
+	baseStats.armor    = base->stats.armor;
+
 
 	fired::BaseModel *basemodel = world->getModel(base->model);
 	switch (basemodel->type) {
@@ -124,8 +126,9 @@ void fired::Character::setWeapon(fired::BaseWeapon *_weapon) {
 
 void fired::Character::damage(int damage, bool headshot, sf::Vector2f shot, float knockback) {
 	char dmg[8];
+	int taken = damage * (1.0f - armorReduction(getArmor()));
 
-	baseStats.HP -= damage;
+	baseStats.HP -= taken;
 	if (baseStats.HP <= 0) {
 		dead = true;
 		if (headshot) model->headshot();
@@ -133,7 +136,7 @@ void fired::Character::damage(int damage, bool headshot, sf::Vector2f shot, floa
 		inventory->dropAll(world);
 	}
 
-	snprintf(dmg, sizeof(dmg), "-%u", damage);
+	snprintf(dmg, sizeof(dmg), "-%u", taken);
 
 	if (headshot)
 		world->addText(phys.pos, sf::Color(255, 0, 0, 255), 24, dmg);
@@ -334,6 +337,13 @@ std::string fired::Character::getAmmoString() {
 
 int fired::Character::getDamage() {
 	return weapon->damage;
+}
+
+//======================================================================
+
+
+int fired::Character::getArmor() {
+	return baseStats.armor;
 }
 
 //======================================================================

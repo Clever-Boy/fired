@@ -91,6 +91,7 @@ namespace fired {
 		std::string getCooldownString();
 		std::string getAmmoString();
 
+		int   getArmor();
 		int   getDamage();
 		float getRange();
 		int   getFraction() {return fraction; };

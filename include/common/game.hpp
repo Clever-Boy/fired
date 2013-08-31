@@ -21,6 +21,8 @@
 #include "screen.hpp"
 #include "world.hpp"
 #include "misc.hpp"
+#include "mechanics.hpp"
+#include "vect.hpp"
 #include "ai.hpp"
 #include "sqlite.hpp"
 

@@ -46,6 +46,7 @@ namespace fired {
 		char            name[32];
 		char            caption[32];
 		unsigned int    count;
+		sf::Color       color;
 		sf::Sprite     *sprite;
 
 

@@ -26,6 +26,7 @@ void fired::InventoryWindowItem::renderItem(sf::Text *count) {
 	if (*item == NULL) return;
 
 	(*item)->sprite->setPosition(rectCenter(rect));
+	(*item)->sprite->setColor((*item)->color);
 	(*item)->sprite->setRotation(0.0f);
 	app->draw(*(*item)->sprite);
 

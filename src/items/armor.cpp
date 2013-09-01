@@ -4,8 +4,9 @@
 
 
 fired::Armor::Armor(fired::BaseArmor *_armor, fired::World *world) {
-	strncpy(name , _armor->name , sizeof(name));
-	strncpy(model, _armor->model, sizeof(model));
+	strncpy(name   , _armor->name   , sizeof(name));
+	strncpy(caption, _armor->caption, sizeof(caption));
+	strncpy(model  , _armor->model  , sizeof(model));
 
 	armor = _armor->armor;
 	color = _armor->color;

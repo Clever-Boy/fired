@@ -1,4 +1,5 @@
-name=Leather Glooves
+name=leather_glooves
+caption=LeatherGlooves
 armor=1
 model=common
 color=138,95,19,255

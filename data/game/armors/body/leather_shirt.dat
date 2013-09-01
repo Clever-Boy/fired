@@ -1,4 +1,5 @@
-name=Leather Shirt
+name=leather_shirt
+caption=LeatherShirt
 armor=1
 model=common
 color=138,95,19,255

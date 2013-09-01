@@ -138,9 +138,10 @@ void fired::Container::loadArmor(const char* filename, fired::ArmorClass type) {
 	armors.back()->type = type;
 
 	FILE *fp = fopen(filename, "r");
-	fscanf(fp, "name=%s\n" ,  armors.back()->name);
-	fscanf(fp, "armor=%d\n", &armors.back()->armor);
-	fscanf(fp, "model=%s\n",  armors.back()->model);
+	fscanf(fp, "name=%s\n"   ,  armors.back()->name);
+	fscanf(fp, "caption=%s\n",  armors.back()->caption);
+	fscanf(fp, "armor=%d\n"  , &armors.back()->armor);
+	fscanf(fp, "model=%s\n"  ,  armors.back()->model);
 	fscanf(fp, "color=%hhu,%hhu,%hhu,%hhu\n", &armors.back()->color.r, &armors.back()->color.g, &armors.back()->color.b, &armors.back()->color.a);
 	fclose(fp);
 }
@@ -358,6 +359,12 @@ void fired::Container::loadCreature(const char* filename) {
 	while (fscanf(fp, "loot=%[^,],%[^,],%u,%u,%f\n", strtype, name, &minCount, &maxCount, &probability) != EOF) {
 		if (!strcmp(strtype, "money" )) type = itMoney;
 		if (!strcmp(strtype, "weapon")) type = itWeapon;
+		if (!strcmp(strtype, "helm")) type = itArmorHelm;
+		if (!strcmp(strtype, "fist")) type = itArmorFist;
+		if (!strcmp(strtype, "legs")) type = itArmorLegs;
+		if (!strcmp(strtype, "body")) type = itArmorBody;
+		if (!strcmp(strtype, "arms")) type = itArmorArms;
+		if (!strcmp(strtype, "shoe")) type = itArmorShoe;
 
 		creatures.back()->loot.push_back(new fired::LootItem(type, name, minCount, maxCount, probability));
 	}

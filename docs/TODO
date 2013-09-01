@@ -157,7 +157,7 @@
 		<todo done="yes" collapse="no"><title>Melee broad attack animation</title></todo>
 		<todo done="no" collapse="no"><title>Armor rendering on model</title></todo>
 	</todo>
-	<todo done="no" collapse="yes"><title>Character</title>
+	<todo done="yes" collapse="yes"><title>Character</title>
 		<todo done="yes" collapse="no"><title>Shot</title></todo>
 		<todo done="yes" collapse="no"><title>Shot rendering</title></todo>
 		<todo done="yes" collapse="no"><title>Shot collision</title></todo>
@@ -185,7 +185,7 @@
 		<todo done="yes" collapse="no"><title>Armor stat</title></todo>
 		<todo done="yes" collapse="no"><title>Armor calculating</title></todo>
 		<todo done="yes" collapse="no"><title>Damage reducing by armor</title></todo>
-		<todo done="no" collapse="no"><title>Armor sprite (bodypart + color)</title></todo>
+		<todo done="yes" collapse="no"><title>Armor sprite (bodypart + color)</title></todo>
 	</todo>
 	<todo done="yes" collapse="yes"><title>Creatures</title>
 		<todo done="yes" collapse="no"><title>Creatures</title></todo>

@@ -55,7 +55,7 @@ void mapLoadCollectorItems(fired::Map *map, fired::MapObjectCollector *obj, FILE
 	fread(&itemCount, sizeof(itemCount), 1, fp);
 	for (unsigned int j = 0; j < itemCount; j++) {
 		fread(&item, sizeof(item), 1, fp);
-		obj->items[j%10][j/5] = new fired::InventoryItem(&item, map->world);
+		obj->items[j%10][j/10] = new fired::InventoryItem(&item, map->world);
 	}
 }
 

@@ -27,3 +27,19 @@ fired::Window::~Window() {
 void fired::Window::render() {
 	app->draw(*window);
 }
+
+//======================================================================
+
+
+void fired::Window::setOffset(sf::Vector2f newOffset) {
+	offset = newOffset;
+	window->setPosition(offset);
+}
+
+//======================================================================
+
+
+void fired::Window::setSize(sf::Vector2f newSize) {
+	size = newSize;
+	window->setSize(size);
+}

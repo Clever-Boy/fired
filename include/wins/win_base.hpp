@@ -19,6 +19,9 @@ namespace fired {
 
 		sf::Vector2f getOffset() {return offset; };
 		sf::Vector2f getSize()   {return size;   };
+
+		void setOffset(sf::Vector2f newOffset);
+		void setSize(sf::Vector2f newSize);
 	};
 }
 

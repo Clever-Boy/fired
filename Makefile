@@ -7,7 +7,7 @@ export PROJECT=fired
 export CC=gcc
 export STRIP=strip
 export LD=ld
-export CLEAN=rm -rf
+export CLEAN=rm -f
 export MAKE=make
 export MAKESRC=$(MAKE) -f $(PWD)/Makefile.src
 export MAKESUB=$(MAKE) -j8 -C $$$$dir -f $(PWD)/Makefile.sub
@@ -22,11 +22,10 @@ export CFLAGS=-Wall                   \
 
 
 
-all: clean src
+all: src
 	$(MAKESRC) -C src
 	$(STRIP) $(PROJECT)
 
 
-clean: src
-	$(MAKESRC) -C src clean
+clean:
 	$(CLEAN) $(PROJECT)

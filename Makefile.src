@@ -8,20 +8,11 @@ all: $(PROJECT)
 
 $(PROJECT): subdirs $(OBJS)
 	$(CC) $(OBJS) -o ../$(PROJECT) $(LDFLAGS)
+	$(CLEAN) $(OBJS)
 
 
 subdirs: $(SUBDIRS)
 	for dir in $(SUBDIRS); do \
 		export SUBDIR=$$dir; \
 		$(MAKESUB); \
-	done
-
-
-clean: clean-subdirs
-	$(CLEAN) $(OBJS)
-
-
-clean-subdirs:
-	for dir in $(SUBDIRS); do \
-		$(MAKESUB) clean; \
 	done

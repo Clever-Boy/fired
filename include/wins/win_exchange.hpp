@@ -9,6 +9,7 @@ namespace fired {
 	class ExchangeWindow {
 	private:
 		fired::Window              *win;
+		fired::HintWindow          *hint;
 		fired::Character           *owner;
 		fired::InventoryWindowItem *inHand; 
 

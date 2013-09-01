@@ -6,7 +6,7 @@
 fired::InventoryWindowItem::InventoryWindowItem(sf::Vector2f pos, fired::InventoryItem **_item, fired::ItemType _filter) {
 	item   = _item;
 	filter = _filter;
-	rect = sf::FloatRect(pos, sf::Vector2f(35.0f, 35.0f));
+	rect   = sf::FloatRect(pos, sf::Vector2f(35.0f, 35.0f));
 }
 
 //======================================================================
@@ -48,6 +48,7 @@ void fired::InventoryWindowItem::renderItem(sf::Text *count) {
 fired::InventoryWindow::InventoryWindow(fired::Character *_owner) {
 	owner  = _owner;
 	win    = new fired::Window(sf::Vector2f(370, 380));
+	hint   = new fired::HintWindow();
 	inHand = new fired::InventoryWindowItem(sf::Vector2f(0.0f, 0.0f), new fired::InventoryItem*, itAny);
 	*(inHand->item) = NULL;
 
@@ -103,6 +104,7 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner) {
 
 fired::InventoryWindow::~InventoryWindow() {
 	delete win;
+	delete hint;
 	delete moneyText;
 	delete countText;
 
@@ -125,6 +127,7 @@ void fired::InventoryWindow::update(sf::Vector2f mousePos) {
 		if (items[i]->rect.contains(mousePos)) items[i]->hover = true;
 		else                                   items[i]->hover = false;
 
+	hint->win->setOffset(mousePos + sf::Vector2f(16.0f, 16.0f));
 	inHand->rect.left = mousePos.x + 16.0f;
 	inHand->rect.top  = mousePos.y + 16.0f;
 
@@ -152,8 +155,12 @@ void fired::InventoryWindow::render() {
 	moneyText->setString(sf::String(credits));
 	app->draw(*moneyText);
 
-	inHand->renderItem(countText);
-
+	if (*inHand->item) inHand->renderItem(countText);
+	else for (unsigned int i = 0; i < items.size(); i++)
+		if (items[i]->hover && items[i]->item != NULL && *items[i]->item != NULL) {
+			hint->update();
+			break;
+		}
 }
 
 //======================================================================

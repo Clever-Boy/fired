@@ -6,6 +6,7 @@
 fired::ExchangeWindow::ExchangeWindow(fired::Character *_owner) {
 	owner  = _owner;
 	win    = new fired::Window(sf::Vector2f(740, 380));
+	hint   = new fired::HintWindow();
 	inHand = new fired::InventoryWindowItem(sf::Vector2f(0.0f, 0.0f), new fired::InventoryItem*, itAny);
 	*(inHand->item) = NULL;
 
@@ -61,6 +62,7 @@ fired::ExchangeWindow::ExchangeWindow(fired::Character *_owner) {
 
 fired::ExchangeWindow::~ExchangeWindow() {
 	delete win;
+	delete hint;
 	delete moneyText;
 	delete countText;
 
@@ -99,6 +101,7 @@ void fired::ExchangeWindow::update(sf::Vector2f mousePos) {
 		if (exchange[i]->rect.contains(mousePos)) exchange[i]->hover = true;
 		else                                      exchange[i]->hover = false;
 
+	hint->win->setOffset(mousePos + sf::Vector2f(16.0f, 16.0f));
 	inHand->rect.left = mousePos.x + 16.0f;
 	inHand->rect.top  = mousePos.y + 16.0f;
 
@@ -132,7 +135,20 @@ void fired::ExchangeWindow::render() {
 	moneyText->setString(sf::String(credits));
 	app->draw(*moneyText);
 
-	inHand->renderItem(countText);
+	if (*inHand->item) inHand->renderItem(countText);
+	else {
+		for (unsigned int i = 0; i < items.size(); i++)
+			if (items[i]->hover && items[i]->item != NULL && *items[i]->item != NULL) {
+				hint->update();
+				break;
+			}
+
+		for (unsigned int i = 0; i < exchange.size(); i++)
+			if (exchange[i]->hover && exchange[i]->item != NULL && *exchange[i]->item != NULL) {
+				hint->update();
+				break;
+			}
+	}
 }
 
 //======================================================================

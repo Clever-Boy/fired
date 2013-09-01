@@ -2,7 +2,7 @@
 #define __WIN_INVENTORY
 
 
-#include "win_base.hpp"
+#include "win_hint.hpp"
 
 
 namespace fired {
@@ -24,6 +24,7 @@ namespace fired {
 	class InventoryWindow {
 	private:
 		fired::Window              *win;
+		fired::HintWindow          *hint;
 		fired::Character           *owner;
 		fired::InventoryWindowItem *inHand; 
 

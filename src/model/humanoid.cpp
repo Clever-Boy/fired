@@ -3,9 +3,10 @@
 //======================================================================
 
 
-fired::ModelHumanoid::ModelHumanoid(fired::Character *_owner, fired::BaseModelHumanoid *base, float scale, fired::World *_world) {
+fired::ModelHumanoid::ModelHumanoid(fired::Character *_owner, fired::BaseModelHumanoid *_base, float scale, fired::World *_world) {
 	owner    = _owner;
 	world    = _world;
+	base     = _base;
 
 	modelScale = scale;
 	owner->phys.size       = base->size * scale;
@@ -13,18 +14,7 @@ fired::ModelHumanoid::ModelHumanoid(fired::Character *_owner, fired::BaseModelHu
 	owner->phys.headOffset = sf::Vector2f(0, 0);
 	owner->phys.calculate();
 
-
-	initPart(&partLegsF , base->partLegsF, sf::Color::White, &owner->direction);
-	initPart(&partLegsB , base->partLegsB, sf::Color::White, &owner->direction);
-	initPart(&partShoeF , base->partShoeF, sf::Color::White, &owner->direction);
-	initPart(&partShoeB , base->partShoeB, sf::Color::White, &owner->direction);
-	initPart(&partFistF , base->partFistF, sf::Color::White, &owner->watching);
-	initPart(&partFistB , base->partFistB, sf::Color::White, &owner->watching);
-	initPart(&partBody  , base->partBody , sf::Color::White, &owner->watching);
-	initPart(&partHead  , base->partHead , sf::Color::White, &owner->watching);
-	initPart(&partHair  , base->partHair , sf::Color::White, &owner->watching);
-	initPart(&partArms  , base->partArms , sf::Color::White, &owner->watching);
-
+	updateParts();
 	respawn();
 }
 
@@ -54,6 +44,48 @@ void fired::ModelHumanoid::update() {
 	}
 
 	processAnimation();
+}
+
+//======================================================================
+
+
+void fired::ModelHumanoid::updateParts() {
+	initPart(&partHead  , base->partHead , sf::Color::White, &owner->watching);
+
+
+	if (owner->helm) initPart(&partHair  , world->getBodypart(owner->helm->model, bptHair), owner->helm->color, &owner->watching);
+	else             initPart(&partHair  , base->partHair , sf::Color::White, &owner->watching);
+
+	if (owner->body) initPart(&partBody  , world->getBodypart(owner->body->model, bptBody), owner->body->color, &owner->watching);
+	else             initPart(&partBody  , base->partBody , sf::Color::White, &owner->watching);
+
+	if (owner->arms) initPart(&partArms  , world->getBodypart(owner->arms->model, bptArms), owner->arms->color, &owner->watching);
+	else             initPart(&partArms  , base->partArms , sf::Color::White, &owner->watching);
+
+
+	if (owner->legs) {
+		initPart(&partLegsF , world->getBodypart(owner->legs->model, bptLegsF), owner->legs->color, &owner->direction);
+		initPart(&partLegsB , world->getBodypart(owner->legs->model, bptLegsB), owner->legs->color, &owner->direction);
+	} else {
+		initPart(&partLegsF , base->partLegsF, sf::Color::White, &owner->direction);
+		initPart(&partLegsB , base->partLegsB, sf::Color::White, &owner->direction);
+	}
+
+	if (owner->shoe) {
+		initPart(&partShoeF , world->getBodypart(owner->shoe->model, bptShoeF), owner->shoe->color, &owner->direction);
+		initPart(&partShoeB , world->getBodypart(owner->shoe->model, bptShoeB), owner->shoe->color, &owner->direction);
+	} else {
+		initPart(&partShoeF , base->partShoeF, sf::Color::White, &owner->direction);
+		initPart(&partShoeB , base->partShoeB, sf::Color::White, &owner->direction);
+	}
+
+	if (owner->fist) {
+		initPart(&partFistF , world->getBodypart(owner->fist->model, bptFistF), owner->fist->color, &owner->watching);
+		initPart(&partFistB , world->getBodypart(owner->fist->model, bptFistB), owner->fist->color, &owner->watching);
+	} else {
+		initPart(&partFistF , base->partFistF, sf::Color::White, &owner->watching);
+		initPart(&partFistB , base->partFistB, sf::Color::White, &owner->watching);
+	}
 }
 
 //======================================================================

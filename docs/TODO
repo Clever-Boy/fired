@@ -120,7 +120,7 @@
 		<todo done="yes" collapse="no"><title>Landscape generation</title></todo>
 		<todo done="yes" collapse="no"><title>Saving player position to map file</title></todo>
 	</todo>
-	<todo done="no" collapse="yes"><title>Animation</title>
+	<todo done="yes" collapse="yes"><title>Animation</title>
 		<todo done="yes" collapse="no"><title>Model class</title></todo>
 		<todo done="yes" collapse="no"><title>Model parts (legs, body, head, hair, arms, shoe, fist)</title></todo>
 		<todo done="yes" collapse="no"><title>Hair sprite</title></todo>
@@ -155,7 +155,7 @@
 		<todo done="yes" collapse="no"><title>Improove shooting animation</title></todo>
 		<todo done="yes" collapse="no"><title>Melee attack animation</title></todo>
 		<todo done="yes" collapse="no"><title>Melee broad attack animation</title></todo>
-		<todo done="no" collapse="no"><title>Armor rendering on model</title></todo>
+		<todo done="yes" collapse="no"><title>Armor rendering on model</title></todo>
 	</todo>
 	<todo done="yes" collapse="yes"><title>Character</title>
 		<todo done="yes" collapse="no"><title>Shot</title></todo>

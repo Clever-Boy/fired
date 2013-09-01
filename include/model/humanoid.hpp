@@ -8,6 +8,8 @@
 namespace fired {
 	class ModelHumanoid : public Model {
 	private:
+		fired::BaseModelHumanoid *base;
+
 		fired::Bodypart partLegsF;
 		fired::Bodypart partLegsB;
 		fired::Bodypart partShoeF;
@@ -32,10 +34,11 @@ namespace fired {
 
 
 	public:
-		 ModelHumanoid(fired::Character *_owner, fired::BaseModelHumanoid *base, float scale, fired::World *_world);
+		 ModelHumanoid(fired::Character *_owner, fired::BaseModelHumanoid *_base, float scale, fired::World *_world);
 		~ModelHumanoid() {};
 
 		void update();
+		void updateParts();
 		void respawn();
 		void headshot();
 		void setWeapon(fired::BaseWeapon *weapon);

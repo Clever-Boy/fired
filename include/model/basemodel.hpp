@@ -58,9 +58,10 @@ namespace fired {
 	public:
 		virtual ~Model();
 
-		virtual void headshot() {};
-		virtual void update()   {};
-		virtual void respawn()  {};
+		virtual void headshot()    {};
+		virtual void update()      {};
+		virtual void updateParts() {};
+		virtual void respawn()     {};
 		virtual void setWeapon(fired::BaseWeapon*) {};
 
 		void render();

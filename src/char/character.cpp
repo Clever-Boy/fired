@@ -14,6 +14,15 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 	baseStats.maxHP    = base->stats.maxHP;
 	baseStats.armor    = base->stats.armor;
 
+	inventory = new fired::Inventory(this, world);
+
+	helm = NULL;
+	arms = NULL;
+	legs = NULL;
+	body = NULL;
+	shoe = NULL;
+	fist = NULL;
+
 
 	fired::BaseModel *basemodel = world->getModel(base->model);
 	switch (basemodel->type) {
@@ -26,17 +35,8 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 	if (!strcmp(base->fraction, "player"))  fraction = FIRED_FRACTION_PLAYER;
 	if (!strcmp(base->fraction, "soldier")) fraction = FIRED_FRACTION_SOLDIER;
 
-	inventory = new fired::Inventory(this, world);
-
 	respawn(_startpos);
 	setWeapon(world->getWeapon(base->weapon));
-
-	helm = NULL;
-	arms = NULL;
-	legs = NULL;
-	body = NULL;
-	shoe = NULL;
-	fist = NULL;
 
 	level          = 1;
 	XP             = 0;
@@ -454,6 +454,8 @@ void fired::Character::updateEquip() {
 		shoe = new fired::Armor(world->getArmor(inventory->shoe->name, acShoe), world);
 		baseStats.armor += shoe->armor;
 	}
+
+	model->updateParts();
 }
 
 //======================================================================

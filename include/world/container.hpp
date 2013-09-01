@@ -5,8 +5,6 @@
 #include "char.hpp"
 #include "sprites.hpp"
 #include "map.hpp"
-#include "weapon.hpp"
-#include "armor.hpp"
 
 
 namespace fired {

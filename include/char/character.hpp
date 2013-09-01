@@ -12,7 +12,6 @@ namespace fired {
 #include "model.hpp"
 #include "inventory.hpp"
 #include "wins.hpp"
-#include "world.hpp"
 
 
 namespace fired {
@@ -33,6 +32,15 @@ namespace fired {
 		fired::Weapon         *weapon;
 		fired::Model          *model;
 		fired::Inventory      *inventory;
+
+
+		fired::Armor *helm;
+		fired::Armor *legs;
+		fired::Armor *arms;
+		fired::Armor *body;
+		fired::Armor *shoe;
+		fired::Armor *fist;
+
 
 		bool  dead;
 		bool  isShooting;
@@ -98,6 +106,7 @@ namespace fired {
 		bool  isEnemy(int _fraction);
 		float getKnockback();
 		bool  isDead()   {return dead; };
+		void  updateEquip();
 
 		void pickup(fired::InventoryItem *item)                  {inventory->pickup(item); };
 		bool canPickup(fired::InventoryItem *item)               {return inventory->canPickup(item); };

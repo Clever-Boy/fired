@@ -41,6 +41,30 @@ fired::InventoryItem::InventoryItem(fired::ItemType _type, unsigned int _count, 
 		case itWeapon:
 			sprite = world->getBodypart(world->getWeapon(name)->model, bptWeapon)->chunk;
 			break;
+
+		case itArmorHelm:
+			sprite = world->getBodypart(world->getArmor(name, acHelm)->model, bptHair)->chunk;
+			break;
+
+		case itArmorBody:
+			sprite = world->getBodypart(world->getArmor(name, acBody)->model, bptBody)->chunk;
+			break;
+
+		case itArmorLegs:
+			sprite = world->getBodypart(world->getArmor(name, acLegs)->model, bptLegsF)->chunk;
+			break;
+
+		case itArmorFist:
+			sprite = world->getBodypart(world->getArmor(name, acFist)->model, bptFistF)->chunk;
+			break;
+
+		case itArmorShoe:
+			sprite = world->getBodypart(world->getArmor(name, acShoe)->model, bptShoeF)->chunk;
+			break;
+
+		case itArmorArms:
+			sprite = world->getBodypart(world->getArmor(name, acArms)->model, bptArms)->chunk;
+			break;
 	}
 }
 
@@ -61,6 +85,30 @@ fired::InventoryItem::InventoryItem(fired::MapItem *base, fired::World *world) {
 
 		case itWeapon:
 			sprite = world->getBodypart(world->getWeapon(name)->model, bptWeapon)->chunk;
+			break;
+
+		case itArmorHelm:
+			sprite = world->getBodypart(world->getArmor(name, acHelm)->model, bptHair)->chunk;
+			break;
+
+		case itArmorBody:
+			sprite = world->getBodypart(world->getArmor(name, acBody)->model, bptBody)->chunk;
+			break;
+
+		case itArmorLegs:
+			sprite = world->getBodypart(world->getArmor(name, acLegs)->model, bptLegsF)->chunk;
+			break;
+
+		case itArmorFist:
+			sprite = world->getBodypart(world->getArmor(name, acFist)->model, bptFistF)->chunk;
+			break;
+
+		case itArmorShoe:
+			sprite = world->getBodypart(world->getArmor(name, acShoe)->model, bptShoeF)->chunk;
+			break;
+
+		case itArmorArms:
+			sprite = world->getBodypart(world->getArmor(name, acArms)->model, bptArms)->chunk;
 			break;
 	}
 }

@@ -17,7 +17,6 @@ namespace fired {
 
 #include "particle.hpp"
 #include "flytext.hpp"
-#include "weapon.hpp"
 #include "shot.hpp"
 #include "char.hpp"
 #include "container.hpp"
@@ -95,6 +94,7 @@ namespace fired {
 
 		fired::BaseWeapon   *getWeapon  (const char *name)                           {return container->getWeapon(name); };
 		fired::BaseBodypart *getBodypart(const char *name, fired::BodypartType type) {return container->getBodypart(name, type); };
+		fired::BaseArmor    *getArmor   (const char *name, fired::ArmorClass type)   {return container->getArmor(name, type); };
 		fired::BaseModel    *getModel   (const char *name)                           {return container->getModel(name); };
 		fired::BaseCreature *getCreature(const char *name)                           {return container->getCreature(name); };
 		fired::BaseAI       *getAI      (const char *name, fired::Creature* owner)   {return container->getAI(name, owner); };

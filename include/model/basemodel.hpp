@@ -3,6 +3,7 @@
 
 
 #include "bodypart.hpp"
+#include "items.hpp"
 
 
 namespace fired {

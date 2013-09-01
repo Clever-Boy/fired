@@ -31,6 +31,13 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 	respawn(_startpos);
 	setWeapon(world->getWeapon(base->weapon));
 
+	helm = NULL;
+	arms = NULL;
+	legs = NULL;
+	body = NULL;
+	shoe = NULL;
+	fist = NULL;
+
 	level          = 1;
 	XP             = 0;
 	lastXP         = 0;
@@ -44,6 +51,13 @@ fired::Character::~Character() {
 	delete model;
 	delete weapon;
 	delete inventory;
+
+	if (helm) delete helm;
+	if (arms) delete arms;
+	if (legs) delete legs;
+	if (body) delete body;
+	if (shoe) delete shoe;
+	if (fist) delete fist;
 }
 
 //======================================================================
@@ -395,6 +409,51 @@ void fired::Character::jumpdown() {
 
 void fired::Character::interact() {
 	world->interact(this);
+}
+
+//======================================================================
+
+
+void fired::Character::updateEquip() {
+	baseStats.armor = 0;
+
+	if (helm) delete helm;
+	if (arms) delete arms;
+	if (legs) delete legs;
+	if (body) delete body;
+	if (shoe) delete shoe;
+	if (fist) delete fist;
+
+
+	if (inventory->helm != NULL) {
+		helm = new fired::Armor(world->getArmor(inventory->helm->name, acHelm), world);
+		baseStats.armor += helm->armor;
+	}
+
+	if (inventory->body != NULL) {
+		body = new fired::Armor(world->getArmor(inventory->body->name, acBody), world);
+		baseStats.armor += body->armor;
+	}
+
+	if (inventory->arms != NULL) {
+		arms = new fired::Armor(world->getArmor(inventory->arms->name, acArms), world);
+		baseStats.armor += arms->armor;
+	}
+
+	if (inventory->fist != NULL) {
+		fist = new fired::Armor(world->getArmor(inventory->fist->name, acFist), world);
+		baseStats.armor += fist->armor;
+	}
+
+	if (inventory->legs != NULL) {
+		legs = new fired::Armor(world->getArmor(inventory->legs->name, acLegs), world);
+		baseStats.armor += legs->armor;
+	}
+
+	if (inventory->shoe != NULL) {
+		shoe = new fired::Armor(world->getArmor(inventory->shoe->name, acShoe), world);
+		baseStats.armor += shoe->armor;
+	}
 }
 
 //======================================================================

@@ -266,6 +266,7 @@
 		<todo done="yes" collapse="no"><title>Chests loot generating</title></todo>
 		<todo done="yes" collapse="no"><title>Armor items</title></todo>
 		<todo done="yes" collapse="no"><title>Armor equipping filter (weapons is not for legs, etc.)</title></todo>
+		<todo done="yes" collapse="no"><title>Weapon equipping</title></todo>
 		<todo done="no" collapse="no"><title>Hint class</title></todo>
 		<todo done="no" collapse="no"><title>Hints when hovering item</title></todo>
 		<todo done="no" collapse="no"><title>MaxStack checking</title></todo>

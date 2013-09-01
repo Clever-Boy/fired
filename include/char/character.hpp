@@ -32,6 +32,7 @@ namespace fired {
 		fired::Weapon         *weapon;
 		fired::Model          *model;
 		fired::Inventory      *inventory;
+		fired::BaseCreature   *base;
 
 
 		fired::Armor *helm;
@@ -61,7 +62,7 @@ namespace fired {
 		fired::CharacterStats *getStats() { return &baseStats; };
 
 
-		 Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *base);
+		 Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *_base);
 		~Character();
 
 		void update();

@@ -3,9 +3,10 @@
 //======================================================================
 
 
-fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *base) {
+fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *_base) {
 	world    = _world;
 	cam      = _cam;
+	base     = _base;
 
 	baseStats.speed    = base->stats.speed;
 	baseStats.accel    = base->stats.accel;
@@ -16,12 +17,13 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 
 	inventory = new fired::Inventory(this, world);
 
-	helm = NULL;
-	arms = NULL;
-	legs = NULL;
-	body = NULL;
-	shoe = NULL;
-	fist = NULL;
+	helm   = NULL;
+	arms   = NULL;
+	legs   = NULL;
+	body   = NULL;
+	shoe   = NULL;
+	fist   = NULL;
+	weapon = NULL;
 
 
 	fired::BaseModel *basemodel = world->getModel(base->model);
@@ -36,7 +38,7 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 	if (!strcmp(base->fraction, "soldier")) fraction = FIRED_FRACTION_SOLDIER;
 
 	respawn(_startpos);
-	setWeapon(world->getWeapon(base->weapon));
+	updateEquip();
 
 	level          = 1;
 	XP             = 0;
@@ -131,6 +133,8 @@ void fired::Character::setAiming(float _aiming) {
 
 
 void fired::Character::setWeapon(fired::BaseWeapon *_weapon) {
+	if (weapon) {delete weapon; weapon = NULL;}
+
 	weapon = new fired::Weapon(_weapon);
 	model->setWeapon(_weapon);
 }
@@ -425,35 +429,38 @@ void fired::Character::updateEquip() {
 	if (fist) {delete fist; fist = NULL; }
 
 
-	if (inventory->helm != NULL) {
+	if (inventory->helm) {
 		helm = new fired::Armor(world->getArmor(inventory->helm->name, acHelm), world);
 		baseStats.armor += helm->armor;
 	}
 
-	if (inventory->body != NULL) {
+	if (inventory->body) {
 		body = new fired::Armor(world->getArmor(inventory->body->name, acBody), world);
 		baseStats.armor += body->armor;
 	}
 
-	if (inventory->arms != NULL) {
+	if (inventory->arms) {
 		arms = new fired::Armor(world->getArmor(inventory->arms->name, acArms), world);
 		baseStats.armor += arms->armor;
 	}
 
-	if (inventory->fist != NULL) {
+	if (inventory->fist) {
 		fist = new fired::Armor(world->getArmor(inventory->fist->name, acFist), world);
 		baseStats.armor += fist->armor;
 	}
 
-	if (inventory->legs != NULL) {
+	if (inventory->legs) {
 		legs = new fired::Armor(world->getArmor(inventory->legs->name, acLegs), world);
 		baseStats.armor += legs->armor;
 	}
 
-	if (inventory->shoe != NULL) {
+	if (inventory->shoe) {
 		shoe = new fired::Armor(world->getArmor(inventory->shoe->name, acShoe), world);
 		baseStats.armor += shoe->armor;
 	}
+
+	if (inventory->primaryWeapon) setWeapon(world->getWeapon(inventory->primaryWeapon->name));
+	else                          setWeapon(world->getWeapon(base->weapon));
 
 	model->updateParts();
 }

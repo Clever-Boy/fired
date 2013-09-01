@@ -418,6 +418,23 @@ void fired::Character::interact() {
 //======================================================================
 
 
+void fired::Character::swapWeapons() {
+	if (weaponCooldown > 0) return;
+	fired::InventoryItem *swapper;
+
+	swapper = inventory->primaryWeapon;
+	inventory->primaryWeapon = inventory->secondaryWeapon;
+	inventory->secondaryWeapon = swapper;
+
+	if (inventory->primaryWeapon) setWeapon(world->getWeapon(inventory->primaryWeapon->name));
+	else                          setWeapon(world->getWeapon(base->weapon));
+
+	weaponCooldown = weapon->cooldown;
+}
+
+//======================================================================
+
+
 void fired::Character::updateEquip() {
 	baseStats.armor = 0;
 

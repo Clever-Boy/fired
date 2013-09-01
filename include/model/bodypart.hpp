@@ -26,7 +26,6 @@ namespace fired {
 		sf::Vector2f        offset;
 		sf::Vector2f        origin;
 		sf::Vector2f        size;
-		sf::Color           color;
 		fired::BodypartType type;
 
 		~BaseBodypart();
@@ -35,6 +34,7 @@ namespace fired {
 
 	struct Bodypart {
 		fired::BaseBodypart *base;
+		sf::Color            color;
 
 		int                 *direction;
 		sf::Vector2f         animOffset;

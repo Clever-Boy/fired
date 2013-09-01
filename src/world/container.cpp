@@ -9,6 +9,7 @@ fired::Container::Container(fired::World *_world) {
 	loadSprites();
 	loadBodyparts();
 	loadWeapons();
+	loadArmors();
 	loadModels();
 	loadCreatures();
 	loadDecors();
@@ -19,6 +20,7 @@ fired::Container::Container(fired::World *_world) {
 
 fired::Container::~Container() {
 	deleteList(weapons);
+	deleteList(armors);
 	deleteList(bodyparts);
 	deleteList(models);
 	deleteList(creatures);
@@ -102,6 +104,60 @@ fired::BaseWeapon* fired::Container::getWeapon(const char* name) {
 //======================================================================
 
 
+void fired::Container::loadArmors() {
+	loadArmorsInDir("arms"  , acArms);
+	loadArmorsInDir("body"  , acBody);
+	loadArmorsInDir("helms" , acHelm);
+	loadArmorsInDir("fists" , acFist);
+	loadArmorsInDir("legs"  , acLegs);
+	loadArmorsInDir("shoes" , acShoe);
+}
+
+//======================================================================
+
+
+void fired::Container::loadArmorsInDir(const char *dir, fired::ArmorClass type) {
+	std::vector<std::string> files;
+	char dirname[128];
+	char filename[128];
+
+
+	snprintf(dirname, sizeof(dirname), "data/game/armors/%s", dir);
+	directoryContents(dirname, &files);
+	for (unsigned int i = 0; i < files.size(); i++) {
+		snprintf(filename, sizeof(filename), "data/game/armors/%s/%s", dir, files[i].c_str());
+		loadArmor(filename, type);
+	}
+}
+
+//======================================================================
+
+
+void fired::Container::loadArmor(const char* filename, fired::ArmorClass type) {
+	armors.push_back(new fired::BaseArmor);
+	armors.back()->type = type;
+
+	FILE *fp = fopen(filename, "r");
+	fscanf(fp, "name=%s\n" ,  armors.back()->name);
+	fscanf(fp, "armor=%d\n", &armors.back()->armor);
+	fscanf(fp, "model=%s\n",  armors.back()->model);
+	fscanf(fp, "color=%hhu,%hhu,%hhu,%hhu\n", &armors.back()->color.r, &armors.back()->color.g, &armors.back()->color.b, &armors.back()->color.a);
+	fclose(fp);
+}
+
+//======================================================================
+
+
+fired::BaseArmor* fired::Container::getArmor(const char* name, fired::ArmorClass type) {
+	for (unsigned int i = 0; i < armors.size(); i++)
+		if (!strcmp(name, armors[i]->name) && type == armors[i]->type) return armors[i];
+
+	return NULL;
+}
+
+//======================================================================
+
+
 void fired::Container::loadBodyparts() {
 	loadBodypartsInDir("arms"  , bptArms);
 	loadBodypartsInDir("body"  , bptBody);
@@ -128,7 +184,6 @@ void fired::Container::loadBodypartsInDir(const char *dir, fired::BodypartType t
 	bodyparts.back()->texture = new sf::Texture;
 	bodyparts.back()->type = type;
 	bodyparts.back()->offset = sf::Vector2f(0, 0);
-	bodyparts.back()->color = sf::Color(0, 0, 0, 0);
 	bodyparts.back()->sprite = new sf::Sprite;
 	bodyparts.back()->chunk = new sf::Sprite;
 	strncpy(bodyparts.back()->name, "null", 5);
@@ -154,7 +209,6 @@ void fired::Container::loadBodypart(const char *dir, const char* filename, fired
 	fscanf(fp, "name=%s\n"     , bodyparts.back()->name);
 	fscanf(fp, "offset=%f,%f\n", &bodyparts.back()->offset.x, &bodyparts.back()->offset.y);
 	fscanf(fp, "origin=%f,%f\n", &bodyparts.back()->origin.x, &bodyparts.back()->origin.y);
-	fscanf(fp, "color=%hhu,%hhu,%hhu,%hhu\n", &bodyparts.back()->color.r, &bodyparts.back()->color.g, &bodyparts.back()->color.b, &bodyparts.back()->color.a);
 	fscanf(fp, "image=%s\n"    , imgfile);
 	fclose(fp);
 

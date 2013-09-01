@@ -13,6 +13,7 @@ namespace fired {
 
 		sf::Vector2f speed;
 		sf::Vector2f pos;
+		sf::Color    color;
 		float        rotationSpeed;
 		float        rotation;
 		float        scaleX;

@@ -25,8 +25,9 @@ void fired::Model::explode(sf::Vector2f shot, float knockback) {
 //======================================================================
 
 
-void fired::Model::initPart(fired::Bodypart *part, fired::BaseBodypart *base, int *direction) {
+void fired::Model::initPart(fired::Bodypart *part, fired::BaseBodypart *base, sf::Color color, int *direction) {
 	part->base         = base;
+	part->color        = color;
 	part->direction    = direction;
 	part->animOffset   = sf::Vector2f(0.0, 0.0);
 	part->animRotation = 0.0;
@@ -38,6 +39,7 @@ void fired::Model::initPart(fired::Bodypart *part, fired::BaseBodypart *base, in
 void fired::Model::drawPart(fired::Bodypart *part) {
 	part->base->sprite->setScale(*part->direction * modelScale, modelScale);
 	part->base->sprite->setRotation(*part->direction * part->animRotation);
+	part->base->sprite->setColor(part->color);
 
 	if (*part->direction == 1)
 		part->base->sprite->setPosition(owner->phys.pos + (part->base->offset + part->animOffset) * modelScale);

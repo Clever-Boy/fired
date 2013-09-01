@@ -14,16 +14,16 @@ fired::ModelHumanoid::ModelHumanoid(fired::Character *_owner, fired::BaseModelHu
 	owner->phys.calculate();
 
 
-	initPart(&partLegsF , base->partLegsF, &owner->direction);
-	initPart(&partLegsB , base->partLegsB, &owner->direction);
-	initPart(&partShoeF , base->partShoeF, &owner->direction);
-	initPart(&partShoeB , base->partShoeB, &owner->direction);
-	initPart(&partFistF , base->partFistF, &owner->watching);
-	initPart(&partFistB , base->partFistB, &owner->watching);
-	initPart(&partBody  , base->partBody, &owner->watching);
-	initPart(&partHead  , base->partHead, &owner->watching);
-	initPart(&partHair  , base->partHair, &owner->watching);
-	initPart(&partArms  , base->partArms, &owner->watching);
+	initPart(&partLegsF , base->partLegsF, sf::Color::White, &owner->direction);
+	initPart(&partLegsB , base->partLegsB, sf::Color::White, &owner->direction);
+	initPart(&partShoeF , base->partShoeF, sf::Color::White, &owner->direction);
+	initPart(&partShoeB , base->partShoeB, sf::Color::White, &owner->direction);
+	initPart(&partFistF , base->partFistF, sf::Color::White, &owner->watching);
+	initPart(&partFistB , base->partFistB, sf::Color::White, &owner->watching);
+	initPart(&partBody  , base->partBody , sf::Color::White, &owner->watching);
+	initPart(&partHead  , base->partHead , sf::Color::White, &owner->watching);
+	initPart(&partHair  , base->partHair , sf::Color::White, &owner->watching);
+	initPart(&partArms  , base->partArms , sf::Color::White, &owner->watching);
 
 	respawn();
 }
@@ -92,7 +92,7 @@ void fired::ModelHumanoid::headshot() {
 
 
 void fired::ModelHumanoid::setWeapon(fired::BaseWeapon *weapon) {
-	initPart(&partWeapon, world->getBodypart(weapon->model, bptWeapon), &owner->watching);
+	initPart(&partWeapon, world->getBodypart(weapon->model, bptWeapon), sf::Color::White, &owner->watching);
 }
 
 //======================================================================

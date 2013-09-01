@@ -65,7 +65,7 @@ namespace fired {
 		void render();
 		void explode(sf::Vector2f shot, float knockback);
 
-		void initPart(fired::Bodypart *part, fired::BaseBodypart *base, int *direction);
+		void initPart(fired::Bodypart *part, fired::BaseBodypart *base, sf::Color color, int *direction);
 		void drawPart(fired::Bodypart *part);
 		void resetPart(fired::Bodypart *part);
 		void chunkPart(fired::Bodypart *part, sf::Vector2f shot, float knockback);

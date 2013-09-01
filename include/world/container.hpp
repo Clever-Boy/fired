@@ -6,6 +6,7 @@
 #include "sprites.hpp"
 #include "map.hpp"
 #include "weapon.hpp"
+#include "armor.hpp"
 
 
 namespace fired {
@@ -14,6 +15,7 @@ namespace fired {
 		fired::World     *world;
 
 		std::vector<fired::BaseWeapon*>   weapons;
+		std::vector<fired::BaseArmor*>    armors;
 		std::vector<fired::BaseBodypart*> bodyparts;
 		std::vector<fired::BaseModel*>    models;
 		std::vector<fired::BaseCreature*> creatures;
@@ -30,6 +32,11 @@ namespace fired {
 		void loadWeapons();
 		void loadWeapon(const char* filename);
 		fired::BaseWeapon *getWeapon(const char* name);
+
+		void loadArmors();
+		void loadArmorsInDir(const char *dir, fired::ArmorClass type);
+		void loadArmor(const char* filename, fired::ArmorClass type);
+		fired::BaseArmor *getArmor(const char* name, fired::ArmorClass type);
 
 		void loadModels();
 		void loadModel(const char* filename);

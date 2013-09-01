@@ -8,11 +8,12 @@
 namespace fired {
 	struct InventoryWindowItem {
 		fired::InventoryItem **item;
+		fired::ItemType        filter;
 		sf::FloatRect          rect;
 		bool                   hover;
 
 
-		 InventoryWindowItem(sf::Vector2f pos, fired::InventoryItem **_item);
+		 InventoryWindowItem(sf::Vector2f pos, fired::InventoryItem **_item, fired::ItemType _filter);
 		~InventoryWindowItem() {};
 
 		void render(sf::Sprite *spr, sf::Text *count);

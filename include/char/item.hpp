@@ -4,6 +4,7 @@
 
 namespace fired {
 	enum ItemType {
+		itAny,
 		itMoney,
 		itWeapon,
 		itArmorHelm,

@@ -417,12 +417,12 @@ void fired::Character::interact() {
 void fired::Character::updateEquip() {
 	baseStats.armor = 0;
 
-	if (helm) delete helm;
-	if (arms) delete arms;
-	if (legs) delete legs;
-	if (body) delete body;
-	if (shoe) delete shoe;
-	if (fist) delete fist;
+	if (helm) {delete helm; helm = NULL; }
+	if (arms) {delete arms; arms = NULL; }
+	if (legs) {delete legs; legs = NULL; }
+	if (body) {delete body; body = NULL; }
+	if (shoe) {delete shoe; shoe = NULL; }
+	if (fist) {delete fist; fist = NULL; }
 
 
 	if (inventory->helm != NULL) {

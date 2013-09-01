@@ -3,8 +3,9 @@
 //======================================================================
 
 
-fired::InventoryWindowItem::InventoryWindowItem(sf::Vector2f pos, fired::InventoryItem **_item) {
-	item = _item;
+fired::InventoryWindowItem::InventoryWindowItem(sf::Vector2f pos, fired::InventoryItem **_item, fired::ItemType _filter) {
+	item   = _item;
+	filter = _filter;
 	rect = sf::FloatRect(pos, sf::Vector2f(35.0f, 35.0f));
 }
 
@@ -47,7 +48,7 @@ void fired::InventoryWindowItem::renderItem(sf::Text *count) {
 fired::InventoryWindow::InventoryWindow(fired::Character *_owner) {
 	owner  = _owner;
 	win    = new fired::Window(sf::Vector2f(370, 380));
-	inHand = new fired::InventoryWindowItem(sf::Vector2f(0.0f, 0.0f), new fired::InventoryItem*);
+	inHand = new fired::InventoryWindowItem(sf::Vector2f(0.0f, 0.0f), new fired::InventoryItem*, itAny);
 	*(inHand->item) = NULL;
 
 	emptyTex = new sf::Texture();
@@ -81,20 +82,20 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner) {
 	countText->setCharacterSize(12);
 	countText->setColor(sf::Color::White);
 
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(175.0f,  10.0f), &owner->inventory->helm));
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(175.0f,  65.0f), &owner->inventory->body));
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(130.0f,  22.0f), &owner->inventory->arms));
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(130.0f,  85.0f), &owner->inventory->fist));
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(220.0f,  25.0f), &owner->inventory->legs));
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(220.0f,  85.0f), &owner->inventory->shoe));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(175.0f,  10.0f), &owner->inventory->helm, itArmorHelm));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(175.0f,  65.0f), &owner->inventory->body, itArmorBody));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(130.0f,  22.0f), &owner->inventory->arms, itArmorArms));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(130.0f,  85.0f), &owner->inventory->fist, itArmorFist));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(220.0f,  25.0f), &owner->inventory->legs, itArmorLegs));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(220.0f,  85.0f), &owner->inventory->shoe, itArmorShoe));
 
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(155.0f, 130.0f), &owner->inventory->primaryWeapon));
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(195.0f, 130.0f), &owner->inventory->secondaryWeapon));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(155.0f, 130.0f), &owner->inventory->primaryWeapon, itWeapon));
+	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(195.0f, 130.0f), &owner->inventory->secondaryWeapon, itWeapon));
 
 
 	for (int i = 0; i < 10; i++)
 		for (int j = 0; j < 5; j++)
-			items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(10.0f + 35.0f * i, 185.0f + 35.0f * j), &owner->inventory->items[i][j]));
+			items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(10.0f + 35.0f * i, 185.0f + 35.0f * j), &owner->inventory->items[i][j], itAny));
 }
 
 //======================================================================
@@ -178,9 +179,11 @@ void fired::InventoryWindow::click(sf::Vector2f mousePos) {
 		*selected->item = NULL;
 		return;
 	} else if (*selected->item == NULL) {
+		if (selected->filter != itAny && selected->filter != (*inHand->item)->type) return;
 		*selected->item = *inHand->item;
 		*inHand->item   = NULL;
 	} else {
+		if (selected->filter != itAny && selected->filter != (*inHand->item)->type) return;
 		if ((*selected->item)->type == (*inHand->item)->type && !strcmp((*selected->item)->caption, (*inHand->item)->caption)) {
 			(*selected->item)->count += (*inHand->item)->count;
 
@@ -194,5 +197,7 @@ void fired::InventoryWindow::click(sf::Vector2f mousePos) {
 			*inHand->item   = tmp;
 		}
 	}
+
+	owner->updateEquip();
 }
 

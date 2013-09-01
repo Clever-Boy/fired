@@ -73,6 +73,9 @@ fired::InventoryItem::InventoryItem(fired::ItemType _type, unsigned int _count, 
 			sprite = world->getBodypart(world->getArmor(name, acArms)->model, bptArms)->chunk;
 			color  = world->getArmor(name, acArms)->color;
 			break;
+
+		case itAny:
+			break;
 	}
 }
 
@@ -125,6 +128,9 @@ fired::InventoryItem::InventoryItem(fired::MapItem *base, fired::World *world) {
 		case itArmorArms:
 			sprite = world->getBodypart(world->getArmor(name, acArms)->model, bptArms)->chunk;
 			color  = world->getArmor(name, acArms)->color;
+			break;
+
+		case itAny:
 			break;
 	}
 }

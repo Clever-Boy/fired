@@ -5,7 +5,7 @@
 
 fired::CharacterWindow::CharacterWindow(fired::Character *_owner) {
 	owner  = _owner;
-	win    = new fired::Window(sf::Vector2f(300, 100));
+	win    = new fired::Window(sf::Vector2f(400, 200));
 
 	text = new sf::Text();
 	text->setFont(*game->getFont());
@@ -53,17 +53,34 @@ void fired::CharacterWindow::render() {
 
 	snprintf(str, sizeof(str), "%d", owner->level);
 	renderText( 10, 10, "Level", false);
-	renderText(290, 10, str    , true);
+	renderText(390, 10, str    , true);
 
 	snprintf(str, sizeof(str), "%d / %d", owner->baseStats.HP, owner->baseStats.maxHP);
 	renderText( 10, 30, "HP", false);
-	renderText(290, 30, str , true);
+	renderText(390, 30, str , true);
 
 	snprintf(str, sizeof(str), "%ld", owner->XP);
 	renderText( 10, 50, "XP", false);
-	renderText(290, 50, str , true);
+	renderText(390, 50, str , true);
 
 	snprintf(str, sizeof(str), "%ld", owner->needXP);
 	renderText( 10, 70, "Next level", false);
-	renderText(290, 70, str         , true);
+	renderText(390, 70, str         , true);
+
+
+	snprintf(str, sizeof(str), "%d", owner->baseStats.armor);
+	renderText( 10, 110, "Armor", false);
+	renderText(390, 110, str    , true);
+
+	snprintf(str, sizeof(str), "%d", owner->getDamage());
+	renderText( 10, 130, "Damage", false);
+	renderText(390, 130, str    , true);
+
+	snprintf(str, sizeof(str), "%3.2f", owner->baseStats.speed);
+	renderText( 10, 150, "Speed", false);
+	renderText(390, 150, str    , true);
+
+	snprintf(str, sizeof(str), "%3.2f", owner->baseStats.jump);
+	renderText( 10, 170, "Jump", false);
+	renderText(390, 170, str    , true);
 }

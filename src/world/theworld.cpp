@@ -245,6 +245,7 @@ void fired::World::preUpdateState() {
 
 	switch (state) {
 		case wsNormal:
+			player->checkControls();
 			break;
 
 		case wsInventory:

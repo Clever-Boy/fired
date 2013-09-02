@@ -8,10 +8,11 @@
 namespace fired {
 	struct HintWindow {
 		fired::Window *win;
+		fired::World  *world;
 		sf::Text      *text;
 
 
-		 HintWindow();
+		 HintWindow(fired::World *_world);
 		~HintWindow();
 
 		void update(fired::InventoryItem *_item);

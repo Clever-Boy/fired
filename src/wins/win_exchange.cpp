@@ -3,10 +3,10 @@
 //======================================================================
 
 
-fired::ExchangeWindow::ExchangeWindow(fired::Character *_owner) {
+fired::ExchangeWindow::ExchangeWindow(fired::Character *_owner, fired::World *world) {
 	owner  = _owner;
 	win    = new fired::Window(sf::Vector2f(740, 380));
-	hint   = new fired::HintWindow();
+	hint   = new fired::HintWindow(world);
 	inHand = new fired::InventoryWindowItem(sf::Vector2f(0.0f, 0.0f), new fired::InventoryItem*, itAny);
 	*(inHand->item) = NULL;
 

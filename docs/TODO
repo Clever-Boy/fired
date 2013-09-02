@@ -232,7 +232,7 @@
 		<todo done="yes" collapse="no"><title>Decorations</title></todo>
 		<todo done="yes" collapse="no"><title>Platforms</title></todo>
 	</todo>
-	<todo done="no" collapse="no"><title>Inventory</title>
+	<todo done="yes" collapse="yes"><title>Inventory</title>
 		<todo done="yes" collapse="no"><title>Inventory class</title></todo>
 		<todo done="yes" collapse="no"><title>Money</title></todo>
 		<todo done="yes" collapse="no"><title>Inventory item class</title></todo>
@@ -270,7 +270,7 @@
 		<todo done="yes" collapse="no"><title>Switching weapons</title></todo>
 		<todo done="yes" collapse="no"><title>Hint class</title></todo>
 		<todo done="yes" collapse="no"><title>Hints when hovering item</title></todo>
-		<todo done="no" collapse="no"><title>Hint text</title></todo>
+		<todo done="yes" collapse="no"><title>Hint text</title></todo>
 		<todo done="yes" collapse="no"><title>MaxStack checking</title></todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>Advanced</title>
@@ -288,6 +288,10 @@
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible particles</title></todo>
 		<todo done="no" collapse="no"><title>Add some weapons</title></todo>
 		<todo done="no" collapse="no"><title>Add some armors</title></todo>
+		<todo done="no" collapse="no"><title>Add some models</title></todo>
+		<todo done="no" collapse="no"><title>Add some hairs</title></todo>
+		<todo done="no" collapse="no"><title>Player default colors</title></todo>
+		<todo done="no" collapse="no"><title>Random creatures hair</title></todo>
 		<todo done="no" collapse="no"><title>Primary skills (Strength, Agility, Accuracy etc.)</title></todo>
 		<todo done="no" collapse="no"><title>Secondary skills (Healing, Crafting etc.)</title></todo>
 		<todo done="no" collapse="no"><title>Weapon skills (each weapon has it's own XP value)</title></todo>

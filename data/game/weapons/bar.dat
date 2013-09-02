@@ -1,7 +1,7 @@
 name=bar
 model=bar
 damage=15
-range=20
+range=20.0
 cooldown=0.2
 knockback=170.0
 auto=0

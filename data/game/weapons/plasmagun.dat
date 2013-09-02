@@ -1,7 +1,7 @@
 name=plasmagun
 model=rifle
 damage=10
-range=400
+range=400.0
 cooldown=0.1
 knockback=100.0
 auto=1

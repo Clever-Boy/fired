@@ -1,7 +1,7 @@
 name=pistol
 model=pistol
 damage=10
-range=200
+range=200.0
 cooldown=0.2
 knockback=40.0
 auto=0

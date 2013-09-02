@@ -1,7 +1,7 @@
 name=fist
 model=null
 damage=10
-range=20
+range=20.0
 cooldown=0.2
 knockback=70.0
 auto=0

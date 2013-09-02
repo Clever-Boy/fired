@@ -43,7 +43,7 @@ namespace fired {
 
 
 	public:
-		 InventoryWindow(fired::Character *_owner);
+		 InventoryWindow(fired::Character *_owner, fired::World *world);
 		~InventoryWindow();
 
 		void update(sf::Vector2f mousePos);

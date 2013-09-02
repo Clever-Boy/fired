@@ -29,7 +29,7 @@ namespace fired {
 
 
 	public:
-		 ExchangeWindow(fired::Character *_owner);
+		 ExchangeWindow(fired::Character *_owner, fired::World *world);
 		~ExchangeWindow();
 
 		void update(sf::Vector2f mousePos);

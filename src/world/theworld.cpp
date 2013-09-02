@@ -16,8 +16,8 @@ fired::World::World(fired::Mouse *_mouse) {
 	player    = new fired::Player(cam, map->getStartPos(), crosshair, this);
 	gui       = new fired::GUI(player);
 
-	inventoryWin = new fired::InventoryWindow(player->getChar());
-	exchangeWin  = new fired::ExchangeWindow(player->getChar());
+	inventoryWin = new fired::InventoryWindow(player->getChar(), this);
+	exchangeWin  = new fired::ExchangeWindow(player->getChar(), this);
 	characterWin = new fired::CharacterWindow(player->getChar());
 
 	cam->setMapSize(map->getSize());

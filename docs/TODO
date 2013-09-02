@@ -273,9 +273,10 @@
 		<todo done="yes" collapse="no"><title>Hint text</title></todo>
 		<todo done="yes" collapse="no"><title>MaxStack checking</title></todo>
 	</todo>
-	<todo done="no" collapse="yes"><title>Advanced</title>
-		<todo done="yes" collapse="no"><title>Crypto API for sqlite</title></todo>
-		<todo done="no" collapse="no"><title>Move data to sqlite db</title></todo>
+	<todo done="no" collapse="no"><title>Advanced</title>
+		<todo done="no" collapse="no"><title>Move name and caption to char[64]</title></todo>
+		<todo done="no" collapse="no"><title>Weapon caption</title></todo>
+		<todo done="no" collapse="no"><title>Reading captions with spaces</title></todo>
 		<todo done="yes" collapse="no"><title>Move map save &amp; load to another file</title></todo>
 		<todo done="yes" collapse="no"><title>Move saving map objects to new methods</title></todo>
 		<todo done="no" collapse="no"><title>Move inventory &amp; item to new folder "inventory"</title></todo>
@@ -289,6 +290,7 @@
 		<todo done="no" collapse="no"><title>Add some weapons</title></todo>
 		<todo done="no" collapse="no"><title>Add some armors</title></todo>
 		<todo done="no" collapse="no"><title>Add some models</title></todo>
+		<todo done="no" collapse="no"><title>Add some creatures</title></todo>
 		<todo done="no" collapse="no"><title>Add some hairs</title></todo>
 		<todo done="no" collapse="no"><title>Player default colors</title></todo>
 		<todo done="no" collapse="no"><title>Random creatures hair</title></todo>
@@ -302,6 +304,15 @@
 		<todo done="no" collapse="no"><title>GLSL shaders processing</title></todo>
 		<todo done="no" collapse="no"><title>Lighting (GLSL shaders)</title></todo>
 		<todo done="no" collapse="no"><title>Fog shader</title></todo>
+		<todo done="yes" collapse="no"><title>Crypto API for sqlite</title></todo>
+		<todo done="no" collapse="no"><title>Move data to sqlite db</title></todo>
+	</todo>
+	<todo done="no" collapse="yes"><title>Wiki</title>
+		<todo done="no" collapse="no"><title>Wiki pages generator</title></todo>
+		<todo done="no" collapse="no"><title>Wiki pages header</title></todo>
+		<todo done="no" collapse="no"><title>Wiki pages menu</title></todo>
+		<todo done="no" collapse="no"><title>Wiki pages footer</title></todo>
+		<todo done="no" collapse="no"><title>Combinating page parts with content</title></todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>--- Release Alpha</title>
 		<todo done="no" collapse="no"><title>Player home</title></todo>

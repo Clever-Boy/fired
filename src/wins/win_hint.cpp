@@ -24,8 +24,8 @@ fired::HintWindow::~HintWindow() {
 //======================================================================
 
 
-void fired::HintWindow::update() {
-	render();
+void fired::HintWindow::update(fired::InventoryItem *item) {
+	render(item);
 }
 
 //======================================================================
@@ -46,6 +46,7 @@ void fired::HintWindow::renderText(float x, float y, const char *caption, bool r
 //======================================================================
 
 
-void fired::HintWindow::render() {
+void fired::HintWindow::render(fired::InventoryItem *item) {
+	if (item == NULL) return;
 	win->render();
 }

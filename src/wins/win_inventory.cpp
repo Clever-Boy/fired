@@ -142,7 +142,6 @@ void fired::InventoryWindow::render() {
 
 	for (unsigned int i = 0; i < items.size(); i++)
 		if      ( items[i]->hover)        items[i]->render(hoverSpr, countText);
-		else if ( items[i]->item == NULL) items[i]->render(emptySpr, countText);
 		else if (*items[i]->item == NULL) items[i]->render(emptySpr, countText);
 		else                              items[i]->render(normalSpr, countText);
 
@@ -157,8 +156,8 @@ void fired::InventoryWindow::render() {
 
 	if (*inHand->item) inHand->renderItem(countText);
 	else for (unsigned int i = 0; i < items.size(); i++)
-		if (items[i]->hover && items[i]->item != NULL && *items[i]->item != NULL) {
-			hint->update();
+		if (items[i]->hover && *items[i]->item != NULL) {
+			hint->update(*items[i]->item);
 			break;
 		}
 }

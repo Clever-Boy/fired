@@ -14,8 +14,8 @@ namespace fired {
 		 HintWindow();
 		~HintWindow();
 
-		void update();
-		void render();
+		void update(fired::InventoryItem *_item);
+		void render(fired::InventoryItem *_item);
 		void renderText(float x, float y, const char *caption, bool rightAligned);
 	};
 }

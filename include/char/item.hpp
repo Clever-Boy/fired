@@ -19,7 +19,7 @@ namespace fired {
 
 	struct LootItem {
 		fired::ItemType type;
-		char            name[32];
+		char            name[64];
 
 		unsigned int    minCount;
 		unsigned int    maxCount;
@@ -33,7 +33,7 @@ namespace fired {
 
 	struct MapItem {
 		fired::ItemType type;
-		char            name[32];
+		char            name[64];
 		unsigned int    count;
 
 		MapItem() {};
@@ -44,8 +44,8 @@ namespace fired {
 
 	struct InventoryItem {
 		fired::ItemType type;
-		char            name[32];
-		char            caption[32];
+		char            name[64];
+		char            caption[64];
 		unsigned int    count;
 		sf::Color       color;
 		sf::Sprite     *sprite;

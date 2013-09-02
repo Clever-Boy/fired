@@ -4,8 +4,8 @@
 
 namespace fired {
 	struct BaseWeapon {
-		char  name[32];
-		char  model[32];
+		char  name[64];
+		char  model[64];
 		float cooldown;
 		float range;
 		float speed;

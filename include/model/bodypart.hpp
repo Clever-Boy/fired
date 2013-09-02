@@ -19,7 +19,7 @@ namespace fired {
 
 
 	struct BaseBodypart {
-		char                name[32];
+		char                name[64];
 		sf::Sprite         *sprite;
 		sf::Sprite         *chunk;
 		sf::Texture        *texture;

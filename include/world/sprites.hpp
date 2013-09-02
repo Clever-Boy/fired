@@ -4,7 +4,7 @@
 
 namespace fired {
 	struct GameSprite {
-		char         name[32];
+		char         name[64];
 		sf::Sprite  *spr;
 		sf::Texture *tex;
 

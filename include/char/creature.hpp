@@ -14,11 +14,11 @@ namespace fired {
 
 namespace fired {
 	struct BaseCreature {
-		char  name[32];
-		char  model[32];
-		char  weapon[32];
-		char  ai[32];
-		char  fraction[32];
+		char  name[64];
+		char  model[64];
+		char  weapon[64];
+		char  ai[64];
+		char  fraction[64];
 		float modelScale;
 
 		fired::CharacterStats stats;

@@ -4,7 +4,7 @@
 
 namespace fired {
 	struct MapDecor {
-		char name[16];
+		char name[64];
 		sf::Vector2f pos;
 
 
@@ -15,7 +15,7 @@ namespace fired {
 /*--------------------------------------------------------------------*/
 
 	struct BaseDecor {
-		char name[16];
+		char name[64];
 		sf::Texture *tex;
 		sf::Sprite  *spr;
 		sf::Vector2f size;
@@ -28,7 +28,7 @@ namespace fired {
 /*--------------------------------------------------------------------*/
 
 	struct Decor {
-		char name[16];
+		char name[64];
 		sf::Vector2f  pos;
 		sf::FloatRect rect;
 		sf::Sprite   *sprite;

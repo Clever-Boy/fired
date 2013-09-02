@@ -14,9 +14,9 @@ namespace fired {
 
 
 	struct BaseArmor {
-		char      name[32];
-		char      caption[32];
-		char      model[32];
+		char      name[64];
+		char      caption[64];
+		char      model[64];
 		sf::Color color;
 		int       armor;
 
@@ -25,9 +25,9 @@ namespace fired {
 
 
 	struct Armor {
-		char      name[32];
-		char      caption[32];
-		char      model[32];
+		char      name[64];
+		char      caption[64];
+		char      model[64];
 		sf::Color color;
 		int       armor;
 

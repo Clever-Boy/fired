@@ -25,7 +25,7 @@ namespace fired {
 
 
 	struct BaseModel {
-		char             name[32];
+		char             name[64];
 		fired::ModelType type;
 		sf::Vector2f     size;
 	};

@@ -274,7 +274,7 @@
 		<todo done="yes" collapse="no"><title>MaxStack checking</title></todo>
 	</todo>
 	<todo done="no" collapse="no"><title>Advanced</title>
-		<todo done="no" collapse="no"><title>Move name and caption to char[64]</title></todo>
+		<todo done="yes" collapse="no"><title>Move name and caption to char[64]</title></todo>
 		<todo done="no" collapse="no"><title>Weapon caption</title></todo>
 		<todo done="no" collapse="no"><title>Reading captions with spaces</title></todo>
 		<todo done="yes" collapse="no"><title>Move map save &amp; load to another file</title></todo>

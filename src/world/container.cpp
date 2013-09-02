@@ -46,7 +46,7 @@ void fired::Container::loadWeapons() {
 
 
 void fired::Container::loadWeapon(const char* filename) {
-	char type[16];
+	char type[64];
 	char file[128];
 	char path[128];
 	weapons.push_back(new fired::BaseWeapon);
@@ -342,8 +342,8 @@ void fired::Container::loadCreatures() {
 
 void fired::Container::loadCreature(const char* filename) {
 	fired::ItemType type;
-	char            strtype[32];
-	char            name[32];
+	char            strtype[64];
+	char            name[64];
 	unsigned int    minCount;
 	unsigned int    maxCount;
 	float           probability;
@@ -420,8 +420,8 @@ void fired::Container::loadDecors() {
 
 
 void fired::Container::loadDecor(const char* filename) {
-	char name[16];
-	char imgf[32];
+	char name[64];
+	char imgf[64];
 	char img[128];
 
 	FILE *fp = fopen(filename, "r");
@@ -463,7 +463,7 @@ void fired::Container::loadSprites() {
 
 
 void fired::Container::loadSprite(const char* filename) {
-	char name[32];
+	char name[64];
 	char file[128];
 	char path[128];
 

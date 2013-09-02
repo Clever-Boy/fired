@@ -166,7 +166,7 @@ void fired::Character::damage(int damage, bool headshot, sf::Vector2f shot, floa
 
 
 void fired::Character::gainXP(long xp) {
-	char exp[8];
+	char exp[64];
 	snprintf(exp, sizeof(exp), "+%lu XP", xp);
 
 	XP += xp;
@@ -290,7 +290,7 @@ float fired::Character::getHpPercent() {
 
 
 std::string fired::Character::getHpString() {
-	char outStr[32];
+	char outStr[64];
 	snprintf(outStr, sizeof(outStr), "HP  %d / %d", baseStats.HP, baseStats.maxHP);
 	return std::string(outStr);
 }
@@ -306,7 +306,7 @@ float fired::Character::getXpPercent() {
 
 
 std::string fired::Character::getXpString() {
-	char outStr[32];
+	char outStr[64];
 	snprintf(outStr, sizeof(outStr), "Level %u  (%lu / %lu)", level, XP, needXP);
 	return std::string(outStr);
 }
@@ -344,7 +344,7 @@ float fired::Character::getAmmoPercent() {
 
 
 std::string fired::Character::getAmmoString() {
-	char outStr[16];
+	char outStr[64];
 	if (weapon->ammo == -1) snprintf(outStr, sizeof(outStr), "inf");
 	else                    snprintf(outStr, sizeof(outStr), "Ammo  %d / %d", weapon->ammo, weapon->clip);
 	return std::string(outStr);

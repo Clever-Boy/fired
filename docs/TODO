@@ -313,5 +313,6 @@
 	<todo done="no" collapse="yes"><title>--- Release Beta</title>
 		<todo done="no" collapse="no"><title>Fix game balance</title></todo>
 		<todo done="no" collapse="no"><title>Fix alpha bugs</title></todo>
+		<todo done="no" collapse="no"><title>Crypt sqlite DB</title></todo>
 	</todo>
 </todo>

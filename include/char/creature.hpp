@@ -24,6 +24,7 @@ namespace fired {
 		fired::CharacterStats stats;
 		std::vector<fired::LootItem*> loot;
 
+
 		 BaseCreature();
 		~BaseCreature();
 	};

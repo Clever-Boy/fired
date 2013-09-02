@@ -50,41 +50,41 @@ void fired::ModelHumanoid::update() {
 
 
 void fired::ModelHumanoid::updateParts() {
-	initPart(&partHead  , base->partHead , sf::Color::White, &owner->watching);
+	initPart(&partHead  , base->partHead , base->partHeadColor, &owner->watching);
 
 
 	if (owner->helm) initPart(&partHair  , world->getBodypart(owner->helm->model, bptHair), owner->helm->color, &owner->watching);
-	else             initPart(&partHair  , base->partHair , sf::Color::White, &owner->watching);
+	else             initPart(&partHair  , base->partHair , base->partHairColor, &owner->watching);
 
 	if (owner->body) initPart(&partBody  , world->getBodypart(owner->body->model, bptBody), owner->body->color, &owner->watching);
-	else             initPart(&partBody  , base->partBody , sf::Color::White, &owner->watching);
+	else             initPart(&partBody  , base->partBody , base->partBodyColor, &owner->watching);
 
 	if (owner->arms) initPart(&partArms  , world->getBodypart(owner->arms->model, bptArms), owner->arms->color, &owner->watching);
-	else             initPart(&partArms  , base->partArms , sf::Color::White, &owner->watching);
+	else             initPart(&partArms  , base->partArms , base->partArmsColor, &owner->watching);
 
 
 	if (owner->legs) {
 		initPart(&partLegsF , world->getBodypart(owner->legs->model, bptLegsF), owner->legs->color, &owner->direction);
 		initPart(&partLegsB , world->getBodypart(owner->legs->model, bptLegsB), owner->legs->color, &owner->direction);
 	} else {
-		initPart(&partLegsF , base->partLegsF, sf::Color::White, &owner->direction);
-		initPart(&partLegsB , base->partLegsB, sf::Color::White, &owner->direction);
+		initPart(&partLegsF , base->partLegsF, base->partLegsFColor, &owner->direction);
+		initPart(&partLegsB , base->partLegsB, base->partLegsBColor, &owner->direction);
 	}
 
 	if (owner->shoe) {
 		initPart(&partShoeF , world->getBodypart(owner->shoe->model, bptShoeF), owner->shoe->color, &owner->direction);
 		initPart(&partShoeB , world->getBodypart(owner->shoe->model, bptShoeB), owner->shoe->color, &owner->direction);
 	} else {
-		initPart(&partShoeF , base->partShoeF, sf::Color::White, &owner->direction);
-		initPart(&partShoeB , base->partShoeB, sf::Color::White, &owner->direction);
+		initPart(&partShoeF , base->partShoeF, base->partShoeFColor, &owner->direction);
+		initPart(&partShoeB , base->partShoeB, base->partShoeBColor, &owner->direction);
 	}
 
 	if (owner->fist) {
 		initPart(&partFistF , world->getBodypart(owner->fist->model, bptFistF), owner->fist->color, &owner->watching);
 		initPart(&partFistB , world->getBodypart(owner->fist->model, bptFistB), owner->fist->color, &owner->watching);
 	} else {
-		initPart(&partFistF , base->partFistF, sf::Color::White, &owner->watching);
-		initPart(&partFistB , base->partFistB, sf::Color::White, &owner->watching);
+		initPart(&partFistF , base->partFistF, base->partFistFColor, &owner->watching);
+		initPart(&partFistB , base->partFistB, base->partFistBColor, &owner->watching);
 	}
 }
 

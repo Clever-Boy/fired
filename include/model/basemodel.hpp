@@ -42,6 +42,17 @@ namespace fired {
 		fired::BaseBodypart *partBody;
 		fired::BaseBodypart *partArms;
 		fired::BaseBodypart *partHead;
+
+		sf::Color partLegsFColor;
+		sf::Color partLegsBColor;
+		sf::Color partShoeFColor;
+		sf::Color partShoeBColor;
+		sf::Color partFistFColor;
+		sf::Color partFistBColor;
+		sf::Color partHairColor;
+		sf::Color partBodyColor;
+		sf::Color partArmsColor;
+		sf::Color partHeadColor;
 	};
 
 

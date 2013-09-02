@@ -270,33 +270,43 @@ void fired::Container::loadModel(const char* filename) {
 		fscanf(fp, "size=%f,%f\n", &model->size.x, &model->size.y);
 
 		fscanf(fp, "legsf=%s\n", field);
+		fscanf(fp, "legsfcolor=%hhu,%hhu,%hhu,%hhu\n", &model->partLegsFColor.r, &model->partLegsFColor.g, &model->partLegsFColor.b, &model->partLegsFColor.a);
 		model->partLegsF = getBodypart(field, bptLegsF);
 
 		fscanf(fp, "legsb=%s\n", field);
+		fscanf(fp, "legsbcolor=%hhu,%hhu,%hhu,%hhu\n", &model->partLegsBColor.r, &model->partLegsBColor.g, &model->partLegsBColor.b, &model->partLegsBColor.a);
 		model->partLegsB = getBodypart(field, bptLegsB);
 
 		fscanf(fp, "shoef=%s\n", field);
+		fscanf(fp, "shoefcolor=%hhu,%hhu,%hhu,%hhu\n", &model->partShoeFColor.r, &model->partShoeFColor.g, &model->partShoeFColor.b, &model->partShoeFColor.a);
 		model->partShoeF = getBodypart(field, bptShoeF);
 
 		fscanf(fp, "shoeb=%s\n", field);
+		fscanf(fp, "shoebcolor=%hhu,%hhu,%hhu,%hhu\n", &model->partShoeBColor.r, &model->partShoeBColor.g, &model->partShoeBColor.b, &model->partShoeBColor.a);
 		model->partShoeB = getBodypart(field, bptShoeB);
 
 		fscanf(fp, "fistf=%s\n", field);
+		fscanf(fp, "fistfcolor=%hhu,%hhu,%hhu,%hhu\n", &model->partFistFColor.r, &model->partFistFColor.g, &model->partFistFColor.b, &model->partFistFColor.a);
 		model->partFistF = getBodypart(field, bptFistF);
 
 		fscanf(fp, "fistb=%s\n", field);
+		fscanf(fp, "fistbcolor=%hhu,%hhu,%hhu,%hhu\n", &model->partFistBColor.r, &model->partFistBColor.g, &model->partFistBColor.b, &model->partFistBColor.a);
 		model->partFistB = getBodypart(field, bptFistB);
 
 		fscanf(fp, "arms=%s\n", field);
+		fscanf(fp, "armscolor=%hhu,%hhu,%hhu,%hhu\n", &model->partArmsColor.r, &model->partArmsColor.g, &model->partArmsColor.b, &model->partArmsColor.a);
 		model->partArms = getBodypart(field, bptArms);
 
 		fscanf(fp, "hair=%s\n", field);
+		fscanf(fp, "haircolor=%hhu,%hhu,%hhu,%hhu\n", &model->partHairColor.r, &model->partHairColor.g, &model->partHairColor.b, &model->partHairColor.a);
 		model->partHair = getBodypart(field, bptHair);
 
 		fscanf(fp, "head=%s\n", field);
+		fscanf(fp, "headcolor=%hhu,%hhu,%hhu,%hhu\n", &model->partHeadColor.r, &model->partHeadColor.g, &model->partHeadColor.b, &model->partHeadColor.a);
 		model->partHead = getBodypart(field, bptHead);
 
 		fscanf(fp, "body=%s\n", field);
+		fscanf(fp, "bodycolor=%hhu,%hhu,%hhu,%hhu\n", &model->partBodyColor.r, &model->partBodyColor.g, &model->partBodyColor.b, &model->partBodyColor.a);
 		model->partBody = getBodypart(field, bptBody);
 
 		models.push_back(model);

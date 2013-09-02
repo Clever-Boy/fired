@@ -27,6 +27,7 @@
 
 #define PLAYER_RESPAWN_TIME     3.0f
 #define ITEM_SPEED              100.0f
+#define ITEM_MAX_STACK          25
 #define TILE_SIZE               16.0f
 #define BROAD_ATTACK_TIME       0.25f
 

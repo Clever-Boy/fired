@@ -232,7 +232,7 @@
 		<todo done="yes" collapse="no"><title>Decorations</title></todo>
 		<todo done="yes" collapse="no"><title>Platforms</title></todo>
 	</todo>
-	<todo done="no" collapse="yes"><title>Inventory</title>
+	<todo done="no" collapse="no"><title>Inventory</title>
 		<todo done="yes" collapse="no"><title>Inventory class</title></todo>
 		<todo done="yes" collapse="no"><title>Money</title></todo>
 		<todo done="yes" collapse="no"><title>Inventory item class</title></todo>
@@ -271,7 +271,7 @@
 		<todo done="yes" collapse="no"><title>Hint class</title></todo>
 		<todo done="yes" collapse="no"><title>Hints when hovering item</title></todo>
 		<todo done="no" collapse="no"><title>Hint text</title></todo>
-		<todo done="no" collapse="no"><title>MaxStack checking</title></todo>
+		<todo done="yes" collapse="no"><title>MaxStack checking</title></todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>Advanced</title>
 		<todo done="yes" collapse="no"><title>Crypto API for sqlite</title></todo>

@@ -54,14 +54,20 @@ void fired::Inventory::pickup(fired::InventoryItem *item) {
 	}
 
 
-	for (int i = 0; i < 10; i++)
-		for (int j = 0; j < 5; j++)
-			if (items[i][j] != NULL)
-				if (items[i][j]->type == item->type && !strcmp(items[i][j]->caption, item->caption)) {
-					items[i][j]->count += item->count;
-					delete item;
-					return;
-				}
+	if (item->type == itAny)
+		for (int i = 0; i < 10; i++)
+			for (int j = 0; j < 5; j++)
+				if (items[i][j] != NULL)
+					if (items[i][j]->type == item->type && !strcmp(items[i][j]->caption, item->caption) && items[i][j]->count != ITEM_MAX_STACK) {
+						if (items[i][j]->count + item->count <= ITEM_MAX_STACK) {
+							items[i][j]->count += item->count;
+							delete item;
+							return;
+						} else {
+							item->count = ITEM_MAX_STACK - items[i][j]->count;
+							items[i][j]->count = ITEM_MAX_STACK;
+						}
+					}
 
 
 	for (int i = 0; i < 10; i++)

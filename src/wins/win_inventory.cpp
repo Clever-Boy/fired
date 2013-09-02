@@ -179,32 +179,25 @@ void fired::InventoryWindow::click(sf::Vector2f mousePos) {
 	if (selected->item == NULL) return;
 
 
-	if (*inHand->item == NULL) {
-		if (*selected->item == NULL) return;
-
-		*inHand->item   = *selected->item;
-		*selected->item = NULL;
-		return;
-	} else if (*selected->item == NULL) {
+	if (*inHand->item != NULL) {
 		if (selected->filter != itAny && selected->filter != (*inHand->item)->type) return;
-		*selected->item = *inHand->item;
-		*inHand->item   = NULL;
-	} else {
-		if (selected->filter != itAny && selected->filter != (*inHand->item)->type) return;
-		if ((*selected->item)->type == (*inHand->item)->type && !strcmp((*selected->item)->caption, (*inHand->item)->caption)) {
-			(*selected->item)->count += (*inHand->item)->count;
+			if (*selected->item != NULL) if ((*selected->item)->type == (*inHand->item)->type && !strcmp((*selected->item)->caption, (*inHand->item)->caption) && (*inHand->item)->type == itAny) {
+				if ((*selected->item)->count + (*inHand->item)->count <= ITEM_MAX_STACK) {
+					(*selected->item)->count += (*inHand->item)->count;
+					delete (*inHand->item);
+					*inHand->item = NULL;
+					owner->updateEquip();
+				} else {
+					(*inHand->item)->count = ITEM_MAX_STACK - (*selected->item)->count;
+					(*selected->item)->count = ITEM_MAX_STACK;
+					owner->updateEquip();
+				}
 
-			delete (*inHand->item);
-			*inHand->item = NULL;
-		} else {
-			fired::InventoryItem *tmp;
-
-			tmp = *selected->item;
-			*selected->item = *inHand->item;
-			*inHand->item   = tmp;
+				return;
 		}
 	}
 
+	swapItems(selected->item, inHand->item);
 	owner->updateEquip();
 }
 

@@ -3,6 +3,17 @@
 //======================================================================
 
 
+void swapItems(fired::InventoryItem **item1, fired::InventoryItem **item2) {
+	fired::InventoryItem *tmp;
+
+	tmp = *item1;
+	*item1 = *item2;
+	*item2 = tmp;
+}
+
+//======================================================================
+
+
 float lessOrZero(float x) {
 	if (x > 0) return 0;
 	else return x;

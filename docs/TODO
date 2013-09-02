@@ -272,14 +272,15 @@
 		<todo done="yes" collapse="no"><title>Hints when hovering item</title></todo>
 		<todo done="yes" collapse="no"><title>Hint text</title></todo>
 		<todo done="yes" collapse="no"><title>MaxStack checking</title></todo>
+		<todo done="yes" collapse="no"><title>Check hints out of screen</title></todo>
 	</todo>
 	<todo done="no" collapse="no"><title>Advanced</title>
 		<todo done="yes" collapse="no"><title>Move name and caption to char[64]</title></todo>
-		<todo done="no" collapse="no"><title>Weapon caption</title></todo>
-		<todo done="no" collapse="no"><title>Reading captions with spaces</title></todo>
+		<todo done="yes" collapse="no"><title>Weapon caption</title></todo>
+		<todo done="yes" collapse="no"><title>Reading captions with spaces</title></todo>
 		<todo done="yes" collapse="no"><title>Move map save &amp; load to another file</title></todo>
 		<todo done="yes" collapse="no"><title>Move saving map objects to new methods</title></todo>
-		<todo done="no" collapse="no"><title>Move inventory &amp; item to new folder "inventory"</title></todo>
+		<todo done="no" collapse="no"><title>Move inventory &amp; item to new folder "items"</title></todo>
 		<todo done="no" collapse="no"><title>Move map objects to new folder "objects"</title></todo>
 		<todo done="no" collapse="no"><title>Move classes to structs</title></todo>
 		<todo done="no" collapse="no"><title>Remove "get" methods</title></todo>

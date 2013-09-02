@@ -1,4 +1,5 @@
 name=fist
+caption=Fist
 model=null
 damage=10
 range=20.0

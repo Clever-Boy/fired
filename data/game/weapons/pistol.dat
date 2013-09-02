@@ -1,4 +1,5 @@
 name=pistol
+caption=Pistol
 model=pistol
 damage=10
 range=200.0

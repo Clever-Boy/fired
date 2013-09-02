@@ -77,7 +77,7 @@ void fired::HintWindow::render(fired::InventoryItem *item) {
 		else                                  win->setSize(sf::Vector2f(150, 115));
 		win->render();
 
-		renderText(5, 5, base->name, false);
+		renderText(5, 5, base->caption, false);
 		renderText(5, 20, "Weapon class:", false);
 
 		switch (base->type) {

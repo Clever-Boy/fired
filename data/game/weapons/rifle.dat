@@ -1,4 +1,5 @@
 name=rifle
+caption=Rifle
 model=rifle
 damage=10
 range=400.0

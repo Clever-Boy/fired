@@ -52,14 +52,15 @@ void fired::Container::loadWeapon(const char* filename) {
 	weapons.push_back(new fired::BaseWeapon);
 
 	FILE *fp = fopen(filename, "r");
-	fscanf(fp, "name=%s\n"      , weapons.back()->name);
-	fscanf(fp, "model=%s\n"     , weapons.back()->model);
-	fscanf(fp, "damage=%u\n"    , &weapons.back()->damage);
-	fscanf(fp, "range=%f\n"     , &weapons.back()->range);
-	fscanf(fp, "cooldown=%f\n"  , &weapons.back()->cooldown);
-	fscanf(fp, "knockback=%f\n" , &weapons.back()->knockback);
-	fscanf(fp, "auto=%u\n"      , &weapons.back()->automatic);
-	fscanf(fp, "type=%s\n"      , type);
+	fscanf(fp, "name=%s\n"       , weapons.back()->name);
+	fscanf(fp, "caption=%[^\n]\n", weapons.back()->caption);
+	fscanf(fp, "model=%s\n"      , weapons.back()->model);
+	fscanf(fp, "damage=%u\n"     , &weapons.back()->damage);
+	fscanf(fp, "range=%f\n"      , &weapons.back()->range);
+	fscanf(fp, "cooldown=%f\n"   , &weapons.back()->cooldown);
+	fscanf(fp, "knockback=%f\n"  , &weapons.back()->knockback);
+	fscanf(fp, "auto=%u\n"       , &weapons.back()->automatic);
+	fscanf(fp, "type=%s\n"       , type);
 
 	if (!strcmp(type, "melee")) {
 		weapons.back()->type = WEAPON_TYPE_MELEE;
@@ -138,10 +139,10 @@ void fired::Container::loadArmor(const char* filename, fired::ArmorClass type) {
 	armors.back()->type = type;
 
 	FILE *fp = fopen(filename, "r");
-	fscanf(fp, "name=%s\n"   ,  armors.back()->name);
-	fscanf(fp, "caption=%s\n",  armors.back()->caption);
-	fscanf(fp, "armor=%d\n"  , &armors.back()->armor);
-	fscanf(fp, "model=%s\n"  ,  armors.back()->model);
+	fscanf(fp, "name=%s\n"       ,  armors.back()->name);
+	fscanf(fp, "caption=%[^\n]\n",  armors.back()->caption);
+	fscanf(fp, "armor=%d\n"      , &armors.back()->armor);
+	fscanf(fp, "model=%s\n"      ,  armors.back()->model);
 	fscanf(fp, "color=%hhu,%hhu,%hhu,%hhu\n", &armors.back()->color.r, &armors.back()->color.g, &armors.back()->color.b, &armors.back()->color.a);
 	fclose(fp);
 }

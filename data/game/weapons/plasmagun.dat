@@ -1,4 +1,5 @@
 name=plasmagun
+caption=Plasmagun
 model=rifle
 damage=10
 range=400.0

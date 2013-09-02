@@ -1,4 +1,5 @@
 name=bar
+caption=Bar
 model=bar
 damage=15
 range=20.0

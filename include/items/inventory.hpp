@@ -2,7 +2,10 @@
 #define __INVENTORY
 
 
+#include "map_item.hpp"
 #include "item.hpp"
+#include "loot_item.hpp"
+#include "collectable_item.hpp"
 
 
 namespace fired {

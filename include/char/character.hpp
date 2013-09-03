@@ -10,7 +10,7 @@ namespace fired {
 #include "stats.hpp"
 #include "phys.hpp"
 #include "model.hpp"
-#include "inventory.hpp"
+#include "items.hpp"
 #include "wins.hpp"
 
 

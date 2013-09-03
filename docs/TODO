@@ -280,10 +280,9 @@
 		<todo done="yes" collapse="no"><title>Reading captions with spaces</title></todo>
 		<todo done="yes" collapse="no"><title>Move map save &amp; load to another file</title></todo>
 		<todo done="yes" collapse="no"><title>Move saving map objects to new methods</title></todo>
-		<todo done="no" collapse="no"><title>Move inventory &amp; item to new folder "items"</title></todo>
+		<todo done="yes" collapse="no"><title>Move inventory &amp; item to new folder "items"</title></todo>
 		<todo done="no" collapse="no"><title>Move map objects to new folder "objects"</title></todo>
-		<todo done="no" collapse="no"><title>Move classes to structs</title></todo>
-		<todo done="no" collapse="no"><title>Remove "get" methods</title></todo>
+		<todo done="no" collapse="no"><title>Move classes to structs &amp; remove get methods</title></todo>
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible items</title></todo>
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible chunks</title></todo>
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible shots</title></todo>
@@ -291,8 +290,8 @@
 		<todo done="no" collapse="no"><title>Add some weapons</title></todo>
 		<todo done="no" collapse="no"><title>Add some armors</title></todo>
 		<todo done="no" collapse="no"><title>Add some models</title></todo>
-		<todo done="no" collapse="no"><title>Add some creatures</title></todo>
 		<todo done="no" collapse="no"><title>Add some hairs</title></todo>
+		<todo done="no" collapse="no"><title>Add some creatures</title></todo>
 		<todo done="no" collapse="no"><title>Player default colors</title></todo>
 		<todo done="no" collapse="no"><title>Random creatures hair</title></todo>
 		<todo done="no" collapse="no"><title>Primary skills (Strength, Agility, Accuracy etc.)</title></todo>

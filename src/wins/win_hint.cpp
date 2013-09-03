@@ -8,9 +8,9 @@ fired::HintWindow::HintWindow(fired::World *_world) {
 	world = _world;
 
 	text = new sf::Text();
-	text->setFont(*game->getFont());
+	text->setFont(*game->font);
 	text->setCharacterSize(12);
-	text->setPosition(win->getOffset() + sf::Vector2f(30.0f, 360.0f));
+	text->setPosition(win->offset + sf::Vector2f(30.0f, 360.0f));
 	text->setColor(sf::Color::White);
 }
 
@@ -35,11 +35,11 @@ void fired::HintWindow::update(fired::InventoryItem *item) {
 void fired::HintWindow::renderText(float x, float y, const char *caption, bool rightAligned) {
 	if (rightAligned) {
 		text->setString(sf::String(caption));
-		text->setPosition(win->getOffset() + sf::Vector2f(x - text->getGlobalBounds().width, y));
+		text->setPosition(win->offset + sf::Vector2f(x - text->getGlobalBounds().width, y));
 		app->draw(*text);
 	} else {
 		text->setString(sf::String(caption));
-		text->setPosition(win->getOffset() + sf::Vector2f(x, y));
+		text->setPosition(win->offset + sf::Vector2f(x, y));
 		app->draw(*text);
 	}
 }

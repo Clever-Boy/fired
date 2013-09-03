@@ -17,7 +17,7 @@ fired::GUI::GUI(fired::Player *_player) {
 
 	str = new sf::String;
 	txt = new sf::Text;
-	txt->setFont(*game->getFont());
+	txt->setFont(*game->font);
 	txt->setCharacterSize(12);
 
 }
@@ -58,11 +58,11 @@ void fired::GUI::render() {
 	bar->setPosition(sf::Vector2f(23, settings->window.height - barHeight - 17));
 	app->draw(*bar);
 
-	bar->setSize(sf::Vector2f(200 * player->getChar()->getHpPercent(), 12));
+	bar->setSize(sf::Vector2f(200 * player->character->getHpPercent(), 12));
 	bar->setFillColor(sf::Color(150, 0, 0, 255));
 	app->draw(*bar);
 
-	*str = player->getChar()->getHpString();
+	*str = player->character->getHpString();
 	txt->setString(*str);
 	txt->setPosition(sf::Vector2f(23 + (barWidth - txt->getGlobalBounds().width) / 2.0f, settings->window.height - barHeight - 19));
 	app->draw(*txt);
@@ -74,11 +74,11 @@ void fired::GUI::render() {
 	bar->setPosition(sf::Vector2f(23, settings->window.height - barHeight - 2));
 	app->draw(*bar);
 
-	bar->setSize(sf::Vector2f(200 * player->getChar()->getXpPercent(), 12));
+	bar->setSize(sf::Vector2f(200 * player->character->getXpPercent(), 12));
 	bar->setFillColor(sf::Color(150, 150, 0, 255));
 	app->draw(*bar);
 
-	*str = player->getChar()->getXpString();
+	*str = player->character->getXpString();
 	txt->setString(*str);
 	txt->setPosition(sf::Vector2f(23 + (barWidth - txt->getGlobalBounds().width) / 2.0f, settings->window.height - barHeight - 4));
 	app->draw(*txt);
@@ -90,11 +90,11 @@ void fired::GUI::render() {
 	bar->setPosition(sf::Vector2f(settings->window.width - barWidth - 17, settings->window.height - barHeight - 17));
 	app->draw(*bar);
 
-	bar->setSize(sf::Vector2f(200 * player->getChar()->getAmmoPercent(), 12));
+	bar->setSize(sf::Vector2f(200 * player->character->getAmmoPercent(), 12));
 	bar->setFillColor(sf::Color(0, 150, 0, 255));
 	app->draw(*bar);
 
-	*str = player->getChar()->getAmmoString();
+	*str = player->character->getAmmoString();
 	txt->setString(*str);
 	txt->setPosition(sf::Vector2f(settings->window.width - barWidth - 17 + (barWidth - txt->getGlobalBounds().width) / 2.0f, settings->window.height - barHeight - 19));
 	app->draw(*txt);
@@ -106,11 +106,11 @@ void fired::GUI::render() {
 	bar->setPosition(sf::Vector2f(settings->window.width - barWidth - 17, settings->window.height - barHeight - 2));
 	app->draw(*bar);
 
-	bar->setSize(sf::Vector2f(200 * player->getChar()->getCooldownPercent(), 12));
+	bar->setSize(sf::Vector2f(200 * player->character->getCooldownPercent(), 12));
 	bar->setFillColor(sf::Color(150, 60, 0, 255));
 	app->draw(*bar);
 
-	*str = player->getChar()->getCooldownString();
+	*str = player->character->getCooldownString();
 	txt->setString(*str);
 	txt->setPosition(sf::Vector2f(settings->window.width - barWidth - 17 + (barWidth - txt->getGlobalBounds().width) / 2.0f, settings->window.height - barHeight - 4));
 	app->draw(*txt);

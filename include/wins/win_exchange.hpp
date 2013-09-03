@@ -6,8 +6,7 @@
 #include "map.hpp"
 
 namespace fired {
-	class ExchangeWindow {
-	private:
+	struct ExchangeWindow {
 		fired::Window              *win;
 		fired::HintWindow          *hint;
 		fired::Character           *owner;
@@ -28,7 +27,6 @@ namespace fired {
 		sf::Text   *countText;
 
 
-	public:
 		 ExchangeWindow(fired::Character *_owner, fired::World *world);
 		~ExchangeWindow();
 

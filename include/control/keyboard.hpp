@@ -3,8 +3,7 @@
 
 
 namespace fired {
-	class Keyboard {
-	public:
+	struct Keyboard {
 		Keyboard();
 	};
 }

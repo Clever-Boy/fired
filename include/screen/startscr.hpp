@@ -3,8 +3,7 @@
 
 
 namespace fired {
-	class StartScr : public GameScreen {
-	private:
+	struct StartScr : GameScreen {
 		std::vector<sf::Texture*> textures;
 		std::vector<sf::Sprite*> sprites;
 
@@ -12,7 +11,6 @@ namespace fired {
 		unsigned int index;
 
 
-	public:
 		 StartScr();
 		~StartScr();
 

@@ -13,17 +13,17 @@ fired::World::World(fired::Mouse *_mouse) {
 	cam       = new fired::Camera();
 	map       = new fired::Map(cam, this);
 	crosshair = new fired::Crosshair(cam);
-	player    = new fired::Player(cam, map->getStartPos(), crosshair, this);
+	player    = new fired::Player(cam, map->startPos, crosshair, this);
 	gui       = new fired::GUI(player);
 
-	inventoryWin = new fired::InventoryWindow(player->getChar(), this);
-	exchangeWin  = new fired::ExchangeWindow(player->getChar(), this);
-	characterWin = new fired::CharacterWindow(player->getChar());
+	inventoryWin = new fired::InventoryWindow(player->character, this);
+	exchangeWin  = new fired::ExchangeWindow(player->character, this);
+	characterWin = new fired::CharacterWindow(player->character);
 
-	cam->setMapSize(map->getSize());
-	cam->setTrackObj(player->getPhys());
+	cam->mapSize    = map->mapSize;
+	cam->objToTrack = &player->character->phys;
 
-	chars.push_back(player->getChar());
+	chars.push_back(player->character);
 
 	spawn(sf::Vector2f(2288, 560), "soldier");
 	spawn(sf::Vector2f(2388, 560), "soldier");
@@ -129,9 +129,9 @@ void fired::World::checkCreatures() {
 	for (unsigned int i = 0; i < creatures.size();) {
 		creatures[i]->update();
 
-		if (creatures[i]->getChar()->isDead()) {
+		if (creatures[i]->character->dead) {
 			for (unsigned int j = 0; j < chars.size(); j++)
-				if (chars[j] == creatures[i]->getChar()) {
+				if (chars[j] == creatures[i]->character) {
 					chars.erase(chars.begin() + j);
 					break;
 				}
@@ -161,7 +161,7 @@ void fired::World::checkItems() {
 		items[i]->update();
 
 		for (unsigned int j = 0; j < chars.size(); j++) {
-			if ( chars[j]->isDead()) continue;
+			if ( chars[j]->dead) continue;
 			if (!chars[j]->canPickup(items[i]->item)) continue;
 
 			if (chars[j]->phys.rect.intersects(items[i]->phys.rect)) {
@@ -201,8 +201,8 @@ void fired::World::processEvent(sf::Event event) {
 
 
 	if ((event.type == sf::Event::MouseButtonPressed) && (event.mouseButton.button == sf::Mouse::Left)) {
-		if (state == wsInventory) inventoryWin->click(mouse->getPos());
-		if (state == wsExchange)  exchangeWin->click(mouse->getPos());
+		if (state == wsInventory) inventoryWin->click(mouse->pos);
+		if (state == wsExchange)  exchangeWin->click(mouse->pos);
 	}
 }
 
@@ -221,7 +221,7 @@ bool fired::World::isCharExists(fired::Character *character) {
 
 void fired::World::spawn(sf::Vector2f pos, const char *creature) {
 	creatures.push_back(new fired::Creature(cam, pos, this, getCreature(creature)));
-	chars.push_back(creatures.back()->getChar());
+	chars.push_back(creatures.back()->character);
 }
 
 //======================================================================
@@ -262,7 +262,7 @@ void fired::World::preUpdateState() {
 void fired::World::postUpdateState() {
 	switch (state) {
 		case wsNormal:
-			crosshair->update(player->getChar()->getStats()->aimrange);
+			crosshair->update(player->character->getRange());
 			cam->reset();
 			gui->update();
 			break;
@@ -270,14 +270,14 @@ void fired::World::postUpdateState() {
 		case wsInventory:
 			cam->reset();
 			gui->update();
-			inventoryWin->update(mouse->getPos());
+			inventoryWin->update(mouse->pos);
 			mouse->update();
 			break;
 
 		case wsExchange:
 			cam->reset();
 			gui->update();
-			exchangeWin->update(mouse->getPos());
+			exchangeWin->update(mouse->pos);
 			mouse->update();
 			break;
 

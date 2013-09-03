@@ -6,8 +6,7 @@
 
 
 namespace fired {
-	class Player {
-	private:
+	struct Player {
 		sf::Vector2f      startPos;
 		float             deadTime;
 
@@ -15,15 +14,11 @@ namespace fired {
 		fired::Crosshair *crosshair;
 
 
-	public:
 		 Player(fired::Camera *_cam, sf::Vector2f _startpos, fired::Crosshair *_crosshair, fired::World *world);
 		~Player();
 
 		void update();
-
 		void checkControls();
-		fired::Phys *getPhys() { return &character->phys; };
-		fired::Character *getChar() { return character; };
 	};
 }
 

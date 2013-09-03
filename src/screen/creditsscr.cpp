@@ -15,7 +15,7 @@ fired::CreditsScr::CreditsScr() {
 	game->setMusic("data/snd/themes/creditsscr.ogg");
 
 	credits.push_back(new sf::Text);
-	credits.back()->setFont(*game->getFont());
+	credits.back()->setFont(*game->font);
 	credits.back()->setString(sf::String(PROJECT_CAPTION " v" PROJECT_VER " credits"));
 	credits.back()->setCharacterSize(48);
 	credits.back()->setStyle(sf::Text::Bold);
@@ -31,7 +31,7 @@ fired::CreditsScr::CreditsScr() {
 
 
 		credits.push_back(new sf::Text);
-		credits.back()->setFont(*game->getFont());
+		credits.back()->setFont(*game->font);
 		credits.back()->setString(sf::String(line));
 
 		if (isCaption) {

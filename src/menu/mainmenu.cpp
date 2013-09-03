@@ -41,7 +41,7 @@ fired::MainMenu::MainMenu(fired::Mouse *_mouse) {
 	else
 		logoSprite->setPosition((settings->window.width - logoTexture->getSize().x) / 2, 0);
 
-	menuCaption->setFont(*game->getFont());
+	menuCaption->setFont(*game->font);
 	menuCaption->setCharacterSize(32);
 
 	fillMenu();
@@ -96,17 +96,17 @@ void fired::MainMenu::render() {
 
 
 void fired::MainMenu::processEvent(sf::Event event) {
-	if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) click(sf::Mouse::getPosition(*app));
+	if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) click(mouse->pos);
 }
 
 //======================================================================
 
 
-void fired::MainMenu::click(sf::Vector2i pos) {
+void fired::MainMenu::click(sf::Vector2f pos) {
 	if (animation != atNone) return;
 
 	for (unsigned int i = 0; i < currentMenu->subMenu.size(); i++) 
-		if (currentMenu->subMenu[i]->sprite->getLocalBounds().contains(sf::Vector2f(pos) - currentMenu->subMenu[i]->pos)) {
+		if (currentMenu->subMenu[i]->sprite->getLocalBounds().contains(pos - currentMenu->subMenu[i]->pos)) {
 			clickSound->play();
 			currentMenu->subMenu[i]->click();
 		}

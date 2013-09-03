@@ -8,8 +8,7 @@
 
 
 namespace fired {
-	class Container {
-	private:
+	struct Container {
 		fired::World     *world;
 
 		std::vector<fired::BaseWeapon*>   weapons;
@@ -21,7 +20,6 @@ namespace fired {
 		std::vector<fired::GameSprite*>   sprites;
 
 
-	public:
 		 Container(fired::World *_world);
 		~Container();
 

@@ -13,11 +13,7 @@ namespace fired {
 	};
 
 
-	class MenuItem {
-		friend class fired::MainMenu;
-
-
-	private:
+	struct MenuItem {
 		fired::MainMenu *mainMenu;
 		sf::Sprite      *sprite;
 		sf::String      *caption;
@@ -36,7 +32,6 @@ namespace fired {
 		std::vector<fired::MenuItem*> subMenu;
 
 
-	public:
 		 MenuItem(fired::MainMenu *_mainMenu, sf::Sprite *_sprite, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc);
 		~MenuItem();
 

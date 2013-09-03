@@ -28,7 +28,7 @@ fired::Crosshair::~Crosshair() {
 
 void fired::Crosshair::update(float distance) {
 	sf::Vector2f center(settings->window.width / 2, settings->window.height / 2);
-	center -= (cam->getOffset() + center - owner->center);
+	center -= (cam->offset + center - owner->center);
 	pos = sf::Vector2f(sf::Mouse::getPosition(*app));
 
 	float dist = vLen(center - pos);
@@ -37,7 +37,7 @@ void fired::Crosshair::update(float distance) {
 		sf::Mouse::setPosition(sf::Vector2i(pos), *app);
 	}
 
-	angle = atan2(pos.y + cam->getOffset().y - owner->center.y, pos.x + cam->getOffset().x - owner->center.x);
+	angle = atan2(pos.y + cam->offset.y - owner->center.y, pos.x + cam->offset.x - owner->center.x);
 	render();
 }
 
@@ -45,6 +45,6 @@ void fired::Crosshair::update(float distance) {
 
 
 void fired::Crosshair::render() {
-	crosshairCur->setPosition(pos + cam->getOffset());
+	crosshairCur->setPosition(pos + cam->offset);
 	app->draw(*crosshairCur);
 }

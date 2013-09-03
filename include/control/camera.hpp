@@ -6,8 +6,7 @@
 
 
 namespace fired {
-	class Camera {
-	private:
+	struct Camera {
 		sf::Vector2f  offset;
 		sf::Vector2i  mapSize;
 		sf::FloatRect viewport;
@@ -16,18 +15,12 @@ namespace fired {
 		fired::Phys  *objToTrack;
 
 
-	public:
 		Camera();
 
 		void update();
 		void reset();
 		bool isRectVisible(sf::FloatRect rect);
 		bool isPixelVisible(sf::Vector2f pixel);
-
-		void          setTrackObj(fired::Phys *phys)    { objToTrack = phys;  };
-		void          setMapSize(sf::Vector2i _mapSize) { mapSize = _mapSize; };
-		sf::Vector2f  getOffset()                       { return offset;      };
-		sf::FloatRect getViewport()                     { return viewport;    };
 	};
 }
 

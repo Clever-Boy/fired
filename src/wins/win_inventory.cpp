@@ -52,6 +52,8 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner, fired::World *
 	inHand = new fired::InventoryWindowItem(sf::Vector2f(0.0f, 0.0f), new fired::InventoryItem*, itAny);
 	*(inHand->item) = NULL;
 
+	sf::Vector2f winOffset = win->offset;
+
 	emptyTex = new sf::Texture();
 	hoverTex = new sf::Texture();
 	normalTex = new sf::Texture();
@@ -73,30 +75,30 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner, fired::World *
 	normalSpr->setOrigin(sf::Vector2f(normalTex->getSize()) / 2.0f);
 
 	moneyText = new sf::Text();
-	moneyText->setFont(*game->getFont());
+	moneyText->setFont(*game->font);
 	moneyText->setCharacterSize(16);
-	moneyText->setPosition(win->getOffset() + sf::Vector2f(30.0f, 360.0f));
+	moneyText->setPosition(winOffset + sf::Vector2f(30.0f, 360.0f));
 	moneyText->setColor(sf::Color::White);
 
 	countText = new sf::Text();
-	countText->setFont(*game->getFont());
+	countText->setFont(*game->font);
 	countText->setCharacterSize(12);
 	countText->setColor(sf::Color::White);
 
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(175.0f,  10.0f), &owner->inventory->helm, itArmorHelm));
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(175.0f,  65.0f), &owner->inventory->body, itArmorBody));
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(130.0f,  22.0f), &owner->inventory->arms, itArmorArms));
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(130.0f,  85.0f), &owner->inventory->fist, itArmorFist));
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(220.0f,  25.0f), &owner->inventory->legs, itArmorLegs));
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(220.0f,  85.0f), &owner->inventory->shoe, itArmorShoe));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(175.0f,  10.0f), &owner->inventory->helm, itArmorHelm));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(175.0f,  65.0f), &owner->inventory->body, itArmorBody));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(130.0f,  22.0f), &owner->inventory->arms, itArmorArms));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(130.0f,  85.0f), &owner->inventory->fist, itArmorFist));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(220.0f,  25.0f), &owner->inventory->legs, itArmorLegs));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(220.0f,  85.0f), &owner->inventory->shoe, itArmorShoe));
 
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(155.0f, 130.0f), &owner->inventory->primaryWeapon, itWeapon));
-	items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(195.0f, 130.0f), &owner->inventory->secondaryWeapon, itWeapon));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(155.0f, 130.0f), &owner->inventory->primaryWeapon, itWeapon));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(195.0f, 130.0f), &owner->inventory->secondaryWeapon, itWeapon));
 
 
 	for (int i = 0; i < 10; i++)
 		for (int j = 0; j < 5; j++)
-			items.push_back(new fired::InventoryWindowItem(win->getOffset() + sf::Vector2f(10.0f + 35.0f * i, 185.0f + 35.0f * j), &owner->inventory->items[i][j], itAny));
+			items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(10.0f + 35.0f * i, 185.0f + 35.0f * j), &owner->inventory->items[i][j], itAny));
 }
 
 //======================================================================
@@ -146,7 +148,7 @@ void fired::InventoryWindow::render() {
 		else                              items[i]->render(normalSpr, countText);
 
 
-	owner->inventory->credits->sprite->setPosition(win->getOffset() + sf::Vector2f(20.0f, 370.0f));
+	owner->inventory->credits->sprite->setPosition(win->offset + sf::Vector2f(20.0f, 370.0f));
 	app->draw(*owner->inventory->credits->sprite);
 
 	char credits[16];

@@ -205,7 +205,7 @@ bool fired::Character::checkShot(fired::Shot *shot) {
 	float dist;
 
 	if (lineBoxCollision(phys.rect, ray, &c, &n, &dist)) {
-		if (world->isCharExists(shot->owner)) if (!isEnemy(shot->owner->getFraction())) return false;
+		if (world->isCharExists(shot->owner)) if (!isEnemy(shot->owner->fraction)) return false;
 
 		if (lineBoxCollision(phys.head, ray, &c2, &n2, &dist)) {
 			phys.velocity.x -= n.x * shot->knockback * 1.5;
@@ -233,7 +233,7 @@ void fired::Character::checkBroadShot(fired::BroadShot *shot) {
 	sf::Vector2f c;
 
 	if (phys.rect.intersects(shot->shot)) {
-		if (world->isCharExists(shot->owner)) if (!isEnemy(shot->owner->getFraction())) return;
+		if (world->isCharExists(shot->owner)) if (!isEnemy(shot->owner->fraction)) return;
 
 		if (phys.head.intersects(shot->shot)) {
 			c = rectCenter(phys.head);
@@ -262,7 +262,7 @@ void fired::Character::checkMeleeShot(fired::MeleeShot *shot) {
 	float dist;
 
 	if (lineBoxCollision(phys.rect, ray, &c, &n, &dist)) {
-		if (world->isCharExists(shot->owner)) if (!isEnemy(shot->owner->getFraction())) return;
+		if (world->isCharExists(shot->owner)) if (!isEnemy(shot->owner->fraction)) return;
 
 		if (lineBoxCollision(phys.head, ray, &c2, &n2, &dist)) {
 			phys.velocity += vNorm(shot->direction) * shot->knockback * 1.5f;
@@ -517,4 +517,11 @@ void fired::Character::shot() {
 	}
 
 	if (weapon->ammo == 0) reload();
+}
+
+//======================================================================
+
+
+void fired::Character::unshot() {
+	weapon->wasShot = false;
 }

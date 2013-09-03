@@ -6,15 +6,13 @@
 
 
 namespace fired {
-	class CharacterWindow {
-	private:
+	struct CharacterWindow {
 		fired::Window              *win;
 		fired::Character           *owner;
 
 		sf::Text *text;
 
 
-	public:
 		 CharacterWindow(fired::Character *_owner);
 		~CharacterWindow();
 

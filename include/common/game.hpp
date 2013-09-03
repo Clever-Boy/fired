@@ -37,8 +37,7 @@ namespace fired {
 	};
 
 
-	class Game {
-	private:
+	struct Game {
 		sf::Clock        *clock;
 		sf::Font         *font;
 		sf::Image        *icon;
@@ -58,15 +57,11 @@ namespace fired {
 		fired::Mouse    *mouse;
 
 
-	public:
 		 Game();
 		~Game();
 
 		void update();
-
-		sf::Font         *getFont()     { return font; };
-		bool              isRunning()   { return running; };
-		void              stop()        { running = false; };
+		void stop() { running = false; };
 
 		void generateWorld();
 		void setGameState(fired::GameState state);

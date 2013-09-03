@@ -6,8 +6,7 @@
 
 
 namespace fired {
-	class ModelHumanoid : public Model {
-	private:
+	struct ModelHumanoid : Model {
 		fired::BaseModelHumanoid *base;
 
 		fired::Bodypart partLegsF;
@@ -33,7 +32,6 @@ namespace fired {
 		int armsFrame;
 
 
-	public:
 		 ModelHumanoid(fired::Character *_owner, fired::BaseModelHumanoid *_base, float scale, fired::World *_world);
 		~ModelHumanoid() {};
 

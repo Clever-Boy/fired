@@ -3,8 +3,7 @@
 
 
 namespace fired {
-	class FlyText {
-	private:
+	struct FlyText {
 		sf::Vector2f pos;
 		sf::Color    color;
 		float        life;
@@ -12,7 +11,7 @@ namespace fired {
 		sf::String  *flyStr;
 		sf::Text    *flyTxt;
 
-	public:
+
 		 FlyText(sf::Vector2f _pos, sf::Color _color, int size, const char *text);
 		~FlyText();
 

@@ -3,13 +3,11 @@
 
 
 namespace fired {
-	class CreditsScr : public GameScreen {
-	private:
+	struct CreditsScr : GameScreen {
 		std::vector<sf::Text*> credits;
 		float yOffset;
 
 
-	public:
 		 CreditsScr();
 		~CreditsScr();
 

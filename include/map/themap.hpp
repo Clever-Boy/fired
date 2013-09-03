@@ -46,9 +46,6 @@ namespace fired {
 		bool checkShot(fired::Shot *shot);
 
 		fired::MapObject *checkInteraction(fired::Character *owner);
-
-		sf::Vector2i getSize()     { return mapSize; };
-		sf::Vector2f getStartPos() { return startPos; };
 	};
 }
 

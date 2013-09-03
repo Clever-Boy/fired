@@ -6,7 +6,7 @@
 fired::MenuItem::MenuItem(fired::MainMenu *_mainMenu, sf::Sprite *_sprite, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc) {
 	sf::FloatRect textRect;
 
-	font        = game->getFont();
+	font        = game->font;
 	mainMenu    = _mainMenu;
 	sprite      = _sprite;
 	parent      = _parent;

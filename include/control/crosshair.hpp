@@ -6,8 +6,7 @@
 
 
 namespace fired {
-	class Crosshair {
-	private:
+	struct Crosshair {
 		fired::Camera    *cam;
 		fired::Phys      *owner;
 
@@ -17,15 +16,11 @@ namespace fired {
 		sf::Sprite  *crosshairCur;
 
 
-	public:
 		 Crosshair(fired::Camera *_cam);
 		~Crosshair();
 
 		void update(float distance);
 		void render();
-
-		float getAngle()                    { return angle; };
-		void  setOwner(fired::Phys *_owner) {owner = _owner; };
 	};
 }
 

@@ -3,13 +3,11 @@
 
 
 namespace fired {
-	class ParticleSystemSplash: public ParticleSystem {
-	private:
+	struct ParticleSystemSplash: ParticleSystem {
 		sf::RectangleShape *sprite;
 		float endScale;
 
 
-	public:
 		 ParticleSystemSplash(sf::Vector2f pos, sf::Vector2f direction, fired::World *_world, sf::Color color, float size, int count, float lifetime, float _endScale, bool _physical);
 		~ParticleSystemSplash();
 

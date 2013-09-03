@@ -2,8 +2,7 @@
 #define __GAMESCREEN
 
 namespace fired {
-	class GameScreen {
-	public:
+	struct GameScreen {
 		virtual ~GameScreen()                {};
 		virtual void update()                {};
 		virtual void processEvent(sf::Event) {};

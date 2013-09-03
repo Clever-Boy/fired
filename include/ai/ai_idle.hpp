@@ -6,8 +6,7 @@
 
 
 namespace fired {
-	class IdleAI : public BaseAI {
-	public:
+	struct IdleAI : BaseAI {
 		 IdleAI(fired::Creature *_owner, fired::World *_world);
 		~IdleAI() {};
 

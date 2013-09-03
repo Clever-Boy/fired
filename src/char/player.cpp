@@ -9,8 +9,7 @@ fired::Player::Player(fired::Camera *_cam, sf::Vector2f _startpos, fired::Crossh
 
 	character = new fired::Character(_cam, _startpos, world, world->getCreature("player"));
 	crosshair = _crosshair;
-
-	crosshair->setOwner(&character->phys);
+	crosshair->owner = &character->phys;
 }
 
 //======================================================================
@@ -24,7 +23,7 @@ fired::Player::~Player() {
 
 
 void fired::Player::update() {
-	if (character->isDead()) {
+	if (character->dead) {
 		if (deadTime < PLAYER_RESPAWN_TIME) {
 			deadTime += frameClock;
 			return;
@@ -34,7 +33,7 @@ void fired::Player::update() {
 		}
 	}
 
-	character->setAiming(crosshair->getAngle());
+	character->setAiming(crosshair->angle);
 
 	character->update();
 }
@@ -43,7 +42,7 @@ void fired::Player::update() {
 
 
 void fired::Player::checkControls() {
-	if (character->isDead()) return;
+	if (character->dead) return;
 	character->phys.jumpdown = false;
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))     character->moveLeft();

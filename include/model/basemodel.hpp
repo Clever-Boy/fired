@@ -57,8 +57,7 @@ namespace fired {
 
 
 
-	class Model {
-	protected:
+	struct Model {
 		fired::Character *owner;
 		fired::World     *world;
 
@@ -66,7 +65,6 @@ namespace fired {
 		std::vector<fired::Bodypart*> bodyParts;
 
 
-	public:
 		virtual ~Model();
 
 		virtual void headshot()    {};

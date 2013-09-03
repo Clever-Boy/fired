@@ -3,7 +3,7 @@
 
 
 namespace fired {
-	class MainMenu;
+	struct MainMenu;
 }
 
 
@@ -18,8 +18,7 @@ namespace fired {
 	};
 
 
-	class MainMenu : public GameScreen {
-	private:
+	struct MainMenu : GameScreen {
 		std::vector<fired::MenuItem *> menuItems;
 		fired::Mouse     *mouse;
 
@@ -42,13 +41,12 @@ namespace fired {
 		float xOffset;
 
 
-	public:
 		 MainMenu(fired::Mouse *_mouse);
 		~MainMenu();
 
 		void update();
 		void render();
-		void click(sf::Vector2i pos);
+		void click(sf::Vector2f pos);
 		void processEvent(sf::Event event);
 
 		void fillMenu();

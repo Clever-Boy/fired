@@ -39,7 +39,7 @@ fired::Map::~Map() {
 
 
 void fired::Map::update() {
-	sf::Vector2f offset = cam->getOffset();
+	sf::Vector2f offset = cam->offset;
 
 	bgSprite->setPosition(offset);
 	bgSprite->setTextureRect(sf::IntRect(offset.x / 2, offset.y / 2, settings->window.width, settings->window.height));
@@ -53,7 +53,7 @@ void fired::Map::update() {
 void fired::Map::render() {
 	app->draw(*bgSprite);
 
-	sf::Vector2i from((int)(cam->getOffset().x / TILE_SIZE), (int)(cam->getOffset().y / TILE_SIZE));
+	sf::Vector2i from((int)(cam->offset.x / TILE_SIZE), (int)(cam->offset.y / TILE_SIZE));
 	sf::Vector2i to(from + visibleTiles);
 
 	if (from.x < 0  ) from.x = 0;
@@ -81,7 +81,7 @@ bool inline fired::Map::isSolid(int i, int j) {
 	if (j < 0)      return true;
 	if (j >= sizeY) return true;
 
-	return tiles[i][j].isSolid();
+	return tiles[i][j].isWall;
 }
 
 //======================================================================
@@ -93,7 +93,7 @@ bool inline fired::Map::isPlatform(int i, int j, fired::Phys *phys) {
 	if (j < 0)      return true;
 	if (j >= sizeY) return true;
 
-	if (!tiles[i][j].platform()) return false;
+	if (!tiles[i][j].isPlatform) return false;
 	if (phys->velocity.y < 0)    return false;
 
 	if (phys->jumpdown) {
@@ -116,16 +116,16 @@ void fired::Map::findTile(int i, int j) {
 	int bottom = 0;
 
 	if (i == 0) left = 1;
-	else if (tiles[i-1][j].getIndex() == tiles[i][j].getIndex() && tiles[i-1][j].isSolid() >= tiles[i][j].isSolid()) left = 1;
+	else if (tiles[i-1][j].tileset == tiles[i][j].tileset && tiles[i-1][j].isWall >= tiles[i][j].isWall) left = 1;
 
 	if (i == sizeX - 1) right = 1;
-	else if (tiles[i+1][j].getIndex() == tiles[i][j].getIndex() && tiles[i+1][j].isSolid() >= tiles[i][j].isSolid()) right = 1;
+	else if (tiles[i+1][j].tileset == tiles[i][j].tileset && tiles[i+1][j].isWall >= tiles[i][j].isWall) right = 1;
 
 	if (j == 0) top = 1;
-	else if (tiles[i][j-1].getIndex() == tiles[i][j].getIndex() && tiles[i][j-1].isSolid() >= tiles[i][j].isSolid()) top = 1;
+	else if (tiles[i][j-1].tileset == tiles[i][j].tileset && tiles[i][j-1].isWall >= tiles[i][j].isWall) top = 1;
 
 	if (j == sizeY - 1) bottom = 1;
-	else if (tiles[i][j+1].getIndex() == tiles[i][j].getIndex() && tiles[i][j+1].isSolid() >= tiles[i][j].isSolid()) bottom = 1;
+	else if (tiles[i][j+1].tileset == tiles[i][j].tileset && tiles[i][j+1].isWall >= tiles[i][j].isWall) bottom = 1;
 
 	resultTile = left   * 1 +
 	             right  * 2 +
@@ -173,7 +173,7 @@ void inline fired::Map::checkCollision(fired::Phys *phys, fired::Character *char
 
 
 void fired::Map::checkPhys(fired::Phys *phys, fired::Character *character) {
-	if (character) if (character->isDead()) return;
+	if (character) if (character->dead) return;
 	int i, j;
 
 	phys->onGround = false;

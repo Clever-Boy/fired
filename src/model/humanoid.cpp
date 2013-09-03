@@ -22,7 +22,7 @@ fired::ModelHumanoid::ModelHumanoid(fired::Character *_owner, fired::BaseModelHu
 
 
 void fired::ModelHumanoid::update() {
-	if (owner->isDead()) {
+	if (owner->dead) {
 		if (bodyAnimation != caNone) {
 			bodyAnimation = caNone;
 			armsAnimation = caNone;

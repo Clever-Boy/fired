@@ -3,7 +3,7 @@
 
 
 namespace fired {
-	class Character;
+	struct Character;
 }
 
 
@@ -15,16 +15,7 @@ namespace fired {
 
 
 namespace fired {
-	class Character {
-		friend class Model;
-		friend class ModelHumanoid;
-
-		friend class InventoryWindow;
-		friend class ExchangeWindow;
-		friend class CharacterWindow;
-
-
-	private:
+	struct Character {
 		fired::World     *world;
 		fired::Camera    *cam;
 
@@ -34,14 +25,12 @@ namespace fired {
 		fired::Inventory      *inventory;
 		fired::BaseCreature   *base;
 
-
 		fired::Armor *helm;
 		fired::Armor *legs;
 		fired::Armor *arms;
 		fired::Armor *body;
 		fired::Armor *shoe;
 		fired::Armor *fist;
-
 
 		bool  dead;
 		bool  isShooting;
@@ -57,7 +46,6 @@ namespace fired {
 		long needXP;
 		long lastXP;
 
-	public:
 		fired::Phys phys;
 		fired::CharacterStats *getStats() { return &baseStats; };
 
@@ -69,7 +57,6 @@ namespace fired {
 		void render();
 		void respawn(sf::Vector2f pos);
 
-
 		void move();
 		void moveLeft();
 		void moveRight();
@@ -79,7 +66,7 @@ namespace fired {
 		void shot();
 		void interact();
 		void swapWeapons();
-		void unshot() {weapon->wasShot = false; };
+		void unshot();
 
 		bool  checkShot(fired::Shot *shot);
 		void  checkMeleeShot(fired::MeleeShot *shot);
@@ -104,10 +91,8 @@ namespace fired {
 		int   getArmor();
 		int   getDamage();
 		float getRange();
-		int   getFraction() {return fraction; };
 		bool  isEnemy(int _fraction);
 		float getKnockback();
-		bool  isDead()   {return dead; };
 		void  updateEquip();
 
 		void pickup(fired::InventoryItem *item)                  {inventory->pickup(item); };

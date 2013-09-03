@@ -19,8 +19,7 @@ namespace fired {
 	};
 
 
-	class ParticleSystem {
-	protected:
+	struct ParticleSystem {
 		fired::World *world;
 		float         life;
 		bool          physical;
@@ -29,7 +28,6 @@ namespace fired {
 		std::vector<fired::Particle*> particles;
 
 
-	public:
 		virtual ~ParticleSystem();
 
 		virtual bool update();

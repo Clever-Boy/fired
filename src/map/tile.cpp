@@ -28,7 +28,7 @@ void fired::Tile::render() {
 
 void fired::Tile::setTileset(fired::Tileset *_tileset) {
 	if (tileset == 0) sprite = NULL;
-	else sprite = _tileset->getTile((tileset - 1) * 16 + tile);
+	else sprite = _tileset->sprites[(tileset - 1) * 16 + tile];
 }
 
 //======================================================================

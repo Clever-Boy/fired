@@ -3,8 +3,7 @@
 
 
 namespace fired {
-	class Handlers {
-	public:
+	struct Handlers {
 		void buttonStart();
 		void buttonCredits();
 		void buttonExit();

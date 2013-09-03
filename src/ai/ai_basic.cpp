@@ -14,27 +14,27 @@ fired::BasicAI::BasicAI(fired::Creature *_owner, fired::World *_world) {
 
 
 void fired::BasicAI::update() {
-	if (target) if (target->isDead()) target = NULL;
+	if (target) if (target->dead) target = NULL;
 	if (!target) selectTarget();
 
-	owner->getChar()->setAiming(atan2(target->phys.center.y - owner->getChar()->phys.center.y, 
-	                                  target->phys.center.x - owner->getChar()->phys.center.x));
+	owner->character->setAiming(atan2(target->phys.center.y - owner->character->phys.center.y, 
+	                                  target->phys.center.x - owner->character->phys.center.x));
 
-	if (target->phys.center.x < owner->getChar()->phys.center.x)
-		owner->getChar()->moveLeft();
+	if (target->phys.center.x < owner->character->phys.center.x)
+		owner->character->moveLeft();
 	else
-		owner->getChar()->moveRight();
+		owner->character->moveRight();
 
 
-	if (target->phys.center.y < owner->getChar()->phys.center.y - 32)
-		owner->getChar()->jump();
-	else if (target->phys.center.y > owner->getChar()->phys.center.y + 32)
-		owner->getChar()->jumpdown();
+	if (target->phys.center.y < owner->character->phys.center.y - 32)
+		owner->character->jump();
+	else if (target->phys.center.y > owner->character->phys.center.y + 32)
+		owner->character->jumpdown();
 
 
-	if (vLen(owner->getChar()->phys.center - target->phys.center) < owner->getChar()->phys.size.x / 2 + owner->getChar()->getRange()) {
-		owner->getChar()->shot();
-		owner->getChar()->unshot();
+	if (vLen(owner->character->phys.center - target->phys.center) < owner->character->phys.size.x / 2 + owner->character->getRange()) {
+		owner->character->shot();
+		owner->character->unshot();
 	}
 }
 
@@ -46,8 +46,8 @@ void fired::BasicAI::selectTarget() {
 	minDist = -1;
 
 	for (unsigned int i = 0; i < world->chars.size(); i++)
-		if (owner->getChar()->isEnemy(world->chars[i]->getFraction())) {
-			dist = vLen(owner->getChar()->phys.center - world->chars[i]->phys.center);
+		if (owner->character->isEnemy(world->chars[i]->fraction)) {
+			dist = vLen(owner->character->phys.center - world->chars[i]->phys.center);
 
 			if (minDist == -1) {
 				minDist = dist;

@@ -17,9 +17,9 @@ void mapSaveTiles(fired::Map *map, FILE *fp) {
 
 	for (int i = 0; i < map->sizeX; i++)
 		for (int j = 0; j < map->sizeY; j++) {
-			tile.tileset    = map->tiles[i][j].getIndex();
-			tile.isWall     = map->tiles[i][j].isSolid();
-			tile.isPlatform = map->tiles[i][j].platform();
+			tile.tileset    = map->tiles[i][j].tileset;
+			tile.isWall     = map->tiles[i][j].isWall;
+			tile.isPlatform = map->tiles[i][j].isPlatform;
 			fwrite(&tile, sizeof(tile), 1, fp);
 		}
 }

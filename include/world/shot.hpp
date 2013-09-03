@@ -3,9 +3,9 @@
 
 
 namespace fired {
-	class Shot;
-	class BroadShot;
-	class MeleeShot;
+	struct Shot;
+	struct BroadShot;
+	struct MeleeShot;
 }
 
 

@@ -282,7 +282,7 @@
 		<todo done="yes" collapse="no"><title>Move saving map objects to new methods</title></todo>
 		<todo done="yes" collapse="no"><title>Move inventory &amp; item to new folder "items"</title></todo>
 		<todo done="yes" collapse="no"><title>Move map objects to new folder "objects"</title></todo>
-		<todo done="no" collapse="no"><title>Move classes to structs &amp; remove get methods</title></todo>
+		<todo done="yes" collapse="no"><title>Move classes to structs &amp; remove get methods</title></todo>
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible items</title></todo>
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible chunks</title></todo>
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible shots</title></todo>

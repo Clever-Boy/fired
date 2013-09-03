@@ -21,8 +21,7 @@ namespace fired {
 	};
 
 
-	class InventoryWindow {
-	private:
+	struct InventoryWindow {
 		fired::Window              *win;
 		fired::HintWindow          *hint;
 		fired::Character           *owner;
@@ -42,7 +41,6 @@ namespace fired {
 		sf::Text   *countText;
 
 
-	public:
 		 InventoryWindow(fired::Character *_owner, fired::World *world);
 		~InventoryWindow();
 

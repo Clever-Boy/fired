@@ -3,8 +3,8 @@
 
 
 namespace fired {
-	class BaseCreature;
-	class Creature;
+	struct BaseCreature;
+	struct Creature;
 }
 
 
@@ -30,19 +30,15 @@ namespace fired {
 	};
 
 
-	class Creature {
-	private:
+	struct Creature {
 		fired::Character *character;
 		fired::BaseAI    *ai;
 
 
-	public:
 		 Creature(fired::Camera *_cam, sf::Vector2f _startpos, fired::World *world, fired::BaseCreature *base);
 		~Creature();
-		void update();
 
-		fired::Phys *getPhys() { return &character->phys; };
-		fired::Character *getChar() { return character; };
+		void update();
 	};
 }
 

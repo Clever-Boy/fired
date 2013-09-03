@@ -11,7 +11,7 @@ int main() {
 	game = new fired::Game;
 	srand(time(NULL));
 
-	while(game->isRunning()) game->update();
+	while(game->running) game->update();
 	delete game;
 
 	return EXIT_SUCCESS;

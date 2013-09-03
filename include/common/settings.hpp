@@ -3,8 +3,7 @@
 
 
 namespace fired {
-	class Settings {
-	public:
+	struct Settings {
 		struct {
 			unsigned int width;
 			unsigned int height;

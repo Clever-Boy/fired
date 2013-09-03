@@ -6,10 +6,8 @@
 
 
 namespace fired {
-	class GUI {
-	private:
+	struct GUI {
 		fired::Player    *player;
-
 
 		int          barHeight;
 		int          barWidth;
@@ -21,7 +19,7 @@ namespace fired {
 		sf::String         *str;
 		sf::Text           *txt;
 
-	public:
+
 		 GUI(fired::Player *_player);
 		~GUI();
 

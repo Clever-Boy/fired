@@ -4,16 +4,6 @@
 //======================================================================
 
 
-fired::BaseMapObject::BaseMapObject(const char *_name, sf::Vector2f _pos, fired::MapObjectType _type) {
-	type = _type;
-	pos  = _pos;
-
-	strncpy(decorName, _name, sizeof(decorName));
-}
-
-//======================================================================
-
-
 fired::BaseMapObjectCollector::BaseMapObjectCollector(const char *_name, sf::Vector2f _pos) {
 	type = moCollector;
 	pos  = _pos;
@@ -44,28 +34,6 @@ void fired::BaseMapObjectCollector::generateLoot() {
 
 void fired::BaseMapObjectCollector::addItem(fired::ItemType _type, unsigned int _count, const char *_name) {
 	items.push_back(new fired::MapItem(_type, _count, _name));
-}
-
-//======================================================================
-
-
-fired::MapObject::MapObject(fired::Decor *_decor) {
-	type = moNone;
-	decor = _decor;
-}
-
-//======================================================================
-
-
-fired::MapObject::~MapObject() {
-	if (decor) delete decor;
-}
-
-//======================================================================
-
-
-void fired::MapObject::render() {
-	if (decor) decor->render();
 }
 
 //======================================================================

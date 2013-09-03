@@ -12,7 +12,7 @@ namespace fired {
 		MapDecor(const char *_name, sf::Vector2f _pos);
 	};
 
-/*--------------------------------------------------------------------*/
+
 
 	struct BaseDecor {
 		char name[64];
@@ -25,7 +25,7 @@ namespace fired {
 		~BaseDecor();
 	};
 
-/*--------------------------------------------------------------------*/
+
 
 	struct Decor {
 		char name[64];

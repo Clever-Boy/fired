@@ -172,7 +172,7 @@ void inline fired::Map::checkCollision(fired::Phys *phys, fired::Character *char
 //======================================================================
 
 
-void fired::Map::checkPhys(fired::Phys *phys, fired::Character *character) {
+void fired::Map::checkPhys(fired::Phys *phys, fired::Character *character, float tunnelTime) {
 	if (character) if (character->dead) return;
 	int i, j;
 
@@ -188,7 +188,7 @@ void fired::Map::checkPhys(fired::Phys *phys, fired::Character *character) {
 	if (velocity == 0.0)
 		frameChunk = frameClock;
 	else
-		frameChunk = PHYS_TUNNEL_TIME / velocity;
+		frameChunk = tunnelTime / velocity;
 
 
 	while (frameLeft > 0.0) {

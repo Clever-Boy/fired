@@ -148,9 +148,9 @@ void fired::World::checkCreatures() {
 
 
 void fired::World::checkPhys() {
-	for (unsigned int i = 0; i < chars.size() ; map->checkPhys(&chars[i]->phys, chars[i]), i++);
-	for (unsigned int i = 0; i < chunks.size(); map->checkPhys(&chunks[i++]->phys, NULL));
-	for (unsigned int i = 0; i < items.size() ; map->checkPhys(&items[i++]->phys, NULL));
+	for (unsigned int i = 0; i < chars.size() ; map->checkPhys(&chars[i]->phys   , chars[i], PHYS_TUNNEL_TIME), i++);
+	for (unsigned int i = 0; i < chunks.size(); map->checkPhys(&chunks[i++]->phys, NULL    , PHYS_TUNNEL_CHUNK));
+	for (unsigned int i = 0; i < items.size() ; map->checkPhys(&items[i++]->phys , NULL    , PHYS_TUNNEL_CHUNK));
 }
 
 //======================================================================
@@ -262,7 +262,7 @@ void fired::World::preUpdateState() {
 void fired::World::postUpdateState() {
 	switch (state) {
 		case wsNormal:
-			crosshair->update(player->character->getRange());
+			crosshair->update(player->character->baseStats.aimrange);
 			cam->reset();
 			gui->update();
 			break;

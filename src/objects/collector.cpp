@@ -20,6 +20,9 @@ void fired::BaseMapObjectCollector::generateLoot() {
 	if (random() % 100 > 50) addItem(itWeapon, 1, "pistol");
 	if (random() % 100 > 30) addItem(itWeapon, 1, "bar");
 	if (random() % 100 > 80) addItem(itWeapon, 1, "rifle");
+	
+	addItem(itWeapon, 1, "uzi");
+	addItem(itWeapon, 1, "bat");
 
 	addItem(itArmorHelm, 1, "leather_helm");
 	addItem(itArmorArms, 1, "leather_arms");

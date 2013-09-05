@@ -1,0 +1,12 @@
+name=bat
+caption=Baseball Bat
+model=bat
+damage=20
+range=25.0
+cooldown=0.25
+knockback=200.0
+auto=0
+type=broad
+fire_snd=rifle_shot.wav
+reload_snd=rifle_reload.wav
+

@@ -287,13 +287,7 @@
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible chunks</title></todo>
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible shots</title></todo>
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible particles</title></todo>
-		<todo done="no" collapse="no"><title>Add some weapons</title></todo>
-		<todo done="no" collapse="no"><title>Add some armors</title></todo>
-		<todo done="no" collapse="no"><title>Add some models</title></todo>
-		<todo done="no" collapse="no"><title>Add some hairs</title></todo>
-		<todo done="no" collapse="no"><title>Add some creatures</title></todo>
-		<todo done="no" collapse="no"><title>Player default colors</title></todo>
-		<todo done="no" collapse="no"><title>Random creatures hair</title></todo>
+		<todo done="no" collapse="no"><title>Optimize code</title></todo>
 		<todo done="no" collapse="no"><title>Primary skills (Strength, Agility, Accuracy etc.)</title></todo>
 		<todo done="no" collapse="no"><title>Secondary skills (Healing, Crafting etc.)</title></todo>
 		<todo done="no" collapse="no"><title>Weapon skills (each weapon has it's own XP value)</title></todo>
@@ -307,14 +301,14 @@
 		<todo done="yes" collapse="no"><title>Crypto API for sqlite</title></todo>
 		<todo done="no" collapse="no"><title>Move data to sqlite db</title></todo>
 	</todo>
-	<todo done="no" collapse="yes"><title>Wiki</title>
-		<todo done="no" collapse="no"><title>Wiki pages generator</title></todo>
-		<todo done="no" collapse="no"><title>Wiki pages header</title></todo>
-		<todo done="no" collapse="no"><title>Wiki pages menu</title></todo>
-		<todo done="no" collapse="no"><title>Wiki pages footer</title></todo>
-		<todo done="no" collapse="no"><title>Combinating page parts with content</title></todo>
-	</todo>
 	<todo done="no" collapse="yes"><title>--- Release Alpha</title>
+		<todo done="no" collapse="no"><title>Add some weapons</title></todo>
+		<todo done="no" collapse="no"><title>Add some armors</title></todo>
+		<todo done="no" collapse="no"><title>Add some models</title></todo>
+		<todo done="no" collapse="no"><title>Add some hairs</title></todo>
+		<todo done="no" collapse="no"><title>Add some creatures</title></todo>
+		<todo done="no" collapse="no"><title>Player default colors</title></todo>
+		<todo done="no" collapse="no"><title>Random creatures hair</title></todo>
 		<todo done="no" collapse="no"><title>Player home</title></todo>
 		<todo done="no" collapse="no"><title>Main quest NPC</title></todo>
 		<todo done="no" collapse="no"><title>Quests</title></todo>

@@ -1,5 +1,3 @@
-<?xml version="1.0"?>
-<!DOCTYPE tudu SYSTEM "/usr/local/share/tudu/tudu.dtd">
 <todo>
 	<todo done="yes" collapse="yes"><title>Menu engine</title>
 		<todo done="yes" collapse="no"><title>Window initialization</title></todo>
@@ -274,7 +272,16 @@
 		<todo done="yes" collapse="no"><title>MaxStack checking</title></todo>
 		<todo done="yes" collapse="no"><title>Check hints out of screen</title></todo>
 	</todo>
-	<todo done="no" collapse="no"><title>Advanced</title>
+	<todo done="no" collapse="no"><title>Global refactoring</title>
+		<todo done="no" collapse="no"><title>Create SQLite database</title></todo>
+		<todo done="no" collapse="no"><title>Create tables</title></todo>
+		<todo done="no" collapse="no"><title>Move data to SQLite</title></todo>
+		<todo done="no" collapse="no"><title>Refactor decor classes</title></todo>
+		<todo done="no" collapse="no"><title>Refactor item classes</title></todo>
+		<todo done="no" collapse="no"><title>Refactor model classes</title></todo>
+		<todo done="no" collapse="no"><title>Refactor character classes</title></todo>
+	</todo>
+	<todo done="no" collapse="yes"><title>Advanced</title>
 		<todo done="yes" collapse="no"><title>Move name and caption to char[64]</title></todo>
 		<todo done="yes" collapse="no"><title>Weapon caption</title></todo>
 		<todo done="yes" collapse="no"><title>Reading captions with spaces</title></todo>

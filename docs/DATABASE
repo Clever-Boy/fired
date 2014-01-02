@@ -1,0 +1,43 @@
+Inventory items:
+	ID    - primary key
+	Name  - name
+	Tip   - little text
+	Icon  - ID of icon
+	Class - armor, weapon, quest etc.
+	UID   - is the unique ID to determine class object (armor 1, weapon 3...)
+
+Icons:
+	ID
+	Name
+	Path
+
+Sprites:
+	ID
+	Name
+	Path
+	Origin
+
+Biomes:
+	ID
+	Name
+
+Tiles:
+	ID
+	Biome
+	Name
+	Path
+	Type
+
+Armor
+	ID
+	Slot
+	Armor
+	Sprite
+
+Weapon
+	ID
+	Type
+	Demage
+	Speed
+	Knockback
+	...

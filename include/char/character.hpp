@@ -72,7 +72,7 @@ namespace fired {
 		void  checkMeleeShot(fired::MeleeShot *shot);
 		void  checkBroadShot(fired::BroadShot *shot);
 
-		void  damage(int damage, bool headshot, sf::Vector2f shot, float knockback);
+		void  damage(int damage, sf::Vector2f shot, float knockback);
 		void  gainXP(long xp);
 		void  levelUp();
 		void  setAiming(float _aiming);

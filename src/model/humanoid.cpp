@@ -10,8 +10,6 @@ fired::ModelHumanoid::ModelHumanoid(fired::Character *_owner, fired::BaseModelHu
 
 	modelScale = scale;
 	owner->phys.size       = base->size * scale;
-	owner->phys.headSize   = sf::Vector2f(owner->phys.size.x, owner->phys.size.y / 3);
-	owner->phys.headOffset = sf::Vector2f(0, 0);
 	owner->phys.calculate();
 
 	updateParts();
@@ -109,15 +107,6 @@ void fired::ModelHumanoid::respawn() {
 
 	bodyAnimationTime = 0;
 	armsAnimationTime = 0;
-}
-
-//======================================================================
-
-
-void fired::ModelHumanoid::headshot() {
-	bodyParts.erase(bodyParts.begin() + 4);
-	bodyParts.erase(bodyParts.begin() + 4);
-	world->addBloodSplash(owner->phys.pos + owner->phys.headOffset + owner->phys.headSize / 2.0f, sf::Vector2f(0.0f, -400.0f), 50);
 }
 
 //======================================================================

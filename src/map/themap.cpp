@@ -145,7 +145,7 @@ void inline fired::Map::checkCollision(fired::Phys *phys, fired::Character *char
 		if (intersection.width > intersection.height) {
 			if (phys->pos.y < tile_y * TILE_SIZE) {
 				phys->pos.y -= intersection.height;
-				if (character) if (phys->velocity.y > PHYS_SAFE_FALL) character->damage((phys->velocity.y - PHYS_SAFE_FALL) / 10.0f, false, sf::Vector2f(phys->size.x / 2, phys->size.y), 100.0);
+				if (character) if (phys->velocity.y > PHYS_SAFE_FALL) character->damage((phys->velocity.y - PHYS_SAFE_FALL) / 10.0f, sf::Vector2f(phys->size.x / 2, phys->size.y), 100.0);
 				if (phys->velocity.y > 0.0) phys->velocity.y = 0.0;
 				phys->onGround      = true;
 				phys->jumpdownLevel = 0;

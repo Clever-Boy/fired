@@ -38,7 +38,6 @@ namespace fired {
 		void update();
 		void updateParts();
 		void respawn();
-		void headshot();
 		void setWeapon(fired::BaseWeapon *weapon);
 
 		void processAnimation();

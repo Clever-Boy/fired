@@ -142,24 +142,19 @@ void fired::Character::setWeapon(fired::BaseWeapon *_weapon) {
 //======================================================================
 
 
-void fired::Character::damage(int damage, bool headshot, sf::Vector2f shot, float knockback) {
+void fired::Character::damage(int damage, sf::Vector2f shot, float knockback) {
 	char dmg[8];
 	int taken = damage * (1.0f - armorReduction(getArmor()));
 
 	baseStats.HP -= taken;
 	if (baseStats.HP <= 0) {
 		dead = true;
-		if (headshot) model->headshot();
 		model->explode(shot - phys.pos, knockback);
 		inventory->dropAll(world);
 	}
 
 	snprintf(dmg, sizeof(dmg), "-%u", taken);
-
-	if (headshot)
-		world->addText(phys.pos, sf::Color(255, 0, 0, 255), 24, dmg);
-	else
-		world->addText(phys.pos, sf::Color(255, 0, 0, 255), 16, dmg);
+	world->addText(phys.pos, sf::Color(255, 0, 0, 255), 16, dmg);
 }
 
 //======================================================================
@@ -207,15 +202,9 @@ bool fired::Character::checkShot(fired::Shot *shot) {
 	if (lineBoxCollision(phys.rect, ray, &c, &n, &dist)) {
 		if (world->isCharExists(shot->owner)) if (!isEnemy(shot->owner->fraction)) return false;
 
-		if (lineBoxCollision(phys.head, ray, &c2, &n2, &dist)) {
-			phys.velocity.x -= n.x * shot->knockback * 1.5;
-			world->addBloodSplash(c, n * 200.0f, 30);
-			damage(shot->damage * 1.5, true, c, shot->knockback * 1.5);
-		} else {
-			phys.velocity.x -= n.x * shot->knockback;
-			world->addBloodSplash(c, n * 200.0f, 20);
-			damage(shot->damage, false, c, shot->knockback);
-		}
+		phys.velocity.x -= n.x * shot->knockback;
+		world->addBloodSplash(c, n * 200.0f, 20);
+		damage(shot->damage, c, shot->knockback);
 
 		if (world->isCharExists(shot->owner)) if (dead) shot->owner->gainXP(baseStats.maxHP);
 		return true;
@@ -235,17 +224,10 @@ void fired::Character::checkBroadShot(fired::BroadShot *shot) {
 	if (phys.rect.intersects(shot->shot)) {
 		if (world->isCharExists(shot->owner)) if (!isEnemy(shot->owner->fraction)) return;
 
-		if (phys.head.intersects(shot->shot)) {
-			c = rectCenter(phys.head);
-			phys.velocity -= shot->normal * shot->knockback * 1.5f;
-			world->addBloodSplash(c, shot->normal * 200.0f, 30);
-			damage(shot->damage * 1.5, true, c, shot->knockback * 1.5f);
-		} else {
-			c = rectCenter(phys.rect);
-			phys.velocity -= shot->normal * shot->knockback;
-			world->addBloodSplash(c, shot->normal * 200.0f, 20);
-			damage(shot->damage, false, c, shot->knockback);
-		}
+		c = rectCenter(phys.rect);
+		phys.velocity -= shot->normal * shot->knockback;
+		world->addBloodSplash(c, shot->normal * 200.0f, 20);
+		damage(shot->damage, c, shot->knockback);
 
 		if (world->isCharExists(shot->owner)) if (dead) shot->owner->gainXP(baseStats.maxHP);
 	}
@@ -264,15 +246,9 @@ void fired::Character::checkMeleeShot(fired::MeleeShot *shot) {
 	if (lineBoxCollision(phys.rect, ray, &c, &n, &dist)) {
 		if (world->isCharExists(shot->owner)) if (!isEnemy(shot->owner->fraction)) return;
 
-		if (lineBoxCollision(phys.head, ray, &c2, &n2, &dist)) {
-			phys.velocity += vNorm(shot->direction) * shot->knockback * 1.5f;
-			world->addBloodSplash(c, n * 200.0f, 30);
-			damage(shot->damage * 1.5, true, c, shot->knockback * 1.5);
-		} else {
-			phys.velocity += vNorm(shot->direction) * shot->knockback;
-			world->addBloodSplash(c, n * 200.0f, 20);
-			damage(shot->damage, false, c, shot->knockback);
-		}
+		phys.velocity += vNorm(shot->direction) * shot->knockback;
+		world->addBloodSplash(c, n * 200.0f, 20);
+		damage(shot->damage, c, shot->knockback);
 
 		if (world->isCharExists(shot->owner)) if (dead) shot->owner->gainXP(baseStats.maxHP);
 	}

@@ -13,9 +13,6 @@ fired::CollectableItem::CollectableItem(fired::InventoryItem *_item, sf::Vector2
 	phys.velocity     = velocity;
 	phys.acceleration = sf::Vector2f(0, PHYS_GRAVITY / 4);
 
-	phys.headSize   = sf::Vector2f(0, 0);
-	phys.headOffset = sf::Vector2f(0, 0);
-
 	phys.isMoving = false;
 	phys.onGround = false;
 }

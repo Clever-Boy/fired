@@ -67,7 +67,6 @@ namespace fired {
 
 		virtual ~Model();
 
-		virtual void headshot()    {};
 		virtual void update()      {};
 		virtual void updateParts() {};
 		virtual void respawn()     {};

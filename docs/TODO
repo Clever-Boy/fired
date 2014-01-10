@@ -274,9 +274,9 @@
 	</todo>
 	<todo done="no" collapse="no"><title>Global refactoring</title>
 		<todo done="yes" collapse="no"><title>Remove headshots</title></todo>
-		<todo done="no" collapse="no"><title>Create SQLite database</title></todo>
-		<todo done="no" collapse="yes"><title>Create tables</title>
-			<todo done="no" collapse="no"><title>Create sprites table</title></todo>
+		<todo done="yes" collapse="no"><title>Create SQLite database</title></todo>
+		<todo done="no" collapse="no"><title>Create tables</title>
+			<todo done="yes" collapse="no"><title>Create sprites table</title></todo>
 			<todo done="no" collapse="no"><title>Create bodypart table</title></todo>
 			<todo done="no" collapse="no"><title>Create model table</title></todo>
 			<todo done="no" collapse="no"><title>Create creature table</title></todo>
@@ -287,8 +287,8 @@
 			<todo done="no" collapse="no"><title>Create tiles table</title></todo>
 			<todo done="no" collapse="no"><title>Create decors table</title></todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Move data to SQLite</title>
-			<todo done="no" collapse="no"><title>Fill sprites table</title></todo>
+		<todo done="no" collapse="no"><title>Move data to SQLite</title>
+			<todo done="yes" collapse="no"><title>Fill sprites table</title></todo>
 			<todo done="no" collapse="no"><title>Fill bodypart table</title></todo>
 			<todo done="no" collapse="no"><title>Fill model table</title></todo>
 			<todo done="no" collapse="no"><title>Fill creature table</title></todo>

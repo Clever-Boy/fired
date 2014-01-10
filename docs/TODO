@@ -274,12 +274,54 @@
 	</todo>
 	<todo done="no" collapse="no"><title>Global refactoring</title>
 		<todo done="no" collapse="no"><title>Create SQLite database</title></todo>
-		<todo done="no" collapse="no"><title>Create tables</title></todo>
-		<todo done="no" collapse="no"><title>Move data to SQLite</title></todo>
-		<todo done="no" collapse="no"><title>Refactor decor classes</title></todo>
-		<todo done="no" collapse="no"><title>Refactor item classes</title></todo>
-		<todo done="no" collapse="no"><title>Refactor model classes</title></todo>
-		<todo done="no" collapse="no"><title>Refactor character classes</title></todo>
+		<todo done="no" collapse="yes"><title>Create tables</title>
+			<todo done="no" collapse="no"><title>Create sprites table</title></todo>
+			<todo done="no" collapse="no"><title>Create bodypart table</title></todo>
+			<todo done="no" collapse="no"><title>Create model table</title></todo>
+			<todo done="no" collapse="no"><title>Create creature table</title></todo>
+			<todo done="no" collapse="no"><title>Create armor table</title></todo>
+			<todo done="no" collapse="no"><title>Create weapon table</title></todo>
+			<todo done="no" collapse="no"><title>Create items table</title></todo>
+			<todo done="no" collapse="no"><title>Create biomes table</title></todo>
+			<todo done="no" collapse="no"><title>Create tiles table</title></todo>
+			<todo done="no" collapse="no"><title>Create decors table</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Move data to SQLite</title>
+			<todo done="no" collapse="no"><title>Fill sprites table</title></todo>
+			<todo done="no" collapse="no"><title>Fill bodypart table</title></todo>
+			<todo done="no" collapse="no"><title>Fill model table</title></todo>
+			<todo done="no" collapse="no"><title>Fill creature table</title></todo>
+			<todo done="no" collapse="no"><title>Fill armor table</title></todo>
+			<todo done="no" collapse="no"><title>Fill weapon table</title></todo>
+			<todo done="no" collapse="no"><title>Fill items table</title></todo>
+			<todo done="no" collapse="no"><title>Fill biomes table</title></todo>
+			<todo done="no" collapse="no"><title>Fill tiles table</title></todo>
+			<todo done="no" collapse="no"><title>Fill decors table</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Refactor container class</title>
+			<todo done="no" collapse="no"><title>Refactor sprites loading</title></todo>
+			<todo done="no" collapse="no"><title>Refactor bodypart loading</title></todo>
+			<todo done="no" collapse="no"><title>Refactor model loading</title></todo>
+			<todo done="no" collapse="no"><title>Refactor creature loading</title></todo>
+			<todo done="no" collapse="no"><title>Refactor armor loading</title></todo>
+			<todo done="no" collapse="no"><title>Refactor weapon loading</title></todo>
+			<todo done="no" collapse="no"><title>Refactor items loading</title></todo>
+			<todo done="no" collapse="no"><title>Refactor biomes loading</title></todo>
+			<todo done="no" collapse="no"><title>Refactor tiles loading</title></todo>
+			<todo done="no" collapse="no"><title>Refactor decors loading</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Refactor base and pure classes</title>
+			<todo done="no" collapse="no"><title>Refactor sprites class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor bodypart class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor model class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor creature class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor armor class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor weapon class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor items class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor biomes class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor tiles class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor decors class</title></todo>
+		</todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>Advanced</title>
 		<todo done="yes" collapse="no"><title>Move name and caption to char[64]</title></todo>

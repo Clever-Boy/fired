@@ -16,6 +16,7 @@ fired::BasicAI::BasicAI(fired::Creature *_owner, fired::World *_world) {
 void fired::BasicAI::update() {
 	if (target) if (target->dead) target = NULL;
 	if (!target) selectTarget();
+	if (!target) return;
 
 	owner->character->setAiming(atan2(target->phys.center.y - owner->character->phys.center.y, 
 	                                  target->phys.center.x - owner->character->phys.center.x));

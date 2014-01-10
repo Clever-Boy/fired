@@ -273,6 +273,7 @@
 		<todo done="yes" collapse="no"><title>Check hints out of screen</title></todo>
 	</todo>
 	<todo done="no" collapse="no"><title>Global refactoring</title>
+		<todo done="no" collapse="no"><title>Remove headshots</title></todo>
 		<todo done="no" collapse="no"><title>Create SQLite database</title></todo>
 		<todo done="no" collapse="yes"><title>Create tables</title>
 			<todo done="no" collapse="no"><title>Create sprites table</title></todo>

@@ -80,7 +80,7 @@ namespace fired {
 
 		void addText        (sf::Vector2f pos, sf::Color color, int size, const char *text)                     { texts.push_back(new fired::FlyText(pos, color, size, text));                                                                           };
 		void addBulletSplash(sf::Vector2f pos, sf::Vector2f direction)                                          { particles.push_back(new fired::ParticleSystemSplash(pos, direction, this, sf::Color(239, 231, 145, 255), 2, 20, 0.3, 0, false));       };
-		void addBloodSplash (sf::Vector2f pos, sf::Vector2f direction, int bloodCount)                          { particles.push_back(new fired::ParticleSystemSplash(pos, direction, this, sf::Color(150, 0, 0, 155), 7, bloodCount, 17.0, 0.5, true)); };
+		void addBloodSplash (sf::Vector2f pos, sf::Vector2f direction, int bloodCount)                          { particles.push_back(new fired::ParticleSystemSplash(pos, direction, this, sf::Color(150, 0, 0, 155), 3, bloodCount, 17.0, 0.5, true)); };
 		void addChunk       (fired::Bodypart *bodyPart, float scale, sf::Vector2f position, sf::Vector2f speed) { chunks.push_back(new fired::Chunk(bodyPart, scale, position, speed, this));                                                            };
 		void addItem        (fired::InventoryItem *item, sf::Vector2f pos, sf::Vector2f speed)                  { items.push_back(new fired::CollectableItem(item, pos, speed, this));                                                                   };
 

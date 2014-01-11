@@ -28,4 +28,5 @@ all: src
 
 
 clean:
+	$(MAKE) -C src -f $(PWD)/Makefile.src clean
 	$(CLEAN) $(PROJECT)

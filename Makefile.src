@@ -13,6 +13,11 @@ $(PROJECT): subdirs $(OBJS)
 
 subdirs: $(SUBDIRS)
 	for dir in $(SUBDIRS); do \
-		export SUBDIR=$$dir; \
-		$(MAKESUB); \
+		export SUBDIR=$$dir;  \
+		$(MAKESUB);           \
+	done
+
+clean:
+	for dir in $(SUBDIRS); do                           \
+		$(MAKE) -C $$dir -f $(PWD)/Makefile.sub clean; \
 	done

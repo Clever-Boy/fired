@@ -10,8 +10,10 @@ all: $(OUT)
 
 $(OUT): $(OBJS)
 	$(LD) -r $(OBJS) -o ../$(OUT)
-	$(CLEAN) $(OBJS)
 
 
 .cpp.o:
 	$(CC) $(CFLAGS) -o $@ -c $<
+
+clean:
+	$(CLEAN) $(OBJS)

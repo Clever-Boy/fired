@@ -24,6 +24,8 @@ Weapon
 	Model
 	...
 
+Sounds
+
 Inventory items:
 	ID    - primary key
 	Name  - name

@@ -282,8 +282,9 @@
 			<todo done="yes" collapse="no"><title>Create bodypart table</title></todo>
 			<todo done="yes" collapse="no"><title>Create model table</title></todo>
 			<todo done="yes" collapse="no"><title>Create creature table</title></todo>
-			<todo done="no" collapse="no"><title>Create armor table</title></todo>
-			<todo done="no" collapse="no"><title>Create weapon table</title></todo>
+			<todo done="yes" collapse="no"><title>Create armor table</title></todo>
+			<todo done="yes" collapse="no"><title>Create sound table</title></todo>
+			<todo done="yes" collapse="no"><title>Create weapon table</title></todo>
 			<todo done="no" collapse="no"><title>Create items table</title></todo>
 			<todo done="no" collapse="no"><title>Create biomes table</title></todo>
 			<todo done="no" collapse="no"><title>Create tiles table</title></todo>
@@ -294,8 +295,9 @@
 			<todo done="yes" collapse="no"><title>Fill bodypart table</title></todo>
 			<todo done="yes" collapse="no"><title>Fill model table</title></todo>
 			<todo done="yes" collapse="no"><title>Fill creature table</title></todo>
-			<todo done="no" collapse="no"><title>Fill armor table</title></todo>
-			<todo done="no" collapse="no"><title>Fill weapon table</title></todo>
+			<todo done="yes" collapse="no"><title>Fill armor table</title></todo>
+			<todo done="yes" collapse="no"><title>Fill sound table</title></todo>
+			<todo done="yes" collapse="no"><title>Fill weapon table</title></todo>
 			<todo done="no" collapse="no"><title>Fill items table</title></todo>
 			<todo done="no" collapse="no"><title>Fill biomes table</title></todo>
 			<todo done="no" collapse="no"><title>Fill tiles table</title></todo>
@@ -307,6 +309,7 @@
 			<todo done="no" collapse="no"><title>Refactor model loading</title></todo>
 			<todo done="no" collapse="no"><title>Refactor creature loading</title></todo>
 			<todo done="no" collapse="no"><title>Refactor armor loading</title></todo>
+			<todo done="no" collapse="no"><title>Refactor sound loading</title></todo>
 			<todo done="no" collapse="no"><title>Refactor weapon loading</title></todo>
 			<todo done="no" collapse="no"><title>Refactor items loading</title></todo>
 			<todo done="no" collapse="no"><title>Refactor biomes loading</title></todo>
@@ -319,6 +322,7 @@
 			<todo done="no" collapse="no"><title>Refactor model class</title></todo>
 			<todo done="no" collapse="no"><title>Refactor creature class</title></todo>
 			<todo done="no" collapse="no"><title>Refactor armor class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor sound class</title></todo>
 			<todo done="no" collapse="no"><title>Refactor weapon class</title></todo>
 			<todo done="no" collapse="no"><title>Refactor items class</title></todo>
 			<todo done="no" collapse="no"><title>Refactor biomes class</title></todo>

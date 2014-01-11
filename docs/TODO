@@ -275,6 +275,7 @@
 	<todo done="no" collapse="no"><title>Global refactoring</title>
 		<todo done="yes" collapse="no"><title>Remove headshots</title></todo>
 		<todo done="yes" collapse="no"><title>Move bodypart offset to model description</title></todo>
+		<todo done="yes" collapse="no"><title>Crypto API for sqlite</title></todo>
 		<todo done="yes" collapse="no"><title>Create SQLite database</title></todo>
 		<todo done="yes" collapse="yes"><title>Create tables</title>
 			<todo done="yes" collapse="no"><title>Create sprites table</title></todo>
@@ -328,6 +329,7 @@
 			<todo done="no" collapse="no"><title>Refactor tiles class</title></todo>
 			<todo done="no" collapse="no"><title>Refactor decors class</title></todo>
 		</todo>
+		<todo done="no" collapse="no"><title>Remove clip property (shot till the end of ammo)</title></todo>
 		<todo done="no" collapse="no"><title>Remove coin.tga from sprites &amp; img/model/___B|F</title></todo>
 		<todo done="no" collapse="no"><title>Fix picking up when the inventory is full</title></todo>
 	</todo>
@@ -355,7 +357,6 @@
 		<todo done="no" collapse="no"><title>GLSL shaders processing</title></todo>
 		<todo done="no" collapse="no"><title>Lighting (GLSL shaders)</title></todo>
 		<todo done="no" collapse="no"><title>Fog shader</title></todo>
-		<todo done="yes" collapse="no"><title>Crypto API for sqlite</title></todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>--- Release Alpha</title>
 		<todo done="no" collapse="no"><title>Add some weapons</title></todo>

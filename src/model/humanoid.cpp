@@ -48,41 +48,41 @@ void fired::ModelHumanoid::update() {
 
 
 void fired::ModelHumanoid::updateParts() {
-	initPart(&partHead  , base->partHead , base->partHeadColor, &owner->watching);
+	initPart(&partHead, base->partHead.part, base->partHead.color, base->partHead.offset, &owner->watching);
 
 
-	if (owner->helm) initPart(&partHair  , world->getBodypart(owner->helm->model, bptHair), owner->helm->color, &owner->watching);
-	else             initPart(&partHair  , base->partHair , base->partHairColor, &owner->watching);
+	if (owner->helm) initPart(&partHair, world->getBodypart(owner->helm->model, bptHair), owner->helm->color  , base->partHair.offset, &owner->watching);
+	else             initPart(&partHair, base->partHair.part                            , base->partHair.color, base->partHair.offset, &owner->watching);
 
-	if (owner->body) initPart(&partBody  , world->getBodypart(owner->body->model, bptBody), owner->body->color, &owner->watching);
-	else             initPart(&partBody  , base->partBody , base->partBodyColor, &owner->watching);
+	if (owner->body) initPart(&partBody, world->getBodypart(owner->body->model, bptBody), owner->body->color  , base->partBody.offset, &owner->watching);
+	else             initPart(&partBody, base->partBody.part                            , base->partBody.color, base->partBody.offset, &owner->watching);
 
-	if (owner->arms) initPart(&partArms  , world->getBodypart(owner->arms->model, bptArms), owner->arms->color, &owner->watching);
-	else             initPart(&partArms  , base->partArms , base->partArmsColor, &owner->watching);
+	if (owner->arms) initPart(&partArms, world->getBodypart(owner->arms->model, bptArms), owner->arms->color  , base->partArms.offset, &owner->watching);
+	else             initPart(&partArms, base->partArms.part                            , base->partArms.color, base->partArms.offset, &owner->watching);
 
 
 	if (owner->legs) {
-		initPart(&partLegsF , world->getBodypart(owner->legs->model, bptLegsF), owner->legs->color, &owner->direction);
-		initPart(&partLegsB , world->getBodypart(owner->legs->model, bptLegsB), owner->legs->color, &owner->direction);
+		initPart(&partLegsF, world->getBodypart(owner->legs->model, bptLegsF), owner->legs->color   , base->partLegsF.offset, &owner->direction);
+		initPart(&partLegsB, world->getBodypart(owner->legs->model, bptLegsB), owner->legs->color   , base->partLegsB.offset, &owner->direction);
 	} else {
-		initPart(&partLegsF , base->partLegsF, base->partLegsFColor, &owner->direction);
-		initPart(&partLegsB , base->partLegsB, base->partLegsBColor, &owner->direction);
+		initPart(&partLegsF, base->partLegsF.part                            , base->partLegsF.color, base->partLegsF.offset, &owner->direction);
+		initPart(&partLegsB, base->partLegsB.part                            , base->partLegsB.color, base->partLegsB.offset, &owner->direction);
 	}
 
 	if (owner->shoe) {
-		initPart(&partShoeF , world->getBodypart(owner->shoe->model, bptShoeF), owner->shoe->color, &owner->direction);
-		initPart(&partShoeB , world->getBodypart(owner->shoe->model, bptShoeB), owner->shoe->color, &owner->direction);
+		initPart(&partShoeF, world->getBodypart(owner->shoe->model, bptShoeF), owner->shoe->color   , base->partShoeF.offset, &owner->direction);
+		initPart(&partShoeB, world->getBodypart(owner->shoe->model, bptShoeB), owner->shoe->color   , base->partShoeB.offset, &owner->direction);
 	} else {
-		initPart(&partShoeF , base->partShoeF, base->partShoeFColor, &owner->direction);
-		initPart(&partShoeB , base->partShoeB, base->partShoeBColor, &owner->direction);
+		initPart(&partShoeF, base->partShoeF.part                            , base->partShoeF.color, base->partShoeF.offset, &owner->direction);
+		initPart(&partShoeB, base->partShoeB.part                            , base->partShoeB.color, base->partShoeB.offset, &owner->direction);
 	}
 
 	if (owner->fist) {
-		initPart(&partFistF , world->getBodypart(owner->fist->model, bptFistF), owner->fist->color, &owner->watching);
-		initPart(&partFistB , world->getBodypart(owner->fist->model, bptFistB), owner->fist->color, &owner->watching);
+		initPart(&partFistF, world->getBodypart(owner->fist->model, bptFistF), owner->fist->color   , base->partFistF.offset, &owner->watching);
+		initPart(&partFistB, world->getBodypart(owner->fist->model, bptFistB), owner->fist->color   , base->partFistB.offset, &owner->watching);
 	} else {
-		initPart(&partFistF , base->partFistF, base->partFistFColor, &owner->watching);
-		initPart(&partFistB , base->partFistB, base->partFistBColor, &owner->watching);
+		initPart(&partFistF, base->partFistF.part                            , base->partFistF.color, base->partFistF.offset, &owner->watching);
+		initPart(&partFistB, base->partFistB.part                            , base->partFistB.color, base->partFistB.offset, &owner->watching);
 	}
 }
 
@@ -113,7 +113,7 @@ void fired::ModelHumanoid::respawn() {
 
 
 void fired::ModelHumanoid::setWeapon(fired::BaseWeapon *weapon) {
-	initPart(&partWeapon, world->getBodypart(weapon->model, bptWeapon), sf::Color::White, &owner->watching);
+	initPart(&partWeapon, world->getBodypart(weapon->model, bptWeapon), sf::Color::White, base->weaponOffset, &owner->watching);
 }
 
 //======================================================================

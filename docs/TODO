@@ -274,7 +274,8 @@
 	</todo>
 	<todo done="no" collapse="no"><title>Global refactoring</title>
 		<todo done="yes" collapse="no"><title>Remove headshots</title></todo>
-		<todo done="no" collapse="no"><title>Move bodypart offset to model description</title></todo>
+		<todo done="yes" collapse="no"><title>Move bodypart offset to model description</title></todo>
+		<todo done="no" collapse="no"><title>Fix picking up when the inventory is full</title></todo>
 		<todo done="yes" collapse="no"><title>Create SQLite database</title></todo>
 		<todo done="no" collapse="no"><title>Create tables</title>
 			<todo done="yes" collapse="no"><title>Create sprites table</title></todo>
@@ -324,6 +325,7 @@
 			<todo done="no" collapse="no"><title>Refactor tiles class</title></todo>
 			<todo done="no" collapse="no"><title>Refactor decors class</title></todo>
 		</todo>
+		<todo done="no" collapse="no"><title>Remove coin.tga from sprites &amp; img/model/___B|F</title></todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>Advanced</title>
 		<todo done="yes" collapse="no"><title>Move name and caption to char[64]</title></todo>

@@ -1,0 +1,6 @@
+Loot format:
+ItemID, MinStack, MaxStack, Probability
+
+
+Model format:
+BodypartType, Color(R,G,B,A), Offset(X,Y)

@@ -23,7 +23,6 @@ namespace fired {
 		sf::Sprite         *sprite;
 		sf::Sprite         *chunk;
 		sf::Texture        *texture;
-		sf::Vector2f        offset;
 		sf::Vector2f        origin;
 		sf::Vector2f        size;
 		fired::BodypartType type;
@@ -32,8 +31,16 @@ namespace fired {
 	};
 
 
+	struct BaseModelBodypart {
+		fired::BaseBodypart *part;
+		sf::Color            color;
+		sf::Vector2f         offset;
+	};
+
+
 	struct Bodypart {
 		fired::BaseBodypart *base;
+		sf::Vector2f         offset;
 		sf::Color            color;
 
 		int                 *direction;

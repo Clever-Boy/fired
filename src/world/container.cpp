@@ -185,7 +185,6 @@ void fired::Container::loadBodypartsInDir(const char *dir, fired::BodypartType t
 	bodyparts.push_back(new fired::BaseBodypart);
 	bodyparts.back()->texture = new sf::Texture;
 	bodyparts.back()->type = type;
-	bodyparts.back()->offset = sf::Vector2f(0, 0);
 	bodyparts.back()->sprite = new sf::Sprite;
 	bodyparts.back()->chunk = new sf::Sprite;
 	strncpy(bodyparts.back()->name, "null", 5);
@@ -209,7 +208,6 @@ void fired::Container::loadBodypart(const char *dir, const char* filename, fired
 
 	FILE *fp = fopen(filename, "r");
 	fscanf(fp, "name=%s\n"     , bodyparts.back()->name);
-	fscanf(fp, "offset=%f,%f\n", &bodyparts.back()->offset.x, &bodyparts.back()->offset.y);
 	fscanf(fp, "origin=%f,%f\n", &bodyparts.back()->origin.x, &bodyparts.back()->origin.y);
 	fscanf(fp, "image=%s\n"    , imgfile);
 	fclose(fp);
@@ -258,6 +256,16 @@ void fired::Container::loadModels() {
 //======================================================================
 
 
+void fired::Container::loadModelBodypart(const char* s, fired::BaseModelBodypart *bodypart, fired::BodypartType type) {
+	char field[128];
+
+	sscanf(s, "%[^,],(%hhu,%hhu,%hhu,%hhu),(%f,%f)\n", field, &bodypart->color.r, &bodypart->color.g, &bodypart->color.b, &bodypart->color.a, &bodypart->offset.x, &bodypart->offset.y);
+	bodypart->part = getBodypart(field, type);
+}
+
+//======================================================================
+
+
 void fired::Container::loadModel(const char* filename) {
 	char field[128];
 
@@ -269,46 +277,18 @@ void fired::Container::loadModel(const char* filename) {
 		model->type = mtHumanoid;
 		fscanf(fp, "name=%s\n"    , model->name);
 		fscanf(fp, "size=%f,%f\n", &model->size.x, &model->size.y);
+		fscanf(fp, "weapon_offset=%f,%f\n", &model->weaponOffset.x, &model->weaponOffset.y);
 
-		fscanf(fp, "legsf=%s\n", field);
-		fscanf(fp, "legsfcolor=%hhu,%hhu,%hhu,%hhu\n", &model->partLegsFColor.r, &model->partLegsFColor.g, &model->partLegsFColor.b, &model->partLegsFColor.a);
-		model->partLegsF = getBodypart(field, bptLegsF);
-
-		fscanf(fp, "legsb=%s\n", field);
-		fscanf(fp, "legsbcolor=%hhu,%hhu,%hhu,%hhu\n", &model->partLegsBColor.r, &model->partLegsBColor.g, &model->partLegsBColor.b, &model->partLegsBColor.a);
-		model->partLegsB = getBodypart(field, bptLegsB);
-
-		fscanf(fp, "shoef=%s\n", field);
-		fscanf(fp, "shoefcolor=%hhu,%hhu,%hhu,%hhu\n", &model->partShoeFColor.r, &model->partShoeFColor.g, &model->partShoeFColor.b, &model->partShoeFColor.a);
-		model->partShoeF = getBodypart(field, bptShoeF);
-
-		fscanf(fp, "shoeb=%s\n", field);
-		fscanf(fp, "shoebcolor=%hhu,%hhu,%hhu,%hhu\n", &model->partShoeBColor.r, &model->partShoeBColor.g, &model->partShoeBColor.b, &model->partShoeBColor.a);
-		model->partShoeB = getBodypart(field, bptShoeB);
-
-		fscanf(fp, "fistf=%s\n", field);
-		fscanf(fp, "fistfcolor=%hhu,%hhu,%hhu,%hhu\n", &model->partFistFColor.r, &model->partFistFColor.g, &model->partFistFColor.b, &model->partFistFColor.a);
-		model->partFistF = getBodypart(field, bptFistF);
-
-		fscanf(fp, "fistb=%s\n", field);
-		fscanf(fp, "fistbcolor=%hhu,%hhu,%hhu,%hhu\n", &model->partFistBColor.r, &model->partFistBColor.g, &model->partFistBColor.b, &model->partFistBColor.a);
-		model->partFistB = getBodypart(field, bptFistB);
-
-		fscanf(fp, "arms=%s\n", field);
-		fscanf(fp, "armscolor=%hhu,%hhu,%hhu,%hhu\n", &model->partArmsColor.r, &model->partArmsColor.g, &model->partArmsColor.b, &model->partArmsColor.a);
-		model->partArms = getBodypart(field, bptArms);
-
-		fscanf(fp, "hair=%s\n", field);
-		fscanf(fp, "haircolor=%hhu,%hhu,%hhu,%hhu\n", &model->partHairColor.r, &model->partHairColor.g, &model->partHairColor.b, &model->partHairColor.a);
-		model->partHair = getBodypart(field, bptHair);
-
-		fscanf(fp, "head=%s\n", field);
-		fscanf(fp, "headcolor=%hhu,%hhu,%hhu,%hhu\n", &model->partHeadColor.r, &model->partHeadColor.g, &model->partHeadColor.b, &model->partHeadColor.a);
-		model->partHead = getBodypart(field, bptHead);
-
-		fscanf(fp, "body=%s\n", field);
-		fscanf(fp, "bodycolor=%hhu,%hhu,%hhu,%hhu\n", &model->partBodyColor.r, &model->partBodyColor.g, &model->partBodyColor.b, &model->partBodyColor.a);
-		model->partBody = getBodypart(field, bptBody);
+		fscanf(fp, "legsf=%s\n", field); loadModelBodypart(field, &model->partLegsF, bptLegsF);
+		fscanf(fp, "legsb=%s\n", field); loadModelBodypart(field, &model->partLegsB, bptLegsB);
+		fscanf(fp, "shoef=%s\n", field); loadModelBodypart(field, &model->partShoeF, bptShoeF);
+		fscanf(fp, "shoeb=%s\n", field); loadModelBodypart(field, &model->partShoeB, bptShoeB);
+		fscanf(fp, "fistf=%s\n", field); loadModelBodypart(field, &model->partFistF, bptFistF);
+		fscanf(fp, "fistb=%s\n", field); loadModelBodypart(field, &model->partFistB, bptFistB);
+		fscanf(fp, "arms=%s\n" , field); loadModelBodypart(field, &model->partArms , bptArms );
+		fscanf(fp, "hair=%s\n" , field); loadModelBodypart(field, &model->partHair , bptHair );
+		fscanf(fp, "head=%s\n" , field); loadModelBodypart(field, &model->partHead , bptHead );
+		fscanf(fp, "body=%s\n" , field); loadModelBodypart(field, &model->partBody , bptBody );
 
 		models.push_back(model);
 	}
@@ -367,7 +347,7 @@ void fired::Container::loadCreature(const char* filename) {
 	fscanf(fp, "aimrange=%f\n", &creatures.back()->stats.aimrange);
 	fscanf(fp, "maxHP=%u\n"   , &creatures.back()->stats.maxHP);
 
-	while (fscanf(fp, "loot=%[^,],%[^,],%u,%u,%f\n", strtype, name, &minCount, &maxCount, &probability) != EOF) {
+	while (fscanf(fp, "loot=(%[^,],%[^)]),(%u,%u),%f\n", strtype, name, &minCount, &maxCount, &probability) != EOF) {
 		if (!strcmp(strtype, "money" )) type = itMoney;
 		if (!strcmp(strtype, "weapon")) type = itWeapon;
 		if (!strcmp(strtype, "helm")) type = itArmorHelm;

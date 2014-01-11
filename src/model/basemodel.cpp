@@ -25,9 +25,10 @@ void fired::Model::explode(sf::Vector2f shot, float knockback) {
 //======================================================================
 
 
-void fired::Model::initPart(fired::Bodypart *part, fired::BaseBodypart *base, sf::Color color, int *direction) {
+void fired::Model::initPart(fired::Bodypart *part, fired::BaseBodypart *base, sf::Color color, sf::Vector2f offset, int *direction) {
 	part->base         = base;
 	part->color        = color;
+	part->offset       = offset;
 	part->direction    = direction;
 	part->animOffset   = sf::Vector2f(0.0, 0.0);
 	part->animRotation = 0.0;
@@ -42,9 +43,9 @@ void fired::Model::drawPart(fired::Bodypart *part) {
 	part->base->sprite->setColor(part->color);
 
 	if (*part->direction == 1)
-		part->base->sprite->setPosition(owner->phys.pos + (part->base->offset + part->animOffset) * modelScale);
+		part->base->sprite->setPosition(owner->phys.pos + (part->offset + part->animOffset) * modelScale);
 	else
-		part->base->sprite->setPosition(owner->phys.pos + sf::Vector2f(-part->base->offset.x - part->animOffset.x, part->base->offset.y + part->animOffset.y) * modelScale + sf::Vector2f(owner->phys.size.x, 0));
+		part->base->sprite->setPosition(owner->phys.pos + sf::Vector2f(-part->offset.x - part->animOffset.x, part->offset.y + part->animOffset.y) * modelScale + sf::Vector2f(owner->phys.size.x, 0));
 
 	app->draw(*part->base->sprite);
 }
@@ -55,12 +56,12 @@ void fired::Model::drawPart(fired::Bodypart *part) {
 void fired::Model::chunkPart(fired::Bodypart *part, sf::Vector2f shot, float knockback) {
 	sf::Vector2f chunkPos;
 	if (*part->direction == 1)
-		chunkPos = owner->phys.pos + (part->base->offset + part->base->size / 2.0f) * modelScale;
+		chunkPos = owner->phys.pos + (part->offset + part->base->size / 2.0f) * modelScale;
 	else
-		chunkPos = owner->phys.pos + sf::Vector2f(-part->base->offset.x - part->base->size.x / 2.0f, part->base->offset.y + part->base->size.y / 2.0f) * modelScale + sf::Vector2f(owner->phys.size.x, 0);
+		chunkPos = owner->phys.pos + sf::Vector2f(-part->offset.x - part->base->size.x / 2.0f, part->offset.y + part->base->size.y / 2.0f) * modelScale + sf::Vector2f(owner->phys.size.x, 0);
 
 
-	world->addChunk(part, modelScale, chunkPos, vNorm(part->base->offset - part->base->origin - shot) * knockback * 10.0f);
+	world->addChunk(part, modelScale, chunkPos, vNorm(part->offset - part->base->origin - shot) * knockback * 10.0f);
 }
 
 //======================================================================

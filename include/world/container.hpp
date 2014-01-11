@@ -35,6 +35,7 @@ namespace fired {
 		fired::BaseArmor *getArmor(const char* name, fired::ArmorClass type);
 
 		void loadModels();
+		void loadModelBodypart(const char* s, fired::BaseModelBodypart *bodypart, fired::BodypartType type);
 		void loadModel(const char* filename);
 		fired::BaseModel *getModel(const char* name);
 

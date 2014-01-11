@@ -275,9 +275,8 @@
 	<todo done="no" collapse="no"><title>Global refactoring</title>
 		<todo done="yes" collapse="no"><title>Remove headshots</title></todo>
 		<todo done="yes" collapse="no"><title>Move bodypart offset to model description</title></todo>
-		<todo done="no" collapse="no"><title>Fix picking up when the inventory is full</title></todo>
 		<todo done="yes" collapse="no"><title>Create SQLite database</title></todo>
-		<todo done="no" collapse="no"><title>Create tables</title>
+		<todo done="yes" collapse="yes"><title>Create tables</title>
 			<todo done="yes" collapse="no"><title>Create sprites table</title></todo>
 			<todo done="yes" collapse="no"><title>Create bodypart table</title></todo>
 			<todo done="yes" collapse="no"><title>Create model table</title></todo>
@@ -285,12 +284,12 @@
 			<todo done="yes" collapse="no"><title>Create armor table</title></todo>
 			<todo done="yes" collapse="no"><title>Create sound table</title></todo>
 			<todo done="yes" collapse="no"><title>Create weapon table</title></todo>
-			<todo done="no" collapse="no"><title>Create items table</title></todo>
-			<todo done="no" collapse="no"><title>Create biomes table</title></todo>
-			<todo done="no" collapse="no"><title>Create tiles table</title></todo>
-			<todo done="no" collapse="no"><title>Create decors table</title></todo>
+			<todo done="yes" collapse="no"><title>Create items table</title></todo>
+			<todo done="yes" collapse="no"><title>Create biomes table</title></todo>
+			<todo done="yes" collapse="no"><title>Create tiles table</title></todo>
+			<todo done="yes" collapse="no"><title>Create decors table</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Move data to SQLite</title>
+		<todo done="yes" collapse="yes"><title>Move data to SQLite</title>
 			<todo done="yes" collapse="no"><title>Fill sprites table</title></todo>
 			<todo done="yes" collapse="no"><title>Fill bodypart table</title></todo>
 			<todo done="yes" collapse="no"><title>Fill model table</title></todo>
@@ -298,12 +297,12 @@
 			<todo done="yes" collapse="no"><title>Fill armor table</title></todo>
 			<todo done="yes" collapse="no"><title>Fill sound table</title></todo>
 			<todo done="yes" collapse="no"><title>Fill weapon table</title></todo>
-			<todo done="no" collapse="no"><title>Fill items table</title></todo>
-			<todo done="no" collapse="no"><title>Fill biomes table</title></todo>
-			<todo done="no" collapse="no"><title>Fill tiles table</title></todo>
-			<todo done="no" collapse="no"><title>Fill decors table</title></todo>
+			<todo done="yes" collapse="no"><title>Fill items table</title></todo>
+			<todo done="yes" collapse="no"><title>Fill biomes table</title></todo>
+			<todo done="yes" collapse="no"><title>Fill tiles table</title></todo>
+			<todo done="yes" collapse="no"><title>Fill decors table</title></todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Refactor container class</title>
+		<todo done="yes" collapse="no"><title>Refactor container class</title>
 			<todo done="no" collapse="no"><title>Refactor sprites loading</title></todo>
 			<todo done="no" collapse="no"><title>Refactor bodypart loading</title></todo>
 			<todo done="no" collapse="no"><title>Refactor model loading</title></todo>
@@ -330,6 +329,7 @@
 			<todo done="no" collapse="no"><title>Refactor decors class</title></todo>
 		</todo>
 		<todo done="no" collapse="no"><title>Remove coin.tga from sprites &amp; img/model/___B|F</title></todo>
+		<todo done="no" collapse="no"><title>Fix picking up when the inventory is full</title></todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>Advanced</title>
 		<todo done="yes" collapse="no"><title>Move name and caption to char[64]</title></todo>
@@ -356,7 +356,6 @@
 		<todo done="no" collapse="no"><title>Lighting (GLSL shaders)</title></todo>
 		<todo done="no" collapse="no"><title>Fog shader</title></todo>
 		<todo done="yes" collapse="no"><title>Crypto API for sqlite</title></todo>
-		<todo done="no" collapse="no"><title>Move data to sqlite db</title></todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>--- Release Alpha</title>
 		<todo done="no" collapse="no"><title>Add some weapons</title></todo>

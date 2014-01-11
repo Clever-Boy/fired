@@ -106,12 +106,12 @@ fired::BaseWeapon* fired::Container::getWeapon(const char* name) {
 
 
 void fired::Container::loadArmors() {
-	loadArmorsInDir("arms"  , acArms);
-	loadArmorsInDir("body"  , acBody);
-	loadArmorsInDir("helms" , acHelm);
-	loadArmorsInDir("fists" , acFist);
-	loadArmorsInDir("legs"  , acLegs);
-	loadArmorsInDir("shoes" , acShoe);
+	loadArmorsInDir("arms" , acArms);
+	loadArmorsInDir("body" , acBody);
+	loadArmorsInDir("head" , acHelm);
+	loadArmorsInDir("fist" , acFist);
+	loadArmorsInDir("legs" , acLegs);
+	loadArmorsInDir("shoe" , acShoe);
 }
 
 //======================================================================

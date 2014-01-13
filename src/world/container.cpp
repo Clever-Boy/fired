@@ -28,6 +28,8 @@ fired::Container::~Container() {
 	deleteList(creatures);
 	deleteList(decors);
 	deleteList(sprites);
+
+	deleteList(_sprites);
 }
 
 //======================================================================
@@ -488,7 +490,7 @@ void fired::Container::NewLoad() {
 void fired::Container::_loadSprites(sqlite3 *db) {
 	char *zErrMsg = 0;
 
-	if (sqlite3_exec(db, "SELECT * FROM Sprites", _loadSprite, this, &zErrMsg) != SQLITE_OK);
+	if (sqlite3_exec(db, "SELECT * FROM Sprites", _loadSprite, this, &zErrMsg) != SQLITE_OK)
 		printf("SQL error: %s\n", zErrMsg);
 }
 

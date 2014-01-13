@@ -303,7 +303,7 @@
 			<todo done="yes" collapse="no"><title>Fill tiles table</title></todo>
 			<todo done="yes" collapse="no"><title>Fill decors table</title></todo>
 		</todo>
-		<todo done="yes" collapse="no"><title>Refactor container class</title>
+		<todo done="yes" collapse="yes"><title>Refactor container class</title>
 			<todo done="no" collapse="no"><title>Refactor sprites loading</title></todo>
 			<todo done="no" collapse="no"><title>Refactor bodypart loading</title></todo>
 			<todo done="no" collapse="no"><title>Refactor model loading</title></todo>
@@ -332,6 +332,19 @@
 		<todo done="no" collapse="no"><title>Remove clip property (shot till the end of ammo)</title></todo>
 		<todo done="no" collapse="no"><title>Remove coin.tga from sprites &amp; img/model/___B|F</title></todo>
 		<todo done="no" collapse="no"><title>Fix picking up when the inventory is full</title></todo>
+		<todo done="no" collapse="no"><title>Fix model explosion after broad attacks</title></todo>
+		<todo done="no" collapse="yes"><title>Graphics refactoring</title>
+			<todo done="no" collapse="no"><title>Allow BG slide only horizontally</title></todo>
+			<todo done="no" collapse="no"><title>Change BG</title></todo>
+			<todo done="no" collapse="no"><title>Change Tiles</title></todo>
+			<todo done="no" collapse="no"><title>Change Armor icons</title></todo>
+			<todo done="no" collapse="no"><title>Change weapon icons</title></todo>
+			<todo done="no" collapse="no"><title>Change weapon sprites</title></todo>
+			<todo done="no" collapse="no"><title>Change bodypart sprites</title></todo>
+			<todo done="no" collapse="no"><title>Change decor sprites</title></todo>
+			<todo done="no" collapse="no"><title>Change GUI</title></todo>
+			<todo done="no" collapse="no"><title>Change crosshair</title></todo>
+		</todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>Advanced</title>
 		<todo done="yes" collapse="no"><title>Move name and caption to char[64]</title></todo>
@@ -347,6 +360,7 @@
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible shots</title></todo>
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible particles</title></todo>
 		<todo done="no" collapse="no"><title>Optimize code</title></todo>
+		<todo done="no" collapse="no"><title>Allow drop items</title></todo>
 		<todo done="no" collapse="yes"><title>Explosives</title></todo>
 		<todo done="no" collapse="yes"><title>Explosive weapon</title></todo>
 		<todo done="no" collapse="no"><title>Items bonuses +dmg, +defence, etc.</title></todo>
@@ -357,6 +371,11 @@
 			<todo done="no" collapse="no"><title>Snow</title></todo>
 			<todo done="no" collapse="no"><title>Fog</title></todo>
 			<todo done="no" collapse="no"><title>Storm</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Add options processing</title>
+			<todo done="no" collapse="no"><title>Add music volume change</title></todo>
+			<todo done="no" collapse="no"><title>Add sound volume change</title></todo>
+			<todo done="no" collapse="no"><title>Add video modes change</title></todo>
 		</todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>--- Release Alpha</title>

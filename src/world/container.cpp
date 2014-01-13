@@ -30,6 +30,7 @@ fired::Container::~Container() {
 	deleteList(sprites);
 
 	deleteList(_sprites);
+	deleteList(_bodyparts);
 }
 
 //======================================================================
@@ -480,6 +481,7 @@ void fired::Container::NewLoad() {
 	sqlite3_open("data/database.sqlite", &db);
 
 	_loadSprites(db);
+	_loadBodyparts(db);
 
 	sqlite3_close(db);
 }
@@ -490,7 +492,7 @@ void fired::Container::NewLoad() {
 void fired::Container::_loadSprites(sqlite3 *db) {
 	char *zErrMsg = 0;
 
-	if (sqlite3_exec(db, "SELECT * FROM Sprites", _loadSprite, this, &zErrMsg) != SQLITE_OK)
+	if (sqlite3_exec(db, "SELECT Path FROM Sprites", _loadSprite, this, &zErrMsg) != SQLITE_OK)
 		printf("SQL error: %s\n", zErrMsg);
 }
 
@@ -498,7 +500,40 @@ void fired::Container::_loadSprites(sqlite3 *db) {
 
 
 int fired::Container::_loadSprite(void *data, int, char **argv, char **){
-	((fired::Container *) data)->_sprites.push_back(new fired::NewGameSprite(argv[2]));
+	((fired::Container *) data)->_sprites.push_back(new fired::NewGameSprite(argv[0]));
+	return 0;
+}
+
+//======================================================================
+
+
+void fired::Container::_loadBodyparts(sqlite3 *db) {
+	char *zErrMsg = 0;
+
+	if (sqlite3_exec(db, "SELECT Bodyparts.Name, Bodyparts.BodypartType, Bodyparts.Origin, Sprites.ID FROM Bodyparts, Sprites WHERE Sprites.Name = Bodyparts.Sprite", _loadBodypart, this, &zErrMsg) != SQLITE_OK)
+		printf("SQL error: %s\n", zErrMsg);
+}
+
+//======================================================================
+
+
+int fired::Container::_loadBodypart(void *data, int, char **argv, char **){
+	((fired::Container *) data)->_bodyparts.push_back(new fired::NewBaseBodypart);
+	fired::NewBaseBodypart *current = ((fired::Container *) data)->_bodyparts.back();
+
+	strcpy(current->name, argv[0]);
+
+	if (!strcmp(argv[1], "arms"  )) current->type = bptArms;
+	if (!strcmp(argv[1], "head"  )) current->type = bptHead;
+	if (!strcmp(argv[1], "hair"  )) current->type = bptHair;
+	if (!strcmp(argv[1], "body"  )) current->type = bptBody;
+	if (!strcmp(argv[1], "legs"  )) current->type = bptLegs;
+	if (!strcmp(argv[1], "shoe"  )) current->type = bptShoe;
+	if (!strcmp(argv[1], "fist"  )) current->type = bptFist;
+	if (!strcmp(argv[1], "weapon")) current->type = bptWeapon;
+
+	sscanf(argv[2], "%f,%f", &current->origin.x, &current->origin.y);
+	current->sprite = atoi(argv[3]);
 	return 0;
 }
 

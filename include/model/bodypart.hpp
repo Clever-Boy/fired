@@ -10,6 +10,9 @@ namespace fired {
 		bptFistB,
 		bptShoeF,
 		bptShoeB,
+		bptLegs,
+		bptFist,
+		bptShoe,
 		bptBody,
 		bptHair,
 		bptHead,
@@ -28,6 +31,14 @@ namespace fired {
 		fired::BodypartType type;
 
 		~BaseBodypart();
+	};
+
+
+	struct NewBaseBodypart {
+		char                name[64];
+		int                 sprite;
+		sf::Vector2f        origin;
+		fired::BodypartType type;
 	};
 
 

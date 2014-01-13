@@ -69,7 +69,7 @@ void fired::Model::chunkPart(fired::Bodypart *part, sf::Vector2f shot, float kno
 
 void fired::Model::resetPart(fired::Bodypart *part) {
 	part->animOffset   = sf::Vector2f(0, 0);
-	part->animRotation = 0;;
+	part->animRotation = 0;
 }
 
 //======================================================================

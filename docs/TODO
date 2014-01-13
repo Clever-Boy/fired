@@ -305,7 +305,7 @@
 		</todo>
 		<todo done="yes" collapse="no"><title>Refactor container class</title>
 			<todo done="yes" collapse="no"><title>Refactor sprites loading</title></todo>
-			<todo done="no" collapse="no"><title>Refactor bodypart loading</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor bodypart loading</title></todo>
 			<todo done="no" collapse="no"><title>Refactor model loading</title></todo>
 			<todo done="no" collapse="no"><title>Refactor creature loading</title></todo>
 			<todo done="no" collapse="no"><title>Refactor armor loading</title></todo>
@@ -318,7 +318,7 @@
 		</todo>
 		<todo done="no" collapse="no"><title>Refactor base and pure classes</title>
 			<todo done="yes" collapse="no"><title>Refactor sprites class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor bodypart class</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor bodypart class</title></todo>
 			<todo done="no" collapse="no"><title>Refactor model class</title></todo>
 			<todo done="no" collapse="no"><title>Refactor creature class</title></todo>
 			<todo done="no" collapse="no"><title>Refactor armor class</title></todo>

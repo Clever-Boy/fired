@@ -61,10 +61,15 @@ namespace fired {
 		//------------------------- SQLite -----------------------------
 
 		std::vector<fired::NewGameSprite*> _sprites;
+		std::vector<fired::NewBaseBodypart*> _bodyparts;
 
 		void NewLoad();
+
 		void _loadSprites(sqlite3 *db);
 		static int _loadSprite(void *data, int argc, char **argv, char **azColName);
+
+		void _loadBodyparts(sqlite3 *db);
+		static int _loadBodypart(void *data, int argc, char **argv, char **azColName);
 
 	};
 }

@@ -2,6 +2,8 @@
 #define __CONTAINER
 
 
+#include <sqlite3.h>
+
 #include "char.hpp"
 #include "sprites.hpp"
 #include "map.hpp"
@@ -55,6 +57,15 @@ namespace fired {
 		void loadBodypartsInDir(const char *dir, fired::BodypartType type);
 		void loadBodypart(const char *dir, const char* filename, fired::BodypartType type);
 		fired::BaseBodypart *getBodypart(const char* name, fired::BodypartType type);
+
+		//------------------------- SQLite -----------------------------
+
+		std::vector<fired::NewGameSprite*> _sprites;
+
+		void NewLoad();
+		void _loadSprites(sqlite3 *db);
+		static int _loadSprite(void *data, int argc, char **argv, char **azColName);
+
 	};
 }
 

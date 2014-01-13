@@ -13,6 +13,8 @@ fired::Container::Container(fired::World *_world) {
 	loadModels();
 	loadCreatures();
 	loadDecors();
+
+	NewLoad();
 }
 
 //======================================================================
@@ -466,3 +468,35 @@ sf::Sprite* fired::Container::getSprite(const char* name) {
 
 	return NULL;
 }
+
+//======================================================================
+
+
+void fired::Container::NewLoad() {
+	// move code to constructor later
+	sqlite3 *db;
+	sqlite3_open("data/database.sqlite", &db);
+
+	_loadSprites(db);
+
+	sqlite3_close(db);
+}
+
+//======================================================================
+
+
+void fired::Container::_loadSprites(sqlite3 *db) {
+	char *zErrMsg = 0;
+
+	if (sqlite3_exec(db, "SELECT * FROM Sprites", _loadSprite, this, &zErrMsg) != SQLITE_OK);
+		printf("SQL error: %s\n", zErrMsg);
+}
+
+//======================================================================
+
+
+int fired::Container::_loadSprite(void *data, int, char **argv, char **){
+	((fired::Container *) data)->_sprites.push_back(new fired::NewGameSprite(argv[2]));
+	return 0;
+}
+

@@ -303,8 +303,8 @@
 			<todo done="yes" collapse="no"><title>Fill tiles table</title></todo>
 			<todo done="yes" collapse="no"><title>Fill decors table</title></todo>
 		</todo>
-		<todo done="yes" collapse="yes"><title>Refactor container class</title>
-			<todo done="no" collapse="no"><title>Refactor sprites loading</title></todo>
+		<todo done="yes" collapse="no"><title>Refactor container class</title>
+			<todo done="yes" collapse="no"><title>Refactor sprites loading</title></todo>
 			<todo done="no" collapse="no"><title>Refactor bodypart loading</title></todo>
 			<todo done="no" collapse="no"><title>Refactor model loading</title></todo>
 			<todo done="no" collapse="no"><title>Refactor creature loading</title></todo>
@@ -316,8 +316,8 @@
 			<todo done="no" collapse="no"><title>Refactor tiles loading</title></todo>
 			<todo done="no" collapse="no"><title>Refactor decors loading</title></todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Refactor base and pure classes</title>
-			<todo done="no" collapse="no"><title>Refactor sprites class</title></todo>
+		<todo done="no" collapse="no"><title>Refactor base and pure classes</title>
+			<todo done="yes" collapse="no"><title>Refactor sprites class</title></todo>
 			<todo done="no" collapse="no"><title>Refactor bodypart class</title></todo>
 			<todo done="no" collapse="no"><title>Refactor model class</title></todo>
 			<todo done="no" collapse="no"><title>Refactor creature class</title></todo>
@@ -329,6 +329,7 @@
 			<todo done="no" collapse="no"><title>Refactor tiles class</title></todo>
 			<todo done="no" collapse="no"><title>Refactor decors class</title></todo>
 		</todo>
+		<todo done="no" collapse="no"><title>Remove old classes</title></todo>
 		<todo done="no" collapse="no"><title>Remove clip property (shot till the end of ammo)</title></todo>
 		<todo done="no" collapse="no"><title>Remove coin.tga from sprites &amp; img/model/___B|F</title></todo>
 		<todo done="no" collapse="no"><title>Fix picking up when the inventory is full</title></todo>
@@ -360,6 +361,7 @@
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible shots</title></todo>
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible particles</title></todo>
 		<todo done="no" collapse="no"><title>Optimize code</title></todo>
+		<todo done="no" collapse="no"><title>Refactor code (add headers to files, classes &amp; functions)</title></todo>
 		<todo done="no" collapse="no"><title>Allow drop items</title></todo>
 		<todo done="no" collapse="yes"><title>Explosives</title></todo>
 		<todo done="no" collapse="yes"><title>Explosive weapon</title></todo>

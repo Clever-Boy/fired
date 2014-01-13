@@ -12,6 +12,15 @@ namespace fired {
 		 GameSprite(const char *_name, const char *filename);
 		~GameSprite();
 	};
+
+	struct NewGameSprite {
+		sf::Sprite  *spr;
+		sf::Texture *tex;
+
+
+		 NewGameSprite(const char *filename);
+		~NewGameSprite();
+	};
 }
 
 #endif

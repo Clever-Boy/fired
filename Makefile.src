@@ -12,6 +12,7 @@ $(PROJECT): subdirs $(OBJS)
 
 
 subdirs: $(SUBDIRS)
+	$(CLEAN) $(OBJS)
 	for dir in $(SUBDIRS); do \
 		export SUBDIR=$$dir;  \
 		$(MAKESUB);           \

@@ -46,6 +46,28 @@ namespace fired {
 
 
 
+	struct NewBaseModel {
+		fired::ModelType type;
+		sf::Vector2f     size;
+		sf::Vector2f     weaponOffset;
+	};
+
+
+	struct NewBaseModelHumanoid : NewBaseModel {
+		fired::BaseModelBodypart partLegsF;
+		fired::BaseModelBodypart partLegsB;
+		fired::BaseModelBodypart partShoeF;
+		fired::BaseModelBodypart partShoeB;
+		fired::BaseModelBodypart partFistF;
+		fired::BaseModelBodypart partFistB;
+		fired::BaseModelBodypart partHair;
+		fired::BaseModelBodypart partBody;
+		fired::BaseModelBodypart partArms;
+		fired::BaseModelBodypart partHead;
+	};
+
+
+
 	struct Model {
 		fired::Character *owner;
 		fired::World     *world;

@@ -36,7 +36,8 @@ namespace fired {
 
 	struct NewBaseBodypart {
 		char                name[64];
-		int                 sprite;
+		sf::Sprite         *sprite;
+		sf::Vector2f        size;
 		sf::Vector2f        origin;
 		fired::BodypartType type;
 	};

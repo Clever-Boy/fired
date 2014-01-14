@@ -62,6 +62,7 @@ namespace fired {
 
 		std::vector<fired::NewGameSprite*> _sprites;
 		std::vector<fired::NewBaseBodypart*> _bodyparts;
+		std::vector<fired::NewBaseModel*> _models;
 
 		void NewLoad();
 
@@ -71,6 +72,8 @@ namespace fired {
 		void _loadBodyparts(sqlite3 *db);
 		static int _loadBodypart(void *data, int argc, char **argv, char **azColName);
 
+		void _loadModels(sqlite3 *db);
+		static int _loadModel(void *data, int argc, char **argv, char **azColName);
 	};
 }
 

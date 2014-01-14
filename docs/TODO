@@ -316,18 +316,31 @@
 			<todo done="no" collapse="no"><title>Refactor tiles loading</title></todo>
 			<todo done="no" collapse="no"><title>Refactor decors loading</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Refactor base and pure classes</title>
-			<todo done="yes" collapse="no"><title>Refactor sprites class</title></todo>
-			<todo done="yes" collapse="no"><title>Refactor bodypart class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor model class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor creature class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor armor class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor sound class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor weapon class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor items class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor biomes class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor tiles class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor decors class</title></todo>
+		<todo done="no" collapse="no"><title>Refactor base classes</title>
+			<todo done="yes" collapse="no"><title>Refactor sprites base class</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor bodypart base class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor model base class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor creature base class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor armor base class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor sound base class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor weapon base class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor items base class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor biomes base class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor tiles base class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor decors base class</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Refactor pure classes</title>
+			<todo done="no" collapse="no"><title>Refactor sprites pure class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor bodypart pure class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor model pure class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor creature pure class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor armor pure class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor sound pure class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor weapon pure class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor items pure class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor biomes pure class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor tiles pure class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor decors pure class</title></todo>
 		</todo>
 		<todo done="no" collapse="no"><title>Remove old classes</title></todo>
 		<todo done="no" collapse="no"><title>Remove clip property (shot till the end of ammo)</title></todo>

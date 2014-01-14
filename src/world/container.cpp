@@ -533,7 +533,45 @@ int fired::Container::_loadBodypart(void *data, int, char **argv, char **){
 	if (!strcmp(argv[1], "weapon")) current->type = bptWeapon;
 
 	sscanf(argv[2], "%f,%f", &current->origin.x, &current->origin.y);
-	current->sprite = atoi(argv[3]);
+	current->sprite = ((fired::Container *) data)->_sprites[atoi(argv[3])]->spr;
+	current->size   = sf::Vector2f(((fired::Container *) data)->_sprites[atoi(argv[3])]->tex->getSize());
 	return 0;
 }
 
+//======================================================================
+
+
+void fired::Container::_loadModels(sqlite3 *db) {
+	char *zErrMsg = 0;
+
+	if (sqlite3_exec(db, "SELECT * FROM Models", _loadModel, this, &zErrMsg) != SQLITE_OK)
+		printf("SQL error: %s\n", zErrMsg);
+}
+
+//======================================================================
+
+
+int fired::Container::_loadModel(void *data, int, char **argv, char **){
+	if (!strcmp(argv[1], "humanoid")) {
+		fired::NewBaseModelHumanoid *model = new fired::NewBaseModelHumanoid;
+		model->type = mtHumanoid;
+
+		sscanf(argv[3], "%f,%f\n", &model->size.x, &model->size.y);
+		sscanf(argv[4], "%f,%f\n", &model->weaponOffset.x, &model->weaponOffset.y);
+/*
+		fscanf(fp, "legsf=%s\n", field); loadModelBodypart(field, &model->partLegsF, bptLegsF);
+		fscanf(fp, "legsb=%s\n", field); loadModelBodypart(field, &model->partLegsB, bptLegsB);
+		fscanf(fp, "shoef=%s\n", field); loadModelBodypart(field, &model->partShoeF, bptShoeF);
+		fscanf(fp, "shoeb=%s\n", field); loadModelBodypart(field, &model->partShoeB, bptShoeB);
+		fscanf(fp, "fistf=%s\n", field); loadModelBodypart(field, &model->partFistF, bptFistF);
+		fscanf(fp, "fistb=%s\n", field); loadModelBodypart(field, &model->partFistB, bptFistB);
+		fscanf(fp, "arms=%s\n" , field); loadModelBodypart(field, &model->partArms , bptArms );
+		fscanf(fp, "hair=%s\n" , field); loadModelBodypart(field, &model->partHair , bptHair );
+		fscanf(fp, "head=%s\n" , field); loadModelBodypart(field, &model->partHead , bptHead );
+		fscanf(fp, "body=%s\n" , field); loadModelBodypart(field, &model->partBody , bptBody );
+*/
+		((fired::Container *) data)->_models.push_back(model);
+	}
+
+	return 0;
+}

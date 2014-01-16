@@ -575,3 +575,15 @@ int fired::Container::_loadModel(void *data, int, char **argv, char **){
 
 	return 0;
 }
+
+
+//======================================================================
+/*           SQL queries
+
+SELECT Armors.ID, Armors.ArmorType, Armors.Caption, Armors.Armor, Armors.Color, Bodyparts.ID, Armors.Extra
+FROM Armors, Bodyparts
+WHERE Armors.ArmorType = Bodyparts.BodypartType AND Armors.Model = Bodyparts.Name
+
+
+
+*/

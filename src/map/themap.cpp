@@ -4,6 +4,8 @@
 
 
 fired::Map::Map(fired::Camera *_cam, fired::World *_world) {
+	float scaleFactor;
+
 	cam      = _cam;
 	world    = _world;
 
@@ -16,6 +18,9 @@ fired::Map::Map(fired::Camera *_cam, fired::World *_world) {
 	bgTex->setRepeated(true);
 	bgTex->setSmooth(true);
 	bgSprite->setSize(sf::Vector2f(settings->window.width, settings->window.height));
+
+	scaleFactor = (float)settings->window.height / (float)bgTex->getSize().y;
+	bgSprite->setScale(scaleFactor, scaleFactor);
 
 	visibleTiles.x = settings->window.width  / TILE_SIZE + 2;
 	visibleTiles.y = settings->window.height / TILE_SIZE + 2;
@@ -42,7 +47,7 @@ void fired::Map::update() {
 	sf::Vector2f offset = cam->offset;
 
 	bgSprite->setPosition(offset);
-	bgSprite->setTextureRect(sf::IntRect(offset.x / 2, offset.y / 2, settings->window.width, settings->window.height));
+	bgSprite->setTextureRect(sf::IntRect(offset.x / 3.0f, 0, settings->window.width, settings->window.height));
 
 	render();
 }

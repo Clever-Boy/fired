@@ -362,9 +362,9 @@
 		<todo done="no" collapse="no"><title>Add trash can</title></todo>
 		<todo done="no" collapse="no"><title>Allow drop items</title></todo>
 		<todo done="no" collapse="no"><title>Graphics refactoring</title>
-			<todo done="no" collapse="no"><title>Scale BG to fit window height</title></todo>
-			<todo done="no" collapse="no"><title>Allow BG slide only horizontally</title></todo>
-			<todo done="no" collapse="no"><title>Change BG</title></todo>
+			<todo done="yes" collapse="no"><title>Scale BG to fit window height</title></todo>
+			<todo done="yes" collapse="no"><title>Allow BG slide only horizontally</title></todo>
+			<todo done="yes" collapse="no"><title>Change BG</title></todo>
 			<todo done="no" collapse="no"><title>Add sky gradient color</title></todo>
 			<todo done="no" collapse="no"><title>Add clouds</title></todo>
 			<todo done="no" collapse="no"><title>Change Tiles</title></todo>

@@ -44,7 +44,7 @@ void fired::Shot::render() {
 		app->draw(*sprite->spr);
 	} else {
 		line[0].position = pos;
-		line[1].position = pos - velocity * frameClock;
+		line[1].position = pos - velocity * frameClock * 2.0f;
 		app->draw(line);
 	}
 }

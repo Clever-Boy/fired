@@ -4,15 +4,14 @@
 
 namespace fired {
 	struct LootItem {
-		fired::ItemType type;
-		char            name[64];
+		fired::BaseItem *base;
 
-		unsigned int    minCount;
-		unsigned int    maxCount;
-		float           probability;
+		unsigned int     minCount;
+		unsigned int     maxCount;
+		float            probability;
 
 
-		LootItem(fired::ItemType _type, const char *_name, unsigned int _minCount, unsigned int _maxCount, float _probability);
+		LootItem(fired::BaseItem *_base, unsigned int _minCount, unsigned int _maxCount, float _probability);
 	};
 }
 

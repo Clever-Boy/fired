@@ -4,8 +4,9 @@
 
 
 fired::Game::Game() {
-	clock    = new sf::Clock;
-	settings = new fired::Settings();
+	clock     = new sf::Clock;
+	settings  = new fired::Settings();
+	container = new fired::Container();
 
 	unsigned long style;
 	if (settings->window.fullScreen) style = sf::Style::Fullscreen;
@@ -25,7 +26,6 @@ fired::Game::Game() {
 	gameState = gsNone;
 
 	mouse    = new fired::Mouse();
-	keyboard = new fired::Keyboard();
 	handlers = new fired::Handlers();
 
 	musicTheme = new sf::Music();
@@ -45,13 +45,13 @@ fired::Game::Game() {
 fired::Game::~Game() {
 	delete musicTheme;
 	delete mouse;
-	delete keyboard;
 	delete handlers;
 	delete gameScreen;
 	delete font;
 	delete clock;
 	delete icon;
 	delete settings;
+	delete container;
 	delete app;
 }
 
@@ -105,7 +105,7 @@ void fired::Game::processEvents() {
 void fired::Game::processEvent(sf::Event event) {
 	switch(event.type) {
 		case sf::Event::Closed:
-			running = false;
+			stop();
 			break;
 
 		case sf::Event::LostFocus:

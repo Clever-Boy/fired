@@ -50,11 +50,9 @@ namespace fired {
 		fired::GameState     gameState;
 		fired::GameState     gameStateNew;
 
+		fired::Mouse         *mouse;
 		fired::Handlers      *handlers; 
 		fired::GameScreen    *gameScreen;
-
-		fired::Keyboard *keyboard;
-		fired::Mouse    *mouse;
 
 
 		 Game();
@@ -79,5 +77,6 @@ extern float                frameClock;
 extern fired::Settings     *settings;
 extern sf::RenderWindow    *app;
 extern fired::Game         *game;
+extern fired::Container    *container;
 
 #endif

@@ -3,20 +3,30 @@
 
 
 namespace fired {
+	enum ItemType {
+		itAny,
+		itWeapon,
+		itArmor
+	};
+
+
+	struct BaseItem {
+		char               name[64];
+		char               tip[64];
+		unsigned int       maxStack;
+		int                UID;
+		fired::ItemType    type;
+		fired::GameSprite *sprite;
+	};
+
+
 	struct InventoryItem {
-		fired::ItemType type;
-		char            name[64];
-		char            caption[64];
+		fired::BaseItem *base;
 		unsigned int    count;
-		sf::Color       color;
-		sf::Sprite     *sprite;
 
+		InventoryItem();
+		InventoryItem(fired::BaseItem *_base, unsigned int _count);
 
-		 InventoryItem(fired::ItemType _type, unsigned int _count, const char *_name, fired::World *world);
-		 InventoryItem(fired::MapItem *base, fired::World *world);
-		~InventoryItem() {};
-
-		void init(fired::ItemType _type, unsigned int _count, const char *_name, fired::World *world);
 		void render(sf::Vector2f pos);
 	};
 }

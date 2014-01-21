@@ -32,7 +32,7 @@ void mapSaveDecors(fired::Map *map, FILE *fp) {
 	fwrite(&decorCount, sizeof(decorCount), 1, fp);
 
 	for (unsigned int i = 0; i < decorCount; i++) {
-		fired::MapDecor decor(map->decors[i]->name, map->decors[i]->pos);
+		fired::MapDecor decor(map->decors[i]->base->name, map->decors[i]->pos);
 		fwrite(&decor, sizeof(decor), 1, fp);
 	}
 }
@@ -44,8 +44,8 @@ void mapSaveCollectorItems(fired::MapObjectCollector *obj, FILE *fp) {
 	std::vector<fired::MapItem*> items;
 	unsigned int itemCount;
 
-	for (int i = 0; i < 10; i++) for (int j = 0; j < 5; j++) if (obj->items[i][j] != NULL)
-		items.push_back(new fired::MapItem(obj->items[i][j]->type, obj->items[i][j]->count, obj->items[i][j]->name));
+	for (int i = 0; i < 10; i++) for (int j = 0; j < 5; j++) if (obj->items[i][j].base != NULL)
+		items.push_back(new fired::MapItem(obj->items[i][j].count, obj->items[i][j].base->name));
 
 	itemCount = items.size();
 	fwrite(&itemCount, sizeof(itemCount), 1, fp);
@@ -58,7 +58,7 @@ void mapSaveCollectorItems(fired::MapObjectCollector *obj, FILE *fp) {
 
 
 void mapSaveObject(fired::MapObject *obj, FILE *fp) {
-	fired::BaseMapObject curObj(obj->decor->name, obj->decor->pos, obj->type);
+	fired::BaseMapObject curObj(obj->decor->base->name, obj->decor->pos, obj->type);
 	fwrite(&curObj, sizeof(curObj), 1, fp);
 
 	switch (curObj.type) {

@@ -4,22 +4,13 @@
 
 namespace fired {
 	struct GameSprite {
-		char         name[64];
-		sf::Sprite  *spr;
-		sf::Texture *tex;
+		sf::Sprite   *spr;
+		sf::Texture  *tex;
+		sf::Vector2f  size;
 
 
-		 GameSprite(const char *_name, const char *filename);
+		 GameSprite(const char *filename);
 		~GameSprite();
-	};
-
-	struct NewGameSprite {
-		sf::Sprite  *spr;
-		sf::Texture *tex;
-
-
-		 NewGameSprite(const char *filename);
-		~NewGameSprite();
 	};
 }
 

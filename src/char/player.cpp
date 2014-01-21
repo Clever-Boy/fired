@@ -7,7 +7,7 @@ fired::Player::Player(fired::Camera *_cam, sf::Vector2f _startpos, fired::Crossh
 	startPos = _startpos;
 	deadTime = 0;
 
-	character = new fired::Character(_cam, _startpos, world, world->getCreature("player"));
+	character = new fired::Character(_cam, _startpos, world, container->getCreature("Player"));
 	crosshair = _crosshair;
 	crosshair->owner = &character->phys;
 }
@@ -34,7 +34,6 @@ void fired::Player::update() {
 	}
 
 	character->setAiming(crosshair->angle);
-
 	character->update();
 }
 
@@ -49,7 +48,6 @@ void fired::Player::checkControls() {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))     character->moveRight();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))     character->jumpdown();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) character->jump();
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))     character->reload();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))     character->interact();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))     character->swapWeapons();
 

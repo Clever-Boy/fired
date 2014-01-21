@@ -20,21 +20,21 @@ namespace fired {
 		fired::Camera    *cam;
 
 		fired::CharacterStats  baseStats;
-		fired::Weapon         *weapon;
+		fired::BaseWeapon     *weapon;
 		fired::Model          *model;
 		fired::Inventory      *inventory;
 		fired::BaseCreature   *base;
 
-		fired::Armor *helm;
-		fired::Armor *legs;
-		fired::Armor *arms;
-		fired::Armor *body;
-		fired::Armor *shoe;
-		fired::Armor *fist;
+		fired::BaseArmor *helm;
+		fired::BaseArmor *legs;
+		fired::BaseArmor *arms;
+		fired::BaseArmor *body;
+		fired::BaseArmor *shoe;
+		fired::BaseArmor *fist;
 
 		bool  dead;
 		bool  isShooting;
-		bool  isReloading;
+		bool  wasShot;
 		int   direction;
 		int   watching;
 		float aiming;
@@ -47,7 +47,6 @@ namespace fired {
 		long lastXP;
 
 		fired::Phys phys;
-		fired::CharacterStats *getStats() { return &baseStats; };
 
 
 		 Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *_base);
@@ -62,7 +61,6 @@ namespace fired {
 		void moveRight();
 		void jump();
 		void jumpdown();
-		void reload();
 		void shot();
 		void interact();
 		void swapWeapons();
@@ -97,7 +95,7 @@ namespace fired {
 
 		void pickup(fired::InventoryItem *item)                  {inventory->pickup(item); };
 		bool canPickup(fired::InventoryItem *item)               {return inventory->canPickup(item); };
-		void generateLoot(std::vector<fired::LootItem*> *_items) {inventory->generateLoot(_items, world); };
+		void generateLoot(std::vector<fired::LootItem*> *_items) {inventory->generateLoot(_items); };
 	};
 }
 

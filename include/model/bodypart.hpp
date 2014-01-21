@@ -4,12 +4,6 @@
 
 namespace fired {
 	enum BodypartType {
-		bptLegsF,
-		bptLegsB,
-		bptFistF,
-		bptFistB,
-		bptShoeF,
-		bptShoeB,
 		bptLegs,
 		bptFist,
 		bptShoe,
@@ -24,21 +18,8 @@ namespace fired {
 	struct BaseBodypart {
 		char                name[64];
 		sf::Sprite         *sprite;
-		sf::Sprite         *chunk;
-		sf::Texture        *texture;
 		sf::Vector2f        origin;
 		sf::Vector2f        size;
-		fired::BodypartType type;
-
-		~BaseBodypart();
-	};
-
-
-	struct NewBaseBodypart {
-		char                name[64];
-		sf::Sprite         *sprite;
-		sf::Vector2f        size;
-		sf::Vector2f        origin;
 		fired::BodypartType type;
 	};
 

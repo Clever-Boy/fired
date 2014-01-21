@@ -5,7 +5,8 @@
 
 
 fired::CollectableItem::CollectableItem(fired::InventoryItem *_item, sf::Vector2f pos, sf::Vector2f velocity, fired::World *_world) {
-	item  = _item;
+	item.base  = _item->base;
+	item.count = _item->count;
 	world = _world;
 
 	phys.size         = sf::Vector2f(8, 8);
@@ -22,7 +23,6 @@ fired::CollectableItem::CollectableItem(fired::InventoryItem *_item, sf::Vector2
 
 void fired::CollectableItem::update() {
 	if (phys.onGround) phys.velocity.x = 0;
-
 	if (world->isRectVisible(phys.rect)) render();
 }
 
@@ -30,5 +30,5 @@ void fired::CollectableItem::update() {
 
 
 void fired::CollectableItem::render() {
-	item->render(phys.pos);
+	item.render(phys.pos);
 }

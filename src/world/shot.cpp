@@ -3,12 +3,12 @@
 //======================================================================
 
 
-fired::Shot::Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner, sf::Sprite *_sprite, fired::World *_world) {
+fired::Shot::Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner, fired::GameSprite *_sprite, fired::World *_world) {
 	pos       = _pos;
 	owner     = _owner;
 	angle     = _angle;
-	sprite    = _sprite;
 	world     = _world;
+	sprite    = _sprite;
 	damage    = owner->getDamage();
 	knockback = owner->getKnockback();
 	leftToFly = owner->getRange();
@@ -17,13 +17,7 @@ fired::Shot::Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character
 	line = sf::VertexArray(sf::Lines, 2);
 	line[0].color = sf::Color::White;
 	line[1].color = sf::Color(141, 152, 141, 50);
-}
 
-//======================================================================
-
-
-fired::Shot::~Shot() {
-	return;
 }
 
 //======================================================================
@@ -44,9 +38,10 @@ bool fired::Shot::update() {
 
 void fired::Shot::render() {
 	if (sprite != NULL) {
-		sprite->setRotation(angle * 180 / 3.14);
-		sprite->setPosition(pos);
-		app->draw(*sprite);
+		sprite->spr->setOrigin(sprite->size / 2.0f);
+		sprite->spr->setRotation(angle * 180 / 3.14);
+		sprite->spr->setPosition(pos);
+		app->draw(*sprite->spr);
 	} else {
 		line[0].position = pos;
 		line[1].position = pos - velocity * frameClock;

@@ -21,14 +21,13 @@ namespace fired {
 		float        knockback;
 		float        leftToFly;
 
-		sf::VertexArray   line;
-		sf::Sprite       *sprite;
-		fired::Character *owner;
-		fired::World     *world;
+		sf::VertexArray    line;
+		fired::GameSprite *sprite;
+		fired::Character  *owner;
+		fired::World      *world;
 
 
-		 Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner, sf::Sprite *_sprite, fired::World *_world);
-		~Shot();
+		 Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner, fired::GameSprite *_sprite, fired::World *_world);
 
 		bool update();
 		void render();

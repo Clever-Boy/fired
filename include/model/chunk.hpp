@@ -11,8 +11,6 @@ namespace fired {
 		fired::World        *world;
 		fired::Phys          phys;
 
-		sf::Vector2f speed;
-		sf::Vector2f pos;
 		sf::Color    color;
 		float        rotationSpeed;
 		float        rotation;

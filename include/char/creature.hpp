@@ -15,13 +15,14 @@ namespace fired {
 namespace fired {
 	struct BaseCreature {
 		char  name[64];
-		char  model[64];
-		char  weapon[64];
 		char  ai[64];
-		char  fraction[64];
 		float modelScale;
+		int   fraction;
 
-		fired::CharacterStats stats;
+		fired::CharacterStats  stats;
+		fired::BaseModel      *model;
+		fired::BaseWeapon     *weapon;
+
 		std::vector<fired::LootItem*> loot;
 
 

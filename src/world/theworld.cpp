@@ -9,7 +9,6 @@ fired::World::World(fired::Mouse *_mouse) {
 	mouse  = _mouse;
 	state  = wsNormal;
 
-	container = new fired::Container(this);
 	cam       = new fired::Camera();
 	map       = new fired::Map(cam, this);
 	crosshair = new fired::Crosshair(cam);
@@ -25,8 +24,8 @@ fired::World::World(fired::Mouse *_mouse) {
 
 	chars.push_back(player->character);
 
-	spawn(sf::Vector2f(2288, 560), "soldier");
-	spawn(sf::Vector2f(2388, 560), "soldier");
+	spawn(sf::Vector2f(2288, 560), "Soldier");
+	spawn(sf::Vector2f(2388, 560), "Soldier");
 }
 
 //======================================================================
@@ -38,7 +37,6 @@ fired::World::~World() {
 	delete map;
 	delete gui;
 	delete cam;
-	delete container;
 
 	delete inventoryWin;
 	delete exchangeWin;
@@ -138,7 +136,7 @@ void fired::World::checkCreatures() {
 
 			delete creatures[i];
 			creatures.erase(creatures.begin() + i);
-			spawn(sf::Vector2f(2288, 560), "soldier");
+			spawn(sf::Vector2f(2288, 560), "Soldier");
 		} else
 			i++;
 	}
@@ -162,15 +160,17 @@ void fired::World::checkItems() {
 
 		for (unsigned int j = 0; j < chars.size(); j++) {
 			if ( chars[j]->dead) continue;
-			if (!chars[j]->canPickup(items[i]->item)) continue;
+			if (!chars[j]->canPickup(&items[i]->item)) continue;
 
 			if (chars[j]->phys.rect.intersects(items[i]->phys.rect)) {
-				chars[j]->pickup(items[i]->item);
+				chars[j]->pickup(&items[i]->item);
 
-				delete items[i];
-				items.erase(items.begin() + i);
-				i++;
-				break;
+				if (!items[i]->item.count) {
+					delete items[i];
+					items.erase(items.begin() + i);
+					i++;
+					break;
+				}
 			}
 		}
 	}
@@ -220,7 +220,7 @@ bool fired::World::isCharExists(fired::Character *character) {
 
 
 void fired::World::spawn(sf::Vector2f pos, const char *creature) {
-	creatures.push_back(new fired::Creature(cam, pos, this, getCreature(creature)));
+	creatures.push_back(new fired::Creature(cam, pos, this, container->getCreature(creature)));
 	chars.push_back(creatures.back()->character);
 }
 

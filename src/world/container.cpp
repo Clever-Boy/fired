@@ -3,24 +3,28 @@
 //======================================================================
 
 
-fired::Container::Container(fired::World *_world) {
-	world    = _world;
+fired::Container::Container() {
+	sqlite3 *db;
+	sqlite3_open("data/database.sqlite", &db);
 
-	loadSprites();
-	loadBodyparts();
-	loadWeapons();
-	loadArmors();
-	loadModels();
-	loadCreatures();
-	loadDecors();
+	loadSprites(db);
+	loadSounds(db);
+	loadDecors(db);
+	loadBodyparts(db);
+	loadModels(db);
+	loadArmors(db);
+	loadWeapons(db);
+	loadItems(db);
+	loadCreatures(db);
 
-	NewLoad();
+	sqlite3_close(db);
 }
 
 //======================================================================
 
 
 fired::Container::~Container() {
+	deleteList(items);
 	deleteList(weapons);
 	deleteList(armors);
 	deleteList(bodyparts);
@@ -28,210 +32,137 @@ fired::Container::~Container() {
 	deleteList(creatures);
 	deleteList(decors);
 	deleteList(sprites);
-
-	deleteList(_sprites);
-	deleteList(_bodyparts);
+	deleteList(sounds);
 }
 
 //======================================================================
 
 
-void fired::Container::loadWeapons() {
-	std::vector<std::string> files;
-	char filename[128];
+fired::BaseAI *fired::Container::getAI(const char *name, fired::Creature *owner, fired::World *world) {
+	if (!strcmp(name, "idle")) return new fired::IdleAI(owner, world);
+	if (!strcmp(name, "basic")) return new fired::BasicAI(owner, world);
 
-	directoryContents("data/game/weapons", &files);
-	for (unsigned int i = 0; i < files.size(); i++) {
-		snprintf(filename, sizeof(filename), "data/game/weapons/%s", files[i].c_str());
-		loadWeapon(filename);
-	}
+	return new fired::BaseAI();
 }
 
 //======================================================================
 
 
-void fired::Container::loadWeapon(const char* filename) {
-	char type[64];
-	char file[128];
-	char path[128];
-	weapons.push_back(new fired::BaseWeapon);
+void fired::Container::loadSprites(sqlite3 *db) {
+	char *zErrMsg = 0;
 
-	FILE *fp = fopen(filename, "r");
-	fscanf(fp, "name=%s\n"       , weapons.back()->name);
-	fscanf(fp, "caption=%[^\n]\n", weapons.back()->caption);
-	fscanf(fp, "model=%s\n"      , weapons.back()->model);
-	fscanf(fp, "damage=%u\n"     , &weapons.back()->damage);
-	fscanf(fp, "range=%f\n"      , &weapons.back()->range);
-	fscanf(fp, "cooldown=%f\n"   , &weapons.back()->cooldown);
-	fscanf(fp, "knockback=%f\n"  , &weapons.back()->knockback);
-	fscanf(fp, "auto=%u\n"       , &weapons.back()->automatic);
-	fscanf(fp, "type=%s\n"       , type);
-
-	if (!strcmp(type, "melee")) {
-		weapons.back()->type = WEAPON_TYPE_MELEE;
-		weapons.back()->clip = -1;
-	} else if (!strcmp(type, "broad")) {
-		weapons.back()->type = WEAPON_TYPE_BROAD;
-		weapons.back()->clip = -1;
-	} else if (!strcmp(type, "ranged")) {
-		weapons.back()->type = WEAPON_TYPE_RANGED;
-		fscanf(fp, "speed=%f\n"     , &weapons.back()->speed);
-		fscanf(fp, "reload=%f\n"    , &weapons.back()->reload);
-		fscanf(fp, "clip=%u\n"      , &weapons.back()->clip);
-
-		fscanf(fp, "fire_snd=%s\n"  , file);
-		snprintf(path, sizeof(path), "data/snd/weapons/%s", file);
-		weapons.back()->shotBuffer = new sf::SoundBuffer();
-		weapons.back()->shotBuffer->loadFromFile(path);
-
-		fscanf(fp, "reload_snd=%s\n", file);
-		snprintf(path, sizeof(path), "data/snd/weapons/%s", file);
-		weapons.back()->reloadBuffer = new sf::SoundBuffer();
-		weapons.back()->reloadBuffer->loadFromFile(path);
-
-		fscanf(fp, "sprite=%s\n", path);
-		if (!strcmp(path, "null")) weapons.back()->shotSprite = NULL;
-		else weapons.back()->shotSprite = getSprite(path);
-	}
-
-	fclose(fp);
+	if (sqlite3_exec(db, "SELECT Path FROM Sprites",
+	                     loadSprite, this, &zErrMsg) != SQLITE_OK)
+		printf("SQL error: %s\n", zErrMsg);
 }
 
 //======================================================================
 
 
-fired::BaseWeapon* fired::Container::getWeapon(const char* name) {
-	for (unsigned int i = 0; i < weapons.size(); i++)
-		if (!strcmp(name, weapons[i]->name)) return weapons[i];
+int fired::Container::loadSprite(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->sprites.push_back(new fired::GameSprite(argv[0]));
+	return 0;
+}
+
+//======================================================================
+
+
+void fired::Container::loadSounds(sqlite3 *db) {
+	char *zErrMsg = 0;
+
+	if (sqlite3_exec(db, "SELECT Name, Path FROM Sounds",
+	                     loadSound, this, &zErrMsg) != SQLITE_OK)
+		printf("SQL error: %s\n", zErrMsg);
+}
+
+//======================================================================
+
+
+int fired::Container::loadSound(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->sounds.push_back(new fired::GameSound(argv[1], argv[0]));
+	return 0;
+}
+
+//======================================================================
+
+
+sf::Sound* fired::Container::getSound(const char *name) {
+	for (unsigned int i = 0; i < sounds.size(); i++)
+		if (!strcmp(name, sounds[i]->name)) return sounds[i]->snd;
 
 	return NULL;
 }
 
+
 //======================================================================
 
 
-void fired::Container::loadArmors() {
-	loadArmorsInDir("arms" , acArms);
-	loadArmorsInDir("body" , acBody);
-	loadArmorsInDir("head" , acHelm);
-	loadArmorsInDir("fist" , acFist);
-	loadArmorsInDir("legs" , acLegs);
-	loadArmorsInDir("shoe" , acShoe);
+void fired::Container::loadDecors(sqlite3 *db) {
+	char *zErrMsg = 0;
+
+	if (sqlite3_exec(db, "SELECT Decors.*, Sprites.ID "
+	                     "FROM Decors, Sprites "
+	                     "WHERE Sprites.Name = Decors.Sprite",
+	                     loadDecor, this, &zErrMsg) != SQLITE_OK)
+		printf("SQL error: %s\n", zErrMsg);
 }
 
 //======================================================================
 
 
-void fired::Container::loadArmorsInDir(const char *dir, fired::ArmorClass type) {
-	std::vector<std::string> files;
-	char dirname[128];
-	char filename[128];
-
-
-	snprintf(dirname, sizeof(dirname), "data/game/armors/%s", dir);
-	directoryContents(dirname, &files);
-	for (unsigned int i = 0; i < files.size(); i++) {
-		snprintf(filename, sizeof(filename), "data/game/armors/%s/%s", dir, files[i].c_str());
-		loadArmor(filename, type);
-	}
+int fired::Container::loadDecor(void *data, int, char **argv, char **) {
+	sf::Vector2f size;
+	sscanf(argv[2], "%f,%f", &size.x, &size.y);
+	((fired::Container *) data)->decors.push_back(new fired::BaseDecor(argv[1], size, ((fired::Container *) data)->sprites[atoi(argv[4])]));
+	return 0;
 }
 
 //======================================================================
 
 
-void fired::Container::loadArmor(const char* filename, fired::ArmorClass type) {
-	armors.push_back(new fired::BaseArmor);
-	armors.back()->type = type;
-
-	FILE *fp = fopen(filename, "r");
-	fscanf(fp, "name=%s\n"       ,  armors.back()->name);
-	fscanf(fp, "caption=%[^\n]\n",  armors.back()->caption);
-	fscanf(fp, "armor=%d\n"      , &armors.back()->armor);
-	fscanf(fp, "model=%s\n"      ,  armors.back()->model);
-	fscanf(fp, "color=%hhu,%hhu,%hhu,%hhu\n", &armors.back()->color.r, &armors.back()->color.g, &armors.back()->color.b, &armors.back()->color.a);
-	fclose(fp);
-}
-
-//======================================================================
-
-
-fired::BaseArmor* fired::Container::getArmor(const char* name, fired::ArmorClass type) {
-	for (unsigned int i = 0; i < armors.size(); i++)
-		if (!strcmp(name, armors[i]->name) && type == armors[i]->type) return armors[i];
+fired::BaseDecor* fired::Container::getDecor(const char *name) {
+	for (unsigned int i = 0; i < decors.size(); i++)
+		if (!strcmp(name, decors[i]->name)) return decors[i];
 
 	return NULL;
 }
 
+
 //======================================================================
 
 
-void fired::Container::loadBodyparts() {
-	loadBodypartsInDir("arms"  , bptArms);
-	loadBodypartsInDir("body"  , bptBody);
-	loadBodypartsInDir("head"  , bptHead);
-	loadBodypartsInDir("hair"  , bptHair);
-	loadBodypartsInDir("fistF" , bptFistF);
-	loadBodypartsInDir("fistB" , bptFistB);
-	loadBodypartsInDir("legsF" , bptLegsF);
-	loadBodypartsInDir("legsB" , bptLegsB);
-	loadBodypartsInDir("shoeF" , bptShoeF);
-	loadBodypartsInDir("shoeB" , bptShoeB);
-	loadBodypartsInDir("weapon", bptWeapon);
+void fired::Container::loadBodyparts(sqlite3 *db) {
+	char *zErrMsg = 0;
+
+	if (sqlite3_exec(db, "SELECT Bodyparts.Name, Bodyparts.BodypartType, Bodyparts.Origin, Sprites.ID "
+	                     "FROM Bodyparts, Sprites "
+	                     "WHERE Sprites.Name = Bodyparts.Sprite",
+	                     loadBodypart, this, &zErrMsg) != SQLITE_OK)
+		printf("SQL error: %s\n", zErrMsg);
 }
 
 //======================================================================
 
 
-void fired::Container::loadBodypartsInDir(const char *dir, fired::BodypartType type) {
-	std::vector<std::string> files;
-	char dirname[128];
-	char filename[128];
+int fired::Container::loadBodypart(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->bodyparts.push_back(new fired::BaseBodypart);
+	fired::BaseBodypart *current = ((fired::Container *) data)->bodyparts.back();
 
-	bodyparts.push_back(new fired::BaseBodypart);
-	bodyparts.back()->texture = new sf::Texture;
-	bodyparts.back()->type = type;
-	bodyparts.back()->sprite = new sf::Sprite;
-	bodyparts.back()->chunk = new sf::Sprite;
-	strncpy(bodyparts.back()->name, "null", 5);
+	strcpy(current->name, argv[0]);
 
+	if (!strcmp(argv[1], "arms"  )) current->type = bptArms;
+	if (!strcmp(argv[1], "head"  )) current->type = bptHead;
+	if (!strcmp(argv[1], "hair"  )) current->type = bptHair;
+	if (!strcmp(argv[1], "body"  )) current->type = bptBody;
+	if (!strcmp(argv[1], "legs"  )) current->type = bptLegs;
+	if (!strcmp(argv[1], "shoe"  )) current->type = bptShoe;
+	if (!strcmp(argv[1], "fist"  )) current->type = bptFist;
+	if (!strcmp(argv[1], "weapon")) current->type = bptWeapon;
 
-	snprintf(dirname, sizeof(dirname), "data/game/bodyparts/%s", dir);
-	directoryContents(dirname, &files);
-	for (unsigned int i = 0; i < files.size(); i++) {
-		snprintf(filename, sizeof(filename), "data/game/bodyparts/%s/%s", dir, files[i].c_str());
-		loadBodypart(dir, filename, type);
-	}
-}
-
-//======================================================================
-
-
-void fired::Container::loadBodypart(const char *dir, const char* filename, fired::BodypartType type) {
-	char imgfile[128];
-	char imgpath[128];
-	bodyparts.push_back(new fired::BaseBodypart);
-
-	FILE *fp = fopen(filename, "r");
-	fscanf(fp, "name=%s\n"     , bodyparts.back()->name);
-	fscanf(fp, "origin=%f,%f\n", &bodyparts.back()->origin.x, &bodyparts.back()->origin.y);
-	fscanf(fp, "image=%s\n"    , imgfile);
-	fclose(fp);
-
-	snprintf(imgpath, sizeof(imgpath), "data/img/world/models/%s/%s", dir, imgfile);
-	bodyparts.back()->texture = new sf::Texture;
-	bodyparts.back()->texture->loadFromFile(imgpath);
-	bodyparts.back()->texture->setSmooth(true);
-
-	bodyparts.back()->type = type;
-	bodyparts.back()->size = sf::Vector2f(bodyparts.back()->texture->getSize());
-
-	bodyparts.back()->sprite = new sf::Sprite;
-	bodyparts.back()->sprite->setTexture(*bodyparts.back()->texture);
-	bodyparts.back()->sprite->setOrigin(bodyparts.back()->origin);
-
-	bodyparts.back()->chunk = new sf::Sprite;
-	bodyparts.back()->chunk->setTexture(*bodyparts.back()->texture);
-	bodyparts.back()->chunk->setOrigin(bodyparts.back()->size / 2.0f);
+	sscanf(argv[2], "%f,%f", &current->origin.x, &current->origin.y);
+	current->sprite = ((fired::Container *) data)->sprites[atoi(argv[3])]->spr;
+	current->size   = sf::Vector2f(((fired::Container *) data)->sprites[atoi(argv[3])]->tex->getSize());
+	return 0;
 }
 
 //======================================================================
@@ -247,343 +178,288 @@ fired::BaseBodypart* fired::Container::getBodypart(const char* name, fired::Body
 //======================================================================
 
 
-void fired::Container::loadModels() {
-	std::vector<std::string> files;
-	char filename[128];
+void fired::Container::loadModels(sqlite3 *db) {
+	char *zErrMsg = 0;
 
-	directoryContents("data/game/models", &files);
-	for (unsigned int i = 0; i < files.size(); i++) {
-		snprintf(filename, sizeof(filename), "data/game/models/%s", files[i].c_str());
-		loadModel(filename);
-	}
+	if (sqlite3_exec(db, "SELECT * FROM Models",
+	                     loadModel, this, &zErrMsg) != SQLITE_OK)
+		printf("SQL error: %s\n", zErrMsg);
 }
 
 //======================================================================
 
 
 void fired::Container::loadModelBodypart(const char* s, fired::BaseModelBodypart *bodypart, fired::BodypartType type) {
-	char field[128];
+		char field[128];
 
-	sscanf(s, "%[^,],(%hhu,%hhu,%hhu,%hhu),(%f,%f)\n", field, &bodypart->color.r, &bodypart->color.g, &bodypart->color.b, &bodypart->color.a, &bodypart->offset.x, &bodypart->offset.y);
-	bodypart->part = getBodypart(field, type);
+		sscanf(s, "%[^,],(%hhu,%hhu,%hhu,%hhu),(%f,%f)\n", field, &bodypart->color.r, &bodypart->color.g, &bodypart->color.b, &bodypart->color.a, &bodypart->offset.x, &bodypart->offset.y);
+		bodypart->part = getBodypart(field, type);
 }
 
 //======================================================================
 
 
-void fired::Container::loadModel(const char* filename) {
+int fired::Container::loadModel(void *data, int, char **argv, char **) {
 	char field[128];
 
-	FILE *fp = fopen(filename, "r");
-	fscanf(fp, "type=%s\n", field);
-
-	if (!strcmp(field, "humanoid")) {
+	if (!strcmp(argv[1], "humanoid")) {
 		fired::BaseModelHumanoid *model = new fired::BaseModelHumanoid;
 		model->type = mtHumanoid;
-		fscanf(fp, "name=%s\n"    , model->name);
-		fscanf(fp, "size=%f,%f\n", &model->size.x, &model->size.y);
-		fscanf(fp, "weapon_offset=%f,%f\n", &model->weaponOffset.x, &model->weaponOffset.y);
 
-		fscanf(fp, "legsf=%s\n", field); loadModelBodypart(field, &model->partLegsF, bptLegsF);
-		fscanf(fp, "legsb=%s\n", field); loadModelBodypart(field, &model->partLegsB, bptLegsB);
-		fscanf(fp, "shoef=%s\n", field); loadModelBodypart(field, &model->partShoeF, bptShoeF);
-		fscanf(fp, "shoeb=%s\n", field); loadModelBodypart(field, &model->partShoeB, bptShoeB);
-		fscanf(fp, "fistf=%s\n", field); loadModelBodypart(field, &model->partFistF, bptFistF);
-		fscanf(fp, "fistb=%s\n", field); loadModelBodypart(field, &model->partFistB, bptFistB);
-		fscanf(fp, "arms=%s\n" , field); loadModelBodypart(field, &model->partArms , bptArms );
-		fscanf(fp, "hair=%s\n" , field); loadModelBodypart(field, &model->partHair , bptHair );
-		fscanf(fp, "head=%s\n" , field); loadModelBodypart(field, &model->partHead , bptHead );
-		fscanf(fp, "body=%s\n" , field); loadModelBodypart(field, &model->partBody , bptBody );
+		sscanf(argv[3], "%f,%f\n", &model->size.x, &model->size.y);
+		sscanf(argv[4], "%f,%f\n", &model->weaponOffset.x, &model->weaponOffset.y);
 
-		models.push_back(model);
+		sscanf(strstr(argv[5], "legsf"), "legsf=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partLegsF, bptLegs);
+		sscanf(strstr(argv[5], "legsb"), "legsb=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partLegsB, bptLegs);
+		sscanf(strstr(argv[5], "shoef"), "shoef=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partShoeF, bptShoe);
+		sscanf(strstr(argv[5], "shoeb"), "shoeb=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partShoeB, bptShoe);
+		sscanf(strstr(argv[5], "fistf"), "fistf=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partFistF, bptFist);
+		sscanf(strstr(argv[5], "fistb"), "fistb=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partFistB, bptFist);
+		sscanf(strstr(argv[5], "arms" ), "arms=%s\n" , field); ((fired::Container *) data)->loadModelBodypart(field, &model->partArms , bptArms);
+		sscanf(strstr(argv[5], "hair" ), "hair=%s\n" , field); ((fired::Container *) data)->loadModelBodypart(field, &model->partHair , bptHair);
+		sscanf(strstr(argv[5], "head" ), "head=%s\n" , field); ((fired::Container *) data)->loadModelBodypart(field, &model->partHead , bptHead);
+		sscanf(strstr(argv[5], "body" ), "body=%s\n" , field); ((fired::Container *) data)->loadModelBodypart(field, &model->partBody , bptBody);
+
+		((fired::Container *) data)->models.push_back(model);
 	}
+
+	return 0;
+}
+
+
+//======================================================================
+
+
+void fired::Container::loadArmors(sqlite3 *db) {
+	char *zErrMsg = 0;
+
+	if (sqlite3_exec(db, "SELECT Armors.ArmorType, Armors.Caption, Armors.Armor, Armors.Color, Bodyparts.ID, Armors.Extra, Armors.Name "
+	                     "FROM Armors, Bodyparts "
+	                     "WHERE Armors.ArmorType = Bodyparts.BodypartType "
+	                     "AND Armors.Model = Bodyparts.Name",
+	                     loadArmor, this, &zErrMsg) != SQLITE_OK)
+		printf("SQL error: %s\n", zErrMsg);
 }
 
 //======================================================================
 
 
-fired::BaseModel* fired::Container::getModel(const char* name) {
-	for (unsigned int i = 0; i < models.size(); i++)
-		if (!strcmp(name, models[i]->name)) return models[i];
+int fired::Container::loadArmor(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->armors.push_back(new fired::BaseArmor);
+	fired::BaseArmor *current = ((fired::Container *) data)->armors.back();
+
+	strcpy(current->caption, argv[1]);
+	strcpy(current->name   , argv[6]);
+
+	if (!strcmp(argv[0], "arms"  )) current->type = acArms;
+	if (!strcmp(argv[0], "hair"  )) current->type = acHelm;
+	if (!strcmp(argv[0], "body"  )) current->type = acBody;
+	if (!strcmp(argv[0], "legs"  )) current->type = acLegs;
+	if (!strcmp(argv[0], "shoe"  )) current->type = acShoe;
+	if (!strcmp(argv[0], "fist"  )) current->type = acFist;
+
+	current->armor = atoi(argv[2]);
+	current->base  = ((fired::Container *) data)->bodyparts[atoi(argv[4])];
+
+	sscanf(argv[3], "%hhu,%hhu,%hhu,%hhu", &current->color.r, &current->color.g, &current->color.b, &current->color.a);
+	return 0;
+}
+
+//======================================================================
+
+
+int fired::Container::getArmorIndex(const char *name) {
+	for (unsigned int i = 0; i < armors.size(); i++)
+		if (!strcmp(name, armors[i]->name)) return i;
+
+	return -1;
+}
+
+//======================================================================
+
+
+void fired::Container::loadWeapons(sqlite3 *db) {
+	char *zErrMsg = 0;
+
+	if (sqlite3_exec(db, "SELECT Weapons.*, Sprites.ID, Bodyparts.ID "
+	                     "FROM Weapons "
+	                     "LEFT OUTER JOIN Sprites ON Weapons.ShotSprite = Sprites.Name "
+	                     "LEFT OUTER JOIN Bodyparts ON Weapons.Model = Bodyparts.Name "
+	                     "WHERE (Bodyparts.BodypartType = 'weapon' OR Bodyparts.ID is NULL)",
+	                     loadWeapon, this, &zErrMsg) != SQLITE_OK)
+		printf("SQL error: %s\n", zErrMsg);
+}
+
+//======================================================================
+
+
+int fired::Container::loadWeapon(void *data, int, char **argv, char **){
+	((fired::Container *) data)->weapons.push_back(new fired::BaseWeapon);
+	fired::BaseWeapon *current = ((fired::Container *) data)->weapons.back();
+
+	strcpy(current->name   , argv[1]);
+	strcpy(current->caption, argv[2]);
+
+	sscanf(argv[4], "%d", &current->damage);
+	sscanf(argv[5], "%f", &current->range);
+	sscanf(argv[6], "%f", &current->cooldown);
+	sscanf(argv[7], "%f", &current->knockback);
+	sscanf(argv[8], "%d", &current->automatic);
+
+	if (!strcmp(argv[9], "broad" )) current->type = WEAPON_TYPE_BROAD;
+	if (!strcmp(argv[9], "melee" )) current->type = WEAPON_TYPE_MELEE;
+	if (!strcmp(argv[9], "ranged")) current->type = WEAPON_TYPE_RANGED;
+
+	if (argv[12] && (strlen(argv[12]) > 0)) sscanf(argv[12], "%f", &current->speed);
+
+	if (argv[10] && (strlen(argv[10]) > 0)) current->shotSound  = ((fired::Container *) data)->getSound(argv[10]);
+	else current->shotSound = NULL;
+
+	if (argv[13] && (strlen(argv[13]) > 0)) current->shotSprite = ((fired::Container *) data)->sprites[atoi(argv[13])];
+	else current->shotSprite = NULL;
+
+	if (argv[14] && (strlen(argv[14]) > 0)) current->bodypart   = ((fired::Container *) data)->bodyparts[atoi(argv[14])];
+	else current->bodypart = NULL;
+
+	return 0;
+}
+
+//======================================================================
+
+
+int fired::Container::getWeaponIndex(const char *name) {
+	for (unsigned int i = 0; i < weapons.size(); i++)
+		if (!strcmp(name, weapons[i]->name)) return i;
+
+	return -1;
+}
+
+//======================================================================
+
+
+void fired::Container::loadItems(sqlite3 *db) {
+	char *zErrMsg = 0;
+
+	if (sqlite3_exec(db, "SELECT Items.*, Sprites.ID "
+	                     "FROM Items, Sprites "
+	                     "WHERE Sprites.Name = Items.Icon",
+	                     loadItem, this, &zErrMsg) != SQLITE_OK)
+		printf("SQL error: %s\n", zErrMsg);
+}
+
+//======================================================================
+
+
+int fired::Container::loadItem(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->items.push_back(new fired::BaseItem);
+	fired::BaseItem *current = ((fired::Container *) data)->items.back();
+
+	strcpy(current->name, argv[1]);
+	if (argv[6]) strcpy(current->tip , argv[6]);
+	current->sprite = ((fired::Container *) data)->sprites[atoi(argv[7])];
+
+	if (argv[5]) current->maxStack = atoi(argv[5]);
+	else         current->maxStack = 0;
+
+	if (!strcmp(argv[3], "armor" )) current->type = itArmor;
+	if (!strcmp(argv[3], "weapon")) current->type = itWeapon;
+
+	switch (current->type) {
+		case itAny:
+			break;
+
+		case itArmor:
+			current->UID = ((fired::Container *) data)->getArmorIndex(argv[4]);
+			break;
+
+		case itWeapon:
+			current->UID = ((fired::Container *) data)->getWeaponIndex(argv[4]);
+			break;
+	}
+
+	return 0;
+}
+
+//======================================================================
+
+
+fired::BaseItem *fired::Container::getItem(const char *name) {
+	for (unsigned int i = 0; i < items.size(); i++)
+		if (!strcmp(name, items[i]->name)) return items[i];
 
 	return NULL;
 }
 
+
 //======================================================================
 
 
-void fired::Container::loadCreatures() {
-	std::vector<std::string> files;
-	char filename[128];
-
-	directoryContents("data/game/creatures", &files);
-	for (unsigned int i = 0; i < files.size(); i++) {
-		snprintf(filename, sizeof(filename), "data/game/creatures/%s", files[i].c_str());
-		loadCreature(filename);
-	}
+void fired::Container::loadCreatures(sqlite3 *db) {
+	char *zErrMsg = 0;
+//   
+	if (sqlite3_exec(db, "SELECT Creatures.*, Models.ID, Weapons.ID "
+	                     "FROM Creatures, Weapons, Models "
+	                     "WHERE Creatures.Model = Models.ModelName "
+	                     "AND Creatures.Weapon = Weapons.Name",
+	                     loadCreature, this, &zErrMsg) != SQLITE_OK)
+		printf("SQL error: %s\n", zErrMsg);
 }
 
 //======================================================================
 
 
-void fired::Container::loadCreature(const char* filename) {
-	fired::ItemType type;
-	char            strtype[64];
-	char            name[64];
-	unsigned int    minCount;
-	unsigned int    maxCount;
-	float           probability;
+void fired::Container::loadCreatureLoot(fired::BaseCreature *current, const char *lootStr) {
+	char         name[64];
+	unsigned int minCount;
+	unsigned int maxCount;
+	float        probability;
 
-
-	creatures.push_back(new fired::BaseCreature);
-	creatures.back()->loot.clear();
-
-	FILE *fp = fopen(filename, "r");
-	fscanf(fp, "name=%s\n"    ,  creatures.back()->name);
-	fscanf(fp, "ai=%s\n"      ,  creatures.back()->ai);
-	fscanf(fp, "fraction=%s\n",  creatures.back()->fraction);
-	fscanf(fp, "model=%s\n"   ,  creatures.back()->model);
-	fscanf(fp, "scale=%f\n"   , &creatures.back()->modelScale);
-	fscanf(fp, "weapon=%s\n"  ,  creatures.back()->weapon);
-	fscanf(fp, "armor=%u\n"   , &creatures.back()->stats.armor);
-	fscanf(fp, "speed=%f\n"   , &creatures.back()->stats.speed);
-	fscanf(fp, "accel=%f\n"   , &creatures.back()->stats.accel);
-	fscanf(fp, "jump=%f\n"    , &creatures.back()->stats.jump);
-	fscanf(fp, "aimrange=%f\n", &creatures.back()->stats.aimrange);
-	fscanf(fp, "maxHP=%u\n"   , &creatures.back()->stats.maxHP);
-
-	while (fscanf(fp, "loot=(%[^,],%[^)]),(%u,%u),%f\n", strtype, name, &minCount, &maxCount, &probability) != EOF) {
-		if (!strcmp(strtype, "money" )) type = itMoney;
-		if (!strcmp(strtype, "weapon")) type = itWeapon;
-		if (!strcmp(strtype, "helm")) type = itArmorHelm;
-		if (!strcmp(strtype, "fist")) type = itArmorFist;
-		if (!strcmp(strtype, "legs")) type = itArmorLegs;
-		if (!strcmp(strtype, "body")) type = itArmorBody;
-		if (!strcmp(strtype, "arms")) type = itArmorArms;
-		if (!strcmp(strtype, "shoe")) type = itArmorShoe;
-
-		creatures.back()->loot.push_back(new fired::LootItem(type, name, minCount, maxCount, probability));
-	}
-
-	fclose(fp);
+	sscanf(lootStr, "(%[^)]),(%u,%u),%f\n", name, &minCount, &maxCount, &probability);
+	current->loot.push_back(new fired::LootItem(getItem(name), minCount, maxCount, probability));
 }
 
 //======================================================================
 
 
-fired::BaseCreature* fired::Container::getCreature(const char* name) {
+int fired::Container::loadCreature(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->creatures.push_back(new fired::BaseCreature);
+	fired::BaseCreature *current = ((fired::Container *) data)->creatures.back();
+
+	strcpy(current->name, argv[1]);
+	strcpy(current->ai  , argv[2]);
+
+	if (!strcmp(argv[3], "player"))  current->fraction = FIRED_FRACTION_PLAYER;
+	if (!strcmp(argv[3], "soldier")) current->fraction = FIRED_FRACTION_SOLDIER;
+
+	sscanf(argv[5] , "%f", &current->modelScale);
+	sscanf(argv[7] , "%d", &current->stats.armor);
+	sscanf(argv[8] , "%f", &current->stats.speed);
+	sscanf(argv[9] , "%f", &current->stats.accel);
+	sscanf(argv[10], "%f", &current->stats.jump);
+	sscanf(argv[11], "%f", &current->stats.aimrange);
+	sscanf(argv[12], "%d", &current->stats.maxHP);
+
+	current->model  = ((fired::Container *) data)->models[atoi(argv[14])];
+	current->weapon = ((fired::Container *) data)->weapons[atoi(argv[15])];
+
+	if (argv[13]) {
+		char *token = strtok(argv[13], "\n");
+
+		while (token) {
+			((fired::Container *) data)->loadCreatureLoot(current, token);
+			token = strtok(NULL, "\n");
+		}
+	}
+
+	return 0;
+}
+
+//======================================================================
+
+
+fired::BaseCreature *fired::Container::getCreature(const char *name) {
 	for (unsigned int i = 0; i < creatures.size(); i++)
 		if (!strcmp(name, creatures[i]->name)) return creatures[i];
 
 	return NULL;
 }
-
-//======================================================================
-
-
-fired::BaseAI *fired::Container::getAI(const char *name, fired::Creature *owner) {
-	if (!strcmp(name, "idle")) return new fired::IdleAI(owner, world);
-	if (!strcmp(name, "basic")) return new fired::BasicAI(owner, world);
-
-	return new fired::BaseAI();
-}
-
-//======================================================================
-
-
-void fired::Container::loadDecors() {
-	std::vector<std::string> files;
-	char filename[128];
-
-	directoryContents("data/game/decors", &files);
-	for (unsigned int i = 0; i < files.size(); i++) {
-		snprintf(filename, sizeof(filename), "data/game/decors/%s", files[i].c_str());
-		loadDecor(filename);
-	}
-}
-
-//======================================================================
-
-
-void fired::Container::loadDecor(const char* filename) {
-	char name[64];
-	char imgf[64];
-	char img[128];
-
-	FILE *fp = fopen(filename, "r");
-	fscanf(fp, "name=%s\n"  , name);
-	fscanf(fp, "sprite=%s\n", imgf);
-
-	snprintf(img, sizeof(img), "data/img/world/decors/%s", imgf);
-	decors.push_back(new fired::BaseDecor(name, img));
-
-	fscanf(fp, "size=%f,%f\n", &decors.back()->size.x, &decors.back()->size.y);
-	fclose(fp);
-}
-
-//======================================================================
-
-
-fired::BaseDecor* fired::Container::getDecor(const char* name) {
-	for (unsigned int i = 0; i < decors.size(); i++)
-		if (!strcmp(name, decors[i]->name)) return decors[i];
-
-	return NULL;
-}
-
-//======================================================================
-
-
-void fired::Container::loadSprites() {
-	std::vector<std::string> files;
-	char filename[128];
-
-	directoryContents("data/game/sprites", &files);
-	for (unsigned int i = 0; i < files.size(); i++) {
-		snprintf(filename, sizeof(filename), "data/game/sprites/%s", files[i].c_str());
-		loadSprite(filename);
-	}
-}
-
-//======================================================================
-
-
-void fired::Container::loadSprite(const char* filename) {
-	char name[64];
-	char file[128];
-	char path[128];
-
-	FILE *fp = fopen(filename, "r");
-	fscanf(fp, "name=%s\n"  , name);
-	fscanf(fp, "sprite=%s\n", file);
-	fclose(fp);
-
-	snprintf(path, sizeof(path), "data/img/world/sprites/%s", file);
-	sprites.push_back(new fired::GameSprite(name, path));
-}
-
-//======================================================================
-
-
-sf::Sprite* fired::Container::getSprite(const char* name) {
-	for (unsigned int i = 0; i < sprites.size(); i++)
-		if (!strcmp(name, sprites[i]->name)) return sprites[i]->spr;
-
-	return NULL;
-}
-
-//======================================================================
-
-
-void fired::Container::NewLoad() {
-	// move code to constructor later
-	sqlite3 *db;
-	sqlite3_open("data/database.sqlite", &db);
-
-	_loadSprites(db);
-	_loadBodyparts(db);
-
-	sqlite3_close(db);
-}
-
-//======================================================================
-
-
-void fired::Container::_loadSprites(sqlite3 *db) {
-	char *zErrMsg = 0;
-
-	if (sqlite3_exec(db, "SELECT Path FROM Sprites", _loadSprite, this, &zErrMsg) != SQLITE_OK)
-		printf("SQL error: %s\n", zErrMsg);
-}
-
-//======================================================================
-
-
-int fired::Container::_loadSprite(void *data, int, char **argv, char **){
-	((fired::Container *) data)->_sprites.push_back(new fired::NewGameSprite(argv[0]));
-	return 0;
-}
-
-//======================================================================
-
-
-void fired::Container::_loadBodyparts(sqlite3 *db) {
-	char *zErrMsg = 0;
-
-	if (sqlite3_exec(db, "SELECT Bodyparts.Name, Bodyparts.BodypartType, Bodyparts.Origin, Sprites.ID FROM Bodyparts, Sprites WHERE Sprites.Name = Bodyparts.Sprite", _loadBodypart, this, &zErrMsg) != SQLITE_OK)
-		printf("SQL error: %s\n", zErrMsg);
-}
-
-//======================================================================
-
-
-int fired::Container::_loadBodypart(void *data, int, char **argv, char **){
-	((fired::Container *) data)->_bodyparts.push_back(new fired::NewBaseBodypart);
-	fired::NewBaseBodypart *current = ((fired::Container *) data)->_bodyparts.back();
-
-	strcpy(current->name, argv[0]);
-
-	if (!strcmp(argv[1], "arms"  )) current->type = bptArms;
-	if (!strcmp(argv[1], "head"  )) current->type = bptHead;
-	if (!strcmp(argv[1], "hair"  )) current->type = bptHair;
-	if (!strcmp(argv[1], "body"  )) current->type = bptBody;
-	if (!strcmp(argv[1], "legs"  )) current->type = bptLegs;
-	if (!strcmp(argv[1], "shoe"  )) current->type = bptShoe;
-	if (!strcmp(argv[1], "fist"  )) current->type = bptFist;
-	if (!strcmp(argv[1], "weapon")) current->type = bptWeapon;
-
-	sscanf(argv[2], "%f,%f", &current->origin.x, &current->origin.y);
-	current->sprite = ((fired::Container *) data)->_sprites[atoi(argv[3])]->spr;
-	current->size   = sf::Vector2f(((fired::Container *) data)->_sprites[atoi(argv[3])]->tex->getSize());
-	return 0;
-}
-
-//======================================================================
-
-
-void fired::Container::_loadModels(sqlite3 *db) {
-	char *zErrMsg = 0;
-
-	if (sqlite3_exec(db, "SELECT * FROM Models", _loadModel, this, &zErrMsg) != SQLITE_OK)
-		printf("SQL error: %s\n", zErrMsg);
-}
-
-//======================================================================
-
-
-int fired::Container::_loadModel(void *data, int, char **argv, char **){
-	if (!strcmp(argv[1], "humanoid")) {
-		fired::NewBaseModelHumanoid *model = new fired::NewBaseModelHumanoid;
-		model->type = mtHumanoid;
-
-		sscanf(argv[3], "%f,%f\n", &model->size.x, &model->size.y);
-		sscanf(argv[4], "%f,%f\n", &model->weaponOffset.x, &model->weaponOffset.y);
-/*
-		fscanf(fp, "legsf=%s\n", field); loadModelBodypart(field, &model->partLegsF, bptLegsF);
-		fscanf(fp, "legsb=%s\n", field); loadModelBodypart(field, &model->partLegsB, bptLegsB);
-		fscanf(fp, "shoef=%s\n", field); loadModelBodypart(field, &model->partShoeF, bptShoeF);
-		fscanf(fp, "shoeb=%s\n", field); loadModelBodypart(field, &model->partShoeB, bptShoeB);
-		fscanf(fp, "fistf=%s\n", field); loadModelBodypart(field, &model->partFistF, bptFistF);
-		fscanf(fp, "fistb=%s\n", field); loadModelBodypart(field, &model->partFistB, bptFistB);
-		fscanf(fp, "arms=%s\n" , field); loadModelBodypart(field, &model->partArms , bptArms );
-		fscanf(fp, "hair=%s\n" , field); loadModelBodypart(field, &model->partHair , bptHair );
-		fscanf(fp, "head=%s\n" , field); loadModelBodypart(field, &model->partHead , bptHead );
-		fscanf(fp, "body=%s\n" , field); loadModelBodypart(field, &model->partBody , bptBody );
-*/
-		((fired::Container *) data)->_models.push_back(model);
-	}
-
-	return 0;
-}
-
-
-//======================================================================
-/*           SQL queries
-
-SELECT Armors.ID, Armors.ArmorType, Armors.Caption, Armors.Armor, Armors.Color, Bodyparts.ID, Armors.Extra
-FROM Armors, Bodyparts
-WHERE Armors.ArmorType = Bodyparts.BodypartType AND Armors.Model = Bodyparts.Name
-
-
-
-*/

@@ -25,10 +25,16 @@ void fired::Model::explode(sf::Vector2f shot, float knockback) {
 //======================================================================
 
 
-void fired::Model::initPart(fired::Bodypart *part, fired::BaseBodypart *base, sf::Color color, sf::Vector2f offset, int *direction) {
-	part->base         = base;
-	part->color        = color;
-	part->offset       = offset;
+void fired::Model::initPart(fired::Bodypart *part, fired::BaseModelBodypart *base, fired::BaseArmor *armor, int *direction) {
+	if (armor) {
+		part->base  = armor->base;
+		part->color = armor->color;
+	} else {
+		part->base  = base->part;
+		part->color = base->color;
+	}
+
+	part->offset       = base->offset;
 	part->direction    = direction;
 	part->animOffset   = sf::Vector2f(0.0, 0.0);
 	part->animRotation = 0.0;
@@ -38,6 +44,9 @@ void fired::Model::initPart(fired::Bodypart *part, fired::BaseBodypart *base, sf
 
 
 void fired::Model::drawPart(fired::Bodypart *part) {
+	if (!part->base) return;
+
+	part->base->sprite->setOrigin(part->base->origin);
 	part->base->sprite->setScale(*part->direction * modelScale, modelScale);
 	part->base->sprite->setRotation(*part->direction * part->animRotation);
 	part->base->sprite->setColor(part->color);
@@ -54,6 +63,8 @@ void fired::Model::drawPart(fired::Bodypart *part) {
 
 
 void fired::Model::chunkPart(fired::Bodypart *part, sf::Vector2f shot, float knockback) {
+	if (!part->base) return;
+
 	sf::Vector2f chunkPos;
 	if (*part->direction == 1)
 		chunkPos = owner->phys.pos + (part->offset + part->base->size / 2.0f) * modelScale;
@@ -61,13 +72,15 @@ void fired::Model::chunkPart(fired::Bodypart *part, sf::Vector2f shot, float kno
 		chunkPos = owner->phys.pos + sf::Vector2f(-part->offset.x - part->base->size.x / 2.0f, part->offset.y + part->base->size.y / 2.0f) * modelScale + sf::Vector2f(owner->phys.size.x, 0);
 
 
-	world->addChunk(part, modelScale, chunkPos, vNorm(part->offset - part->base->origin - shot) * knockback * 10.0f);
+	world->addChunk(part, modelScale, chunkPos, vNorm(part->offset - part->base->origin - shot) * knockback * 20.0f);
 }
 
 //======================================================================
 
 
 void fired::Model::resetPart(fired::Bodypart *part) {
+	if (!part->base) return;
+
 	part->animOffset   = sf::Vector2f(0, 0);
 	part->animRotation = 0;
 }

@@ -3,12 +3,25 @@
 //======================================================================
 
 
-void swapItems(fired::InventoryItem **item1, fired::InventoryItem **item2) {
-	fired::InventoryItem *tmp;
+void swapItems(fired::InventoryItem *item1, fired::InventoryItem *item2) {
+	fired::InventoryItem tmp;
 
-	tmp = *item1;
-	*item1 = *item2;
-	*item2 = tmp;
+	tmp.base = item1->base;
+	tmp.count = item1->count;
+
+	item1->base = item2->base;
+	item1->count = item2->count;
+
+	item2->base = tmp.base;
+	item2->count = tmp.count;
+}
+
+//======================================================================
+
+
+void emptyItem(fired::InventoryItem *item) {
+	item->base = NULL;
+	item->count = 0;
 }
 
 //======================================================================
@@ -33,25 +46,6 @@ float sign(float x) {
 	if (x > 0) return 1.0f;
 	if (x < 0) return -1.0f;
 	return 0.0f;
-}
-
-//======================================================================
-
-
-bool directoryContents(const char *dir, std::vector<std::string>* contents) {
-	contents->clear();
-	DIR *dir_ptr = opendir(dir);
-	if (!dir_ptr) return false;
-
-	dirent *dr;
-	while ((dr = readdir(dir_ptr)))
-		if (strcmp(dr->d_name, ".") &&
-			strcmp(dr->d_name, "..") &&
-			dr->d_name[0] != '.') 
-				contents->push_back(dr->d_name);
-
-	closedir(dir_ptr);
-	return true;
 }
 
 /*======================================================================

@@ -4,13 +4,12 @@
 
 namespace fired {
 	struct CollectableItem {
-		fired::InventoryItem *item;
+		fired::InventoryItem  item;
 		fired::World         *world;
 		fired::Phys           phys;
 
 
-		 CollectableItem(fired::InventoryItem *_item, sf::Vector2f pos, sf::Vector2f velocity, fired::World *_world);
-		~CollectableItem() {};
+		CollectableItem(fired::InventoryItem *_item, sf::Vector2f pos, sf::Vector2f velocity, fired::World *_world);
 
 		void update();
 		void render();

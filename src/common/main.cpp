@@ -5,6 +5,7 @@ float             frameClock;
 fired::Settings  *settings;
 sf::RenderWindow *app;
 fired::Game      *game;
+fired::Container *container;
 
 
 int main() {

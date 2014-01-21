@@ -27,7 +27,7 @@ void fired::ModelHumanoid::update() {
 		}
 	} else {
 		bodyAnimation = caNone;
-		if (armsAnimation == caShooting || armsAnimation == caReloading) armsAnimation = caNone;
+		if (armsAnimation == caShooting) armsAnimation = caNone;
 
 		if (owner->phys.isMoving)  bodyAnimation = caMoving;
 		if (!owner->phys.onGround) bodyAnimation = caJumping;
@@ -37,8 +37,6 @@ void fired::ModelHumanoid::update() {
 			if (owner->weapon->type == WEAPON_TYPE_MELEE)  armsAnimation = caMeleeAttack;
 			if (owner->weapon->type == WEAPON_TYPE_BROAD)  armsAnimation = caBroadAttack;
 		}
-
-		if (owner->isReloading)    armsAnimation = caReloading;
 	}
 
 	processAnimation();
@@ -48,42 +46,16 @@ void fired::ModelHumanoid::update() {
 
 
 void fired::ModelHumanoid::updateParts() {
-	initPart(&partHead, base->partHead.part, base->partHead.color, base->partHead.offset, &owner->watching);
-
-
-	if (owner->helm) initPart(&partHair, world->getBodypart(owner->helm->model, bptHair), owner->helm->color  , base->partHair.offset, &owner->watching);
-	else             initPart(&partHair, base->partHair.part                            , base->partHair.color, base->partHair.offset, &owner->watching);
-
-	if (owner->body) initPart(&partBody, world->getBodypart(owner->body->model, bptBody), owner->body->color  , base->partBody.offset, &owner->watching);
-	else             initPart(&partBody, base->partBody.part                            , base->partBody.color, base->partBody.offset, &owner->watching);
-
-	if (owner->arms) initPart(&partArms, world->getBodypart(owner->arms->model, bptArms), owner->arms->color  , base->partArms.offset, &owner->watching);
-	else             initPart(&partArms, base->partArms.part                            , base->partArms.color, base->partArms.offset, &owner->watching);
-
-
-	if (owner->legs) {
-		initPart(&partLegsF, world->getBodypart(owner->legs->model, bptLegsF), owner->legs->color   , base->partLegsF.offset, &owner->direction);
-		initPart(&partLegsB, world->getBodypart(owner->legs->model, bptLegsB), owner->legs->color   , base->partLegsB.offset, &owner->direction);
-	} else {
-		initPart(&partLegsF, base->partLegsF.part                            , base->partLegsF.color, base->partLegsF.offset, &owner->direction);
-		initPart(&partLegsB, base->partLegsB.part                            , base->partLegsB.color, base->partLegsB.offset, &owner->direction);
-	}
-
-	if (owner->shoe) {
-		initPart(&partShoeF, world->getBodypart(owner->shoe->model, bptShoeF), owner->shoe->color   , base->partShoeF.offset, &owner->direction);
-		initPart(&partShoeB, world->getBodypart(owner->shoe->model, bptShoeB), owner->shoe->color   , base->partShoeB.offset, &owner->direction);
-	} else {
-		initPart(&partShoeF, base->partShoeF.part                            , base->partShoeF.color, base->partShoeF.offset, &owner->direction);
-		initPart(&partShoeB, base->partShoeB.part                            , base->partShoeB.color, base->partShoeB.offset, &owner->direction);
-	}
-
-	if (owner->fist) {
-		initPart(&partFistF, world->getBodypart(owner->fist->model, bptFistF), owner->fist->color   , base->partFistF.offset, &owner->watching);
-		initPart(&partFistB, world->getBodypart(owner->fist->model, bptFistB), owner->fist->color   , base->partFistB.offset, &owner->watching);
-	} else {
-		initPart(&partFistF, base->partFistF.part                            , base->partFistF.color, base->partFistF.offset, &owner->watching);
-		initPart(&partFistB, base->partFistB.part                            , base->partFistB.color, base->partFistB.offset, &owner->watching);
-	}
+	initPart(&partHead , &base->partHead , NULL       , &owner->watching);
+	initPart(&partHair , &base->partHair , owner->helm, &owner->watching);
+	initPart(&partBody , &base->partBody , owner->body, &owner->watching);
+	initPart(&partArms , &base->partArms , owner->arms, &owner->watching);
+	initPart(&partLegsF, &base->partLegsF, owner->legs, &owner->direction);
+	initPart(&partLegsB, &base->partLegsB, owner->legs, &owner->direction);
+	initPart(&partShoeF, &base->partShoeF, owner->shoe, &owner->direction);
+	initPart(&partShoeB, &base->partShoeB, owner->shoe, &owner->direction);
+	initPart(&partFistF, &base->partFistF, owner->fist, &owner->watching);
+	initPart(&partFistB, &base->partFistB, owner->fist, &owner->watching);
 }
 
 //======================================================================
@@ -113,8 +85,12 @@ void fired::ModelHumanoid::respawn() {
 
 
 void fired::ModelHumanoid::setWeapon(fired::BaseWeapon *weapon) {
-	initPart(&partWeapon, world->getBodypart(weapon->model, bptWeapon), sf::Color::White, base->weaponOffset, &owner->watching);
-}
+	partWeapon.base         = weapon->bodypart;
+	partWeapon.color        = sf::Color::White;
+	partWeapon.offset       = base->weaponOffset;
+	partWeapon.direction    = &owner->watching;
+	partWeapon.animOffset   = sf::Vector2f(0.0, 0.0);
+	partWeapon.animRotation = 0.0;}
 
 //======================================================================
 
@@ -132,7 +108,6 @@ void fired::ModelHumanoid::processBodyAnimation() {
 	switch (bodyAnimation) {
 		case caNone:
 		case caShooting:
-		case caReloading:
 		case caMeleeAttack:
 		case caBroadAttack:
 			bodyAnimationTime = 0.0;
@@ -178,7 +153,6 @@ void fired::ModelHumanoid::processArmsAnimation() {
 			switch (bodyAnimation) {
 				case caNone:
 				case caShooting:
-				case caReloading:
 				case caMeleeAttack:
 				case caBroadAttack:
 					partWeapon.animRotation = 90;
@@ -233,20 +207,6 @@ void fired::ModelHumanoid::processArmsAnimation() {
 				partWeapon.animRotation = 180 - partWeapon.animRotation;
 				partWeapon.animOffset.x = -partWeapon.animOffset.x;
 			}
-			break;
-
-
-		case caReloading:
-			armsAnimationTime += frameClock;
-
-			partArms.animRotation = -cos(0.449 * (bodyFrame - 7)) * 7.0;
-			partWeapon.animOffset = sf::Vector2f(5.0 + cos(0.449 * (bodyFrame - 7)), -4.0);
-
-			partFistF.animOffset = sf::Vector2f(-3.0, -3.0);
-			partFistB.animOffset = sf::Vector2f(-3.0, -3.0 + 5.0 * sin(3.14 * (owner->weapon->reload - armsAnimationTime) / owner->weapon->reload));
-
-			partFistF.animRotation = -90.0;
-			partFistB.animRotation = -90.0;
 			break;
 
 

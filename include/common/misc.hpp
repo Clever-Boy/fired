@@ -2,7 +2,8 @@
 #define __MISC
 
 
-void swapItems(fired::InventoryItem **item1, fired::InventoryItem **item2);
+void swapItems(fired::InventoryItem *item1, fired::InventoryItem *item2);
+void emptyItem(fired::InventoryItem *item);
 float lessOrZero(float x);
 float sqr(float x);
 float sign(float x);

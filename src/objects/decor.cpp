@@ -12,23 +12,11 @@ fired::MapDecor::MapDecor(const char *_name, sf::Vector2f _pos) {
 //======================================================================
 
 
-fired::BaseDecor::BaseDecor(const char *_name, const char *filename) {
+fired::BaseDecor::BaseDecor(const char *_name, sf::Vector2f _size, fired::GameSprite *_sprite) {
 	strncpy(name, _name, sizeof(name));
 
-	tex = new sf::Texture();
-	tex->loadFromFile(filename);
-	tex->setSmooth(true);
-
-	spr = new sf::Sprite();
-	spr->setTexture(*tex);
-}
-
-//======================================================================
-
-
-fired::BaseDecor::~BaseDecor() {
-	delete tex;
-	delete spr;
+	size = _size;
+	sprite = _sprite;
 }
 
 //======================================================================
@@ -37,9 +25,8 @@ fired::BaseDecor::~BaseDecor() {
 fired::Decor::Decor(fired::BaseDecor *base, sf::Vector2f _pos) {
 	pos    = _pos;
 	rect   = sf::FloatRect(pos, base->size);
-	sprite = base->spr;
+	sprite = base->sprite->spr;
 	color  = sf::Color::White;
-	strncpy(name, base->name, sizeof(name));
 }
 
 //======================================================================

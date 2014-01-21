@@ -7,8 +7,7 @@ fired::ExchangeWindow::ExchangeWindow(fired::Character *_owner, fired::World *wo
 	owner  = _owner;
 	win    = new fired::Window(sf::Vector2f(740, 380));
 	hint   = new fired::HintWindow(world);
-	inHand = new fired::InventoryWindowItem(sf::Vector2f(0.0f, 0.0f), new fired::InventoryItem*, itAny);
-	*(inHand->item) = NULL;
+	inHand = new fired::InventoryWindowItem(sf::Vector2f(0.0f, 0.0f), new fired::InventoryItem, itAny);
 
 	sf::Vector2f winOffset = win->offset;
 
@@ -43,12 +42,12 @@ fired::ExchangeWindow::ExchangeWindow(fired::Character *_owner, fired::World *wo
 	countText->setCharacterSize(12);
 	countText->setColor(sf::Color::White);
 
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(175.0f,  10.0f), &owner->inventory->helm, itArmorHelm));
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(175.0f,  65.0f), &owner->inventory->body, itArmorBody));
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(130.0f,  22.0f), &owner->inventory->arms, itArmorArms));
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(130.0f,  85.0f), &owner->inventory->fist, itArmorFist));
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(220.0f,  25.0f), &owner->inventory->legs, itArmorLegs));
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(220.0f,  85.0f), &owner->inventory->shoe, itArmorShoe));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(175.0f,  10.0f), &owner->inventory->helm, itArmor));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(175.0f,  65.0f), &owner->inventory->body, itArmor));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(130.0f,  22.0f), &owner->inventory->arms, itArmor));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(130.0f,  85.0f), &owner->inventory->fist, itArmor));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(220.0f,  25.0f), &owner->inventory->legs, itArmor));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(220.0f,  85.0f), &owner->inventory->shoe, itArmor));
 
 	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(155.0f, 130.0f), &owner->inventory->primaryWeapon, itWeapon));
 	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(195.0f, 130.0f), &owner->inventory->secondaryWeapon, itWeapon));
@@ -75,6 +74,9 @@ fired::ExchangeWindow::~ExchangeWindow() {
 	delete emptyTex;
 	delete hoverTex;
 	delete normalTex;
+
+	delete inHand->item;
+	delete inHand;
 
 	deleteList(items);
 	deleteList(exchange);
@@ -118,35 +120,32 @@ void fired::ExchangeWindow::render() {
 	win->render();
 
 	for (unsigned int i = 0; i < items.size(); i++)
-		if      ( items[i]->hover)        items[i]->render(hoverSpr, countText);
-		else if (*items[i]->item == NULL) items[i]->render(emptySpr, countText);
-		else                              items[i]->render(normalSpr, countText);
+		if      (items[i]->hover)              items[i]->render(hoverSpr, countText);
+		else if (items[i]->item->base == NULL) items[i]->render(emptySpr, countText);
+		else                                   items[i]->render(normalSpr, countText);
 
 	for (unsigned int i = 0; i < exchange.size(); i++)
-		if      ( exchange[i]->hover)        exchange[i]->render(hoverSpr, countText);
-		else if (*exchange[i]->item == NULL) exchange[i]->render(emptySpr, countText);
-		else                                 exchange[i]->render(normalSpr, countText);
+		if      (exchange[i]->hover)              exchange[i]->render(hoverSpr, countText);
+		else if (exchange[i]->item->base == NULL) exchange[i]->render(emptySpr, countText);
+		else                                      exchange[i]->render(normalSpr, countText);
 
-
-	owner->inventory->credits->sprite->setPosition(win->offset + sf::Vector2f(20.0f, 370.0f));
-	app->draw(*owner->inventory->credits->sprite);
 
 	char credits[16];
-	snprintf(credits, sizeof(credits), "%u", owner->inventory->credits->count);
+	snprintf(credits, sizeof(credits), "%u", owner->inventory->credits);
 	moneyText->setString(sf::String(credits));
 	app->draw(*moneyText);
 
-	if (*inHand->item) inHand->renderItem(countText);
+	if (inHand->item->base) inHand->renderItem(countText);
 	else {
 		for (unsigned int i = 0; i < items.size(); i++)
-			if (items[i]->hover && *items[i]->item != NULL) {
-				hint->update(*items[i]->item);
+			if (items[i]->hover && items[i]->item->base != NULL) {
+				hint->update(items[i]->item->base);
 				break;
 			}
 
 		for (unsigned int i = 0; i < exchange.size(); i++)
-			if (exchange[i]->hover && *exchange[i]->item != NULL) {
-				hint->update(*exchange[i]->item);
+			if (exchange[i]->hover && exchange[i]->item->base != NULL) {
+				hint->update(exchange[i]->item->base);
 				break;
 			}
 	}
@@ -157,12 +156,10 @@ void fired::ExchangeWindow::render() {
 
 void fired::ExchangeWindow::click(sf::Vector2f mousePos) {
 	fired::InventoryWindowItem *selected = NULL;
-	bool ownSelected = false;
 
 	for (unsigned int i = 0; i < items.size(); i++)
 		if (items[i]->rect.contains(mousePos)) {
-			selected    = items[i];
-			ownSelected = true;
+			selected = items[i];
 			break;
 		}
 
@@ -172,35 +169,21 @@ void fired::ExchangeWindow::click(sf::Vector2f mousePos) {
 			break;
 		}
 
+	if (selected == NULL) return;
 
-	if (selected       == NULL) return;
-	if (selected->item == NULL) return;
+	if (inHand->item->base != NULL) {
+		if (selected->filter != itAny && selected->filter != inHand->item->base->type) return;
+		if (selected->item->base == inHand->item->base) {
+			if (selected->item->count + inHand->item->count <= selected->item->base->maxStack) {
+				selected->item->count += inHand->item->count;
+				emptyItem(inHand->item);
+			} else {
+				inHand->item->count = selected->item->count + inHand->item->count - selected->item->base->maxStack;
+				selected->item->count = selected->item->base->maxStack;
+			}
 
-
-	if (ownSelected && *inHand->item != NULL) {
-		if ((*inHand->item)->type == itMoney) {
-			owner->pickup(*inHand->item);
-			*inHand->item = NULL;
+			owner->updateEquip();
 			return;
-		}
-	}
-
-
-	if (*inHand->item != NULL) {
-		if (selected->filter != itAny && selected->filter != (*inHand->item)->type) return;
-			if (*selected->item != NULL) if ((*selected->item)->type == (*inHand->item)->type && !strcmp((*selected->item)->caption, (*inHand->item)->caption) && (*inHand->item)->type == itAny) {
-				if ((*selected->item)->count + (*inHand->item)->count <= ITEM_MAX_STACK) {
-					(*selected->item)->count += (*inHand->item)->count;
-					delete (*inHand->item);
-					*inHand->item = NULL;
-					owner->updateEquip();
-				} else {
-					(*inHand->item)->count = ITEM_MAX_STACK - (*selected->item)->count;
-					(*selected->item)->count = ITEM_MAX_STACK;
-					owner->updateEquip();
-				}
-
-				return;
 		}
 	}
 

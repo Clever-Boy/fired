@@ -15,8 +15,8 @@ namespace fired {
 		 HintWindow(fired::World *_world);
 		~HintWindow();
 
-		void update(fired::InventoryItem *_item);
-		void render(fired::InventoryItem *_item);
+		void update(fired::BaseItem *_item);
+		void render(fired::BaseItem *_item);
 		void renderText(float x, float y, const char *caption, bool rightAligned);
 	};
 }

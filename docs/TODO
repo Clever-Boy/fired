@@ -272,7 +272,7 @@
 		<todo done="yes" collapse="no"><title>MaxStack checking</title></todo>
 		<todo done="yes" collapse="no"><title>Check hints out of screen</title></todo>
 	</todo>
-	<todo done="no" collapse="no"><title>Global refactoring</title>
+	<todo done="yes" collapse="yes"><title>Global refactoring</title>
 		<todo done="yes" collapse="no"><title>Remove headshots</title></todo>
 		<todo done="yes" collapse="no"><title>Move bodypart offset to model description</title></todo>
 		<todo done="yes" collapse="no"><title>Crypto API for sqlite</title></todo>
@@ -303,64 +303,47 @@
 			<todo done="yes" collapse="no"><title>Fill tiles table</title></todo>
 			<todo done="yes" collapse="no"><title>Fill decors table</title></todo>
 		</todo>
-		<todo done="yes" collapse="no"><title>Refactor container class</title>
+		<todo done="yes" collapse="yes"><title>Refactor container class</title>
 			<todo done="yes" collapse="no"><title>Refactor sprites loading</title></todo>
 			<todo done="yes" collapse="no"><title>Refactor bodypart loading</title></todo>
-			<todo done="no" collapse="no"><title>Refactor model loading</title></todo>
-			<todo done="no" collapse="no"><title>Refactor creature loading</title></todo>
-			<todo done="no" collapse="no"><title>Refactor armor loading</title></todo>
-			<todo done="no" collapse="no"><title>Refactor sound loading</title></todo>
-			<todo done="no" collapse="no"><title>Refactor weapon loading</title></todo>
-			<todo done="no" collapse="no"><title>Refactor items loading</title></todo>
-			<todo done="no" collapse="no"><title>Refactor biomes loading</title></todo>
-			<todo done="no" collapse="no"><title>Refactor tiles loading</title></todo>
-			<todo done="no" collapse="no"><title>Refactor decors loading</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor model loading</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor creature loading</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor armor loading</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor sound loading</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor weapon loading</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor items loading</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor decors loading</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Refactor base classes</title>
+		<todo done="yes" collapse="yes"><title>Refactor base classes</title>
 			<todo done="yes" collapse="no"><title>Refactor sprites base class</title></todo>
 			<todo done="yes" collapse="no"><title>Refactor bodypart base class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor model base class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor creature base class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor armor base class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor sound base class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor weapon base class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor items base class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor biomes base class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor tiles base class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor decors base class</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor model base class</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor creature base class</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor armor base class</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor sound base class</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor weapon base class</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor items base class</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor decors base class</title></todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Refactor pure classes</title>
-			<todo done="no" collapse="no"><title>Refactor sprites pure class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor bodypart pure class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor model pure class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor creature pure class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor armor pure class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor sound pure class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor weapon pure class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor items pure class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor biomes pure class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor tiles pure class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor decors pure class</title></todo>
+		<todo done="yes" collapse="yes"><title>Refactor pure classes</title>
+			<todo done="yes" collapse="no"><title>Refactor sprites pure class</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor bodypart pure class</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor model pure class</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor creature pure class</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor armor pure class</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor sound pure class</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor weapon pure class</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor items pure class</title></todo>
+			<todo done="yes" collapse="no"><title>Refactor decors pure class</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Remove old classes</title></todo>
-		<todo done="no" collapse="no"><title>Remove clip property (shot till the end of ammo)</title></todo>
-		<todo done="no" collapse="no"><title>Remove coin.tga from sprites &amp; img/model/___B|F</title></todo>
-		<todo done="no" collapse="no"><title>Fix picking up when the inventory is full</title></todo>
-		<todo done="no" collapse="no"><title>Fix model explosion after broad attacks</title></todo>
-		<todo done="no" collapse="yes"><title>Graphics refactoring</title>
-			<todo done="no" collapse="no"><title>Allow BG slide only horizontally</title></todo>
-			<todo done="no" collapse="no"><title>Change BG</title></todo>
-			<todo done="no" collapse="no"><title>Change Tiles</title></todo>
-			<todo done="no" collapse="no"><title>Change Armor icons</title></todo>
-			<todo done="no" collapse="no"><title>Change weapon icons</title></todo>
-			<todo done="no" collapse="no"><title>Change weapon sprites</title></todo>
-			<todo done="no" collapse="no"><title>Change bodypart sprites</title></todo>
-			<todo done="no" collapse="no"><title>Change decor sprites</title></todo>
-			<todo done="no" collapse="no"><title>Change GUI</title></todo>
-			<todo done="no" collapse="no"><title>Change crosshair</title></todo>
-		</todo>
+		<todo done="yes" collapse="no"><title>Remove old classes</title></todo>
+		<todo done="yes" collapse="no"><title>Remove clip property (shot till the end of ammo)</title></todo>
+		<todo done="yes" collapse="no"><title>Remove coin.tga from sprites &amp; img/model/___B|F</title></todo>
+		<todo done="yes" collapse="no"><title>Move container outside world class</title></todo>
+		<todo done="yes" collapse="no"><title>Fix picking up when the inventory is full</title></todo>
+		<todo done="yes" collapse="no"><title>Fix model explosion after broad attacks</title></todo>
 	</todo>
-	<todo done="no" collapse="yes"><title>Advanced</title>
+	<todo done="yes" collapse="no"><title>Advanced</title>
 		<todo done="yes" collapse="no"><title>Move name and caption to char[64]</title></todo>
 		<todo done="yes" collapse="no"><title>Weapon caption</title></todo>
 		<todo done="yes" collapse="no"><title>Reading captions with spaces</title></todo>
@@ -376,6 +359,29 @@
 		<todo done="no" collapse="no"><title>Optimize code</title></todo>
 		<todo done="no" collapse="no"><title>Refactor code (add headers to files, classes &amp; functions)</title></todo>
 		<todo done="no" collapse="no"><title>Allow drop items</title></todo>
+		<todo done="no" collapse="no"><title>Allow take some of items (right click)</title></todo>
+		<todo done="no" collapse="no"><title>Add trash can</title></todo>
+		<todo done="no" collapse="yes"><title>Map structure refactoring</title>
+			<todo done="no" collapse="no"><title>Biomes loading from DB</title></todo>
+			<todo done="no" collapse="no"><title>Tiles loading from DB</title></todo>
+			<todo done="no" collapse="no"><title>Biomes base class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor tileset class</title></todo>
+			<todo done="no" collapse="no"><title>Generating map by biome</title></todo>
+			<todo done="no" collapse="no"><title>Selecting tiles by biome</title></todo>
+			<todo done="no" collapse="no"><title>Selecting decors by biome</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Graphics refactoring</title>
+			<todo done="no" collapse="no"><title>Allow BG slide only horizontally</title></todo>
+			<todo done="no" collapse="no"><title>Change BG</title></todo>
+			<todo done="no" collapse="no"><title>Change Tiles</title></todo>
+			<todo done="no" collapse="no"><title>Change Armor icons</title></todo>
+			<todo done="no" collapse="no"><title>Change weapon icons</title></todo>
+			<todo done="no" collapse="no"><title>Change weapon sprites</title></todo>
+			<todo done="no" collapse="no"><title>Change bodypart sprites</title></todo>
+			<todo done="no" collapse="no"><title>Change decor sprites</title></todo>
+			<todo done="no" collapse="no"><title>Change GUI</title></todo>
+			<todo done="no" collapse="no"><title>Change crosshair</title></todo>
+		</todo>
 		<todo done="no" collapse="yes"><title>Explosives</title></todo>
 		<todo done="no" collapse="yes"><title>Explosive weapon</title></todo>
 		<todo done="no" collapse="no"><title>Items bonuses +dmg, +defence, etc.</title></todo>

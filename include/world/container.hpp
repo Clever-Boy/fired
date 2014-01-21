@@ -5,75 +5,63 @@
 #include <sqlite3.h>
 
 #include "char.hpp"
-#include "sprites.hpp"
+#include "sounds.hpp"
 #include "map.hpp"
 
 
 namespace fired {
 	struct Container {
-		fired::World     *world;
-
 		std::vector<fired::BaseWeapon*>   weapons;
 		std::vector<fired::BaseArmor*>    armors;
 		std::vector<fired::BaseBodypart*> bodyparts;
 		std::vector<fired::BaseModel*>    models;
 		std::vector<fired::BaseCreature*> creatures;
 		std::vector<fired::BaseDecor*>    decors;
+		std::vector<fired::BaseItem*>     items;
 		std::vector<fired::GameSprite*>   sprites;
+		std::vector<fired::GameSound*>    sounds;
 
 
-		 Container(fired::World *_world);
+		 Container();
 		~Container();
 
-		fired::BaseAI *getAI(const char *name, fired::Creature *owner);
+		fired::BaseAI *getAI(const char *name, fired::Creature *owner, fired::World *world);
 
-		void loadWeapons();
-		void loadWeapon(const char* filename);
-		fired::BaseWeapon *getWeapon(const char* name);
+		void loadSprites(sqlite3 *db);
+		static int loadSprite(void *data, int argc, char **argv, char **azColName);
 
-		void loadArmors();
-		void loadArmorsInDir(const char *dir, fired::ArmorClass type);
-		void loadArmor(const char* filename, fired::ArmorClass type);
-		fired::BaseArmor *getArmor(const char* name, fired::ArmorClass type);
+		void loadSounds(sqlite3 *db);
+		static int loadSound(void *data, int argc, char **argv, char **azColName);
+		sf::Sound *getSound(const char *name);
 
-		void loadModels();
-		void loadModelBodypart(const char* s, fired::BaseModelBodypart *bodypart, fired::BodypartType type);
-		void loadModel(const char* filename);
-		fired::BaseModel *getModel(const char* name);
-
-		void loadCreatures();
-		void loadCreature(const char* filename);
-		fired::BaseCreature *getCreature(const char* name);
-
-		void loadDecors();
-		void loadDecor(const char* filename);
+		void loadDecors(sqlite3 *db);
+		static int loadDecor(void *data, int argc, char **argv, char **azColName);
 		fired::BaseDecor *getDecor(const char* name);
 
-		void loadSprites();
-		void loadSprite(const char* filename);
-		sf::Sprite *getSprite(const char* name);
-
-		void loadBodyparts();
-		void loadBodypartsInDir(const char *dir, fired::BodypartType type);
-		void loadBodypart(const char *dir, const char* filename, fired::BodypartType type);
+		void loadBodyparts(sqlite3 *db);
+		static int loadBodypart(void *data, int argc, char **argv, char **azColName);
 		fired::BaseBodypart *getBodypart(const char* name, fired::BodypartType type);
 
-		//------------------------- SQLite -----------------------------
+		void loadModels(sqlite3 *db);
+		static int loadModel(void *data, int argc, char **argv, char **azColName);
+		void loadModelBodypart(const char* s, fired::BaseModelBodypart *bodypart, fired::BodypartType type);
 
-		std::vector<fired::NewGameSprite*> _sprites;
-		std::vector<fired::NewBaseBodypart*> _bodyparts;
-		std::vector<fired::NewBaseModel*> _models;
+		void loadArmors(sqlite3 *db);
+		static int loadArmor(void *data, int argc, char **argv, char **azColName);
+		int getArmorIndex(const char *name);
 
-		void NewLoad();
+		void loadWeapons(sqlite3 *db);
+		static int loadWeapon(void *data, int argc, char **argv, char **azColName);
+		int getWeaponIndex(const char *name);
 
-		void _loadSprites(sqlite3 *db);
-		static int _loadSprite(void *data, int argc, char **argv, char **azColName);
+		void loadItems(sqlite3 *db);
+		static int loadItem(void *data, int argc, char **argv, char **azColName);
+		fired::BaseItem *getItem(const char *name);
 
-		void _loadBodyparts(sqlite3 *db);
-		static int _loadBodypart(void *data, int argc, char **argv, char **azColName);
-
-		void _loadModels(sqlite3 *db);
-		static int _loadModel(void *data, int argc, char **argv, char **azColName);
+		void loadCreatures(sqlite3 *db);
+		static int loadCreature(void *data, int argc, char **argv, char **azColName);
+		void loadCreatureLoot(fired::BaseCreature *current, const char *lootStr);
+		fired::BaseCreature *getCreature(const char *name);
 	};
 }
 

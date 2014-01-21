@@ -8,7 +8,6 @@ fired::Chunk::Chunk(fired::Bodypart *bodyPart, float scale, sf::Vector2f positio
 	color  = bodyPart->color;
 	scaleX = *bodyPart->direction * scale;
 	scaleY = scale;
-	pos    = position;
 	world  = _world;
 
 	phys.pos          = position;
@@ -52,9 +51,10 @@ bool fired::Chunk::update() {
 void fired::Chunk::render() {
 	if (lifetime > CHUNK_DISAPPEARTIME) color.a = 255 * (CHUNK_LIFETIME - lifetime) / (CHUNK_LIFETIME - CHUNK_DISAPPEARTIME);
 
-	base->chunk->setColor(color);
-	base->chunk->setScale(scaleX, scaleY);
-	base->chunk->setRotation(rotation);
-	base->chunk->setPosition(phys.pos);
-	app->draw(*base->chunk);
+	base->sprite->setColor(color);
+	base->sprite->setOrigin(base->size / 2.0f);
+	base->sprite->setScale(scaleX, scaleY);
+	base->sprite->setRotation(rotation);
+	base->sprite->setPosition(phys.pos);
+	app->draw(*base->sprite);
 }

@@ -20,7 +20,7 @@ fired::BaseCreature::~BaseCreature() {
 fired::Creature::Creature(fired::Camera *_cam, sf::Vector2f _startpos, fired::World *world, fired::BaseCreature *base) {
 	character = new fired::Character(_cam, _startpos, world, base);
 	character->generateLoot(&base->loot);
-	ai        = world->getAI(base->ai, this);
+	ai = container->getAI(base->ai, this, world);
 }
 
 //======================================================================

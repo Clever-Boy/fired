@@ -11,6 +11,7 @@ namespace fired {
 		fired::HintWindow          *hint;
 		fired::Character           *owner;
 		fired::InventoryWindowItem *inHand; 
+		fired::GameSprite          *coinSprite;
 
 		std::vector<fired::InventoryWindowItem*> items;
 		std::vector<fired::InventoryWindowItem*> exchange;

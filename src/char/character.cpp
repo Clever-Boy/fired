@@ -8,14 +8,8 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 	cam      = _cam;
 	base     = _base;
 
-	baseStats.speed    = base->stats.speed;
-	baseStats.accel    = base->stats.accel;
-	baseStats.jump     = base->stats.jump;
-	baseStats.aimrange = base->stats.aimrange;
-	baseStats.maxHP    = base->stats.maxHP;
-	baseStats.armor    = base->stats.armor;
-
-	inventory = new fired::Inventory(this, world);
+	memcpy(&baseStats, &(base->stats), sizeof(fired::CharacterStats));
+	inventory = new fired::Inventory(this);
 
 	helm   = NULL;
 	arms   = NULL;
@@ -26,16 +20,14 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 	weapon = NULL;
 
 
-	fired::BaseModel *basemodel = world->getModel(base->model);
-	switch (basemodel->type) {
+	switch (_base->model->type) {
 		case mtHumanoid: {
-			model = new fired::ModelHumanoid(this, (fired::BaseModelHumanoid*)basemodel, base->modelScale, world);
+			model = new fired::ModelHumanoid(this, (fired::BaseModelHumanoid*)_base->model, base->modelScale, world);
 			break;
 		}
 	}
 
-	if (!strcmp(base->fraction, "player"))  fraction = FIRED_FRACTION_PLAYER;
-	if (!strcmp(base->fraction, "soldier")) fraction = FIRED_FRACTION_SOLDIER;
+	fraction = _base->fraction;
 
 	respawn(_startpos);
 	updateEquip();
@@ -51,15 +43,7 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 
 fired::Character::~Character() {
 	delete model;
-	delete weapon;
 	delete inventory;
-
-	if (helm) delete helm;
-	if (arms) delete arms;
-	if (legs) delete legs;
-	if (body) delete body;
-	if (shoe) delete shoe;
-	if (fist) delete fist;
 }
 
 //======================================================================
@@ -95,10 +79,6 @@ void fired::Character::update() {
 	if (world->isRectVisible(phys.rect)) model->render();
 
 	weaponCooldown -= frameClock;
-	if (isReloading && weaponCooldown <= 0) {
-		isReloading = false;
-		weapon->ammo = weapon->clip;
-	}
 
 	phys.isMoving = false;
 	isShooting    = false;
@@ -133,9 +113,7 @@ void fired::Character::setAiming(float _aiming) {
 
 
 void fired::Character::setWeapon(fired::BaseWeapon *_weapon) {
-	if (weapon) {delete weapon; weapon = NULL;}
-
-	weapon = new fired::Weapon(_weapon);
+	weapon = _weapon;
 	model->setWeapon(_weapon);
 }
 
@@ -225,6 +203,8 @@ void fired::Character::checkBroadShot(fired::BroadShot *shot) {
 		if (world->isCharExists(shot->owner)) if (!isEnemy(shot->owner->fraction)) return;
 
 		c = rectCenter(phys.rect);
+		c.x += shot->normal.x * phys.size.x / 2.0f;
+
 		phys.velocity -= shot->normal * shot->knockback;
 		world->addBloodSplash(c, shot->normal * 200.0f, 20);
 		damage(shot->damage, c, shot->knockback);
@@ -291,10 +271,8 @@ std::string fired::Character::getXpString() {
 
 
 float fired::Character::getCooldownPercent() {
-	if (weaponCooldown > 0) {
-		if (isReloading) return (float)(weapon->reload   - weaponCooldown) / (float)weapon->reload;
-		else             return (float)(weapon->cooldown - weaponCooldown) / (float)weapon->cooldown;
-	}
+	if (weaponCooldown > 0)
+		return (float)(weapon->cooldown - weaponCooldown) / (float)weapon->cooldown;
 
 	return 1.0f;
 }
@@ -312,7 +290,6 @@ std::string fired::Character::getCooldownString() {
 
 
 float fired::Character::getAmmoPercent() {
-	if (weapon->ammo >= 0) return (float)weapon->ammo / (float)weapon->clip;
 	return 1.0f;
 }
 
@@ -320,10 +297,7 @@ float fired::Character::getAmmoPercent() {
 
 
 std::string fired::Character::getAmmoString() {
-	char outStr[64];
-	if (weapon->ammo == -1) snprintf(outStr, sizeof(outStr), "inf");
-	else                    snprintf(outStr, sizeof(outStr), "Ammo  %d / %d", weapon->ammo, weapon->clip);
-	return std::string(outStr);
+	return std::string("inf");
 }
 
 //======================================================================
@@ -398,8 +372,8 @@ void fired::Character::swapWeapons() {
 	if (weaponCooldown > 0) return;
 	swapItems(&inventory->primaryWeapon, &inventory->secondaryWeapon);
 
-	if (inventory->primaryWeapon) setWeapon(world->getWeapon(inventory->primaryWeapon->name));
-	else                          setWeapon(world->getWeapon(base->weapon));
+	if (inventory->primaryWeapon.base) setWeapon(container->weapons[inventory->primaryWeapon.base->UID]);
+	else                               setWeapon(base->weapon);
 
 	weaponCooldown = weapon->cooldown;
 }
@@ -410,58 +384,48 @@ void fired::Character::swapWeapons() {
 void fired::Character::updateEquip() {
 	baseStats.armor = 0;
 
-	if (helm) {delete helm; helm = NULL; }
-	if (arms) {delete arms; arms = NULL; }
-	if (legs) {delete legs; legs = NULL; }
-	if (body) {delete body; body = NULL; }
-	if (shoe) {delete shoe; shoe = NULL; }
-	if (fist) {delete fist; fist = NULL; }
+	if (helm) helm = NULL;
+	if (arms) arms = NULL;
+	if (legs) legs = NULL;
+	if (body) body = NULL;
+	if (shoe) shoe = NULL;
+	if (fist) fist = NULL;
 
 
-	if (inventory->helm) {
-		helm = new fired::Armor(world->getArmor(inventory->helm->name, acHelm), world);
+	if (inventory->helm.base) {
+		helm = container->armors[inventory->helm.base->UID];
 		baseStats.armor += helm->armor;
 	}
 
-	if (inventory->body) {
-		body = new fired::Armor(world->getArmor(inventory->body->name, acBody), world);
+	if (inventory->body.base) {
+		body = container->armors[inventory->body.base->UID];
 		baseStats.armor += body->armor;
 	}
 
-	if (inventory->arms) {
-		arms = new fired::Armor(world->getArmor(inventory->arms->name, acArms), world);
+	if (inventory->arms.base) {
+		arms = container->armors[inventory->arms.base->UID];
 		baseStats.armor += arms->armor;
 	}
 
-	if (inventory->fist) {
-		fist = new fired::Armor(world->getArmor(inventory->fist->name, acFist), world);
+	if (inventory->fist.base) {
+		fist = container->armors[inventory->fist.base->UID];
 		baseStats.armor += fist->armor;
 	}
 
-	if (inventory->legs) {
-		legs = new fired::Armor(world->getArmor(inventory->legs->name, acLegs), world);
+	if (inventory->legs.base) {
+		legs = container->armors[inventory->legs.base->UID];
 		baseStats.armor += legs->armor;
 	}
 
-	if (inventory->shoe) {
-		shoe = new fired::Armor(world->getArmor(inventory->shoe->name, acShoe), world);
+	if (inventory->shoe.base) {
+		shoe = container->armors[inventory->shoe.base->UID];
 		baseStats.armor += shoe->armor;
 	}
 
-	if (inventory->primaryWeapon) setWeapon(world->getWeapon(inventory->primaryWeapon->name));
-	else                          setWeapon(world->getWeapon(base->weapon));
+	if (inventory->primaryWeapon.base) setWeapon(container->weapons[inventory->primaryWeapon.base->UID]);
+	else                               setWeapon(base->weapon);
 
 	model->updateParts();
-}
-
-//======================================================================
-
-
-void fired::Character::reload() {
-	if (weapon->ammo == weapon->clip) return;
-	if (weapon->reloadSound) weapon->reloadSound->play();
-	weaponCooldown = weapon->reload;
-	isReloading = true;
 }
 
 //======================================================================
@@ -475,11 +439,10 @@ void fired::Character::shot() {
 
 	isShooting = true;
 	if (weaponCooldown > 0) return;
-	if (!weapon->automatic && weapon->wasShot) return;
-	if (weapon->ammo > 0) weapon->ammo--;
+	if (!weapon->automatic && wasShot) return;
 
 	weaponCooldown = weapon->cooldown;
-	weapon->wasShot = true;
+	wasShot = true;
 
 	if (weapon->shotSound) weapon->shotSound->play();
 
@@ -491,13 +454,11 @@ void fired::Character::shot() {
 		else
 			world->addBroadShot(sf::FloatRect(phys.pos.x - weapon->range, phys.pos.y - weapon->range, phys.size.x / 2 + weapon->range, phys.size.y + weapon->range * 2), sf::Vector2f(-watching, 0), this);
 	}
-
-	if (weapon->ammo == 0) reload();
 }
 
 //======================================================================
 
 
 void fired::Character::unshot() {
-	weapon->wasShot = false;
+	wasShot = false;
 }

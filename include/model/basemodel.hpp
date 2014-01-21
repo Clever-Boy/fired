@@ -12,7 +12,6 @@ namespace fired {
 		caMoving,
 		caJumping,
 		caShooting,
-		caReloading,
 		caMeleeAttack,
 		caBroadAttack
 	};
@@ -45,29 +44,6 @@ namespace fired {
 	};
 
 
-
-	struct NewBaseModel {
-		fired::ModelType type;
-		sf::Vector2f     size;
-		sf::Vector2f     weaponOffset;
-	};
-
-
-	struct NewBaseModelHumanoid : NewBaseModel {
-		fired::BaseModelBodypart partLegsF;
-		fired::BaseModelBodypart partLegsB;
-		fired::BaseModelBodypart partShoeF;
-		fired::BaseModelBodypart partShoeB;
-		fired::BaseModelBodypart partFistF;
-		fired::BaseModelBodypart partFistB;
-		fired::BaseModelBodypart partHair;
-		fired::BaseModelBodypart partBody;
-		fired::BaseModelBodypart partArms;
-		fired::BaseModelBodypart partHead;
-	};
-
-
-
 	struct Model {
 		fired::Character *owner;
 		fired::World     *world;
@@ -86,7 +62,7 @@ namespace fired {
 		void render();
 		void explode(sf::Vector2f shot, float knockback);
 
-		void initPart(fired::Bodypart *part, fired::BaseBodypart *base, sf::Color color, sf::Vector2f offset, int *direction);
+		void initPart(fired::Bodypart *part, fired::BaseModelBodypart *base, fired::BaseArmor *armor, int *direction);
 		void drawPart(fired::Bodypart *part);
 		void resetPart(fired::Bodypart *part);
 		void chunkPart(fired::Bodypart *part, sf::Vector2f shot, float knockback);

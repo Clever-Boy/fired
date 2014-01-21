@@ -105,7 +105,7 @@ void fired::MapGenerator::genDecors() {
 void fired::MapGenerator::genPlatforms() {
 	int x, y = 35;
 	for (x = 49; x < 80; x++) {
-		decors.push_back(new fired::MapDecor("bridge_metal", sf::Vector2f(x*TILE_SIZE, y*TILE_SIZE)));
+		decors.push_back(new fired::MapDecor("bridge.metal", sf::Vector2f(x*TILE_SIZE, y*TILE_SIZE)));
 		tiles[x][y].isPlatform = true;
 	}
 }

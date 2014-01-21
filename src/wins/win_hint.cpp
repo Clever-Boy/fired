@@ -25,8 +25,8 @@ fired::HintWindow::~HintWindow() {
 //======================================================================
 
 
-void fired::HintWindow::update(fired::InventoryItem *item) {
-	render(item);
+void fired::HintWindow::update(fired::BaseItem *_item) {
+	render(_item);
 }
 
 //======================================================================
@@ -47,31 +47,18 @@ void fired::HintWindow::renderText(float x, float y, const char *caption, bool r
 //======================================================================
 
 
-void fired::HintWindow::render(fired::InventoryItem *item) {
+void fired::HintWindow::render(fired::BaseItem *item) {
 	if (item == NULL) return;
 	char str[128];
 
 
-	if (item->type == itMoney) {
-		win->setSize(sf::Vector2f(150, 40));
-		win->render();
-
-		renderText(5, 5, "Credits", false);
-		renderText(5, 20, "Count:", false);
-
-		snprintf(str, sizeof(str), "%d", item->count);
-		renderText(145, 20, str, true);
-	} else if (item->type == itAny) {
+	if (item->type == itAny) {
 		win->setSize(sf::Vector2f(150, 40));
 		win->render();
 
 		renderText(5, 5, "Misc", false);
-		renderText(5, 20, "Count:", false);
-
-		snprintf(str, sizeof(str), "%d", item->count);
-		renderText(145, 20, str, true);
 	} else if (item->type == itWeapon) {
-		fired::BaseWeapon *base = world->getWeapon(item->name);
+		fired::BaseWeapon *base = container->weapons[item->UID];
 
 		if (base->type == WEAPON_TYPE_RANGED) win->setSize(sf::Vector2f(150, 145));
 		else                                  win->setSize(sf::Vector2f(150, 115));
@@ -106,30 +93,12 @@ void fired::HintWindow::render(fired::InventoryItem *item) {
 		renderText(145, 95, str, true);
 
 		if (base->type == WEAPON_TYPE_RANGED) {
-			renderText(5, 110, "Reload", false);
-			snprintf(str, sizeof(str), "%3.2f", base->reload);
-			renderText(145, 110, str, true);
-
 			renderText(5, 125, "Speed", false);
 			snprintf(str, sizeof(str), "%3.2f", base->speed);
 			renderText(145, 125, str, true);
 		}
 	} else {
-		fired::BaseArmor *base;
-
-		switch (item->type) {
-			case itArmorHelm: base = world->getArmor(item->name, acHelm); break;
-			case itArmorFist: base = world->getArmor(item->name, acFist); break;
-			case itArmorBody: base = world->getArmor(item->name, acBody); break;
-			case itArmorLegs: base = world->getArmor(item->name, acLegs); break;
-			case itArmorShoe: base = world->getArmor(item->name, acShoe); break;
-			case itArmorArms: base = world->getArmor(item->name, acArms); break;
-
-			case itMoney:
-			case itWeapon:
-			case itAny:
-				return;
-		}
+		fired::BaseArmor *base = container->armors[item->UID];
 
 		win->setSize(sf::Vector2f(150, 55));
 		win->render();

@@ -41,21 +41,22 @@ void mapLoadDecors(fired::Map *map, FILE *fp) {
 	fread(&decorCount, sizeof(decorCount), 1, fp);
 	for (unsigned int i = 0; i < decorCount; i++) {
 		fread(&decor, sizeof(decor), 1, fp);
-		map->decors.push_back(new fired::Decor(map->world->getDecor(decor.name), decor.pos));
+		map->decors.push_back(new fired::Decor(container->getDecor(decor.name), decor.pos));
 	}
 }
 
 //======================================================================
 
 
-void mapLoadCollectorItems(fired::Map *map, fired::MapObjectCollector *obj, FILE *fp) {
+void mapLoadCollectorItems(fired::MapObjectCollector *obj, FILE *fp) {
 	unsigned int itemCount;
 	fired::MapItem item;
 
 	fread(&itemCount, sizeof(itemCount), 1, fp);
 	for (unsigned int j = 0; j < itemCount; j++) {
 		fread(&item, sizeof(item), 1, fp);
-		obj->items[j%10][j/10] = new fired::InventoryItem(&item, map->world);
+		obj->items[j%10][j/10].base = container->getItem(item.name);
+		obj->items[j%10][j/10].count = item.count;
 	}
 }
 
@@ -65,14 +66,14 @@ void mapLoadCollectorItems(fired::Map *map, fired::MapObjectCollector *obj, FILE
 void mapLoadObject(fired::Map *map, fired::BaseMapObject obj, FILE *fp) {
 	switch (obj.type) {
 		case fired::moNone: {
-			fired::MapObject *newObj = new fired::MapObject(new fired::Decor(map->world->getDecor(obj.decorName), obj.pos));
+			fired::MapObject *newObj = new fired::MapObject(new fired::Decor(container->getDecor(obj.decorName), obj.pos));
 			map->objects.push_back(newObj);
 			break;
 		}
 
 		case fired::moCollector: {
-			fired::MapObjectCollector *collObj = new fired::MapObjectCollector(new fired::Decor(map->world->getDecor(obj.decorName), obj.pos));
-			mapLoadCollectorItems(map, collObj, fp);
+			fired::MapObjectCollector *collObj = new fired::MapObjectCollector(new fired::Decor(container->getDecor(obj.decorName), obj.pos));
+			mapLoadCollectorItems(collObj, fp);
 			map->objects.push_back(collObj);
 			break;
 		}

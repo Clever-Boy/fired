@@ -4,9 +4,7 @@
 //======================================================================
 
 
-fired::MapItem::MapItem(fired::ItemType _type, unsigned int _count, const char *_name) {
+fired::MapItem::MapItem(unsigned int _count, const char *_name) {
 	count = _count;
-	type  = _type;
-
-	strncpy(name   , _name, sizeof(name));
+	strncpy(name, _name, sizeof(name));
 }

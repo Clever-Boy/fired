@@ -237,7 +237,6 @@ void fired::MainMenu::fillMenu() {
 	curParent = menuItems[2];
 	menuItemAdd("Video"   , curParent);
 	menuItemAdd("Audio"   , curParent);
-	menuItemAdd("Controls", curParent);
 
 	fillMenuBack();
 

@@ -160,9 +160,9 @@ void fired::World::checkItems() {
 
 		for (unsigned int j = 0; j < chars.size(); j++) {
 			if ( chars[j]->dead) continue;
-			if (!chars[j]->canPickup(&items[i]->item)) continue;
 
 			if (chars[j]->phys.rect.intersects(items[i]->phys.rect)) {
+				if (!chars[j]->canPickup(&items[i]->item)) continue;
 				chars[j]->pickup(&items[i]->item);
 
 				if (!items[i]->item.count) {

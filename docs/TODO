@@ -356,23 +356,17 @@
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible chunks</title></todo>
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible shots</title></todo>
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible particles</title></todo>
-		<todo done="no" collapse="no"><title>Optimize code</title></todo>
+		<todo done="yes" collapse="no"><title>Optimize code</title></todo>
 		<todo done="no" collapse="no"><title>Refactor code (add headers to files, classes &amp; functions)</title></todo>
-		<todo done="no" collapse="no"><title>Allow drop items</title></todo>
 		<todo done="no" collapse="no"><title>Allow take some of items (right click)</title></todo>
 		<todo done="no" collapse="no"><title>Add trash can</title></todo>
-		<todo done="no" collapse="yes"><title>Map structure refactoring</title>
-			<todo done="no" collapse="no"><title>Biomes loading from DB</title></todo>
-			<todo done="no" collapse="no"><title>Tiles loading from DB</title></todo>
-			<todo done="no" collapse="no"><title>Biomes base class</title></todo>
-			<todo done="no" collapse="no"><title>Refactor tileset class</title></todo>
-			<todo done="no" collapse="no"><title>Generating map by biome</title></todo>
-			<todo done="no" collapse="no"><title>Selecting tiles by biome</title></todo>
-			<todo done="no" collapse="no"><title>Selecting decors by biome</title></todo>
-		</todo>
-		<todo done="no" collapse="yes"><title>Graphics refactoring</title>
+		<todo done="no" collapse="no"><title>Allow drop items</title></todo>
+		<todo done="no" collapse="no"><title>Graphics refactoring</title>
+			<todo done="no" collapse="no"><title>Scale BG to fit window height</title></todo>
 			<todo done="no" collapse="no"><title>Allow BG slide only horizontally</title></todo>
 			<todo done="no" collapse="no"><title>Change BG</title></todo>
+			<todo done="no" collapse="no"><title>Add sky gradient color</title></todo>
+			<todo done="no" collapse="no"><title>Add clouds</title></todo>
 			<todo done="no" collapse="no"><title>Change Tiles</title></todo>
 			<todo done="no" collapse="no"><title>Change Armor icons</title></todo>
 			<todo done="no" collapse="no"><title>Change weapon icons</title></todo>
@@ -381,6 +375,17 @@
 			<todo done="no" collapse="no"><title>Change decor sprites</title></todo>
 			<todo done="no" collapse="no"><title>Change GUI</title></todo>
 			<todo done="no" collapse="no"><title>Change crosshair</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Map structure refactoring</title>
+			<todo done="no" collapse="no"><title>Biomes loading from DB</title></todo>
+			<todo done="no" collapse="no"><title>Tiles loading from DB</title></todo>
+			<todo done="no" collapse="no"><title>Biomes base class</title></todo>
+			<todo done="no" collapse="no"><title>Refactor tileset class</title></todo>
+			<todo done="no" collapse="no"><title>Generating map by biome</title></todo>
+			<todo done="no" collapse="no"><title>Selecting tiles by biome</title></todo>
+			<todo done="no" collapse="no"><title>Selecting decors by biome</title></todo>
+			<todo done="no" collapse="no"><title>Sky gradient by biome</title></todo>
+			<todo done="no" collapse="no"><title>Cloud color by biome</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Explosives</title></todo>
 		<todo done="no" collapse="yes"><title>Explosive weapon</title></todo>
@@ -397,6 +402,7 @@
 			<todo done="no" collapse="no"><title>Add music volume change</title></todo>
 			<todo done="no" collapse="no"><title>Add sound volume change</title></todo>
 			<todo done="no" collapse="no"><title>Add video modes change</title></todo>
+			<todo done="no" collapse="no"><title>Add fullscreen toggle</title></todo>
 		</todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>--- Release Alpha</title>

@@ -1,0 +1,40 @@
+/***********************************************************************
+     * File       : biome.hpp
+     * Created    : Jan 22, 2014
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
+#ifndef __BIOME
+#define __BIOME
+
+
+namespace fired {
+	struct Biome {
+		char name[64];
+		char weather[64];
+
+		sf::Color skyGradientHi;
+		sf::Color skyGradientLow;
+		sf::Color cloudColor;
+		sf::Color lightness;
+
+		sf::Texture        *bgTex;
+		sf::RectangleShape *bgSprite;
+
+		fired::BaseDecor *bridgeDecor;
+		fired::BaseDecor *chestDecor;
+
+		fired::Tileset *ground;
+		fired::Tileset *brickMain;
+		fired::Tileset *brickSecond;
+		fired::Tileset *extra;
+
+
+		 Biome(const char *bgFile);
+		~Biome();
+	};
+}
+
+#endif

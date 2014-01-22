@@ -13,6 +13,7 @@
 #include "tile.hpp"
 #include "objects.hpp"
 #include "phys.hpp"
+#include "biome.hpp"
 #include "world.hpp"
 
 

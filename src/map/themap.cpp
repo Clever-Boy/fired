@@ -52,6 +52,10 @@ fired::Map::~Map() {
 
 	delete tiles;
 	delete tileset;
+
+	delete bgSprite;
+	delete bgTex;
+
 	deleteList(decors);
 	deleteList(objects);
 }

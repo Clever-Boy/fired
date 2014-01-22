@@ -1,7 +1,7 @@
 /***********************************************************************
      * File       : themap.hpp
      * Created    : Jul 24, 2013
-     * Copyright  : (C) 2013 Achpile
+     * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 

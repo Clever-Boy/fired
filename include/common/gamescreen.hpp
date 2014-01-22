@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : gamescreen.hpp
+     * Created    : Aug 23, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __GAMESCREEN
 #define __GAMESCREEN
 

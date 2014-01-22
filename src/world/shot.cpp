@@ -1,8 +1,20 @@
+/***********************************************************************
+     * File       : shot.cpp
+     * Created    : Aug 26, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * Shot
+     * constructor
+
+***********************************************************************/
 fired::Shot::Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner, fired::GameSprite *_sprite, fired::World *_world) {
 	pos       = _pos;
 	owner     = _owner;
@@ -20,9 +32,13 @@ fired::Shot::Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character
 
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Shot
+     * update
+
+***********************************************************************/
 bool fired::Shot::update() {
 	leftToFly -= vLen(velocity) * frameClock;
 	if (leftToFly < 0) return false;
@@ -33,9 +49,13 @@ bool fired::Shot::update() {
 	return true;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Shot
+     * render
+
+***********************************************************************/
 void fired::Shot::render() {
 	if (sprite != NULL) {
 		sprite->spr->setOrigin(sprite->size / 2.0f);
@@ -49,9 +69,13 @@ void fired::Shot::render() {
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * BroadShot
+     * constructor
+
+***********************************************************************/
 fired::BroadShot::BroadShot(sf::FloatRect _shot, sf::Vector2f _normal, fired::Character *_owner) {
 	shot      = _shot;
 	owner     = _owner;
@@ -60,27 +84,17 @@ fired::BroadShot::BroadShot(sf::FloatRect _shot, sf::Vector2f _normal, fired::Ch
 	knockback = owner->getKnockback();
 }
 
-//======================================================================
 
 
-fired::BroadShot::~BroadShot() {
-	return;
-}
+/***********************************************************************
+     * MeleeShot
+     * constructor
 
-//======================================================================
-
-
+***********************************************************************/
 fired::MeleeShot::MeleeShot(sf::Vector2f _pos, sf::Vector2f _direction, fired::Character *_owner) {
 	pos       = _pos;
 	owner     = _owner;
 	direction = _direction;
 	damage    = owner->getDamage();
 	knockback = owner->getKnockback();
-}
-
-//======================================================================
-
-
-fired::MeleeShot::~MeleeShot() {
-	return;
 }

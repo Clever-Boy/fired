@@ -1,8 +1,20 @@
+/***********************************************************************
+     * File       : themap.cpp
+     * Created    : Jul 24, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * Map
+     * constructor
+
+***********************************************************************/
 fired::Map::Map(fired::Camera *_cam, fired::World *_world) {
 	float scaleFactor;
 
@@ -28,9 +40,13 @@ fired::Map::Map(fired::Camera *_cam, fired::World *_world) {
 	mapLoad(this, "data/maps/test.map");
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Map
+     * destructor
+
+***********************************************************************/
 fired::Map::~Map() {
 	for (int i = 0; i < sizeX; delete tiles[i++]);
 
@@ -40,9 +56,13 @@ fired::Map::~Map() {
 	deleteList(objects);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Map
+     * update
+
+***********************************************************************/
 void fired::Map::update() {
 	sf::Vector2f offset = cam->offset;
 
@@ -52,9 +72,13 @@ void fired::Map::update() {
 	render();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Map
+     * render
+
+***********************************************************************/
 void fired::Map::render() {
 	app->draw(*bgSprite);
 
@@ -77,9 +101,13 @@ void fired::Map::render() {
 		objects[i]->render();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Map
+     * isSolid
+
+***********************************************************************/
 bool inline fired::Map::isSolid(int i, int j) {
 	if (i < 0)      return true;
 	if (i >= sizeX) return true;
@@ -89,9 +117,13 @@ bool inline fired::Map::isSolid(int i, int j) {
 	return tiles[i][j].isWall;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Map
+     * isPlatform
+
+***********************************************************************/
 bool inline fired::Map::isPlatform(int i, int j, fired::Phys *phys) {
 	if (i < 0)      return true;
 	if (i >= sizeX) return true;
@@ -110,9 +142,13 @@ bool inline fired::Map::isPlatform(int i, int j, fired::Phys *phys) {
 	return true;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Map
+     * findTile
+
+***********************************************************************/
 void fired::Map::findTile(int i, int j) {
 	int resultTile;
 	int top    = 0;
@@ -140,9 +176,13 @@ void fired::Map::findTile(int i, int j) {
 	tiles[i][j].setTile(resultTile);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Map
+     * checkCollision
+
+***********************************************************************/
 void inline fired::Map::checkCollision(fired::Phys *phys, fired::Character *character, int tile_x, int tile_y) {
 	sf::FloatRect intersection;
 
@@ -174,9 +214,13 @@ void inline fired::Map::checkCollision(fired::Phys *phys, fired::Character *char
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Map
+     * checkPhys
+
+***********************************************************************/
 void fired::Map::checkPhys(fired::Phys *phys, fired::Character *character, float tunnelTime) {
 	if (character) if (character->dead) return;
 	int i, j;
@@ -240,9 +284,13 @@ void fired::Map::checkPhys(fired::Phys *phys, fired::Character *character, float
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Map
+     * checkShot
+
+***********************************************************************/
 bool fired::Map::checkShot(fired::Shot *shot) {
 	sf::Vector2f dir(shot->velocity * frameClock);
 	sf::FloatRect ray(shot->pos, dir);
@@ -267,8 +315,12 @@ bool fired::Map::checkShot(fired::Shot *shot) {
 }
 
 
-//======================================================================
 
+/***********************************************************************
+     * Map
+     * checkInteraction
+
+***********************************************************************/
 fired::MapObject *fired::Map::checkInteraction(fired::Character *owner) {
 	for (unsigned int i = 0; i < objects.size(); i++)
 		if (objects[i]->decor->rect.intersects(owner->phys.rect)) return objects[i];

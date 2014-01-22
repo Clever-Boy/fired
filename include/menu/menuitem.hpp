@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : menuitem.hpp
+     * Created    : Jul 18, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __MENUITEM
 #define __MENUITEM
 

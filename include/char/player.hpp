@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : player.hpp
+     * Created    : Jul 27, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __PLAYER
 #define __PLAYER
 

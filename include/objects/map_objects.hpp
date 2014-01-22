@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : map_objects.hpp
+     * Created    : Sep 03, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __MAP_OBJECTS
 #define __MAP_OBJECTS
 

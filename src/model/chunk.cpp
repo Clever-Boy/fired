@@ -1,8 +1,20 @@
+/***********************************************************************
+     * File       : chunk.cpp
+     * Created    : Aug 09, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * Chunk
+     * constructor
+
+***********************************************************************/
 fired::Chunk::Chunk(fired::Bodypart *bodyPart, float scale, sf::Vector2f position, sf::Vector2f speed, fired::World *_world) {
 	base   = bodyPart->base;
 	color  = bodyPart->color;
@@ -24,9 +36,13 @@ fired::Chunk::Chunk(fired::Bodypart *bodyPart, float scale, sf::Vector2f positio
 	lifetime      = 0;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Chunk
+     * update
+
+***********************************************************************/
 bool fired::Chunk::update() {
 	if (phys.onGround) {
 		phys.velocity.x -= sign(phys.velocity.x) * PHYS_FRICTION_ACCEL * frameClock / 3.0;
@@ -45,9 +61,13 @@ bool fired::Chunk::update() {
 	return true;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Chunk
+     * render
+
+***********************************************************************/
 void fired::Chunk::render() {
 	if (lifetime > CHUNK_DISAPPEARTIME) color.a = 255 * (CHUNK_LIFETIME - lifetime) / (CHUNK_LIFETIME - CHUNK_DISAPPEARTIME);
 

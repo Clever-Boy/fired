@@ -1,17 +1,32 @@
+/***********************************************************************
+     * File       : inventory.cpp
+     * Created    : Sep 03, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
 
-//======================================================================
 
+/***********************************************************************
+     * Inventory
+     * constructor
 
+***********************************************************************/
 fired::Inventory::Inventory(fired::Character *_owner) {
 	owner        = _owner;
 	credits      = 0;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Inventory
+     * pickup
+
+***********************************************************************/
 void fired::Inventory::pickup(fired::InventoryItem *item) {
 	for (int i = 0; i < 10; i++) for (int j = 0; j < 5; j++) if (items[i][j].base)
 		if ((items[i][j].base->type == item->base->type) && (items[i][j].base->UID == item->base->UID) && (items[i][j].count < items[i][j].base->maxStack)) {
@@ -36,9 +51,13 @@ void fired::Inventory::pickup(fired::InventoryItem *item) {
 			}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Inventory
+     * canPickup
+
+***********************************************************************/
 bool fired::Inventory::canPickup(fired::InventoryItem *item) {
 	for (int i = 0; i < 10; i++) for (int j = 0; j < 5; j++)
 		if (items[i][j].base == NULL)
@@ -49,9 +68,13 @@ bool fired::Inventory::canPickup(fired::InventoryItem *item) {
 	return false;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Inventory
+     * dropAll
+
+***********************************************************************/
 void fired::Inventory::dropAll(fired::World *world) {
 	float angle;
 	sf::Vector2f pos = owner->phys.center;
@@ -65,9 +88,13 @@ void fired::Inventory::dropAll(fired::World *world) {
 			}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Inventory
+     * generateLoot
+
+***********************************************************************/
 void fired::Inventory::generateLoot(std::vector<fired::LootItem*> *_items) {
 	fired::LootItem      *lootItem;
 	fired::InventoryItem *item;

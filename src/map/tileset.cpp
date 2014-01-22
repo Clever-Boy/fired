@@ -1,8 +1,20 @@
+/***********************************************************************
+     * File       : tileset.cpp
+     * Created    : Jul 24, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * Class
+     * constructor
+
+***********************************************************************/
 fired::Tileset::Tileset() {
 	maskTex = new sf::Texture();
 	maskTex->loadFromFile("data/img/world/tileset/mask.tga");
@@ -13,18 +25,26 @@ fired::Tileset::Tileset() {
 	addTile("data/img/world/tiles/warning.tga");
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Class
+     * destructor
+
+***********************************************************************/
 fired::Tileset::~Tileset() {
 	deleteList(textures);
 	deleteList(sprites);
 	delete maskTex;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Class
+     * addTile
+
+***********************************************************************/
 void fired::Tileset::addTile(const char *filename) {
 	sf::RenderTexture *text = new sf::RenderTexture;
 	sf::Texture       *tile = new sf::Texture;

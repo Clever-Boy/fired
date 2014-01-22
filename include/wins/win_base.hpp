@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : win_base.hpp
+     * Created    : Aug 26, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __WIN_BASE
 #define __WIN_BASE
 

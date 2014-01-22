@@ -1,8 +1,20 @@
+/***********************************************************************
+     * File       : creditsscr.cpp
+     * Created    : Jul 22, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * CreditsScr
+     * constructor
+
+***********************************************************************/
 fired::CreditsScr::CreditsScr() {
 	std::string line;
 	std::ifstream creditsFile("data/img/gui/creditsscr/credits");
@@ -48,16 +60,24 @@ fired::CreditsScr::CreditsScr() {
 	creditsFile.close();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * CreditsScr
+     * destructor
+
+***********************************************************************/
 fired::CreditsScr::~CreditsScr() {
 	deleteList(credits);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * CreditsScr
+     * update
+
+***********************************************************************/
 void fired::CreditsScr::update() {
 	float yOffset = -frameClock * CREDITSSCR_SPEED;
 	for (unsigned int i = 0; i < credits.size(); i++) credits[i]->move(0, yOffset);
@@ -68,16 +88,24 @@ void fired::CreditsScr::update() {
 	render();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * CreditsScr
+     * render
+
+***********************************************************************/
 void fired::CreditsScr::render() {
 	for (unsigned int i = 0; i < credits.size(); i++) app->draw(*credits[i]);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * CreditsScr
+     * processEvent
+
+***********************************************************************/
 void fired::CreditsScr::processEvent(sf::Event event) {
 	if ((event.type == sf::Event::MouseButtonReleased) || 
 	    (event.type == sf::Event::KeyPressed))

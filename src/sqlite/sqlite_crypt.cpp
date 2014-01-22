@@ -1,8 +1,19 @@
+/***********************************************************************
+     * File       : sqlite_crypt.cpp
+     * Created    : Aug 19, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "sqlite_crypt.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * sqlite_crypt
+
+***********************************************************************/
 void sqlite_crypt(char *sql, unsigned int sqllen, const char *key, unsigned int keylen) {
 	unsigned int keypos = 0;
 

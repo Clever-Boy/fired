@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : theworld.hpp
+     * Created    : Jul 24, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __THEWORLD
 #define __THEWORLD
 

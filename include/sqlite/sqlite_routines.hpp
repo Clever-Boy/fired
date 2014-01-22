@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : sqlite_routines.hpp
+     * Created    : Aug 19, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __SQLITE_ROUTINES
 #define __SQLITE_ROUTINES
 

@@ -1,8 +1,20 @@
+/***********************************************************************
+     * File       : container.cpp
+     * Created    : Aug 26, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * constructor
+
+***********************************************************************/
 fired::Container::Container() {
 	sqlite3 *db;
 	sqlite3_open("data/database.sqlite", &db);
@@ -20,9 +32,13 @@ fired::Container::Container() {
 	sqlite3_close(db);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * destructor
+
+***********************************************************************/
 fired::Container::~Container() {
 	deleteList(items);
 	deleteList(weapons);
@@ -35,9 +51,13 @@ fired::Container::~Container() {
 	deleteList(sounds);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * getAI
+
+***********************************************************************/
 fired::BaseAI *fired::Container::getAI(const char *name, fired::Creature *owner, fired::World *world) {
 	if (!strcmp(name, "idle")) return new fired::IdleAI(owner, world);
 	if (!strcmp(name, "basic")) return new fired::BasicAI(owner, world);
@@ -45,9 +65,13 @@ fired::BaseAI *fired::Container::getAI(const char *name, fired::Creature *owner,
 	return new fired::BaseAI();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * loadSprites
+
+***********************************************************************/
 void fired::Container::loadSprites(sqlite3 *db) {
 	char *zErrMsg = 0;
 
@@ -56,17 +80,25 @@ void fired::Container::loadSprites(sqlite3 *db) {
 		printf("SQL error: %s\n", zErrMsg);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * loadSprite
+
+***********************************************************************/
 int fired::Container::loadSprite(void *data, int, char **argv, char **) {
 	((fired::Container *) data)->sprites.push_back(new fired::GameSprite(argv[0]));
 	return 0;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * loadSounds
+
+***********************************************************************/
 void fired::Container::loadSounds(sqlite3 *db) {
 	char *zErrMsg = 0;
 
@@ -75,17 +107,25 @@ void fired::Container::loadSounds(sqlite3 *db) {
 		printf("SQL error: %s\n", zErrMsg);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * loadSound
+
+***********************************************************************/
 int fired::Container::loadSound(void *data, int, char **argv, char **) {
 	((fired::Container *) data)->sounds.push_back(new fired::GameSound(argv[1], argv[0]));
 	return 0;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * getSound
+
+***********************************************************************/
 sf::Sound* fired::Container::getSound(const char *name) {
 	for (unsigned int i = 0; i < sounds.size(); i++)
 		if (!strcmp(name, sounds[i]->name)) return sounds[i]->snd;
@@ -94,9 +134,12 @@ sf::Sound* fired::Container::getSound(const char *name) {
 }
 
 
-//======================================================================
 
+/***********************************************************************
+     * Container
+     * loadDecors
 
+***********************************************************************/
 void fired::Container::loadDecors(sqlite3 *db) {
 	char *zErrMsg = 0;
 
@@ -107,9 +150,13 @@ void fired::Container::loadDecors(sqlite3 *db) {
 		printf("SQL error: %s\n", zErrMsg);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * loadDecor
+
+***********************************************************************/
 int fired::Container::loadDecor(void *data, int, char **argv, char **) {
 	sf::Vector2f size;
 	sscanf(argv[2], "%f,%f", &size.x, &size.y);
@@ -117,9 +164,13 @@ int fired::Container::loadDecor(void *data, int, char **argv, char **) {
 	return 0;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * getDecor
+
+***********************************************************************/
 fired::BaseDecor* fired::Container::getDecor(const char *name) {
 	for (unsigned int i = 0; i < decors.size(); i++)
 		if (!strcmp(name, decors[i]->name)) return decors[i];
@@ -128,9 +179,12 @@ fired::BaseDecor* fired::Container::getDecor(const char *name) {
 }
 
 
-//======================================================================
 
+/***********************************************************************
+     * Container
+     * loadBodyparts
 
+***********************************************************************/
 void fired::Container::loadBodyparts(sqlite3 *db) {
 	char *zErrMsg = 0;
 
@@ -141,9 +195,13 @@ void fired::Container::loadBodyparts(sqlite3 *db) {
 		printf("SQL error: %s\n", zErrMsg);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * loadBodypart
+
+***********************************************************************/
 int fired::Container::loadBodypart(void *data, int, char **argv, char **) {
 	((fired::Container *) data)->bodyparts.push_back(new fired::BaseBodypart);
 	fired::BaseBodypart *current = ((fired::Container *) data)->bodyparts.back();
@@ -165,9 +223,13 @@ int fired::Container::loadBodypart(void *data, int, char **argv, char **) {
 	return 0;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * getBodypart
+
+***********************************************************************/
 fired::BaseBodypart* fired::Container::getBodypart(const char* name, fired::BodypartType type) {
 	for (unsigned int i = 0; i < bodyparts.size(); i++)
 		if (!strcmp(name, bodyparts[i]->name) && type == bodyparts[i]->type) return bodyparts[i];
@@ -175,9 +237,13 @@ fired::BaseBodypart* fired::Container::getBodypart(const char* name, fired::Body
 	return NULL;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * loadModels
+
+***********************************************************************/
 void fired::Container::loadModels(sqlite3 *db) {
 	char *zErrMsg = 0;
 
@@ -186,9 +252,13 @@ void fired::Container::loadModels(sqlite3 *db) {
 		printf("SQL error: %s\n", zErrMsg);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * loadModelBodypart
+
+***********************************************************************/
 void fired::Container::loadModelBodypart(const char* s, fired::BaseModelBodypart *bodypart, fired::BodypartType type) {
 		char field[128];
 
@@ -196,9 +266,13 @@ void fired::Container::loadModelBodypart(const char* s, fired::BaseModelBodypart
 		bodypart->part = getBodypart(field, type);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * loadModel
+
+***********************************************************************/
 int fired::Container::loadModel(void *data, int, char **argv, char **) {
 	char field[128];
 
@@ -227,9 +301,12 @@ int fired::Container::loadModel(void *data, int, char **argv, char **) {
 }
 
 
-//======================================================================
 
+/***********************************************************************
+     * Container
+     * loadArmors
 
+***********************************************************************/
 void fired::Container::loadArmors(sqlite3 *db) {
 	char *zErrMsg = 0;
 
@@ -241,9 +318,13 @@ void fired::Container::loadArmors(sqlite3 *db) {
 		printf("SQL error: %s\n", zErrMsg);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * loadArmor
+
+***********************************************************************/
 int fired::Container::loadArmor(void *data, int, char **argv, char **) {
 	((fired::Container *) data)->armors.push_back(new fired::BaseArmor);
 	fired::BaseArmor *current = ((fired::Container *) data)->armors.back();
@@ -265,9 +346,13 @@ int fired::Container::loadArmor(void *data, int, char **argv, char **) {
 	return 0;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * getArmorIndex
+
+***********************************************************************/
 int fired::Container::getArmorIndex(const char *name) {
 	for (unsigned int i = 0; i < armors.size(); i++)
 		if (!strcmp(name, armors[i]->name)) return i;
@@ -275,9 +360,13 @@ int fired::Container::getArmorIndex(const char *name) {
 	return -1;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * loadWeapons
+
+***********************************************************************/
 void fired::Container::loadWeapons(sqlite3 *db) {
 	char *zErrMsg = 0;
 
@@ -290,9 +379,13 @@ void fired::Container::loadWeapons(sqlite3 *db) {
 		printf("SQL error: %s\n", zErrMsg);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * loadWeapon
+
+***********************************************************************/
 int fired::Container::loadWeapon(void *data, int, char **argv, char **){
 	((fired::Container *) data)->weapons.push_back(new fired::BaseWeapon);
 	fired::BaseWeapon *current = ((fired::Container *) data)->weapons.back();
@@ -324,9 +417,13 @@ int fired::Container::loadWeapon(void *data, int, char **argv, char **){
 	return 0;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * getWeaponIndex
+
+***********************************************************************/
 int fired::Container::getWeaponIndex(const char *name) {
 	for (unsigned int i = 0; i < weapons.size(); i++)
 		if (!strcmp(name, weapons[i]->name)) return i;
@@ -334,9 +431,13 @@ int fired::Container::getWeaponIndex(const char *name) {
 	return -1;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * loadItems
+
+***********************************************************************/
 void fired::Container::loadItems(sqlite3 *db) {
 	char *zErrMsg = 0;
 
@@ -347,9 +448,13 @@ void fired::Container::loadItems(sqlite3 *db) {
 		printf("SQL error: %s\n", zErrMsg);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * loadItem
+
+***********************************************************************/
 int fired::Container::loadItem(void *data, int, char **argv, char **) {
 	((fired::Container *) data)->items.push_back(new fired::BaseItem);
 	fired::BaseItem *current = ((fired::Container *) data)->items.back();
@@ -380,9 +485,13 @@ int fired::Container::loadItem(void *data, int, char **argv, char **) {
 	return 0;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * getItem
+
+***********************************************************************/
 fired::BaseItem *fired::Container::getItem(const char *name) {
 	for (unsigned int i = 0; i < items.size(); i++)
 		if (!strcmp(name, items[i]->name)) return items[i];
@@ -391,12 +500,15 @@ fired::BaseItem *fired::Container::getItem(const char *name) {
 }
 
 
-//======================================================================
 
+/***********************************************************************
+     * Container
+     * loadCreatures
 
+***********************************************************************/
 void fired::Container::loadCreatures(sqlite3 *db) {
 	char *zErrMsg = 0;
-//   
+
 	if (sqlite3_exec(db, "SELECT Creatures.*, Models.ID, Weapons.ID "
 	                     "FROM Creatures, Weapons, Models "
 	                     "WHERE Creatures.Model = Models.ModelName "
@@ -405,9 +517,13 @@ void fired::Container::loadCreatures(sqlite3 *db) {
 		printf("SQL error: %s\n", zErrMsg);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * loadCreatureLoot
+
+***********************************************************************/
 void fired::Container::loadCreatureLoot(fired::BaseCreature *current, const char *lootStr) {
 	char         name[64];
 	unsigned int minCount;
@@ -418,9 +534,13 @@ void fired::Container::loadCreatureLoot(fired::BaseCreature *current, const char
 	current->loot.push_back(new fired::LootItem(getItem(name), minCount, maxCount, probability));
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * loadCreature
+
+***********************************************************************/
 int fired::Container::loadCreature(void *data, int, char **argv, char **) {
 	((fired::Container *) data)->creatures.push_back(new fired::BaseCreature);
 	fired::BaseCreature *current = ((fired::Container *) data)->creatures.back();
@@ -454,9 +574,13 @@ int fired::Container::loadCreature(void *data, int, char **argv, char **) {
 	return 0;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Container
+     * getCreature
+
+***********************************************************************/
 fired::BaseCreature *fired::Container::getCreature(const char *name) {
 	for (unsigned int i = 0; i < creatures.size(); i++)
 		if (!strcmp(name, creatures[i]->name)) return creatures[i];

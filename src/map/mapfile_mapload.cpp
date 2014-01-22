@@ -1,17 +1,31 @@
+/***********************************************************************
+     * File       : mapfile_mapload.cpp
+     * Created    : Aug 27, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * mapLoadMeta
+
+***********************************************************************/
 void mapLoadMeta(fired::Map *map, FILE *fp) {
 	fread(&map->startPos, sizeof(map->startPos), 1, fp);
 	fread(&map->sizeX, sizeof(int), 1, fp);
 	fread(&map->sizeY, sizeof(int), 1, fp);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * mapLoadTiles
+
+***********************************************************************/
 void mapLoadTiles(fired::Map *map, FILE *fp) {
 	fired::MapTile tile;
 	map->mapSize = sf::Vector2i(map->sizeX * TILE_SIZE, map->sizeY * TILE_SIZE);
@@ -31,9 +45,12 @@ void mapLoadTiles(fired::Map *map, FILE *fp) {
 		map->tiles[i][j].setTileset(map->tileset);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * mapLoadDecors
+
+***********************************************************************/
 void mapLoadDecors(fired::Map *map, FILE *fp) {
 	unsigned int decorCount;
 	fired::MapDecor decor;
@@ -45,9 +62,12 @@ void mapLoadDecors(fired::Map *map, FILE *fp) {
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * mapLoadCollectorItems
+
+***********************************************************************/
 void mapLoadCollectorItems(fired::MapObjectCollector *obj, FILE *fp) {
 	unsigned int itemCount;
 	fired::MapItem item;
@@ -60,9 +80,12 @@ void mapLoadCollectorItems(fired::MapObjectCollector *obj, FILE *fp) {
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * mapLoadObject
+
+***********************************************************************/
 void mapLoadObject(fired::Map *map, fired::BaseMapObject obj, FILE *fp) {
 	switch (obj.type) {
 		case fired::moNone: {
@@ -80,9 +103,12 @@ void mapLoadObject(fired::Map *map, fired::BaseMapObject obj, FILE *fp) {
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * mapLoadObjects
+
+***********************************************************************/
 void mapLoadObjects(fired::Map *map, FILE *fp) {
 	unsigned int objCount;
 	fired::BaseMapObject obj;

@@ -1,8 +1,20 @@
+/***********************************************************************
+     * File       : crosshair.cpp
+     * Created    : Jul 27, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * Crosshair
+     * constructor
+
+***********************************************************************/
 fired::Crosshair::Crosshair(fired::Camera *_cam) {
 	cam      = _cam;
 
@@ -15,17 +27,25 @@ fired::Crosshair::Crosshair(fired::Camera *_cam) {
 	crosshairCur->setOrigin(crosshairTex->getSize().x / 2, crosshairTex->getSize().y / 2);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Crosshair
+     * destructor
+
+***********************************************************************/
 fired::Crosshair::~Crosshair() {
 	delete crosshairTex;
 	delete crosshairCur;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Crosshair
+     * update
+
+***********************************************************************/
 void fired::Crosshair::update(float distance) {
 	sf::Vector2f center(settings->window.width / 2, settings->window.height / 2);
 	center -= (cam->offset + center - owner->center);
@@ -41,9 +61,13 @@ void fired::Crosshair::update(float distance) {
 	render();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Crosshair
+     * render
+
+***********************************************************************/
 void fired::Crosshair::render() {
 	crosshairCur->setPosition(pos + cam->offset);
 	app->draw(*crosshairCur);

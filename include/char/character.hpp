@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : character.hpp
+     * Created    : Jul 25, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __CHARACTER
 #define __CHARACTER
 

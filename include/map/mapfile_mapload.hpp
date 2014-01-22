@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : mapfile_mapload.hpp
+     * Created    : Aug 27, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __MAPFILE_MAPLOAD
 #define __MAPFILE_MAPLOAD
 

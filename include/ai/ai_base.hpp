@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : ai_base.hpp
+     * Created    : Aug 12, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __AI_BASE
 #define __AI_BASE
 

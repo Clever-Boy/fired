@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : gui.hpp
+     * Created    : Aug 26, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __GUI
 #define __GUI
 

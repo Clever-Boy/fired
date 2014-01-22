@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : win_hint.hpp
+     * Created    : Sep 01, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __WIN_HINT
 #define __WIN_HINT
 

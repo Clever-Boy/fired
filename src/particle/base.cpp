@@ -1,8 +1,20 @@
+/***********************************************************************
+     * File       : base.cpp
+     * Created    : Aug 02, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * Particle
+     * process
+
+***********************************************************************/
 bool fired::Particle::process(fired::World *world, bool physical) {
 	life += frameClock;
 	if (life > lifetime) return false;
@@ -25,9 +37,24 @@ bool fired::Particle::process(fired::World *world, bool physical) {
 	return true;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * ParticleSystem
+     * destructor
+
+***********************************************************************/
+fired::ParticleSystem::~ParticleSystem() {
+	deleteList(particles);
+}
+
+
+
+/***********************************************************************
+     * ParticleSystem
+     * render
+
+***********************************************************************/
 void fired::ParticleSystem::render() {
 	unsigned int i = 0;
 
@@ -39,17 +66,14 @@ void fired::ParticleSystem::render() {
 			i++;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * ParticleSystem
+     * update
+
+***********************************************************************/
 bool fired::ParticleSystem::update() {
 	render();
 	return false;
-}
-
-//======================================================================
-
-
-fired::ParticleSystem::~ParticleSystem() {
-	deleteList(particles);
 }

@@ -1,6 +1,19 @@
+/***********************************************************************
+     * File       : main.cpp
+     * Created    : Aug 02, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
 
+
+/***********************************************************************
+     * Global variables
+
+***********************************************************************/
 float             frameClock;
 fired::Settings  *settings;
 sf::RenderWindow *app;
@@ -8,6 +21,11 @@ fired::Game      *game;
 fired::Container *container;
 
 
+
+/***********************************************************************
+     * Main function
+
+***********************************************************************/
 int main() {
 	game = new fired::Game;
 	srand(time(NULL));

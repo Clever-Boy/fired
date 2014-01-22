@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : crosshair.hpp
+     * Created    : Jul 27, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __CROSSHAIR
 #define __CROSSHAIR
 

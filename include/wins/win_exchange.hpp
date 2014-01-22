@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : win_exchange.hpp
+     * Created    : Aug 27, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __WIN_EXCHANGE
 #define __WIN_EXCHANGE
 

@@ -1,8 +1,19 @@
+/***********************************************************************
+     * File       : mics.cpp
+     * Created    : Aug 02, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * swapItems
+
+***********************************************************************/
 void swapItems(fired::InventoryItem *item1, fired::InventoryItem *item2) {
 	fired::InventoryItem tmp;
 
@@ -16,45 +27,57 @@ void swapItems(fired::InventoryItem *item1, fired::InventoryItem *item2) {
 	item2->count = tmp.count;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * emptyItem
+
+***********************************************************************/
 void emptyItem(fired::InventoryItem *item) {
 	item->base = NULL;
 	item->count = 0;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * lessOrZero
+
+***********************************************************************/
 float lessOrZero(float x) {
 	if (x > 0) return 0;
 	else return x;
 };
 
-//======================================================================
 
 
+/***********************************************************************
+     * sqr
+
+***********************************************************************/
 float sqr(float x) {
 	return x * x;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * sign
+
+***********************************************************************/
 float sign(float x) {
 	if (x > 0) return 1.0f;
 	if (x < 0) return -1.0f;
 	return 0.0f;
 }
 
-/*======================================================================
+
+
+/***********************************************************************
                        Fast Ray-Box Intersection
                            by Andrew Woo
               from "Graphics Gems", Academic Press, 1990
-======================================================================*/
-
-
+***********************************************************************/
 bool lineBoxCollision(sf::FloatRect box, sf::FloatRect ray, sf::Vector2f *coord, sf::Vector2f *normal, float *dist)
 {
 	bool inside = true;
@@ -95,7 +118,6 @@ bool lineBoxCollision(sf::FloatRect box, sf::FloatRect ray, sf::Vector2f *coord,
 	}
 
 
-	/* Calculate T distances to candidate planes */
 	if (quadrant.x != MIDDLE && ray.width !=0.)
 		maxT.x = (candidatePlane.x - ray.left) / ray.width;
 	else
@@ -107,7 +129,6 @@ bool lineBoxCollision(sf::FloatRect box, sf::FloatRect ray, sf::Vector2f *coord,
 		maxT.y = -1.;
 
 
-	/* Get largest of the maxT's for final choice of intersection */
 	whichPlane = 0;
 	if (maxT.x < maxT.y)
 		whichPlane = 1;

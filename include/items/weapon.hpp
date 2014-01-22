@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : weapon.hpp
+     * Created    : Sep 01, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __WEAPON
 #define __WEAPON
 

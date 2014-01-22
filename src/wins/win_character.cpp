@@ -1,8 +1,20 @@
+/***********************************************************************
+     * File       : win_character.cpp
+     * Created    : Aug 28, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * CharacterWindow
+     * constructor
+
+***********************************************************************/
 fired::CharacterWindow::CharacterWindow(fired::Character *_owner) {
 	owner  = _owner;
 	win    = new fired::Window(sf::Vector2f(400, 200));
@@ -14,24 +26,36 @@ fired::CharacterWindow::CharacterWindow(fired::Character *_owner) {
 	text->setColor(sf::Color::White);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * CharacterWindow
+     * destructor
+
+***********************************************************************/
 fired::CharacterWindow::~CharacterWindow() {
 	delete win;
 	delete text;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * CharacterWindow
+     * update
+
+***********************************************************************/
 void fired::CharacterWindow::update() {
 	render();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * CharacterWindow
+     * renderText
+
+***********************************************************************/
 void fired::CharacterWindow::renderText(float x, float y, const char *caption, bool rightAligned) {
 	if (rightAligned) {
 		text->setString(sf::String(caption));
@@ -44,9 +68,13 @@ void fired::CharacterWindow::renderText(float x, float y, const char *caption, b
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * CharacterWindow
+     * render
+
+***********************************************************************/
 void fired::CharacterWindow::render() {
 	char str[128];
 	win->render();

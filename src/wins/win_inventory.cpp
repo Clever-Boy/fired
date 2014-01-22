@@ -1,17 +1,33 @@
+/***********************************************************************
+     * File       : win_inventory.cpp
+     * Created    : Aug 26, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * InventoryWindowItem
+     * constructor
+
+***********************************************************************/
 fired::InventoryWindowItem::InventoryWindowItem(sf::Vector2f pos, fired::InventoryItem *_item, fired::ItemType _filter) {
 	item   = _item;
 	filter = _filter;
 	rect   = sf::FloatRect(pos, sf::Vector2f(35.0f, 35.0f));
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * InventoryWindowItem
+     * render
+
+***********************************************************************/
 void fired::InventoryWindowItem::render(sf::Sprite *spr, sf::Text *count) {
 	spr->setPosition(rectCenter(rect));
 	app->draw(*spr);
@@ -19,9 +35,13 @@ void fired::InventoryWindowItem::render(sf::Sprite *spr, sf::Text *count) {
 	renderItem(count);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * InventoryWindowItem
+     * renderItem
+
+***********************************************************************/
 void fired::InventoryWindowItem::renderItem(sf::Text *count) {
 	if (item->base == NULL) return;
 
@@ -43,9 +63,13 @@ void fired::InventoryWindowItem::renderItem(sf::Text *count) {
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * InventoryWindow
+     * constructor
+
+***********************************************************************/
 fired::InventoryWindow::InventoryWindow(fired::Character *_owner, fired::World *world) {
 	owner  = _owner;
 	win    = new fired::Window(sf::Vector2f(370, 380));
@@ -101,9 +125,13 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner, fired::World *
 			items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(10.0f + 35.0f * i, 185.0f + 35.0f * j), &owner->inventory->items[i][j], itAny));
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * InventoryWindow
+     * destructor
+
+***********************************************************************/
 fired::InventoryWindow::~InventoryWindow() {
 	delete win;
 	delete hint;
@@ -124,9 +152,13 @@ fired::InventoryWindow::~InventoryWindow() {
 	deleteList(items);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * InventoryWindow
+     * update
+
+***********************************************************************/
 void fired::InventoryWindow::update(sf::Vector2f mousePos) {
 	for (unsigned int i = 0; i < items.size(); i++)
 		if (items[i]->rect.contains(mousePos)) items[i]->hover = true;
@@ -139,9 +171,13 @@ void fired::InventoryWindow::update(sf::Vector2f mousePos) {
 	render();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * InventoryWindow
+     * render
+
+***********************************************************************/
 void fired::InventoryWindow::render() {
 	win->render();
 
@@ -165,9 +201,13 @@ void fired::InventoryWindow::render() {
 			}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * InventoryWindow
+     * click
+
+***********************************************************************/
 void fired::InventoryWindow::click(sf::Vector2f mousePos) {
 	fired::InventoryWindowItem *selected = NULL;
 

@@ -1,30 +1,54 @@
+/***********************************************************************
+     * File       : basemodel.cpp
+     * Created    : Aug 08, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * Model
+     * constructor
+
+***********************************************************************/
 fired::Model::~Model() {
 	bodyParts.clear();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Model
+     * render
+
+***********************************************************************/
 void fired::Model::render() {
 	for (unsigned int i = 0; i < bodyParts.size(); i++) drawPart(bodyParts[i]);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Model
+     * explode
+
+***********************************************************************/
 void fired::Model::explode(sf::Vector2f shot, float knockback) {
 	for (unsigned int i = 0; i < bodyParts.size(); i++) chunkPart(bodyParts[i], shot, knockback / 10);
 	bodyParts.clear();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Model
+     * initPart
+
+***********************************************************************/
 void fired::Model::initPart(fired::Bodypart *part, fired::BaseModelBodypart *base, fired::BaseArmor *armor, int *direction) {
 	if (armor) {
 		part->base  = armor->base;
@@ -40,9 +64,13 @@ void fired::Model::initPart(fired::Bodypart *part, fired::BaseModelBodypart *bas
 	part->animRotation = 0.0;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Model
+     * drawPart
+
+***********************************************************************/
 void fired::Model::drawPart(fired::Bodypart *part) {
 	if (!part->base) return;
 
@@ -59,9 +87,13 @@ void fired::Model::drawPart(fired::Bodypart *part) {
 	app->draw(*part->base->sprite);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Model
+     * chunkPart
+
+***********************************************************************/
 void fired::Model::chunkPart(fired::Bodypart *part, sf::Vector2f shot, float knockback) {
 	if (!part->base) return;
 
@@ -75,9 +107,13 @@ void fired::Model::chunkPart(fired::Bodypart *part, sf::Vector2f shot, float kno
 	world->addChunk(part, modelScale, chunkPos, vNorm(part->offset - part->base->origin - shot) * knockback * 20.0f);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Model
+     * resetPart
+
+***********************************************************************/
 void fired::Model::resetPart(fired::Bodypart *part) {
 	if (!part->base) return;
 
@@ -85,9 +121,13 @@ void fired::Model::resetPart(fired::Bodypart *part) {
 	part->animRotation = 0;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Model
+     * resetAnimation
+
+***********************************************************************/
 void fired::Model::resetAnimation() {
 	for (unsigned int i = 0; i < bodyParts.size(); i++) resetPart(bodyParts[i]);
 }

@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : loot_item.hpp
+     * Created    : Sep 03, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __LOOT_ITEM
 #define __LOOT_ITEM
 

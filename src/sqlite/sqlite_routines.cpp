@@ -1,23 +1,19 @@
-/* Originally written in <shell.c> from package <sqlite3>
-** 
-** 2001 September 15
-**
-** The author disclaims copyright to this source code.  In place of
-** a legal notice, here is a blessing:
-**
-**    May you do good and not evil.
-**    May you find forgiveness for yourself and forgive others.
-**    May you share freely, never taking more than you give.
-**
-** This file contains code to implement the "sqlite" dump functions.
-*/
+/***********************************************************************
+     * File       : sqlite_routines.cpp
+     * Created    : Aug 19, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
 
-
+***********************************************************************/
 #include "sqlite_routines.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * appendText
+
+***********************************************************************/
 char *appendText(char *zIn, char const *zAppend, char quote){
 	int len;
 	int i;
@@ -53,9 +49,12 @@ char *appendText(char *zIn, char const *zAppend, char quote){
 	return zIn;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * run_table_dump_query
+
+***********************************************************************/
 int run_table_dump_query(struct callback_data *p, const char *zSelect, const char *zFirstRow) {
 	sqlite3_stmt *pSelect;
 	int rc;
@@ -102,9 +101,12 @@ int run_table_dump_query(struct callback_data *p, const char *zSelect, const cha
 	return rc;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * dump_callback
+
+***********************************************************************/
 int dump_callback(void *pArg, int nArg, char **azArg, char **){
 	int rc;
 	const char *zTable;
@@ -199,17 +201,23 @@ int dump_callback(void *pArg, int nArg, char **azArg, char **){
 	return 0;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * run_schema_dump_query
+
+***********************************************************************/
 int run_schema_dump_query(struct callback_data *p, const char *zQuery) {
 	char *zErr = 0;
 	return sqlite3_exec(p->db, zQuery, dump_callback, p, &zErr);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * dumpDb
+
+***********************************************************************/
 void dumpDb(sqlite3 *db, char **sql) {
 	struct callback_data p; 
 

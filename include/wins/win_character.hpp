@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : win_character.hpp
+     * Created    : Aug 28, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __WIN_CHARACTER
 #define __WIN_CHARACTER
 

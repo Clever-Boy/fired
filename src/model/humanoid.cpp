@@ -1,8 +1,20 @@
+/***********************************************************************
+     * File       : humanoid.cpp
+     * Created    : Aug 08, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * ModelHumanoid
+     * constructor
+
+***********************************************************************/
 fired::ModelHumanoid::ModelHumanoid(fired::Character *_owner, fired::BaseModelHumanoid *_base, float scale, fired::World *_world) {
 	owner    = _owner;
 	world    = _world;
@@ -16,9 +28,13 @@ fired::ModelHumanoid::ModelHumanoid(fired::Character *_owner, fired::BaseModelHu
 	respawn();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * ModelHumanoid
+     * update
+
+***********************************************************************/
 void fired::ModelHumanoid::update() {
 	if (owner->dead) {
 		if (bodyAnimation != caNone) {
@@ -42,9 +58,13 @@ void fired::ModelHumanoid::update() {
 	processAnimation();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * ModelHumanoid
+     * updateParts
+
+***********************************************************************/
 void fired::ModelHumanoid::updateParts() {
 	initPart(&partHead , &base->partHead , NULL       , &owner->watching);
 	initPart(&partHair , &base->partHair , owner->helm, &owner->watching);
@@ -58,9 +78,13 @@ void fired::ModelHumanoid::updateParts() {
 	initPart(&partFistB, &base->partFistB, owner->fist, &owner->watching);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * ModelHumanoid
+     * respawn
+
+***********************************************************************/
 void fired::ModelHumanoid::respawn() {
 	bodyParts.push_back(&partFistB );
 	bodyParts.push_back(&partLegsB );
@@ -81,9 +105,13 @@ void fired::ModelHumanoid::respawn() {
 	armsAnimationTime = 0;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * ModelHumanoid
+     * setWeapon
+
+***********************************************************************/
 void fired::ModelHumanoid::setWeapon(fired::BaseWeapon *weapon) {
 	partWeapon.base         = weapon->bodypart;
 	partWeapon.color        = sf::Color::White;
@@ -92,18 +120,26 @@ void fired::ModelHumanoid::setWeapon(fired::BaseWeapon *weapon) {
 	partWeapon.animOffset   = sf::Vector2f(0.0, 0.0);
 	partWeapon.animRotation = 0.0;}
 
-//======================================================================
 
 
+/***********************************************************************
+     * ModelHumanoid
+     * processAnimation
+
+***********************************************************************/
 void fired::ModelHumanoid::processAnimation() {
 	resetAnimation();
 	processBodyAnimation();
 	processArmsAnimation();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * ModelHumanoid
+     * processBodyAnimation
+
+***********************************************************************/
 void fired::ModelHumanoid::processBodyAnimation() {
 	switch (bodyAnimation) {
 		case caNone:
@@ -141,9 +177,13 @@ void fired::ModelHumanoid::processBodyAnimation() {
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * ModelHumanoid
+     * processArmsAnimation
+
+***********************************************************************/
 void fired::ModelHumanoid::processArmsAnimation() {
 	switch (armsAnimation) {
 		case caNone:

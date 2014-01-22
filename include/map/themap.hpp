@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : themap.hpp
+     * Created    : Jul 24, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __THEMAP
 #define __THEMAP
 

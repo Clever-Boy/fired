@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : win_inventory.hpp
+     * Created    : Aug 26, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __WIN_INVENTORY
 #define __WIN_INVENTORY
 

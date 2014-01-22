@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : flytext.hpp
+     * Created    : Aug 26, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __FLYTEXT
 #define __FLYTEXT
 

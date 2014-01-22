@@ -357,7 +357,7 @@
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible shots</title></todo>
 		<todo done="yes" collapse="no"><title>Deprecate rendering non-visible particles</title></todo>
 		<todo done="yes" collapse="no"><title>Optimize code</title></todo>
-		<todo done="no" collapse="no"><title>Refactor code (add headers to files, classes &amp; functions)</title></todo>
+		<todo done="yes" collapse="no"><title>Refactor code (add headers to files, classes &amp; functions)</title></todo>
 		<todo done="no" collapse="no"><title>Allow take some of items (right click)</title></todo>
 		<todo done="no" collapse="no"><title>Add trash can</title></todo>
 		<todo done="no" collapse="no"><title>Allow drop items</title></todo>

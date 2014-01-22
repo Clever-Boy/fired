@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : ai_idle.hpp
+     * Created    : Aug 12, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __AI_IDLE
 #define __AI_IDLE
 

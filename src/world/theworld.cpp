@@ -1,8 +1,20 @@
+/***********************************************************************
+     * File       : theworld.cpp
+     * Created    : Jul 24, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * World
+     * constructor
+
+***********************************************************************/
 fired::World::World(fired::Mouse *_mouse) {
 	game->setMusic("data/snd/themes/world.ogg");
 	paused = false;
@@ -28,9 +40,13 @@ fired::World::World(fired::Mouse *_mouse) {
 	spawn(sf::Vector2f(2388, 560), "Soldier");
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * World
+     * destructor
+
+***********************************************************************/
 fired::World::~World() {
 	delete player;
 	delete crosshair;
@@ -53,9 +69,13 @@ fired::World::~World() {
 	chars.clear();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * World
+     * update
+
+***********************************************************************/
 void fired::World::update() {
 	preUpdateState();
 
@@ -76,9 +96,13 @@ void fired::World::update() {
 	postUpdateState();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * World
+     * checkShots
+
+***********************************************************************/
 void fired::World::checkShots() {
 	sf::Vector2f c, n;
 	bool deleted;
@@ -120,9 +144,13 @@ void fired::World::checkShots() {
 	deleteList(broadShots);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * World
+     * checkCreatures
+
+***********************************************************************/
 void fired::World::checkCreatures() {
 	for (unsigned int i = 0; i < creatures.size();) {
 		creatures[i]->update();
@@ -142,18 +170,26 @@ void fired::World::checkCreatures() {
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * World
+     * checkPhys
+
+***********************************************************************/
 void fired::World::checkPhys() {
 	for (unsigned int i = 0; i < chars.size() ; map->checkPhys(&chars[i]->phys   , chars[i], PHYS_TUNNEL_TIME), i++);
 	for (unsigned int i = 0; i < chunks.size(); map->checkPhys(&chunks[i++]->phys, NULL    , PHYS_TUNNEL_CHUNK));
 	for (unsigned int i = 0; i < items.size() ; map->checkPhys(&items[i++]->phys , NULL    , PHYS_TUNNEL_CHUNK));
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * World
+     * checkItems
+
+***********************************************************************/
 void fired::World::checkItems() {
 	for (unsigned int i = 0; i < items.size(); i++) {
 		items[i]->update();
@@ -176,9 +212,13 @@ void fired::World::checkItems() {
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * World
+     * processEvent
+
+***********************************************************************/
 void fired::World::processEvent(sf::Event event) {
 	if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)) {
 		if      (state == wsNormal)    game->stop();
@@ -206,9 +246,13 @@ void fired::World::processEvent(sf::Event event) {
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * World
+     * isCharExists
+
+***********************************************************************/
 bool fired::World::isCharExists(fired::Character *character) {
 	for (unsigned int i = 0; i < chars.size(); i++)
 		if (character == chars[i]) return true;
@@ -216,17 +260,25 @@ bool fired::World::isCharExists(fired::Character *character) {
 	return false;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * World
+     * spawn
+
+***********************************************************************/
 void fired::World::spawn(sf::Vector2f pos, const char *creature) {
 	creatures.push_back(new fired::Creature(cam, pos, this, container->getCreature(creature)));
 	chars.push_back(creatures.back()->character);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * World
+     * interact
+
+***********************************************************************/
 void fired::World::interact(fired::Character *owner) {
 	fired::MapObject *obj = map->checkInteraction(owner);
 	if (obj == NULL) return;
@@ -237,9 +289,13 @@ void fired::World::interact(fired::Character *owner) {
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * World
+     * preUpdateState
+
+***********************************************************************/
 void fired::World::preUpdateState() {
 	if (paused) frameClock = 0.0f;
 
@@ -256,9 +312,13 @@ void fired::World::preUpdateState() {
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * World
+     * postUpdateState
+
+***********************************************************************/
 void fired::World::postUpdateState() {
 	switch (state) {
 		case wsNormal:

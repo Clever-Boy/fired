@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : shot.hpp
+     * Created    : Aug 26, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __SHOT
 #define __SHOT
 
@@ -43,8 +51,7 @@ namespace fired {
 		fired::Character *owner;
 
 
-		 BroadShot(sf::FloatRect _shot, sf::Vector2f _normal, fired::Character *_owner);
-		~BroadShot();
+		BroadShot(sf::FloatRect _shot, sf::Vector2f _normal, fired::Character *_owner);
 	};
 
 
@@ -57,8 +64,7 @@ namespace fired {
 		fired::Character *owner;
 
 
-		 MeleeShot(sf::Vector2f _pos, sf::Vector2f _direction, fired::Character *_owner);
-		~MeleeShot();
+		MeleeShot(sf::Vector2f _pos, sf::Vector2f _direction, fired::Character *_owner);
 	};
 }
 

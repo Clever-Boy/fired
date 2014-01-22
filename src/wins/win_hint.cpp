@@ -1,8 +1,20 @@
+/***********************************************************************
+     * File       : win_hint.cpp
+     * Created    : Sep 01, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * HintWindow
+     * constructor
+
+***********************************************************************/
 fired::HintWindow::HintWindow(fired::World *_world) {
 	win   = new fired::Window(sf::Vector2f(150, 50));
 	world = _world;
@@ -14,24 +26,36 @@ fired::HintWindow::HintWindow(fired::World *_world) {
 	text->setColor(sf::Color::White);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * HintWindow
+     * destructor
+
+***********************************************************************/
 fired::HintWindow::~HintWindow() {
 	delete win;
 	delete text;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * HintWindow
+     * update
+
+***********************************************************************/
 void fired::HintWindow::update(fired::BaseItem *_item) {
 	render(_item);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * HintWindow
+     * renderText
+
+***********************************************************************/
 void fired::HintWindow::renderText(float x, float y, const char *caption, bool rightAligned) {
 	if (rightAligned) {
 		text->setString(sf::String(caption));
@@ -44,9 +68,13 @@ void fired::HintWindow::renderText(float x, float y, const char *caption, bool r
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * HintWindow
+     * render
+
+***********************************************************************/
 void fired::HintWindow::render(fired::BaseItem *item) {
 	if (item == NULL) return;
 	char str[128];

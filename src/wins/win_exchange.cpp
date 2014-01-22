@@ -1,8 +1,20 @@
+/***********************************************************************
+     * File       : win_exchange.cpp
+     * Created    : Aug 28, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * ExchangeWindow
+     * constructor
+
+***********************************************************************/
 fired::ExchangeWindow::ExchangeWindow(fired::Character *_owner, fired::World *world) {
 	owner  = _owner;
 	win    = new fired::Window(sf::Vector2f(740, 380));
@@ -58,9 +70,13 @@ fired::ExchangeWindow::ExchangeWindow(fired::Character *_owner, fired::World *wo
 			items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(10.0f + 35.0f * i, 185.0f + 35.0f * j), &owner->inventory->items[i][j], itAny));
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * ExchangeWindow
+     * destructor
+
+***********************************************************************/
 fired::ExchangeWindow::~ExchangeWindow() {
 	delete win;
 	delete hint;
@@ -82,9 +98,13 @@ fired::ExchangeWindow::~ExchangeWindow() {
 	deleteList(exchange);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * ExchangeWindow
+     * init
+
+***********************************************************************/
 void fired::ExchangeWindow::init(fired::MapObjectCollector *collector) {
 	deleteList(exchange);
 	sf::Vector2f winOffset = win->offset;
@@ -94,9 +114,13 @@ void fired::ExchangeWindow::init(fired::MapObjectCollector *collector) {
 			exchange.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(380.0f + 35.0f * i, 185.0f + 35.0f * j), &collector->items[i][j], itAny));
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * ExchangeWindow
+     * update
+
+***********************************************************************/
 void fired::ExchangeWindow::update(sf::Vector2f mousePos) {
 	for (unsigned int i = 0; i < items.size(); i++)
 		if (items[i]->rect.contains(mousePos)) items[i]->hover = true;
@@ -113,9 +137,13 @@ void fired::ExchangeWindow::update(sf::Vector2f mousePos) {
 	render();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * ExchangeWindow
+     * render
+
+***********************************************************************/
 void fired::ExchangeWindow::render() {
 	win->render();
 
@@ -151,9 +179,13 @@ void fired::ExchangeWindow::render() {
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * ExchangeWindow
+     * click
+
+***********************************************************************/
 void fired::ExchangeWindow::click(sf::Vector2f mousePos) {
 	fired::InventoryWindowItem *selected = NULL;
 

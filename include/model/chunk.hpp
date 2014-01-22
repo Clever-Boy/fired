@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : chunk.hpp
+     * Created    : Aug 09, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __CHUNK
 #define __CHUNK
 

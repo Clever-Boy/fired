@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : sounds.hpp
+     * Created    : Jan 21, 2014
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __SOUNDS
 #define __SOUNDS
 

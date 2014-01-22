@@ -1,8 +1,20 @@
+/***********************************************************************
+     * File       : mainmenu.cpp
+     * Created    : Jul 18, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * MainMenu
+     * constructor
+
+***********************************************************************/
 fired::MainMenu::MainMenu(fired::Mouse *_mouse) {
 	mouse    = _mouse;
 	xOffset  = 0;
@@ -48,9 +60,13 @@ fired::MainMenu::MainMenu(fired::Mouse *_mouse) {
 	updateSettings();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MainMenu
+     * destructor
+
+***********************************************************************/
 fired::MainMenu::~MainMenu() {
 	deleteList(menuItems);
 	clickSound->stop();
@@ -68,9 +84,13 @@ fired::MainMenu::~MainMenu() {
 	delete menuCaption;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MainMenu
+     * update
+
+***********************************************************************/
 void fired::MainMenu::update() {
 	xOffset += frameClock * MENU_BG_SPEED;
 	if (xOffset > bgTexture->getSize().x) xOffset -= bgTexture->getSize().x;
@@ -82,9 +102,13 @@ void fired::MainMenu::update() {
 	mouse->update();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MainMenu
+     * render
+
+***********************************************************************/
 void fired::MainMenu::render() {
 	bgSprite->setTextureRect(sf::IntRect(xOffset, 0, settings->window.width, settings->window.height));
 	app->draw(*bgSprite);
@@ -92,16 +116,24 @@ void fired::MainMenu::render() {
 	app->draw(*menuCaption);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MainMenu
+     * processEvent
+
+***********************************************************************/
 void fired::MainMenu::processEvent(sf::Event event) {
 	if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) click(mouse->pos);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MainMenu
+     * click
+
+***********************************************************************/
 void fired::MainMenu::click(sf::Vector2f pos) {
 	if (animation != atNone) return;
 
@@ -112,24 +144,36 @@ void fired::MainMenu::click(sf::Vector2f pos) {
 		}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MainMenu
+     * updateSettings
+
+***********************************************************************/
 void fired::MainMenu::updateSettings() {
 	clickSound->setVolume(settings->volume.sound);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MainMenu
+     * setNextMenu
+
+***********************************************************************/
 void fired::MainMenu::setNextMenu(fired::MenuItem *menuItem) {
 	nextMenu = menuItem;
 	initAnimation(atDown);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MainMenu
+     * switchMenu
+
+***********************************************************************/
 void fired::MainMenu::switchMenu(fired::MenuItem *menuItem) {
 	currentMenu = menuItem;
 	menuCaption->setString(*currentMenu->caption);
@@ -137,9 +181,13 @@ void fired::MainMenu::switchMenu(fired::MenuItem *menuItem) {
 	initAnimation(atUp);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MainMenu
+     * initAnimation
+
+***********************************************************************/
 void fired::MainMenu::initAnimation(fired::MenuAnimationType animType) {
 	animation = animType;
 
@@ -167,9 +215,13 @@ void fired::MainMenu::initAnimation(fired::MenuAnimationType animType) {
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MainMenu
+     * processAnimation
+
+***********************************************************************/
 void fired::MainMenu::processAnimation() {
 	switch (animation) {
 		case atNone:
@@ -203,16 +255,24 @@ void fired::MainMenu::processAnimation() {
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MainMenu
+     * menuItemAdd
+
+***********************************************************************/
 void fired::MainMenu::menuItemAdd(const char *_caption, fired::MenuItem *_parent, fired::MenuItemType itemType = itSubmenu, fired::Handler handlerFunc = NULL) {
 	menuItems.push_back(new fired::MenuItem(this, menuItemSprite, _caption, _parent, itemType, handlerFunc));
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MainMenu
+     * fillMenuBack
+
+***********************************************************************/
 void fired::MainMenu::fillMenuBack() {
 	int menuItemCount = menuItems.size();
 	for (int i = 1; i < menuItemCount; i++)
@@ -220,9 +280,13 @@ void fired::MainMenu::fillMenuBack() {
 			menuItemAdd("Back", menuItems[i], itBack);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MainMenu
+     * fillMenu
+
+***********************************************************************/
 void fired::MainMenu::fillMenu() {
 	fired::MenuItem *curParent;
 

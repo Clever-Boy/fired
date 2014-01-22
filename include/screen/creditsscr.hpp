@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : creditsscr.hpp
+     * Created    : Jul 22, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __CREDITSSCR
 #define __CREDITSSCR
 

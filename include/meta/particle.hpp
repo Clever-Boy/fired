@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : particle.hpp
+     * Created    : Aug 02, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __PARTICLE
 #define __PARTICLE
 

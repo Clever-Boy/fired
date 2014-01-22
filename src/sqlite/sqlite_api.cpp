@@ -1,9 +1,20 @@
+/***********************************************************************
+     * File       : sqlite_api.cpp
+     * Created    : Aug 19, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "sqlite_crypt.hpp"
 #include "sqlite_routines.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * sqliteSaveDB
+
+***********************************************************************/
 void sqliteSaveDB(sqlite3 *db, const char *filename, bool crypt, const char *key) {
 	char *sql = NULL;
 	unsigned int size;
@@ -18,9 +29,12 @@ void sqliteSaveDB(sqlite3 *db, const char *filename, bool crypt, const char *key
 	free(sql);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * sqliteLoadDB
+
+***********************************************************************/
 void sqliteLoadDB(sqlite3 **db, const char *filename, bool crypt, const char *key) {
 	char *sql = NULL;
 	struct stat buf;

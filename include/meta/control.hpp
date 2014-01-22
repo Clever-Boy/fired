@@ -1,3 +1,11 @@
+/***********************************************************************
+     * File       : control.hpp
+     * Created    : Aug 02, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #ifndef __CONTROL
 #define __CONTROL
 

@@ -1,15 +1,31 @@
+/***********************************************************************
+     * File       : generator.cpp
+     * Created    : Jul 31, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * MapGenerator
+     * constructor
+
+***********************************************************************/
 fired::MapGenerator::MapGenerator() {
 	generate();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MapGenerator
+     * destructor
+
+***********************************************************************/
 fired::MapGenerator::~MapGenerator() {
 	for (int i = 0; i < sizeX; i++)
 		delete tiles[i];
@@ -20,9 +36,13 @@ fired::MapGenerator::~MapGenerator() {
 	deleteList(objects);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MapGenerator
+     * generate
+
+***********************************************************************/
 void fired::MapGenerator::generate() {
 	genClear(200, 100);
 	genLandscape(0, sizeX, 40);
@@ -34,9 +54,13 @@ void fired::MapGenerator::generate() {
 	genSave(this, "data/maps/test.map");
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MapGenerator
+     * genClear
+
+***********************************************************************/
 void fired::MapGenerator::genClear(int xSize, int ySize) {
 	sizeX = xSize;
 	sizeY = ySize;
@@ -49,9 +73,13 @@ void fired::MapGenerator::genClear(int xSize, int ySize) {
 	decors.clear();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MapGenerator
+     * genLandscape
+
+***********************************************************************/
 void fired::MapGenerator::genLandscape(int areaStart, int areaEnd, int horizon) {
 	genFill(areaStart, horizon, areaEnd, sizeY, 1, true);
 	genFill(areaStart, horizon - 2, areaEnd, horizon, 1, false);
@@ -86,9 +114,13 @@ void fired::MapGenerator::genLandscape(int areaStart, int areaEnd, int horizon) 
 	genFill(148, horizon - 14, 152, horizon - 13, 3, true);
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MapGenerator
+     * genDecors
+
+***********************************************************************/
 void fired::MapGenerator::genDecors() {
 	decors.push_back(new fired::MapDecor("box", sf::Vector2f(1900, 608)));
 	decors.push_back(new fired::MapDecor("box", sf::Vector2f(1932, 608)));
@@ -99,9 +131,13 @@ void fired::MapGenerator::genDecors() {
 	decors.push_back(new fired::MapDecor("barrel", sf::Vector2f(2400, 608)));
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MapGenerator
+     * genPlatforms
+
+***********************************************************************/
 void fired::MapGenerator::genPlatforms() {
 	int x, y = 35;
 	for (x = 49; x < 80; x++) {
@@ -110,9 +146,13 @@ void fired::MapGenerator::genPlatforms() {
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MapGenerator
+     * genCollectors
+
+***********************************************************************/
 void fired::MapGenerator::genCollectors() {
 	objects.push_back(new fired::BaseMapObjectCollector("chest", sf::Vector2f(44*TILE_SIZE, 33*TILE_SIZE)));
 	((fired::BaseMapObjectCollector*)objects.back())->generateLoot();
@@ -121,9 +161,13 @@ void fired::MapGenerator::genCollectors() {
 	((fired::BaseMapObjectCollector*)objects.back())->generateLoot();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MapGenerator
+     * genPlayer
+
+***********************************************************************/
 void fired::MapGenerator::genPlayer() {
 	int y = 0;
 	startPos.x = (sizeX / 2) * TILE_SIZE;
@@ -132,9 +176,13 @@ void fired::MapGenerator::genPlayer() {
 	startPos.y = (y - 3) * TILE_SIZE;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MapGenerator
+     * genBar
+
+***********************************************************************/
 void fired::MapGenerator::genBar(int x, int startHeight, int endHeight, int tileset, bool isWall) {
 	for (int j = startHeight; j < endHeight; j++) {
 		tiles[x][j].tileset    = tileset;
@@ -143,9 +191,13 @@ void fired::MapGenerator::genBar(int x, int startHeight, int endHeight, int tile
 	}
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * MapGenerator
+     * genFill
+
+***********************************************************************/
 void fired::MapGenerator::genFill(int x1, int y1, int x2, int y2, int tileset, bool isWall) {
 	for (int i = x1; i < x2; i++) for (int j = y1; j < y2; j++) {
 		tiles[i][j].tileset    = tileset;

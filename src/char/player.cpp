@@ -1,8 +1,20 @@
+/***********************************************************************
+     * File       : player.cpp
+     * Created    : Jul 27, 2013
+     * Copyright  : (C) 2013 Achpile
+     * Author     : Fedosov Alexander
+     * Email      : achpile@gmail.com
+
+***********************************************************************/
 #include "game.hpp"
 
-//======================================================================
 
 
+/***********************************************************************
+     * Player
+     * constructor
+
+***********************************************************************/
 fired::Player::Player(fired::Camera *_cam, sf::Vector2f _startpos, fired::Crosshair *_crosshair, fired::World *world) {
 	startPos = _startpos;
 	deadTime = 0;
@@ -12,16 +24,24 @@ fired::Player::Player(fired::Camera *_cam, sf::Vector2f _startpos, fired::Crossh
 	crosshair->owner = &character->phys;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Player
+     * destructor
+
+***********************************************************************/
 fired::Player::~Player() {
 	delete character;
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Player
+     * update
+
+***********************************************************************/
 void fired::Player::update() {
 	if (character->dead) {
 		if (deadTime < PLAYER_RESPAWN_TIME) {
@@ -37,9 +57,13 @@ void fired::Player::update() {
 	character->update();
 }
 
-//======================================================================
 
 
+/***********************************************************************
+     * Player
+     * checkControls
+
+***********************************************************************/
 void fired::Player::checkControls() {
 	if (character->dead) return;
 	character->phys.jumpdown = false;

@@ -6,12 +6,8 @@
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __GENERATOR
-#define __GENERATOR
-
-
-#include "tile.hpp"
-#include "objects.hpp"
+#ifndef __GEN
+#define __GEN
 
 
 namespace fired {

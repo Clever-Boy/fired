@@ -1,5 +1,5 @@
 /***********************************************************************
-     * File       : generator.cpp
+     * File       : gen.cpp
      * Created    : Jul 31, 2013
      * Copyright  : (C) 2013 Achpile
      * Author     : Fedosov Alexander

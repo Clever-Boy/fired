@@ -9,6 +9,8 @@
 #ifndef __MAPFILE_GENSAVE
 #define __MAPFILE_GENSAVE
 
+#include "generator.hpp"
+
 
 void genSaveMeta(fired::MapGenerator *gen, FILE *fp);
 void genSaveTiles(fired::MapGenerator *gen, FILE *fp);

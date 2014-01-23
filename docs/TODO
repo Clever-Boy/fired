@@ -364,7 +364,7 @@
 		<todo done="no" collapse="no"><title>Fix armor equip filter</title></todo>
 		<todo done="no" collapse="no"><title>Allow take some of items (right click)</title></todo>
 		<todo done="no" collapse="no"><title>Add trash can</title></todo>
-		<todo done="no" collapse="no"><title>Map structure refactoring</title>
+		<todo done="yes" collapse="yes"><title>Map structure refactoring</title>
 			<todo done="yes" collapse="no"><title>Tiles loading from DB</title></todo>
 			<todo done="yes" collapse="no"><title>Biomes loading from DB</title></todo>
 			<todo done="yes" collapse="no"><title>Biomes base class</title></todo>
@@ -373,11 +373,11 @@
 			<todo done="yes" collapse="no"><title>Selecting tiles by biome</title></todo>
 			<todo done="yes" collapse="no"><title>Sky gradient by biome</title></todo>
 			<todo done="yes" collapse="no"><title>Cloud color by biome</title></todo>
-			<todo done="no" collapse="no"><title>Add creatures field to biome struct</title></todo>
-			<todo done="no" collapse="no"><title>Loading creatures list from biome table</title></todo>
-			<todo done="no" collapse="no"><title>Creatures by biome</title></todo>
+			<todo done="yes" collapse="no"><title>Add creatures field to biome struct</title></todo>
+			<todo done="yes" collapse="no"><title>Loading creatures list from biome table</title></todo>
+			<todo done="yes" collapse="no"><title>Creatures by biome</title></todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Graphics refactoring</title>
+		<todo done="no" collapse="no"><title>Graphics refactoring</title>
 			<todo done="yes" collapse="no"><title>Scale BG to fit window height</title></todo>
 			<todo done="yes" collapse="no"><title>Allow BG slide only horizontally</title></todo>
 			<todo done="yes" collapse="no"><title>Change BG</title></todo>

@@ -28,6 +28,8 @@ namespace fired {
 		fired::Tileset *brickSecond;
 		fired::Tileset *extra;
 
+		std::vector<fired::BaseCreature*> creatures;
+
 
 		 Biome(const char *bgFile);
 		~Biome();

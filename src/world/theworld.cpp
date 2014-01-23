@@ -36,8 +36,8 @@ fired::World::World(fired::Mouse *_mouse) {
 
 	chars.push_back(player->character);
 
-	spawn(sf::Vector2f(2288, 560), "Soldier");
-	spawn(sf::Vector2f(2388, 560), "Soldier");
+	map->spawn();
+	map->spawn();
 }
 
 
@@ -164,7 +164,7 @@ void fired::World::checkCreatures() {
 
 			delete creatures[i];
 			creatures.erase(creatures.begin() + i);
-			spawn(sf::Vector2f(2288, 560), "Soldier");
+			map->spawn();
 		} else
 			i++;
 	}
@@ -267,8 +267,8 @@ bool fired::World::isCharExists(fired::Character *character) {
      * spawn
 
 ***********************************************************************/
-void fired::World::spawn(sf::Vector2f pos, const char *creature) {
-	creatures.push_back(new fired::Creature(cam, pos, this, container->getCreature(creature)));
+void fired::World::spawn(sf::Vector2f pos, fired::BaseCreature *creature) {
+	creatures.push_back(new fired::Creature(cam, pos, this, creature));
 	chars.push_back(creatures.back()->character);
 }
 

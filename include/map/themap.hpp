@@ -28,9 +28,6 @@ namespace fired {
 		std::vector<fired::Decor*>     decors;
 		std::vector<fired::MapObject*> objects;
 
-		sf::Texture        *bgTex;
-		sf::RectangleShape *bgSprite;
-
 		sf::Vector2i        visibleTiles;
 		sf::Vector2i        mapSize;
 		sf::Vector2f        startPos;
@@ -44,6 +41,7 @@ namespace fired {
 
 		void update();
 		void render();
+		void spawn();
 
 		bool isSolid(int i, int j);
 		bool isPlatform(int i, int j, fired::Phys *phys);

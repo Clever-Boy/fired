@@ -76,7 +76,7 @@ namespace fired {
 		void checkItems();
 
 		void interact(fired::Character *owner);
-		void spawn(sf::Vector2f pos, const char *creature);
+		void spawn(sf::Vector2f pos, fired::BaseCreature *creature);
 		bool isCharExists(fired::Character *character);
 		bool isSolidPixel(sf::Vector2f pixel)   { return map->isSolid(pixel.x / TILE_SIZE, pixel.y / TILE_SIZE); };
 		bool isRectVisible(sf::FloatRect rect)  { return cam->isRectVisible(rect);                               };

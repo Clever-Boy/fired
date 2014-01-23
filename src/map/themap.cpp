@@ -16,22 +16,8 @@
 
 ***********************************************************************/
 fired::Map::Map(fired::Camera *_cam, fired::World *_world) {
-	float scaleFactor;
-
 	cam      = _cam;
 	world    = _world;
-
-	bgTex    = new sf::Texture();
-	bgSprite = new sf::RectangleShape();
-
-	bgTex->loadFromFile("data/img/world/bg/sky.jpg");
-	bgSprite->setTexture(bgTex);
-	bgTex->setRepeated(true);
-	bgTex->setSmooth(true);
-	bgSprite->setSize(sf::Vector2f(settings->window.width, settings->window.height));
-
-	scaleFactor = (float)settings->window.height / (float)bgTex->getSize().y;
-	bgSprite->setScale(scaleFactor, scaleFactor);
 
 	visibleTiles.x = settings->window.width  / TILE_SIZE + 2;
 	visibleTiles.y = settings->window.height / TILE_SIZE + 2;
@@ -48,10 +34,7 @@ fired::Map::Map(fired::Camera *_cam, fired::World *_world) {
 ***********************************************************************/
 fired::Map::~Map() {
 	for (int i = 0; i < sizeX; delete tiles[i++]);
-
 	delete tiles;
-	delete bgSprite;
-	delete bgTex;
 
 	deleteList(decors);
 	deleteList(objects);
@@ -67,8 +50,8 @@ fired::Map::~Map() {
 void fired::Map::update() {
 	sf::Vector2f offset = cam->offset;
 
-	bgSprite->setPosition(offset);
-	bgSprite->setTextureRect(sf::IntRect(offset.x / 3.0f, 0, settings->window.width, settings->window.height));
+	biome->bgSprite->setPosition(offset);
+	biome->bgSprite->setTextureRect(sf::IntRect(offset.x / 3.0f, 0, settings->window.width, settings->window.height));
 
 	render();
 }
@@ -81,7 +64,7 @@ void fired::Map::update() {
 
 ***********************************************************************/
 void fired::Map::render() {
-	app->draw(*bgSprite);
+	app->draw(*biome->bgSprite);
 
 	sf::Vector2i from((int)(cam->offset.x / TILE_SIZE), (int)(cam->offset.y / TILE_SIZE));
 	sf::Vector2i to(from + visibleTiles);
@@ -100,6 +83,20 @@ void fired::Map::render() {
 
 	for (unsigned int i = 0; i < objects.size(); i++)
 		objects[i]->render();
+}
+
+
+
+/***********************************************************************
+     * Map
+     * spawn
+
+***********************************************************************/
+void fired::Map::spawn() {
+	if (biome->creatures.size() == 0) return;
+
+	int toSpawn = random() % biome->creatures.size();
+	world->spawn(sf::Vector2f(2200 + random() % 200, 560), biome->creatures[toSpawn]);
 }
 
 

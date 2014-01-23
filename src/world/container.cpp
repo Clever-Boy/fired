@@ -632,7 +632,7 @@ void fired::Container::loadBiomes(sqlite3 *db) {
 
 	if (sqlite3_exec(db, "SELECT Biomes.ID, Biomes.Name, Biomes.SkyGradientHi, "
 	                     "Biomes.SkyGradientLow, Biomes.Weather, Biomes.Lightness, Biomes.Background, "
-	                     "Biomes.CloudColor, T1.ID, T2.ID, T3.ID, T4.ID FROM Biomes "
+	                     "Biomes.CloudColor, T1.ID, T2.ID, T3.ID, T4.ID, Biomes.Creatures FROM Biomes "
 	                     "LEFT JOIN Tiles T1 ON T1.Name = Biomes.TileGround "
 	                     "LEFT JOIN Tiles T2 ON T2.Name = Biomes.TileBricksMain "
 	                     "LEFT JOIN Tiles T3 ON T3.Name = Biomes.TileBricksSecond "
@@ -664,6 +664,15 @@ int fired::Container::loadBiome(void *data, int, char **argv, char **) {
 	current->brickMain   = ((fired::Container *) data)->tilesets[atoi(argv[9] ) - 1];
 	current->brickSecond = ((fired::Container *) data)->tilesets[atoi(argv[10]) - 1];
 	current->extra       = ((fired::Container *) data)->tilesets[atoi(argv[11]) - 1];
+
+	if (argv[13]) {
+		char *token = strtok(argv[12], "\n");
+
+		while (token) {
+			current->creatures.push_back(((fired::Container *) data)->getCreature(token));
+			token = strtok(NULL, "\n");
+		}
+	}
 
 	return 0;
 }

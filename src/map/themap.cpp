@@ -23,6 +23,11 @@ fired::Map::Map(fired::Camera *_cam, fired::World *_world) {
 	visibleTiles.y = settings->window.height / TILE_SIZE + 2;
 
 	mapLoad(this, "data/maps/test.map");
+
+	sky[0] = sf::Vertex(sf::Vector2f(0, 0), biome->skyHi);
+	sky[1] = sf::Vertex(sf::Vector2f(0, 0), biome->skyHi);
+	sky[2] = sf::Vertex(sf::Vector2f(0, 0), biome->skyLow);
+	sky[3] = sf::Vertex(sf::Vector2f(0, 0), biome->skyLow);
 }
 
 
@@ -53,6 +58,18 @@ void fired::Map::update() {
 	biome->bgSprite->setPosition(offset);
 	biome->bgSprite->setTextureRect(sf::IntRect(offset.x / 3.0f, 0, settings->window.width, settings->window.height));
 
+	sky[0].position.x = offset.x;
+	sky[0].position.y = offset.y;
+
+	sky[1].position.x = offset.x + settings->window.width;
+	sky[1].position.y = offset.y;
+
+	sky[2].position.x = offset.x + settings->window.width;
+	sky[2].position.y = offset.y + settings->window.height;
+
+	sky[3].position.x = offset.x;
+	sky[3].position.y = offset.y + settings->window.height;
+
 	render();
 }
 
@@ -64,6 +81,7 @@ void fired::Map::update() {
 
 ***********************************************************************/
 void fired::Map::render() {
+	app->draw(sky, 4, sf::Quads);
 	app->draw(*biome->bgSprite);
 
 	sf::Vector2i from((int)(cam->offset.x / TILE_SIZE), (int)(cam->offset.y / TILE_SIZE));

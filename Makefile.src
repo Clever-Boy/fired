@@ -6,20 +6,21 @@ OBJS    += $(SUBDIRS:=.o)
 all: $(PROJECT)
 
 
-$(PROJECT): subdirs $(OBJS)
+$(PROJECT): subdirs
 	$(CC) $(OBJS) -o ../$(PROJECT) $(LDFLAGS)
 	$(CLEAN) $(OBJS)
 
 
-subdirs: $(SUBDIRS)
-	$(CLEAN) $(OBJS)
+subdirs: $(SUBDIRS) clean-subdirs
 	for dir in $(SUBDIRS); do \
 		export SUBDIR=$$dir;  \
 		$(MAKESUB);           \
 	done
 
-clean:
+clean: clean-subdirs
 	for dir in $(SUBDIRS); do                           \
 		$(MAKE) -C $$dir -f $(PWD)/Makefile.sub clean; \
 	done
+
+clean-subdirs:
 	$(CLEAN) $(OBJS)

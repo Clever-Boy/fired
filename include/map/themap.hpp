@@ -25,6 +25,8 @@ namespace fired {
 		fired::Tile   **tiles;
 		fired::Biome   *biome;
 
+		sf::Vertex sky[4];
+
 		std::vector<fired::Decor*>     decors;
 		std::vector<fired::MapObject*> objects;
 

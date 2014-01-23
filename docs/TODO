@@ -343,7 +343,7 @@
 		<todo done="yes" collapse="no"><title>Fix picking up when the inventory is full</title></todo>
 		<todo done="yes" collapse="no"><title>Fix model explosion after broad attacks</title></todo>
 	</todo>
-	<todo done="yes" collapse="no"><title>Advanced</title>
+	<todo done="no" collapse="no"><title>Advanced</title>
 		<todo done="yes" collapse="no"><title>Move name and caption to char[64]</title></todo>
 		<todo done="yes" collapse="no"><title>Weapon caption</title></todo>
 		<todo done="yes" collapse="no"><title>Reading captions with spaces</title></todo>
@@ -381,7 +381,7 @@
 			<todo done="yes" collapse="no"><title>Scale BG to fit window height</title></todo>
 			<todo done="yes" collapse="no"><title>Allow BG slide only horizontally</title></todo>
 			<todo done="yes" collapse="no"><title>Change BG</title></todo>
-			<todo done="no" collapse="no"><title>Add sky gradient color</title></todo>
+			<todo done="yes" collapse="no"><title>Add sky gradient color</title></todo>
 			<todo done="no" collapse="no"><title>Add clouds</title></todo>
 			<todo done="no" collapse="no"><title>Change Tiles</title></todo>
 			<todo done="no" collapse="no"><title>Change Armor icons</title></todo>

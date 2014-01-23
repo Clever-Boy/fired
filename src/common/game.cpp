@@ -24,9 +24,15 @@ fired::Game::Game() {
 	if (settings->window.fullScreen) style = sf::Style::Fullscreen;
 	else                             style = sf::Style::Close;
 
+	sf::ContextSettings contextSettings;
+	contextSettings.antialiasingLevel = settings->window.antialiasing;
+
 	app = new sf::RenderWindow(sf::VideoMode(settings->window.width,
 	                           settings->window.height,
-	                           settings->window.bpp), PROJECT_CAPTION " v" PROJECT_VER, style);
+	                           settings->window.bpp),
+	                           PROJECT_CAPTION " v" PROJECT_VER,
+	                           style,
+	                           contextSettings);
 	app->setMouseCursorVisible(false);
 
 	icon = new sf::Image();

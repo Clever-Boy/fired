@@ -15,7 +15,8 @@ namespace fired {
 		struct {
 			unsigned int width;
 			unsigned int height;
-			int bpp;
+			unsigned int bpp;
+			unsigned int antialiasing;
 			bool fullScreen;
 		} window;
 

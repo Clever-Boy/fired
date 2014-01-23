@@ -42,6 +42,7 @@ namespace fired {
 		void update(sf::Vector2f mousePos);
 		void render();
 		void click(sf::Vector2f mousePos);
+		void clickRight(sf::Vector2f mousePos);
 
 		void init(fired::MapObjectCollector *collector);
 	};

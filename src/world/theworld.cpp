@@ -244,6 +244,12 @@ void fired::World::processEvent(sf::Event event) {
 		if (state == wsInventory) inventoryWin->click(mouse->pos);
 		if (state == wsExchange)  exchangeWin->click(mouse->pos);
 	}
+
+
+	if ((event.type == sf::Event::MouseButtonPressed) && (event.mouseButton.button == sf::Mouse::Right)) {
+		if (state == wsInventory) inventoryWin->clickRight(mouse->pos);
+		if (state == wsExchange)  exchangeWin->clickRight(mouse->pos);
+	}
 }
 
 

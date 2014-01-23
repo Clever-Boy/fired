@@ -183,3 +183,41 @@ void fired::InventoryWindow::click(sf::Vector2f mousePos) {
 	swapItems(selected->item, inHand->item);
 	owner->updateEquip();
 }
+
+
+
+/***********************************************************************
+     * InventoryWindow
+     * clickRight
+
+***********************************************************************/
+void fired::InventoryWindow::clickRight(sf::Vector2f mousePos) {
+	fired::InventoryWindowItem *selected = NULL;
+
+	for (unsigned int i = 0; i < items.size(); i++)
+		if (items[i]->rect.contains(mousePos)) {
+			selected = items[i];
+			break;
+		}
+
+	if (selected == NULL) return;
+
+	if (inHand->item->base != NULL) {
+		if (selected->filter != itAny && selected->filter != inHand->item->base->type) return;
+		if (selected->item->base == inHand->item->base) {
+			if (selected->item->count + inHand->item->count <= selected->item->base->maxStack) {
+				selected->item->count += inHand->item->count;
+				emptyItem(inHand->item);
+			} else {
+				inHand->item->count = selected->item->count + inHand->item->count - selected->item->base->maxStack;
+				selected->item->count = selected->item->base->maxStack;
+			}
+
+			owner->updateEquip();
+			return;
+		}
+	}
+
+	swapItems(selected->item, inHand->item);
+	owner->updateEquip();
+}

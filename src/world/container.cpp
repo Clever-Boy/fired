@@ -665,9 +665,8 @@ int fired::Container::loadBiome(void *data, int, char **argv, char **) {
 	current->brickSecond = ((fired::Container *) data)->tilesets[atoi(argv[10]) - 1];
 	current->extra       = ((fired::Container *) data)->tilesets[atoi(argv[11]) - 1];
 
-	if (argv[13]) {
+	if (argv[12]) {
 		char *token = strtok(argv[12], "\n");
-
 		while (token) {
 			current->creatures.push_back(((fired::Container *) data)->getCreature(token));
 			token = strtok(NULL, "\n");

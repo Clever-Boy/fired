@@ -246,23 +246,16 @@ void fired::ExchangeWindow::clickRight(sf::Vector2f mousePos) {
 		}
 
 	if (selected == NULL) return;
+	if (selected->item->base == NULL) return;
+	if (selected->item->count == 0) return;
 
-	if (inHand->item->base != NULL) {
-		if (selected->filter != itAny && selected->filter != inHand->item->base->type) return;
-		if (selected->item->base == inHand->item->base) {
-			if (selected->item->count + inHand->item->count <= selected->item->base->maxStack) {
-				selected->item->count += inHand->item->count;
-				emptyItem(inHand->item);
-			} else {
-				inHand->item->count = selected->item->count + inHand->item->count - selected->item->base->maxStack;
-				selected->item->count = selected->item->base->maxStack;
-			}
+	if ((inHand->item->base == NULL) || ((selected->item->base == inHand->item->base) && (inHand->item->count != inHand->item->base->maxStack))) {
+		if (inHand->item->base == NULL) inHand->item->base = selected->item->base;
 
-			owner->updateEquip();
-			return;
-		}
+		inHand->item->count++;
+		selected->item->count--;
+		if (selected->item->count == 0) emptyItem(selected->item);
+
+		owner->updateEquip();
 	}
-
-	swapItems(selected->item, inHand->item);
-	owner->updateEquip();
 }

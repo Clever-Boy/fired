@@ -362,7 +362,7 @@
 		<todo done="yes" collapse="no"><title>Move misc funcs to gen_tools.cpp</title></todo>
 		<todo done="yes" collapse="no"><title>Each biome have own generator file</title></todo>
 		<todo done="no" collapse="no"><title>Fix armor equip filter</title></todo>
-		<todo done="no" collapse="no"><title>Allow take some of items (right click)</title></todo>
+		<todo done="yes" collapse="no"><title>Allow take some of items (right click)</title></todo>
 		<todo done="no" collapse="no"><title>Add trash can</title></todo>
 		<todo done="yes" collapse="yes"><title>Map structure refactoring</title>
 			<todo done="yes" collapse="no"><title>Tiles loading from DB</title></todo>

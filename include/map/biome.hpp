@@ -15,8 +15,8 @@ namespace fired {
 		char name[64];
 		char weather[64];
 
-		sf::Color skyGradientHi;
-		sf::Color skyGradientLow;
+		sf::Color skyHi;
+		sf::Color skyLow;
 		sf::Color cloudColor;
 		sf::Color lightness;
 

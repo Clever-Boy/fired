@@ -28,6 +28,7 @@ fired::Container::Container() {
 	loadWeapons(db);
 	loadItems(db);
 	loadCreatures(db);
+	loadBiomes(db);
 
 	sqlite3_close(db);
 }
@@ -40,6 +41,7 @@ fired::Container::Container() {
 
 ***********************************************************************/
 fired::Container::~Container() {
+	deleteList(biomes);
 	deleteList(items);
 	deleteList(weapons);
 	deleteList(armors);
@@ -584,6 +586,65 @@ int fired::Container::loadCreature(void *data, int, char **argv, char **) {
 fired::BaseCreature *fired::Container::getCreature(const char *name) {
 	for (unsigned int i = 0; i < creatures.size(); i++)
 		if (!strcmp(name, creatures[i]->name)) return creatures[i];
+
+	return NULL;
+}
+
+
+
+/***********************************************************************
+     * Container
+     * loadBiomes
+
+***********************************************************************/
+void fired::Container::loadBiomes(sqlite3 *db) {
+	char *zErrMsg = 0;
+
+	if (sqlite3_exec(db, "SELECT Biomes.ID, Biomes.Name, Biomes.SkyGradientHi, "
+	                     "Biomes.SkyGradientLow, Biomes.Weather, Biomes.Lightness, Biomes.Background, "
+	                     "Biomes.CloudColor, T1.ID, T2.ID, T3.ID, T4.ID, D1.ID, D2.ID FROM Biomes"
+	                     "LEFT JOIN Tiles T1 ON T1.Name = Biomes.TileGround "
+	                     "LEFT JOIN Tiles T2 ON T2.Name = Biomes.TileBricksMain "
+	                     "LEFT JOIN Tiles T3 ON T3.Name = Biomes.TileBricksSecond "
+	                     "LEFT JOIN Tiles T4 ON T4.Name = Biomes.TileExtra "
+	                     "LEFT JOIN Decors D1 ON D1.Name = Biomes.BridgeDecor "
+	                     "LEFT JOIN Decors D2 ON D2.Name = Biomes.ChestDecor",
+	                     loadBiome, this, &zErrMsg) != SQLITE_OK)
+		printf("SQL error: %s\n", zErrMsg);
+}
+
+
+
+/***********************************************************************
+     * Container
+     * loadBiome
+
+***********************************************************************/
+int fired::Container::loadBiome(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->biomes.push_back(new fired::Biome(argv[6]));
+	fired::Biome *current = ((fired::Container *) data)->biomes.back();
+
+	sscanf(argv[2], "%hhu,%hhu,%hhu,%hhu", &current->skyHi.r     , &current->skyHi.g     , &current->skyHi.b     , &current->skyHi.a);
+	sscanf(argv[3], "%hhu,%hhu,%hhu,%hhu", &current->skyLow.r    , &current->skyLow.g    , &current->skyLow.b    , &current->skyLow.a);
+	sscanf(argv[5], "%hhu,%hhu,%hhu,%hhu", &current->lightness.r , &current->lightness.g , &current->lightness.b , &current->lightness.a);
+	sscanf(argv[7], "%hhu,%hhu,%hhu,%hhu", &current->cloudColor.r, &current->cloudColor.g, &current->cloudColor.b, &current->cloudColor.a);
+
+	strcpy(current->name   , argv[1]);
+	strcpy(current->weather, argv[4]);
+
+	return 0;
+}
+
+
+
+/***********************************************************************
+     * Container
+     * getBiome
+
+***********************************************************************/
+fired::Biome *fired::Container::getBiome(const char *name) {
+	for (unsigned int i = 0; i < biomes.size(); i++)
+		if (!strcmp(name, biomes[i]->name)) return biomes[i];
 
 	return NULL;
 }

@@ -15,9 +15,14 @@
 
 ***********************************************************************/
 void mapLoadMeta(fired::Map *map, FILE *fp) {
+	char biomeName[64];
+
+	fread(biomeName, sizeof(biomeName), 1, fp);
 	fread(&map->startPos, sizeof(map->startPos), 1, fp);
 	fread(&map->sizeX, sizeof(int), 1, fp);
 	fread(&map->sizeY, sizeof(int), 1, fp);
+
+	map->biome = container->getBiome(biomeName);
 }
 
 

@@ -31,37 +31,37 @@ void fired::MapGenerator::genCity() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCityLandscape(int areaStart, int areaEnd, int horizon) {
-	genFill(areaStart, horizon, areaEnd, sizeY - 1, 1, true);
-	genFill(areaStart, horizon - 2, areaEnd, horizon - 1, 1, false);
+	genFill(areaStart, horizon, areaEnd, sizeY - 1, biome->ground->ID, true);
+	genFill(areaStart, horizon - 2, areaEnd, horizon - 1, biome->ground->ID, false);
 
-	genFill(areaStart  , horizon - 2, areaStart + 3, horizon - 1, 1, true);
-	genFill(areaEnd - 4, horizon - 2, areaEnd   - 1, horizon - 1, 1, true);
+	genFill(areaStart  , horizon - 2, areaStart + 3, horizon - 1, biome->ground->ID, true);
+	genFill(areaEnd - 4, horizon - 2, areaEnd   - 1, horizon - 1, biome->ground->ID, true);
 
-	genFill(areaStart + 4, horizon - 1, areaStart + 7, horizon - 1, 1, true);
-	genFill(areaEnd - 8  , horizon - 1, areaEnd - 5  , horizon - 1, 1, true);
+	genFill(areaStart + 4, horizon - 1, areaStart + 7, horizon - 1, biome->ground->ID, true);
+	genFill(areaEnd - 8  , horizon - 1, areaEnd - 5  , horizon - 1, biome->ground->ID, true);
 
 	//Generating testing planes
-	genBar(41, horizon - 6, horizon - 1, 2, false);
-	genBar(47, horizon - 6, horizon - 1, 2, false);
-	genFill(41, horizon - 2, 47, horizon - 1, 2, false);
-	genFill(40, horizon - 5, 48, horizon - 3, 4, true);
+	genBar(41, horizon - 6, horizon - 1, biome->brickSecond->ID, false);
+	genBar(47, horizon - 6, horizon - 1, biome->brickSecond->ID, false);
+	genFill(41, horizon - 2, 47, horizon - 1, biome->brickSecond->ID, false);
+	genFill(40, horizon - 5, 48, horizon - 3, biome->extra->ID, true);
 
-	genBar(81, horizon - 6, horizon - 1, 2, false);
-	genBar(87, horizon - 6, horizon - 1, 2, false);
-	genFill(81, horizon - 2, 87, horizon - 1, 2, false);
-	genFill(80, horizon - 5, 88, horizon - 5, 4, true);
+	genBar(81, horizon - 6, horizon - 1, biome->brickSecond->ID, false);
+	genBar(87, horizon - 6, horizon - 1, biome->brickSecond->ID, false);
+	genFill(81, horizon - 2, 87, horizon - 1, biome->brickSecond->ID, false);
+	genFill(80, horizon - 5, 88, horizon - 5, biome->extra->ID, true);
 
 	//Generating testing house
-	genFill(140, horizon - 10, 159, horizon - 1, 3, false);
-	genFill(140, horizon, 159, horizon, 3, true);
-	genFill(140, horizon - 10, 159, horizon - 9, 3, true);
-	genBar(140, horizon - 10, horizon - 6, 3, true);
-	genBar(159, horizon - 10, horizon - 6, 3, true);
+	genFill(140, horizon - 10, 159, horizon - 1, biome->brickMain->ID, false);
+	genFill(140, horizon, 159, horizon, biome->brickMain->ID, true);
+	genFill(140, horizon - 10, 159, horizon - 9, biome->brickMain->ID, true);
+	genBar(140, horizon - 10, horizon - 6, biome->brickMain->ID, true);
+	genBar(159, horizon - 10, horizon - 6, biome->brickMain->ID, true);
 
-	genFill(142, horizon - 11, 157, horizon - 11, 3, true);
-	genFill(144, horizon - 12, 155, horizon - 12, 3, true);
-	genFill(146, horizon - 13, 153, horizon - 13, 3, true);
-	genFill(148, horizon - 14, 151, horizon - 14, 3, true);
+	genFill(142, horizon - 11, 157, horizon - 11, biome->brickMain->ID, true);
+	genFill(144, horizon - 12, 155, horizon - 12, biome->brickMain->ID, true);
+	genFill(146, horizon - 13, 153, horizon - 13, biome->brickMain->ID, true);
+	genFill(148, horizon - 14, 151, horizon - 14, biome->brickMain->ID, true);
 }
 
 

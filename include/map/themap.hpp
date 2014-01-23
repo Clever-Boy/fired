@@ -23,6 +23,7 @@ namespace fired {
 		fired::World     *world;
 
 		fired::Tile   **tiles;
+		fired::Biome   *biome;
 
 		std::vector<fired::Decor*>     decors;
 		std::vector<fired::MapObject*> objects;

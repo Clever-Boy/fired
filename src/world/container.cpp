@@ -660,10 +660,10 @@ int fired::Container::loadBiome(void *data, int, char **argv, char **) {
 	strcpy(current->name   , argv[1]);
 	strcpy(current->weather, argv[4]);
 
-	current->ground      = ((fired::Container *) data)->tilesets[atoi(argv[8])];
-	current->brickMain   = ((fired::Container *) data)->tilesets[atoi(argv[9])];
-	current->brickSecond = ((fired::Container *) data)->tilesets[atoi(argv[10])];
-	current->extra       = ((fired::Container *) data)->tilesets[atoi(argv[11])];
+	current->ground      = ((fired::Container *) data)->tilesets[atoi(argv[8] ) - 1];
+	current->brickMain   = ((fired::Container *) data)->tilesets[atoi(argv[9] ) - 1];
+	current->brickSecond = ((fired::Container *) data)->tilesets[atoi(argv[10]) - 1];
+	current->extra       = ((fired::Container *) data)->tilesets[atoi(argv[11]) - 1];
 
 	return 0;
 }

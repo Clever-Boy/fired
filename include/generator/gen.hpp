@@ -12,6 +12,7 @@
 
 namespace fired {
 	struct MapGenerator {
+		fired::Biome    *biome;
 		fired::MapTile **tiles;
 		sf::Vector2f     startPos;
 		int sizeX;
@@ -21,7 +22,7 @@ namespace fired {
 		std::vector<fired::BaseMapObject*> objects;
 
 
-		 MapGenerator();
+		 MapGenerator(fired::Biome *_biome);
 		~MapGenerator();
 
 		#include "gen_misc.hpp"

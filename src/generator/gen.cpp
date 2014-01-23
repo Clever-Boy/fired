@@ -15,9 +15,11 @@
      * constructor
 
 ***********************************************************************/
-fired::MapGenerator::MapGenerator() {
+fired::MapGenerator::MapGenerator(fired::Biome *_biome) {
+	biome = _biome;
+
 	genClear(200, 100);
-	genCity();
+	if (!strcmp(biome->name, "City")) genCity();
 
 	genSave(this, "data/maps/test.map");
 }

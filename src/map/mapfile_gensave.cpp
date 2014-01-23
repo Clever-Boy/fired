@@ -15,6 +15,7 @@
 
 ***********************************************************************/
 void genSaveMeta(fired::MapGenerator *gen, FILE *fp) {
+	fwrite( gen->biome->name, sizeof(gen->biome->name), 1, fp);
 	fwrite(&gen->startPos, sizeof(gen->startPos), 1, fp);
 	fwrite(&gen->sizeX, sizeof(int), 1, fp);
 	fwrite(&gen->sizeY, sizeof(int), 1, fp);

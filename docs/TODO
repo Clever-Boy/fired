@@ -369,8 +369,8 @@
 			<todo done="yes" collapse="no"><title>Biomes loading from DB</title></todo>
 			<todo done="yes" collapse="no"><title>Biomes base class</title></todo>
 			<todo done="yes" collapse="no"><title>Refactor tileset class</title></todo>
-			<todo done="no" collapse="no"><title>Generating map by biome</title></todo>
-			<todo done="no" collapse="no"><title>Selecting tiles by biome</title></todo>
+			<todo done="yes" collapse="no"><title>Generating map by biome</title></todo>
+			<todo done="yes" collapse="no"><title>Selecting tiles by biome</title></todo>
 			<todo done="yes" collapse="no"><title>Sky gradient by biome</title></todo>
 			<todo done="yes" collapse="no"><title>Cloud color by biome</title></todo>
 			<todo done="no" collapse="no"><title>Add creatures field to biome struct</title></todo>

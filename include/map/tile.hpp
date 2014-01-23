@@ -35,7 +35,7 @@ namespace fired {
 		void set(int _tileset, bool _isWall, bool _isPlatform, int x, int y);
 		void render();
 
-		void setTileset(fired::Tileset *_tileset);
+		void setTileset();
 		void setTile(int _tile);
 	};
 }

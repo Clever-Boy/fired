@@ -23,7 +23,6 @@ fired::Map::Map(fired::Camera *_cam, fired::World *_world) {
 
 	bgTex    = new sf::Texture();
 	bgSprite = new sf::RectangleShape();
-	tileset  = new fired::Tileset();
 
 	bgTex->loadFromFile("data/img/world/bg/sky.jpg");
 	bgSprite->setTexture(bgTex);
@@ -51,8 +50,6 @@ fired::Map::~Map() {
 	for (int i = 0; i < sizeX; delete tiles[i++]);
 
 	delete tiles;
-	delete tileset;
-
 	delete bgSprite;
 	delete bgTex;
 

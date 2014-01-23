@@ -22,7 +22,6 @@ namespace fired {
 		fired::Camera    *cam;
 		fired::World     *world;
 
-		fired::Tileset *tileset;
 		fired::Tile   **tiles;
 
 		std::vector<fired::Decor*>     decors;

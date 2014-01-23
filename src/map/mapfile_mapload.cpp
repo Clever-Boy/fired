@@ -42,7 +42,7 @@ void mapLoadTiles(fired::Map *map, FILE *fp) {
 
 	map->findTiles(0, 0, map->sizeX, map->sizeY);
 	for (int i = 0; i < map->sizeX; i++) for (int j = 0; j < map->sizeY; j++)
-		map->tiles[i][j].setTileset(map->tileset);
+		map->tiles[i][j].setTileset();
 }
 
 

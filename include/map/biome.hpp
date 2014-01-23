@@ -23,9 +23,6 @@ namespace fired {
 		sf::Texture        *bgTex;
 		sf::RectangleShape *bgSprite;
 
-		fired::BaseDecor *bridgeDecor;
-		fired::BaseDecor *chestDecor;
-
 		fired::Tileset *ground;
 		fired::Tileset *brickMain;
 		fired::Tileset *brickSecond;

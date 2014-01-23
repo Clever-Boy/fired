@@ -47,9 +47,9 @@ void fired::Tile::render() {
      * setTileset
 
 ***********************************************************************/
-void fired::Tile::setTileset(fired::Tileset *_tileset) {
+void fired::Tile::setTileset() {
 	if (tileset == 0) sprite = NULL;
-	else sprite = _tileset->sprites[(tileset - 1) * 16 + tile];
+	else sprite = container->tilesets[tileset - 1]->sprites[tile];
 }
 
 

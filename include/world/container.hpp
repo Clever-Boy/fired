@@ -28,6 +28,7 @@ namespace fired {
 		std::vector<fired::BaseItem*>     items;
 		std::vector<fired::GameSprite*>   sprites;
 		std::vector<fired::GameSound*>    sounds;
+		std::vector<fired::Tileset*>      tilesets;
 		std::vector<fired::Biome*>        biomes;
 
 
@@ -71,6 +72,9 @@ namespace fired {
 		static int loadCreature(void *data, int argc, char **argv, char **azColName);
 		void loadCreatureLoot(fired::BaseCreature *current, const char *lootStr);
 		fired::BaseCreature *getCreature(const char *name);
+
+		void loadTilesets(sqlite3 *db);
+		static int loadTileset(void *data, int argc, char **argv, char **azColName);
 
 		void loadBiomes(sqlite3 *db);
 		static int loadBiome(void *data, int argc, char **argv, char **azColName);

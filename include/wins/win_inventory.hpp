@@ -11,24 +11,10 @@
 
 
 #include "win_hint.hpp"
+#include "win_inventory_item.hpp"
 
 
 namespace fired {
-	struct InventoryWindowItem {
-		fired::InventoryItem  *item;
-		fired::ItemType        filter;
-		sf::FloatRect          rect;
-		bool                   hover;
-
-
-		 InventoryWindowItem(sf::Vector2f pos, fired::InventoryItem  *_item, fired::ItemType _filter);
-		~InventoryWindowItem() {};
-
-		void render(sf::Sprite *spr, sf::Text *count);
-		void renderItem(sf::Text *count);
-	};
-
-
 	struct InventoryWindow {
 		fired::Window              *win;
 		fired::HintWindow          *hint;

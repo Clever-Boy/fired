@@ -392,9 +392,10 @@
 			<todo done="no" collapse="no"><title>Change GUI</title></todo>
 			<todo done="no" collapse="no"><title>Change crosshair</title></todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Lighting</title>
+		<todo done="no" collapse="no"><title>Lighting</title>
+			<todo done="yes" collapse="no"><title>Init lightmap with biome lightness color</title></todo>
+			<todo done="yes" collapse="no"><title>Draw lightmap with sf::BlendMultiply</title></todo>
 			<todo done="no" collapse="no"><title>Building light map</title></todo>
-			<todo done="no" collapse="no"><title>Draw lightmap with sf::BlendMultiply</title></todo>
 			<todo done="no" collapse="no"><title>Add light sources</title></todo>
 			<todo done="no" collapse="no"><title>Shot splash makes light</title></todo>
 		</todo>

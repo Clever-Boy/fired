@@ -23,6 +23,7 @@ export CFLAGS=-Wall                   \
 
 
 all: src
+	$(MAKE) -C src -f $(PWD)/Makefile.src clean-subdirs
 	$(MAKESRC) -C src
 	$(STRIP) $(PROJECT)
 

@@ -93,6 +93,7 @@ void fired::World::update() {
 	updateList(particles);
 	updateList(texts);
 
+	map->light();
 	postUpdateState();
 }
 

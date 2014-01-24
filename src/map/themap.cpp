@@ -28,6 +28,12 @@ fired::Map::Map(fired::Camera *_cam, fired::World *_world) {
 	sky[1] = sf::Vertex(sf::Vector2f(0, 0), biome->skyHi);
 	sky[2] = sf::Vertex(sf::Vector2f(0, 0), biome->skyLow);
 	sky[3] = sf::Vertex(sf::Vector2f(0, 0), biome->skyLow);
+
+	lightmapTex = new sf::RenderTexture();
+	lightmap    = new sf::Sprite();
+
+	lightmapTex->create(settings->window.width, settings->window.height);
+	lightmap->setTexture(lightmapTex->getTexture());
 }
 
 
@@ -40,6 +46,9 @@ fired::Map::Map(fired::Camera *_cam, fired::World *_world) {
 fired::Map::~Map() {
 	for (int i = 0; i < sizeX; delete tiles[i++]);
 	delete tiles;
+
+	delete lightmap;
+	delete lightmapTex;
 
 	deleteList(decors);
 	deleteList(objects);
@@ -101,6 +110,31 @@ void fired::Map::render() {
 
 	for (unsigned int i = 0; i < objects.size(); i++)
 		objects[i]->render();
+}
+
+
+
+/***********************************************************************
+     * Map
+     * light
+
+***********************************************************************/
+void fired::Map::light() {
+	buildLight();
+	lightmap->setPosition(cam->offset);
+	app->draw(*lightmap, sf::BlendMultiply);
+}
+
+
+
+/***********************************************************************
+     * Map
+     * buildLight
+
+***********************************************************************/
+void fired::Map::buildLight() {
+	lightmapTex->clear(biome->lightness);
+	lightmapTex->display();
 }
 
 

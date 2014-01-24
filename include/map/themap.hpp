@@ -34,6 +34,9 @@ namespace fired {
 		sf::Vector2i        mapSize;
 		sf::Vector2f        startPos;
 
+		sf::RenderTexture  *lightmapTex;
+		sf::Sprite         *lightmap;
+
 		int sizeX;
 		int sizeY;
 
@@ -44,6 +47,8 @@ namespace fired {
 		void update();
 		void render();
 		void spawn();
+		void light();
+		void buildLight();
 
 		bool isSolid(int i, int j);
 		bool isPlatform(int i, int j, fired::Phys *phys);

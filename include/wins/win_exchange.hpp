@@ -19,15 +19,18 @@ namespace fired {
 		fired::HintWindow          *hint;
 		fired::Character           *owner;
 		fired::InventoryWindowItem *inHand; 
+		fired::InventoryWindowItem *trashCan; 
 		fired::GameSprite          *coinSprite;
 
 		std::vector<fired::InventoryWindowItem*> items;
 		std::vector<fired::InventoryWindowItem*> exchange;
 
+		sf::Texture *trashTex;
 		sf::Texture *emptyTex;
 		sf::Texture *hoverTex;
 		sf::Texture *normalTex;
 
+		sf::Sprite *trashSpr;
 		sf::Sprite *emptySpr;
 		sf::Sprite *hoverSpr;
 		sf::Sprite *normalSpr;

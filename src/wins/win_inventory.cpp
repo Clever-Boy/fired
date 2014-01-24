@@ -23,22 +23,27 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner, fired::World *
 
 	sf::Vector2f winOffset = win->offset;
 
+	trashTex = new sf::Texture();
 	emptyTex = new sf::Texture();
 	hoverTex = new sf::Texture();
 	normalTex = new sf::Texture();
 
+	trashTex->loadFromFile("data/img/gui/inventory/trash.tga");
 	emptyTex->loadFromFile("data/img/gui/inventory/empty.tga");
 	hoverTex->loadFromFile("data/img/gui/inventory/hover.tga");
 	normalTex->loadFromFile("data/img/gui/inventory/normal.tga");
 
+	trashSpr = new sf::Sprite();
 	emptySpr = new sf::Sprite();
 	hoverSpr = new sf::Sprite();
 	normalSpr = new sf::Sprite();
 
+	trashSpr->setTexture(*trashTex);
 	emptySpr->setTexture(*emptyTex);
 	hoverSpr->setTexture(*hoverTex);
 	normalSpr->setTexture(*normalTex);
 
+	trashSpr->setOrigin(sf::Vector2f(trashTex->getSize())   / 2.0f);
 	emptySpr->setOrigin(sf::Vector2f(emptyTex->getSize())   / 2.0f);
 	hoverSpr->setOrigin(sf::Vector2f(hoverTex->getSize())   / 2.0f);
 	normalSpr->setOrigin(sf::Vector2f(normalTex->getSize()) / 2.0f);
@@ -64,6 +69,8 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner, fired::World *
 	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(155.0f, 130.0f), &owner->inventory->primaryWeapon, itWeapon));
 	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(195.0f, 130.0f), &owner->inventory->secondaryWeapon, itWeapon));
 
+	trashCan = new fired::InventoryWindowItem(winOffset + sf::Vector2f(325.0f, 130.0f), &owner->inventory->trash, itAny);
+
 
 	for (int i = 0; i < 10; i++)
 		for (int j = 0; j < 5; j++)
@@ -83,16 +90,19 @@ fired::InventoryWindow::~InventoryWindow() {
 	delete moneyText;
 	delete countText;
 
+	delete trashSpr;
 	delete emptySpr;
 	delete hoverSpr;
 	delete normalSpr;
 
+	delete trashTex;
 	delete emptyTex;
 	delete hoverTex;
 	delete normalTex;
 
 	delete inHand->item;
 	delete inHand;
+	delete trashCan;
 
 	deleteList(items);
 }
@@ -108,6 +118,9 @@ void fired::InventoryWindow::update(sf::Vector2f mousePos) {
 	for (unsigned int i = 0; i < items.size(); i++)
 		if (items[i]->rect.contains(mousePos)) items[i]->hover = true;
 		else                                   items[i]->hover = false;
+
+	if (trashCan->rect.contains(mousePos)) trashCan->hover = true;
+	else                                   trashCan->hover = false;
 
 	hint->win->setOffset(mousePos + sf::Vector2f(16.0f, 16.0f));
 	inHand->rect.left = mousePos.x + 16.0f;
@@ -127,9 +140,13 @@ void fired::InventoryWindow::render() {
 	win->render();
 
 	for (unsigned int i = 0; i < items.size(); i++)
-		if      (items[i]->hover)              items[i]->render(hoverSpr, countText);
-		else if (items[i]->item->base == NULL) items[i]->render(emptySpr, countText);
+		if      (items[i]->hover)              items[i]->render(hoverSpr , countText);
+		else if (items[i]->item->base == NULL) items[i]->render(emptySpr , countText);
 		else                                   items[i]->render(normalSpr, countText);
+
+	if (trashCan->item->base == NULL) trashCan->render(trashSpr , countText);
+	else if (trashCan->hover)         trashCan->render(hoverSpr , countText);
+	else                              trashCan->render(normalSpr, countText);
 
 
 	char credits[16];
@@ -155,6 +172,13 @@ void fired::InventoryWindow::render() {
 ***********************************************************************/
 void fired::InventoryWindow::click(sf::Vector2f mousePos) {
 	fired::InventoryWindowItem *selected = NULL;
+
+	if (trashCan->rect.contains(mousePos)) {
+		if (inHand->item->base != NULL) emptyItem(trashCan->item);
+		swapItems(trashCan->item, inHand->item);
+		return;
+	}
+
 
 	for (unsigned int i = 0; i < items.size(); i++)
 		if (items[i]->rect.contains(mousePos)) {

@@ -160,13 +160,13 @@ void fired::ExchangeWindow::render() {
 	win->render();
 
 	for (unsigned int i = 0; i < items.size(); i++)
-		if      (items[i]->hover)              items[i]->render(hoverSpr, countText);
-		else if (items[i]->item->base == NULL) items[i]->render(emptySpr, countText);
+		if      (items[i]->hover)              items[i]->render(hoverSpr , countText);
+		else if (items[i]->item->base == NULL) items[i]->render(emptySpr , countText);
 		else                                   items[i]->render(normalSpr, countText);
 
 	for (unsigned int i = 0; i < exchange.size(); i++)
-		if      (exchange[i]->hover)              exchange[i]->render(hoverSpr, countText);
-		else if (exchange[i]->item->base == NULL) exchange[i]->render(emptySpr, countText);
+		if      (exchange[i]->hover)              exchange[i]->render(hoverSpr , countText);
+		else if (exchange[i]->item->base == NULL) exchange[i]->render(emptySpr , countText);
 		else                                      exchange[i]->render(normalSpr, countText);
 
 	if (trashCan->item->base == NULL) trashCan->render(trashSpr , countText);

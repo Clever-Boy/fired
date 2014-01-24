@@ -31,7 +31,12 @@ fired::BaseMapObjectCollector::BaseMapObjectCollector(const char *_name, sf::Vec
 ***********************************************************************/
 void fired::BaseMapObjectCollector::generateLoot() {
 	addItem(1, "weapon.plasmagun");
+	addItem(1, "armor.arms.leather");
+	addItem(1, "armor.fist.leather");
+	addItem(1, "armor.head.leather");
 	addItem(1, "armor.body.leather");
+	addItem(1, "armor.legs.leather");
+	addItem(1, "armor.shoe.leather");
 }
 
 

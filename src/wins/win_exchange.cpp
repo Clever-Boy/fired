@@ -54,12 +54,12 @@ fired::ExchangeWindow::ExchangeWindow(fired::Character *_owner, fired::World *wo
 	countText->setCharacterSize(12);
 	countText->setColor(sf::Color::White);
 
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(175.0f,  10.0f), &owner->inventory->helm, itArmor));
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(175.0f,  65.0f), &owner->inventory->body, itArmor));
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(130.0f,  22.0f), &owner->inventory->arms, itArmor));
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(130.0f,  85.0f), &owner->inventory->fist, itArmor));
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(220.0f,  25.0f), &owner->inventory->legs, itArmor));
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(220.0f,  85.0f), &owner->inventory->shoe, itArmor));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(175.0f,  10.0f), &owner->inventory->helm, itArmor, acHelm));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(175.0f,  65.0f), &owner->inventory->body, itArmor, acBody));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(130.0f,  22.0f), &owner->inventory->arms, itArmor, acArms));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(130.0f,  85.0f), &owner->inventory->fist, itArmor, acFist));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(220.0f,  25.0f), &owner->inventory->legs, itArmor, acLegs));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(220.0f,  85.0f), &owner->inventory->shoe, itArmor, acShoe));
 
 	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(155.0f, 130.0f), &owner->inventory->primaryWeapon, itWeapon));
 	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(195.0f, 130.0f), &owner->inventory->secondaryWeapon, itWeapon));
@@ -205,6 +205,8 @@ void fired::ExchangeWindow::click(sf::Vector2f mousePos) {
 
 	if (inHand->item->base != NULL) {
 		if (selected->filter != itAny && selected->filter != inHand->item->base->type) return;
+		if (selected->filter == itArmor && selected->armorFilter != container->armors[inHand->item->base->UID]->type) return;
+
 		if (selected->item->base == inHand->item->base) {
 			if (selected->item->count + inHand->item->count <= selected->item->base->maxStack) {
 				selected->item->count += inHand->item->count;

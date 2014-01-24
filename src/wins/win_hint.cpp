@@ -141,6 +141,7 @@ void fired::HintWindow::render(fired::BaseItem *item) {
 			case acLegs: renderText(145, 20, "legs" , true); break;
 			case acShoe: renderText(145, 20, "shoes", true); break;
 			case acArms: renderText(145, 20, "arms" , true); break;
+			case acNull: break;
 		}
 
 		renderText(5, 35, "Armor:", false);

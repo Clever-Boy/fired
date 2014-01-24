@@ -15,10 +15,11 @@
      * constructor
 
 ***********************************************************************/
-fired::InventoryWindowItem::InventoryWindowItem(sf::Vector2f pos, fired::InventoryItem *_item, fired::ItemType _filter) {
-	item   = _item;
-	filter = _filter;
-	rect   = sf::FloatRect(pos, sf::Vector2f(35.0f, 35.0f));
+fired::InventoryWindowItem::InventoryWindowItem(sf::Vector2f pos, fired::InventoryItem *_item, fired::ItemType _filter, fired::ArmorClass _armorFilter) {
+	item        = _item;
+	filter      = _filter;
+	armorFilter = _armorFilter;
+	rect        = sf::FloatRect(pos, sf::Vector2f(35.0f, 35.0f));
 }
 
 

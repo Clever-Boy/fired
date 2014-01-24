@@ -12,6 +12,7 @@
 
 namespace fired {
 	enum ArmorClass {
+		acNull,
 		acHelm,
 		acBody,
 		acLegs,

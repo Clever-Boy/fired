@@ -14,11 +14,12 @@ namespace fired {
 	struct InventoryWindowItem {
 		fired::InventoryItem  *item;
 		fired::ItemType        filter;
+		fired::ArmorClass      armorFilter;
 		sf::FloatRect          rect;
 		bool                   hover;
 
 
-		 InventoryWindowItem(sf::Vector2f pos, fired::InventoryItem  *_item, fired::ItemType _filter);
+		 InventoryWindowItem(sf::Vector2f pos, fired::InventoryItem  *_item, fired::ItemType _filter, fired::ArmorClass _armorFilter = acNull);
 		~InventoryWindowItem() {};
 
 		void render(sf::Sprite *spr, sf::Text *count);

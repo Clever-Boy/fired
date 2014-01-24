@@ -403,8 +403,12 @@
 		<todo done="no" collapse="no"><title>Smoke trace</title></todo>
 		<todo done="no" collapse="no"><title>Items bonuses +dmg, +defence, etc.</title></todo>
 		<todo done="yes" collapse="no"><title>Add antialiasing</title></todo>
-		<todo done="no" collapse="no"><title>GLSL shaders processing</title></todo>
-		<todo done="no" collapse="no"><title>Lighting (GLSL shaders)</title></todo>
+		<todo done="no" collapse="yes"><title>Lighting</title>
+			<todo done="no" collapse="no"><title>Building light map</title></todo>
+			<todo done="no" collapse="no"><title>Processing shader</title></todo>
+			<todo done="no" collapse="no"><title>Add light sources</title></todo>
+			<todo done="no" collapse="no"><title>Explosions make light</title></todo>
+		</todo>
 		<todo done="no" collapse="yes"><title>Weather</title>
 			<todo done="no" collapse="no"><title>Rain</title></todo>
 			<todo done="no" collapse="no"><title>Snow</title></todo>

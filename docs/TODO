@@ -392,8 +392,15 @@
 			<todo done="no" collapse="no"><title>Change GUI</title></todo>
 			<todo done="no" collapse="no"><title>Change crosshair</title></todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Explosives</title></todo>
+		<todo done="no" collapse="yes"><title>Explosions</title>
+			<todo done="no" collapse="no"><title>Class</title></todo>
+			<todo done="no" collapse="no"><title>Graphics</title></todo>
+			<todo done="no" collapse="no"><title>Knockback</title></todo>
+			<todo done="no" collapse="no"><title>Sound</title></todo>
+		</todo>
 		<todo done="no" collapse="yes"><title>Explosive weapon</title></todo>
+		<todo done="no" collapse="no"><title>Rocket sprite</title></todo>
+		<todo done="no" collapse="no"><title>Smoke trace</title></todo>
 		<todo done="no" collapse="no"><title>Items bonuses +dmg, +defence, etc.</title></todo>
 		<todo done="yes" collapse="no"><title>Add antialiasing</title></todo>
 		<todo done="no" collapse="no"><title>GLSL shaders processing</title></todo>

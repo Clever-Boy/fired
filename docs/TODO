@@ -377,7 +377,7 @@
 			<todo done="yes" collapse="no"><title>Loading creatures list from biome table</title></todo>
 			<todo done="yes" collapse="no"><title>Creatures by biome</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Graphics refactoring</title>
+		<todo done="no" collapse="yes"><title>Graphics refactoring</title>
 			<todo done="yes" collapse="no"><title>Scale BG to fit window height</title></todo>
 			<todo done="yes" collapse="no"><title>Allow BG slide only horizontally</title></todo>
 			<todo done="yes" collapse="no"><title>Change BG</title></todo>
@@ -424,6 +424,23 @@
 			<todo done="no" collapse="no"><title>Add fullscreen toggle</title></todo>
 		</todo>
 	</todo>
+	<todo done="no" collapse="yes"><title>Skills</title>
+		<todo done="no" collapse="no"><title>Primary skills (Strength, Agility, Accuracy etc.)</title></todo>
+		<todo done="no" collapse="no"><title>Secondary skills (Healing, Crafting etc.)</title></todo>
+		<todo done="no" collapse="no"><title>Weapon skills (each weapon has it's own XP value)</title></todo>
+	</todo>
+	<todo done="no" collapse="yes"><title>Locations</title>
+		<todo done="no" collapse="no"><title>City</title></todo>
+		<todo done="no" collapse="no"><title>Home</title></todo>
+	</todo>
+	<todo done="no" collapse="yes"><title>NPC</title>
+		<todo done="no" collapse="no"><title>NPC AI</title></todo>
+		<todo done="no" collapse="no"><title>Main quest NPC</title></todo>
+	</todo>
+	<todo done="no" collapse="yes"><title>Quests</title>
+		<todo done="no" collapse="no"><title>Quests</title></todo>
+		<todo done="no" collapse="no"><title>Quest items</title></todo>
+	</todo>
 	<todo done="no" collapse="yes"><title>--- Release Alpha</title>
 		<todo done="no" collapse="no"><title>Add some weapons</title></todo>
 		<todo done="no" collapse="no"><title>Add some armors</title></todo>
@@ -431,18 +448,9 @@
 		<todo done="no" collapse="no"><title>Add some hairs</title></todo>
 		<todo done="no" collapse="no"><title>Add some creatures</title></todo>
 		<todo done="no" collapse="no"><title>Player default colors</title></todo>
-		<todo done="no" collapse="no"><title>Primary skills (Strength, Agility, Accuracy etc.)</title></todo>
-		<todo done="no" collapse="no"><title>Secondary skills (Healing, Crafting etc.)</title></todo>
-		<todo done="no" collapse="no"><title>Weapon skills (each weapon has it's own XP value)</title></todo>
 		<todo done="no" collapse="no"><title>Random creatures hair</title></todo>
-		<todo done="no" collapse="no"><title>Player home</title></todo>
-		<todo done="no" collapse="no"><title>Main quest NPC</title></todo>
-		<todo done="no" collapse="no"><title>Quests</title></todo>
-		<todo done="no" collapse="no"><title>Quest world generation</title></todo>
-		<todo done="no" collapse="no"><title>Quest items</title></todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>--- Release Beta</title>
-		<todo done="no" collapse="no"><title>Fix game balance</title></todo>
 		<todo done="no" collapse="no"><title>Fix alpha bugs</title></todo>
 		<todo done="no" collapse="no"><title>Crypt sqlite DB</title></todo>
 	</todo>

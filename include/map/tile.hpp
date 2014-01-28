@@ -23,6 +23,7 @@ namespace fired {
 
 	struct Tile {
 		sf::Vector2f pos;
+		sf::Vector2i index;
 		sf::Sprite  *sprite;
 		sf::Color    color;
 
@@ -30,6 +31,7 @@ namespace fired {
 		int tile;
 		bool isWall;
 		bool isPlatform;
+		float intensity;
 
 
 		void set(int _tileset, bool _isWall, bool _isPlatform, int x, int y);

@@ -35,21 +35,26 @@ void fired::MapGenerator::genCityLandscape(int areaStart, int areaEnd, int horiz
 	genFill(areaStart, horizon - 2, areaEnd, horizon - 1, biome->ground->ID, false);
 
 	genFill(areaStart  , horizon - 2, areaStart + 3, horizon - 1, biome->ground->ID, true);
-	genFill(areaEnd - 4, horizon - 2, areaEnd   - 1, horizon - 1, biome->ground->ID, true);
+	genFill(areaEnd - 4, horizon - 2, areaEnd      , horizon - 1, biome->ground->ID, true);
 
 	genFill(areaStart + 4, horizon - 1, areaStart + 7, horizon - 1, biome->ground->ID, true);
 	genFill(areaEnd - 8  , horizon - 1, areaEnd - 5  , horizon - 1, biome->ground->ID, true);
 
 	//Generating testing planes
-	genBar(41, horizon - 6, horizon - 1, biome->brickSecond->ID, false);
-	genBar(47, horizon - 6, horizon - 1, biome->brickSecond->ID, false);
-	genFill(41, horizon - 2, 47, horizon - 1, biome->brickSecond->ID, false);
-	genFill(40, horizon - 5, 48, horizon - 3, biome->extra->ID, true);
 
-	genBar(81, horizon - 6, horizon - 1, biome->brickSecond->ID, false);
-	genBar(87, horizon - 6, horizon - 1, biome->brickSecond->ID, false);
-	genFill(81, horizon - 2, 87, horizon - 1, biome->brickSecond->ID, false);
-	genFill(80, horizon - 5, 88, horizon - 5, biome->extra->ID, true);
+	genBar(41, horizon - 11, horizon - 6, biome->brickSecond->ID, false);
+	genBar(47, horizon - 11, horizon - 6, biome->brickSecond->ID, false);
+	genFill(41, horizon - 7, 47, horizon - 6, biome->brickSecond->ID, false);
+	genFill(40, horizon - 10, 48, horizon - 10, biome->extra->ID, true);
+
+	genBar(81, horizon - 11, horizon - 6, biome->brickSecond->ID, false);
+	genBar(87, horizon - 11, horizon - 6, biome->brickSecond->ID, false);
+	genFill(81, horizon - 7, 87, horizon - 6, biome->brickSecond->ID, false);
+	genFill(80, horizon - 10, 88, horizon - 10, biome->extra->ID, true);
+
+
+	genFill(40, horizon - 5, 88, horizon - 5, biome->brickSecond->ID, true);
+	genFill(40, horizon - 4, 88, horizon - 1, biome->brickSecond->ID, false);
 
 	//Generating testing house
 	genFill(140, horizon - 10, 159, horizon - 1, biome->brickMain->ID, false);
@@ -62,6 +67,12 @@ void fired::MapGenerator::genCityLandscape(int areaStart, int areaEnd, int horiz
 	genFill(144, horizon - 12, 155, horizon - 12, biome->brickMain->ID, true);
 	genFill(146, horizon - 13, 153, horizon - 13, biome->brickMain->ID, true);
 	genFill(148, horizon - 14, 151, horizon - 14, biome->brickMain->ID, true);
+
+	//Generating one more testing house
+	genFill(0, horizon - 8, 19, horizon-1, biome->brickMain->ID, false);
+	genFill(0, horizon - 10, 1, horizon-1, biome->brickMain->ID, true);
+	genFill(0, horizon - 10, 18, horizon - 10, biome->brickMain->ID, true);
+	genFill(0, horizon - 9, 21, horizon - 9, biome->brickMain->ID, true);
 }
 
 
@@ -89,7 +100,7 @@ void fired::MapGenerator::genCityDecors() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCityPlatforms() {
-	int x, y = 35;
+	int x, y = 30;
 	for (x = 49; x < 80; x++) {
 		decors.push_back(new fired::MapDecor("bridge.metal", sf::Vector2f(x*TILE_SIZE, y*TILE_SIZE)));
 		tiles[x][y].isPlatform = true;

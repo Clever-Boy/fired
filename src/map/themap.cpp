@@ -34,6 +34,8 @@ fired::Map::Map(fired::Camera *_cam, fired::World *_world) {
 
 	lightmapTex->create(settings->window.width, settings->window.height);
 	lightmap->setTexture(lightmapTex->getTexture());
+
+	lightBlock = new sf::RectangleShape(sf::Vector2f(TILE_SIZE, TILE_SIZE));
 }
 
 
@@ -49,6 +51,7 @@ fired::Map::~Map() {
 
 	delete lightmap;
 	delete lightmapTex;
+	delete lightBlock;
 
 	deleteList(decors);
 	deleteList(objects);
@@ -133,7 +136,41 @@ void fired::Map::light() {
 
 ***********************************************************************/
 void fired::Map::buildLight() {
+	sf::Vector2i from((int)(cam->offset.x / TILE_SIZE) - OFFSCREEN_TILES, (int)(cam->offset.y / TILE_SIZE) - OFFSCREEN_TILES);
+	sf::Vector2i to(from + visibleTiles + sf::Vector2i(OFFSCREEN_TILES * 2, OFFSCREEN_TILES * 2));
+
+	if (from.x < 0) from.x = 0;
+	if (from.y < 0) from.y = 0;
+	if (to.x > sizeX) to.x = sizeX;
+	if (to.y > sizeY) to.y = sizeY;
+
 	lightmapTex->clear(biome->lightness);
+
+	for (int i = from.x; i < to.x; i++)
+		for (int j = from.y; j < to.y; j++)
+				tiles[i][j].intensity = 1.0f;
+
+
+
+	from = sf::Vector2i((int)(cam->offset.x / TILE_SIZE), (int)(cam->offset.y / TILE_SIZE));
+	to = sf::Vector2i(from + visibleTiles);
+
+	if (from.x < 0) from.x = 0;
+	if (from.y < 0) from.y = 0;
+	if (to.x > sizeX) to.x = sizeX;
+	if (to.y > sizeY) to.y = sizeY;
+
+	sf::Uint8 color;
+	sf::Vector2f offset((int)(cam->offset.x) % (int)TILE_SIZE, (int)(cam->offset.y) % (int)TILE_SIZE);
+
+	for (int i = from.x; i < to.x; i++)
+		for (int j = from.y; j < to.y; j++) {
+			color = tiles[i][j].intensity * 255;
+			lightBlock->setFillColor(sf::Color(color, color, color));
+			lightBlock->setPosition(tiles[i][j].pos - cam->offset);
+			lightmapTex->draw(*lightBlock);
+		}
+
 	lightmapTex->display();
 }
 

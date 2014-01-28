@@ -35,6 +35,7 @@ namespace fired {
 		sf::Vector2f        startPos;
 
 		sf::RenderTexture  *lightmapTex;
+		sf::RectangleShape *lightBlock;
 		sf::Sprite         *lightmap;
 
 		int sizeX;

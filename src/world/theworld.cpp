@@ -35,9 +35,6 @@ fired::World::World(fired::Mouse *_mouse) {
 	cam->objToTrack = &player->character->phys;
 
 	chars.push_back(player->character);
-
-	map->spawn();
-	map->spawn();
 }
 
 

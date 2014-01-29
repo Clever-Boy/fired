@@ -398,6 +398,8 @@
 			<todo done="no" collapse="no"><title>Building light map</title></todo>
 			<todo done="no" collapse="no"><title>Add light sources</title></todo>
 			<todo done="no" collapse="no"><title>Shot splash makes light</title></todo>
+			<todo done="no" collapse="no"><title>Make lighting smoother</title></todo>
+			<todo done="no" collapse="no"><title>Not to render bricks with intensity = 0</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Explosions</title>
 			<todo done="no" collapse="no"><title>Class</title></todo>

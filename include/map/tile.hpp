@@ -26,6 +26,7 @@ namespace fired {
 		sf::Vector2i index;
 		sf::Sprite  *sprite;
 		sf::Color    color;
+		sf::Color    light;
 
 		int tileset;
 		int tile;

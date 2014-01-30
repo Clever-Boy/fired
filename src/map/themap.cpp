@@ -35,8 +35,6 @@ fired::Map::Map(fired::Camera *_cam, fired::World *_world) {
 	lightmapTex->create(settings->window.width, settings->window.height);
 	lightmap->setTexture(lightmapTex->getTexture());
 
-	lightBlock = new sf::RectangleShape(sf::Vector2f(TILE_SIZE, TILE_SIZE));
-
 	int lightCount = (visibleTiles.x + LIGHT_OFFSCREEN_TILES * 2) * (visibleTiles.x + LIGHT_OFFSCREEN_TILES * 2);
 	for (int i = 0; i < LIGHT_MAX_LIGHTLEVEL; i++) lightTiles[i] = new fired::Tile*[lightCount];
 }
@@ -55,7 +53,6 @@ fired::Map::~Map() {
 
 	delete lightmap;
 	delete lightmapTex;
-	delete lightBlock;
 
 	deleteList(decors);
 	deleteList(objects);
@@ -128,7 +125,10 @@ void fired::Map::render() {
 
 ***********************************************************************/
 void fired::Map::setIntensity(fired::Tile *tile, char intensity) {
+	sf::Uint8 color = getColor(intensity);
 	tile->intensity = intensity;
+	tile->light = sf::Color(color, color, color);
+
 	int index = intensity - 1;
 
 	if (index < 0) return;
@@ -203,7 +203,7 @@ void fired::Map::resetLight() {
 	for (int i = from.x; i < to.x; i++)
 		for (int j = from.y; j < to.y; j++)
 			if (!tiles[i][j].tileset)
-				tiles[i][j].intensity = 24;
+				tiles[i][j].intensity = LIGHT_MAX_LIGHTLEVEL;
 			else
 				tiles[i][j].intensity = 0;
 }
@@ -239,6 +239,46 @@ void fired::Map::buildLight() {
 
 /***********************************************************************
      * Map
+     * getColor
+
+***********************************************************************/
+sf::Uint8 fired::Map::getColor(char intensity) {
+	if (intensity > LIGHT_ABSOLUTE) return 255;
+	else if (intensity <= 0) return 0;
+	else return ((float)intensity / LIGHT_ABSOLUTE) * 255;
+}
+
+
+
+/***********************************************************************
+     * Map
+     * getTilePos
+
+***********************************************************************/
+sf::Vector2f fired::Map::getTilePos(int x, int y) {
+	return sf::Vector2f(TILE_SIZE / 2.0f + TILE_SIZE * x, TILE_SIZE / 2.0f + TILE_SIZE * y) - cam->offset;
+}
+
+
+
+/***********************************************************************
+     * Map
+     * getTileColor
+
+***********************************************************************/
+sf::Color fired::Map::getTileLight(int x, int y) {
+	if (x < 0) x = 0;
+	if (y < 0) y = 0;
+	if (x >= sizeX) x = sizeX - 1;
+	if (y >= sizeY) y = sizeY - 1;
+
+	return tiles[x][y].light;
+}
+
+
+
+/***********************************************************************
+     * Map
      * renderLight
 
 ***********************************************************************/
@@ -251,18 +291,22 @@ void fired::Map::renderLight() {
 	if (to.x > sizeX) to.x = sizeX;
 	if (to.y > sizeY) to.y = sizeY;
 
-	sf::Uint8 color;
 	sf::Vector2f offset((int)(cam->offset.x) % (int)TILE_SIZE, (int)(cam->offset.y) % (int)TILE_SIZE);
+	sf::Vector2f tileCenter(TILE_SIZE / 2.0f, TILE_SIZE / 2.0f);
 
-	for (int i = from.x; i < to.x; i++)
-		for (int j = from.y; j < to.y; j++) {
-			if (tiles[i][j].intensity > LIGHT_ABSOLUTE) color = 255;
-			else if (tiles[i][j].intensity <= 0) color = 0;
-			else color = ((float)tiles[i][j].intensity / LIGHT_ABSOLUTE) * 255;
+	for (int i = from.x - 1; i < to.x; i++)
+		for (int j = from.y - 1; j < to.y; j++) {
+			lightMask[0].position = getTilePos(i  , j  );
+			lightMask[1].position = getTilePos(i+1, j  );
+			lightMask[2].position = getTilePos(i+1, j+1);
+			lightMask[3].position = getTilePos(i  , j+1);
 
-			lightBlock->setFillColor(sf::Color(color, color, color));
-			lightBlock->setPosition(tiles[i][j].pos - cam->offset);
-			lightmapTex->draw(*lightBlock);
+			lightMask[0].color = getTileLight(i  , j  );
+			lightMask[1].color = getTileLight(i+1, j  );
+			lightMask[2].color = getTileLight(i+1, j+1);
+			lightMask[3].color = getTileLight(i  , j+1);
+
+			lightmapTex->draw(lightMask, 4, sf::Quads);
 		}
 
 	lightmapTex->display();

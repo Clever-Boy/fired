@@ -377,6 +377,25 @@
 			<todo done="yes" collapse="no"><title>Loading creatures list from biome table</title></todo>
 			<todo done="yes" collapse="no"><title>Creatures by biome</title></todo>
 		</todo>
+		<todo done="no" collapse="no"><title>Lighting</title>
+			<todo done="yes" collapse="no"><title>Init lightmap with biome lightness color</title></todo>
+			<todo done="yes" collapse="no"><title>Draw lightmap with sf::BlendMultiply</title></todo>
+			<todo done="yes" collapse="no"><title>Building light map</title></todo>
+			<todo done="no" collapse="no"><title>Add light sources</title></todo>
+			<todo done="no" collapse="no"><title>Shot splash makes light</title></todo>
+			<todo done="no" collapse="no"><title>Add color lighting</title></todo>
+			<todo done="yes" collapse="no"><title>Make lighting smoother</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Explosions</title>
+			<todo done="no" collapse="no"><title>Class</title></todo>
+			<todo done="no" collapse="no"><title>Graphics</title></todo>
+			<todo done="no" collapse="no"><title>Knockback</title></todo>
+			<todo done="no" collapse="no"><title>Sound</title></todo>
+			<todo done="no" collapse="no"><title>Explosions make light</title></todo>
+		</todo>
+		<todo done="no" collapse="no"><title>Explosive weapon</title></todo>
+		<todo done="no" collapse="no"><title>Rocket sprite</title></todo>
+		<todo done="no" collapse="no"><title>Smoke trace</title></todo>
 		<todo done="no" collapse="yes"><title>Graphics refactoring</title>
 			<todo done="yes" collapse="no"><title>Scale BG to fit window height</title></todo>
 			<todo done="yes" collapse="no"><title>Allow BG slide only horizontally</title></todo>
@@ -392,26 +411,6 @@
 			<todo done="no" collapse="no"><title>Change GUI</title></todo>
 			<todo done="no" collapse="no"><title>Change crosshair</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Lighting</title>
-			<todo done="yes" collapse="no"><title>Init lightmap with biome lightness color</title></todo>
-			<todo done="yes" collapse="no"><title>Draw lightmap with sf::BlendMultiply</title></todo>
-			<todo done="yes" collapse="no"><title>Building light map</title></todo>
-			<todo done="no" collapse="no"><title>Add light sources</title></todo>
-			<todo done="no" collapse="no"><title>Shot splash makes light</title></todo>
-			<todo done="no" collapse="no"><title>Add color lighting</title></todo>
-			<todo done="no" collapse="no"><title>Make lighting smoother</title></todo>
-			<todo done="no" collapse="no"><title>Not to render bricks with intensity = 0</title></todo>
-		</todo>
-		<todo done="no" collapse="yes"><title>Explosions</title>
-			<todo done="no" collapse="no"><title>Class</title></todo>
-			<todo done="no" collapse="no"><title>Graphics</title></todo>
-			<todo done="no" collapse="no"><title>Knockback</title></todo>
-			<todo done="no" collapse="no"><title>Sound</title></todo>
-			<todo done="no" collapse="no"><title>Explosions make light</title></todo>
-		</todo>
-		<todo done="no" collapse="no"><title>Explosive weapon</title></todo>
-		<todo done="no" collapse="no"><title>Rocket sprite</title></todo>
-		<todo done="no" collapse="no"><title>Smoke trace</title></todo>
 		<todo done="no" collapse="no"><title>Items bonuses +dmg, +defence, etc.</title></todo>
 		<todo done="yes" collapse="no"><title>Add antialiasing</title></todo>
 		<todo done="no" collapse="yes"><title>Weather</title>

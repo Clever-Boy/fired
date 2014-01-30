@@ -36,8 +36,8 @@ namespace fired {
 		sf::Vector2f        startPos;
 
 		sf::RenderTexture  *lightmapTex;
-		sf::RectangleShape *lightBlock;
 		sf::Sprite         *lightmap;
+		sf::Vertex          lightMask[4];
 
 		fired::Tile **lightTiles[LIGHT_MAX_LIGHTLEVEL];
 		int           lightCounts[LIGHT_MAX_LIGHTLEVEL];
@@ -59,6 +59,9 @@ namespace fired {
 		void renderLight();
 		void setIntensity(fired::Tile *tile, char intensity);
 		void checkNeighbours(fired::Tile *tile);
+		sf::Uint8    getColor(char intensity);
+		sf::Vector2f getTilePos(int x, int y);
+		sf::Color    getTileLight(int x, int y);
 
 		bool isSolid(int i, int j);
 		bool isPlatform(int i, int j, fired::Phys *phys);

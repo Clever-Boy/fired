@@ -87,6 +87,7 @@ void fired::Map::update() {
 	sky[3].position.y = offset.y + settings->window.height;
 
 	render();
+	resetLight();
 }
 
 
@@ -184,10 +185,10 @@ void fired::Map::light() {
 
 /***********************************************************************
      * Map
-     * buildLight
+     * resetLight
 
 ***********************************************************************/
-void fired::Map::buildLight() {
+void fired::Map::resetLight() {
 	sf::Vector2i from((int)(cam->offset.x / TILE_SIZE) - LIGHT_OFFSCREEN_TILES, (int)(cam->offset.y / TILE_SIZE) - LIGHT_OFFSCREEN_TILES);
 	sf::Vector2i to(from + visibleTiles + sf::Vector2i(LIGHT_OFFSCREEN_TILES * 2, LIGHT_OFFSCREEN_TILES * 2));
 
@@ -200,16 +201,32 @@ void fired::Map::buildLight() {
 
 	for (int i = 0; i < LIGHT_MAX_LIGHTLEVEL; lightCounts[i++] = 0);
 	for (int i = from.x; i < to.x; i++)
-		for (int j = from.y; j < to.y; j++) {
+		for (int j = from.y; j < to.y; j++)
 			if (!tiles[i][j].tileset)
 				tiles[i][j].intensity = 16;
 			else
 				tiles[i][j].intensity = 0;
+}
 
-			if ((i != from.x) && (i != to.x - 1) && (j != from.y) && (j != to.y - 1))
-				setIntensity(&tiles[i][j], tiles[i][j].intensity);
-		}
 
+
+/***********************************************************************
+     * Map
+     * buildLight
+
+***********************************************************************/
+void fired::Map::buildLight() {
+	sf::Vector2i from((int)(cam->offset.x / TILE_SIZE) - LIGHT_OFFSCREEN_TILES + 1, (int)(cam->offset.y / TILE_SIZE) - LIGHT_OFFSCREEN_TILES + 1);
+	sf::Vector2i to(from + visibleTiles + sf::Vector2i(LIGHT_OFFSCREEN_TILES * 2 - 2, LIGHT_OFFSCREEN_TILES * 2 - 2));
+
+	if (from.x < 0) from.x = 0;
+	if (from.y < 0) from.y = 0;
+	if (to.x > sizeX) to.x = sizeX;
+	if (to.y > sizeY) to.y = sizeY;
+
+	for (int i = from.x; i < to.x; i++)
+		for (int j = from.y; j < to.y; j++)
+			setIntensity(&tiles[i][j], tiles[i][j].intensity);
 
 	for (int i = LIGHT_MAX_LIGHTLEVEL - 1; i >= 0; i--)
 		for (int j = 0; j < lightCounts[i]; j++) {

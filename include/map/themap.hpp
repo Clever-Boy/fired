@@ -54,6 +54,7 @@ namespace fired {
 		void spawn();
 
 		void light();
+		void resetLight();
 		void buildLight();
 		void renderLight();
 		void setIntensity(fired::Tile *tile, char intensity);

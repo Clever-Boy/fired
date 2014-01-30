@@ -203,7 +203,7 @@ void fired::Map::resetLight() {
 	for (int i = from.x; i < to.x; i++)
 		for (int j = from.y; j < to.y; j++)
 			if (!tiles[i][j].tileset)
-				tiles[i][j].intensity = 16;
+				tiles[i][j].intensity = 24;
 			else
 				tiles[i][j].intensity = 0;
 }

@@ -23,7 +23,7 @@ void fired::Tile::set(int _tileset, bool _isWall, bool _isPlatform, int x, int y
 	index      = sf::Vector2i(x, y);
 	intensity  = 0;
 
-	if (isWall) absorb = 3;
+	if (isWall) absorb = 4;
 	else        absorb = 1;
 
 	if (isWall) color = sf::Color::White;

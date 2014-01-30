@@ -39,9 +39,9 @@
 #define TILE_SIZE               16.0f
 #define BROAD_ATTACK_TIME       0.25f
 
-#define LIGHT_OFFSCREEN_TILES   15
-#define LIGHT_MAX_LIGHTLEVEL    16
-#define LIGHT_ABSOLUTE          8
+#define LIGHT_OFFSCREEN_TILES   24
+#define LIGHT_MAX_LIGHTLEVEL    24
+#define LIGHT_ABSOLUTE          23
 
 
 #define MENU_X_OFFSET           50

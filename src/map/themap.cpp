@@ -148,23 +148,23 @@ void fired::Map::setIntensity(fired::Tile *tile, char intensity) {
 void fired::Map::checkNeighbours(fired::Tile *tile) {
 	int x = tile->index.x;
 	int y = tile->index.y;
-	char intensity = tile->intensity;
+	char intensity = tile->intensity - tile->absorb;
 
 	if (x > 0)
-		if (tiles[x-1][y].intensity < intensity - tiles[x-1][y].absorb)
-			setIntensity(&tiles[x-1][y], intensity - tiles[x-1][y].absorb);
+		if (tiles[x-1][y].intensity < intensity)
+			setIntensity(&tiles[x-1][y], intensity);
 
 	if (x < sizeX - 1)
-		if (tiles[x+1][y].intensity < intensity - tiles[x+1][y].absorb)
-			setIntensity(&tiles[x+1][y], intensity - tiles[x+1][y].absorb);
+		if (tiles[x+1][y].intensity < intensity)
+			setIntensity(&tiles[x+1][y], intensity);
 
 	if (y > 0)
-		if (tiles[x][y-1].intensity < intensity - tiles[x][y-1].absorb)
-			setIntensity(&tiles[x][y-1], intensity - tiles[x][y-1].absorb);
+		if (tiles[x][y-1].intensity < intensity)
+			setIntensity(&tiles[x][y-1], intensity);
 
 	if (y < sizeY - 1)
-		if (tiles[x][y+1].intensity < intensity - tiles[x][y+1].absorb)
-			setIntensity(&tiles[x][y+1], intensity - tiles[x][y+1].absorb);
+		if (tiles[x][y+1].intensity < intensity)
+			setIntensity(&tiles[x][y+1], intensity);
 }
 
 

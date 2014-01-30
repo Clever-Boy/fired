@@ -10,6 +10,7 @@
 #define __THEMAP
 
 
+#include "defines.hpp"
 #include "tile.hpp"
 #include "objects.hpp"
 #include "phys.hpp"
@@ -38,6 +39,9 @@ namespace fired {
 		sf::RectangleShape *lightBlock;
 		sf::Sprite         *lightmap;
 
+		fired::Tile **lightTiles[LIGHT_MAX_LIGHTLEVEL];
+		int           lightCounts[LIGHT_MAX_LIGHTLEVEL];
+
 		int sizeX;
 		int sizeY;
 
@@ -48,8 +52,12 @@ namespace fired {
 		void update();
 		void render();
 		void spawn();
+
 		void light();
 		void buildLight();
+		void renderLight();
+		void setIntensity(fired::Tile *tile, char intensity);
+		void checkNeighbours(fired::Tile *tile);
 
 		bool isSolid(int i, int j);
 		bool isPlatform(int i, int j, fired::Phys *phys);

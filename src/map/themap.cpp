@@ -36,6 +36,9 @@ fired::Map::Map(fired::Camera *_cam, fired::World *_world) {
 	lightmap->setTexture(lightmapTex->getTexture());
 
 	lightBlock = new sf::RectangleShape(sf::Vector2f(TILE_SIZE, TILE_SIZE));
+
+	int lightCount = (visibleTiles.x + LIGHT_OFFSCREEN_TILES * 2) * (visibleTiles.x + LIGHT_OFFSCREEN_TILES * 2);
+	for (int i = 0; i < LIGHT_MAX_LIGHTLEVEL; i++) lightTiles[i] = new fired::Tile*[lightCount];
 }
 
 
@@ -46,6 +49,7 @@ fired::Map::Map(fired::Camera *_cam, fired::World *_world) {
 
 ***********************************************************************/
 fired::Map::~Map() {
+	for (int i = 0; i < LIGHT_MAX_LIGHTLEVEL; delete lightTiles[i++]);
 	for (int i = 0; i < sizeX; delete tiles[i++]);
 	delete tiles;
 
@@ -119,11 +123,59 @@ void fired::Map::render() {
 
 /***********************************************************************
      * Map
+     * setIntensity
+
+***********************************************************************/
+void fired::Map::setIntensity(fired::Tile *tile, char intensity) {
+	tile->intensity = intensity;
+	int index = intensity - 1;
+
+	if (index < 0) return;
+	if (index >= LIGHT_MAX_LIGHTLEVEL) return;
+
+	lightTiles[index][lightCounts[index]] = tile;
+	lightCounts[index]++;
+}
+
+
+
+/***********************************************************************
+     * Map
+     * checkNeighbours
+
+***********************************************************************/
+void fired::Map::checkNeighbours(fired::Tile *tile) {
+	int x = tile->index.x;
+	int y = tile->index.y;
+	char intensity = tile->intensity;
+
+	if (x > 0)
+		if (tiles[x-1][y].intensity < intensity - tiles[x-1][y].absorb)
+			setIntensity(&tiles[x-1][y], intensity - tiles[x-1][y].absorb);
+
+	if (x < sizeX - 1)
+		if (tiles[x+1][y].intensity < intensity - tiles[x+1][y].absorb)
+			setIntensity(&tiles[x+1][y], intensity - tiles[x+1][y].absorb);
+
+	if (y > 0)
+		if (tiles[x][y-1].intensity < intensity - tiles[x][y-1].absorb)
+			setIntensity(&tiles[x][y-1], intensity - tiles[x][y-1].absorb);
+
+	if (y < sizeY - 1)
+		if (tiles[x][y+1].intensity < intensity - tiles[x][y+1].absorb)
+			setIntensity(&tiles[x][y+1], intensity - tiles[x][y+1].absorb);
+}
+
+
+
+/***********************************************************************
+     * Map
      * light
 
 ***********************************************************************/
 void fired::Map::light() {
 	buildLight();
+	renderLight();
 	lightmap->setPosition(cam->offset);
 	app->draw(*lightmap, sf::BlendMultiply);
 }
@@ -136,8 +188,8 @@ void fired::Map::light() {
 
 ***********************************************************************/
 void fired::Map::buildLight() {
-	sf::Vector2i from((int)(cam->offset.x / TILE_SIZE) - OFFSCREEN_TILES, (int)(cam->offset.y / TILE_SIZE) - OFFSCREEN_TILES);
-	sf::Vector2i to(from + visibleTiles + sf::Vector2i(OFFSCREEN_TILES * 2, OFFSCREEN_TILES * 2));
+	sf::Vector2i from((int)(cam->offset.x / TILE_SIZE) - LIGHT_OFFSCREEN_TILES, (int)(cam->offset.y / TILE_SIZE) - LIGHT_OFFSCREEN_TILES);
+	sf::Vector2i to(from + visibleTiles + sf::Vector2i(LIGHT_OFFSCREEN_TILES * 2, LIGHT_OFFSCREEN_TILES * 2));
 
 	if (from.x < 0) from.x = 0;
 	if (from.y < 0) from.y = 0;
@@ -146,14 +198,36 @@ void fired::Map::buildLight() {
 
 	lightmapTex->clear(biome->lightness);
 
+	for (int i = 0; i < LIGHT_MAX_LIGHTLEVEL; lightCounts[i++] = 0);
 	for (int i = from.x; i < to.x; i++)
-		for (int j = from.y; j < to.y; j++)
-				tiles[i][j].intensity = 1.0f;
+		for (int j = from.y; j < to.y; j++) {
+			if (!tiles[i][j].tileset)
+				tiles[i][j].intensity = 16;
+			else
+				tiles[i][j].intensity = 0;
+
+			if ((i != from.x) && (i != to.x - 1) && (j != from.y) && (j != to.y - 1))
+				setIntensity(&tiles[i][j], tiles[i][j].intensity);
+		}
+
+
+	for (int i = LIGHT_MAX_LIGHTLEVEL - 1; i >= 0; i--)
+		for (int j = 0; j < lightCounts[i]; j++) {
+			if (lightTiles[i][j]->intensity != i + 1) continue;
+			checkNeighbours(lightTiles[i][j]);
+		}
+}
 
 
 
-	from = sf::Vector2i((int)(cam->offset.x / TILE_SIZE), (int)(cam->offset.y / TILE_SIZE));
-	to = sf::Vector2i(from + visibleTiles);
+/***********************************************************************
+     * Map
+     * renderLight
+
+***********************************************************************/
+void fired::Map::renderLight() {
+	sf::Vector2i from = sf::Vector2i((int)(cam->offset.x / TILE_SIZE), (int)(cam->offset.y / TILE_SIZE));
+	sf::Vector2i to = sf::Vector2i(from + visibleTiles);
 
 	if (from.x < 0) from.x = 0;
 	if (from.y < 0) from.y = 0;
@@ -165,7 +239,10 @@ void fired::Map::buildLight() {
 
 	for (int i = from.x; i < to.x; i++)
 		for (int j = from.y; j < to.y; j++) {
-			color = tiles[i][j].intensity * 255;
+			if (tiles[i][j].intensity > LIGHT_ABSOLUTE) color = 255;
+			else if (tiles[i][j].intensity <= 0) color = 0;
+			else color = ((float)tiles[i][j].intensity / LIGHT_ABSOLUTE) * 255;
+
 			lightBlock->setFillColor(sf::Color(color, color, color));
 			lightBlock->setPosition(tiles[i][j].pos - cam->offset);
 			lightmapTex->draw(*lightBlock);

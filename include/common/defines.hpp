@@ -37,8 +37,11 @@
 #define ITEM_SPEED              100.0f
 #define ITEM_MAX_STACK          25
 #define TILE_SIZE               16.0f
-#define OFFSCREEN_TILES         24
 #define BROAD_ATTACK_TIME       0.25f
+
+#define LIGHT_OFFSCREEN_TILES   15
+#define LIGHT_MAX_LIGHTLEVEL    16
+#define LIGHT_ABSOLUTE          8
 
 
 #define MENU_X_OFFSET           50

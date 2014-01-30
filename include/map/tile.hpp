@@ -31,7 +31,9 @@ namespace fired {
 		int tile;
 		bool isWall;
 		bool isPlatform;
-		float intensity;
+
+		char intensity;
+		char absorb;
 
 
 		void set(int _tileset, bool _isWall, bool _isPlatform, int x, int y);

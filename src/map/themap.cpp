@@ -58,6 +58,7 @@ fired::Map::~Map() {
 ***********************************************************************/
 void fired::Map::update() {
 	sf::Vector2f offset = cam->offset;
+	resetLight();
 
 	biome->bgSprite->setPosition(offset);
 	biome->bgSprite->setTextureRect(sf::IntRect(offset.x / 3.0f, 0, settings->window.width, settings->window.height));
@@ -75,7 +76,6 @@ void fired::Map::update() {
 	sky[3].position.y = offset.y + settings->window.height;
 
 	render();
-	resetLight();
 }
 
 

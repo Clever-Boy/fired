@@ -105,6 +105,10 @@ void mapLoadObject(fired::Map *map, fired::BaseMapObject obj, FILE *fp) {
 			map->objects.push_back(collObj);
 			break;
 		}
+
+		case fired::moLightSource: {
+			break;
+		}
 	}
 }
 

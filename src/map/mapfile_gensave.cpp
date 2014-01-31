@@ -76,6 +76,10 @@ void genSaveObject(fired::BaseMapObject *obj, FILE *fp) {
 			break;
 		}
 
+		case fired::moLightSource: {
+			break;
+		}
+
 		case fired::moNone:
 			break;
 	}

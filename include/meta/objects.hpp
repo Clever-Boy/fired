@@ -10,5 +10,6 @@
 #define __OBJECTS
 
 #include "objects/collector.hpp"
+#include "objects/lightsource.hpp"
 
 #endif

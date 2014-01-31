@@ -92,6 +92,10 @@ void mapSaveObject(fired::MapObject *obj, FILE *fp) {
 			break;
 		}
 
+		case fired::moLightSource: {
+			break;
+		}
+
 		case fired::moNone:
 			break;
 	}

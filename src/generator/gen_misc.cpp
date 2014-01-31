@@ -52,3 +52,49 @@ void fired::MapGenerator::genFill(int x1, int y1, int x2, int y2, int tileset, b
 		tiles[i][j].isPlatform = false;
 	}
 }
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * addDecor
+
+***********************************************************************/
+void fired::MapGenerator::addDecor(float x, float y, const char *name) {
+	decors.push_back(new fired::MapDecor(name, sf::Vector2f(x, y)));
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * addCollector
+
+***********************************************************************/
+void fired::MapGenerator::addCollector(float x, float y, const char *name) {
+	objects.push_back(new fired::BaseMapObjectCollector(name, sf::Vector2f(x, y)));
+	((fired::BaseMapObjectCollector*)objects.back())->generateLoot();
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * addLightSource
+
+***********************************************************************/
+void fired::MapGenerator::addLightSource(float x, float y, const char *name) {
+	objects.push_back(new fired::BaseMapObjectLightSource(name, sf::Vector2f(x, y)));
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * addPlatform
+
+***********************************************************************/
+void fired::MapGenerator::addPlatform(int x, int y, const char *name) {
+	addDecor(x * TILE_SIZE, y * TILE_SIZE, name);
+	tiles[x][y].isPlatform = true;
+}

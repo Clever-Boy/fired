@@ -83,16 +83,16 @@ void fired::MapGenerator::genCityLandscape(int areaStart, int areaEnd, int horiz
 
 ***********************************************************************/
 void fired::MapGenerator::genCityDecors() {
-	decors.push_back(new fired::MapDecor("box", sf::Vector2f(1900, 608)));
-	decors.push_back(new fired::MapDecor("box", sf::Vector2f(1932, 608)));
-	decors.push_back(new fired::MapDecor("box", sf::Vector2f(1916, 576)));
+	addDecor(1900, 608, "box");
+	addDecor(1932, 608, "box");
+	addDecor(1916, 576, "box");
 
-	decors.push_back(new fired::MapDecor("barrel", sf::Vector2f(2288, 608)));
-	decors.push_back(new fired::MapDecor("barrel", sf::Vector2f(2368, 608)));
-	decors.push_back(new fired::MapDecor("barrel", sf::Vector2f(2400, 608)));
+	addDecor(2288, 608, "barrel");
+	addDecor(2368, 608, "barrel");
+	addDecor(2400, 608, "barrel");
 
-	objects.push_back(new fired::BaseMapObjectLightSource("wall.lamp", sf::Vector2f(2272, 528)));
-	objects.push_back(new fired::BaseMapObjectLightSource("wall.lamp", sf::Vector2f(2512, 528)));
+	addLightSource(2272, 528, "wall.lamp");
+	addLightSource(2512, 528, "wall.lamp");
 }
 
 
@@ -103,11 +103,7 @@ void fired::MapGenerator::genCityDecors() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCityPlatforms() {
-	int x, y = 30;
-	for (x = 49; x < 80; x++) {
-		decors.push_back(new fired::MapDecor("bridge.metal", sf::Vector2f(x*TILE_SIZE, y*TILE_SIZE)));
-		tiles[x][y].isPlatform = true;
-	}
+	for (int x = 49; x < 80; x++) addPlatform(x, 30, "bridge.metal");
 }
 
 
@@ -118,11 +114,8 @@ void fired::MapGenerator::genCityPlatforms() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCityCollectors() {
-	objects.push_back(new fired::BaseMapObjectCollector("chest", sf::Vector2f(44*TILE_SIZE, 33*TILE_SIZE)));
-	((fired::BaseMapObjectCollector*)objects.back())->generateLoot();
-
-	objects.push_back(new fired::BaseMapObjectCollector("chest", sf::Vector2f(84*TILE_SIZE, 33*TILE_SIZE)));
-	((fired::BaseMapObjectCollector*)objects.back())->generateLoot();
+	addCollector(704 , 528, "chest");
+	addCollector(1344, 528, "chest");
 }
 
 

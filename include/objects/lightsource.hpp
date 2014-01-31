@@ -39,6 +39,8 @@ namespace fired {
 
 
 		MapObjectLightSource(fired::BaseLightSource *_base, sf::Vector2f _pos);
+
+		void update();
 	};
 }
 

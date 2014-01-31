@@ -42,6 +42,7 @@ namespace fired {
 		 MapObject(fired::Decor *_decor);
 		~MapObject();
 
+		void update() {};
 		void render();
 	};
 }

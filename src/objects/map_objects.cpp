@@ -53,5 +53,6 @@ fired::MapObject::~MapObject() {
 
 ***********************************************************************/
 void fired::MapObject::render() {
+	update();
 	if (decor) decor->render();
 }

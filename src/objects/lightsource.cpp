@@ -25,7 +25,7 @@ fired::BaseMapObjectLightSource::BaseMapObjectLightSource(const char *_name, sf:
 
 
 /***********************************************************************
-     * MapObjectCollector
+     * MapObjectLightSource
      * constructor
 
 ***********************************************************************/
@@ -36,4 +36,15 @@ fired::MapObjectLightSource::MapObjectLightSource(fired::BaseLightSource *_base,
 	decor     = new fired::Decor(_base->decor, pos);
 
 	strcpy(name, _base->name);
+}
+
+
+
+/***********************************************************************
+     * MapObjectLightSource
+     * update
+
+***********************************************************************/
+fired::MapObjectLightSource::update() {
+	
 }

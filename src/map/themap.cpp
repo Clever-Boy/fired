@@ -29,12 +29,6 @@ fired::Map::Map(fired::Camera *_cam, fired::World *_world) {
 	sky[2] = sf::Vertex(sf::Vector2f(0, 0), biome->skyLow);
 	sky[3] = sf::Vertex(sf::Vector2f(0, 0), biome->skyLow);
 
-	lightmapTex = new sf::RenderTexture();
-	lightmap    = new sf::Sprite();
-
-	lightmapTex->create(settings->window.width, settings->window.height);
-	lightmap->setTexture(lightmapTex->getTexture());
-
 	int lightCount = (visibleTiles.x + LIGHT_OFFSCREEN_TILES * 2) * (visibleTiles.x + LIGHT_OFFSCREEN_TILES * 2);
 	for (int i = 0; i < LIGHT_MAX_LIGHTLEVEL; i++) lightTiles[i] = new fired::Tile*[lightCount];
 }
@@ -50,9 +44,6 @@ fired::Map::~Map() {
 	for (int i = 0; i < LIGHT_MAX_LIGHTLEVEL; delete lightTiles[i++]);
 	for (int i = 0; i < sizeX; delete tiles[i++]);
 	delete tiles;
-
-	delete lightmap;
-	delete lightmapTex;
 
 	deleteList(decors);
 	deleteList(objects);
@@ -188,8 +179,6 @@ void fired::Map::checkNeighbours(fired::Tile *tile) {
 void fired::Map::light() {
 	buildLight();
 	renderLight();
-	lightmap->setPosition(cam->offset);
-	app->draw(*lightmap, sf::BlendMultiply);
 }
 
 
@@ -207,8 +196,6 @@ void fired::Map::resetLight() {
 	if (from.y < 0) from.y = 0;
 	if (to.x > sizeX) to.x = sizeX;
 	if (to.y > sizeY) to.y = sizeY;
-
-	lightmapTex->clear(biome->lightness);
 
 	for (int i = 0; i < LIGHT_MAX_LIGHTLEVEL; lightCounts[i++] = 0);
 	for (int i = from.x; i < to.x; i++)
@@ -267,7 +254,7 @@ sf::Uint8 fired::Map::getColor(char intensity) {
 
 ***********************************************************************/
 sf::Vector2f fired::Map::getTilePos(int x, int y) {
-	return sf::Vector2f(TILE_SIZE / 2.0f + TILE_SIZE * x, TILE_SIZE / 2.0f + TILE_SIZE * y) - cam->offset;
+	return sf::Vector2f(TILE_SIZE / 2.0f + TILE_SIZE * x, TILE_SIZE / 2.0f + TILE_SIZE * y);
 }
 
 
@@ -317,10 +304,8 @@ void fired::Map::renderLight() {
 			lightMask[2].color = getTileLight(i+1, j+1);
 			lightMask[3].color = getTileLight(i  , j+1);
 
-			lightmapTex->draw(lightMask, 4, sf::Quads);
+			app->draw(lightMask, 4, sf::Quads, sf::BlendMultiply);
 		}
-
-	lightmapTex->display();
 }
 
 

@@ -35,8 +35,6 @@ namespace fired {
 		sf::Vector2i        mapSize;
 		sf::Vector2f        startPos;
 
-		sf::RenderTexture  *lightmapTex;
-		sf::Sprite         *lightmap;
 		sf::Vertex          lightMask[4];
 
 		fired::Tile **lightTiles[LIGHT_MAX_LIGHTLEVEL];

@@ -40,10 +40,10 @@ namespace fired {
 
 		 MapObject() {};
 		 MapObject(fired::Decor *_decor);
-		~MapObject();
+		virtual ~MapObject();
 
-		void update() {};
-		void render();
+		virtual void update(fired::Map*) {};
+		void render(fired::Map *map);
 	};
 }
 

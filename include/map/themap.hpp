@@ -10,6 +10,11 @@
 #define __THEMAP
 
 
+namespace fired {
+	struct Map;
+}
+
+
 #include "defines.hpp"
 #include "tile.hpp"
 #include "objects.hpp"

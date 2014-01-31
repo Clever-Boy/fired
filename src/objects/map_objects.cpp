@@ -52,7 +52,7 @@ fired::MapObject::~MapObject() {
      * render
 
 ***********************************************************************/
-void fired::MapObject::render() {
-	update();
+void fired::MapObject::render(fired::Map *map) {
+	update(map);
 	if (decor) decor->render();
 }

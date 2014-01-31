@@ -45,6 +45,8 @@ fired::MapObjectLightSource::MapObjectLightSource(fired::BaseLightSource *_base,
      * update
 
 ***********************************************************************/
-fired::MapObjectLightSource::update() {
-	
+void fired::MapObjectLightSource::update(fired::Map *map) {
+	int x = (int)(decor->pos.x / TILE_SIZE + 0.5f) + offset.x;
+	int y = (int)(decor->pos.y / TILE_SIZE + 0.5f) + offset.y;
+	map->tiles[x][y].intensity = intensity;
 }

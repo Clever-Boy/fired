@@ -40,7 +40,7 @@ namespace fired {
 
 		MapObjectLightSource(fired::BaseLightSource *_base, sf::Vector2f _pos);
 
-		void update();
+		void update(fired::Map *map);
 	};
 }
 

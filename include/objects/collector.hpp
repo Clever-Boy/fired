@@ -17,7 +17,6 @@ namespace fired {
 		std::vector<fired::MapItem*> items;
 
 
-		BaseMapObjectCollector() {};
 		BaseMapObjectCollector(const char *_name, sf::Vector2f _pos);
 
 		void generateLoot();

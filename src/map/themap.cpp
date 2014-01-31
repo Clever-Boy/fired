@@ -105,7 +105,7 @@ void fired::Map::render() {
 		decors[i]->render();
 
 	for (unsigned int i = 0; i < objects.size(); i++)
-		objects[i]->render();
+		objects[i]->render(this);
 }
 
 

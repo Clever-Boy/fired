@@ -385,9 +385,9 @@
 				<todo done="yes" collapse="no"><title>Add DB table</title></todo>
 				<todo done="yes" collapse="no"><title>Add base class</title></todo>
 				<todo done="yes" collapse="no"><title>Add loading from DB</title></todo>
-				<todo done="no" collapse="no"><title>Add map class</title></todo>
+				<todo done="yes" collapse="no"><title>Add map class</title></todo>
 				<todo done="no" collapse="no"><title>Add save/load patches</title></todo>
-				<todo done="no" collapse="no"><title>Add main class</title></todo>
+				<todo done="yes" collapse="no"><title>Add main class</title></todo>
 				<todo done="no" collapse="no"><title>Add light source decors rendering</title></todo>
 				<todo done="no" collapse="no"><title>Add light calculating</title></todo>
 			</todo>

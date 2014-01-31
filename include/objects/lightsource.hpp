@@ -33,11 +33,12 @@ namespace fired {
 
 
 	struct MapObjectLightSource : MapObject {
+		char name[64];
 		sf::Vector2i offset;
 		char         intensity;
 
 
-		MapObjectLightSource(fired::Decor *_decor);
+		MapObjectLightSource(fired::BaseLightSource *_base, sf::Vector2f _pos);
 	};
 }
 

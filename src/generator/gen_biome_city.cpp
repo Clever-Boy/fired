@@ -91,8 +91,8 @@ void fired::MapGenerator::genCityDecors() {
 	decors.push_back(new fired::MapDecor("barrel", sf::Vector2f(2368, 608)));
 	decors.push_back(new fired::MapDecor("barrel", sf::Vector2f(2400, 608)));
 
-	decors.push_back(new fired::MapDecor("wall.lamp", sf::Vector2f(2272, 528)));
-	decors.push_back(new fired::MapDecor("wall.lamp", sf::Vector2f(2512, 528)));
+	objects.push_back(new fired::BaseMapObjectLightSource("wall.lamp", sf::Vector2f(2272, 528)));
+	objects.push_back(new fired::BaseMapObjectLightSource("wall.lamp", sf::Vector2f(2512, 528)));
 }
 
 

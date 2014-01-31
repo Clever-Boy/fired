@@ -29,7 +29,11 @@ fired::BaseMapObjectLightSource::BaseMapObjectLightSource(const char *_name, sf:
      * constructor
 
 ***********************************************************************/
-fired::MapObjectLightSource::MapObjectLightSource(fired::Decor *_decor) {
-	type = moLightSource;
-	decor = _decor;
+fired::MapObjectLightSource::MapObjectLightSource(fired::BaseLightSource *_base, sf::Vector2f pos) {
+	type      = moLightSource;
+	intensity = _base->intensity;
+	offset    = _base->offset;
+	decor     = new fired::Decor(_base->decor, pos);
+
+	strcpy(name, _base->name);
 }

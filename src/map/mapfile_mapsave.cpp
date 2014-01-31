@@ -93,6 +93,8 @@ void mapSaveObject(fired::MapObject *obj, FILE *fp) {
 		}
 
 		case fired::moLightSource: {
+			fired::MapObjectLightSource *lightObj = (fired::MapObjectLightSource*)obj;
+			fwrite(lightObj->name, sizeof(lightObj->name), 1, fp);
 			break;
 		}
 

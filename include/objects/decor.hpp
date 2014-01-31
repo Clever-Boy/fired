@@ -42,7 +42,7 @@ namespace fired {
 		sf::Color         color;
 
 
-		Decor(fired::BaseDecor *base, sf::Vector2f _pos);
+		Decor(fired::BaseDecor *_base, sf::Vector2f _pos);
 		void render();
 	};
 }

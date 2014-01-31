@@ -107,6 +107,9 @@ void mapLoadObject(fired::Map *map, fired::BaseMapObject obj, FILE *fp) {
 		}
 
 		case fired::moLightSource: {
+			fired::BaseMapObjectLightSource lightObj;
+			fread(lightObj.name, sizeof(lightObj.name), 1, fp);
+			map->objects.push_back(new fired::MapObjectLightSource(container->getLight(lightObj.name), obj.pos));
 			break;
 		}
 	}

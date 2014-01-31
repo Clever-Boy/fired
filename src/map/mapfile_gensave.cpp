@@ -77,6 +77,8 @@ void genSaveObject(fired::BaseMapObject *obj, FILE *fp) {
 		}
 
 		case fired::moLightSource: {
+			fired::BaseMapObjectLightSource *lightObj = (fired::BaseMapObjectLightSource*)obj;
+			fwrite(lightObj->name, sizeof(lightObj->name), 1, fp);
 			break;
 		}
 

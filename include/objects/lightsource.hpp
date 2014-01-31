@@ -13,6 +13,15 @@
 
 
 namespace fired {
+	struct BaseLightSource {
+		char              name[64];
+		char              intensity;
+		sf::Vector2i      offset;
+		fired::BaseDecor *decor;
+	};
+
+
+
 	struct BaseMapObjectLightSource : BaseMapObject {
 		char name[64];
 

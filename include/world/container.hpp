@@ -19,17 +19,18 @@
 
 namespace fired {
 	struct Container {
-		std::vector<fired::BaseWeapon*>   weapons;
-		std::vector<fired::BaseArmor*>    armors;
-		std::vector<fired::BaseBodypart*> bodyparts;
-		std::vector<fired::BaseModel*>    models;
-		std::vector<fired::BaseCreature*> creatures;
-		std::vector<fired::BaseDecor*>    decors;
-		std::vector<fired::BaseItem*>     items;
-		std::vector<fired::GameSprite*>   sprites;
-		std::vector<fired::GameSound*>    sounds;
-		std::vector<fired::Tileset*>      tilesets;
-		std::vector<fired::Biome*>        biomes;
+		std::vector<fired::BaseWeapon*>      weapons;
+		std::vector<fired::BaseArmor*>       armors;
+		std::vector<fired::BaseBodypart*>    bodyparts;
+		std::vector<fired::BaseModel*>       models;
+		std::vector<fired::BaseCreature*>    creatures;
+		std::vector<fired::BaseDecor*>       decors;
+		std::vector<fired::BaseLightSource*> lights;
+		std::vector<fired::BaseItem*>        items;
+		std::vector<fired::GameSprite*>      sprites;
+		std::vector<fired::GameSound*>       sounds;
+		std::vector<fired::Tileset*>         tilesets;
+		std::vector<fired::Biome*>           biomes;
 
 
 		 Container();
@@ -47,6 +48,10 @@ namespace fired {
 		void loadDecors(sqlite3 *db);
 		static int loadDecor(void *data, int argc, char **argv, char **azColName);
 		fired::BaseDecor *getDecor(const char* name);
+
+		void loadLights(sqlite3 *db);
+		static int loadLight(void *data, int argc, char **argv, char **azColName);
+		fired::BaseLightSource *getLight(const char* name);
 
 		void loadBodyparts(sqlite3 *db);
 		static int loadBodypart(void *data, int argc, char **argv, char **azColName);

@@ -22,6 +22,7 @@ fired::Container::Container() {
 	loadSprites(db);
 	loadSounds(db);
 	loadDecors(db);
+	loadLights(db);
 	loadBodyparts(db);
 	loadModels(db);
 	loadArmors(db);
@@ -178,6 +179,55 @@ int fired::Container::loadDecor(void *data, int, char **argv, char **) {
 fired::BaseDecor* fired::Container::getDecor(const char *name) {
 	for (unsigned int i = 0; i < decors.size(); i++)
 		if (!strcmp(name, decors[i]->name)) return decors[i];
+
+	return NULL;
+}
+
+
+
+/***********************************************************************
+     * Container
+     * loadLights
+
+***********************************************************************/
+void fired::Container::loadLights(sqlite3 *db) {
+	char *zErrMsg = 0;
+
+	if (sqlite3_exec(db, "SELECT LightSources.Name, LightSources.LightOffset, LightSources.Intensity, Decors.ID "
+	                     "FROM LightSources, Decors "
+	                     "WHERE LightSources.Decor = Decors.Name",
+	                     loadLight, this, &zErrMsg) != SQLITE_OK)
+		printf("SQL error: %s\n", zErrMsg);
+}
+
+
+
+/***********************************************************************
+     * Container
+     * loadLight
+
+***********************************************************************/
+int fired::Container::loadLight(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->lights.push_back(new fired::BaseLightSource);
+	fired::BaseLightSource *current = ((fired::Container *) data)->lights.back();
+
+	strcpy(current->name, argv[0]);
+	sscanf(argv[1], "%d,%d", &current->offset.x, &current->offset.y);
+	current->intensity = (char)atoi(argv[2]);
+	current->decor = ((fired::Container *) data)->decors[atoi(argv[3])];
+	return 0;
+}
+
+
+
+/***********************************************************************
+     * Container
+     * getLight
+
+***********************************************************************/
+fired::BaseLightSource* fired::Container::getLight(const char *name) {
+	for (unsigned int i = 0; i < lights.size(); i++)
+		if (!strcmp(name, lights[i]->name)) return lights[i];
 
 	return NULL;
 }

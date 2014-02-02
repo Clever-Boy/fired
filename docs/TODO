@@ -391,8 +391,10 @@
 				<todo done="yes" collapse="no"><title>Add light source decors rendering</title></todo>
 				<todo done="yes" collapse="no"><title>Add light calculating</title></todo>
 			</todo>
-			<todo done="no" collapse="no"><title>Shot splash makes light</title></todo>
 			<todo done="no" collapse="no"><title>Add color lighting</title></todo>
+			<todo done="no" collapse="no"><title>Shot splash makes light</title></todo>
+			<todo done="no" collapse="no"><title>Add intensity field to biome table</title></todo>
+			<todo done="no" collapse="no"><title>Fill air tiles with biome color and intensity</title></todo>
 			<todo done="yes" collapse="no"><title>Make lighting smoother</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Explosions</title>
@@ -411,7 +413,6 @@
 			<todo done="yes" collapse="no"><title>Change BG</title></todo>
 			<todo done="yes" collapse="no"><title>Add sky gradient color</title></todo>
 			<todo done="no" collapse="no"><title>Add clouds</title></todo>
-			<todo done="no" collapse="no"><title>Change Tiles</title></todo>
 			<todo done="no" collapse="no"><title>Change Armor icons</title></todo>
 			<todo done="no" collapse="no"><title>Change weapon icons</title></todo>
 			<todo done="no" collapse="no"><title>Change weapon sprites</title></todo>
@@ -440,13 +441,30 @@
 		<todo done="no" collapse="no"><title>Secondary skills (Healing, Crafting etc.)</title></todo>
 		<todo done="no" collapse="no"><title>Weapon skills (each weapon has it's own XP value)</title></todo>
 	</todo>
+	<todo done="no" collapse="yes"><title>Biomes</title>
+		<todo done="no" collapse="yes"><title>Building</title>
+			<todo done="no" collapse="no"><title>Tiles</title></todo>
+			<todo done="no" collapse="no"><title>Generation</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Mines</title>
+			<todo done="no" collapse="no"><title>Tiles</title></todo>
+			<todo done="no" collapse="no"><title>Generation</title></todo>
+		</todo>
+	</todo>
 	<todo done="no" collapse="yes"><title>Locations</title>
-		<todo done="no" collapse="no"><title>City</title></todo>
-		<todo done="no" collapse="no"><title>Home</title></todo>
+		<todo done="no" collapse="yes"><title>City</title>
+			<todo done="no" collapse="no"><title>Tiles</title></todo>
+			<todo done="no" collapse="no"><title>Generation</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Home</title>
+			<todo done="no" collapse="no"><title>Tiles</title></todo>
+			<todo done="no" collapse="no"><title>Generation</title></todo>
+		</todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>NPC</title>
 		<todo done="no" collapse="no"><title>NPC AI</title></todo>
 		<todo done="no" collapse="no"><title>Main quest NPC</title></todo>
+		<todo done="no" collapse="no"><title>Trader NPC</title></todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>Quests</title>
 		<todo done="no" collapse="no"><title>Quests</title></todo>
@@ -459,7 +477,6 @@
 		<todo done="no" collapse="no"><title>Add some hairs</title></todo>
 		<todo done="no" collapse="no"><title>Add some creatures</title></todo>
 		<todo done="no" collapse="no"><title>Player default colors</title></todo>
-		<todo done="no" collapse="no"><title>Random creatures hair</title></todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>--- Release Beta</title>
 		<todo done="no" collapse="no"><title>Fix alpha bugs</title></todo>

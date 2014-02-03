@@ -391,10 +391,10 @@
 				<todo done="yes" collapse="no"><title>Add light source decors rendering</title></todo>
 				<todo done="yes" collapse="no"><title>Add light calculating</title></todo>
 			</todo>
+			<todo done="yes" collapse="no"><title>Add intensity field to biome table</title></todo>
+			<todo done="yes" collapse="no"><title>Fill air tiles with biome color and intensity</title></todo>
 			<todo done="no" collapse="no"><title>Add color lighting</title></todo>
 			<todo done="no" collapse="no"><title>Shot splash makes light</title></todo>
-			<todo done="no" collapse="no"><title>Add intensity field to biome table</title></todo>
-			<todo done="no" collapse="no"><title>Fill air tiles with biome color and intensity</title></todo>
 			<todo done="yes" collapse="no"><title>Make lighting smoother</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Explosions</title>

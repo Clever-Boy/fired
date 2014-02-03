@@ -193,7 +193,7 @@ fired::BaseDecor* fired::Container::getDecor(const char *name) {
 void fired::Container::loadLights(sqlite3 *db) {
 	char *zErrMsg = 0;
 
-	if (sqlite3_exec(db, "SELECT LightSources.Name, LightSources.LightOffset, LightSources.Intensity, Decors.ID "
+	if (sqlite3_exec(db, "SELECT LightSources.Name, LightSources.LightOffset, LightSources.Intensity, Decors.ID, LightSources.Color "
 	                     "FROM LightSources, Decors "
 	                     "WHERE LightSources.Decor = Decors.Name",
 	                     loadLight, this, &zErrMsg) != SQLITE_OK)
@@ -213,8 +213,10 @@ int fired::Container::loadLight(void *data, int, char **argv, char **) {
 
 	strcpy(current->name, argv[0]);
 	sscanf(argv[1], "%d,%d", &current->offset.x, &current->offset.y);
+	sscanf(argv[4], "%hhu,%hhu,%hhu", &current->color.r, &current->color.g, &current->color.b);
 	current->intensity = (char)atoi(argv[2]);
-	current->decor = ((fired::Container *) data)->decors[atoi(argv[3])];
+	current->decor     = ((fired::Container *) data)->decors[atoi(argv[3])];
+	current->color.a   = 255;
 	return 0;
 }
 
@@ -682,7 +684,7 @@ void fired::Container::loadBiomes(sqlite3 *db) {
 
 	if (sqlite3_exec(db, "SELECT Biomes.ID, Biomes.Name, Biomes.SkyGradientHi, "
 	                     "Biomes.SkyGradientLow, Biomes.Weather, Biomes.Lightness, Biomes.Background, "
-	                     "Biomes.CloudColor, T1.ID, T2.ID, T3.ID, T4.ID, Biomes.Creatures FROM Biomes "
+	                     "Biomes.CloudColor, T1.ID, T2.ID, T3.ID, T4.ID, Biomes.Creatures, Biomes.Intensity FROM Biomes "
 	                     "LEFT JOIN Tiles T1 ON T1.Name = Biomes.TileGround "
 	                     "LEFT JOIN Tiles T2 ON T2.Name = Biomes.TileBricksMain "
 	                     "LEFT JOIN Tiles T3 ON T3.Name = Biomes.TileBricksSecond "
@@ -701,6 +703,8 @@ void fired::Container::loadBiomes(sqlite3 *db) {
 int fired::Container::loadBiome(void *data, int, char **argv, char **) {
 	((fired::Container *) data)->biomes.push_back(new fired::Biome(argv[6]));
 	fired::Biome *current = ((fired::Container *) data)->biomes.back();
+
+	current->intensity = atoi(argv[13]);
 
 	sscanf(argv[2], "%hhu,%hhu,%hhu,%hhu", &current->skyHi.r     , &current->skyHi.g     , &current->skyHi.b     , &current->skyHi.a);
 	sscanf(argv[3], "%hhu,%hhu,%hhu,%hhu", &current->skyLow.r    , &current->skyLow.g    , &current->skyLow.b    , &current->skyLow.a);

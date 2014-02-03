@@ -14,6 +14,7 @@ namespace fired {
 	struct Biome {
 		char name[64];
 		char weather[64];
+		char intensity;
 
 		sf::Color skyHi;
 		sf::Color skyLow;

@@ -32,6 +32,7 @@ fired::BaseMapObjectLightSource::BaseMapObjectLightSource(const char *_name, sf:
 fired::MapObjectLightSource::MapObjectLightSource(fired::BaseLightSource *_base, sf::Vector2f pos) {
 	type      = moLightSource;
 	intensity = _base->intensity;
+	color     = _base->color;
 	offset    = _base->offset;
 	decor     = new fired::Decor(_base->decor, pos);
 

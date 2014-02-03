@@ -17,6 +17,7 @@ namespace fired {
 		char              name[64];
 		char              intensity;
 		sf::Vector2i      offset;
+		sf::Color         color;
 		fired::BaseDecor *decor;
 	};
 
@@ -35,6 +36,7 @@ namespace fired {
 	struct MapObjectLightSource : MapObject {
 		char name[64];
 		sf::Vector2i offset;
+		sf::Color    color;
 		char         intensity;
 
 

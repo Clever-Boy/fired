@@ -76,7 +76,7 @@
 #define LIGHT_ABSOLUTE          23
 
 #define LIGHT_SPLASH_INTENSITY  24
-#define LIGHT_SHOT_INTENSITY    8
+#define LIGHT_SHOT_INTENSITY    10
 #define LIGHT_SHOT_LIFETIME     0.5f
 
 

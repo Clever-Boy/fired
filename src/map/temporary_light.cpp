@@ -25,6 +25,11 @@ fired::TemporaryLightSource::TemporaryLightSource(char _intensity, float _lifeti
 	maxLife = lifetime;
 	baseIntensity = intensity;
 	index = sf::Vector2i((int)(pos.x / TILE_SIZE), (int)(pos.y / TILE_SIZE));
+
+	if (index.x < 0)           index.x = 0;
+	if (index.y < 0)           index.y = 0;
+	if (index.x >= map->sizeX) index.x = map->sizeX - 1;
+	if (index.y >= map->sizeY) index.y = map->sizeY - 1;
 }
 
 
@@ -38,8 +43,7 @@ bool fired::TemporaryLightSource::update() {
 	if ((lifetime -= frameClock) < 0.0f) return false;
 
 	intensity = (char)(baseIntensity * lifetime / maxLife);
-	if (map->tiles[index.x][index.y].intensity < intensity)
-		map->tiles[index.x][index.y].intensity = intensity;
+	map->addIntensity(index, intensity, color);
 
 	return true;
 }

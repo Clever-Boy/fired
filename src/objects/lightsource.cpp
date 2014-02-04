@@ -50,5 +50,6 @@ fired::MapObjectLightSource::MapObjectLightSource(fired::BaseLightSource *_base,
 
 ***********************************************************************/
 void fired::MapObjectLightSource::update(fired::Map *map) {
-	map->tiles[index.x][index.y].intensity = intensity;
+	if (map->tiles[index.x][index.y].intensity < intensity)
+		map->tiles[index.x][index.y].intensity = intensity;
 }

@@ -46,6 +46,10 @@ bool fired::Shot::update() {
 	pos += velocity * frameClock;
 	if (world->isPixelVisible(pos)) render();
 
+	index = sf::Vector2i((int)(pos.x / TILE_SIZE), (int)(pos.y / TILE_SIZE));
+	if (world->map->tiles[index.x][index.y].intensity < LIGHT_SHOT_INTENSITY)
+		world->map->tiles[index.x][index.y].intensity = LIGHT_SHOT_INTENSITY;
+
 	return true;
 }
 

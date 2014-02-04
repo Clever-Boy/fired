@@ -181,7 +181,7 @@ bool fired::Map::checkShot(fired::Shot *shot) {
 		if (lineBoxCollision(sf::FloatRect(i * TILE_SIZE, j * TILE_SIZE, TILE_SIZE, TILE_SIZE), ray, &c, &n, &dist)) {
 			n *= 200.0f;
 			world->addBulletSplash(c, n);
-			addTemporaryLightSource(c, LIGHT_SHOT_INTENSITY, sf::Color::White, LIGHT_SHOT_LIFETIME);
+			addTemporaryLightSource(c, LIGHT_SPLASH_INTENSITY, sf::Color::White, LIGHT_SHOT_LIFETIME);
 			return true;
 		}
 

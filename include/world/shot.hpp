@@ -23,6 +23,7 @@ namespace fired {
 namespace fired {
 	struct Shot {
 		sf::Vector2f pos;
+		sf::Vector2i index;
 		sf::Vector2f velocity;
 		float        angle;
 		int          damage;

@@ -56,17 +56,6 @@ namespace fired {
 		void render();
 		void spawn();
 
-		void light();
-		void resetLight();
-		void buildLight();
-		void renderLight();
-		void setIntensity(fired::Tile *tile, char intensity);
-		void checkNeighbours(fired::Tile *tile);
-		void addLightSource(int x, int y, char intensity);
-		sf::Uint8    getColor(char intensity);
-		sf::Vector2f getTilePos(int x, int y);
-		sf::Color    getTileLight(int x, int y);
-
 		bool isSolid(int i, int j);
 		bool isPlatform(int i, int j, fired::Phys *phys);
 		void findTile(int i, int j);
@@ -77,6 +66,8 @@ namespace fired {
 		bool checkShot(fired::Shot *shot);
 
 		fired::MapObject *checkInteraction(fired::Character *owner);
+
+		#include "lighting.hpp"
 	};
 }
 

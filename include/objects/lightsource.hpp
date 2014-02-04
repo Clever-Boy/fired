@@ -36,6 +36,7 @@ namespace fired {
 	struct MapObjectLightSource : MapObject {
 		char name[64];
 		sf::Vector2i offset;
+		sf::Vector2i index;
 		sf::Color    color;
 		char         intensity;
 

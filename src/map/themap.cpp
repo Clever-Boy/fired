@@ -46,6 +46,7 @@ fired::Map::~Map() {
 	delete tiles;
 
 	deleteList(objects);
+	deleteList(lights);
 }
 
 
@@ -102,6 +103,8 @@ void fired::Map::render() {
 
 	for (unsigned int i = 0; i < objects.size(); i++)
 		objects[i]->render(this);
+
+	updateList(lights);
 }
 
 

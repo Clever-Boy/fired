@@ -37,6 +37,9 @@ fired::MapObjectLightSource::MapObjectLightSource(fired::BaseLightSource *_base,
 	decor     = new fired::Decor(_base->decor, pos);
 
 	strcpy(name, _base->name);
+
+	index.x = (int)(decor->pos.x / TILE_SIZE + 0.5f) + offset.x;
+	index.y = (int)(decor->pos.y / TILE_SIZE + 0.5f) + offset.y;
 }
 
 
@@ -47,7 +50,5 @@ fired::MapObjectLightSource::MapObjectLightSource(fired::BaseLightSource *_base,
 
 ***********************************************************************/
 void fired::MapObjectLightSource::update(fired::Map *map) {
-	int x = (int)(decor->pos.x / TILE_SIZE + 0.5f) + offset.x;
-	int y = (int)(decor->pos.y / TILE_SIZE + 0.5f) + offset.y;
-	map->tiles[x][y].intensity = intensity;
+	map->tiles[index.x][index.y].intensity = intensity;
 }

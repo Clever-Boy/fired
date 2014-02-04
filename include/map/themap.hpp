@@ -18,6 +18,7 @@ namespace fired {
 #include "defines.hpp"
 #include "tile.hpp"
 #include "objects.hpp"
+#include "temporary_light.hpp"
 #include "phys.hpp"
 #include "biome.hpp"
 #include "world.hpp"
@@ -33,7 +34,8 @@ namespace fired {
 
 		sf::Vertex sky[4];
 
-		std::vector<fired::MapObject*> objects;
+		std::vector<fired::MapObject*>            objects;
+		std::vector<fired::TemporaryLightSource*> lights;
 
 		sf::Vector2i        visibleTiles;
 		sf::Vector2i        mapSize;

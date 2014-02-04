@@ -44,6 +44,17 @@ void fired::Map::addLightSource(int x, int y, char intensity) {
 
 /***********************************************************************
      * Map
+     * addTemporaryLightSource
+
+***********************************************************************/
+void fired::Map::addTemporaryLightSource(sf::Vector2f pos, char intensity, sf::Color color, float lifetime) {
+	lights.push_back(new fired::TemporaryLightSource(intensity, lifetime, pos, color, this));
+}
+
+
+
+/***********************************************************************
+     * Map
      * checkNeighbours
 
 ***********************************************************************/

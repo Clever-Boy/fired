@@ -1,13 +1,13 @@
 /***********************************************************************
-     * File       : mapfile_mapload.hpp
+     * File       : mapload.hpp
      * Created    : Aug 27, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __MAPFILE_MAPLOAD
-#define __MAPFILE_MAPLOAD
+#ifndef __MAPLOAD
+#define __MAPLOAD
 
 
 void mapLoadMeta(fired::Map *map, FILE *fp);

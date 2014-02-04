@@ -1,23 +1,19 @@
 /***********************************************************************
-     * File       : mapfile.hpp
+     * File       : themapfile.hpp
      * Created    : Aug 27, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __MAPFILE
-#define __MAPFILE
+#ifndef __THEMAPFILE
+#define __THEMAPFILE
 
 
-#include "tile.hpp"
-#include "objects.hpp"
-#include "phys.hpp"
-#include "world.hpp"
-
-#include "mapfile_gensave.hpp"
-#include "mapfile_mapsave.hpp"
-#include "mapfile_mapload.hpp"
+#include "map.hpp"
+#include "gensave.hpp"
+#include "mapsave.hpp"
+#include "mapload.hpp"
 
 
 void mapLoad(fired::Map *map, const char* filename);

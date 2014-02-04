@@ -1,13 +1,13 @@
 /***********************************************************************
-     * File       : mapfile_gensave.hpp
+     * File       : gensave.hpp
      * Created    : Aug 27, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __MAPFILE_GENSAVE
-#define __MAPFILE_GENSAVE
+#ifndef __GENSAVE
+#define __GENSAVE
 
 #include "generator.hpp"
 

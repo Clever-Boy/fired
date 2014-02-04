@@ -1,15 +1,15 @@
 /***********************************************************************
-     * File       : map.hpp
-     * Created    : Aug 02, 2013
+     * File       : mapfile.hpp
+     * Created    : Feb 04, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __MAP
-#define __MAP
+#ifndef __MAPFILE
+#define __MAPFILE
 
 
-#include "map/themap.hpp"
+#include "mapfile/themapfile.hpp"
 
 #endif

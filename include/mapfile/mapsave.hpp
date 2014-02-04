@@ -1,13 +1,13 @@
 /***********************************************************************
-     * File       : mapfile_mapsave.hpp
+     * File       : mapsave.hpp
      * Created    : Aug 27, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __MAPFILE_MAPSAVE
-#define __MAPFILE_MAPSAVE
+#ifndef __MAPSAVE
+#define __MAPSAVE
 
 
 void mapSaveMeta(fired::Map *map, FILE *fp);

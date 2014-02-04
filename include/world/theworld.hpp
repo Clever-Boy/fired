@@ -30,6 +30,7 @@ namespace fired {
 #include "char.hpp"
 #include "container.hpp"
 #include "map.hpp"
+#include "mapfile.hpp"
 #include "gui.hpp"
 
 

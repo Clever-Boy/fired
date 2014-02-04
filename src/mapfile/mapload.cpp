@@ -1,5 +1,5 @@
 /***********************************************************************
-     * File       : mapfile_mapload.cpp
+     * File       : mapload.cpp
      * Created    : Aug 27, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander

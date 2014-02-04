@@ -1,5 +1,5 @@
 /***********************************************************************
-     * File       : mapfile_mapsave.cpp
+     * File       : mapsave.cpp
      * Created    : Aug 27, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander

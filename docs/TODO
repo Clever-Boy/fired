@@ -378,7 +378,6 @@
 			<todo done="yes" collapse="no"><title>Creatures by biome</title></todo>
 		</todo>
 		<todo done="yes" collapse="no"><title>Move decors to objects moNone</title></todo>
-		<todo done="no" collapse="no"><title>Create structure to store misc sprites (coin, item slot, etc.))</title></todo>
 		<todo done="no" collapse="no"><title>Lighting</title>
 			<todo done="yes" collapse="no"><title>Init lightmap with biome lightness color</title></todo>
 			<todo done="yes" collapse="no"><title>Draw lightmap with sf::BlendMultiply</title></todo>
@@ -401,6 +400,7 @@
 			<todo done="no" collapse="no"><title>Add color lighting</title></todo>
 			<todo done="yes" collapse="no"><title>Make lighting smoother</title></todo>
 		</todo>
+		<todo done="no" collapse="no"><title>Create structure to store misc sprites (coin, item slot, etc.))</title></todo>
 		<todo done="no" collapse="yes"><title>Explosions</title>
 			<todo done="no" collapse="no"><title>Class</title></todo>
 			<todo done="no" collapse="no"><title>Graphics</title></todo>

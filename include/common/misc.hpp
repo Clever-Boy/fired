@@ -10,6 +10,7 @@
 #define __MISC
 
 
+sf::Color mixColors(sf::Color c1, sf::Color c2);
 void swapItems(fired::InventoryItem *item1, fired::InventoryItem *item2);
 void emptyItem(fired::InventoryItem *item);
 float lessOrZero(float x);

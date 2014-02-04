@@ -395,7 +395,8 @@
 			<todo done="yes" collapse="no"><title>Add intensity field to biome table</title></todo>
 			<todo done="yes" collapse="no"><title>Fill air tiles with biome color and intensity</title></todo>
 			<todo done="yes" collapse="no"><title>Add temporary light source class (intensity, lifetime)</title></todo>
-			<todo done="no" collapse="no"><title>Shot splash makes light</title></todo>
+			<todo done="yes" collapse="no"><title>Shot splash makes light</title></todo>
+			<todo done="no" collapse="no"><title>Shots make light</title></todo>
 			<todo done="no" collapse="no"><title>Add color lighting</title></todo>
 			<todo done="yes" collapse="no"><title>Make lighting smoother</title></todo>
 		</todo>

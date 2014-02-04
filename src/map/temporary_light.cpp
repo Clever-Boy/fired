@@ -35,7 +35,7 @@ fired::TemporaryLightSource::TemporaryLightSource(char _intensity, float _lifeti
 
 ***********************************************************************/
 bool fired::TemporaryLightSource::update() {
-	if ((lifetime -= frameClock) == 0) return false;
+	if ((lifetime -= frameClock) < 0.0f) return false;
 
 	intensity = (char)(baseIntensity * lifetime / maxLife);
 	if (map->tiles[index.x][index.y].intensity < intensity)

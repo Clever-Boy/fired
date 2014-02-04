@@ -18,7 +18,6 @@ namespace fired {
 		int sizeX;
 		int sizeY;
 
-		std::vector<fired::MapDecor*> decors;
 		std::vector<fired::BaseMapObject*> objects;
 
 

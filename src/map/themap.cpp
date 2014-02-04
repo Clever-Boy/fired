@@ -45,7 +45,6 @@ fired::Map::~Map() {
 	for (int i = 0; i < sizeX; delete tiles[i++]);
 	delete tiles;
 
-	deleteList(decors);
 	deleteList(objects);
 }
 
@@ -100,9 +99,6 @@ void fired::Map::render() {
 	for (int i = from.x; i < to.x; i++)
 		for (int j = from.y; j < to.y; j++)
 			tiles[i][j].render();
-
-	for (unsigned int i = 0; i < decors.size(); i++)
-		decors[i]->render();
 
 	for (unsigned int i = 0; i < objects.size(); i++)
 		objects[i]->render(this);

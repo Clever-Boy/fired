@@ -37,6 +37,5 @@ fired::MapGenerator::~MapGenerator() {
 
 	delete tiles;
 
-	deleteList(decors);
 	deleteList(objects);
 }

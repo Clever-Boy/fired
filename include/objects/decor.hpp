@@ -11,17 +11,6 @@
 
 
 namespace fired {
-	struct MapDecor {
-		char name[64];
-		sf::Vector2f pos;
-
-
-		MapDecor() {};
-		MapDecor(const char *_name, sf::Vector2f _pos);
-	};
-
-
-
 	struct BaseDecor {
 		char name[64];
 		fired::GameSprite *sprite;

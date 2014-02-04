@@ -24,7 +24,7 @@ void fired::MapGenerator::genClear(int xSize, int ySize) {
 		tiles[i] = new fired::MapTile[sizeY];
 
 	genFill(0, 0, sizeX - 1, sizeY - 1, 0, false);
-	decors.clear();
+	objects.clear();
 }
 
 
@@ -61,7 +61,7 @@ void fired::MapGenerator::genFill(int x1, int y1, int x2, int y2, int tileset, b
 
 ***********************************************************************/
 void fired::MapGenerator::addDecor(float x, float y, const char *name) {
-	decors.push_back(new fired::MapDecor(name, sf::Vector2f(x, y)));
+	objects.push_back(new fired::BaseMapObject(name, sf::Vector2f(x, y), moNone));
 }
 
 

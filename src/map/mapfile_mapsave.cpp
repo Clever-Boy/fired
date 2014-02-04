@@ -42,22 +42,6 @@ void mapSaveTiles(fired::Map *map, FILE *fp) {
 
 
 /***********************************************************************
-     * mapSaveDecors
-
-***********************************************************************/
-void mapSaveDecors(fired::Map *map, FILE *fp) {
-	unsigned int decorCount = map->decors.size();
-	fwrite(&decorCount, sizeof(decorCount), 1, fp);
-
-	for (unsigned int i = 0; i < decorCount; i++) {
-		fired::MapDecor decor(map->decors[i]->base->name, map->decors[i]->pos);
-		fwrite(&decor, sizeof(decor), 1, fp);
-	}
-}
-
-
-
-/***********************************************************************
      * mapSaveCollectorItems
 
 ***********************************************************************/

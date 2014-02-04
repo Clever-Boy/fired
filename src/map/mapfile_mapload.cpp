@@ -53,23 +53,6 @@ void mapLoadTiles(fired::Map *map, FILE *fp) {
 
 
 /***********************************************************************
-     * mapLoadDecors
-
-***********************************************************************/
-void mapLoadDecors(fired::Map *map, FILE *fp) {
-	unsigned int decorCount;
-	fired::MapDecor decor;
-
-	fread(&decorCount, sizeof(decorCount), 1, fp);
-	for (unsigned int i = 0; i < decorCount; i++) {
-		fread(&decor, sizeof(decor), 1, fp);
-		map->decors.push_back(new fired::Decor(container->getDecor(decor.name), decor.pos));
-	}
-}
-
-
-
-/***********************************************************************
      * mapLoadCollectorItems
 
 ***********************************************************************/

@@ -36,18 +36,6 @@ void genSaveTiles(fired::MapGenerator *gen, FILE *fp) {
 
 
 /***********************************************************************
-     * genSaveDecors
-
-***********************************************************************/
-void genSaveDecors(fired::MapGenerator *gen, FILE *fp) {
-	unsigned int decorCount = gen->decors.size();
-	fwrite(&decorCount, sizeof(decorCount), 1, fp);
-	for (unsigned int i = 0; i < decorCount; i++) fwrite(gen->decors[i], sizeof(fired::MapDecor), 1, fp);
-}
-
-
-
-/***********************************************************************
      * genSaveCollectorItems
 
 ***********************************************************************/

@@ -41,7 +41,6 @@ void fired::MapGenerator::genCityLandscape(int areaStart, int areaEnd, int horiz
 	genFill(areaEnd - 8  , horizon - 1, areaEnd - 5  , horizon - 1, biome->ground->ID, true);
 
 	//Generating testing planes
-
 	genBar(41, horizon - 11, horizon - 6, biome->brickSecond->ID, false);
 	genBar(47, horizon - 11, horizon - 6, biome->brickSecond->ID, false);
 	genFill(41, horizon - 7, 47, horizon - 6, biome->brickSecond->ID, false);
@@ -73,6 +72,10 @@ void fired::MapGenerator::genCityLandscape(int areaStart, int areaEnd, int horiz
 	genFill(0, horizon - 10, 1, horizon-1, biome->brickMain->ID, true);
 	genFill(0, horizon - 10, 18, horizon - 10, biome->brickMain->ID, true);
 	genFill(0, horizon - 9, 21, horizon - 9, biome->brickMain->ID, true);
+
+	//Generating cave
+	genFill(62, horizon, 66, horizon + 25, biome->brickSecond->ID, false);
+	genFill(42, horizon + 21, 86, horizon + 25, biome->brickSecond->ID, false);
 }
 
 
@@ -93,6 +96,10 @@ void fired::MapGenerator::genCityDecors() {
 
 	addLightSource(2272, 528, "wall.lamp");
 	addLightSource(2512, 528, "wall.lamp");
+
+	addLightSource(688, 992, "wall.lamp");
+	addLightSource(1360, 992, "wall.lamp");
+	addLightSource(1024, 912, "wall.lamp");
 }
 
 
@@ -104,6 +111,11 @@ void fired::MapGenerator::genCityDecors() {
 ***********************************************************************/
 void fired::MapGenerator::genCityPlatforms() {
 	for (int x = 49; x < 80; x++) addPlatform(x, 30, "bridge.metal");
+	for (int x = 62; x < 67; x++) addPlatform(x, 40, "bridge.metal");
+	for (int x = 62; x < 67; x++) addPlatform(x, 45, "bridge.metal");
+	for (int x = 62; x < 67; x++) addPlatform(x, 50, "bridge.metal");
+	for (int x = 62; x < 67; x++) addPlatform(x, 55, "bridge.metal");
+	for (int x = 62; x < 67; x++) addPlatform(x, 60, "bridge.metal");
 }
 
 

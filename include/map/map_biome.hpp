@@ -23,6 +23,7 @@ namespace fired {
 
 		sf::Texture        *bgTex;
 		sf::RectangleShape *bgSprite;
+		float               bgScale;
 
 		fired::Tileset *ground;
 		fired::Tileset *brickMain;

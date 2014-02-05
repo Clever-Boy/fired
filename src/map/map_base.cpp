@@ -61,7 +61,7 @@ void fired::Map::update() {
 	resetLight();
 
 	biome->bgSprite->setPosition(offset);
-	biome->bgSprite->setTextureRect(sf::IntRect(offset.x / 3.0f, 0, settings->window.width, settings->window.height));
+	biome->bgSprite->setTextureRect(sf::IntRect(offset.x / 3.0f, 0, settings->window.width * biome->bgScale, biome->bgTex->getSize().y));
 
 	sky[0].position.x = offset.x;
 	sky[0].position.y = offset.y;

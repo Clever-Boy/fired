@@ -16,8 +16,6 @@
 
 ***********************************************************************/
 fired::Biome::Biome(const char *bgFile) {
-	float scaleFactor;
-
 	bgTex    = new sf::Texture();
 	bgSprite = new sf::RectangleShape();
 
@@ -27,8 +25,7 @@ fired::Biome::Biome(const char *bgFile) {
 	bgTex->setSmooth(true);
 	bgSprite->setSize(sf::Vector2f(settings->window.width, settings->window.height));
 
-	scaleFactor = (float)settings->window.height / (float)bgTex->getSize().y;
-	bgSprite->setScale(scaleFactor, scaleFactor);
+	bgScale = (float)bgTex->getSize().y / (float)settings->window.height;
 }
 
 

@@ -24,6 +24,7 @@ namespace fired {
 
 
 #include "world_sprite.hpp"
+#include "world_explosion.hpp"
 #include "particle.hpp"
 #include "world_flytext.hpp"
 #include "world_shot.hpp"

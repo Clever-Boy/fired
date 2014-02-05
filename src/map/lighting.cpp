@@ -50,17 +50,6 @@ void fired::Map::setIntensity(fired::Tile *tile, char intensity) {
 
 /***********************************************************************
      * Map
-     * addLightSource
-
-***********************************************************************/
-void fired::Map::addLightSource(int x, int y, char intensity) {
-	setIntensity(&tiles[x][y], intensity);
-}
-
-
-
-/***********************************************************************
-     * Map
      * addTemporaryLightSource
 
 ***********************************************************************/

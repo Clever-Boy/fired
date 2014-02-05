@@ -17,7 +17,6 @@ void renderLight();
 void setIntensity(fired::Tile *tile, char intensity);
 void addIntensity(sf::Vector2i index, char intensity, sf::Color color);
 void checkNeighbours(fired::Tile *tile);
-void addLightSource(int x, int y, char intensity);
 void addTemporaryLightSource(sf::Vector2f pos, char intensity, sf::Color color, float lifetime);
 sf::Uint8    getColor(char intensity);
 sf::Vector2f getTilePos(int x, int y);

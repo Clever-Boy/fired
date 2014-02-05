@@ -31,7 +31,7 @@ void fired::MapGenerator::genCity() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCityLandscape(int areaStart, int areaEnd, int horizon) {
-	genFill(areaStart, horizon, areaEnd, sizeY - 1, biome->brickSecond->ID, true);
+	genFill(areaStart, horizon, areaEnd, sizeY - 1, biome->ground->ID, true);
 	genFill(areaStart, horizon - 2, areaEnd, horizon - 1, biome->ground->ID, false);
 
 	genFill(areaStart  , horizon - 2, areaStart + 3, horizon - 1, biome->ground->ID, true);

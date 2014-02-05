@@ -9,6 +9,6 @@
 #ifndef __WORLD
 #define __WORLD
 
-#include "world/theworld.hpp"
+#include "world/world_base.hpp"
 
 #endif

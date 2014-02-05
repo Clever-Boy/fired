@@ -9,8 +9,8 @@
 #ifndef __MODEL
 #define __MODEL
 
-#include "model/chunk.hpp"
-#include "model/basemodel.hpp"
-#include "model/humanoid.hpp"
+#include "model/model_chunk.hpp"
+#include "model/model_base.hpp"
+#include "model/model_humanoid.hpp"
 
 #endif

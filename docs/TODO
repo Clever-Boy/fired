@@ -272,7 +272,7 @@
 		<todo done="yes" collapse="no"><title>MaxStack checking</title></todo>
 		<todo done="yes" collapse="no"><title>Check hints out of screen</title></todo>
 	</todo>
-	<todo done="yes" collapse="no"><title>Global refactoring</title>
+	<todo done="yes" collapse="yes"><title>Global refactoring</title>
 		<todo done="yes" collapse="no"><title>Remove headshots</title></todo>
 		<todo done="yes" collapse="no"><title>Move bodypart offset to model description</title></todo>
 		<todo done="yes" collapse="no"><title>Crypto API for sqlite</title></todo>
@@ -342,9 +342,9 @@
 		<todo done="yes" collapse="no"><title>Move container outside world class</title></todo>
 		<todo done="yes" collapse="no"><title>Fix picking up when the inventory is full</title></todo>
 		<todo done="yes" collapse="no"><title>Fix model explosion after broad attacks</title></todo>
-		<todo done="no" collapse="no"><title>Rename files to dir/dir_file</title></todo>
+		<todo done="yes" collapse="no"><title>Rename files to dir/dir_file</title></todo>
 	</todo>
-	<todo done="no" collapse="yes"><title>Advanced</title>
+	<todo done="no" collapse="no"><title>Advanced</title>
 		<todo done="yes" collapse="no"><title>Move name and caption to char[64]</title></todo>
 		<todo done="yes" collapse="no"><title>Weapon caption</title></todo>
 		<todo done="yes" collapse="no"><title>Reading captions with spaces</title></todo>

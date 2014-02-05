@@ -9,7 +9,7 @@
 #ifndef __PARTICLE
 #define __PARTICLE
 
-#include "particle/base.hpp"
-#include "particle/splash.hpp"
+#include "particle/particle_base.hpp"
+#include "particle/particle_splash.hpp"
 
 #endif

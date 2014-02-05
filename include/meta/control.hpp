@@ -9,9 +9,9 @@
 #ifndef __CONTROL
 #define __CONTROL
 
-#include "control/handlers.hpp"
-#include "control/camera.hpp"
-#include "control/crosshair.hpp"
-#include "control/mouse.hpp"
+#include "control/control_handlers.hpp"
+#include "control/control_camera.hpp"
+#include "control/control_crosshair.hpp"
+#include "control/control_mouse.hpp"
 
 #endif

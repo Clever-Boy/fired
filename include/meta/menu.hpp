@@ -9,6 +9,6 @@
 #ifndef __MENU
 #define __MENU
 
-#include "menu/mainmenu.hpp"
+#include "menu/menu_base.hpp"
 
 #endif

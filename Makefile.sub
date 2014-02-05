@@ -1,7 +1,6 @@
 OBJS   := $(wildcard *.cpp)
 OBJS   := $(OBJS:.cpp=.o)
 OUT    := $(SUBDIR).o
-CFLAGS += -I$(INCLUDE_DIR)/$(SUBDIR)
 
 
 

@@ -10,6 +10,6 @@
 #define __MAP
 
 
-#include "map/themap.hpp"
+#include "map/map_base.hpp"
 
 #endif

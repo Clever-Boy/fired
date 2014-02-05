@@ -6,8 +6,8 @@
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __AI_MEELE
-#define __AI_MELEE
+#ifndef __AI_BASIC
+#define __AI_BASIC
 
 
 #include "ai_base.hpp"

@@ -6,8 +6,7 @@
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#include "sqlite_crypt.hpp"
-#include "sqlite_routines.hpp"
+#include "sqlite.hpp"
 
 
 

@@ -31,6 +31,7 @@ fired::Container::Container() {
 	loadCreatures(db);
 	loadTilesets(db);
 	loadBiomes(db);
+	loadExplosions(db);
 
 	sqlite3_close(db);
 }
@@ -742,4 +743,44 @@ fired::Biome *fired::Container::getBiome(const char *name) {
 		if (!strcmp(name, biomes[i]->name)) return biomes[i];
 
 	return NULL;
+}
+
+
+
+/***********************************************************************
+     * Container
+     * loadExplosions
+
+***********************************************************************/
+void fired::Container::loadExplosions(sqlite3 *db) {
+	char *zErrMsg = 0;
+
+	if (sqlite3_exec(db, "SELECT * "
+	                     "FROM Explosions",
+	                     loadExplosion, this, &zErrMsg) != SQLITE_OK)
+		printf("SQL error: %s\n", zErrMsg);
+}
+
+
+
+/***********************************************************************
+     * Container
+     * loadExplosion
+
+***********************************************************************/
+int fired::Container::loadExplosion(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->explosions.push_back(new fired::BaseExplosion(argv[1]));
+	return 0;
+}
+
+
+
+/***********************************************************************
+     * Container
+     * getBiome
+
+***********************************************************************/
+fired::BaseExplosion *fired::Container::getExplosion() {
+	if (explosions.size() == 0) return 0;
+	else return explosions[0];
 }

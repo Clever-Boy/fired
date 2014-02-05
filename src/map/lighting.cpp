@@ -19,6 +19,15 @@ void fired::Map::addIntensity(sf::Vector2i index, char intensity, sf::Color colo
 	if (index.x < 0 || index.x >= sizeX || index.y < 0 || index.y >= sizeY)
 		return;
 
+	float k;
+	if (intensity >= LIGHT_ABSOLUTE) k = 1.0f;
+	else                             k = (float)intensity / (float)LIGHT_ABSOLUTE;
+
+	color.r = (char)(color.r * k);
+	color.g = (char)(color.g * k);
+	color.b = (char)(color.b * k);
+	color.a = 255;
+
 	tiles[index.x][index.y].light = mixColors(tiles[index.x][index.y].light, color);
 
 	if (tiles[index.x][index.y].intensity < intensity)
@@ -29,13 +38,21 @@ void fired::Map::addIntensity(sf::Vector2i index, char intensity, sf::Color colo
 
 /***********************************************************************
      * Map
-     * setIntensity
+     * initIntensity
 
 ***********************************************************************/
-void fired::Map::setIntensity(fired::Tile *tile, char intensity) {
-	sf::Uint8 color = getColor(intensity);
+void fired::Map::initIntensity(fired::Tile *tile, char intensity, sf::Color color) {
+	float k;
+	if (intensity >= LIGHT_ABSOLUTE) k = 1.0f;
+	else                             k = (float)intensity / (float)LIGHT_ABSOLUTE;
+
+	color.r = (char)(color.r * k);
+	color.g = (char)(color.g * k);
+	color.b = (char)(color.b * k);
+	color.a = 255;
+
 	tile->intensity = intensity;
-	tile->light = sf::Color(color, color, color);
+	tile->light = color;
 
 	int index = intensity - 1;
 
@@ -44,6 +61,28 @@ void fired::Map::setIntensity(fired::Tile *tile, char intensity) {
 
 	lightTiles[index][lightCounts[index]] = tile;
 	lightCounts[index]++;
+}
+
+
+
+/***********************************************************************
+     * Map
+     * setIntensity
+
+***********************************************************************/
+void fired::Map::setIntensity(fired::Tile *tile, char intensity, sf::Color color) {
+	if (canMixColors(tile->light, color) || intensity > tile->intensity) {
+	tile->intensity = intensity;
+		int index = intensity - 1;
+
+		if (index < 0) return;
+		if (index >= LIGHT_MAX_LIGHTLEVEL) return;
+
+		lightTiles[index][lightCounts[index]] = tile;
+		lightCounts[index]++;
+	}
+
+	tile->light = mixColors(tile->light, color);
 }
 
 
@@ -67,23 +106,25 @@ void fired::Map::addTemporaryLightSource(sf::Vector2f pos, char intensity, sf::C
 void fired::Map::checkNeighbours(fired::Tile *tile) {
 	int x = tile->index.x;
 	int y = tile->index.y;
+	float k;
+
 	char intensity = tile->intensity - tile->absorb;
+	if (intensity < 0) return;
 
-	if (x > 0)
-		if (tiles[x-1][y].intensity < intensity)
-			setIntensity(&tiles[x-1][y], intensity);
+	if (intensity > LIGHT_ABSOLUTE)             k = 1.0f;
+	else if (tile->intensity >= LIGHT_ABSOLUTE) k = (float)intensity / (float)LIGHT_ABSOLUTE;
+	else                                        k = (float)intensity / (float)tile->intensity;
 
-	if (x < sizeX - 1)
-		if (tiles[x+1][y].intensity < intensity)
-			setIntensity(&tiles[x+1][y], intensity);
+	sf::Color color;
+	color.r = (char)(tile->light.r * k);
+	color.g = (char)(tile->light.g * k);
+	color.b = (char)(tile->light.b * k);
+	color.a = 255;
 
-	if (y > 0)
-		if (tiles[x][y-1].intensity < intensity)
-			setIntensity(&tiles[x][y-1], intensity);
-
-	if (y < sizeY - 1)
-		if (tiles[x][y+1].intensity < intensity)
-			setIntensity(&tiles[x][y+1], intensity);
+	if (x > 0)         setIntensity(&tiles[x-1][y], intensity, color);
+	if (x < sizeX - 1) setIntensity(&tiles[x+1][y], intensity, color);
+	if (y > 0)         setIntensity(&tiles[x][y-1], intensity, color);
+	if (y < sizeY - 1) setIntensity(&tiles[x][y+1], intensity, color);
 }
 
 
@@ -144,7 +185,7 @@ void fired::Map::buildLight() {
 
 	for (int i = from.x; i < to.x; i++)
 		for (int j = from.y; j < to.y; j++)
-			setIntensity(&tiles[i][j], tiles[i][j].intensity);
+			initIntensity(&tiles[i][j], tiles[i][j].intensity, tiles[i][j].light);
 
 	for (int i = LIGHT_MAX_LIGHTLEVEL - 1; i >= 0; i--)
 		for (int j = 0; j < lightCounts[i]; j++) {

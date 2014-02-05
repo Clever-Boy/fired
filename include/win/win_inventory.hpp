@@ -21,7 +21,6 @@ namespace fired {
 		fired::Character           *owner;
 		fired::InventoryWindowItem *inHand;
 		fired::InventoryWindowItem *trashCan;
-		fired::GameSprite          *coinSprite;
 
 		std::vector<fired::InventoryWindowItem*> items;
 

@@ -8,7 +8,7 @@ export CC=gcc
 export STRIP=strip
 export LD=ld
 export CLEAN=rm -f
-export MAKE=make
+export MAKE=make --no-print-directory
 export MAKESRC=$(MAKE) -f $(PWD)/Makefile.src
 export MAKESUB=$(MAKE) -j8 -C $$$$dir -f $(PWD)/Makefile.sub
 

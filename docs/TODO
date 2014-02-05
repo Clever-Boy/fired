@@ -413,9 +413,12 @@
 			<todo done="yes" collapse="no"><title>Knockback</title></todo>
 			<todo done="yes" collapse="no"><title>Sound</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Explosive weapon</title></todo>
-		<todo done="no" collapse="no"><title>Rocket sprite</title></todo>
-		<todo done="no" collapse="yes"><title>Smoke trace</title></todo>
+		<todo done="no" collapse="no"><title>Explosive weapon</title>
+			<todo done="no" collapse="no"><title>Explosive type</title></todo>
+			<todo done="no" collapse="no"><title>Radius of damage</title></todo>
+			<todo done="no" collapse="no"><title>Rocket sprite</title></todo>
+			<todo done="no" collapse="yes"><title>Smoke trace</title></todo>
+		</todo>
 		<todo done="no" collapse="yes"><title>Liquids</title>
 			<todo done="no" collapse="no"><title>Liquids class</title></todo>
 			<todo done="no" collapse="no"><title>Liquid rendering</title></todo>

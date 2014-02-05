@@ -104,7 +104,7 @@ void fired::Model::chunkPart(fired::Bodypart *part, sf::Vector2f shot, float kno
 		chunkPos = owner->phys.pos + sf::Vector2f(-part->offset.x - part->base->size.x / 2.0f, part->offset.y + part->base->size.y / 2.0f) * modelScale + sf::Vector2f(owner->phys.size.x, 0);
 
 
-	world->addChunk(part, modelScale, chunkPos, vNorm(part->offset - part->base->origin - shot) * knockback * 20.0f);
+	world->addChunk(part, modelScale, chunkPos, owner->phys.velocity + vNorm(part->offset - part->base->origin - shot) * knockback * 20.0f);
 }
 
 

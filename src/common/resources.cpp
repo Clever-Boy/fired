@@ -1,5 +1,5 @@
 /***********************************************************************
-     * File       : main.cpp
+     * File       : resources.cpp
      * Created    : Aug 02, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
@@ -11,28 +11,27 @@
 
 
 /***********************************************************************
-     * Global variables
+     * Resources
+     * constructor
 
 ***********************************************************************/
-float             frameClock;
-fired::Settings  *settings;
-sf::RenderWindow *app;
-fired::Game      *game;
-fired::Container *container;
-fired::Resources *resources;
+fired::Resources::Resources() {
+	sounds.explosion_buf = new sf::SoundBuffer();
+	sounds.explosion_buf->loadFromFile("data/snd/misc/explosion.wav");
+
+	sounds.explosion = new sf::Sound();
+	sounds.explosion->setBuffer(*sounds.explosion_buf);
+	sounds.explosion->setVolume(settings->volume.sound);
+}
 
 
 
 /***********************************************************************
-     * Main function
+     * Resources
+     * destructor
 
 ***********************************************************************/
-int main() {
-	game = new fired::Game;
-	srand(time(NULL));
-
-	while(game->running) game->update();
-	delete game;
-
-	return EXIT_SUCCESS;
+fired::Resources::~Resources() {
+	delete sounds.explosion;
+	delete sounds.explosion_buf;
 }

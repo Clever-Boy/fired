@@ -1,6 +1,6 @@
 /***********************************************************************
      * File       : world_explosion.cpp
-     * Created    : Aug 26, 2013
+     * Created    : Feb 05, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
@@ -59,6 +59,8 @@ fired::Explosion::Explosion(sf::Vector2f _pos, float radius, float _life) {
 	life     = _life;
 	lifetime = _life;
 	scale    = sf::Vector2f(radius / base->radius, radius / base->radius);
+
+	resources->sounds.explosion->play();
 }
 
 

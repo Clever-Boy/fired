@@ -19,6 +19,7 @@ fired::Game::Game() {
 	clock     = new sf::Clock;
 	settings  = new fired::Settings();
 	container = new fired::Container();
+	resources = new fired::Resources();
 
 	unsigned long style;
 	if (settings->window.fullScreen) style = sf::Style::Fullscreen;
@@ -74,6 +75,7 @@ fired::Game::~Game() {
 	delete icon;
 	delete settings;
 	delete container;
+	delete resources;
 	delete app;
 }
 

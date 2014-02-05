@@ -26,6 +26,7 @@
 #include "control.hpp"
 #include "menu.hpp"
 #include "settings.hpp"
+#include "resources.hpp"
 #include "screen.hpp"
 #include "world.hpp"
 #include "misc.hpp"
@@ -86,5 +87,6 @@ extern fired::Settings     *settings;
 extern sf::RenderWindow    *app;
 extern fired::Game         *game;
 extern fired::Container    *container;
+extern fired::Resources    *resources;
 
 #endif

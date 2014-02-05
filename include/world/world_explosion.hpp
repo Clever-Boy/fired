@@ -1,6 +1,6 @@
 /***********************************************************************
      * File       : world_explosion.hpp
-     * Created    : Jan 21, 2014
+     * Created    : Feb 05, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com

@@ -401,7 +401,8 @@
 			<todo done="yes" collapse="no"><title>Add color lighting</title></todo>
 			<todo done="yes" collapse="no"><title>Make lighting smoother</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Explosions</title>
+		<todo done="no" collapse="no"><title>Create structure in container to store misc sprites (coin, item slot, etc.)</title></todo>
+		<todo done="yes" collapse="yes"><title>Explosions</title>
 			<todo done="yes" collapse="no"><title>Base class</title></todo>
 			<todo done="yes" collapse="no"><title>DB table (image, radius, frames)</title></todo>
 			<todo done="yes" collapse="no"><title>Fill DB table</title></todo>
@@ -410,7 +411,7 @@
 			<todo done="yes" collapse="no"><title>Graphics</title></todo>
 			<todo done="yes" collapse="no"><title>Explosions make light</title></todo>
 			<todo done="yes" collapse="no"><title>Knockback</title></todo>
-			<todo done="no" collapse="no"><title>Sound</title></todo>
+			<todo done="yes" collapse="no"><title>Sound</title></todo>
 		</todo>
 		<todo done="no" collapse="no"><title>Explosive weapon</title></todo>
 		<todo done="no" collapse="no"><title>Rocket sprite</title></todo>
@@ -420,7 +421,6 @@
 			<todo done="no" collapse="no"><title>Liquid rendering</title></todo>
 			<todo done="no" collapse="no"><title>Liquid physics</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Create structure in container to store misc sprites (coin, item slot, etc.)</title></todo>
 		<todo done="no" collapse="yes"><title>Graphics refactoring</title>
 			<todo done="yes" collapse="no"><title>Scale BG to fit window height</title></todo>
 			<todo done="yes" collapse="no"><title>Allow BG slide only horizontally</title></todo>

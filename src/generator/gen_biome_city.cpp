@@ -94,8 +94,8 @@ void fired::MapGenerator::genCityDecors() {
 	addDecor(2368, 608, "barrel");
 	addDecor(2400, 608, "barrel");
 
-	addLightSource(2272, 528, "wall.lamp");
-	addLightSource(2512, 528, "wall.lamp");
+	addLightSource(2272, 528, "wall.lamp.red");
+	addLightSource(2512, 528, "wall.lamp.blue");
 
 	addLightSource(688, 992, "wall.lamp");
 	addLightSource(1360, 992, "wall.lamp");

@@ -17,7 +17,7 @@ namespace fired {
 		float                     radius;
 
 
-		 BaseExplosion(const char *filename, unsigned int frames, float _radius);
+		 BaseExplosion(const char *filename);
 		~BaseExplosion();
 	};
 }

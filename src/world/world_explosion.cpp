@@ -15,16 +15,18 @@
      * constructor
 
 ***********************************************************************/
-fired::BaseExplosion::BaseExplosion(const char *filename, unsigned int frames, float _radius) {
+fired::BaseExplosion::BaseExplosion(const char *filename) {
 	tex = new sf::Texture();
 	tex->loadFromFile(filename);
 	tex->setSmooth(true);
 
-	sf::Vector2f origin((tex->getSize().x / frames) / 2, tex->getSize().y / 2);
-	int step = tex->getSize().x / frames;
+	sf::Vector2f origin(tex->getSize().y / 2, tex->getSize().y / 2);
 
-	radius = _radius;
-	for (unsigned int i = 0; i < frames; i++) {
+	int step   = tex->getSize().y;
+	int frames = (int)(tex->getSize().x / tex->getSize().y);
+	radius     = tex->getSize().y / 2.0f;
+
+	for (int i = 0; i < frames; i++) {
 		spr.push_back(new sf::Sprite());
 		spr[i]->setTexture(*tex);
 		spr[i]->setOrigin(origin);

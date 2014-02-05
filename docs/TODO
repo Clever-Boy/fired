@@ -406,11 +406,11 @@
 			<todo done="yes" collapse="no"><title>DB table (image, radius, frames)</title></todo>
 			<todo done="yes" collapse="no"><title>Fill DB table</title></todo>
 			<todo done="yes" collapse="no"><title>Loading explosions in container</title></todo>
-			<todo done="no" collapse="no"><title>Class (getting random base)</title></todo>
-			<todo done="no" collapse="no"><title>Graphics</title></todo>
+			<todo done="yes" collapse="no"><title>Class (getting random base)</title></todo>
+			<todo done="yes" collapse="no"><title>Graphics</title></todo>
+			<todo done="no" collapse="no"><title>Explosions make light</title></todo>
 			<todo done="no" collapse="no"><title>Knockback</title></todo>
 			<todo done="no" collapse="no"><title>Sound</title></todo>
-			<todo done="no" collapse="no"><title>Explosions make light</title></todo>
 		</todo>
 		<todo done="no" collapse="no"><title>Explosive weapon</title></todo>
 		<todo done="no" collapse="no"><title>Rocket sprite</title></todo>

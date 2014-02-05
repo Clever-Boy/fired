@@ -62,6 +62,7 @@ fired::World::~World() {
 	deleteList(creatures);
 	deleteList(texts);
 	deleteList(chunks);
+	deleteList(explosions);
 
 	chars.clear();
 }
@@ -86,6 +87,7 @@ void fired::World::update() {
 	checkItems();
 
 	updateList(chunks);
+	updateList(explosions);
 	updateList(shots);
 	updateList(particles);
 	updateList(texts);
@@ -291,6 +293,17 @@ void fired::World::interact(fired::Character *owner) {
 		exchangeWin->init((fired::MapObjectCollector*)obj);
 		state = wsExchange;
 	}
+}
+
+
+
+/***********************************************************************
+     * World
+     * addExplosion
+
+***********************************************************************/
+void fired::World::addExplosion(sf::Vector2f pos, float radius, float life) {
+	explosions.push_back(new fired::Explosion(pos, radius, life));
 }
 
 

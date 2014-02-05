@@ -45,3 +45,48 @@ fired::BaseExplosion::~BaseExplosion() {
 	deleteList(spr);
 	delete tex;
 }
+
+
+
+/***********************************************************************
+     * Explosion
+     * constructor
+
+***********************************************************************/
+fired::Explosion::Explosion(sf::Vector2f _pos, float radius, float _life) {
+	base     = container->getExplosion();
+	pos      = _pos;
+	life     = _life;
+	lifetime = _life;
+	scale    = sf::Vector2f(radius / base->radius, radius / base->radius);
+}
+
+
+
+/***********************************************************************
+     * Explosion
+     * update
+
+***********************************************************************/
+bool fired::Explosion::update() {
+	if ((life -= frameClock) < 0.0f) return false;
+
+	render();
+	return true;
+}
+
+
+
+/***********************************************************************
+     * Explosion
+     * render
+
+***********************************************************************/
+void fired::Explosion::render() {
+	int frame = (int)((lifetime - life) * (base->spr.size() - 1) / lifetime);
+	sf::Sprite *spr = base->spr[frame];
+
+	spr->setScale(scale);
+	spr->setPosition(pos);
+	app->draw(*spr);
+}

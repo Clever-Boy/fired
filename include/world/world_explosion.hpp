@@ -20,6 +20,21 @@ namespace fired {
 		 BaseExplosion(const char *filename);
 		~BaseExplosion();
 	};
+
+
+	struct Explosion {
+		fired::BaseExplosion *base;
+		sf::Vector2f          scale;
+		sf::Vector2f          pos;
+		float                 lifetime;
+		float                 life;
+
+
+		 Explosion(sf::Vector2f _pos, float radius, float _life);
+
+		bool update();
+		void render();
+	};
 }
 
 #endif

@@ -100,6 +100,33 @@ void fired::Map::addTemporaryLightSource(sf::Vector2f pos, char intensity, sf::C
 
 /***********************************************************************
      * Map
+     * addExplosion
+
+***********************************************************************/
+void fired::Map::addExplosion(sf::Vector2f pos, float radius, float lifetime) {
+	sf::Vector2f tile;
+	sf::Vector2i from((int)((pos.x - radius) / TILE_SIZE), (int)((pos.y - radius) / TILE_SIZE));
+	sf::Vector2i to((int)((pos.x + radius) / TILE_SIZE), (int)((pos.y + radius) / TILE_SIZE));
+
+	float len;
+
+	if (from.x < 0) from.x = 0;
+	if (from.y < 0) from.y = 0;
+	if (to.x >= sizeX) to.x = sizeX - 1;
+	if (to.y >= sizeX) to.y = sizeY - 1;
+
+	for (int x = from.x; x <= to.x; x++) for (int y = from.y; y <= to.y; y++) {
+		tile = getTilePos(x, y);
+		len = sqrt(sqr(pos.x - tile.x) + sqr(pos.y - tile.y));
+		if (len <= radius)
+			addTemporaryLightSource(tile, LIGHT_MAX_LIGHTLEVEL, sf::Color::White, lifetime * (2.0f * radius - len) / (2.0f * radius));
+	}
+}
+
+
+
+/***********************************************************************
+     * Map
      * checkNeighbours
 
 ***********************************************************************/

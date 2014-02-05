@@ -304,6 +304,7 @@ void fired::World::interact(fired::Character *owner) {
 ***********************************************************************/
 void fired::World::addExplosion(sf::Vector2f pos, float radius, float life) {
 	explosions.push_back(new fired::Explosion(pos, radius, life));
+	map->addExplosion(pos, radius, life * 2.0f);
 }
 
 

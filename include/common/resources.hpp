@@ -19,6 +19,26 @@ namespace fired {
 		} sounds;
 
 
+		struct {
+			sf::Texture *trashTex;
+			sf::Texture *emptyTex;
+			sf::Texture *hoverTex;
+			sf::Texture *normalTex;
+
+			sf::Sprite *trashSpr;
+			sf::Sprite *emptySpr;
+			sf::Sprite *hoverSpr;
+			sf::Sprite *normalSpr;
+		} win;
+
+
+		struct {
+			sf::Texture *coinTex;
+
+			sf::Sprite  *coin;
+		} sprites;
+
+
 		 Resources();
 		~Resources();
 	};

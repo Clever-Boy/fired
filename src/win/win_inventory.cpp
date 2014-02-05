@@ -23,31 +23,6 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner, fired::World *
 
 	sf::Vector2f winOffset = win->offset;
 
-	trashTex = new sf::Texture();
-	emptyTex = new sf::Texture();
-	hoverTex = new sf::Texture();
-	normalTex = new sf::Texture();
-
-	trashTex->loadFromFile("data/img/gui/inventory/trash.tga");
-	emptyTex->loadFromFile("data/img/gui/inventory/empty.tga");
-	hoverTex->loadFromFile("data/img/gui/inventory/hover.tga");
-	normalTex->loadFromFile("data/img/gui/inventory/normal.tga");
-
-	trashSpr = new sf::Sprite();
-	emptySpr = new sf::Sprite();
-	hoverSpr = new sf::Sprite();
-	normalSpr = new sf::Sprite();
-
-	trashSpr->setTexture(*trashTex);
-	emptySpr->setTexture(*emptyTex);
-	hoverSpr->setTexture(*hoverTex);
-	normalSpr->setTexture(*normalTex);
-
-	trashSpr->setOrigin(sf::Vector2f(trashTex->getSize())   / 2.0f);
-	emptySpr->setOrigin(sf::Vector2f(emptyTex->getSize())   / 2.0f);
-	hoverSpr->setOrigin(sf::Vector2f(hoverTex->getSize())   / 2.0f);
-	normalSpr->setOrigin(sf::Vector2f(normalTex->getSize()) / 2.0f);
-
 	moneyText = new sf::Text();
 	moneyText->setFont(*game->font);
 	moneyText->setCharacterSize(16);
@@ -90,16 +65,6 @@ fired::InventoryWindow::~InventoryWindow() {
 	delete moneyText;
 	delete countText;
 
-	delete trashSpr;
-	delete emptySpr;
-	delete hoverSpr;
-	delete normalSpr;
-
-	delete trashTex;
-	delete emptyTex;
-	delete hoverTex;
-	delete normalTex;
-
 	delete inHand->item;
 	delete inHand;
 	delete trashCan;
@@ -140,14 +105,17 @@ void fired::InventoryWindow::render() {
 	win->render();
 
 	for (unsigned int i = 0; i < items.size(); i++)
-		if      (items[i]->hover)              items[i]->render(hoverSpr , countText);
-		else if (items[i]->item->base == NULL) items[i]->render(emptySpr , countText);
-		else                                   items[i]->render(normalSpr, countText);
+		if      (items[i]->hover)              items[i]->render(resources->win.hoverSpr , countText);
+		else if (items[i]->item->base == NULL) items[i]->render(resources->win.emptySpr , countText);
+		else                                   items[i]->render(resources->win.normalSpr, countText);
 
-	if (trashCan->item->base == NULL) trashCan->render(trashSpr , countText);
-	else if (trashCan->hover)         trashCan->render(hoverSpr , countText);
-	else                              trashCan->render(normalSpr, countText);
+	if (trashCan->item->base == NULL) trashCan->render(resources->win.trashSpr , countText);
+	else if (trashCan->hover)         trashCan->render(resources->win.hoverSpr , countText);
+	else                              trashCan->render(resources->win.normalSpr, countText);
 
+
+	resources->sprites.coin->setPosition(win->offset + sf::Vector2f(20.0f, 370.0f));
+	app->draw(*resources->sprites.coin);
 
 	char credits[16];
 	snprintf(credits, sizeof(credits), "%u", owner->inventory->credits);

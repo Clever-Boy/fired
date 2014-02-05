@@ -401,7 +401,7 @@
 			<todo done="yes" collapse="no"><title>Add color lighting</title></todo>
 			<todo done="yes" collapse="no"><title>Make lighting smoother</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Create structure in container to store misc sprites (coin, item slot, etc.)</title></todo>
+		<todo done="yes" collapse="no"><title>Create structure in container to store misc sprites (coin, item slot, etc.)</title></todo>
 		<todo done="yes" collapse="yes"><title>Explosions</title>
 			<todo done="yes" collapse="no"><title>Base class</title></todo>
 			<todo done="yes" collapse="no"><title>DB table (image, radius, frames)</title></todo>

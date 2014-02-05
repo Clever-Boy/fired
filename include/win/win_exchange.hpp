@@ -25,16 +25,6 @@ namespace fired {
 		std::vector<fired::InventoryWindowItem*> items;
 		std::vector<fired::InventoryWindowItem*> exchange;
 
-		sf::Texture *trashTex;
-		sf::Texture *emptyTex;
-		sf::Texture *hoverTex;
-		sf::Texture *normalTex;
-
-		sf::Sprite *trashSpr;
-		sf::Sprite *emptySpr;
-		sf::Sprite *hoverSpr;
-		sf::Sprite *normalSpr;
-
 		sf::Text   *moneyText;
 		sf::Text   *countText;
 

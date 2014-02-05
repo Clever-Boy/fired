@@ -50,7 +50,7 @@ bool fired::Chunk::update() {
 	}
 
 	if ((lifetime += frameClock) > CHUNK_LIFETIME) return false;
-	rotationSpeed = phys.velocity.x * 12.0;
+	rotationSpeed = phys.velocity.x * 6.0;
 
 	if (abs(phys.velocity.x) < PHYS_EPSILON) phys.velocity.x = 0;
 	if (abs(rotationSpeed)   < PHYS_EPSILON) rotationSpeed   = 0;

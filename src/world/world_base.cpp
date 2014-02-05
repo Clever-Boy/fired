@@ -302,9 +302,34 @@ void fired::World::interact(fired::Character *owner) {
      * addExplosion
 
 ***********************************************************************/
-void fired::World::addExplosion(sf::Vector2f pos, float radius, float life) {
+void fired::World::addExplosion(sf::Vector2f pos, float radius, float life, float knockback) {
 	explosions.push_back(new fired::Explosion(pos, radius, life));
 	map->addExplosion(pos, radius, life * 2.0f);
+
+	sf::Vector2f knock;
+	float len;
+
+
+	for (unsigned int i = 0; i < chunks.size(); i++) {
+		knock = chunks[i]->phys.center - pos;
+		len = vLen(knock);
+
+		if (len <= radius) chunks[i]->phys.velocity += vSetLen(knock, knockback * (radius - len) / radius);
+	}
+
+	for (unsigned int i = 0; i < chars.size(); i++) {
+		knock = chars[i]->phys.center - pos;
+		len = vLen(knock);
+
+		if (len <= radius) chars[i]->phys.velocity += vSetLen(knock, knockback * (radius - len) / radius);
+	}
+
+	for (unsigned int i = 0; i < items.size(); i++) {
+		knock = items[i]->phys.center - pos;
+		len = vLen(knock);
+
+		if (len <= radius) items[i]->phys.velocity += vSetLen(knock, knockback * (radius - len) / radius);
+	}
 }
 
 

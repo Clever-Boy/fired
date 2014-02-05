@@ -50,7 +50,7 @@
 #define PHYS_TUNNEL_TIME        8.0f
 #define PHYS_TUNNEL_CHUNK       3.0f
 #define PHYS_SAFE_FALL          900.0f
-#define PHYS_FRICTION_ACCEL     800.0f
+#define PHYS_FRICTION_ACCEL     1600.0f
 #define PHYS_EPSILON            3.0f
 
 

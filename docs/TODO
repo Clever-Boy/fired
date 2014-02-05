@@ -409,7 +409,7 @@
 			<todo done="yes" collapse="no"><title>Class (getting random base)</title></todo>
 			<todo done="yes" collapse="no"><title>Graphics</title></todo>
 			<todo done="yes" collapse="no"><title>Explosions make light</title></todo>
-			<todo done="no" collapse="no"><title>Knockback</title></todo>
+			<todo done="yes" collapse="no"><title>Knockback</title></todo>
 			<todo done="no" collapse="no"><title>Sound</title></todo>
 		</todo>
 		<todo done="no" collapse="no"><title>Explosive weapon</title></todo>

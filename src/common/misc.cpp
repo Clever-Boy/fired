@@ -79,6 +79,20 @@ sf::Color mixColors(sf::Color c1, sf::Color c2) {
 
 
 /***********************************************************************
+     * canMixColors
+
+***********************************************************************/
+bool canMixColors(sf::Color base, sf::Color light) {
+	if (light.r > base.r) return true;
+	if (light.g > base.g) return true;
+	if (light.b > base.b) return true;
+
+	return false;
+}
+
+
+
+/***********************************************************************
      * sign
 
 ***********************************************************************/

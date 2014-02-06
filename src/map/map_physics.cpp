@@ -63,7 +63,7 @@ void inline fired::Map::checkCollision(fired::Phys *phys, fired::Character *char
 		if (intersection.width > intersection.height) {
 			if (phys->pos.y < tile_y * TILE_SIZE) {
 				phys->pos.y -= intersection.height;
-				if (character) if (phys->velocity.y > PHYS_SAFE_FALL) character->damage((phys->velocity.y - PHYS_SAFE_FALL) / 10.0f, sf::Vector2f(phys->size.x / 2, phys->size.y), 100.0);
+				if (character) if (phys->velocity.y > PHYS_SAFE_FALL) character->damage((phys->velocity.y - PHYS_SAFE_FALL) / 10.0f, sf::Vector2f(phys->size.x / 2, phys->size.y), 100.0, NULL);
 				if (phys->velocity.y > 0.0) phys->velocity.y = 0.0;
 				phys->onGround      = true;
 				phys->jumpdownLevel = 0;
@@ -123,7 +123,6 @@ void fired::Map::checkPhys(fired::Phys *phys, fired::Character *character, float
 		sf::Vector2i  tiles_from(floor(phys->pos.x / TILE_SIZE), floor(phys->pos.y / TILE_SIZE));
 		sf::Vector2i  tiles_to(floor((phys->pos.x + phys->size.x) / TILE_SIZE), floor((phys->pos.y + phys->size.y) / TILE_SIZE));
 
-
 		for (i = tiles_from.x + 1; i <= tiles_to.x - 1; i++) {
 			if (isSolid(i, tiles_from.y)) checkCollision(phys, character, i, tiles_from.y);
 			if (isSolid(i, tiles_to.y  )) checkCollision(phys, character, i, tiles_to.y  );
@@ -179,9 +178,14 @@ bool fired::Map::checkShot(fired::Shot *shot) {
 	for (int j = tilesToCheck.top; j <= tilesToCheck.height; j++)
 	if (isSolid(i, j))
 		if (lineBoxCollision(sf::FloatRect(i * TILE_SIZE, j * TILE_SIZE, TILE_SIZE, TILE_SIZE), ray, &c, &n, &dist)) {
-			n *= 200.0f;
-			world->addBulletSplash(c, n);
-			addTemporaryLightSource(c, LIGHT_SPLASH_INTENSITY, sf::Color::White, LIGHT_SHOT_LIFETIME);
+			if (shot->explosive) {
+				world->addExplosion(c, shot->explosionRadius, 0.5f, shot->knockback, shot->damage, shot->owner);
+			} else {
+				n *= 200.0f;
+				world->addBulletSplash(c, n);
+				addTemporaryLightSource(c, LIGHT_SPLASH_INTENSITY, sf::Color::White, LIGHT_SHOT_LIFETIME);
+			}
+
 			return true;
 		}
 

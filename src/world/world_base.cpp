@@ -76,7 +76,6 @@ fired::World::~World() {
 ***********************************************************************/
 void fired::World::update() {
 	preUpdateState();
-
 	cam->update();
 	map->update();
 	player->update();
@@ -87,9 +86,9 @@ void fired::World::update() {
 	checkItems();
 
 	updateList(chunks);
-	updateList(explosions);
 	updateList(shots);
 	updateList(particles);
+	updateList(explosions);
 	updateList(texts);
 
 	map->light();
@@ -302,7 +301,7 @@ void fired::World::interact(fired::Character *owner) {
      * addExplosion
 
 ***********************************************************************/
-void fired::World::addExplosion(sf::Vector2f pos, float radius, float life, float knockback) {
+void fired::World::addExplosion(sf::Vector2f pos, float radius, float life, float knockback, int damage, fired::Character *owner) {
 	explosions.push_back(new fired::Explosion(pos, radius, life));
 	map->addExplosion(pos, radius, life * 2.0f);
 
@@ -314,21 +313,24 @@ void fired::World::addExplosion(sf::Vector2f pos, float radius, float life, floa
 		knock = chunks[i]->phys.center - pos;
 		len = vLen(knock);
 
-		if (len <= radius) chunks[i]->phys.velocity += vSetLen(knock, knockback * (radius - len) / radius);
+		if (len <= radius && len > 0) chunks[i]->phys.velocity += vSetLen(knock, knockback * (radius - len) / radius);
 	}
 
 	for (unsigned int i = 0; i < chars.size(); i++) {
 		knock = chars[i]->phys.center - pos;
 		len = vLen(knock);
 
-		if (len <= radius) chars[i]->phys.velocity += vSetLen(knock, knockback * (radius - len) / radius);
+		if (len <= radius && len > 0) {
+			chars[i]->phys.velocity += vSetLen(knock, knockback * (radius - len) / radius);
+			chars[i]->damage(damage * (radius - len) / radius, pos, knockback * (radius - len) / radius, owner);
+		}
 	}
 
 	for (unsigned int i = 0; i < items.size(); i++) {
 		knock = items[i]->phys.center - pos;
 		len = vLen(knock);
 
-		if (len <= radius) items[i]->phys.velocity += vSetLen(knock, knockback * (radius - len) / radius);
+		if (len <= radius && len > 0) items[i]->phys.velocity += vSetLen(knock, knockback * (radius - len) / radius);
 	}
 }
 

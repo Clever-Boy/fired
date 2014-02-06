@@ -467,7 +467,7 @@ int fired::Container::loadWeapon(void *data, int, char **argv, char **){
 		current->explosive = true;
 	} else {
 		current->explosionRadius = 0.0f;
-		current->explosive       = true;
+		current->explosive       = false;
 	}
 
 	if (atoi(argv[8])) current->automatic = true;
@@ -476,10 +476,10 @@ int fired::Container::loadWeapon(void *data, int, char **argv, char **){
 	if (argv[10] && (strlen(argv[10]) > 0)) current->shotSound  = ((fired::Container *) data)->getSound(argv[10]);
 	else                                    current->shotSound = NULL;
 
-	if (argv[13] && (strlen(argv[13]) > 0)) current->shotSprite = ((fired::Container *) data)->sprites[atoi(argv[14])];
+	if (argv[14] && (strlen(argv[14]) > 0)) current->shotSprite = ((fired::Container *) data)->sprites[atoi(argv[14])];
 	else                                    current->shotSprite = NULL;
 
-	if (argv[14] && (strlen(argv[14]) > 0)) current->bodypart   = ((fired::Container *) data)->bodyparts[atoi(argv[15])];
+	if (argv[15] && (strlen(argv[15]) > 0)) current->bodypart   = ((fired::Container *) data)->bodyparts[atoi(argv[15])];
 	else                                    current->bodypart = NULL;
 
 	return 0;

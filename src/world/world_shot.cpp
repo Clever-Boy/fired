@@ -15,17 +15,21 @@
      * constructor
 
 ***********************************************************************/
-fired::Shot::Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner, fired::GameSprite *_sprite, fired::World *_world) {
-	pos       = _pos;
+fired::Shot::Shot(fired::Character *_owner, fired::World *_world) {
 	owner     = _owner;
-	angle     = _angle;
+	pos       = owner->phys.center;
+	angle     = owner->aiming;
 	world     = _world;
-	sprite    = _sprite;
+
+	sprite    = owner->weapon->shotSprite;
 	damage    = owner->getDamage();
 	knockback = owner->getKnockback();
 	leftToFly = owner->getRange();
 
-	velocity = sf::Vector2f(speed * cos(angle), speed * sin(angle));
+	explosive       = owner->weapon->explosive;
+	explosionRadius = owner->weapon->explosionRadius;
+
+	velocity = sf::Vector2f(owner->weapon->speed * cos(angle), owner->weapon->speed * sin(angle));
 	line = sf::VertexArray(sf::Lines, 2);
 	line[0].color = sf::Color::White;
 	line[1].color = sf::Color(141, 152, 141, 50);

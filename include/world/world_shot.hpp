@@ -26,9 +26,12 @@ namespace fired {
 		sf::Vector2i index;
 		sf::Vector2f velocity;
 		float        angle;
-		int          damage;
 		float        knockback;
 		float        leftToFly;
+		float        explosionRadius;
+
+		bool         explosive;
+		int          damage;
 
 		sf::VertexArray    line;
 		fired::GameSprite *sprite;
@@ -36,7 +39,7 @@ namespace fired {
 		fired::World      *world;
 
 
-		 Shot(sf::Vector2f _pos, float _angle, float speed, fired::Character *_owner, fired::GameSprite *_sprite, fired::World *_world);
+		 Shot(fired::Character *_owner, fired::World *_world);
 
 		bool update();
 		void render();

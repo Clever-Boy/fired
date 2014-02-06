@@ -455,7 +455,6 @@ int fired::Container::loadWeapon(void *data, int, char **argv, char **){
 	sscanf(argv[5], "%f", &current->range);
 	sscanf(argv[6], "%f", &current->cooldown);
 	sscanf(argv[7], "%f", &current->knockback);
-	sscanf(argv[8], "%d", &current->automatic);
 
 	if (!strcmp(argv[9], "broad" )) current->type = WEAPON_TYPE_BROAD;
 	if (!strcmp(argv[9], "melee" )) current->type = WEAPON_TYPE_MELEE;
@@ -463,14 +462,25 @@ int fired::Container::loadWeapon(void *data, int, char **argv, char **){
 
 	if (argv[12] && (strlen(argv[12]) > 0)) sscanf(argv[12], "%f", &current->speed);
 
+	if (argv[13] && (strlen(argv[13]) > 0)) {
+		sscanf(argv[13], "%f", &current->explosionRadius);
+		current->explosive = true;
+	} else {
+		current->explosionRadius = 0.0f;
+		current->explosive       = true;
+	}
+
+	if (atoi(argv[8])) current->automatic = true;
+	else               current->automatic = false;
+
 	if (argv[10] && (strlen(argv[10]) > 0)) current->shotSound  = ((fired::Container *) data)->getSound(argv[10]);
-	else current->shotSound = NULL;
+	else                                    current->shotSound = NULL;
 
-	if (argv[13] && (strlen(argv[13]) > 0)) current->shotSprite = ((fired::Container *) data)->sprites[atoi(argv[13])];
-	else current->shotSprite = NULL;
+	if (argv[13] && (strlen(argv[13]) > 0)) current->shotSprite = ((fired::Container *) data)->sprites[atoi(argv[14])];
+	else                                    current->shotSprite = NULL;
 
-	if (argv[14] && (strlen(argv[14]) > 0)) current->bodypart   = ((fired::Container *) data)->bodyparts[atoi(argv[14])];
-	else current->bodypart = NULL;
+	if (argv[14] && (strlen(argv[14]) > 0)) current->bodypart   = ((fired::Container *) data)->bodyparts[atoi(argv[15])];
+	else                                    current->bodypart = NULL;
 
 	return 0;
 }

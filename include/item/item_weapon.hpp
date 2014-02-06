@@ -14,13 +14,18 @@ namespace fired {
 	struct BaseWeapon {
 		char  name[64];
 		char  caption[64];
+
 		float cooldown;
 		float range;
 		float speed;
 		float knockback;
+		float explosionRadius;
+
 		int   damage;
 		int   type;
-		int   automatic;
+
+		bool  automatic;
+		bool  explosive;
 
 		sf::Sound           *shotSound;
 		fired::GameSprite   *shotSprite;

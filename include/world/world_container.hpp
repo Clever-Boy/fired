@@ -73,6 +73,7 @@ namespace fired {
 		void loadItems(sqlite3 *db);
 		static int loadItem(void *data, int argc, char **argv, char **azColName);
 		fired::BaseItem *getItem(const char *name);
+		int getItemIndex(const char *name);
 
 		void loadCreatures(sqlite3 *db);
 		static int loadCreature(void *data, int argc, char **argv, char **azColName);

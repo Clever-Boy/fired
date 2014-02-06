@@ -22,6 +22,7 @@ namespace fired {
 		char               name[64];
 		char               tip[64];
 		unsigned int       maxStack;
+		int                ID;
 		int                UID;
 		fired::ItemType    type;
 		fired::GameSprite *sprite;

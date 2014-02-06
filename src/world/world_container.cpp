@@ -517,6 +517,8 @@ int fired::Container::loadItem(void *data, int, char **argv, char **) {
 	((fired::Container *) data)->items.push_back(new fired::BaseItem);
 	fired::BaseItem *current = ((fired::Container *) data)->items.back();
 
+	current->ID = atoi(argv[0]);
+
 	strcpy(current->name, argv[1]);
 	if (argv[6]) strcpy(current->tip , argv[6]);
 	current->sprite = ((fired::Container *) data)->sprites[atoi(argv[7])];
@@ -555,6 +557,20 @@ fired::BaseItem *fired::Container::getItem(const char *name) {
 		if (!strcmp(name, items[i]->name)) return items[i];
 
 	return NULL;
+}
+
+
+
+/***********************************************************************
+     * Container
+     * getItemIndex
+
+***********************************************************************/
+int fired::Container::getItemIndex(const char *name) {
+	for (unsigned int i = 0; i < items.size(); i++)
+		if (!strcmp(name, items[i]->name)) return i;
+
+	return -1;
 }
 
 

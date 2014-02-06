@@ -12,11 +12,11 @@
 
 namespace fired {
 	struct MapItem {
-		char            name[64];
-		unsigned int    count;
+		int          id;
+		unsigned int count;
 
 		MapItem() {};
-		MapItem(unsigned int _count, const char *_name);
+		MapItem(unsigned int _count, int _id);
 	};
 }
 

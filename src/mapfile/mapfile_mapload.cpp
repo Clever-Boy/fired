@@ -63,7 +63,7 @@ void mapLoadCollectorItems(fired::MapObjectCollector *obj, FILE *fp) {
 	fread(&itemCount, sizeof(itemCount), 1, fp);
 	for (unsigned int j = 0; j < itemCount; j++) {
 		fread(&item, sizeof(item), 1, fp);
-		obj->items[j%10][j/10].base = container->getItem(item.name);
+		obj->items[j%10][j/10].base = container->items[item.id];
 		obj->items[j%10][j/10].count = item.count;
 	}
 }

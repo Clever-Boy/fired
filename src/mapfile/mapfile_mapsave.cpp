@@ -50,7 +50,7 @@ void mapSaveCollectorItems(fired::MapObjectCollector *obj, FILE *fp) {
 	unsigned int itemCount;
 
 	for (int i = 0; i < 10; i++) for (int j = 0; j < 5; j++) if (obj->items[i][j].base != NULL)
-		items.push_back(new fired::MapItem(obj->items[i][j].count, obj->items[i][j].base->name));
+		items.push_back(new fired::MapItem(obj->items[i][j].count, obj->items[i][j].base->ID));
 
 	itemCount = items.size();
 	fwrite(&itemCount, sizeof(itemCount), 1, fp);

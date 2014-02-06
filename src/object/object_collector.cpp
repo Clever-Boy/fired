@@ -45,8 +45,8 @@ void fired::BaseMapObjectCollector::generateLoot() {
      * addItem
 
 ***********************************************************************/
-void fired::BaseMapObjectCollector::addItem(unsigned int _count, const char *_name) {
-	items.push_back(new fired::MapItem(_count, _name));
+void fired::BaseMapObjectCollector::addItem(unsigned int _count, const char *name) {
+	items.push_back(new fired::MapItem(_count, container->getItemIndex(name)));
 }
 
 

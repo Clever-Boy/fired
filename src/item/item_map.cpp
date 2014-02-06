@@ -15,7 +15,7 @@
      * constructor
 
 ***********************************************************************/
-fired::MapItem::MapItem(unsigned int _count, const char *_name) {
+fired::MapItem::MapItem(unsigned int _count, int _id) {
 	count = _count;
-	strncpy(name, _name, sizeof(name));
+	id    = _id;
 }

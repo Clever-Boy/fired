@@ -15,11 +15,10 @@
      * constructor
 
 ***********************************************************************/
-fired::BaseMapObjectCollector::BaseMapObjectCollector(const char *_name, sf::Vector2f _pos) {
-	type = moCollector;
-	pos  = _pos;
-
-	strncpy(decorName, _name, sizeof(decorName));
+fired::BaseMapObjectCollector::BaseMapObjectCollector(unsigned int id, sf::Vector2f _pos) {
+	type    = moCollector;
+	pos     = _pos;
+	decorId = id;
 }
 
 
@@ -57,7 +56,8 @@ void fired::BaseMapObjectCollector::addItem(unsigned int _count, const char *_na
      * constructor
 
 ***********************************************************************/
-fired::MapObjectCollector::MapObjectCollector(fired::Decor *_decor) {
-	type = moCollector;
-	decor = _decor;
+fired::MapObjectCollector::MapObjectCollector(unsigned int _decorId, sf::Vector2f pos) {
+	type    = moCollector;
+	decorId = _decorId;
+	decor   = new fired::Decor(container->decors[decorId], pos);
 }

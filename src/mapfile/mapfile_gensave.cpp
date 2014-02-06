@@ -54,7 +54,7 @@ void genSaveCollectorItems(fired::BaseMapObjectCollector *obj, FILE *fp) {
 
 ***********************************************************************/
 void genSaveObject(fired::BaseMapObject *obj, FILE *fp) {
-	fired::BaseMapObject curObj(obj->decorName, obj->pos, obj->type);
+	fired::BaseMapObject curObj(obj->decorId, obj->pos, obj->type);
 	fwrite(&curObj, sizeof(curObj), 1, fp);
 
 	switch (curObj.type) {
@@ -66,7 +66,7 @@ void genSaveObject(fired::BaseMapObject *obj, FILE *fp) {
 
 		case fired::moLightSource: {
 			fired::BaseMapObjectLightSource *lightObj = (fired::BaseMapObjectLightSource*)obj;
-			fwrite(lightObj->name, sizeof(lightObj->name), 1, fp);
+			fwrite(&lightObj->id, sizeof(lightObj->id), 1, fp);
 			break;
 		}
 

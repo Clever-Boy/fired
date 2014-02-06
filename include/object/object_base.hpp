@@ -22,24 +22,25 @@ namespace fired {
 
 
 	struct BaseMapObject {
-		char                 decorName[16];
+		unsigned int         decorId;
 		sf::Vector2f         pos;
 		fired::MapObjectType type;
 
 
 		BaseMapObject() {};
-		BaseMapObject(const char *_name, sf::Vector2f _pos, fired::MapObjectType _type);
+		BaseMapObject(unsigned int id, sf::Vector2f _pos, fired::MapObjectType _type);
 	};
 
 
 
 	struct MapObject {
+		unsigned int         decorId;
 		fired::Decor        *decor;
 		fired::MapObjectType type;
 
 
 		 MapObject() {};
-		 MapObject(fired::Decor *_decor);
+		 MapObject(unsigned int _decorId, sf::Vector2f pos);
 		virtual ~MapObject();
 
 		virtual void update(fired::Map*) {};

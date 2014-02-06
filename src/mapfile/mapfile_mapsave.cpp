@@ -66,7 +66,7 @@ void mapSaveCollectorItems(fired::MapObjectCollector *obj, FILE *fp) {
 
 ***********************************************************************/
 void mapSaveObject(fired::MapObject *obj, FILE *fp) {
-	fired::BaseMapObject curObj(obj->decor->base->name, obj->decor->pos, obj->type);
+	fired::BaseMapObject curObj(obj->decorId, obj->decor->pos, obj->type);
 	fwrite(&curObj, sizeof(curObj), 1, fp);
 
 	switch (curObj.type) {
@@ -78,7 +78,7 @@ void mapSaveObject(fired::MapObject *obj, FILE *fp) {
 
 		case fired::moLightSource: {
 			fired::MapObjectLightSource *lightObj = (fired::MapObjectLightSource*)obj;
-			fwrite(lightObj->name, sizeof(lightObj->name), 1, fp);
+			fwrite(&lightObj->id, sizeof(lightObj->id), 1, fp);
 			break;
 		}
 

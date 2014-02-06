@@ -61,7 +61,7 @@ void fired::MapGenerator::genFill(int x1, int y1, int x2, int y2, int tileset, b
 
 ***********************************************************************/
 void fired::MapGenerator::addDecor(float x, float y, const char *name) {
-	objects.push_back(new fired::BaseMapObject(name, sf::Vector2f(x, y), moNone));
+	objects.push_back(new fired::BaseMapObject(container->getDecor(name), sf::Vector2f(x, y), moNone));
 }
 
 
@@ -72,7 +72,7 @@ void fired::MapGenerator::addDecor(float x, float y, const char *name) {
 
 ***********************************************************************/
 void fired::MapGenerator::addCollector(float x, float y, const char *name) {
-	objects.push_back(new fired::BaseMapObjectCollector(name, sf::Vector2f(x, y)));
+	objects.push_back(new fired::BaseMapObjectCollector(container->getDecor(name), sf::Vector2f(x, y)));
 	((fired::BaseMapObjectCollector*)objects.back())->generateLoot();
 }
 
@@ -84,7 +84,7 @@ void fired::MapGenerator::addCollector(float x, float y, const char *name) {
 
 ***********************************************************************/
 void fired::MapGenerator::addLightSource(float x, float y, const char *name) {
-	objects.push_back(new fired::BaseMapObjectLightSource(name, sf::Vector2f(x, y)));
+	objects.push_back(new fired::BaseMapObjectLightSource(container->getLight(name), sf::Vector2f(x, y)));
 }
 
 

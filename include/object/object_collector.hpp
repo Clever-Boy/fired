@@ -17,7 +17,7 @@ namespace fired {
 		std::vector<fired::MapItem*> items;
 
 
-		BaseMapObjectCollector(const char *_name, sf::Vector2f _pos);
+		BaseMapObjectCollector(unsigned int id, sf::Vector2f _pos);
 
 		void generateLoot();
 		void addItem(unsigned int _count, const char *_name);
@@ -28,7 +28,7 @@ namespace fired {
 	struct MapObjectCollector : MapObject {
 		fired::InventoryItem items[10][5];
 
-		MapObjectCollector(fired::Decor *_decor);
+		MapObjectCollector(unsigned int _decorId, sf::Vector2f pos);
 	};
 }
 

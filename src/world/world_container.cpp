@@ -178,11 +178,11 @@ int fired::Container::loadDecor(void *data, int, char **argv, char **) {
      * getDecor
 
 ***********************************************************************/
-fired::BaseDecor* fired::Container::getDecor(const char *name) {
+unsigned int fired::Container::getDecor(const char *name) {
 	for (unsigned int i = 0; i < decors.size(); i++)
-		if (!strcmp(name, decors[i]->name)) return decors[i];
+		if (!strcmp(name, decors[i]->name)) return i;
 
-	return NULL;
+	return -1;
 }
 
 
@@ -229,11 +229,11 @@ int fired::Container::loadLight(void *data, int, char **argv, char **) {
      * getLight
 
 ***********************************************************************/
-fired::BaseLightSource* fired::Container::getLight(const char *name) {
+unsigned int fired::Container::getLight(const char *name) {
 	for (unsigned int i = 0; i < lights.size(); i++)
-		if (!strcmp(name, lights[i]->name)) return lights[i];
+		if (!strcmp(name, lights[i]->name)) return i;
 
-	return NULL;
+	return -1;
 }
 
 
@@ -778,7 +778,7 @@ int fired::Container::loadExplosion(void *data, int, char **argv, char **) {
 
 /***********************************************************************
      * Container
-     * getBiome
+     * getExplosion
 
 ***********************************************************************/
 fired::BaseExplosion *fired::Container::getExplosion() {

@@ -77,13 +77,13 @@ void mapLoadCollectorItems(fired::MapObjectCollector *obj, FILE *fp) {
 void mapLoadObject(fired::Map *map, fired::BaseMapObject obj, FILE *fp) {
 	switch (obj.type) {
 		case fired::moNone: {
-			fired::MapObject *newObj = new fired::MapObject(new fired::Decor(container->getDecor(obj.decorName), obj.pos));
+			fired::MapObject *newObj = new fired::MapObject(obj.decorId, obj.pos);
 			map->objects.push_back(newObj);
 			break;
 		}
 
 		case fired::moCollector: {
-			fired::MapObjectCollector *collObj = new fired::MapObjectCollector(new fired::Decor(container->getDecor(obj.decorName), obj.pos));
+			fired::MapObjectCollector *collObj = new fired::MapObjectCollector(obj.decorId, obj.pos);
 			mapLoadCollectorItems(collObj, fp);
 			map->objects.push_back(collObj);
 			break;
@@ -91,8 +91,8 @@ void mapLoadObject(fired::Map *map, fired::BaseMapObject obj, FILE *fp) {
 
 		case fired::moLightSource: {
 			fired::BaseMapObjectLightSource lightObj;
-			fread(lightObj.name, sizeof(lightObj.name), 1, fp);
-			map->objects.push_back(new fired::MapObjectLightSource(container->getLight(lightObj.name), obj.pos));
+			fread(&lightObj.id, sizeof(lightObj.id), 1, fp);
+			map->objects.push_back(new fired::MapObjectLightSource(lightObj.id, obj.pos));
 			break;
 		}
 	}

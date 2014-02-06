@@ -15,11 +15,10 @@
      * constructor
 
 ***********************************************************************/
-fired::BaseMapObject::BaseMapObject(const char *_name, sf::Vector2f _pos, fired::MapObjectType _type) {
-	type = _type;
-	pos  = _pos;
-
-	strncpy(decorName, _name, sizeof(decorName));
+fired::BaseMapObject::BaseMapObject(unsigned int id, sf::Vector2f _pos, fired::MapObjectType _type) {
+	type    = _type;
+	pos     = _pos;
+	decorId = id;
 }
 
 
@@ -29,9 +28,10 @@ fired::BaseMapObject::BaseMapObject(const char *_name, sf::Vector2f _pos, fired:
      * constructor
 
 ***********************************************************************/
-fired::MapObject::MapObject(fired::Decor *_decor) {
-	type = moNone;
-	decor = _decor;
+fired::MapObject::MapObject(unsigned int _decorId, sf::Vector2f pos) {
+	type    = moNone;
+	decorId = _decorId;
+	decor   = new fired::Decor(container->decors[decorId], pos);
 }
 
 

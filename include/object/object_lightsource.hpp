@@ -24,24 +24,24 @@ namespace fired {
 
 
 	struct BaseMapObjectLightSource : BaseMapObject {
-		char name[64];
+		unsigned int id;
 
 
 		BaseMapObjectLightSource() {};
-		BaseMapObjectLightSource(const char *_name, sf::Vector2f _pos);
+		BaseMapObjectLightSource(unsigned int _id, sf::Vector2f _pos);
 	};
 
 
 
 	struct MapObjectLightSource : MapObject {
-		char name[64];
+		unsigned int id;
 		sf::Vector2i offset;
 		sf::Vector2i index;
 		sf::Color    color;
 		char         intensity;
 
 
-		MapObjectLightSource(fired::BaseLightSource *_base, sf::Vector2f _pos);
+		MapObjectLightSource(unsigned int _id, sf::Vector2f _pos);
 
 		void update(fired::Map *map);
 	};

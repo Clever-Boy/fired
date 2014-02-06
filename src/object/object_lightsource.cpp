@@ -15,11 +15,10 @@
      * constructor
 
 ***********************************************************************/
-fired::BaseMapObjectLightSource::BaseMapObjectLightSource(const char *_name, sf::Vector2f _pos) {
+fired::BaseMapObjectLightSource::BaseMapObjectLightSource(unsigned int _id, sf::Vector2f _pos) {
 	type = moLightSource;
 	pos  = _pos;
-
-	strncpy(name, _name, sizeof(name));
+	id   = _id;
 }
 
 
@@ -29,14 +28,15 @@ fired::BaseMapObjectLightSource::BaseMapObjectLightSource(const char *_name, sf:
      * constructor
 
 ***********************************************************************/
-fired::MapObjectLightSource::MapObjectLightSource(fired::BaseLightSource *_base, sf::Vector2f pos) {
+fired::MapObjectLightSource::MapObjectLightSource(unsigned int _id, sf::Vector2f pos) {
+	id        = _id;
 	type      = moLightSource;
-	intensity = _base->intensity;
-	color     = _base->color;
-	offset    = _base->offset;
-	decor     = new fired::Decor(_base->decor, pos);
 
-	strcpy(name, _base->name);
+	fired::BaseLightSource *base = container->lights[id];
+	intensity = base->intensity;
+	color     = base->color;
+	offset    = base->offset;
+	decor     = new fired::Decor(base->decor, pos);
 
 	index.x = (int)(decor->pos.x / TILE_SIZE + 0.5f) + offset.x;
 	index.y = (int)(decor->pos.y / TILE_SIZE + 0.5f) + offset.y;

@@ -48,11 +48,11 @@ namespace fired {
 
 		void loadDecors(sqlite3 *db);
 		static int loadDecor(void *data, int argc, char **argv, char **azColName);
-		fired::BaseDecor *getDecor(const char* name);
+		unsigned int getDecor(const char* name);
 
 		void loadLights(sqlite3 *db);
 		static int loadLight(void *data, int argc, char **argv, char **azColName);
-		fired::BaseLightSource *getLight(const char* name);
+		unsigned int getLight(const char* name);
 
 		void loadBodyparts(sqlite3 *db);
 		static int loadBodypart(void *data, int argc, char **argv, char **azColName);

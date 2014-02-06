@@ -22,7 +22,7 @@ fired::Tileset::Tileset(int _ID, fired::GameSprite *baseSprite) {
 	sf::Sprite        *sprt    = new sf::Sprite;
 	sf::Sprite        *mask    = new sf::Sprite;
 	sf::Texture       *maskTex = new sf::Texture();
-	maskTex->loadFromFile("data/img/world/tileset/mask.tga");
+	maskTex->loadFromFile("data/img/world/tileset/mask.png");
 
 	baseSprite->tex->setRepeated(true);
 	mask->setTexture(*maskTex);

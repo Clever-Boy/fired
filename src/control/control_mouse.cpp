@@ -19,7 +19,7 @@ fired::Mouse::Mouse() {
 	mouseTex = new sf::Texture();
 	mouseCur = new sf::Sprite();
 
-	mouseTex->loadFromFile("data/img/gui/mainmenu/mouse.tga");
+	mouseTex->loadFromFile("data/img/gui/mainmenu/mouse.png");
 	mouseCur->setTexture(*mouseTex);
 	mouseTex->setSmooth(true);
 }

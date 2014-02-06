@@ -19,7 +19,7 @@ fired::GUI::GUI(fired::Player *_player) {
 	player   = _player;
 
 	barTex = new sf::Texture;
-	barTex->loadFromFile("data/img/gui/world/guibar.tga");
+	barTex->loadFromFile("data/img/gui/world/guibar.png");
 	barSpr = new sf::Sprite;
 	barSpr->setTexture(*barTex);
 

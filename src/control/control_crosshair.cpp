@@ -21,7 +21,7 @@ fired::Crosshair::Crosshair(fired::Camera *_cam) {
 	crosshairTex = new sf::Texture();
 	crosshairCur = new sf::Sprite();
 
-	crosshairTex->loadFromFile("data/img/gui/world/crosshair.tga");
+	crosshairTex->loadFromFile("data/img/gui/world/crosshair.png");
 	crosshairCur->setTexture(*crosshairTex);
 	crosshairTex->setSmooth(true);
 	crosshairCur->setOrigin(crosshairTex->getSize().x / 2, crosshairTex->getSize().y / 2);

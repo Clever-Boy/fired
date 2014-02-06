@@ -37,7 +37,7 @@ fired::Game::Game() {
 	app->setMouseCursorVisible(false);
 
 	icon = new sf::Image();
-	icon->loadFromFile("data/img/gui/icon.tga");
+	icon->loadFromFile("data/img/gui/icon.png");
 	app->setIcon(128, 128, icon->getPixelsPtr());
 
 	running   = true;

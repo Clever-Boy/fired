@@ -44,7 +44,7 @@ fired::MainMenu::MainMenu(fired::Mouse *_mouse) {
 	menuItemSprite->setTexture(*menuItemTexture);
 	menuItemTexture->setSmooth(true);
 
-	logoTexture->loadFromFile("data/img/gui/mainmenu/logo.tga");
+	logoTexture->loadFromFile("data/img/gui/mainmenu/logo.png");
 	logoSprite->setTexture(*logoTexture);
 	logoTexture->setSmooth(true);
 

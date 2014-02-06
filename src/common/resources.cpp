@@ -30,10 +30,10 @@ fired::Resources::Resources() {
 	win.hoverTex = new sf::Texture();
 	win.normalTex = new sf::Texture();
 
-	win.trashTex->loadFromFile("data/img/gui/inventory/trash.tga");
-	win.emptyTex->loadFromFile("data/img/gui/inventory/empty.tga");
-	win.hoverTex->loadFromFile("data/img/gui/inventory/hover.tga");
-	win.normalTex->loadFromFile("data/img/gui/inventory/normal.tga");
+	win.trashTex->loadFromFile("data/img/gui/inventory/trash.png");
+	win.emptyTex->loadFromFile("data/img/gui/inventory/empty.png");
+	win.hoverTex->loadFromFile("data/img/gui/inventory/hover.png");
+	win.normalTex->loadFromFile("data/img/gui/inventory/normal.png");
 
 	win.trashSpr = new sf::Sprite();
 	win.emptySpr = new sf::Sprite();
@@ -53,7 +53,7 @@ fired::Resources::Resources() {
 
 
 	sprites.coinTex = new sf::Texture();
-	sprites.coinTex->loadFromFile("data/img/world/icons/misc/coin.tga");
+	sprites.coinTex->loadFromFile("data/img/world/icons/misc/coin.png");
 
 	sprites.coin = new sf::Sprite();
 	sprites.coin->setTexture(*sprites.coinTex);

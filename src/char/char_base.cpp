@@ -238,7 +238,7 @@ bool fired::Character::checkShot(fired::Shot *shot) {
 	float dist;
 
 	if (lineBoxCollision(phys.rect, ray, &c, &n, &dist)) {
-		if (world->isCharExists(shot->owner)) if (!isEnemy(shot->owner->fraction)) return false;
+		if (!isEnemy(shot->fraction)) return false;
 
 		if (shot->explosive) {
 			world->addExplosion(c, shot->explosionRadius, 0.5f, shot->knockback, shot->damage, shot->owner);
@@ -267,7 +267,7 @@ void fired::Character::checkBroadShot(fired::BroadShot *shot) {
 	sf::Vector2f c;
 
 	if (phys.rect.intersects(shot->shot)) {
-		if (world->isCharExists(shot->owner)) if (!isEnemy(shot->owner->fraction)) return;
+		if (!isEnemy(shot->fraction)) return;
 
 		c = rectCenter(phys.rect);
 		c.x += shot->normal.x * phys.size.x / 2.0f;
@@ -295,7 +295,7 @@ void fired::Character::checkMeleeShot(fired::MeleeShot *shot) {
 	float dist;
 
 	if (lineBoxCollision(phys.rect, ray, &c, &n, &dist)) {
-		if (world->isCharExists(shot->owner)) if (!isEnemy(shot->owner->fraction)) return;
+		if (!isEnemy(shot->fraction)) return;
 
 		phys.velocity += vNorm(shot->direction) * shot->knockback;
 		world->addBloodSplash(c, n * 200.0f, 20);

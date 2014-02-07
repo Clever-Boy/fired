@@ -25,6 +25,7 @@ fired::Shot::Shot(fired::Character *_owner, fired::World *_world) {
 	damage    = owner->getDamage();
 	knockback = owner->getKnockback();
 	leftToFly = owner->getRange();
+	fraction  = owner->fraction;
 
 	explosive       = owner->weapon->explosive;
 	explosionRadius = owner->weapon->explosionRadius;
@@ -87,6 +88,7 @@ fired::BroadShot::BroadShot(sf::FloatRect _shot, sf::Vector2f _normal, fired::Ch
 	shot      = _shot;
 	owner     = _owner;
 	normal    = _normal;
+	fraction  = owner->fraction;
 	damage    = owner->getDamage();
 	knockback = owner->getKnockback();
 }
@@ -102,6 +104,7 @@ fired::MeleeShot::MeleeShot(sf::Vector2f _pos, sf::Vector2f _direction, fired::C
 	pos       = _pos;
 	owner     = _owner;
 	direction = _direction;
+	fraction  = owner->fraction;
 	damage    = owner->getDamage();
 	knockback = owner->getKnockback();
 }

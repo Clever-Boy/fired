@@ -38,7 +38,6 @@ namespace fired {
 		std::vector<fired::TemporaryLightSource*> lights;
 
 		sf::Vector2i        visibleTiles;
-		sf::Vector2i        mapSize;
 		sf::Vector2f        startPos;
 
 		sf::Vertex          lightMask[4];

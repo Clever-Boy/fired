@@ -33,7 +33,6 @@ void mapLoadMeta(fired::Map *map, FILE *fp) {
 ***********************************************************************/
 void mapLoadTiles(fired::Map *map, FILE *fp) {
 	fired::MapTile tile;
-	map->mapSize = sf::Vector2i(map->sizeX * TILE_SIZE, map->sizeY * TILE_SIZE);
 
 	map->tiles = new fired::Tile*[map->sizeX];
 	for (int i = 0; i < map->sizeX; i++)

@@ -31,7 +31,7 @@ fired::World::World(fired::Mouse *_mouse) {
 	exchangeWin  = new fired::ExchangeWindow(player->character, this);
 	characterWin = new fired::CharacterWindow(player->character);
 
-	cam->mapSize    = map->mapSize;
+	cam->mapSize    = sf::Vector2i(map->sizeX * TILE_SIZE, map->sizeY * TILE_SIZE);
 	cam->objToTrack = &player->character->phys;
 
 	chars.push_back(player->character);

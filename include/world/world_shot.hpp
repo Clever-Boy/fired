@@ -32,6 +32,7 @@ namespace fired {
 
 		bool         explosive;
 		int          damage;
+		int          fraction;
 
 		sf::VertexArray    line;
 		fired::GameSprite *sprite;
@@ -50,6 +51,7 @@ namespace fired {
 		sf::FloatRect shot;
 		sf::Vector2f  normal;
 		int           damage;
+		int           fraction;
 		float         knockback;
 
 		fired::Character *owner;
@@ -63,6 +65,7 @@ namespace fired {
 		sf::Vector2f  pos;
 		sf::Vector2f  direction;
 		int           damage;
+		int           fraction;
 		float         knockback;
 
 		fired::Character *owner;

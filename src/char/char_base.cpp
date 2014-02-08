@@ -241,7 +241,7 @@ bool fired::Character::checkShot(fired::Shot *shot) {
 		if (!isEnemy(shot->fraction)) return false;
 
 		if (shot->explosive) {
-			world->addExplosion(c, shot->explosionRadius, 0.5f, shot->knockback, shot->damage, shot->owner);
+			world->addExplosion(c, shot->explosionRadius, 0.5f, shot->knockback, shot->damage, shot->owner, shot->fraction);
 		} else {
 			phys.velocity.x -= n.x * shot->knockback;
 			world->addBloodSplash(c, n * 200.0f, 20);

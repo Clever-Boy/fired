@@ -301,7 +301,7 @@ void fired::World::interact(fired::Character *owner) {
      * addExplosion
 
 ***********************************************************************/
-void fired::World::addExplosion(sf::Vector2f pos, float radius, float life, float knockback, int damage, fired::Character *owner) {
+void fired::World::addExplosion(sf::Vector2f pos, float radius, float life, float knockback, int damage, fired::Character *owner, int fraction) {
 	explosions.push_back(new fired::Explosion(pos, radius, life));
 	map->addExplosion(pos, radius, life * 2.0f);
 
@@ -322,7 +322,9 @@ void fired::World::addExplosion(sf::Vector2f pos, float radius, float life, floa
 
 		if (len <= radius && len > 0) {
 			chars[i]->phys.velocity += vSetLen(knock, knockback * (radius - len) / radius);
-			chars[i]->damage(damage * (radius - len) / radius, pos, knockback * (radius - len) / radius, owner);
+
+			if (chars[i]->isEnemy(fraction))
+				chars[i]->damage(damage * (radius - len) / radius, pos, knockback * (radius - len) / radius, owner);
 		}
 	}
 

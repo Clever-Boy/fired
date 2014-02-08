@@ -59,8 +59,22 @@ fired::Explosion::Explosion(sf::Vector2f _pos, float radius, float _life) {
 	life     = _life;
 	lifetime = _life;
 	scale    = sf::Vector2f(radius / base->radius, radius / base->radius);
+	sound    = new sf::Sound(*resources->sounds.explosion);
 
-	resources->sounds.explosion->play();
+	sound->setVolume(settings->volume.sound);
+	sound->play();
+}
+
+
+
+/***********************************************************************
+     * Explosion
+     * destructor
+
+***********************************************************************/
+fired::Explosion::~Explosion() {
+	sound->stop();
+	delete sound;
 }
 
 
@@ -71,9 +85,9 @@ fired::Explosion::Explosion(sf::Vector2f _pos, float radius, float _life) {
 
 ***********************************************************************/
 bool fired::Explosion::update() {
-	if ((life -= frameClock) < 0.0f) return false;
+	if ((life -= frameClock) > 0.0f)   render();
+	else if (sound->getStatus() == sf::Sound::Stopped) return false;
 
-	render();
 	return true;
 }
 

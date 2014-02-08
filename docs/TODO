@@ -414,38 +414,39 @@
 			<todo done="yes" collapse="no"><title>Knockback</title></todo>
 			<todo done="yes" collapse="no"><title>Sound</title></todo>
 		</todo>
-		<todo done="yes" collapse="no"><title>Explosive weapon</title>
+		<todo done="yes" collapse="yes"><title>Explosive weapon</title>
 			<todo done="yes" collapse="no"><title>Explosive type</title></todo>
 			<todo done="yes" collapse="no"><title>Radius of damage</title></todo>
 			<todo done="yes" collapse="no"><title>Rocket sprite</title></todo>
-			<todo done="no" collapse="no"><title>isEnemy checking</title></todo>
+			<todo done="yes" collapse="no"><title>isEnemy checking</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Shot trace</title>
 			<todo done="no" collapse="no"><title>Smoke (for rockets)</title></todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Liquids</title>
-			<todo done="no" collapse="no"><title>Liquid class</title></todo>
-			<todo done="no" collapse="no"><title>Liquid rendering</title></todo>
-			<todo done="no" collapse="no"><title>Liquid physics</title></todo>
-		</todo>
-		<todo done="no" collapse="no"><title>Items bonuses +dmg, +defence, etc.</title></todo>
 		<todo done="no" collapse="yes"><title>Weather</title>
 			<todo done="no" collapse="no"><title>Rain</title></todo>
 			<todo done="no" collapse="no"><title>Snow</title></todo>
 			<todo done="no" collapse="no"><title>Fog</title></todo>
 			<todo done="no" collapse="no"><title>Storm</title></todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Add options processing</title>
-			<todo done="no" collapse="no"><title>Add music volume change</title></todo>
-			<todo done="no" collapse="no"><title>Add sound volume change</title></todo>
-			<todo done="no" collapse="no"><title>Add video modes change</title></todo>
-			<todo done="no" collapse="no"><title>Add fullscreen toggle</title></todo>
-		</todo>
 		<todo done="no" collapse="yes"><title>Ammo</title>
 			<todo done="no" collapse="no"><title>Ammo item class</title></todo>
 			<todo done="no" collapse="no"><title>Ammo slot</title></todo>
 			<todo done="no" collapse="no"><title>Ammo reducing on shot</title></todo>
 			<todo done="no" collapse="no"><title>Ammo filter (rocket dor bazooka, bullets for rifle, etc.)</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Items bonuses +dmg, +defence, etc.</title></todo>
+		<todo done="no" collapse="no"><title>Blood on model explosion</title></todo>
+		<todo done="no" collapse="yes"><title>Liquids</title>
+			<todo done="no" collapse="no"><title>Liquid class</title></todo>
+			<todo done="no" collapse="no"><title>Liquid rendering</title></todo>
+			<todo done="no" collapse="no"><title>Liquid physics</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Add options processing</title>
+			<todo done="no" collapse="no"><title>Add music volume change</title></todo>
+			<todo done="no" collapse="no"><title>Add sound volume change</title></todo>
+			<todo done="no" collapse="no"><title>Add video modes change</title></todo>
+			<todo done="no" collapse="no"><title>Add fullscreen toggle</title></todo>
 		</todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>Graphics refactoring</title>

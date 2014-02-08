@@ -179,7 +179,7 @@ bool fired::Map::checkShot(fired::Shot *shot) {
 	if (isSolid(i, j))
 		if (lineBoxCollision(sf::FloatRect(i * TILE_SIZE, j * TILE_SIZE, TILE_SIZE, TILE_SIZE), ray, &c, &n, &dist)) {
 			if (shot->explosive) {
-				world->addExplosion(c, shot->explosionRadius, 0.5f, shot->knockback, shot->damage, shot->owner);
+				world->addExplosion(c, shot->explosionRadius, 0.5f, shot->knockback, shot->damage, shot->owner, shot->fraction);
 			} else {
 				n *= 200.0f;
 				world->addBulletSplash(c, n);

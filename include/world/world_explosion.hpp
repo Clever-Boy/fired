@@ -28,9 +28,11 @@ namespace fired {
 		sf::Vector2f          pos;
 		float                 lifetime;
 		float                 life;
+		sf::Sound            *sound;
 
 
 		 Explosion(sf::Vector2f _pos, float radius, float _life);
+		~Explosion();
 
 		bool update();
 		void render();

@@ -36,6 +36,9 @@ void fired::BasicAI::update() {
 	owner->character->setAiming(atan2(target->phys.center.y - owner->character->phys.center.y, 
 	                                  target->phys.center.x - owner->character->phys.center.x));
 
+	owner->character->phys.jumpdown = false;
+
+
 	if (target->phys.center.x < owner->character->phys.center.x)
 		owner->character->moveLeft();
 	else

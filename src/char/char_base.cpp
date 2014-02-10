@@ -163,7 +163,6 @@ void fired::Character::setWeapon(fired::BaseWeapon *_weapon) {
 void fired::Character::damage(int damage, sf::Vector2f shot, float knockback, fired::Character *owner) {
 	char dmg[8];
 	int taken = damage * (1.0f - armorReduction(getArmor()));
-
 	if (taken <= 0) return;
 
 	baseStats.HP -= taken;

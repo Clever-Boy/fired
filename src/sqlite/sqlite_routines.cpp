@@ -11,40 +11,29 @@
 
 
 /***********************************************************************
-     * appendText
+     * sqlite_append
 
 ***********************************************************************/
-char *appendText(char *zIn, char const *zAppend, char quote){
-	int len;
-	int i;
+char *sqlite_append(char *zIn, char const *zAppend, char quote){
 	int nAppend = strlen(zAppend);
 	int nIn = (zIn?strlen(zIn):0);
+	int len = nAppend + nIn + 1 + (quote ? 2 : 0);
 
-	len = nAppend+nIn+1;
-	if(quote) {
-		len += 2;
-		for(i=0; i<nAppend; i++) if(zAppend[i]==quote) len++;
-	}
+	if (quote) for (int i = 0; i < nAppend; i++) if (zAppend[i] == quote) len++;
 
 	zIn = (char *)realloc(zIn, len);
-	if( !zIn ) return 0;
+	if (!zIn) return NULL;
 
-	if (quote) {
-		char *zCsr = &zIn[nIn];
-		*zCsr++ = quote;
+	char *zCsr = &zIn[nIn];
+	if (quote) *zCsr++ = quote;
 
-		for(i=0; i<nAppend; i++){
-			*zCsr++ = zAppend[i];
-			if( zAppend[i]==quote ) *zCsr++ = quote;
-		}
-
-		*zCsr++ = quote;
-		*zCsr++ = '\0';
-		assert( (zCsr-zIn)==len );
-	} else {
-		memcpy(&zIn[nIn], zAppend, nAppend);
-		zIn[len-1] = '\0';
+	for (int i = 0; i < nAppend; i++) {
+		*zCsr++ = zAppend[i];
+		if (quote && zAppend[i]==quote) *zCsr++ = quote;
 	}
+
+	if (quote) *zCsr++ = quote;
+	zIn[len-1] = '\0';
 
 	return zIn;
 }
@@ -52,151 +41,89 @@ char *appendText(char *zIn, char const *zAppend, char quote){
 
 
 /***********************************************************************
-     * run_table_dump_query
+     * sqlite_dump_table
 
 ***********************************************************************/
-int run_table_dump_query(struct callback_data *p, const char *zSelect, const char *zFirstRow) {
+int sqlite_dump_table(struct callback_data *p, const char *zSelect) {
 	sqlite3_stmt *pSelect;
 	int rc;
 	int nResult;
-	int i;
-	const char *z;
 
 	rc = sqlite3_prepare(p->db, zSelect, -1, &pSelect, 0);
-	if (rc!=SQLITE_OK || !pSelect) {
-		p->nErr++;
-		return rc;
-	}
+	if (rc != SQLITE_OK) return rc;
 
 	rc = sqlite3_step(pSelect);
 	nResult = sqlite3_column_count(pSelect);
-	while( rc==SQLITE_ROW ){
-		if (zFirstRow) {
-			*p->out = appendText(*p->out, zFirstRow, 0);
-			zFirstRow = 0;
+
+	while (rc == SQLITE_ROW) {
+		*p->out = sqlite_append(*p->out, (const char*)sqlite3_column_text(pSelect, 0), 0);
+		for (int i = 1; i < nResult; i++) {
+			*p->out = sqlite_append(*p->out, "," , 0);
+			*p->out = sqlite_append(*p->out, (char *)sqlite3_column_text(pSelect, i), 0);
 		}
 
-		z = (const char*)sqlite3_column_text(pSelect, 0);
-		*p->out = appendText(*p->out, z, 0);
-
-		for (i=1; i<nResult; i++) {
-			*p->out = appendText(*p->out, "," , 0);
-			*p->out = appendText(*p->out, (char *)sqlite3_column_text(pSelect, i), 0);
-		}
-		if (z==0) z = "";
-
-		while (z[0] && (z[0]!='-' || z[1]!='-')) z++;
-
-		if (z[0]) *p->out = appendText(*p->out, "\n;\n", 0);
-		else *p->out = appendText(*p->out, ";\n", 0);
-
+		*p->out = sqlite_append(*p->out, ";\n", 0);
 		rc = sqlite3_step(pSelect);
 	}
 
 	rc = sqlite3_finalize(pSelect);
-	if( rc!=SQLITE_OK ){
-		p->nErr++;
-	}
-
 	return rc;
 }
 
 
 
 /***********************************************************************
-     * dump_callback
+     * sqlite_dump_callback
 
 ***********************************************************************/
-int dump_callback(void *pArg, int nArg, char **azArg, char **){
+int sqlite_dump_callback(void *pArg, int, char **azArg, char **){
 	int rc;
-	const char *zTable;
-	const char *zType;
-	const char *zSql;
-	const char *zPrepStmt = 0;
+	const char *zTable = azArg[0];
 	struct callback_data *p = (struct callback_data *)pArg;
 
-	if(nArg != 3) return 1;
+	*p->out = sqlite_append(*p->out, azArg[1], 0);
+	*p->out = sqlite_append(*p->out, ";\n", 0);
 
-	zTable = azArg[0];
-	zType  = azArg[1];
-	zSql   = azArg[2];
-  
-	if (strcmp(zTable, "sqlite_sequence") == 0)  zPrepStmt = "DELETE FROM sqlite_sequence;\n";
-	else if(strcmp(zTable, "sqlite_stat1") == 0) *p->out = appendText(*p->out, "ANALYZE sqlite_master;\n", 0);
-	else if (strncmp(zTable, "sqlite_", 7) == 0) return 0;
-	else if (strncmp(zSql, "CREATE VIRTUAL TABLE", 20) == 0) {
-		char *zIns;
-		if( !p->writableSchema ){
-			*p->out = appendText(*p->out, "PRAGMA writable_schema=ON;\n", 0);
-			p->writableSchema = 1;
-		}
+	sqlite3_stmt *pTableInfo = 0;
+	char *zSelect = 0;
+	char *zTableInfo = 0;
+	int nRow = 0;
 
-		zIns = sqlite3_mprintf("INSERT INTO sqlite_master(type,name,tbl_name,rootpage,sql)"
-		                       "VALUES('table','%q','%q',0,'%q');", zTable, zTable, zSql);
+	zTableInfo = sqlite_append(zTableInfo, "PRAGMA table_info(", 0);
+	zTableInfo = sqlite_append(zTableInfo, zTable, '"');
+	zTableInfo = sqlite_append(zTableInfo, ");", 0);
 
-		*p->out = appendText(*p->out, zIns, 0);
-		*p->out = appendText(*p->out, "\n", 0);
-		sqlite3_free(zIns);
-		return 0;
-	} else {
-		*p->out = appendText(*p->out, zSql, 0);
-		*p->out = appendText(*p->out, ";\n", 0);
-	}
+	rc = sqlite3_prepare(p->db, zTableInfo, -1, &pTableInfo, 0);
+	free(zTableInfo);
+	if( rc!=SQLITE_OK || !pTableInfo ) return 1;
 
-	if( strcmp(zType, "table")==0 ){
-		sqlite3_stmt *pTableInfo = 0;
-		char *zSelect = 0;
-		char *zTableInfo = 0;
-		char *zTmp = 0;
-		int nRow = 0;
+	zSelect = sqlite_append(zSelect, "SELECT 'INSERT INTO ' || \'", 0);
+	zSelect = sqlite_append(zSelect, zTable, '"');
+	zSelect = sqlite_append(zSelect, "\' || ' VALUES(' || ", 0);
 
-		zTableInfo = appendText(zTableInfo, "PRAGMA table_info(", 0);
-		zTableInfo = appendText(zTableInfo, zTable, '"');
-		zTableInfo = appendText(zTableInfo, ");", 0);
-
-		rc = sqlite3_prepare(p->db, zTableInfo, -1, &pTableInfo, 0);
-		free(zTableInfo);
-		if( rc!=SQLITE_OK || !pTableInfo ) return 1;
-
-		zSelect = appendText(zSelect, "SELECT 'INSERT INTO ' || ", 0);
-		zTmp = appendText(zTmp, zTable, '"');
-		if (zTmp) {
-			zSelect = appendText(zSelect, zTmp, '\'');
-			free(zTmp);
-		}
-
-		zSelect = appendText(zSelect, " || ' VALUES(' || ", 0);
+	rc = sqlite3_step(pTableInfo);
+	while (rc == SQLITE_ROW) {
+		zSelect = sqlite_append(zSelect, "quote(", 0);
+		zSelect = sqlite_append(zSelect, (const char *)sqlite3_column_text(pTableInfo, 1), '"');
+		zSelect = sqlite_append(zSelect, ")", 0);
 		rc = sqlite3_step(pTableInfo);
 
-		while (rc == SQLITE_ROW) {
-			const char *zText = (const char *)sqlite3_column_text(pTableInfo, 1);
-			zSelect = appendText(zSelect, "quote(", 0);
-			zSelect = appendText(zSelect, zText, '"');
-			rc = sqlite3_step(pTableInfo);
+		if( rc==SQLITE_ROW ) zSelect = sqlite_append(zSelect, ", ", 0);
 
-			if( rc==SQLITE_ROW ) zSelect = appendText(zSelect, "), ", 0);
-			else zSelect = appendText(zSelect, ") ", 0);
-
-			nRow++;
-		}
-
-		rc = sqlite3_finalize(pTableInfo);
-		if (rc != SQLITE_OK || nRow == 0) {
-			free(zSelect);
-			return 1;
-		}
-
-		zSelect = appendText(zSelect, "|| ')' FROM  ", 0);
-		zSelect = appendText(zSelect, zTable, '"');
-
-		rc = run_table_dump_query(p, zSelect, zPrepStmt);
-		if(rc == SQLITE_CORRUPT) {
-			zSelect = appendText(zSelect, " ORDER BY rowid DESC", 0);
-			run_table_dump_query(p, zSelect, 0);
-		}
-
-		free(zSelect);
+		nRow++;
 	}
+
+	rc = sqlite3_finalize(pTableInfo);
+	if (rc != SQLITE_OK || nRow == 0) {
+		free(zSelect);
+		return 1;
+	}
+
+	zSelect = sqlite_append(zSelect, "|| ')' FROM  ", 0);
+	zSelect = sqlite_append(zSelect, zTable, '"');
+
+	sqlite_dump_table(p, zSelect);
+	free(zSelect);
 
 	return 0;
 }
@@ -204,41 +131,21 @@ int dump_callback(void *pArg, int nArg, char **azArg, char **){
 
 
 /***********************************************************************
-     * run_schema_dump_query
+     * sqlite_dumpDb
 
 ***********************************************************************/
-int run_schema_dump_query(struct callback_data *p, const char *zQuery) {
-	char *zErr = 0;
-	return sqlite3_exec(p->db, zQuery, dump_callback, p, &zErr);
-}
-
-
-
-/***********************************************************************
-     * dumpDb
-
-***********************************************************************/
-void dumpDb(sqlite3 *db, char **sql) {
+void sqlite_dump(sqlite3 *db, char **sql) {
 	struct callback_data p; 
 
 	p.out = sql;
 	p.db  = db;
 
-	*sql = appendText(*sql, "PRAGMA foreign_keys=OFF;\n", 0);
-	*sql = appendText(*sql, "BEGIN TRANSACTION;\n", 0);
+	*sql = sqlite_append(*sql, "PRAGMA foreign_keys=OFF;\n", 0);
+	*sql = sqlite_append(*sql, "BEGIN TRANSACTION;\n", 0);
 
 	sqlite3_exec(db, "SAVEPOINT dump; PRAGMA writable_schema=ON", 0, 0, 0);
+	sqlite3_exec(db, "SELECT name, sql FROM sqlite_master", sqlite_dump_callback, &p, 0);
+	sqlite3_exec(db, "PRAGMA writable_schema=OFF; RELEASE dump", 0, 0, 0);
 
-	run_schema_dump_query(&p, "SELECT name, type, sql FROM sqlite_master "
-	                          "WHERE sql NOT NULL AND type=='table' AND name!='sqlite_sequence'");
-
-	run_schema_dump_query(&p, "SELECT name, type, sql FROM sqlite_master "
-	                          "WHERE name=='sqlite_sequence'");
-
-	run_table_dump_query(&p, "SELECT sql FROM sqlite_master "
-	                         "WHERE sql NOT NULL AND type IN ('index','trigger','view')", 0);
-
-	sqlite3_exec(db, "PRAGMA writable_schema=OFF;", 0, 0, 0);
-	sqlite3_exec(db, "RELEASE dump;", 0, 0, 0);
-	*sql = appendText(*sql, "COMMIT;\n", 0);
+	*sql = sqlite_append(*sql, "COMMIT;\n", 0);
 }

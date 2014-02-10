@@ -63,8 +63,6 @@ fired::Creature::~Creature() {
 
 ***********************************************************************/
 void fired::Creature::update() {
-	character->phys.jumpdown = false;
-
 	ai->update();
 	character->update();
 }

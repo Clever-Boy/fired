@@ -19,18 +19,15 @@
 
 
 struct callback_data {
-	sqlite3 *db;
-	char **out;
-	int nErr;
-	int writableSchema;
+	sqlite3  *db;
+	char    **out;
 };
 
 
-char *appendText(char *zIn, char const *zAppend, char quote);
-int run_table_dump_query(struct callback_data *p, const char *zSelect, const char *zFirstRow);
-int dump_callback(void *pArg, int nArg, char **azArg, char **azCol);
-int run_schema_dump_query(struct callback_data *p, const char *zQuery);
-void dumpDb(sqlite3 *db, char **sql);
+char *sqlite_append(char *zIn, char const *zAppend, char quote);
+int   sqlite_dump_table(struct callback_data *p, const char *zSelect);
+int   sqlite_dump_callback(void *pArg, int nArg, char **azArg, char **azCol);
+void  sqlite_dump(sqlite3 *db, char **sql);
 
 
 #endif

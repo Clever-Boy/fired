@@ -17,7 +17,7 @@
 void sqliteSaveDB(sqlite3 *db, const char *filename, bool crypt, const char *key) {
 	char *sql = NULL;
 	unsigned int size;
-	dumpDb(db, &sql);
+	sqlite_dump(db, &sql);
 
 	size = strlen(sql);
 	if (crypt) sqlite_crypt(sql, size, key, strlen(key));

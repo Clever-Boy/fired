@@ -420,10 +420,21 @@
 			<todo done="yes" collapse="no"><title>Rocket sprite</title></todo>
 			<todo done="yes" collapse="no"><title>isEnemy checking</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Smoke trace</title>
+		<todo done="no" collapse="no"><title>Refactor particle systems</title>
+			<todo done="no" collapse="no"><title>Blood (Splash)</title></todo>
+			<todo done="no" collapse="no"><title>Sparc (Splash)</title></todo>
+			<todo done="no" collapse="no"><title>Spray (Base)</title></todo>
+			<todo done="no" collapse="no"><title>Smoke (Spray)</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Smoke trace</title>
 			<todo done="yes" collapse="no"><title>Sprite</title></todo>
 			<todo done="no" collapse="no"><title>Particle system</title></todo>
 			<todo done="no" collapse="no"><title>Rendering</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Shotguns</title>
+			<todo done="no" collapse="no"><title>Class</title></todo>
+			<todo done="no" collapse="no"><title>Ammo per shot</title></todo>
+			<todo done="no" collapse="no"><title>Bullets per shot</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Weather</title>
 			<todo done="no" collapse="no"><title>Rain</title></todo>
@@ -440,9 +451,10 @@
 		<todo done="no" collapse="yes"><title>Items bonuses +dmg, +defence, etc.</title></todo>
 		<todo done="no" collapse="no"><title>Blood on model explosion</title></todo>
 		<todo done="no" collapse="yes"><title>Liquids</title>
-			<todo done="no" collapse="no"><title>Liquid class</title></todo>
-			<todo done="no" collapse="no"><title>Liquid rendering</title></todo>
-			<todo done="no" collapse="no"><title>Liquid physics</title></todo>
+			<todo done="no" collapse="no"><title>Class</title></todo>
+			<todo done="no" collapse="no"><title>Rendering</title></todo>
+			<todo done="no" collapse="no"><title>Flow animation</title></todo>
+			<todo done="no" collapse="no"><title>Physics</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Add options processing</title>
 			<todo done="no" collapse="no"><title>Add music volume change</title></todo>
@@ -476,10 +488,12 @@
 	<todo done="no" collapse="yes"><title>Biomes</title>
 		<todo done="no" collapse="yes"><title>Building</title>
 			<todo done="no" collapse="no"><title>Tiles</title></todo>
+			<todo done="no" collapse="no"><title>Decors</title></todo>
 			<todo done="no" collapse="no"><title>Generation</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Mines</title>
 			<todo done="no" collapse="no"><title>Tiles</title></todo>
+			<todo done="no" collapse="no"><title>Decors</title></todo>
 			<todo done="no" collapse="no"><title>Generation</title></todo>
 		</todo>
 	</todo>
@@ -510,10 +524,12 @@
 	<todo done="no" collapse="yes"><title>--- Release Alpha</title>
 		<todo done="no" collapse="no"><title>Add some weapons</title></todo>
 		<todo done="no" collapse="no"><title>Add some armors</title></todo>
+		<todo done="no" collapse="no"><title>Add some model types</title></todo>
 		<todo done="no" collapse="no"><title>Add some models</title></todo>
 		<todo done="no" collapse="no"><title>Add some hairs</title></todo>
 		<todo done="no" collapse="no"><title>Add some creatures</title></todo>
 		<todo done="no" collapse="no"><title>Player default colors</title></todo>
+		<todo done="no" collapse="no"><title>Generating loot depending on level</title></todo>
 		<todo done="no" collapse="no"><title>Final code optimization</title></todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>--- Release Beta</title>

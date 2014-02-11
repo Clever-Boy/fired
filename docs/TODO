@@ -420,8 +420,10 @@
 			<todo done="yes" collapse="no"><title>Rocket sprite</title></todo>
 			<todo done="yes" collapse="no"><title>isEnemy checking</title></todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Shot trace</title>
-			<todo done="no" collapse="no"><title>Smoke (for rockets)</title></todo>
+		<todo done="no" collapse="no"><title>Smoke trace</title>
+			<todo done="yes" collapse="no"><title>Sprite</title></todo>
+			<todo done="no" collapse="no"><title>Particle system</title></todo>
+			<todo done="no" collapse="no"><title>Rendering</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Weather</title>
 			<todo done="no" collapse="no"><title>Rain</title></todo>

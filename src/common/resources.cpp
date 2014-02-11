@@ -49,11 +49,19 @@ fired::Resources::Resources() {
 
 
 	sprites.coinTex = new sf::Texture();
+	sprites.smokeTex = new sf::Texture();
+
 	sprites.coinTex->loadFromFile("data/img/world/icons/misc/coin.png");
+	sprites.smokeTex->loadFromFile("data/img/world/sprites/smoke.png");
 
 	sprites.coin = new sf::Sprite();
+	sprites.smoke = new sf::Sprite();
+
 	sprites.coin->setTexture(*sprites.coinTex);
+	sprites.smoke->setTexture(*sprites.smokeTex);
+
 	sprites.coin->setOrigin(sf::Vector2f(sprites.coinTex->getSize()) / 2.0f);
+	sprites.smoke->setOrigin(sf::Vector2f(sprites.smokeTex->getSize()) / 2.0f);
 }
 
 
@@ -81,6 +89,8 @@ fired::Resources::~Resources() {
 
 
 	delete sprites.coin;
+	delete sprites.smoke;
 
 	delete sprites.coinTex;
+	delete sprites.smokeTex;
 }

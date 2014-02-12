@@ -34,13 +34,15 @@ namespace fired {
 		int          damage;
 		int          fraction;
 
-		sf::VertexArray    line;
-		fired::GameSprite *sprite;
-		fired::Character  *owner;
-		fired::World      *world;
+		sf::VertexArray             line;
+		fired::GameSprite          *sprite;
+		fired::Character           *owner;
+		fired::ParticleSystemSpray *tracer;
+		fired::World               *world;
 
 
 		 Shot(fired::Character *_owner, fired::World *_world);
+		~Shot();
 
 		bool update();
 		void render();

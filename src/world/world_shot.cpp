@@ -20,6 +20,7 @@ fired::Shot::Shot(fired::Character *_owner, fired::World *_world) {
 	pos       = owner->phys.center;
 	angle     = owner->aiming;
 	world     = _world;
+	tracer    = NULL;
 
 	sprite    = owner->weapon->shotSprite;
 	damage    = owner->getDamage();
@@ -34,7 +35,17 @@ fired::Shot::Shot(fired::Character *_owner, fired::World *_world) {
 	line = sf::VertexArray(sf::Lines, 2);
 	line[0].color = sf::Color::White;
 	line[1].color = sf::Color(141, 152, 141, 50);
+}
 
+
+
+/***********************************************************************
+     * Shot
+     * constructor
+
+***********************************************************************/
+fired::Shot::~Shot() {
+	if (tracer) tracer->stop();
 }
 
 

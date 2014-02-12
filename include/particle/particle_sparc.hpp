@@ -1,13 +1,13 @@
 /***********************************************************************
      * File       : particle_sparc.hpp
-     * Created    : Aug 02, 2013
+     * Created    : Feb 12, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __PARTICLE_SPARK
-#define __PARTICLE_SPARK
+#ifndef __PARTICLE_SPARC
+#define __PARTICLE_SPARC
 
 
 namespace fired {

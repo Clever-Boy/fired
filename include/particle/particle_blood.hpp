@@ -1,6 +1,6 @@
 /***********************************************************************
      * File       : particle_blood.hpp
-     * Created    : Aug 02, 2013
+     * Created    : Feb 12, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com

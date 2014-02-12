@@ -35,6 +35,16 @@ fired::Shot::Shot(fired::Character *_owner, fired::World *_world) {
 	line = sf::VertexArray(sf::Lines, 2);
 	line[0].color = sf::Color::White;
 	line[1].color = sf::Color(141, 152, 141, 50);
+
+	switch (owner->weapon->tracer) {
+		case stNone:
+			break;
+
+		case stSmoke:
+			tracer = new fired::ParticleSystemSmoke(sf::Vector2f(0,0), sf::Vector2f(0, 0), world, 25.0, &pos);
+			world->particles.push_back(tracer);
+			break;
+	}
 }
 
 

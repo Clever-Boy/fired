@@ -11,6 +11,11 @@
 
 
 namespace fired {
+	enum ShotTracer {
+		stNone,
+		stSmoke
+	};
+
 	struct BaseWeapon {
 		char  name[64];
 		char  caption[64];
@@ -26,6 +31,8 @@ namespace fired {
 
 		bool  automatic;
 		bool  explosive;
+
+		ShotTracer tracer;
 
 		sf::Sound           *shotSound;
 		fired::GameSprite   *shotSprite;

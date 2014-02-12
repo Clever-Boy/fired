@@ -470,16 +470,23 @@ int fired::Container::loadWeapon(void *data, int, char **argv, char **){
 		current->explosive       = false;
 	}
 
+
+	current->tracer = stNone;
+	if (argv[14] && (strlen(argv[14]) > 0)) {
+		if (!strcmp(argv[14], "smoke")) current->tracer = stSmoke;
+	}
+
+
 	if (atoi(argv[8])) current->automatic = true;
 	else               current->automatic = false;
 
 	if (argv[10] && (strlen(argv[10]) > 0)) current->shotSound  = ((fired::Container *) data)->getSound(argv[10]);
 	else                                    current->shotSound = NULL;
 
-	if (argv[14] && (strlen(argv[14]) > 0)) current->shotSprite = ((fired::Container *) data)->sprites[atoi(argv[14])];
+	if (argv[15] && (strlen(argv[15]) > 0)) current->shotSprite = ((fired::Container *) data)->sprites[atoi(argv[15])];
 	else                                    current->shotSprite = NULL;
 
-	if (argv[15] && (strlen(argv[15]) > 0)) current->bodypart   = ((fired::Container *) data)->bodyparts[atoi(argv[15])];
+	if (argv[16] && (strlen(argv[16]) > 0)) current->bodypart   = ((fired::Container *) data)->bodyparts[atoi(argv[16])];
 	else                                    current->bodypart = NULL;
 
 	return 0;

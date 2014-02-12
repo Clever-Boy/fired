@@ -426,13 +426,13 @@
 			<todo done="yes" collapse="no"><title>Spray (Base)</title></todo>
 			<todo done="yes" collapse="no"><title>Smoke (Spray)</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Smoke trace</title>
+		<todo done="yes" collapse="yes"><title>Smoke trace</title>
 			<todo done="yes" collapse="no"><title>Sprite</title></todo>
 			<todo done="yes" collapse="no"><title>Particle system</title></todo>
 			<todo done="yes" collapse="no"><title>Smoke following missile</title></todo>
-			<todo done="no" collapse="no"><title>Rendering</title></todo>
+			<todo done="yes" collapse="no"><title>Rendering</title></todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Shotguns</title>
+		<todo done="no" collapse="no"><title>Shotguns</title>
 			<todo done="no" collapse="no"><title>Class</title></todo>
 			<todo done="no" collapse="no"><title>Ammo per shot</title></todo>
 			<todo done="no" collapse="no"><title>Bullets per shot</title></todo>

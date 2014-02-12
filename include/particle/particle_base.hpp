@@ -28,10 +28,11 @@ namespace fired {
 
 
 	struct ParticleSystem {
-		fired::World *world;
-		float         life;
-		bool          physical;
-		sf::Vector2f  accel;
+		fired::World       *world;
+		sf::RectangleShape *sprite;
+		sf::Vector2f        accel;
+		float               life;
+		bool                physical;
 
 		std::vector<fired::Particle*> particles;
 

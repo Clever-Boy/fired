@@ -46,6 +46,7 @@ bool fired::Particle::process(fired::World *world, bool physical) {
 ***********************************************************************/
 fired::ParticleSystem::~ParticleSystem() {
 	deleteList(particles);
+	delete sprite;
 }
 
 

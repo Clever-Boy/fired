@@ -37,19 +37,6 @@ fired::ParticleSystemSplash::ParticleSystemSplash(sf::Vector2f pos, sf::Vector2f
 		particles.back()->life     = 0;
 		particles.back()->lifetime = lifetime;
 	}
-
-	return;
-}
-
-
-
-/***********************************************************************
-     * ParticleSystemSplash
-     * destructor
-
-***********************************************************************/
-fired::ParticleSystemSplash::~ParticleSystemSplash() {
-	delete sprite;
 }
 
 

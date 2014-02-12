@@ -423,7 +423,7 @@
 		<todo done="no" collapse="no"><title>Refactor particle systems</title>
 			<todo done="yes" collapse="no"><title>Blood (Splash)</title></todo>
 			<todo done="yes" collapse="no"><title>Sparc (Splash)</title></todo>
-			<todo done="no" collapse="no"><title>Spray (Base)</title></todo>
+			<todo done="yes" collapse="no"><title>Spray (Base)</title></todo>
 			<todo done="no" collapse="no"><title>Smoke (Spray)</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Smoke trace</title>

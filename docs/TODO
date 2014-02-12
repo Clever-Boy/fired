@@ -432,16 +432,16 @@
 			<todo done="yes" collapse="no"><title>Smoke following missile</title></todo>
 			<todo done="yes" collapse="no"><title>Rendering</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Shotguns</title>
+		<todo done="no" collapse="no"><title>Weather</title>
+			<todo done="yes" collapse="no"><title>Particle system</title></todo>
+			<todo done="no" collapse="no"><title>Rain</title></todo>
+			<todo done="no" collapse="no"><title>Snow</title></todo>
+			<todo done="no" collapse="no"><title>Storm</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Shotguns</title>
 			<todo done="no" collapse="no"><title>Class</title></todo>
 			<todo done="no" collapse="no"><title>Ammo per shot</title></todo>
 			<todo done="no" collapse="no"><title>Bullets per shot</title></todo>
-		</todo>
-		<todo done="no" collapse="yes"><title>Weather</title>
-			<todo done="no" collapse="no"><title>Rain</title></todo>
-			<todo done="no" collapse="no"><title>Snow</title></todo>
-			<todo done="no" collapse="no"><title>Fog</title></todo>
-			<todo done="no" collapse="no"><title>Storm</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Ammo</title>
 			<todo done="no" collapse="no"><title>Ammo item class</title></todo>

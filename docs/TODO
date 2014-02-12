@@ -421,8 +421,8 @@
 			<todo done="yes" collapse="no"><title>isEnemy checking</title></todo>
 		</todo>
 		<todo done="no" collapse="no"><title>Refactor particle systems</title>
-			<todo done="no" collapse="no"><title>Blood (Splash)</title></todo>
-			<todo done="no" collapse="no"><title>Sparc (Splash)</title></todo>
+			<todo done="yes" collapse="no"><title>Blood (Splash)</title></todo>
+			<todo done="yes" collapse="no"><title>Sparc (Splash)</title></todo>
 			<todo done="no" collapse="no"><title>Spray (Base)</title></todo>
 			<todo done="no" collapse="no"><title>Smoke (Spray)</title></todo>
 		</todo>

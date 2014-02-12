@@ -11,6 +11,8 @@
 
 #include "particle/particle_base.hpp"
 #include "particle/particle_splash.hpp"
+#include "particle/particle_sparc.hpp"
+#include "particle/particle_blood.hpp"
 #include "particle/particle_smoke.hpp"
 
 #endif

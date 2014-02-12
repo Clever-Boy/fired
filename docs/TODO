@@ -429,7 +429,7 @@
 		<todo done="no" collapse="no"><title>Smoke trace</title>
 			<todo done="yes" collapse="no"><title>Sprite</title></todo>
 			<todo done="yes" collapse="no"><title>Particle system</title></todo>
-			<todo done="no" collapse="no"><title>Smoke following missile</title></todo>
+			<todo done="yes" collapse="no"><title>Smoke following missile</title></todo>
 			<todo done="no" collapse="no"><title>Rendering</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Shotguns</title>

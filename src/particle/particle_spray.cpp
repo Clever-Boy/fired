@@ -15,7 +15,7 @@
      * constructor
 
 ***********************************************************************/
-fired::ParticleSystemSpray::ParticleSystemSpray(sf::Vector2f _pos, sf::Vector2f _direction, fired::World *_world, sf::Color _color, float _size, float _frequency, float _lifetime, float _endScale, bool _physical) {
+fired::ParticleSystemSpray::ParticleSystemSpray(sf::Vector2f _pos, sf::Vector2f _direction, fired::World *_world, sf::Color _color, float _size, float _frequency, float _lifetime, float _endScale, bool _physical, sf::Vector2f *_follow = NULL) {
 	active    = true;
 	life      = 0;
 	endScale  = _endScale;
@@ -27,6 +27,7 @@ fired::ParticleSystemSpray::ParticleSystemSpray(sf::Vector2f _pos, sf::Vector2f 
 	lifetime  = _lifetime;
 	size      = _size;
 	direction = _direction;
+	follow    = _follow;
 
 	normal = sf::Vector2f(direction.y, -direction.x);
 	accel  = sf::Vector2f(0, PHYS_GRAVITY / 2);
@@ -45,7 +46,7 @@ fired::ParticleSystemSpray::ParticleSystemSpray(sf::Vector2f _pos, sf::Vector2f 
 bool fired::ParticleSystemSpray::update() {
 	life += frameClock;
 
-	while (life > frequency) {
+	if (active) while (life > frequency) {
 		life -= frequency;
 		addParticle();
 	}
@@ -69,10 +70,12 @@ void fired::ParticleSystemSpray::addParticle() {
 	particles.push_back(new fired::Particle);
 	particles.back()->color    = color;
 	particles.back()->sprite   = sprite;
-	particles.back()->pos      = pos;
 	particles.back()->scale    = 1.0;
 	particles.back()->speed    = direction * (float)((random() % 400) / 400.0) + normal * (float)(((random() % 400) - 200) / 200.0);
 	particles.back()->accel    = accel;
 	particles.back()->life     = 0.0;
 	particles.back()->lifetime = lifetime;
+
+	if (follow) particles.back()->pos = *follow;
+	else        particles.back()->pos = pos;
 }

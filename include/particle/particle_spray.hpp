@@ -12,19 +12,20 @@
 
 namespace fired {
 	struct ParticleSystemSpray: ParticleSystem {
-		sf::Vector2f pos;
-		sf::Vector2f direction;
-		sf::Vector2f accel;
-		sf::Vector2f normal;
-		sf::Color    color;
-		float        lifetime;
-		float        size;
-		float        frequency;
-		float        endScale;
-		bool         active;
+		sf::Vector2f  pos;
+		sf::Vector2f  direction;
+		sf::Vector2f  accel;
+		sf::Vector2f  normal;
+		sf::Vector2f *follow;
+		sf::Color     color;
+		float         lifetime;
+		float         size;
+		float         frequency;
+		float         endScale;
+		bool          active;
 
 
-		ParticleSystemSpray(sf::Vector2f _pos, sf::Vector2f _direction, fired::World *_world, sf::Color _color, float _size, float _frequency, float _lifetime, float _endScale, bool _physical);
+		ParticleSystemSpray(sf::Vector2f _pos, sf::Vector2f _direction, fired::World *_world, sf::Color _color, float _size, float _frequency, float _lifetime, float _endScale, bool _physical, sf::Vector2f *_follow);
 
 		bool update();
 		void addParticle();

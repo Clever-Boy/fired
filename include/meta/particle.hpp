@@ -13,6 +13,6 @@
 #include "particle/particle_splash.hpp"
 #include "particle/particle_sparc.hpp"
 #include "particle/particle_blood.hpp"
-#include "particle/particle_smoke.hpp"
+#include "particle/particle_spray.hpp"
 
 #endif

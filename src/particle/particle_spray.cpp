@@ -1,5 +1,5 @@
 /***********************************************************************
-     * File       : particle_smoke.cpp
+     * File       : particle_spray.cpp
      * Created    : Feb 11, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
@@ -11,11 +11,11 @@
 
 
 /***********************************************************************
-     * ParticleSystemSmoke
+     * ParticleSystemSpray
      * constructor
 
 ***********************************************************************/
-fired::ParticleSystemSmoke::ParticleSystemSmoke(sf::Vector2f pos, sf::Vector2f direction, fired::World *_world, sf::Color color, float size, int count, float lifetime, float _endScale, bool _physical) {
+fired::ParticleSystemSpray::ParticleSystemSpray(sf::Vector2f pos, sf::Vector2f direction, fired::World *_world, sf::Color color, float size, int count, float lifetime, float _endScale, bool _physical) {
 	sprite = new sf::RectangleShape(sf::Vector2f(size, size));
 	sprite->setOrigin(sf::Vector2f(size / 2, size / 2));
 
@@ -48,7 +48,7 @@ fired::ParticleSystemSmoke::ParticleSystemSmoke(sf::Vector2f pos, sf::Vector2f d
      * destructor
 
 ***********************************************************************/
-fired::ParticleSystemSmoke::~ParticleSystemSmoke() {
+fired::ParticleSystemSpray::~ParticleSystemSpray() {
 	delete sprite;
 }
 
@@ -59,7 +59,7 @@ fired::ParticleSystemSmoke::~ParticleSystemSmoke() {
      * update
 
 ***********************************************************************/
-bool fired::ParticleSystemSmoke::update() {
+bool fired::ParticleSystemSpray::update() {
 	for (unsigned int i = 0; i < particles.size(); i++)
 		particles[i]->scale = endScale + (1 - endScale) * (particles[i]->lifetime - particles[i]->life) / particles[i]->lifetime;
 

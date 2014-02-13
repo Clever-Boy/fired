@@ -41,7 +41,7 @@ fired::Shot::Shot(fired::Character *_owner, fired::World *_world) {
 			break;
 
 		case stSmoke:
-			tracer = new fired::ParticleSystemSmoke(sf::Vector2f(0,0), sf::Vector2f(0, 0), world, 25.0, &pos);
+			tracer = new fired::ParticleSystemSmoke(sf::Vector2f(0,0), vSetLen(-velocity, 150), world, 25.0, &pos);
 			world->particles.push_back(tracer);
 			break;
 	}

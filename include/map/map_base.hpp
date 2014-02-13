@@ -20,6 +20,7 @@ namespace fired {
 #include "object.hpp"
 #include "map_temporary_light.hpp"
 #include "phys.hpp"
+#include "weather.hpp"
 #include "map_biome.hpp"
 #include "world.hpp"
 

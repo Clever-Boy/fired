@@ -433,10 +433,16 @@
 			<todo done="yes" collapse="no"><title>Rendering</title></todo>
 		</todo>
 		<todo done="no" collapse="no"><title>Weather</title>
-			<todo done="yes" collapse="no"><title>Particle system</title></todo>
+			<todo done="yes" collapse="no"><title>Base class</title></todo>
 			<todo done="no" collapse="no"><title>Rain</title></todo>
 			<todo done="no" collapse="no"><title>Snow</title></todo>
-			<todo done="no" collapse="no"><title>Storm</title></todo>
+			<todo done="no" collapse="yes"><title>Storm</title>
+				<todo done="no" collapse="no"><title>Lightning class</title></todo>
+				<todo done="no" collapse="no"><title>Lightning building</title></todo>
+				<todo done="no" collapse="no"><title>Lightning rendering</title></todo>
+				<todo done="no" collapse="no"><title>Lightning makes light</title></todo>
+				<todo done="no" collapse="no"><title>Srawing lightning till storm</title></todo>
+			</todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Shotguns</title>
 			<todo done="no" collapse="no"><title>Class</title></todo>

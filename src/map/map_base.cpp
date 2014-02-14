@@ -89,7 +89,7 @@ void fired::Map::update() {
 void fired::Map::render() {
 	app->draw(sky, 4, sf::Quads);
 	app->draw(*biome->bgSprite);
-	weather->update();
+	if (weather) weather->update();
 
 	sf::Vector2i from((int)(cam->offset.x / TILE_SIZE), (int)(cam->offset.y / TILE_SIZE));
 	sf::Vector2i to(from + visibleTiles);

@@ -48,5 +48,5 @@ fired::Biome::~Biome() {
 
 ***********************************************************************/
 fired::Weather *fired::Biome::getWeather(fired::World *world) {
-	return new fired::WeatherSnow(world, 0.003, 30);
+	return new fired::WeatherStorm(world, 0.003, 30);
 }

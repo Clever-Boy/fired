@@ -1,17 +1,20 @@
 /***********************************************************************
-     * File       : weather.hpp
+     * File       : weather_storm.hpp
      * Created    : Feb 14, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __WEATHER
-#define __WEATHER
+#ifndef __WEATHER_STORM
+#define __WEATHER_STORM
 
-#include "weather/weather_base.hpp"
-#include "weather/weather_rain.hpp"
-#include "weather/weather_snow.hpp"
-#include "weather/weather_storm.hpp"
+
+namespace fired {
+	struct WeatherStorm: Weather {
+		WeatherStorm(fired::World *_world, float _frequency, float _wind);
+	};
+}
 
 #endif
+

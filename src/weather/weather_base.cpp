@@ -34,9 +34,13 @@ bool fired::WeatherParticle::process(fired::World *world) {
      * constructor
 
 ***********************************************************************/
-fired::Weather::Weather(fired::World *_world) {
+fired::Weather::Weather(fired::World *_world, float _frequency, sf::Vector2f _speed) {
 	world = _world;
 	cam   = world->cam;
+
+	life      = 0;
+	speed     = _speed;
+	frequency = _frequency;
 }
 
 
@@ -77,5 +81,32 @@ void fired::Weather::render() {
 
 ***********************************************************************/
 void fired::Weather::update() {
+	for (life += frameClock; life > frequency; life -= frequency) addParticle();
 	render();
+}
+
+
+
+/***********************************************************************
+     * Weather
+     * fill
+
+***********************************************************************/
+void fired::Weather::fill() {
+	addParticle();
+}
+
+
+
+/***********************************************************************
+     * Weather
+     * addParticle
+
+***********************************************************************/
+void fired::Weather::addParticle() {
+	particles.push_back(new fired::WeatherParticle);
+	particles.back()->sprite   = sprite;
+	particles.back()->speed    = speed;
+	particles.back()->accel    = accel;
+	particles.back()->pos      = cam->offset + sf::Vector2f(random() % settings->window.width, 0);
 }

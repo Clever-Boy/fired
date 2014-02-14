@@ -39,3 +39,14 @@ fired::Biome::~Biome() {
 	delete bgSprite;
 	delete bgTex;
 }
+
+
+
+/***********************************************************************
+     * Biome
+     * getWeather
+
+***********************************************************************/
+fired::Weather *fired::Biome::getWeather(fired::World *world) {
+	return new fired::WeatherRain(world, 0.01, 30);
+}

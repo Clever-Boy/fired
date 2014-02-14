@@ -17,6 +17,7 @@
 ***********************************************************************/
 bool fired::WeatherParticle::process(fired::World *world) {
 	if (!world->isPixelVisible(pos)) return false;
+
 	speed += accel * frameClock;
 	pos   += speed * frameClock;
 
@@ -95,7 +96,15 @@ void fired::Weather::update() {
 
 ***********************************************************************/
 void fired::Weather::fill() {
-	addParticle();
+	unsigned int count = cam->viewport.height / (2.0 * speed.y * frequency);
+
+	while (count-- > 0) {
+		particles.push_back(new fired::WeatherParticle);
+		particles.back()->sprite   = sprite;
+		particles.back()->speed    = speed;
+		particles.back()->accel    = accel;
+		particles.back()->pos      = cam->offset + sf::Vector2f(random() % settings->window.width, random() % settings->window.height);
+	}
 }
 
 
@@ -110,14 +119,14 @@ void fired::Weather::addParticle() {
 	particles.back()->sprite   = sprite;
 	particles.back()->speed    = speed;
 	particles.back()->accel    = accel;
-	particles.back()->pos = genPos();
+	particles.back()->pos      = genPos();
 }
 
 
 
 /***********************************************************************
      * Weather
-     * fill
+     * genPos
 
 ***********************************************************************/
 sf::Vector2f fired::Weather::genPos() {

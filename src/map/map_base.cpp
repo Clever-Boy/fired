@@ -44,6 +44,7 @@ fired::Map::~Map() {
 	for (int i = 0; i < LIGHT_MAX_LIGHTLEVEL; delete lightTiles[i++]);
 	for (int i = 0; i < sizeX; delete tiles[i++]);
 	delete tiles;
+	delete weather;
 
 	deleteList(objects);
 	deleteList(lights);
@@ -88,6 +89,7 @@ void fired::Map::update() {
 void fired::Map::render() {
 	app->draw(sky, 4, sf::Quads);
 	app->draw(*biome->bgSprite);
+	weather->update();
 
 	sf::Vector2i from((int)(cam->offset.x / TILE_SIZE), (int)(cam->offset.y / TILE_SIZE));
 	sf::Vector2i to(from + visibleTiles);
@@ -119,6 +121,18 @@ void fired::Map::spawn() {
 
 	int toSpawn = random() % biome->creatures.size();
 	world->spawn(sf::Vector2f(2200 + random() % 200, 560), biome->creatures[toSpawn]);
+}
+
+
+
+/***********************************************************************
+     * Map
+     * setWeather
+
+***********************************************************************/
+void fired::Map::setWeather() {
+	weather = biome->getWeather(world);
+	if (weather) weather->fill();
 }
 
 

@@ -32,6 +32,7 @@ namespace fired {
 
 		fired::Tile   **tiles;
 		fired::Biome   *biome;
+		fired::Weather *weather;
 
 		sf::Vertex sky[4];
 
@@ -56,6 +57,7 @@ namespace fired {
 		void update();
 		void render();
 		void spawn();
+		void setWeather();
 
 		void findTile(int i, int j);
 		void findTiles(int x1, int y1, int x2, int y2) {for (int i = x1; i < x2; i++) for (int j = y1; j < y2; j++) findTile(i, j); };

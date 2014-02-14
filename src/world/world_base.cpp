@@ -33,7 +33,9 @@ fired::World::World(fired::Mouse *_mouse) {
 
 	cam->mapSize    = sf::Vector2i(map->sizeX * TILE_SIZE, map->sizeY * TILE_SIZE);
 	cam->objToTrack = &player->character->phys;
+	cam->update();
 
+	map->setWeather();
 	chars.push_back(player->character);
 }
 

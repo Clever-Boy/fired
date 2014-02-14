@@ -35,6 +35,8 @@ namespace fired {
 
 		 Biome(const char *bgFile);
 		~Biome();
+
+		fired::Weather *getWeather(fired::World *world);
 	};
 }
 

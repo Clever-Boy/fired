@@ -133,10 +133,15 @@ void fired::Weather::addParticle() {
 
 ***********************************************************************/
 sf::Vector2f fired::Weather::genPos() {
-	unsigned int random_val = random() % (settings->window.width + settings->window.height);
-	int xSide               = (wind < 0) ? 1 : settings->window.width - 1;
+	unsigned int random_val = random() % (settings->window.width + 2 * settings->window.height);
+	sf::Vector2f result = cam->offset;
 
-	if (wind == 0.0)                         return cam->offset + sf::Vector2f(random() % settings->window.width, 0);
-	if (random_val < settings->window.width) return cam->offset + sf::Vector2f(random_val, 0);
-	else                                     return cam->offset + sf::Vector2f(xSide, random_val - settings->window.width);
+	if (random_val < settings->window.height)
+		result += sf::Vector2f(1, random_val);
+	if (random_val < settings->window.height + settings->window.width)
+		result += sf::Vector2f(random_val - settings->window.height, 0);
+	else
+		result += sf::Vector2f(settings->window.width - 1, random_val - (settings->window.width + settings->window.height));
+
+	return result;
 }

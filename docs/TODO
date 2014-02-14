@@ -434,7 +434,7 @@
 		</todo>
 		<todo done="no" collapse="no"><title>Weather</title>
 			<todo done="yes" collapse="no"><title>Base class</title></todo>
-			<todo done="no" collapse="no"><title>Rain</title></todo>
+			<todo done="yes" collapse="no"><title>Rain</title></todo>
 			<todo done="no" collapse="no"><title>Snow</title></todo>
 			<todo done="no" collapse="yes"><title>Storm</title>
 				<todo done="no" collapse="no"><title>Lightning class</title></todo>
@@ -443,6 +443,7 @@
 				<todo done="no" collapse="no"><title>Lightning makes light</title></todo>
 				<todo done="no" collapse="no"><title>Srawing lightning till storm</title></todo>
 			</todo>
+			<todo done="no" collapse="no"><title>Biome weather definition</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Shotguns</title>
 			<todo done="no" collapse="no"><title>Class</title></todo>

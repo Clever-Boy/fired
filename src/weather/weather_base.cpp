@@ -16,8 +16,7 @@
 
 ***********************************************************************/
 bool fired::WeatherParticle::process(fired::World *world) {
-	if (world->isPixelVisible(pos)) return false;
-
+	if (!world->isPixelVisible(pos)) return false;
 	speed += accel * frameClock;
 	pos   += speed * frameClock;
 
@@ -34,13 +33,16 @@ bool fired::WeatherParticle::process(fired::World *world) {
      * constructor
 
 ***********************************************************************/
-fired::Weather::Weather(fired::World *_world, float _frequency, sf::Vector2f _speed) {
+fired::Weather::Weather(fired::World *_world, float _frequency, float _wind) {
 	world = _world;
 	cam   = world->cam;
 
 	life      = 0;
-	speed     = _speed;
 	frequency = _frequency;
+	wind      = _wind;
+
+	if (wind < -45.0) wind = -45.0;
+	if (wind >  45.0) wind =  45.0;
 }
 
 
@@ -108,5 +110,21 @@ void fired::Weather::addParticle() {
 	particles.back()->sprite   = sprite;
 	particles.back()->speed    = speed;
 	particles.back()->accel    = accel;
-	particles.back()->pos      = cam->offset + sf::Vector2f(random() % settings->window.width, 0);
+	particles.back()->pos = genPos();
+}
+
+
+
+/***********************************************************************
+     * Weather
+     * fill
+
+***********************************************************************/
+sf::Vector2f fired::Weather::genPos() {
+	unsigned int random_val = random() % (settings->window.width + settings->window.height);
+	int xSide               = (wind < 0) ? 1 : settings->window.width - 1;
+
+	if (wind == 0.0)                         return cam->offset + sf::Vector2f(random() % settings->window.width, 0);
+	if (random_val < settings->window.width) return cam->offset + sf::Vector2f(random_val, 0);
+	else                                     return cam->offset + sf::Vector2f(xSide, random_val - settings->window.width);
 }

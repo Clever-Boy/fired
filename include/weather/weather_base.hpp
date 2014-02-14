@@ -11,6 +11,7 @@
 
 
 namespace fired {
+	struct Weather;
 	struct WeatherParticle {
 		sf::RectangleShape *sprite;
 		sf::Vector2f        pos;
@@ -25,22 +26,25 @@ namespace fired {
 	struct Weather {
 		fired::World       *world;
 		sf::RectangleShape *sprite;
+		sf::FloatRect       weatherRect;
 		sf::Vector2f        speed;
 		sf::Vector2f        accel;
 		float               life;
+		float               wind;
 		float               frequency;
 
 		std::vector<fired::WeatherParticle*> particles;
 		fired::Camera *cam;
 
 
-		 Weather(fired::World *_world, float _frequency, sf::Vector2f _speed);
-		~Weather();
+		Weather(fired::World *_world, float _frequency, float _wind);
+		virtual ~Weather();
 
 		virtual void update();
 		void render();
 		void fill();
 		void addParticle();
+		sf::Vector2f genPos();
 	};
 }
 

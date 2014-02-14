@@ -1,15 +1,20 @@
 /***********************************************************************
-     * File       : weather.hpp
+     * File       : weather_rain.hpp
      * Created    : Feb 14, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __WEATHER
-#define __WEATHER
+#ifndef __WEATHER_RAIN
+#define __WEATHER_RAIN
 
-#include "weather/weather_base.hpp"
-#include "weather/weather_rain.hpp"
+
+namespace fired {
+	struct WeatherRain: Weather {
+		WeatherRain(fired::World *_world, float _frequency, float _wind);
+	};
+}
 
 #endif
+

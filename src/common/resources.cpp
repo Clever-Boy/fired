@@ -48,20 +48,25 @@ fired::Resources::Resources() {
 
 
 
-	sprites.coinTex = new sf::Texture();
-	sprites.smokeTex = new sf::Texture();
+	sprites.coinTex      = new sf::Texture();
+	sprites.smokeTex     = new sf::Texture();
+	sprites.snowflakeTex = new sf::Texture();
 
 	sprites.coinTex->loadFromFile("data/img/world/icons/misc/coin.png");
 	sprites.smokeTex->loadFromFile("data/img/world/sprites/smoke.png");
+	sprites.snowflakeTex->loadFromFile("data/img/world/sprites/snowflake.png");
 
-	sprites.coin = new sf::Sprite();
-	sprites.smoke = new sf::Sprite();
+	sprites.coin      = new sf::Sprite();
+	sprites.smoke     = new sf::Sprite();
+	sprites.snowflake = new sf::Sprite();
 
 	sprites.coin->setTexture(*sprites.coinTex);
 	sprites.smoke->setTexture(*sprites.smokeTex);
+	sprites.snowflake->setTexture(*sprites.snowflakeTex);
 
 	sprites.coin->setOrigin(sf::Vector2f(sprites.coinTex->getSize()) / 2.0f);
 	sprites.smoke->setOrigin(sf::Vector2f(sprites.smokeTex->getSize()) / 2.0f);
+	sprites.snowflake->setOrigin(sf::Vector2f(sprites.snowflakeTex->getSize()) / 2.0f);
 }
 
 
@@ -90,7 +95,9 @@ fired::Resources::~Resources() {
 
 	delete sprites.coin;
 	delete sprites.smoke;
+	delete sprites.snowflake;
 
 	delete sprites.coinTex;
 	delete sprites.smokeTex;
+	delete sprites.snowflakeTex;
 }

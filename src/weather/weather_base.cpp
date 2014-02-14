@@ -22,6 +22,7 @@ bool fired::WeatherParticle::process(fired::World *world) {
 	pos   += speed * frameClock;
 
 	sprite->setPosition(pos);
+	sprite->setScale(scale, scale);
 	app->draw(*sprite);
 
 	return true;
@@ -103,6 +104,7 @@ void fired::Weather::fill() {
 		particles.back()->sprite   = sprite;
 		particles.back()->speed    = speed;
 		particles.back()->accel    = accel;
+		particles.back()->scale    = 1.0;
 		particles.back()->pos      = cam->offset + sf::Vector2f(random() % settings->window.width, random() % settings->window.height);
 	}
 }
@@ -119,6 +121,7 @@ void fired::Weather::addParticle() {
 	particles.back()->sprite   = sprite;
 	particles.back()->speed    = speed;
 	particles.back()->accel    = accel;
+	particles.back()->scale    = 1.0f;
 	particles.back()->pos      = genPos();
 }
 

@@ -33,9 +33,11 @@ namespace fired {
 		struct {
 			sf::Texture *coinTex;
 			sf::Texture *smokeTex;
+			sf::Texture *snowflakeTex;
 
 			sf::Sprite  *coin;
 			sf::Sprite  *smoke;
+			sf::Sprite  *snowflake;
 		} sprites;
 
 

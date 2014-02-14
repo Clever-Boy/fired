@@ -17,6 +17,7 @@ namespace fired {
 		sf::Vector2f        pos;
 		sf::Vector2f        speed;
 		sf::Vector2f        accel;
+		float               scale;
 
 
 		bool process(fired::World *world);

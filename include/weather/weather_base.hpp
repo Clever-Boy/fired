@@ -45,7 +45,9 @@ namespace fired {
 		void render();
 		void fill();
 		void addParticle();
-		sf::Vector2f genPos();
+
+		sf::Vector2f  genPos();
+		virtual float genScale() { return 1.0f; };
 	};
 }
 

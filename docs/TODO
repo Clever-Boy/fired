@@ -446,7 +446,11 @@
 				<todo done="no" collapse="no"><title>Storm generates lightninngs</title></todo>
 				<todo done="no" collapse="no"><title>Drawing lightning till storm</title></todo>
 			</todo>
-			<todo done="no" collapse="no"><title>Biome weather definition</title></todo>
+			<todo done="no" collapse="yes"><title>Biome weather definition</title>
+				<todo done="no" collapse="no"><title>Weather class</title></todo>
+				<todo done="no" collapse="no"><title>Weather intensity</title></todo>
+				<todo done="no" collapse="no"><title>Weather extra (like lightning frequency for storm)</title></todo>
+			</todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Shotguns</title>
 			<todo done="no" collapse="no"><title>Class</title></todo>
@@ -481,6 +485,7 @@
 		<todo done="yes" collapse="no"><title>Change BG</title></todo>
 		<todo done="yes" collapse="no"><title>Add sky gradient color</title></todo>
 		<todo done="yes" collapse="no"><title>Convert TGA to PNG</title></todo>
+		<todo done="no" collapse="no"><title>Alternate mask for bricks like dirt, stone etc.</title></todo>
 		<todo done="no" collapse="no"><title>Clouds</title></todo>
 		<todo done="no" collapse="no"><title>Random wind</title></todo>
 		<todo done="no" collapse="no"><title>Change Armor icons</title></todo>
@@ -503,6 +508,31 @@
 			<todo done="no" collapse="no"><title>Generation</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Mines</title>
+			<todo done="no" collapse="no"><title>Tiles</title></todo>
+			<todo done="no" collapse="no"><title>Decors</title></todo>
+			<todo done="no" collapse="no"><title>Generation</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Snow</title>
+			<todo done="no" collapse="no"><title>Tiles</title></todo>
+			<todo done="no" collapse="no"><title>Decors</title></todo>
+			<todo done="no" collapse="no"><title>Generation</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Sewers</title>
+			<todo done="no" collapse="no"><title>Tiles</title></todo>
+			<todo done="no" collapse="no"><title>Decors</title></todo>
+			<todo done="no" collapse="no"><title>Generation</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Castle</title>
+			<todo done="no" collapse="no"><title>Tiles</title></todo>
+			<todo done="no" collapse="no"><title>Decors</title></todo>
+			<todo done="no" collapse="no"><title>Generation</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Cave</title>
+			<todo done="no" collapse="no"><title>Tiles</title></todo>
+			<todo done="no" collapse="no"><title>Decors</title></todo>
+			<todo done="no" collapse="no"><title>Generation</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Mountains</title>
 			<todo done="no" collapse="no"><title>Tiles</title></todo>
 			<todo done="no" collapse="no"><title>Decors</title></todo>
 			<todo done="no" collapse="no"><title>Generation</title></todo>

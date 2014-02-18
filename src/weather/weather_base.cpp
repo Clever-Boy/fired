@@ -138,7 +138,7 @@ sf::Vector2f fired::Weather::genPos() {
 
 	if (random_val < settings->window.height)
 		result += sf::Vector2f(1, random_val);
-	if (random_val < settings->window.height + settings->window.width)
+	else if (random_val < settings->window.height + settings->window.width)
 		result += sf::Vector2f(random_val - settings->window.height, 0);
 	else
 		result += sf::Vector2f(settings->window.width - 1, random_val - (settings->window.width + settings->window.height));

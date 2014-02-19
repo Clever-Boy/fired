@@ -346,7 +346,29 @@
 		<todo done="yes" collapse="no"><title>Move decors to objects moNone</title></todo>
 		<todo done="yes" collapse="no"><title>Store decor, light and item ID instead of name</title></todo>
 	</todo>
-	<todo done="no" collapse="no"><title>Advanced</title>
+	<todo done="no" collapse="no"><title>Weather</title>
+		<todo done="yes" collapse="no"><title>Base class</title></todo>
+		<todo done="yes" collapse="no"><title>Rain</title></todo>
+		<todo done="yes" collapse="no"><title>Snow</title></todo>
+		<todo done="no" collapse="no"><title>Storm</title>
+			<todo done="yes" collapse="no"><title>Storm weather class</title></todo>
+			<todo done="no" collapse="no"><title>Lightning class</title></todo>
+			<todo done="no" collapse="no"><title>Lightning building</title></todo>
+			<todo done="no" collapse="no"><title>Lightning rendering</title></todo>
+			<todo done="no" collapse="no"><title>Lightning makes light</title></todo>
+			<todo done="no" collapse="no"><title>Loghtning makes sound</title></todo>
+			<todo done="no" collapse="no"><title>Storm generates lightninngs</title></todo>
+			<todo done="no" collapse="no"><title>Drawing lightning till storm</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Biome weather definition</title>
+			<todo done="yes" collapse="no"><title>Weather class</title></todo>
+			<todo done="yes" collapse="no"><title>Weather intensity</title></todo>
+			<todo done="no" collapse="no"><title>Weather extra (like lightning frequency for storm)</title></todo>
+		</todo>
+		<todo done="yes" collapse="no"><title>Random wind</title></todo>
+		<todo done="no" collapse="no"><title>Clouds</title></todo>
+	</todo>
+	<todo done="no" collapse="yes"><title>Advanced</title>
 		<todo done="yes" collapse="no"><title>Move name and caption to char[64]</title></todo>
 		<todo done="yes" collapse="no"><title>Weapon caption</title></todo>
 		<todo done="yes" collapse="no"><title>Reading captions with spaces</title></todo>
@@ -431,28 +453,6 @@
 			<todo done="yes" collapse="no"><title>Particle system</title></todo>
 			<todo done="yes" collapse="no"><title>Smoke following missile</title></todo>
 			<todo done="yes" collapse="no"><title>Rendering</title></todo>
-		</todo>
-		<todo done="no" collapse="no"><title>Weather</title>
-			<todo done="yes" collapse="no"><title>Base class</title></todo>
-			<todo done="yes" collapse="no"><title>Rain</title></todo>
-			<todo done="yes" collapse="no"><title>Snow</title></todo>
-			<todo done="no" collapse="no"><title>Storm</title>
-				<todo done="yes" collapse="no"><title>Storm weather class</title></todo>
-				<todo done="no" collapse="no"><title>Lightning class</title></todo>
-				<todo done="no" collapse="no"><title>Lightning building</title></todo>
-				<todo done="no" collapse="no"><title>Lightning rendering</title></todo>
-				<todo done="no" collapse="no"><title>Lightning makes light</title></todo>
-				<todo done="no" collapse="no"><title>Loghtning makes sound</title></todo>
-				<todo done="no" collapse="no"><title>Storm generates lightninngs</title></todo>
-				<todo done="no" collapse="no"><title>Drawing lightning till storm</title></todo>
-			</todo>
-			<todo done="no" collapse="yes"><title>Biome weather definition</title>
-				<todo done="yes" collapse="no"><title>Weather class</title></todo>
-				<todo done="yes" collapse="no"><title>Weather intensity</title></todo>
-				<todo done="no" collapse="no"><title>Weather extra (like lightning frequency for storm)</title></todo>
-			</todo>
-			<todo done="yes" collapse="no"><title>Random wind</title></todo>
-			<todo done="no" collapse="no"><title>Clouds</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Shotguns</title>
 			<todo done="no" collapse="no"><title>Class</title></todo>

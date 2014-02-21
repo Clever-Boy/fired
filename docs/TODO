@@ -456,7 +456,6 @@
 		</todo>
 		<todo done="no" collapse="yes"><title>Shotguns</title>
 			<todo done="no" collapse="no"><title>Class</title></todo>
-			<todo done="no" collapse="no"><title>Ammo per shot</title></todo>
 			<todo done="no" collapse="no"><title>Bullets per shot</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Ammo</title>
@@ -467,6 +466,7 @@
 		</todo>
 		<todo done="no" collapse="yes"><title>Items bonuses +dmg, +defence, etc.</title></todo>
 		<todo done="no" collapse="no"><title>Blood on model explosion</title></todo>
+		<todo done="no" collapse="no"><title>Sound when ammo collides the block</title></todo>
 		<todo done="no" collapse="yes"><title>Liquids</title>
 			<todo done="no" collapse="no"><title>Class</title></todo>
 			<todo done="no" collapse="no"><title>Rendering</title></todo>

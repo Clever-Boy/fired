@@ -27,6 +27,8 @@ fired::WeatherStorm::WeatherStorm(fired::World *_world, float _frequency, float 
 
 	lightning     = NULL;
 	lightningTime = 0.0f;
+
+	resources->sounds.rainSnd->play();
 }
 
 
@@ -39,6 +41,7 @@ fired::WeatherStorm::WeatherStorm(fired::World *_world, float _frequency, float 
 fired::WeatherStorm::~WeatherStorm() {
 	if (lightning) delete lightning;
 	resources->sounds.thunderSnd->stop();
+	resources->sounds.rainSnd->stop();
 }
 
 

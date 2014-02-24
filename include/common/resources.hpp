@@ -15,8 +15,12 @@ namespace fired {
 		struct {
 			sf::SoundBuffer *explosion;
 			sf::SoundBuffer *thunder;
+			sf::SoundBuffer *rain;
+			sf::SoundBuffer *snow;
 
 			sf::Sound       *thunderSnd;
+			sf::Sound       *rainSnd;
+			sf::Sound       *snowSnd;
 		} sounds;
 
 

@@ -346,7 +346,7 @@
 		<todo done="yes" collapse="no"><title>Move decors to objects moNone</title></todo>
 		<todo done="yes" collapse="no"><title>Store decor, light and item ID instead of name</title></todo>
 	</todo>
-	<todo done="yes" collapse="no"><title>Weather</title>
+	<todo done="yes" collapse="yes"><title>Weather</title>
 		<todo done="yes" collapse="no"><title>Base class</title></todo>
 		<todo done="yes" collapse="no"><title>Rain</title></todo>
 		<todo done="yes" collapse="no"><title>Snow</title></todo>
@@ -365,9 +365,10 @@
 			<todo done="yes" collapse="no"><title>Weather intensity</title></todo>
 		</todo>
 		<todo done="yes" collapse="no"><title>Random wind</title></todo>
-		<todo done="no" collapse="no"><title>Rain sound</title></todo>
+		<todo done="yes" collapse="no"><title>Rain sound</title></todo>
+		<todo done="yes" collapse="no"><title>Snow sound</title></todo>
 	</todo>
-	<todo done="no" collapse="yes"><title>Advanced</title>
+	<todo done="no" collapse="no"><title>Advanced</title>
 		<todo done="yes" collapse="no"><title>Move name and caption to char[64]</title></todo>
 		<todo done="yes" collapse="no"><title>Weapon caption</title></todo>
 		<todo done="yes" collapse="no"><title>Reading captions with spaces</title></todo>
@@ -453,7 +454,7 @@
 			<todo done="yes" collapse="no"><title>Smoke following missile</title></todo>
 			<todo done="yes" collapse="no"><title>Rendering</title></todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Shotguns</title>
+		<todo done="no" collapse="no"><title>Shotguns</title>
 			<todo done="no" collapse="no"><title>Class</title></todo>
 			<todo done="no" collapse="no"><title>Bullets per shot</title></todo>
 		</todo>

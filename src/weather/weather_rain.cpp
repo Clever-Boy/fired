@@ -24,4 +24,17 @@ fired::WeatherRain::WeatherRain(fired::World *_world, float _frequency, float _w
 	float angle = (90 + wind) * 3.14 / 180.0;
 	speed = sf::Vector2f(650.0 * cos(angle), 650.0 * sin(angle));
 	accel = sf::Vector2f(350.0 * cos(angle), 350.0 * sin(angle));
+
+	resources->sounds.rainSnd->play();
+}
+
+
+
+/***********************************************************************
+     * WeatherRain
+     * destructor
+
+***********************************************************************/
+fired::WeatherRain::~WeatherRain() {
+	resources->sounds.rainSnd->stop();
 }

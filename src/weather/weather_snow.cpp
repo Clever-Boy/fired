@@ -23,6 +23,19 @@ fired::WeatherSnow::WeatherSnow(fired::World *_world, float _frequency, float _w
 	float angle = (90 + wind) * 3.14 / 180.0;
 	speed = sf::Vector2f(650.0 * cos(angle), 650.0 * sin(angle) / 3.0f);
 	accel = sf::Vector2f(350.0 * cos(angle), 350.0 * sin(angle) / 3.0f);
+
+	resources->sounds.snowSnd->play();
+}
+
+
+
+/***********************************************************************
+     * WeatherSnow
+     * destructor
+
+***********************************************************************/
+fired::WeatherSnow::~WeatherSnow() {
+	resources->sounds.snowSnd->stop();
 }
 
 

@@ -455,12 +455,12 @@
 			<todo done="yes" collapse="no"><title>Rendering</title></todo>
 		</todo>
 		<todo done="no" collapse="no"><title>Blood on model explosion</title></todo>
-		<todo done="no" collapse="yes"><title>Shotguns</title>
+		<todo done="no" collapse="no"><title>Shotguns</title>
 			<todo done="no" collapse="no"><title>Add weapon subtype (explosive, shotgun, rifle, energy, melee, broad)</title></todo>
 			<todo done="no" collapse="no"><title>Bullets per shot</title></todo>
-			<todo done="no" collapse="no"><title>Record in DB</title></todo>
-			<todo done="no" collapse="no"><title>Bodypart</title></todo>
-			<todo done="no" collapse="no"><title>Shotsound</title></todo>
+			<todo done="yes" collapse="no"><title>Record in DB</title></todo>
+			<todo done="yes" collapse="no"><title>Bodypart</title></todo>
+			<todo done="yes" collapse="no"><title>Shotsound</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Ammo</title>
 			<todo done="no" collapse="no"><title>Ammo item class</title></todo>

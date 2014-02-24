@@ -15,12 +15,14 @@
 namespace fired {
 	struct WeatherStorm: Weather {
 		fired::Lightning *lightning;
+		float lightningTime;
 
 
 		 WeatherStorm(fired::World *_world, float _frequency, float _wind);
 		~WeatherStorm();
 
 		void update();
+		void genLightning();
 	};
 }
 

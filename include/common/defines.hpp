@@ -86,7 +86,10 @@
 
 ***********************************************************************/
 #define LIGHTNING_OFFSET     96.0
+#define LIGHTNING_LIFE       0.6
 #define LIGHTNING_ITERATIONS 5
+#define LIGHTNING_MIN_TIME   2.0
+#define LIGHTNING_MAX_TIME   10.0
 
 
 

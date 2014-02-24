@@ -28,6 +28,7 @@ fired::Lightning::Lightning(sf::Vector2f start, sf::Vector2f end) {
 
 	n = vNorm(sf::Vector2f(n.y, -n.x));
 	lines.push_back(LightningLine(start, end));
+	life = 0;
 
 	for (unsigned int i = 0; i < LIGHTNING_ITERATIONS; i++) {
 		while (!lines.empty()) {
@@ -83,4 +84,22 @@ fired::Lightning::~Lightning() {
 ***********************************************************************/
 void fired::Lightning::draw() {
 	app->draw(&line[0], line.size(), sf::Lines);
+}
+
+
+
+/***********************************************************************
+     * Lightning
+     * update
+
+***********************************************************************/
+bool fired::Lightning::update() {
+	life += frameClock;
+	if (life >= LIGHTNING_LIFE) return true;
+
+	sf::Color color = sf::Color(255, 255, 255, (int)(255.0 * (1.0 - life / LIGHTNING_LIFE)));
+	for (unsigned int i = 0; i < line.size(); i++)
+		line[i].color = color;
+
+	return false;
 }

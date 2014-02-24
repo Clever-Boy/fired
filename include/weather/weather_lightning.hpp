@@ -14,6 +14,7 @@ namespace fired {
 	struct LightningLine {
 		sf::Vector2f A, B;
 
+
 		LightningLine() {};
 		LightningLine(sf::Vector2f a, sf::Vector2f b) {A = a; B = b;};
 	};
@@ -21,11 +22,14 @@ namespace fired {
 
 	struct Lightning {
 		std::vector<sf::Vertex> line;
+		float life;
+
 
 		 Lightning(sf::Vector2f start, sf::Vector2f dir);
 		~Lightning();
 
 		void draw();
+		bool update();
 	};
 }
 

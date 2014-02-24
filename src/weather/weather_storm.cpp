@@ -38,6 +38,7 @@ fired::WeatherStorm::WeatherStorm(fired::World *_world, float _frequency, float 
 ***********************************************************************/
 fired::WeatherStorm::~WeatherStorm() {
 	if (lightning) delete lightning;
+	resources->sounds.thunderSnd->stop();
 }
 
 
@@ -83,6 +84,7 @@ void fired::WeatherStorm::genLightning() {
 	lightning     = new fired::Lightning(start, end);
 	lightningTime = LIGHTNING_MIN_TIME + (LIGHTNING_MAX_TIME - LIGHTNING_MIN_TIME) * ((float)(random() % 100) / 100.0);
 
+	resources->sounds.thunderSnd->play();
 
 	int x, y;
 	for (unsigned int i = 0; i < lightning->line.size(); i+=2) {

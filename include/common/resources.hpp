@@ -14,6 +14,9 @@ namespace fired {
 	struct Resources {
 		struct {
 			sf::SoundBuffer *explosion;
+			sf::SoundBuffer *thunder;
+
+			sf::Sound       *thunderSnd;
 		} sounds;
 
 

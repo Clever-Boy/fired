@@ -17,7 +17,13 @@
 ***********************************************************************/
 fired::Resources::Resources() {
 	sounds.explosion = new sf::SoundBuffer();
+	sounds.thunder = new sf::SoundBuffer();
+
 	sounds.explosion->loadFromFile("data/snd/misc/explosion.wav");
+	sounds.thunder->loadFromFile("data/snd/misc/thunder.wav");
+
+	sounds.thunderSnd = new sf::Sound(*sounds.thunder);
+	sounds.thunderSnd->setVolume(settings->volume.sound);
 
 
 
@@ -78,6 +84,9 @@ fired::Resources::Resources() {
 ***********************************************************************/
 fired::Resources::~Resources() {
 	delete sounds.explosion;
+	delete sounds.thunder;
+
+	delete sounds.thunderSnd;
 
 
 

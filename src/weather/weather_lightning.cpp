@@ -97,7 +97,9 @@ bool fired::Lightning::update() {
 	life += frameClock;
 	if (life >= LIGHTNING_LIFE) return true;
 
-	sf::Color color = sf::Color(255, 255, 255, (int)(255.0 * (1.0 - life / LIGHTNING_LIFE)));
+	sf::Color color = sf::Color::White;
+	if (life > LIGHTNING_FADEOUT) color.a = (int)(255.0 * ((LIGHTNING_LIFE - life) / (LIGHTNING_LIFE - LIGHTNING_FADEOUT)));
+
 	for (unsigned int i = 0; i < line.size(); i++)
 		line[i].color = color;
 

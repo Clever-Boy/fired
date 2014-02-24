@@ -82,4 +82,18 @@ void fired::WeatherStorm::genLightning() {
 
 	lightning     = new fired::Lightning(start, end);
 	lightningTime = LIGHTNING_MIN_TIME + (LIGHTNING_MAX_TIME - LIGHTNING_MIN_TIME) * ((float)(random() % 100) / 100.0);
+
+
+	int x, y;
+	for (unsigned int i = 0; i < lightning->line.size(); i+=2) {
+		x = lightning->line[i].position.x / TILE_SIZE;
+		y = lightning->line[i].position.y / TILE_SIZE;
+
+		if (x < 0)                  continue;
+		if (x >= world->map->sizeX) continue;
+		if (y < 0)                  continue;
+		if (y >= world->map->sizeY) continue;
+
+		if (!world->map->tiles[x][y].tileset) world->map->addTemporaryLightSource(world->map->getTilePos(x, y), LIGHT_MAX_LIGHTLEVEL, sf::Color::White, LIGHTNING_LIFE);
+	}
 }

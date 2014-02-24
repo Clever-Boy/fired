@@ -27,7 +27,6 @@ namespace fired {
 	struct Weather {
 		fired::World       *world;
 		sf::RectangleShape *sprite;
-		sf::FloatRect       weatherRect;
 		sf::Vector2f        speed;
 		sf::Vector2f        accel;
 		float               life;

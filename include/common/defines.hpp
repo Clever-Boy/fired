@@ -25,7 +25,7 @@
      * List processing macros
 
 ***********************************************************************/
-#define deleteList(list) for (; !(list).empty(); delete (list)[(list).size() - 1], (list).pop_back())
+#define deleteList(list) for (; !(list).empty(); delete (list).back(), (list).pop_back())
 #define updateList(list) for (unsigned int i = 0; i < (list).size();) { if (!(list)[i]->update()) {delete (list)[i]; (list).erase((list).begin() + i);} else i++;}
 
 
@@ -78,6 +78,15 @@
 #define LIGHT_SPLASH_INTENSITY  24
 #define LIGHT_SHOT_INTENSITY    10
 #define LIGHT_SHOT_LIFETIME     0.5f
+
+
+
+/***********************************************************************
+     * Lighting constants
+
+***********************************************************************/
+#define LIGHTNING_OFFSET     96.0
+#define LIGHTNING_ITERATIONS 5
 
 
 

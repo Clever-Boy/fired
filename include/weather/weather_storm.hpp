@@ -9,10 +9,18 @@
 #ifndef __WEATHER_STORM
 #define __WEATHER_STORM
 
+#include "weather_lightning.hpp"
+
 
 namespace fired {
 	struct WeatherStorm: Weather {
-		WeatherStorm(fired::World *_world, float _frequency, float _wind);
+		fired::Lightning *lightning;
+
+
+		 WeatherStorm(fired::World *_world, float _frequency, float _wind);
+		~WeatherStorm();
+
+		void update();
 	};
 }
 

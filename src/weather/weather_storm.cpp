@@ -24,4 +24,30 @@ fired::WeatherStorm::WeatherStorm(fired::World *_world, float _frequency, float 
 	float angle = (90 + wind) * 3.14 / 180.0;
 	speed = sf::Vector2f(650.0 * cos(angle), 650.0 * sin(angle));
 	accel = sf::Vector2f(350.0 * cos(angle), 350.0 * sin(angle));
+
+	lightning = NULL;
+}
+
+
+
+/***********************************************************************
+     * WeatherStorm
+     * destructor
+
+***********************************************************************/
+fired::WeatherStorm::~WeatherStorm() {
+	if (lightning) delete lightning;
+}
+
+
+
+/***********************************************************************
+     * WeatherStorm
+     * update
+
+***********************************************************************/
+void fired::WeatherStorm::update() {
+	Weather::update();
+
+	if (lightning) lightning->draw();
 }

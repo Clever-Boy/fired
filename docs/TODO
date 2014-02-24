@@ -352,8 +352,8 @@
 		<todo done="yes" collapse="no"><title>Snow</title></todo>
 		<todo done="no" collapse="no"><title>Storm</title>
 			<todo done="yes" collapse="no"><title>Storm weather class</title></todo>
-			<todo done="no" collapse="no"><title>Lightning class</title></todo>
-			<todo done="no" collapse="no"><title>Lightning building</title></todo>
+			<todo done="yes" collapse="no"><title>Lightning class</title></todo>
+			<todo done="yes" collapse="no"><title>Lightning building</title></todo>
 			<todo done="no" collapse="no"><title>Lightning rendering</title></todo>
 			<todo done="no" collapse="no"><title>Lightning makes light</title></todo>
 			<todo done="no" collapse="no"><title>Loghtning makes sound</title></todo>

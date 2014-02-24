@@ -105,6 +105,16 @@ float sign(float x) {
 
 
 /***********************************************************************
+     * getRandomOffset
+
+***********************************************************************/
+float getRandomOffset(float offsetAmount) {
+	return float(random() % 400 - 200) * offsetAmount / 200.0;
+}
+
+
+
+/***********************************************************************
                        Fast Ray-Box Intersection
                            by Andrew Woo
               from "Graphics Gems", Academic Press, 1990

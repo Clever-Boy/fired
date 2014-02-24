@@ -15,6 +15,7 @@ void emptyItem(fired::InventoryItem *item);
 float lessOrZero(float x);
 float sqr(float x);
 float sign(float x);
+float getRandomOffset(float offsetAmount);
 sf::Color mixColors(sf::Color c1, sf::Color c2);
 bool canMixColors(sf::Color base, sf::Color light);
 bool directoryContents(const char *dir, std::vector<std::string>* contents);

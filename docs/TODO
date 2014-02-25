@@ -457,7 +457,7 @@
 		<todo done="no" collapse="no"><title>Blood on model explosion</title></todo>
 		<todo done="no" collapse="no"><title>Shotguns</title>
 			<todo done="yes" collapse="no"><title>Add weapon subtype (explosive, shotgun, rifle, energy, melee, broad)</title></todo>
-			<todo done="no" collapse="no"><title>Show subtype in hint</title></todo>
+			<todo done="yes" collapse="no"><title>Show subtype in hint</title></todo>
 			<todo done="no" collapse="no"><title>Bullets per shot</title></todo>
 			<todo done="yes" collapse="no"><title>Record in DB</title></todo>
 			<todo done="yes" collapse="no"><title>Bodypart</title></todo>

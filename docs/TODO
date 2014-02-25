@@ -462,7 +462,7 @@
 			<todo done="yes" collapse="no"><title>Bodypart</title></todo>
 			<todo done="yes" collapse="no"><title>Shotsound</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Blood on model explosion</title></todo>
+		<todo done="yes" collapse="no"><title>Blood on model explosion</title></todo>
 		<todo done="no" collapse="yes"><title>Ammo</title>
 			<todo done="no" collapse="no"><title>Ammo item class</title></todo>
 			<todo done="no" collapse="no"><title>Ammo slot</title></todo>

@@ -98,13 +98,17 @@ void fired::Model::chunkPart(fired::Bodypart *part, sf::Vector2f shot, float kno
 	if (!part->base) return;
 
 	sf::Vector2f chunkPos;
+	sf::Vector2f chunkSpeed;
+
 	if (*part->direction == 1)
 		chunkPos = owner->phys.pos + (part->offset + part->base->size / 2.0f) * modelScale;
 	else
 		chunkPos = owner->phys.pos + sf::Vector2f(-part->offset.x - part->base->size.x / 2.0f, part->offset.y + part->base->size.y / 2.0f) * modelScale + sf::Vector2f(owner->phys.size.x, 0);
 
+	chunkSpeed = owner->phys.velocity + vNorm(part->offset - part->base->origin - shot) * knockback * 20.0f;
 
-	world->addChunk(part, modelScale, chunkPos, owner->phys.velocity + vNorm(part->offset - part->base->origin - shot) * knockback * 20.0f);
+	world->addChunk(part, modelScale, chunkPos, chunkSpeed);
+	world->addBloodSplash(chunkPos, -chunkSpeed, 20);
 }
 
 

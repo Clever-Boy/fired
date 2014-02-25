@@ -223,7 +223,7 @@
 		<todo done="yes" collapse="no"><title>Loading map</title></todo>
 		<todo done="yes" collapse="no"><title>Tilesets system</title></todo>
 		<todo done="yes" collapse="no"><title>Finding tiles</title></todo>
-		<todo done="yes" collapse="no"><title>Walls (50 0rey tiles)</title></todo>
+		<todo done="yes" collapse="no"><title>Walls (50% grey tiles)</title></todo>
 		<todo done="yes" collapse="no"><title>Bricks tileset</title></todo>
 		<todo done="yes" collapse="no"><title>Yellow warning tilesets</title></todo>
 		<todo done="yes" collapse="no"><title>Map decoration class</title></todo>
@@ -500,8 +500,27 @@
 		<todo done="no" collapse="no"><title>Change crosshair</title></todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>Skills</title>
-		<todo done="no" collapse="no"><title>Primary skills (Strength, Agility, Accuracy etc.)</title></todo>
-		<todo done="no" collapse="no"><title>Secondary skills (Healing, Crafting etc.)</title></todo>
+		<todo done="no" collapse="no"><title>Skill points</title></todo>
+		<todo done="no" collapse="no"><title>Rendering skills and skill points in character window</title></todo>
+		<todo done="no" collapse="yes"><title>Primary skills</title>
+			<todo done="no" collapse="no"><title>Primary skills struct</title></todo>
+			<todo done="no" collapse="yes"><title>Primary skills calculation</title>
+				<todo done="no" collapse="no"><title>Strength</title></todo>
+				<todo done="no" collapse="no"><title>Agility</title></todo>
+				<todo done="no" collapse="no"><title>Accuracy</title></todo>
+			</todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Secondary skills (Healing, Crafting etc.)</title>
+			<todo done="no" collapse="no"><title>Secondary skills struct</title></todo>
+			<todo done="no" collapse="yes"><title>Secondary skills calculation</title>
+				<todo done="no" collapse="no"><title>Runner</title></todo>
+				<todo done="no" collapse="no"><title>Jumper</title></todo>
+				<todo done="no" collapse="no"><title>Shooter</title></todo>
+				<todo done="no" collapse="no"><title>Heavy hand</title></todo>
+			</todo>
+		</todo>
+		<todo done="no" collapse="no"><title>Character class</title></todo>
+		<todo done="no" collapse="no"><title>Class depending secondary skills</title></todo>
 		<todo done="no" collapse="no"><title>Weapon skills (each weapon has it's own XP value)</title></todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>Biomes</title>
@@ -576,8 +595,12 @@
 		<todo done="no" collapse="no"><title>Generating loot depending on level</title></todo>
 		<todo done="no" collapse="no"><title>Final code optimization</title></todo>
 	</todo>
+	<todo done="no" collapse="yes"><title>Multiplayer</title>
+		<todo done="no" collapse="no"><title>Server thread</title></todo>
+		<todo done="no" collapse="no"><title>Multiplayer AI type</title></todo>
+		<todo done="no" collapse="no"><title>Socket AI binding</title></todo>
+	</todo>
 	<todo done="no" collapse="yes"><title>--- Release Beta</title>
 		<todo done="no" collapse="no"><title>Fix alpha bugs</title></todo>
-		<todo done="no" collapse="no"><title>Crypt sqlite DB</title></todo>
 	</todo>
 </todo>

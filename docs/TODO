@@ -474,12 +474,12 @@
 			<todo done="no" collapse="no"><title>Weapon subtype filter</title></todo>
 		</todo>
 		<todo done="no" collapse="no"><title>Sound when ammo collides the block</title></todo>
-		<todo done="no" collapse="yes"><title>Items bonuses +dmg, +defence, etc.</title></todo>
 		<todo done="no" collapse="yes"><title>Liquids</title>
 			<todo done="no" collapse="no"><title>Class</title></todo>
 			<todo done="no" collapse="no"><title>Rendering</title></todo>
 			<todo done="no" collapse="no"><title>Flow animation</title></todo>
 			<todo done="no" collapse="no"><title>Physics</title></todo>
+			<todo done="no" collapse="no"><title>Splash on impact</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Add options processing</title>
 			<todo done="no" collapse="no"><title>Add music volume change</title></todo>
@@ -506,7 +506,7 @@
 	</todo>
 	<todo done="no" collapse="yes"><title>Skills</title>
 		<todo done="no" collapse="no"><title>Skill points</title></todo>
-		<todo done="no" collapse="no"><title>Rendering skills and skill points in character window</title></todo>
+		<todo done="no" collapse="no"><title>Character class</title></todo>
 		<todo done="no" collapse="yes"><title>Primary skills</title>
 			<todo done="no" collapse="no"><title>Primary skills struct</title></todo>
 			<todo done="no" collapse="yes"><title>Primary skills calculation</title>
@@ -515,7 +515,8 @@
 				<todo done="no" collapse="no"><title>Accuracy</title></todo>
 			</todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Secondary skills (Healing, Crafting etc.)</title>
+		<todo done="no" collapse="no"><title>Rendering skills and skill points in character window</title></todo>
+		<todo done="no" collapse="yes"><title>Secondary skills</title>
 			<todo done="no" collapse="no"><title>Secondary skills struct</title></todo>
 			<todo done="no" collapse="yes"><title>Secondary skills calculation</title>
 				<todo done="no" collapse="no"><title>Runner</title></todo>
@@ -524,7 +525,6 @@
 				<todo done="no" collapse="no"><title>Heavy hand</title></todo>
 			</todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Character class</title></todo>
 		<todo done="no" collapse="no"><title>Class depending secondary skills</title></todo>
 		<todo done="no" collapse="no"><title>Weapon skills (each weapon has it's own XP value)</title></todo>
 	</todo>
@@ -564,6 +564,16 @@
 			<todo done="no" collapse="no"><title>Decors</title></todo>
 			<todo done="no" collapse="no"><title>Generation</title></todo>
 		</todo>
+		<todo done="no" collapse="yes"><title>Graveyard</title>
+			<todo done="no" collapse="no"><title>Tiles</title></todo>
+			<todo done="no" collapse="no"><title>Decors</title></todo>
+			<todo done="no" collapse="no"><title>Generation</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Forest</title>
+			<todo done="no" collapse="no"><title>Tiles</title></todo>
+			<todo done="no" collapse="no"><title>Decors</title></todo>
+			<todo done="no" collapse="no"><title>Generation</title></todo>
+		</todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>Locations</title>
 		<todo done="no" collapse="yes"><title>City</title>
@@ -598,6 +608,7 @@
 		<todo done="no" collapse="no"><title>Add some creatures</title></todo>
 		<todo done="no" collapse="no"><title>Player default colors</title></todo>
 		<todo done="no" collapse="no"><title>Generating loot depending on level</title></todo>
+		<todo done="no" collapse="no"><title>Items bonuses +dmg, +defence, etc.</title></todo>
 		<todo done="no" collapse="no"><title>Final code optimization</title></todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>Multiplayer</title>

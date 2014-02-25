@@ -555,6 +555,7 @@ int fired::Container::loadItem(void *data, int, char **argv, char **) {
 
 	if (!strcmp(argv[3], "armor" )) current->type = itArmor;
 	if (!strcmp(argv[3], "weapon")) current->type = itWeapon;
+	if (!strcmp(argv[3], "ammo"  )) current->type = itAmmo;
 
 	switch (current->type) {
 		case itAny:

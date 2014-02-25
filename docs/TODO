@@ -463,11 +463,12 @@
 			<todo done="yes" collapse="no"><title>Shotsound</title></todo>
 		</todo>
 		<todo done="yes" collapse="no"><title>Blood on model explosion</title></todo>
-		<todo done="no" collapse="yes"><title>Ammo</title>
-			<todo done="no" collapse="no"><title>Ammo item class</title></todo>
-			<todo done="no" collapse="no"><title>Ammo slot</title></todo>
-			<todo done="no" collapse="no"><title>Ammo reducing on shot</title></todo>
-			<todo done="no" collapse="no"><title>Ammo filter (rocket dor bazooka, bullets for rifle, etc.)</title></todo>
+		<todo done="no" collapse="no"><title>Ammo</title>
+			<todo done="yes" collapse="no"><title>Item class</title></todo>
+			<todo done="no" collapse="no"><title>Table in DB</title></todo>
+			<todo done="no" collapse="no"><title>Slot</title></todo>
+			<todo done="no" collapse="no"><title>Reducing on shot</title></todo>
+			<todo done="no" collapse="no"><title>Filter (rocket dor bazooka, bullets for rifle, etc.)</title></todo>
 		</todo>
 		<todo done="no" collapse="no"><title>Sound when ammo collides the block</title></todo>
 		<todo done="no" collapse="yes"><title>Items bonuses +dmg, +defence, etc.</title></todo>

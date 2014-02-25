@@ -14,7 +14,8 @@ namespace fired {
 	enum ItemType {
 		itAny,
 		itWeapon,
-		itArmor
+		itArmor,
+		itAmmo
 	};
 
 

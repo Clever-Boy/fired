@@ -99,6 +99,6 @@ void fired::WeatherStorm::genLightning() {
 		if (y < 0)                  continue;
 		if (y >= world->map->sizeY) continue;
 
-		if (!world->map->tiles[x][y].tileset) world->map->addTemporaryLightSource(world->map->getTilePos(x, y), LIGHT_MAX_LIGHTLEVEL, sf::Color::White, LIGHTNING_LIFE);
+		if (!world->map->tiles[x][y].tileset) world->map->addTemporaryLightSource(world->map->getTilePos(x, y), LIGHT_MAX_LIGHTLEVEL, sf::Color::White, LIGHTNING_LIFE * 2.0f);
 	}
 }

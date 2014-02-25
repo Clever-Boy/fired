@@ -596,7 +596,12 @@ void fired::Character::shot() {
 
 	if (weapon->shotSound) weapon->shotSound->play();
 
-	if (weapon->type == WEAPON_TYPE_RANGED)     world->addShot(this);
+	if (weapon->type == WEAPON_TYPE_RANGED) {
+		if (weapon->subtype == WEAPON_SUBTYPE_SHOTGUN)
+			for (unsigned int i = 0; i < WEAPON_SHOTGUN_BULLETS; i++) world->addShot(this);
+		else
+			world->addShot(this);
+	}
 	else if (weapon->type == WEAPON_TYPE_MELEE) world->addMeleeShot(rectCenter(phys.rect), sf::Vector2f(cos(aiming) * weapon->range, sin(aiming) * weapon->range), this);
 	else if (weapon->type == WEAPON_TYPE_BROAD) {
 		if (watching == 1)

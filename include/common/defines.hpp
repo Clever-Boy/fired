@@ -149,6 +149,8 @@
 #define WEAPON_SUBTYPE_SHOTGUN   5
 #define WEAPON_SUBTYPE_PISTOL    6
 
+#define WEAPON_SHOTGUN_OFFSET    0.188f
+#define WEAPON_SHOTGUN_BULLETS   5
 
 
 /***********************************************************************

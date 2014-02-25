@@ -31,6 +31,8 @@ fired::Shot::Shot(fired::Character *_owner, fired::World *_world) {
 	explosive       = owner->weapon->explosive;
 	explosionRadius = owner->weapon->explosionRadius;
 
+	if (owner->weapon->subtype == WEAPON_SUBTYPE_SHOTGUN) angle += getRandomOffset(WEAPON_SHOTGUN_OFFSET);
+
 	velocity = sf::Vector2f(owner->weapon->speed * cos(angle), owner->weapon->speed * sin(angle));
 	line = sf::VertexArray(sf::Lines, 2);
 	line[0].color = sf::Color::White;

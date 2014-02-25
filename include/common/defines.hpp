@@ -73,7 +73,7 @@
 ***********************************************************************/
 #define LIGHT_OFFSCREEN_TILES   24
 #define LIGHT_MAX_LIGHTLEVEL    24
-#define LIGHT_ABSOLUTE          23
+#define LIGHT_ABSOLUTE          20
 
 #define LIGHT_SPLASH_INTENSITY  24
 #define LIGHT_SHOT_INTENSITY    10
@@ -140,6 +140,14 @@
 #define WEAPON_TYPE_RANGED      1
 #define WEAPON_TYPE_MELEE       2
 #define WEAPON_TYPE_BROAD       3
+
+#define WEAPON_SUBTYPE_BROAD     0
+#define WEAPON_SUBTYPE_MELEE     1
+#define WEAPON_SUBTYPE_RIFLE     2
+#define WEAPON_SUBTYPE_EXPLOSIVE 3
+#define WEAPON_SUBTYPE_ENERGY    4
+#define WEAPON_SUBTYPE_SHOTGUN   5
+#define WEAPON_SUBTYPE_PISTOL    6
 
 
 

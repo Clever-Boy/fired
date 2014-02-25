@@ -28,6 +28,7 @@ namespace fired {
 
 		int   damage;
 		int   type;
+		int   subtype;
 
 		bool  automatic;
 		bool  explosive;

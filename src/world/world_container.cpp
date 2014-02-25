@@ -460,10 +460,20 @@ int fired::Container::loadWeapon(void *data, int, char **argv, char **){
 	if (!strcmp(argv[9], "melee" )) current->type = WEAPON_TYPE_MELEE;
 	if (!strcmp(argv[9], "ranged")) current->type = WEAPON_TYPE_RANGED;
 
-	if (argv[12] && (strlen(argv[12]) > 0)) sscanf(argv[12], "%f", &current->speed);
 
-	if (argv[13] && (strlen(argv[13]) > 0)) {
-		sscanf(argv[13], "%f", &current->explosionRadius);
+	if (!strcmp(argv[10], "broad"))     current->subtype = WEAPON_SUBTYPE_BROAD;
+	if (!strcmp(argv[10], "melee"))     current->subtype = WEAPON_SUBTYPE_MELEE;
+	if (!strcmp(argv[10], "pistol"))    current->subtype = WEAPON_SUBTYPE_PISTOL;
+	if (!strcmp(argv[10], "shotgun"))   current->subtype = WEAPON_SUBTYPE_SHOTGUN;
+	if (!strcmp(argv[10], "rifle"))     current->subtype = WEAPON_SUBTYPE_RIFLE;
+	if (!strcmp(argv[10], "energy"))    current->subtype = WEAPON_SUBTYPE_ENERGY;
+	if (!strcmp(argv[10], "explosive")) current->subtype = WEAPON_SUBTYPE_EXPLOSIVE;
+
+
+	if (argv[13] && (strlen(argv[13]) > 0)) sscanf(argv[13], "%f", &current->speed);
+
+	if (argv[14] && (strlen(argv[14]) > 0)) {
+		sscanf(argv[14], "%f", &current->explosionRadius);
 		current->explosive = true;
 	} else {
 		current->explosionRadius = 0.0f;
@@ -472,21 +482,21 @@ int fired::Container::loadWeapon(void *data, int, char **argv, char **){
 
 
 	current->tracer = stNone;
-	if (argv[14] && (strlen(argv[14]) > 0)) {
-		if (!strcmp(argv[14], "smoke")) current->tracer = stSmoke;
+	if (argv[15] && (strlen(argv[15]) > 0)) {
+		if (!strcmp(argv[15], "smoke")) current->tracer = stSmoke;
 	}
 
 
 	if (atoi(argv[8])) current->automatic = true;
 	else               current->automatic = false;
 
-	if (argv[10] && (strlen(argv[10]) > 0)) current->shotSound  = ((fired::Container *) data)->getSound(argv[10]);
+	if (argv[11] && (strlen(argv[11]) > 0)) current->shotSound  = ((fired::Container *) data)->getSound(argv[11]);
 	else                                    current->shotSound = NULL;
 
-	if (argv[15] && (strlen(argv[15]) > 0)) current->shotSprite = ((fired::Container *) data)->sprites[atoi(argv[15])];
+	if (argv[16] && (strlen(argv[16]) > 0)) current->shotSprite = ((fired::Container *) data)->sprites[atoi(argv[16])];
 	else                                    current->shotSprite = NULL;
 
-	if (argv[16] && (strlen(argv[16]) > 0)) current->bodypart   = ((fired::Container *) data)->bodyparts[atoi(argv[16])];
+	if (argv[17] && (strlen(argv[17]) > 0)) current->bodypart   = ((fired::Container *) data)->bodyparts[atoi(argv[17])];
 	else                                    current->bodypart = NULL;
 
 	return 0;

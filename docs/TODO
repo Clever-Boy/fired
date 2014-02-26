@@ -471,7 +471,7 @@
 			<todo done="yes" collapse="no"><title>Hint window</title></todo>
 			<todo done="yes" collapse="no"><title>Slot</title></todo>
 			<todo done="yes" collapse="no"><title>Reducing amount on shot</title></todo>
-			<todo done="no" collapse="no"><title>Base ammo to character table</title></todo>
+			<todo done="yes" collapse="no"><title>Base ammo to character table</title></todo>
 			<todo done="yes" collapse="no"><title>Weapon subtype filter</title></todo>
 			<todo done="no" collapse="no"><title>Auto placing ammo on shot when empty </title></todo>
 			<todo done="no" collapse="no"><title>Get shot parameters from weapon and ammo</title></todo>

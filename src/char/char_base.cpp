@@ -40,7 +40,6 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 	}
 
 	fraction = _base->fraction;
-
 	respawn(_startpos);
 	updateEquip();
 

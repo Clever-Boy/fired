@@ -617,8 +617,10 @@ int fired::Container::getItemIndex(const char *name) {
 void fired::Container::loadCreatures(sqlite3 *db) {
 	char *zErrMsg = 0;
 
-	if (sqlite3_exec(db, "SELECT Creatures.*, Models.ID, Weapons.ID "
+	if (sqlite3_exec(db, "SELECT Creatures.*, Models.ID, Weapons.ID, Ammo.ID "
 	                     "FROM Creatures, Weapons, Models "
+	                     "LEFT OUTER JOIN Ammo "
+	                     "ON Creatures.Ammo = Ammo.Name "
 	                     "WHERE Creatures.Model = Models.ModelName "
 	                     "AND Creatures.Weapon = Weapons.Name",
 	                     loadCreature, this, &zErrMsg) != SQLITE_OK)
@@ -660,19 +662,23 @@ int fired::Container::loadCreature(void *data, int, char **argv, char **) {
 	if (!strcmp(argv[3], "soldier")) current->fraction = FIRED_FRACTION_SOLDIER;
 
 	sscanf(argv[5] , "%f", &current->modelScale);
-	sscanf(argv[7] , "%d", &current->stats.armor);
-	sscanf(argv[8] , "%f", &current->stats.speed);
-	sscanf(argv[9] , "%f", &current->stats.accel);
-	sscanf(argv[10], "%f", &current->stats.jump);
-	sscanf(argv[11], "%f", &current->stats.aimrange);
-	sscanf(argv[12], "%d", &current->stats.maxHP);
+	sscanf(argv[8] , "%d", &current->stats.armor);
+	sscanf(argv[9] , "%f", &current->stats.speed);
+	sscanf(argv[10], "%f", &current->stats.accel);
+	sscanf(argv[11], "%f", &current->stats.jump);
+	sscanf(argv[12], "%f", &current->stats.aimrange);
+	sscanf(argv[13], "%d", &current->stats.maxHP);
 
-	current->model  = ((fired::Container *) data)->models[atoi(argv[14])];
-	current->weapon = ((fired::Container *) data)->weapons[atoi(argv[15])];
-	current->ammo   = NULL;
+	current->model  = ((fired::Container *) data)->models[atoi(argv[15])];
+	current->weapon = ((fired::Container *) data)->weapons[atoi(argv[16])];
 
-	if (argv[13]) {
-		char *token = strtok(argv[13], "\n");
+	if (argv[17] && strlen(argv[17]))
+		current->ammo = ((fired::Container *) data)->ammos[atoi(argv[17])];
+	else
+		current->ammo = NULL;
+
+	if (argv[14]) {
+		char *token = strtok(argv[14], "\n");
 
 		while (token) {
 			((fired::Container *) data)->loadCreatureLoot(current, token);

@@ -143,7 +143,7 @@ void fired::HintWindow::render(fired::BaseItem *item) {
 			snprintf(str, sizeof(str), "%3.2f", base->explosionRadius);
 			renderText(195, 140, str, true);
 		}
-	} else {
+	} else if (item->type == itArmor) {
 		fired::BaseArmor *base = container->armors[item->UID];
 
 		win->setSize(sf::Vector2f(200, 55));
@@ -165,5 +165,34 @@ void fired::HintWindow::render(fired::BaseItem *item) {
 		renderText(5, 35, "Armor:", false);
 		snprintf(str, sizeof(str), "%d", base->armor);
 		renderText(195, 35, str, true);
+	} else if (item->type == itAmmo) {
+		fired::BaseAmmo *base = container->ammos[item->UID];
+
+		if (base->explosive) win->setSize(sf::Vector2f(200, 70));
+		else                 win->setSize(sf::Vector2f(200, 55));
+		win->render();
+
+		renderText(5, 5, base->caption, false);
+		renderText(5, 20, "Ammo class:", false);
+
+		switch (base->subtype) {
+			case WEAPON_SUBTYPE_MELEE     : renderText(195, 20, "melee"    , true); break;
+			case WEAPON_SUBTYPE_BROAD     : renderText(195, 20, "broad"    , true); break;
+			case WEAPON_SUBTYPE_PISTOL    : renderText(195, 20, "pistol"   , true); break;
+			case WEAPON_SUBTYPE_SHOTGUN   : renderText(195, 20, "shotgun"  , true); break;
+			case WEAPON_SUBTYPE_RIFLE     : renderText(195, 20, "rifle"    , true); break;
+			case WEAPON_SUBTYPE_ENERGY    : renderText(195, 20, "energy"   , true); break;
+			case WEAPON_SUBTYPE_EXPLOSIVE : renderText(195, 20, "explosive", true); break;
+		}
+
+		renderText(5, 35, "Damage", false);
+		snprintf(str, sizeof(str), "%d", base->damage);
+		renderText(195, 35, str, true);
+
+		if (base->explosive) {
+			renderText(5, 50, "Explosion radius", false);
+			snprintf(str, sizeof(str), "%3.2f", base->explosionRadius);
+			renderText(195, 50, str, true);
+		}
 	}
 }

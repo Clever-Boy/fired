@@ -568,6 +568,9 @@ int fired::Container::loadItem(void *data, int, char **argv, char **) {
 		case itWeapon:
 			current->UID = ((fired::Container *) data)->getWeaponIndex(argv[4]);
 			break;
+
+		case itAmmo:
+			break;
 	}
 
 	return 0;

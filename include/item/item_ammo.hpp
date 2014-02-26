@@ -1,38 +1,33 @@
 /***********************************************************************
-     * File       : item_weapon.hpp
-     * Created    : Sep 01, 2013
+     * File       : item_ammo.hpp
+     * Created    : Feb 25, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __ITEM_WEAPON
-#define __ITEM_WEAPON
+#ifndef __ITEM_AMMO
+#define __ITEM_AMMO
 
 
 namespace fired {
-	struct BaseWeapon {
+	enum ShotTracer {
+		stNone,
+		stSmoke
+	};
+
+	struct BaseAmmo {
 		char  name[64];
 		char  caption[64];
 
-		float cooldown;
-		float range;
-		float speed;
-		float knockback;
 		float explosionRadius;
-
 		int   damage;
-		int   type;
 		int   subtype;
-
-		bool  automatic;
 		bool  explosive;
 
 		ShotTracer tracer;
 
-		sf::Sound           *shotSound;
 		fired::GameSprite   *shotSprite;
-		fired::BaseBodypart *bodypart;
 	};
 }
 

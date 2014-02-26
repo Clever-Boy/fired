@@ -10,6 +10,7 @@
 #define __ITEM
 
 #include "item/item_armor.hpp"
+#include "item/item_ammo.hpp"
 #include "item/item_weapon.hpp"
 #include "item/item_inventory.hpp"
 

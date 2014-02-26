@@ -669,6 +669,7 @@ int fired::Container::loadCreature(void *data, int, char **argv, char **) {
 
 	current->model  = ((fired::Container *) data)->models[atoi(argv[14])];
 	current->weapon = ((fired::Container *) data)->weapons[atoi(argv[15])];
+	current->ammo   = NULL;
 
 	if (argv[13]) {
 		char *token = strtok(argv[13], "\n");

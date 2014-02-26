@@ -29,6 +29,7 @@ namespace fired {
 
 		fired::CharacterStats  baseStats;
 		fired::BaseWeapon     *weapon;
+		fired::BaseAmmo       *ammo;
 		fired::Model          *model;
 		fired::Inventory      *inventory;
 		fired::BaseCreature   *base;

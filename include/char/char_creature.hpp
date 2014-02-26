@@ -30,6 +30,7 @@ namespace fired {
 		fired::CharacterStats  stats;
 		fired::BaseModel      *model;
 		fired::BaseWeapon     *weapon;
+		fired::BaseAmmo       *ammo;
 
 		std::vector<fired::LootItem*> loot;
 

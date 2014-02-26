@@ -518,6 +518,9 @@ void fired::Character::swapWeapons() {
 	if (inventory->primaryWeapon.base) setWeapon(container->weapons[inventory->primaryWeapon.base->UID]);
 	else                               setWeapon(base->weapon);
 
+	if (inventory->primaryAmmo.base) ammo = container->ammos[inventory->primaryAmmo.base->UID];
+	else                             ammo = base->ammo;
+
 	weaponCooldown = weapon->cooldown;
 }
 
@@ -572,6 +575,9 @@ void fired::Character::updateEquip() {
 	if (inventory->primaryWeapon.base) setWeapon(container->weapons[inventory->primaryWeapon.base->UID]);
 	else                               setWeapon(base->weapon);
 
+	if (inventory->primaryAmmo.base) ammo = container->ammos[inventory->primaryAmmo.base->UID];
+	else                             ammo = base->ammo;
+
 	model->updateParts();
 }
 
@@ -589,8 +595,10 @@ void fired::Character::shot() {
 	}
 
 	isShooting = true;
+
 	if (weaponCooldown > 0) return;
 	if (!weapon->automatic && wasShot) return;
+	if (weapon->type == WEAPON_TYPE_RANGED && (!ammo || ammo->subtype != weapon->subtype)) return;
 
 	weaponCooldown = weapon->cooldown;
 	wasShot = true;
@@ -610,6 +618,13 @@ void fired::Character::shot() {
 		else
 			world->addBroadShot(sf::FloatRect(phys.pos.x - weapon->range, phys.pos.y - weapon->range, phys.size.x / 2 + weapon->range, phys.size.y + weapon->range * 2), sf::Vector2f(-watching, 0), this);
 	}
+
+	if (weapon->type == WEAPON_TYPE_RANGED)
+		if (inventory->primaryAmmo.base)
+			if (--inventory->primaryAmmo.count == 0) {
+				emptyItem(&inventory->primaryAmmo);
+				ammo = base->ammo;
+			}
 }
 
 

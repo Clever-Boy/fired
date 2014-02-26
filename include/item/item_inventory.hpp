@@ -31,6 +31,9 @@ namespace fired {
 		fired::InventoryItem primaryWeapon;
 		fired::InventoryItem secondaryWeapon;
 
+		fired::InventoryItem primaryAmmo;
+		fired::InventoryItem secondaryAmmo;
+
 		fired::InventoryItem trash;
 		int credits;
 

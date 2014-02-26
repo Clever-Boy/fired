@@ -44,6 +44,9 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner, fired::World *
 	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(155.0f, 130.0f), &owner->inventory->primaryWeapon, itWeapon));
 	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(195.0f, 130.0f), &owner->inventory->secondaryWeapon, itWeapon));
 
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(120.0f, 130.0f), &owner->inventory->primaryAmmo, itAmmo));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(230.0f, 130.0f), &owner->inventory->secondaryAmmo, itAmmo));
+
 	trashCan = new fired::InventoryWindowItem(winOffset + sf::Vector2f(325.0f, 130.0f), &owner->inventory->trash, itAny);
 
 

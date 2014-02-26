@@ -513,6 +513,7 @@ void fired::Character::interact() {
 void fired::Character::swapWeapons() {
 	if (weaponCooldown > 0) return;
 	swapItems(&inventory->primaryWeapon, &inventory->secondaryWeapon);
+	swapItems(&inventory->primaryAmmo  , &inventory->secondaryAmmo);
 
 	if (inventory->primaryWeapon.base) setWeapon(container->weapons[inventory->primaryWeapon.base->UID]);
 	else                               setWeapon(base->weapon);

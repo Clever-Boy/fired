@@ -27,6 +27,7 @@ fired::Container::Container() {
 	loadModels(db);
 	loadArmors(db);
 	loadWeapons(db);
+	loadAmmos(db);
 	loadItems(db);
 	loadCreatures(db);
 	loadTilesets(db);
@@ -47,6 +48,7 @@ fired::Container::~Container() {
 	deleteList(biomes);
 	deleteList(tilesets);
 	deleteList(items);
+	deleteList(ammos);
 	deleteList(weapons);
 	deleteList(armors);
 	deleteList(bodyparts);
@@ -570,6 +572,7 @@ int fired::Container::loadItem(void *data, int, char **argv, char **) {
 			break;
 
 		case itAmmo:
+			current->UID = ((fired::Container *) data)->getAmmoIndex(argv[4]);
 			break;
 	}
 
@@ -831,4 +834,79 @@ int fired::Container::loadExplosion(void *data, int, char **argv, char **) {
 fired::BaseExplosion *fired::Container::getExplosion() {
 	if (explosions.size() == 0) return 0;
 	else return explosions[random() % explosions.size()];
+}
+
+
+
+/***********************************************************************
+     * Container
+     * loadAmmos
+
+***********************************************************************/
+void fired::Container::loadAmmos(sqlite3 *db) {
+	char *zErrMsg = 0;
+
+	if (sqlite3_exec(db, "SELECT Ammo.*, Sprites.ID FROM Ammo "
+	                     "LEFT OUTER JOIN Sprites ON Ammo.Sprite = Sprites.Name",
+	                     loadAmmo, this, &zErrMsg) != SQLITE_OK)
+		printf("SQL error: %s\n", zErrMsg);
+}
+
+
+
+/***********************************************************************
+     * Container
+     * loadAmmo
+
+***********************************************************************/
+int fired::Container::loadAmmo(void *data, int, char **argv, char **){
+	((fired::Container *) data)->ammos.push_back(new fired::BaseAmmo);
+	fired::BaseAmmo *current = ((fired::Container *) data)->ammos.back();
+
+	strcpy(current->name   , argv[1]);
+	strcpy(current->caption, argv[3]);
+
+	sscanf(argv[4], "%d", &current->damage);
+
+	if (!strcmp(argv[2], "broad"))     current->subtype = WEAPON_SUBTYPE_BROAD;
+	if (!strcmp(argv[2], "melee"))     current->subtype = WEAPON_SUBTYPE_MELEE;
+	if (!strcmp(argv[2], "pistol"))    current->subtype = WEAPON_SUBTYPE_PISTOL;
+	if (!strcmp(argv[2], "shotgun"))   current->subtype = WEAPON_SUBTYPE_SHOTGUN;
+	if (!strcmp(argv[2], "rifle"))     current->subtype = WEAPON_SUBTYPE_RIFLE;
+	if (!strcmp(argv[2], "energy"))    current->subtype = WEAPON_SUBTYPE_ENERGY;
+	if (!strcmp(argv[2], "explosive")) current->subtype = WEAPON_SUBTYPE_EXPLOSIVE;
+
+
+	if (argv[6] && (strlen(argv[6]) > 0)) {
+		sscanf(argv[6], "%f", &current->explosionRadius);
+		current->explosive = true;
+	} else {
+		current->explosionRadius = 0.0f;
+		current->explosive       = false;
+	}
+
+
+	current->tracer = stNone;
+	if (argv[7] && (strlen(argv[7]) > 0)) {
+		if (!strcmp(argv[7], "smoke")) current->tracer = stSmoke;
+	}
+
+	if (argv[8] && (strlen(argv[8]) > 0)) current->shotSprite = ((fired::Container *) data)->sprites[atoi(argv[8])];
+	else                                  current->shotSprite = NULL;
+
+	return 0;
+}
+
+
+
+/***********************************************************************
+     * Container
+     * getAmmoIndex
+
+***********************************************************************/
+int fired::Container::getAmmoIndex(const char *name) {
+	for (unsigned int i = 0; i < weapons.size(); i++)
+		if (!strcmp(name, ammos[i]->name)) return i;
+
+	return -1;
 }

@@ -467,7 +467,7 @@
 			<todo done="yes" collapse="no"><title>Item type</title></todo>
 			<todo done="yes" collapse="no"><title>Table in DB</title></todo>
 			<todo done="yes" collapse="no"><title>Ammo item class</title></todo>
-			<todo done="no" collapse="no"><title>Loading from DB</title></todo>
+			<todo done="yes" collapse="no"><title>Loading from DB</title></todo>
 			<todo done="no" collapse="no"><title>Hint window</title></todo>
 			<todo done="no" collapse="no"><title>Slot</title></todo>
 			<todo done="no" collapse="no"><title>Reducing amount on shot</title></todo>

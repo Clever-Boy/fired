@@ -29,6 +29,7 @@ fired::BaseMapObjectCollector::BaseMapObjectCollector(unsigned int id, sf::Vecto
 
 ***********************************************************************/
 void fired::BaseMapObjectCollector::generateLoot() {
+	addItem(100, "ammo.bullet");
 	addItem(1, "weapon.plasmagun");
 	addItem(1, "weapon.bazooka");
 	addItem(1, "weapon.shotgun");

@@ -21,6 +21,7 @@ namespace fired {
 	struct Container {
 		std::vector<fired::BaseWeapon*>      weapons;
 		std::vector<fired::BaseArmor*>       armors;
+		std::vector<fired::BaseAmmo*>        ammos;
 		std::vector<fired::BaseBodypart*>    bodyparts;
 		std::vector<fired::BaseModel*>       models;
 		std::vector<fired::BaseCreature*>    creatures;
@@ -69,6 +70,10 @@ namespace fired {
 		void loadWeapons(sqlite3 *db);
 		static int loadWeapon(void *data, int argc, char **argv, char **azColName);
 		int getWeaponIndex(const char *name);
+
+		void loadAmmos(sqlite3 *db);
+		static int loadAmmo(void *data, int argc, char **argv, char **azColName);
+		int getAmmoIndex(const char *name);
 
 		void loadItems(sqlite3 *db);
 		static int loadItem(void *data, int argc, char **argv, char **azColName);

@@ -430,9 +430,8 @@ int fired::Container::getArmorIndex(const char *name) {
 void fired::Container::loadWeapons(sqlite3 *db) {
 	char *zErrMsg = 0;
 
-	if (sqlite3_exec(db, "SELECT Weapons.*, Sprites.ID, Bodyparts.ID "
+	if (sqlite3_exec(db, "SELECT Weapons.*, Bodyparts.ID "
 	                     "FROM Weapons "
-	                     "LEFT OUTER JOIN Sprites ON Weapons.ShotSprite = Sprites.Name "
 	                     "LEFT OUTER JOIN Bodyparts ON Weapons.Model = Bodyparts.Name "
 	                     "WHERE (Bodyparts.BodypartType = 'weapon' OR Bodyparts.ID is NULL)",
 	                     loadWeapon, this, &zErrMsg) != SQLITE_OK)
@@ -472,22 +471,7 @@ int fired::Container::loadWeapon(void *data, int, char **argv, char **){
 	if (!strcmp(argv[10], "explosive")) current->subtype = WEAPON_SUBTYPE_EXPLOSIVE;
 
 
-	if (argv[13] && (strlen(argv[13]) > 0)) sscanf(argv[13], "%f", &current->speed);
-
-	if (argv[14] && (strlen(argv[14]) > 0)) {
-		sscanf(argv[14], "%f", &current->explosionRadius);
-		current->explosive = true;
-	} else {
-		current->explosionRadius = 0.0f;
-		current->explosive       = false;
-	}
-
-
-	current->tracer = stNone;
-	if (argv[15] && (strlen(argv[15]) > 0)) {
-		if (!strcmp(argv[15], "smoke")) current->tracer = stSmoke;
-	}
-
+	if (argv[12] && (strlen(argv[12]) > 0)) sscanf(argv[12], "%f", &current->speed);
 
 	if (atoi(argv[8])) current->automatic = true;
 	else               current->automatic = false;
@@ -495,10 +479,7 @@ int fired::Container::loadWeapon(void *data, int, char **argv, char **){
 	if (argv[11] && (strlen(argv[11]) > 0)) current->shotSound  = ((fired::Container *) data)->getSound(argv[11]);
 	else                                    current->shotSound = NULL;
 
-	if (argv[16] && (strlen(argv[16]) > 0)) current->shotSprite = ((fired::Container *) data)->sprites[atoi(argv[16])];
-	else                                    current->shotSprite = NULL;
-
-	if (argv[17] && (strlen(argv[17]) > 0)) current->bodypart   = ((fired::Container *) data)->bodyparts[atoi(argv[17])];
+	if (argv[13] && (strlen(argv[13]) > 0)) current->bodypart   = ((fired::Container *) data)->bodyparts[atoi(argv[13])];
 	else                                    current->bodypart = NULL;
 
 	return 0;

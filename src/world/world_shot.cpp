@@ -22,14 +22,14 @@ fired::Shot::Shot(fired::Character *_owner, fired::World *_world) {
 	world     = _world;
 	tracer    = NULL;
 
-	sprite    = owner->weapon->shotSprite;
+	sprite    = owner->ammo->shotSprite;
 	damage    = owner->getDamage();
 	knockback = owner->getKnockback();
 	leftToFly = owner->getRange();
 	fraction  = owner->fraction;
 
-	explosive       = owner->weapon->explosive;
-	explosionRadius = owner->weapon->explosionRadius;
+	explosive       = owner->ammo->explosive;
+	explosionRadius = owner->ammo->explosionRadius;
 
 	if (owner->weapon->subtype == WEAPON_SUBTYPE_SHOTGUN) angle += getRandomOffset(WEAPON_SHOTGUN_OFFSET);
 
@@ -38,7 +38,7 @@ fired::Shot::Shot(fired::Character *_owner, fired::World *_world) {
 	line[0].color = sf::Color::White;
 	line[1].color = sf::Color(141, 152, 141, 50);
 
-	switch (owner->weapon->tracer) {
+	switch (owner->ammo->tracer) {
 		case stNone:
 			break;
 

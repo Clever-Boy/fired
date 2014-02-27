@@ -19,19 +19,14 @@ namespace fired {
 		float range;
 		float speed;
 		float knockback;
-		float explosionRadius;
 
 		int   damage;
 		int   type;
 		int   subtype;
 
 		bool  automatic;
-		bool  explosive;
-
-		ShotTracer tracer;
 
 		sf::Sound           *shotSound;
-		fired::GameSprite   *shotSprite;
 		fired::BaseBodypart *bodypart;
 	};
 }

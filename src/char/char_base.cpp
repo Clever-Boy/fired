@@ -409,7 +409,7 @@ std::string fired::Character::getAmmoString() {
 
 ***********************************************************************/
 int fired::Character::getDamage() {
-	return weapon->damage;
+	return weapon->damage + ammo->damage;
 }
 
 

@@ -474,8 +474,8 @@
 			<todo done="yes" collapse="no"><title>Base ammo to character table</title></todo>
 			<todo done="yes" collapse="no"><title>Weapon subtype filter</title></todo>
 			<todo done="no" collapse="no"><title>Auto placing ammo on shot when empty </title></todo>
-			<todo done="no" collapse="no"><title>Get shot parameters from weapon and ammo</title></todo>
-			<todo done="no" collapse="no"><title>Remove useless fileds in BaseWeapon</title></todo>
+			<todo done="yes" collapse="no"><title>Get shot parameters from weapon and ammo</title></todo>
+			<todo done="yes" collapse="no"><title>Remove useless fileds in BaseWeapon</title></todo>
 		</todo>
 		<todo done="no" collapse="no"><title>Sound when ammo collides the block</title></todo>
 		<todo done="no" collapse="yes"><title>Liquids</title>

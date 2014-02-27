@@ -88,9 +88,8 @@ void fired::HintWindow::render(fired::BaseItem *item) {
 	} else if (item->type == itWeapon) {
 		fired::BaseWeapon *base = container->weapons[item->UID];
 
-		if (base->explosive)                       win->setSize(sf::Vector2f(200, 160));
-		else if (base->type == WEAPON_TYPE_RANGED) win->setSize(sf::Vector2f(200, 145));
-		else                                       win->setSize(sf::Vector2f(200, 115));
+		if (base->type == WEAPON_TYPE_RANGED) win->setSize(sf::Vector2f(200, 145));
+		else                                  win->setSize(sf::Vector2f(200, 115));
 		win->render();
 
 		renderText(5, 5, base->caption, false);
@@ -136,12 +135,6 @@ void fired::HintWindow::render(fired::BaseItem *item) {
 			renderText(5, 125, "Speed", false);
 			snprintf(str, sizeof(str), "%3.2f", base->speed);
 			renderText(195, 125, str, true);
-		}
-
-		if (base->explosive) {
-			renderText(5, 140, "Explosion radius", false);
-			snprintf(str, sizeof(str), "%3.2f", base->explosionRadius);
-			renderText(195, 140, str, true);
 		}
 	} else if (item->type == itArmor) {
 		fired::BaseArmor *base = container->armors[item->UID];

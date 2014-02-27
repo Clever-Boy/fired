@@ -694,7 +694,7 @@ fired::BaseCreature *fired::Container::getCreature(const char *name) {
 void fired::Container::loadTilesets(sqlite3 *db) {
 	char *zErrMsg = 0;
 
-	if (sqlite3_exec(db, "SELECT Tiles.ID, Sprites.ID FROM Tiles, Sprites "
+	if (sqlite3_exec(db, "SELECT Tiles.ID, Sprites.ID, Tiles.Flat FROM Tiles, Sprites "
 	                     "WHERE Tiles.Sprite = Sprites.Name",
 	                     loadTileset, this, &zErrMsg) != SQLITE_OK)
 		printf("SQL error: %s\n", zErrMsg);
@@ -708,7 +708,7 @@ void fired::Container::loadTilesets(sqlite3 *db) {
 
 ***********************************************************************/
 int fired::Container::loadTileset(void *data, int, char **argv, char **) {
-	((fired::Container *) data)->tilesets.push_back(new fired::Tileset(atoi(argv[0]), ((fired::Container *) data)->sprites[atoi(argv[1])]));
+	((fired::Container *) data)->tilesets.push_back(new fired::Tileset(atoi(argv[0]), ((fired::Container *) data)->sprites[atoi(argv[1])], atoi(argv[2])));
 	return 0;
 }
 

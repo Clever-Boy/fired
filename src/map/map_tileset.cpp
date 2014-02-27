@@ -15,14 +15,17 @@
      * constructor
 
 ***********************************************************************/
-fired::Tileset::Tileset(int _ID, fired::GameSprite *baseSprite) {
+fired::Tileset::Tileset(int _ID, fired::GameSprite *baseSprite, bool flat) {
 	ID = _ID;
 
+	sf::Image          maskImg;
 	sf::RenderTexture *text    = new sf::RenderTexture;
 	sf::Sprite        *sprt    = new sf::Sprite;
 	sf::Sprite        *mask    = new sf::Sprite;
 	sf::Texture       *maskTex = new sf::Texture();
-	maskTex->loadFromFile("data/img/world/tileset/mask.png");
+
+	if (flat) maskTex->loadFromFile("data/img/world/tileset/flat.png");
+	else      maskTex->loadFromFile("data/img/world/tileset/bumpy.png");
 
 	baseSprite->tex->setRepeated(true);
 	mask->setTexture(*maskTex);
@@ -35,7 +38,11 @@ fired::Tileset::Tileset(int _ID, fired::GameSprite *baseSprite) {
 	text->draw(*mask);
 	text->display();
 
-	tex = new sf::Texture(text->getTexture());
+	maskImg = text->getTexture().copyToImage();
+	maskImg.createMaskFromColor(sf::Color(255, 0, 255));
+
+	tex = new sf::Texture();
+	tex->loadFromImage(maskImg);
 
 	delete text;
 	delete sprt;

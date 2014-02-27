@@ -17,7 +17,7 @@ namespace fired {
 		std::vector<sf::Sprite*>  sprites;
 
 
-		 Tileset(int _ID, fired::GameSprite *baseSprite);
+		 Tileset(int _ID, fired::GameSprite *baseSprite, bool flat);
 		~Tileset();
 	};
 }

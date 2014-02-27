@@ -14,13 +14,13 @@ namespace fired {
 	struct Resources {
 		struct {
 			sf::SoundBuffer *explosion;
+			sf::SoundBuffer *impact;
 			sf::SoundBuffer *thunder;
 			sf::SoundBuffer *rain;
-			sf::SoundBuffer *snow;
 
+			sf::Sound       *impactSnd;
 			sf::Sound       *thunderSnd;
 			sf::Sound       *rainSnd;
-			sf::Sound       *snowSnd;
 		} sounds;
 
 

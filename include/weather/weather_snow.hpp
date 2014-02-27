@@ -12,8 +12,7 @@
 
 namespace fired {
 	struct WeatherSnow: Weather {
-		 WeatherSnow(fired::World *_world, float _frequency, float _wind);
-		~WeatherSnow();
+		WeatherSnow(fired::World *_world, float _frequency, float _wind);
 
 		float genScale();
 	};

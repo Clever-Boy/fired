@@ -17,31 +17,30 @@
 ***********************************************************************/
 fired::Resources::Resources() {
 	sounds.explosion = new sf::SoundBuffer();
-	sounds.thunder = new sf::SoundBuffer();
-	sounds.rain = new sf::SoundBuffer();
-	sounds.snow = new sf::SoundBuffer();
+	sounds.thunder   = new sf::SoundBuffer();
+	sounds.rain      = new sf::SoundBuffer();
+	sounds.impact    = new sf::SoundBuffer();
 
 	sounds.explosion->loadFromFile("data/snd/misc/explosion.wav");
 	sounds.thunder->loadFromFile("data/snd/misc/thunder.wav");
 	sounds.rain->loadFromFile("data/snd/misc/rain.wav");
-	sounds.snow->loadFromFile("data/snd/misc/snow.wav");
+	sounds.impact->loadFromFile("data/snd/misc/impact.wav");
 
 	sounds.thunderSnd = new sf::Sound(*sounds.thunder);
-	sounds.rainSnd = new sf::Sound(*sounds.rain);
-	sounds.snowSnd = new sf::Sound(*sounds.snow);
+	sounds.rainSnd    = new sf::Sound(*sounds.rain);
+	sounds.impactSnd  = new sf::Sound(*sounds.impact);
 
 	sounds.thunderSnd->setVolume(settings->volume.sound);
 	sounds.rainSnd->setVolume(settings->volume.sound);
-	sounds.snowSnd->setVolume(settings->volume.sound);
+	sounds.impactSnd->setVolume(settings->volume.sound);
 
 	sounds.rainSnd->setLoop(true);
-	sounds.snowSnd->setLoop(true);
 
 
 
-	win.trashTex = new sf::Texture();
-	win.emptyTex = new sf::Texture();
-	win.hoverTex = new sf::Texture();
+	win.trashTex  = new sf::Texture();
+	win.emptyTex  = new sf::Texture();
+	win.hoverTex  = new sf::Texture();
 	win.normalTex = new sf::Texture();
 
 	win.trashTex->loadFromFile("data/img/gui/inventory/trash.png");
@@ -98,11 +97,11 @@ fired::Resources::~Resources() {
 	delete sounds.explosion;
 	delete sounds.thunder;
 	delete sounds.rain;
-	delete sounds.snow;
+	delete sounds.impact;
 
 	delete sounds.thunderSnd;
 	delete sounds.rainSnd;
-	delete sounds.snowSnd;
+	delete sounds.impactSnd;
 
 
 

@@ -184,6 +184,7 @@ bool fired::Map::checkShot(fired::Shot *shot) {
 				n *= 200.0f;
 				world->addBulletSplash(c, n);
 				addTemporaryLightSource(c, LIGHT_SPLASH_INTENSITY, sf::Color::White, LIGHT_SHOT_LIFETIME);
+				resources->sounds.impactSnd->play();
 			}
 
 			return true;

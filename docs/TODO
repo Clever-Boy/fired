@@ -478,13 +478,14 @@
 			<todo done="yes" collapse="no"><title>Remove useless fileds in BaseWeapon</title></todo>
 		</todo>
 		<todo done="yes" collapse="no"><title>Move GUI functions from Character class to GUI class</title></todo>
-		<todo done="no" collapse="no"><title>Sound when ammo collides the block</title></todo>
-		<todo done="no" collapse="yes"><title>Liquids</title>
+		<todo done="yes" collapse="no"><title>Sound when ammo collides the block</title></todo>
+		<todo done="no" collapse="no"><title>Liquids</title>
 			<todo done="no" collapse="no"><title>Class</title></todo>
 			<todo done="no" collapse="no"><title>Rendering</title></todo>
 			<todo done="no" collapse="no"><title>Flow animation</title></todo>
 			<todo done="no" collapse="no"><title>Physics</title></todo>
 			<todo done="no" collapse="no"><title>Splash on impact</title></todo>
+			<todo done="no" collapse="no"><title>Oxygen limit</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Add options processing</title>
 			<todo done="no" collapse="no"><title>Add music volume change</title></todo>

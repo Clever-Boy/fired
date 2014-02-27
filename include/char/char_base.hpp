@@ -87,16 +87,6 @@ namespace fired {
 		void  setAiming(float _aiming);
 		void  setWeapon(fired::BaseWeapon *_weapon);
 
-		float getHpPercent();
-		float getXpPercent();
-		float getCooldownPercent();
-		float getAmmoPercent();
-
-		std::string getHpString();
-		std::string getXpString();
-		std::string getCooldownString();
-		std::string getAmmoString();
-
 		int   getArmor();
 		int   getDamage();
 		float getRange();

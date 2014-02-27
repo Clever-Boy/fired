@@ -15,7 +15,7 @@
 
 namespace fired {
 	struct GUI {
-		fired::Player    *player;
+		fired::Character *owner;
 
 		int          barHeight;
 		int          barWidth;
@@ -28,7 +28,7 @@ namespace fired {
 		sf::Text           *txt;
 
 
-		 GUI(fired::Player *_player);
+		 GUI(fired::Character *_owner);
 		~GUI();
 
 		void update();

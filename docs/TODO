@@ -477,7 +477,7 @@
 			<todo done="yes" collapse="no"><title>Get shot parameters from weapon and ammo</title></todo>
 			<todo done="yes" collapse="no"><title>Remove useless fileds in BaseWeapon</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Move GUI functions from Character class to GUI class</title></todo>
+		<todo done="yes" collapse="no"><title>Move GUI functions from Character class to GUI class</title></todo>
 		<todo done="no" collapse="no"><title>Sound when ammo collides the block</title></todo>
 		<todo done="no" collapse="yes"><title>Liquids</title>
 			<todo done="no" collapse="no"><title>Class</title></todo>
@@ -616,12 +616,10 @@
 		<todo done="no" collapse="no"><title>Items bonuses +dmg, +defence, etc.</title></todo>
 		<todo done="no" collapse="no"><title>Final code optimization</title></todo>
 	</todo>
+	<todo done="no" collapse="no"><title>Fix Alpha bugs</title></todo>
 	<todo done="no" collapse="yes"><title>Multiplayer</title>
 		<todo done="no" collapse="no"><title>Server thread</title></todo>
 		<todo done="no" collapse="no"><title>Multiplayer AI type</title></todo>
 		<todo done="no" collapse="no"><title>Socket AI binding</title></todo>
-	</todo>
-	<todo done="no" collapse="yes"><title>--- Release Beta</title>
-		<todo done="no" collapse="no"><title>Fix alpha bugs</title></todo>
 	</todo>
 </todo>

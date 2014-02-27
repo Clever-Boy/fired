@@ -463,7 +463,7 @@
 			<todo done="yes" collapse="no"><title>Shotsound</title></todo>
 		</todo>
 		<todo done="yes" collapse="no"><title>Blood on model explosion</title></todo>
-		<todo done="no" collapse="no"><title>Ammo</title>
+		<todo done="yes" collapse="yes"><title>Ammo</title>
 			<todo done="yes" collapse="no"><title>Item type</title></todo>
 			<todo done="yes" collapse="no"><title>Table in DB</title></todo>
 			<todo done="yes" collapse="no"><title>Ammo item class</title></todo>
@@ -473,10 +473,11 @@
 			<todo done="yes" collapse="no"><title>Reducing amount on shot</title></todo>
 			<todo done="yes" collapse="no"><title>Base ammo to character table</title></todo>
 			<todo done="yes" collapse="no"><title>Weapon subtype filter</title></todo>
-			<todo done="no" collapse="no"><title>Auto placing ammo on shot when empty </title></todo>
+			<todo done="yes" collapse="no"><title>Auto placing ammo on shot when empty </title></todo>
 			<todo done="yes" collapse="no"><title>Get shot parameters from weapon and ammo</title></todo>
 			<todo done="yes" collapse="no"><title>Remove useless fileds in BaseWeapon</title></todo>
 		</todo>
+		<todo done="no" collapse="no"><title>Move GUI functions from Character class to GUI class</title></todo>
 		<todo done="no" collapse="no"><title>Sound when ammo collides the block</title></todo>
 		<todo done="no" collapse="yes"><title>Liquids</title>
 			<todo done="no" collapse="no"><title>Class</title></todo>

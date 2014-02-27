@@ -64,6 +64,8 @@ namespace fired {
 		void update();
 		void render();
 		void respawn(sf::Vector2f pos);
+		void reduceAmmo();
+		bool findAmmo();
 
 		void move();
 		void moveLeft();

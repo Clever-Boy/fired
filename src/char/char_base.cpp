@@ -597,7 +597,8 @@ void fired::Character::shot() {
 
 	if (weaponCooldown > 0) return;
 	if (!weapon->automatic && wasShot) return;
-	if (weapon->type == WEAPON_TYPE_RANGED && (!ammo || ammo->subtype != weapon->subtype)) return;
+	if (weapon->type == WEAPON_TYPE_RANGED && (!ammo || ammo->subtype != weapon->subtype))
+		if (!findAmmo()) return;
 
 	weaponCooldown = weapon->cooldown;
 	wasShot = true;
@@ -609,6 +610,8 @@ void fired::Character::shot() {
 			for (unsigned int i = 0; i < WEAPON_SHOTGUN_BULLETS; i++) world->addShot(this);
 		else
 			world->addShot(this);
+
+		reduceAmmo();
 	}
 	else if (weapon->type == WEAPON_TYPE_MELEE) world->addMeleeShot(rectCenter(phys.rect), sf::Vector2f(cos(aiming) * weapon->range, sin(aiming) * weapon->range), this);
 	else if (weapon->type == WEAPON_TYPE_BROAD) {
@@ -617,13 +620,6 @@ void fired::Character::shot() {
 		else
 			world->addBroadShot(sf::FloatRect(phys.pos.x - weapon->range, phys.pos.y - weapon->range, phys.size.x / 2 + weapon->range, phys.size.y + weapon->range * 2), sf::Vector2f(-watching, 0), this);
 	}
-
-	if (weapon->type == WEAPON_TYPE_RANGED)
-		if (inventory->primaryAmmo.base)
-			if (--inventory->primaryAmmo.count == 0) {
-				emptyItem(&inventory->primaryAmmo);
-				ammo = base->ammo;
-			}
 }
 
 
@@ -635,4 +631,39 @@ void fired::Character::shot() {
 ***********************************************************************/
 void fired::Character::unshot() {
 	wasShot = false;
+}
+
+
+
+/***********************************************************************
+     * Character
+     * reduceAmmo
+
+***********************************************************************/
+void fired::Character::reduceAmmo() {
+	if (!inventory->primaryAmmo.base) return;
+	if (--inventory->primaryAmmo.count != 0) return;
+
+	emptyItem(&inventory->primaryAmmo);
+	findAmmo();
+}
+
+
+
+/***********************************************************************
+     * Character
+     * findAmmo
+
+***********************************************************************/
+bool fired::Character::findAmmo() {
+	for (int i = 0; i < 10; i++) for (int j = 0; j < 5; j++)
+		if (inventory->items[i][j].base && inventory->items[i][j].base->type == itAmmo)
+			if (container->ammos[inventory->items[i][j].base->UID]->subtype == weapon->subtype) {
+				swapItems(&inventory->primaryAmmo, &inventory->items[i][j]);
+				ammo = container->ammos[inventory->primaryAmmo.base->UID];
+				return true;
+			}
+
+	ammo = base->ammo;
+	return false;
 }

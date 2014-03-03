@@ -32,7 +32,11 @@ namespace fired {
 		~GUI();
 
 		void update();
-		void render();
+		void renderBase();
+		void renderHP();
+		void renderXP();
+		void renderAmmo();
+		void renderCooldown();
 	};
 }
 

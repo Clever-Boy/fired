@@ -23,7 +23,8 @@ void fired::MapGenerator::genClear(int xSize, int ySize) {
 	for (int i = 0; i < sizeX; i++)
 		tiles[i] = new fired::MapTile[sizeY];
 
-	genFill(0, 0, sizeX - 1, sizeY - 1, 0, false);
+	setEraser();
+	genFill(0, 0, sizeX - 1, sizeY - 1, false);
 	objects.clear();
 }
 
@@ -34,8 +35,8 @@ void fired::MapGenerator::genClear(int xSize, int ySize) {
      * genBar
 
 ***********************************************************************/
-void fired::MapGenerator::genBar(int x, int startHeight, int endHeight, int tileset, bool isWall) {
-	genFill(x, startHeight, x, endHeight, tileset, isWall);
+void fired::MapGenerator::genBar(int x, int startHeight, int endHeight, bool isWall) {
+	genFill(x, startHeight, x, endHeight, isWall);
 }
 
 
@@ -45,9 +46,9 @@ void fired::MapGenerator::genBar(int x, int startHeight, int endHeight, int tile
      * genFill
 
 ***********************************************************************/
-void fired::MapGenerator::genFill(int x1, int y1, int x2, int y2, int tileset, bool isWall) {
+void fired::MapGenerator::genFill(int x1, int y1, int x2, int y2, bool isWall) {
 	for (int i = x1; i <= x2; i++) for (int j = y1; j <= y2; j++) {
-		tiles[i][j].tileset    = tileset;
+		tiles[i][j].tileset    = brush;
 		tiles[i][j].isWall     = isWall;
 		tiles[i][j].isPlatform = false;
 	}
@@ -97,4 +98,53 @@ void fired::MapGenerator::addLightSource(float x, float y, const char *name) {
 void fired::MapGenerator::addPlatform(int x, int y, const char *name) {
 	addDecor(x * TILE_SIZE, y * TILE_SIZE, name);
 	tiles[x][y].isPlatform = true;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * addTileToPalette
+
+***********************************************************************/
+void fired::MapGenerator::addTileToPalette(const char *name) {
+	int index = container->getTileset(name);
+	if (index != -1) palette.push_back(new fired::GenTileset(index, name));
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * setBrush
+
+***********************************************************************/
+void fired::MapGenerator::setBrush(const char *name) {
+	for (unsigned int i = 0; i < palette.size(); i++)
+		if (!strcmp(name, palette[i]->name)) {
+			brush = palette[i]->ID;
+			break;
+		}
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * setEraser
+
+***********************************************************************/
+void fired::MapGenerator::setEraser() {
+	brush = 0;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * fillPalette
+
+***********************************************************************/
+void fired::MapGenerator::fillPalette() {
+	if (!strcmp(biome->name, "City")) genCityPalette();
 }

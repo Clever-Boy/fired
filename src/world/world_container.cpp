@@ -694,7 +694,8 @@ fired::BaseCreature *fired::Container::getCreature(const char *name) {
 void fired::Container::loadTilesets(sqlite3 *db) {
 	char *zErrMsg = 0;
 
-	if (sqlite3_exec(db, "SELECT Tiles.ID, Sprites.ID, Tiles.Flat FROM Tiles, Sprites "
+	if (sqlite3_exec(db, "SELECT Tiles.ID, Sprites.ID, Tiles.Flat, Tiles.Name "
+	                     "FROM Tiles, Sprites "
 	                     "WHERE Tiles.Sprite = Sprites.Name",
 	                     loadTileset, this, &zErrMsg) != SQLITE_OK)
 		printf("SQL error: %s\n", zErrMsg);
@@ -708,8 +709,22 @@ void fired::Container::loadTilesets(sqlite3 *db) {
 
 ***********************************************************************/
 int fired::Container::loadTileset(void *data, int, char **argv, char **) {
-	((fired::Container *) data)->tilesets.push_back(new fired::Tileset(atoi(argv[0]), ((fired::Container *) data)->sprites[atoi(argv[1])], atoi(argv[2])));
+	((fired::Container *) data)->tilesets.push_back(new fired::Tileset(atoi(argv[0]), ((fired::Container *) data)->sprites[atoi(argv[1])], atoi(argv[2]), argv[3]));
 	return 0;
+}
+
+
+
+/***********************************************************************
+     * Container
+     * getTileset
+
+***********************************************************************/
+int fired::Container::getTileset(const char *name) {
+	for (unsigned int i = 0; i < tilesets.size(); i++)
+		if (!strcmp(name, tilesets[i]->name)) return tilesets[i]->ID;
+
+	return -1;
 }
 
 
@@ -724,11 +739,7 @@ void fired::Container::loadBiomes(sqlite3 *db) {
 
 	if (sqlite3_exec(db, "SELECT Biomes.ID, Biomes.Name, Biomes.SkyGradientHi, "
 	                     "Biomes.SkyGradientLow, Biomes.Weather, Biomes.Lightness, Biomes.Background, "
-	                     "Biomes.CloudColor, T1.ID, T2.ID, T3.ID, T4.ID, Biomes.Creatures, Biomes.Intensity FROM Biomes "
-	                     "LEFT JOIN Tiles T1 ON T1.Name = Biomes.TileGround "
-	                     "LEFT JOIN Tiles T2 ON T2.Name = Biomes.TileBricksMain "
-	                     "LEFT JOIN Tiles T3 ON T3.Name = Biomes.TileBricksSecond "
-	                     "LEFT JOIN Tiles T4 ON T4.Name = Biomes.TileExtra",
+	                     "Biomes.CloudColor, Biomes.Creatures, Biomes.Intensity FROM Biomes",
 	                     loadBiome, this, &zErrMsg) != SQLITE_OK)
 		printf("SQL error: %s\n", zErrMsg);
 }
@@ -744,7 +755,7 @@ int fired::Container::loadBiome(void *data, int, char **argv, char **) {
 	((fired::Container *) data)->biomes.push_back(new fired::Biome(argv[6]));
 	fired::Biome *current = ((fired::Container *) data)->biomes.back();
 
-	current->intensity = atoi(argv[13]);
+	current->intensity = atoi(argv[9]);
 
 	sscanf(argv[2], "%hhu,%hhu,%hhu,%hhu", &current->skyHi.r     , &current->skyHi.g     , &current->skyHi.b     , &current->skyHi.a);
 	sscanf(argv[3], "%hhu,%hhu,%hhu,%hhu", &current->skyLow.r    , &current->skyLow.g    , &current->skyLow.b    , &current->skyLow.a);
@@ -754,13 +765,8 @@ int fired::Container::loadBiome(void *data, int, char **argv, char **) {
 	strcpy(current->name   , argv[1]);
 	strcpy(current->weather, argv[4]);
 
-	current->ground      = ((fired::Container *) data)->tilesets[atoi(argv[8] ) - 1];
-	current->brickMain   = ((fired::Container *) data)->tilesets[atoi(argv[9] ) - 1];
-	current->brickSecond = ((fired::Container *) data)->tilesets[atoi(argv[10]) - 1];
-	current->extra       = ((fired::Container *) data)->tilesets[atoi(argv[11]) - 1];
-
 	if (argv[12]) {
-		char *token = strtok(argv[12], "\n");
+		char *token = strtok(argv[8], "\n");
 		while (token) {
 			current->creatures.push_back(((fired::Container *) data)->getCreature(token));
 			token = strtok(NULL, "\n");

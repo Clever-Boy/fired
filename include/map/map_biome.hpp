@@ -25,11 +25,6 @@ namespace fired {
 		sf::RectangleShape *bgSprite;
 		float               bgScale;
 
-		fired::Tileset *ground;
-		fired::Tileset *brickMain;
-		fired::Tileset *brickSecond;
-		fired::Tileset *extra;
-
 		std::vector<fired::BaseCreature*> creatures;
 
 

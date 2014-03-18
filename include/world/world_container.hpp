@@ -87,6 +87,7 @@ namespace fired {
 
 		void loadTilesets(sqlite3 *db);
 		static int loadTileset(void *data, int argc, char **argv, char **azColName);
+		int getTileset(const char *name);
 
 		void loadBiomes(sqlite3 *db);
 		static int loadBiome(void *data, int argc, char **argv, char **azColName);

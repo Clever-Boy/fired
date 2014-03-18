@@ -11,6 +11,7 @@
 
 
 void genCity();
+void genCityPalette();
 void genCityLandscape(int areaStart, int areaEnd, int horizon);
 void genCityPlayer();
 void genCityDecors();

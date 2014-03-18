@@ -9,6 +9,8 @@
 #ifndef __GEN_BASE
 #define __GEN_BASE
 
+#include "gen_tileset.hpp"
+
 
 namespace fired {
 	struct MapGenerator {
@@ -17,8 +19,10 @@ namespace fired {
 		sf::Vector2f     startPos;
 		int sizeX;
 		int sizeY;
+		int brush;
 
 		std::vector<fired::BaseMapObject*> objects;
+		std::vector<fired::GenTileset*>    palette;
 
 
 		 MapGenerator(fired::Biome *_biome);

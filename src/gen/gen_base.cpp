@@ -19,6 +19,8 @@ fired::MapGenerator::MapGenerator(fired::Biome *_biome) {
 	biome = _biome;
 
 	genClear(200, 100);
+	fillPalette();
+
 	if (!strcmp(biome->name, "City")) genCity();
 
 	genSave(this, "data/maps/test.map");
@@ -38,4 +40,5 @@ fired::MapGenerator::~MapGenerator() {
 	delete tiles;
 
 	deleteList(objects);
+	deleteList(palette);
 }

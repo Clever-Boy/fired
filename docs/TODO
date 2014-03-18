@@ -368,7 +368,7 @@
 		<todo done="yes" collapse="no"><title>Rain sound</title></todo>
 		<todo done="yes" collapse="no"><title>Snow sound</title></todo>
 	</todo>
-	<todo done="yes" collapse="yes"><title>Advanced</title>
+	<todo done="yes" collapse="no"><title>Advanced</title>
 		<todo done="yes" collapse="no"><title>Move name and caption to char[64]</title></todo>
 		<todo done="yes" collapse="no"><title>Weapon caption</title></todo>
 		<todo done="yes" collapse="no"><title>Reading captions with spaces</title></todo>
@@ -479,8 +479,9 @@
 		</todo>
 		<todo done="yes" collapse="no"><title>Move GUI functions from Character class to GUI class</title></todo>
 		<todo done="yes" collapse="no"><title>Sound when ammo collides the block</title></todo>
+		<todo done="no" collapse="no"><title>Remove tile fields from DB. Use brush and palettes instead (palette = array of tiles and indexes)</title></todo>
 	</todo>
-	<todo done="no" collapse="no"><title>Graphics refactoring</title>
+	<todo done="no" collapse="yes"><title>Graphics refactoring</title>
 		<todo done="yes" collapse="no"><title>Add antialiasing</title></todo>
 		<todo done="yes" collapse="no"><title>Scale BG to fit window height</title></todo>
 		<todo done="yes" collapse="no"><title>Allow BG slide only horizontally</title></todo>
@@ -491,14 +492,12 @@
 		<todo done="yes" collapse="no"><title>Define in DB, what mask to be used</title></todo>
 		<todo done="no" collapse="no"><title>Change GUI</title>
 			<todo done="yes" collapse="no"><title>Split rendering to functions</title></todo>
-			<todo done="no" collapse="no"><title>Change main sprite</title></todo>
 			<todo done="no" collapse="no"><title>HP</title></todo>
 			<todo done="no" collapse="no"><title>XP</title></todo>
 			<todo done="no" collapse="no"><title>Cooldown</title></todo>
 			<todo done="no" collapse="no"><title>Ammo</title></todo>
 		</todo>
 		<todo done="no" collapse="no"><title>Change crosshair</title></todo>
-		<todo done="no" collapse="no"><title>Change decor sprites</title></todo>
 		<todo done="no" collapse="no"><title>Change Armor icons</title></todo>
 		<todo done="no" collapse="no"><title>Change weapon icons</title></todo>
 	</todo>

@@ -490,13 +490,7 @@
 		<todo done="yes" collapse="no"><title>Convert TGA to PNG</title></todo>
 		<todo done="yes" collapse="no"><title>Alternate mask for bricks like dirt, stone etc.</title></todo>
 		<todo done="yes" collapse="no"><title>Define in DB, what mask to be used</title></todo>
-		<todo done="no" collapse="no"><title>Change GUI</title>
-			<todo done="yes" collapse="no"><title>Split rendering to functions</title></todo>
-			<todo done="no" collapse="no"><title>HP</title></todo>
-			<todo done="no" collapse="no"><title>XP</title></todo>
-			<todo done="no" collapse="no"><title>Cooldown</title></todo>
-			<todo done="no" collapse="no"><title>Ammo</title></todo>
-		</todo>
+		<todo done="yes" collapse="no"><title>Split GUI rendering to functions</title></todo>
 		<todo done="no" collapse="no"><title>Change crosshair</title></todo>
 		<todo done="no" collapse="no"><title>Change Armor icons</title></todo>
 		<todo done="no" collapse="no"><title>Change weapon icons</title></todo>

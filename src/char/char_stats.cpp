@@ -1,5 +1,5 @@
 /***********************************************************************
-     * File       : char_attr.cpp
+     * File       : char_stats.cpp
      * Created    : Apr 01, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
@@ -11,15 +11,19 @@
 
 
 /***********************************************************************
-     * CharacterAttributes
-     * constructor
+     * CharacterStats
+     * operator+
 
 ***********************************************************************/
-fired::CharacterAttributes::CharacterAttributes() {
-	strength     = 0;
-	constitution = 0;
-	dexterity    = 0;
-	intelligence = 0;
+fired::CharacterStats fired::CharacterStats::operator+(const CharacterStats& r) {
+	fired::CharacterStats l = *this;
 
-	points = 0;
+	l.speed    += r.speed;
+	l.accel    += r.accel;
+	l.aimrange += r.aimrange;
+	l.jump     += r.jump;
+	l.maxHP    += r.maxHP;
+	l.armor    += r.armor;
+
+	return l;
 }

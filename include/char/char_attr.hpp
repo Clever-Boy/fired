@@ -16,7 +16,6 @@ namespace fired {
 		unsigned short constitution;
 		unsigned short dexterity;
 		unsigned short intelligence;
-		unsigned short wisdom;
 
 		unsigned short points;
 

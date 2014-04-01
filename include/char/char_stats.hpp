@@ -21,6 +21,8 @@ namespace fired {
 		int HP;
 
 		int armor;
+
+		CharacterStats operator+(const CharacterStats& r);
 	};
 }
 

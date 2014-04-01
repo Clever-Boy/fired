@@ -28,8 +28,10 @@ namespace fired {
 		fired::World     *world;
 		fired::Camera    *cam;
 
-		fired::CharacterStats       baseStats;
 		fired::CharacterAttributes  attr;
+		fired::CharacterStats       baseStats;
+		fired::CharacterStats       attrStats;
+		fired::CharacterStats       stats;
 
 		fired::BaseWeapon          *weapon;
 		fired::BaseAmmo            *ammo;
@@ -96,6 +98,7 @@ namespace fired {
 		bool  isEnemy(int _fraction);
 		float getKnockback();
 		void  updateEquip();
+		void  updateStats();
 
 		void pickup(fired::InventoryItem *item)                  {inventory->pickup(item); };
 		bool canPickup(fired::InventoryItem *item)               {return inventory->canPickup(item); };

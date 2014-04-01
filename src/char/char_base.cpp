@@ -484,6 +484,18 @@ void fired::Character::updateEquip() {
 	else                             ammo = base->ammo;
 
 	model->updateParts();
+	updateStats();
+}
+
+
+
+/***********************************************************************
+     * Character
+     * shot
+
+***********************************************************************/
+void fired::Character::updateStats() {
+	stats = baseStats + attrStats;
 }
 
 

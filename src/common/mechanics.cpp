@@ -37,10 +37,10 @@ float armorReduction(unsigned int armor) {
 
 ***********************************************************************/
 void calcStats(fired::CharacterStats *stats, fired::CharacterAttributes *attr) {
-	stats->accel    = 0.0f;
-	stats->speed    = 0.0f;
-	stats->aimrange = 0.0f;
-	stats->jump     = 0.0f;
-	stats->armor    = 0;
-	stats->maxHP    = 0;
+	stats->accel    = (2 * attr->dexterity    + attr->strength    ) * SKILL_ACCEL_K;
+	stats->speed    = (2 * attr->dexterity    + attr->strength    ) * SKILL_SPEED_K;
+	stats->aimrange = (2 * attr->constitution + attr->intelligence) * SKILL_AIMRANGE_K;
+	stats->jump     = (2 * attr->strength     + attr->dexterity   ) * SKILL_JUMP_K;
+	stats->armor    = (2 * attr->constitution + attr->dexterity   ) * SKILL_ARMOR_K;
+	stats->maxHP    = (2 * attr->strength     + attr->constitution) * SKILL_MAXHP_K;
 }

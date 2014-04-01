@@ -163,6 +163,21 @@
 
 
 /***********************************************************************
+     * Skills constants
+
+***********************************************************************/
+#define SKILL_SPEED_K     0.0f
+#define SKILL_ACCEL_K     0.0f
+#define SKILL_JUMP_K      0.0f
+#define SKILL_AIMRANGE_K  0.0f
+#define SKILL_XPFACTOR_K  0.0f
+#define SKILL_ACCURACY_K  0.0f
+#define SKILL_ARMOR_K     0
+#define SKILL_MAXHP_K     0
+
+
+
+/***********************************************************************
      * Fraction constants
 
 ***********************************************************************/

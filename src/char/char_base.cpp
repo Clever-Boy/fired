@@ -205,6 +205,10 @@ void fired::Character::levelUp() {
 	level++;
 	world->addText(sf::Vector2f(phys.pos.x, phys.pos.y - 20), sf::Color(255, 255, 0, 255), 24, "Level UP");
 	needXP = levelXP(level);
+
+	attr.points++;
+	if (level % 5 == 0)  attr.points++;
+	if (level % 25 == 0) attr.points++;
 }
 
 

@@ -16,6 +16,7 @@ namespace fired {
 
 
 #include "char_stats.hpp"
+#include "char_attr.hpp"
 #include "phys.hpp"
 #include "model.hpp"
 #include "item.hpp"
@@ -27,12 +28,14 @@ namespace fired {
 		fired::World     *world;
 		fired::Camera    *cam;
 
-		fired::CharacterStats  baseStats;
-		fired::BaseWeapon     *weapon;
-		fired::BaseAmmo       *ammo;
-		fired::Model          *model;
-		fired::Inventory      *inventory;
-		fired::BaseCreature   *base;
+		fired::CharacterStats       baseStats;
+		fired::CharacterAttributes  attr;
+
+		fired::BaseWeapon          *weapon;
+		fired::BaseAmmo            *ammo;
+		fired::Model               *model;
+		fired::Inventory           *inventory;
+		fired::BaseCreature        *base;
 
 		fired::BaseArmor *helm;
 		fired::BaseArmor *legs;

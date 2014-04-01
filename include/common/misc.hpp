@@ -12,6 +12,7 @@
 
 void swapItems(fired::InventoryItem *item1, fired::InventoryItem *item2);
 void emptyItem(fired::InventoryItem *item);
+void emptyStats(fired::CharacterStats *stats);
 float lessOrZero(float x);
 float sqr(float x);
 float sign(float x);

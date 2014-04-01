@@ -40,8 +40,8 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 	}
 
 	fraction = _base->fraction;
-	respawn(_startpos);
 	updateEquip();
+	respawn(_startpos);
 
 	level          = 1;
 	XP             = 0;
@@ -77,7 +77,7 @@ void fired::Character::respawn(sf::Vector2f pos) {
 	isShooting        = false;
 	phys.calculate();
 
-	baseStats.HP   = baseStats.maxHP;
+	HP             = stats.maxHP;
 	weaponCooldown = 0;
 	dead           = false;
 	isShooting     = false;
@@ -117,8 +117,8 @@ void fired::Character::update() {
 void fired::Character::move() {
 	if (abs(phys.velocity.x) < PHYS_EPSILON) phys.velocity.x = 0.0f;
 
-	if (phys.isMoving && abs(phys.velocity.x) < baseStats.speed)
-		phys.velocity.x += direction * frameClock * baseStats.accel;
+	if (phys.isMoving && abs(phys.velocity.x) < stats.speed)
+		phys.velocity.x += direction * frameClock * stats.accel;
 	else if (frameClock * PHYS_FRICTION_ACCEL > abs(phys.velocity.x))
 		phys.velocity.x = 0.0f;
 	else
@@ -164,13 +164,13 @@ void fired::Character::damage(int damage, sf::Vector2f shot, float knockback, fi
 	int taken = damage * (1.0f - armorReduction(getArmor()));
 	if (taken <= 0) return;
 
-	baseStats.HP -= taken;
-	if (baseStats.HP <= 0) {
+	HP -= taken;
+	if (HP <= 0) {
 		dead = true;
 		model->explode(shot - phys.pos, knockback);
 		inventory->dropAll(world);
 
-		if (owner) if (world->isCharExists(owner)) owner->gainXP(baseStats.maxHP);
+		if (owner) if (world->isCharExists(owner)) owner->gainXP(stats.maxHP);
 	}
 
 	snprintf(dmg, sizeof(dmg), "-%u", taken);
@@ -278,7 +278,7 @@ void fired::Character::checkBroadShot(fired::BroadShot *shot) {
 		world->addBloodSplash(c, shot->normal * 200.0f, 20);
 		damage(shot->damage, c, shot->knockback, shot->owner);
 
-		if (world->isCharExists(shot->owner)) if (dead) shot->owner->gainXP(baseStats.maxHP);
+		if (world->isCharExists(shot->owner)) if (dead) shot->owner->gainXP(stats.maxHP);
 	}
 }
 
@@ -303,7 +303,7 @@ void fired::Character::checkMeleeShot(fired::MeleeShot *shot) {
 		world->addBloodSplash(c, n * 200.0f, 20);
 		damage(shot->damage, c, shot->knockback, shot->owner);
 
-		if (world->isCharExists(shot->owner)) if (dead) shot->owner->gainXP(baseStats.maxHP);
+		if (world->isCharExists(shot->owner)) if (dead) shot->owner->gainXP(stats.maxHP);
 	}
 }
 
@@ -326,7 +326,7 @@ int fired::Character::getDamage() {
 
 ***********************************************************************/
 int fired::Character::getArmor() {
-	return baseStats.armor;
+	return stats.armor;
 }
 
 
@@ -383,7 +383,7 @@ void fired::Character::moveRight() {
 
 ***********************************************************************/
 void fired::Character::jump() {
-	if (phys.onGround) phys.velocity.y = -baseStats.jump;
+	if (phys.onGround) phys.velocity.y = -stats.jump;
 }
 
 
@@ -437,7 +437,7 @@ void fired::Character::swapWeapons() {
 
 ***********************************************************************/
 void fired::Character::updateEquip() {
-	baseStats.armor = 0;
+	emptyStats(&equipStats);
 
 	if (helm) helm = NULL;
 	if (arms) arms = NULL;
@@ -449,32 +449,32 @@ void fired::Character::updateEquip() {
 
 	if (inventory->helm.base) {
 		helm = container->armors[inventory->helm.base->UID];
-		baseStats.armor += helm->armor;
+		equipStats.armor += helm->armor;
 	}
 
 	if (inventory->body.base) {
 		body = container->armors[inventory->body.base->UID];
-		baseStats.armor += body->armor;
+		equipStats.armor += body->armor;
 	}
 
 	if (inventory->arms.base) {
 		arms = container->armors[inventory->arms.base->UID];
-		baseStats.armor += arms->armor;
+		equipStats.armor += arms->armor;
 	}
 
 	if (inventory->fist.base) {
 		fist = container->armors[inventory->fist.base->UID];
-		baseStats.armor += fist->armor;
+		equipStats.armor += fist->armor;
 	}
 
 	if (inventory->legs.base) {
 		legs = container->armors[inventory->legs.base->UID];
-		baseStats.armor += legs->armor;
+		equipStats.armor += legs->armor;
 	}
 
 	if (inventory->shoe.base) {
 		shoe = container->armors[inventory->shoe.base->UID];
-		baseStats.armor += shoe->armor;
+		equipStats.armor += shoe->armor;
 	}
 
 	if (inventory->primaryWeapon.base) setWeapon(container->weapons[inventory->primaryWeapon.base->UID]);
@@ -495,7 +495,8 @@ void fired::Character::updateEquip() {
 
 ***********************************************************************/
 void fired::Character::updateStats() {
-	stats = baseStats + attrStats;
+	calcStats(&attrStats, &attr);
+	stats = baseStats + attrStats + equipStats;
 }
 
 

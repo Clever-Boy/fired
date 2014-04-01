@@ -29,3 +29,18 @@ long levelXP(int level) {
 float armorReduction(unsigned int armor) {
 	return 1.0f - 100.0f / (100.0f + (float)armor);
 }
+
+
+
+/***********************************************************************
+     * armorReduction
+
+***********************************************************************/
+void calcStats(fired::CharacterStats *stats, fired::CharacterAttributes *attr) {
+	stats->accel    = 0.0f;
+	stats->speed    = 0.0f;
+	stats->aimrange = 0.0f;
+	stats->jump     = 0.0f;
+	stats->armor    = 0;
+	stats->maxHP    = 0;
+}

@@ -371,7 +371,7 @@ void fired::World::preUpdateState() {
 void fired::World::postUpdateState() {
 	switch (state) {
 		case wsNormal:
-			crosshair->update(player->character->baseStats.aimrange);
+			crosshair->update(player->character->stats.aimrange);
 			cam->reset();
 			gui->update();
 			break;

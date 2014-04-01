@@ -10,7 +10,8 @@
 #define __MECHANICS
 
 
-long levelXP(int level);
+long  levelXP(int level);
 float armorReduction(unsigned int armor);
+void  calcStats(fired::CharacterStats *stats, fired::CharacterAttributes *attr);
 
 #endif

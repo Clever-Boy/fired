@@ -97,7 +97,7 @@ void fired::GUI::renderHP() {
 	app->draw(*bar);
 
 
-	if (owner->baseStats.HP > 0) percent = (float)owner->baseStats.HP / (float)owner->baseStats.maxHP;
+	if (owner->HP > 0) percent = (float)owner->HP / (float)owner->stats.maxHP;
 	else                          percent = 0.0f;
 
 	bar->setSize(sf::Vector2f(200 * percent, 12));
@@ -105,7 +105,7 @@ void fired::GUI::renderHP() {
 	app->draw(*bar);
 
 
-	snprintf(outStr, sizeof(outStr), "HP  %d / %d", owner->baseStats.HP, owner->baseStats.maxHP);
+	snprintf(outStr, sizeof(outStr), "HP  %ld / %d", owner->HP, owner->stats.maxHP);
 	*str = std::string(outStr);
 	txt->setString(*str);
 	txt->setPosition(sf::Vector2f(23 + (barWidth - txt->getGlobalBounds().width) / 2.0f, settings->window.height - barHeight - 19));

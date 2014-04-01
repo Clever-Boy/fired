@@ -18,8 +18,6 @@ namespace fired {
 		float jump;
 
 		int maxHP;
-		int HP;
-
 		int armor;
 
 		CharacterStats operator+(const CharacterStats& r);

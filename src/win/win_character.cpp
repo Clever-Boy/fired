@@ -83,7 +83,7 @@ void fired::CharacterWindow::render() {
 	renderText( 10, 10, "Level", false);
 	renderText(390, 10, str    , true);
 
-	snprintf(str, sizeof(str), "%d / %d", owner->baseStats.HP, owner->baseStats.maxHP);
+	snprintf(str, sizeof(str), "%ld / %d", owner->HP, owner->stats.maxHP);
 	renderText( 10, 30, "HP", false);
 	renderText(390, 30, str , true);
 
@@ -96,7 +96,7 @@ void fired::CharacterWindow::render() {
 	renderText(390, 70, str         , true);
 
 
-	snprintf(str, sizeof(str), "%d", owner->baseStats.armor);
+	snprintf(str, sizeof(str), "%d", owner->stats.armor);
 	renderText( 10, 110, "Armor", false);
 	renderText(390, 110, str    , true);
 
@@ -104,11 +104,11 @@ void fired::CharacterWindow::render() {
 	renderText( 10, 130, "Damage", false);
 	renderText(390, 130, str    , true);
 
-	snprintf(str, sizeof(str), "%3.2f", owner->baseStats.speed);
+	snprintf(str, sizeof(str), "%3.2f", owner->stats.speed);
 	renderText( 10, 150, "Speed", false);
 	renderText(390, 150, str    , true);
 
-	snprintf(str, sizeof(str), "%3.2f", owner->baseStats.jump);
+	snprintf(str, sizeof(str), "%3.2f", owner->stats.jump);
 	renderText( 10, 170, "Jump", false);
 	renderText(390, 170, str    , true);
 }

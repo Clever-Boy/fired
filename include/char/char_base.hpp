@@ -31,6 +31,7 @@ namespace fired {
 		fired::CharacterAttributes  attr;
 		fired::CharacterStats       baseStats;
 		fired::CharacterStats       attrStats;
+		fired::CharacterStats       equipStats;
 		fired::CharacterStats       stats;
 
 		fired::BaseWeapon          *weapon;
@@ -55,10 +56,11 @@ namespace fired {
 		float weaponCooldown;
 		int   fraction;
 
-		int  level;
+		long HP;
 		long XP;
 		long needXP;
 		long lastXP;
+		int  level;
 
 		fired::Phys phys;
 

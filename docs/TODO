@@ -500,13 +500,7 @@
 			<todo done="yes" collapse="no"><title>Primary skills struct</title></todo>
 			<todo done="yes" collapse="no"><title>Primary skills points</title></todo>
 			<todo done="yes" collapse="no"><title>Giving points on levelup</title></todo>
-			<todo done="no" collapse="no"><title>Primary skills calculation</title>
-				<todo done="no" collapse="no"><title>Strength</title></todo>
-				<todo done="no" collapse="no"><title>Constitution</title></todo>
-				<todo done="no" collapse="no"><title>Dexterity</title></todo>
-				<todo done="no" collapse="no"><title>Intelligence</title></todo>
-				<todo done="no" collapse="no"><title>Wisdom</title></todo>
-			</todo>
+			<todo done="no" collapse="no"><title>Primary skills calculation</title></todo>
 			<todo done="no" collapse="no"><title>Rendering skills and skill points in character window</title></todo>
 			<todo done="no" collapse="no"><title>Allow to use skill points</title></todo>
 		</todo>
@@ -514,18 +508,14 @@
 			<todo done="no" collapse="no"><title>Secondary skills struct</title></todo>
 			<todo done="no" collapse="no"><title>Secondary skills points</title></todo>
 			<todo done="no" collapse="no"><title>Giving points on levelup</title></todo>
-			<todo done="no" collapse="yes"><title>Secondary skills calculation</title>
-				<todo done="no" collapse="no"><title>Runner</title></todo>
-				<todo done="no" collapse="no"><title>Jumper</title></todo>
-				<todo done="no" collapse="no"><title>Shooter</title></todo>
-				<todo done="no" collapse="no"><title>Heavy hand</title></todo>
-			</todo>
+			<todo done="no" collapse="no"><title>Secondary skills calculation</title></todo>
 			<todo done="no" collapse="no"><title>Rendering skills and skill points in skills window</title></todo>
 			<todo done="no" collapse="no"><title>Class depending secondary skills</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Weapon skills (each weapon has it's own XP value)</title>
 			<todo done="no" collapse="no"><title>XP calculation</title></todo>
 			<todo done="no" collapse="no"><title>Weapon skills levelup</title></todo>
+			<todo done="no" collapse="no"><title>Weapon skills rendering at skills window</title></todo>
 		</todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>Biomes</title>

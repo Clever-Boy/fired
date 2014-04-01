@@ -18,8 +18,8 @@
 fired::Game::Game() {
 	clock     = new sf::Clock;
 	settings  = new fired::Settings();
-	container = new fired::Container();
 	resources = new fired::Resources();
+	container = new fired::Container();
 
 	unsigned long style;
 	if (settings->window.fullScreen) style = sf::Style::Fullscreen;

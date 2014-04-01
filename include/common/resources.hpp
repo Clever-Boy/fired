@@ -48,6 +48,12 @@ namespace fired {
 		} sprites;
 
 
+		struct {
+			sf::Texture *bumpy;
+			sf::Texture *flat;
+		} masks;
+
+
 		 Resources();
 		~Resources();
 	};

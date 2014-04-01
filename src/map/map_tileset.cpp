@@ -23,10 +23,10 @@ fired::Tileset::Tileset(int _ID, fired::GameSprite *baseSprite, bool flat, char 
 	sf::RenderTexture *text    = new sf::RenderTexture;
 	sf::Sprite        *sprt    = new sf::Sprite;
 	sf::Sprite        *mask    = new sf::Sprite;
-	sf::Texture       *maskTex = new sf::Texture();
+	sf::Texture       *maskTex;
 
-	if (flat) maskTex->loadFromFile("data/img/world/tileset/flat.png");
-	else      maskTex->loadFromFile("data/img/world/tileset/bumpy.png");
+	if (flat) maskTex = resources->masks.flat;
+	else      maskTex = resources->masks.bumpy;
 
 	baseSprite->tex->setRepeated(true);
 	mask->setTexture(*maskTex);
@@ -48,7 +48,6 @@ fired::Tileset::Tileset(int _ID, fired::GameSprite *baseSprite, bool flat, char 
 	delete text;
 	delete sprt;
 	delete mask;
-	delete maskTex;
 
 	for (int j = 0; j < 4; j++)
 		for (int i = 0; i < 4; i++) {

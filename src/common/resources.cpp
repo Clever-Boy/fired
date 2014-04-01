@@ -84,6 +84,14 @@ fired::Resources::Resources() {
 	sprites.coin->setOrigin(sf::Vector2f(sprites.coinTex->getSize()) / 2.0f);
 	sprites.smoke->setOrigin(sf::Vector2f(sprites.smokeTex->getSize()) / 2.0f);
 	sprites.snowflake->setOrigin(sf::Vector2f(sprites.snowflakeTex->getSize()) / 2.0f);
+
+
+
+	masks.bumpy = new sf::Texture();
+	masks.flat  = new sf::Texture();
+
+	masks.bumpy->loadFromFile("data/img/world/tileset/bumpy.png");
+	masks.flat->loadFromFile("data/img/world/tileset/flat.png");
 }
 
 
@@ -124,4 +132,9 @@ fired::Resources::~Resources() {
 	delete sprites.coinTex;
 	delete sprites.smokeTex;
 	delete sprites.snowflakeTex;
+
+
+
+	delete masks.flat;
+	delete masks.bumpy;
 }

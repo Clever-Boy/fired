@@ -56,7 +56,9 @@ void fired::CharacterWindow::update() {
      * renderText
 
 ***********************************************************************/
-void fired::CharacterWindow::renderText(float x, float y, const char *caption, bool rightAligned) {
+void fired::CharacterWindow::renderText(float x, float y, const char *caption, bool rightAligned, sf::Color color = sf::Color::White) {
+	text->setColor(color);
+
 	if (rightAligned) {
 		text->setString(sf::String(caption));
 		text->setPosition(win->offset + sf::Vector2f(x - text->getGlobalBounds().width, y));
@@ -76,8 +78,22 @@ void fired::CharacterWindow::renderText(float x, float y, const char *caption, b
 
 ***********************************************************************/
 void fired::CharacterWindow::render() {
-	char str[128];
 	win->render();
+
+	renderMain();
+	renderSkills();
+	renderStats();
+}
+
+
+
+/***********************************************************************
+     * CharacterWindow
+     * renderMain
+
+***********************************************************************/
+void fired::CharacterWindow::renderMain() {
+	char str[128];
 
 	snprintf(str, sizeof(str), "%d", owner->level);
 	renderText( 10, 10, "Level", false);
@@ -94,32 +110,66 @@ void fired::CharacterWindow::render() {
 	snprintf(str, sizeof(str), "%ld", owner->needXP);
 	renderText( 10, 70, "Next level", false);
 	renderText(290, 70, str         , true);
+}
 
+
+
+/***********************************************************************
+     * CharacterWindow
+     * renderSkills
+
+***********************************************************************/
+void fired::CharacterWindow::renderSkills() {
+	char str[128];
+	int  offset = 290;
+	bool flag = (owner->attr.points > 0);
+
+	if (flag) offset = 280;
 
 
 	snprintf(str, sizeof(str), "%d", owner->attr.strength);
-	renderText( 10, 110, "Strength", false);
-	renderText(290, 110, str    , true);
+	renderText(10    , 110, "Strength", false);
+	renderText(offset, 110, str       , true);
 
 	snprintf(str, sizeof(str), "%d", owner->attr.dexterity);
-	renderText( 10, 130, "Dexterity", false);
-	renderText(290, 130, str    , true);
+	renderText(10    , 130, "Dexterity", false);
+	renderText(offset, 130, str        , true);
 
 	snprintf(str, sizeof(str), "%d", owner->attr.constitution);
-	renderText( 10, 150, "Constitution", false);
-	renderText(290, 150, str    , true);
+	renderText(10   , 150, "Constitution", false);
+	renderText(offset, 150, str          , true);
 
 	snprintf(str, sizeof(str), "%d", owner->attr.intelligence);
-	renderText( 10, 170, "Intelligence", false);
-	renderText(290, 170, str    , true);
+	renderText(10    , 170, "Intelligence", false);
+	renderText(offset, 170, str           , true);
 
 
 
 	snprintf(str, sizeof(str), "%d", owner->attr.points);
 	renderText( 10, 200, "Skill points", false);
-	renderText(290, 200, str    , true);
+	renderText(290, 200, str           , true);
 
 
+
+	if (flag) {
+		snprintf(str, sizeof(str), "+");
+
+		renderText(290, 110, str, true, sf::Color(44, 88, 22));
+		renderText(290, 130, str, true, sf::Color(44, 88, 22));
+		renderText(290, 150, str, true, sf::Color(44, 88, 22));
+		renderText(290, 170, str, true, sf::Color(44, 88, 22));
+	}
+}
+
+
+
+/***********************************************************************
+     * CharacterWindow
+     * renderStats
+
+***********************************************************************/
+void fired::CharacterWindow::renderStats() {
+	char str[128];
 
 	snprintf(str, sizeof(str), "%d", owner->stats.armor);
 	renderText( 10, 240, "Armor", false);
@@ -152,5 +202,27 @@ void fired::CharacterWindow::render() {
 	snprintf(str, sizeof(str), "%3.2f", owner->stats.xpfactor);
 	renderText( 10, 380, "XP bonus", false);
 	renderText(290, 380, str    , true);
+}
 
+
+
+/***********************************************************************
+     * CharacterWindow
+     * click
+
+***********************************************************************/
+void fired::CharacterWindow::click(sf::Vector2f mousePos) {
+	if (owner->attr.points == 0) return;
+
+	mousePos -= win->offset;
+	if (mousePos.x < 280 || mousePos.x > 290) return;
+	if (mousePos.y < 110 || mousePos.y > 190) return;
+
+	     if (mousePos.y < 130) owner->attr.strength++;
+	else if (mousePos.y < 150) owner->attr.dexterity++;
+	else if (mousePos.y < 170) owner->attr.constitution++;
+	else                       owner->attr.intelligence++;
+
+	owner->attr.points--;
+	owner->updateStats();
 }

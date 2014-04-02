@@ -26,7 +26,11 @@ namespace fired {
 
 		void update();
 		void render();
-		void renderText(float x, float y, const char *caption, bool rightAligned);
+		void renderMain();
+		void renderSkills();
+		void renderStats();
+		void renderText(float x, float y, const char *caption, bool rightAligned, sf::Color color);
+		void click(sf::Vector2f mousePos);
 	};
 }
 

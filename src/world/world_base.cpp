@@ -242,6 +242,7 @@ void fired::World::processEvent(sf::Event event) {
 
 
 	if ((event.type == sf::Event::MouseButtonPressed) && (event.mouseButton.button == sf::Mouse::Left)) {
+		if (state == wsCharacter) characterWin->click(mouse->pos);
 		if (state == wsInventory) inventoryWin->click(mouse->pos);
 		if (state == wsExchange)  exchangeWin->click(mouse->pos);
 	}

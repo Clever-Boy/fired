@@ -172,13 +172,13 @@ void fired::InventoryWindow::click(sf::Vector2f mousePos) {
 				selected->item->count = selected->item->base->maxStack;
 			}
 
-			owner->updateEquip();
+			owner->updateStats();
 			return;
 		}
 	}
 
 	swapItems(selected->item, inHand->item);
-	owner->updateEquip();
+	owner->updateStats();
 }
 
 
@@ -208,6 +208,6 @@ void fired::InventoryWindow::clickRight(sf::Vector2f mousePos) {
 		selected->item->count--;
 		if (selected->item->count == 0) emptyItem(selected->item);
 
-		owner->updateEquip();
+		owner->updateStats();
 	}
 }

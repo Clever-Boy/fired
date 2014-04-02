@@ -40,7 +40,7 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 	}
 
 	fraction = _base->fraction;
-	updateEquip();
+	updateStats();
 	respawn(_startpos);
 
 	level          = 1;
@@ -484,7 +484,6 @@ void fired::Character::updateEquip() {
 	else                             ammo = base->ammo;
 
 	model->updateParts();
-	updateStats();
 }
 
 
@@ -496,6 +495,8 @@ void fired::Character::updateEquip() {
 ***********************************************************************/
 void fired::Character::updateStats() {
 	calcStats(&attrStats, &attr);
+	updateEquip();
+
 	stats = baseStats + attrStats + equipStats;
 }
 

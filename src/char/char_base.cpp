@@ -316,7 +316,8 @@ void fired::Character::checkMeleeShot(fired::MeleeShot *shot) {
 
 ***********************************************************************/
 int fired::Character::getDamage() {
-	return weapon->damage + ammo->damage;
+	if (ammo) return weapon->damage + ammo->damage;
+	else      return weapon->damage;
 }
 
 

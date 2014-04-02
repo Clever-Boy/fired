@@ -52,7 +52,7 @@ fired::Game::Game() {
 	musicTheme->setVolume(settings->volume.music);
 
 	font = new sf::Font;
-	font->loadFromFile("data/fonts/techno.ttf");
+	font->loadFromFile("data/fonts/monterey.ttf");
 
 	setGameState(gsStartScr);
 	lastClock = clock->getElapsedTime().asMilliseconds();

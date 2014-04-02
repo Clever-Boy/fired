@@ -549,7 +549,7 @@
 		<todo done="yes" collapse="no"><title>Alternate mask for bricks like dirt, stone etc.</title></todo>
 		<todo done="yes" collapse="no"><title>Define in DB, what mask to be used</title></todo>
 		<todo done="yes" collapse="no"><title>Split GUI rendering to functions</title></todo>
-		<todo done="no" collapse="no"><title>Change crosshair</title></todo>
+		<todo done="yes" collapse="no"><title>Change crosshair</title></todo>
 		<todo done="no" collapse="no"><title>Change Armor icons</title></todo>
 		<todo done="no" collapse="no"><title>Change weapon icons</title></todo>
 		<todo done="no" collapse="no"><title>Fix bug with bumpy tiles</title></todo>
@@ -562,7 +562,7 @@
 		<todo done="no" collapse="no"><title>Splash on impact</title></todo>
 		<todo done="no" collapse="no"><title>Oxygen limit</title></todo>
 	</todo>
-	<todo done="no" collapse="yes"><title>--- Release Alpha</title>
+	<todo done="no" collapse="yes"><title>--- Release Pre-Alpha ---</title>
 		<todo done="no" collapse="no"><title>Add some weapons</title></todo>
 		<todo done="no" collapse="no"><title>Add some armors</title></todo>
 		<todo done="no" collapse="no"><title>Add some model types</title></todo>
@@ -571,9 +571,10 @@
 		<todo done="no" collapse="no"><title>Add some creatures</title></todo>
 		<todo done="no" collapse="no"><title>Generating loot depending on level</title></todo>
 		<todo done="no" collapse="no"><title>Items bonuses +dmg, +defence, etc.</title></todo>
-		<todo done="no" collapse="no"><title>Final code optimization</title></todo>
+		<todo done="no" collapse="no"><title>In-game menu</title></todo>
+		<todo done="no" collapse="no"><title>Code optimization</title></todo>
 	</todo>
-	<todo done="no" collapse="yes"><title>Fix Alpha bugs</title></todo>
+	<todo done="no" collapse="yes"><title>Fix Pre-Alpha bugs</title></todo>
 	<todo done="no" collapse="yes"><title>Locations</title>
 		<todo done="no" collapse="yes"><title>City</title>
 			<todo done="no" collapse="no"><title>Tiles</title></todo>
@@ -626,9 +627,17 @@
 		<todo done="no" collapse="no"><title>Weapon skills levelup</title></todo>
 		<todo done="no" collapse="no"><title>Weapon skills rendering at skills window</title></todo>
 	</todo>
+	<todo done="no" collapse="yes"><title>--- Release Alpha ---</title>
+		<todo done="no" collapse="no"><title>Code optimization</title></todo>
+	</todo>
+	<todo done="no" collapse="no"><title>Fix Alpha bugs</title></todo>
 	<todo done="no" collapse="yes"><title>Multiplayer</title>
 		<todo done="no" collapse="no"><title>Server thread</title></todo>
 		<todo done="no" collapse="no"><title>Multiplayer AI type</title></todo>
 		<todo done="no" collapse="no"><title>Socket AI binding</title></todo>
 	</todo>
+	<todo done="no" collapse="yes"><title>--- Release Beta ---</title>
+		<todo done="no" collapse="no"><title>Code optimization</title></todo>
+	</todo>
+	<todo done="no" collapse="no"><title>Fix Beta bugs</title></todo>
 </todo>

@@ -504,7 +504,7 @@
 			<todo done="yes" collapse="no"><title>Primary skills coefficients</title></todo>
 			<todo done="yes" collapse="no"><title>XP factor</title></todo>
 			<todo done="yes" collapse="no"><title>Accuracy</title></todo>
-			<todo done="no" collapse="no"><title>Rendering skills and skill points in character window</title></todo>
+			<todo done="yes" collapse="no"><title>Rendering skills and skill points in character window</title></todo>
 			<todo done="no" collapse="no"><title>Allow to use skill points</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Secondary skills</title>

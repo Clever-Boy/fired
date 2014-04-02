@@ -346,28 +346,6 @@
 		<todo done="yes" collapse="no"><title>Move decors to objects moNone</title></todo>
 		<todo done="yes" collapse="no"><title>Store decor, light and item ID instead of name</title></todo>
 	</todo>
-	<todo done="yes" collapse="yes"><title>Weather</title>
-		<todo done="yes" collapse="no"><title>Base class</title></todo>
-		<todo done="yes" collapse="no"><title>Rain</title></todo>
-		<todo done="yes" collapse="no"><title>Snow</title></todo>
-		<todo done="yes" collapse="yes"><title>Storm</title>
-			<todo done="yes" collapse="no"><title>Storm weather class</title></todo>
-			<todo done="yes" collapse="no"><title>Lightning class</title></todo>
-			<todo done="yes" collapse="no"><title>Lightning building</title></todo>
-			<todo done="yes" collapse="no"><title>Lightning rendering</title></todo>
-			<todo done="yes" collapse="no"><title>Lightning makes light</title></todo>
-			<todo done="yes" collapse="no"><title>Loghtning makes sound</title></todo>
-			<todo done="yes" collapse="no"><title>Storm generates lightninngs</title></todo>
-			<todo done="yes" collapse="no"><title>Drawing lightning till storm</title></todo>
-		</todo>
-		<todo done="yes" collapse="yes"><title>Biome weather definition</title>
-			<todo done="yes" collapse="no"><title>Weather class</title></todo>
-			<todo done="yes" collapse="no"><title>Weather intensity</title></todo>
-		</todo>
-		<todo done="yes" collapse="no"><title>Random wind</title></todo>
-		<todo done="yes" collapse="no"><title>Rain sound</title></todo>
-		<todo done="yes" collapse="no"><title>Snow sound</title></todo>
-	</todo>
 	<todo done="yes" collapse="yes"><title>Advanced</title>
 		<todo done="yes" collapse="no"><title>Move name and caption to char[64]</title></todo>
 		<todo done="yes" collapse="no"><title>Weapon caption</title></todo>
@@ -481,19 +459,27 @@
 		<todo done="yes" collapse="no"><title>Sound when ammo collides the block</title></todo>
 		<todo done="yes" collapse="no"><title>Remove tile fields from DB. Use brush and palettes instead (palette = array of tiles and indexes)</title></todo>
 	</todo>
-	<todo done="no" collapse="yes"><title>Graphics refactoring</title>
-		<todo done="yes" collapse="no"><title>Add antialiasing</title></todo>
-		<todo done="yes" collapse="no"><title>Scale BG to fit window height</title></todo>
-		<todo done="yes" collapse="no"><title>Allow BG slide only horizontally</title></todo>
-		<todo done="yes" collapse="no"><title>Change BG</title></todo>
-		<todo done="yes" collapse="no"><title>Add sky gradient color</title></todo>
-		<todo done="yes" collapse="no"><title>Convert TGA to PNG</title></todo>
-		<todo done="yes" collapse="no"><title>Alternate mask for bricks like dirt, stone etc.</title></todo>
-		<todo done="yes" collapse="no"><title>Define in DB, what mask to be used</title></todo>
-		<todo done="yes" collapse="no"><title>Split GUI rendering to functions</title></todo>
-		<todo done="no" collapse="no"><title>Change crosshair</title></todo>
-		<todo done="no" collapse="no"><title>Change Armor icons</title></todo>
-		<todo done="no" collapse="no"><title>Change weapon icons</title></todo>
+	<todo done="yes" collapse="yes"><title>Weather</title>
+		<todo done="yes" collapse="no"><title>Base class</title></todo>
+		<todo done="yes" collapse="no"><title>Rain</title></todo>
+		<todo done="yes" collapse="no"><title>Snow</title></todo>
+		<todo done="yes" collapse="yes"><title>Storm</title>
+			<todo done="yes" collapse="no"><title>Storm weather class</title></todo>
+			<todo done="yes" collapse="no"><title>Lightning class</title></todo>
+			<todo done="yes" collapse="no"><title>Lightning building</title></todo>
+			<todo done="yes" collapse="no"><title>Lightning rendering</title></todo>
+			<todo done="yes" collapse="no"><title>Lightning makes light</title></todo>
+			<todo done="yes" collapse="no"><title>Loghtning makes sound</title></todo>
+			<todo done="yes" collapse="no"><title>Storm generates lightninngs</title></todo>
+			<todo done="yes" collapse="no"><title>Drawing lightning till storm</title></todo>
+		</todo>
+		<todo done="yes" collapse="yes"><title>Biome weather definition</title>
+			<todo done="yes" collapse="no"><title>Weather class</title></todo>
+			<todo done="yes" collapse="no"><title>Weather intensity</title></todo>
+		</todo>
+		<todo done="yes" collapse="no"><title>Random wind</title></todo>
+		<todo done="yes" collapse="no"><title>Rain sound</title></todo>
+		<todo done="yes" collapse="no"><title>Snow sound</title></todo>
 	</todo>
 	<todo done="no" collapse="no"><title>Skills</title>
 		<todo done="yes" collapse="yes"><title>Primary skills</title>
@@ -521,6 +507,20 @@
 			<todo done="no" collapse="no"><title>Weapon skills levelup</title></todo>
 			<todo done="no" collapse="no"><title>Weapon skills rendering at skills window</title></todo>
 		</todo>
+	</todo>
+	<todo done="no" collapse="yes"><title>Graphics refactoring</title>
+		<todo done="yes" collapse="no"><title>Add antialiasing</title></todo>
+		<todo done="yes" collapse="no"><title>Scale BG to fit window height</title></todo>
+		<todo done="yes" collapse="no"><title>Allow BG slide only horizontally</title></todo>
+		<todo done="yes" collapse="no"><title>Change BG</title></todo>
+		<todo done="yes" collapse="no"><title>Add sky gradient color</title></todo>
+		<todo done="yes" collapse="no"><title>Convert TGA to PNG</title></todo>
+		<todo done="yes" collapse="no"><title>Alternate mask for bricks like dirt, stone etc.</title></todo>
+		<todo done="yes" collapse="no"><title>Define in DB, what mask to be used</title></todo>
+		<todo done="yes" collapse="no"><title>Split GUI rendering to functions</title></todo>
+		<todo done="no" collapse="no"><title>Change crosshair</title></todo>
+		<todo done="no" collapse="no"><title>Change Armor icons</title></todo>
+		<todo done="no" collapse="no"><title>Change weapon icons</title></todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>Biomes</title>
 		<todo done="no" collapse="yes"><title>Building</title>
@@ -626,7 +626,7 @@
 		<todo done="no" collapse="no"><title>Items bonuses +dmg, +defence, etc.</title></todo>
 		<todo done="no" collapse="no"><title>Final code optimization</title></todo>
 	</todo>
-	<todo done="no" collapse="no"><title>Fix Alpha bugs</title></todo>
+	<todo done="no" collapse="yes"><title>Fix Alpha bugs</title></todo>
 	<todo done="no" collapse="yes"><title>Multiplayer</title>
 		<todo done="no" collapse="no"><title>Server thread</title></todo>
 		<todo done="no" collapse="no"><title>Multiplayer AI type</title></todo>

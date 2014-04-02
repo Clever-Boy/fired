@@ -149,6 +149,7 @@
 #define WEAPON_SUBTYPE_SHOTGUN   5
 #define WEAPON_SUBTYPE_PISTOL    6
 
+#define WEAPON_ZERO_ACCURACY     0.228f
 #define WEAPON_SHOTGUN_OFFSET    0.188f
 #define WEAPON_SHOTGUN_BULLETS   5
 
@@ -170,8 +171,8 @@
 #define SKILL_ACCEL_K     8.0f
 #define SKILL_JUMP_K      3.0f
 #define SKILL_AIMRANGE_K  1.5f
-#define SKILL_XPFACTOR_K  0.0f
-#define SKILL_ACCURACY_K  0.0f
+#define SKILL_XPFACTOR_K  0.015f
+#define SKILL_ACCURACY_K  2.5f
 #define SKILL_ARMOR_K     1
 #define SKILL_MAXHP_K     5
 

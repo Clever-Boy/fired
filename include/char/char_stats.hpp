@@ -16,6 +16,8 @@ namespace fired {
 		float accel;
 		float aimrange;
 		float jump;
+		float accuracy;
+		float xpfactor;
 
 		int maxHP;
 		int armor;

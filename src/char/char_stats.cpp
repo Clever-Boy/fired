@@ -22,6 +22,8 @@ fired::CharacterStats fired::CharacterStats::operator+(const CharacterStats& r) 
 	l.accel    += r.accel;
 	l.aimrange += r.aimrange;
 	l.jump     += r.jump;
+	l.accuracy += r.accuracy;
+	l.xpfactor += r.xpfactor;
 	l.maxHP    += r.maxHP;
 	l.armor    += r.armor;
 

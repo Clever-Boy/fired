@@ -13,5 +13,6 @@
 long  levelXP(int level);
 float armorReduction(unsigned int armor);
 void  calcStats(fired::CharacterStats *stats, fired::CharacterAttributes *attr);
+float accuracyReduction(float accuracy);
 
 #endif

@@ -31,7 +31,8 @@ fired::Shot::Shot(fired::Character *_owner, fired::World *_world) {
 	explosive       = owner->ammo->explosive;
 	explosionRadius = owner->ammo->explosionRadius;
 
-	if (owner->weapon->subtype == WEAPON_SUBTYPE_SHOTGUN) angle += getRandomOffset(WEAPON_SHOTGUN_OFFSET);
+	angle += getRandomOffset(WEAPON_ZERO_ACCURACY * accuracyReduction(owner->stats.accuracy));
+	if (owner->weapon->subtype == WEAPON_SUBTYPE_SHOTGUN) angle += getRandomOffset(WEAPON_ZERO_ACCURACY);
 
 	velocity = sf::Vector2f(owner->weapon->speed * cos(angle), owner->weapon->speed * sin(angle));
 	line = sf::VertexArray(sf::Lines, 2);

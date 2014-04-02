@@ -186,6 +186,7 @@ void fired::Character::damage(int damage, sf::Vector2f shot, float knockback, fi
 ***********************************************************************/
 void fired::Character::gainXP(long xp) {
 	char exp[64];
+	xp *= (stats.xpfactor + 1.0f);
 	snprintf(exp, sizeof(exp), "+%lu XP", xp);
 
 	XP += xp;

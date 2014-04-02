@@ -49,6 +49,8 @@ void emptyStats(fired::CharacterStats *stats) {
 	stats->speed    = 0.0f;
 	stats->aimrange = 0.0f;
 	stats->jump     = 0.0f;
+	stats->accuracy = 0.0f;
+	stats->xpfactor = 0.0f;
 	stats->armor    = 0;
 	stats->maxHP    = 0;
 }

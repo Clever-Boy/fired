@@ -635,6 +635,7 @@ void fired::Container::loadCreatureLoot(fired::BaseCreature *current, const char
 int fired::Container::loadCreature(void *data, int, char **argv, char **) {
 	((fired::Container *) data)->creatures.push_back(new fired::BaseCreature);
 	fired::BaseCreature *current = ((fired::Container *) data)->creatures.back();
+	emptyStats(&current->stats);
 
 	strcpy(current->name, argv[1]);
 	strcpy(current->ai  , argv[2]);

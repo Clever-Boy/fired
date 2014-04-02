@@ -22,6 +22,5 @@ void addPlatform(int x, int y, const char *name);
 void addTileToPalette(const char *name);
 void setBrush(const char *name);
 void setEraser();
-void fillPalette();
 
 #endif

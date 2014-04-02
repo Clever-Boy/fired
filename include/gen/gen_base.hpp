@@ -28,7 +28,10 @@ namespace fired {
 		 MapGenerator(fired::Biome *_biome);
 		~MapGenerator();
 
+
 		#include "gen_misc.hpp"
+		#include "gen_biome.hpp"
+
 		#include "gen_biome_building.hpp"
 		#include "gen_biome_mine.hpp"
 		#include "gen_biome_snow.hpp"

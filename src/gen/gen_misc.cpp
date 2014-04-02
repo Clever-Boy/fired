@@ -146,5 +146,13 @@ void fired::MapGenerator::setEraser() {
 
 ***********************************************************************/
 void fired::MapGenerator::fillPalette() {
-	if (!strcmp(biome->name, "City")) genCityPalette();
+	if (!strcmp(biome->name, "Building"))  genBuildingPalette();
+	if (!strcmp(biome->name, "Mine"))      genMinePalette();
+	if (!strcmp(biome->name, "Snow"))      genSnowPalette();
+	if (!strcmp(biome->name, "Sewers"))    genSewersPalette();
+	if (!strcmp(biome->name, "Castle"))    genCastlePalette();
+	if (!strcmp(biome->name, "Cave"))      genCavePalette();
+	if (!strcmp(biome->name, "Mountains")) genMountainsPalette();
+	if (!strcmp(biome->name, "Graveyard")) genGraveyardPalette();
+	if (!strcmp(biome->name, "Forest"))    genForestPalette();
 }

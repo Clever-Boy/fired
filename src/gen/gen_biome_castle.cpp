@@ -1,6 +1,6 @@
 /***********************************************************************
-     * File       : gen_biome_city.cpp
-     * Created    : Jan 22, 2014
+     * File       : gen_biome_castle.cpp
+     * Created    : Apr 02, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
@@ -12,40 +12,40 @@
 
 /***********************************************************************
      * MapGenerator
-     * genCity
+     * genCastle
 
 ***********************************************************************/
-void fired::MapGenerator::genCity() {
-	genCityLandscape(0, sizeX - 1, 40);
-	genCityDecors();
-	genCityPlatforms();
-	genCityCollectors();
-	genCityPlayer();
+void fired::MapGenerator::genCastle() {
+	genCastleLandscape(0, sizeX - 1, 40);
+	genCastleDecors();
+	genCastlePlatforms();
+	genCastleCollectors();
+	genCastlePlayer();
 }
 
 
 
 /***********************************************************************
      * MapGenerator
-     * genCityPalette
+     * genCastlePalette
 
 ***********************************************************************/
-void fired::MapGenerator::genCityPalette() {
-	addTileToPalette("brick.red");
-	addTileToPalette("brick.gray");
-	addTileToPalette("concrete");
-	addTileToPalette("warning");
+void fired::MapGenerator::genCastlePalette() {
+	addTileToPalette("brick.mossy");
+	addTileToPalette("brick.stone");
+	addTileToPalette("stone.cobble");
+	addTileToPalette("plank.dark");
 }
 
 
 
 /***********************************************************************
      * MapGenerator
-     * genCityLandscape
+     * genCastleLandscape
 
 ***********************************************************************/
-void fired::MapGenerator::genCityLandscape(int areaStart, int areaEnd, int horizon) {
-	setBrush("concrete");
+void fired::MapGenerator::genCastleLandscape(int areaStart, int areaEnd, int horizon) {
+	setBrush("stone.cobble");
 	genFill(areaStart, horizon, areaEnd, sizeY - 1, true);
 	genFill(areaStart, horizon - 2, areaEnd, horizon - 1, false);
 
@@ -56,7 +56,7 @@ void fired::MapGenerator::genCityLandscape(int areaStart, int areaEnd, int horiz
 	genFill(areaEnd - 8  , horizon - 1, areaEnd - 5  , horizon - 1, true);
 
 	//Generating testing planes
-	setBrush("brick.gray");
+	setBrush("brick.stone");
 	genBar(41, horizon - 11, horizon - 6, false);
 	genBar(47, horizon - 11, horizon - 6, false);
 	genFill(41, horizon - 7, 47, horizon - 6, false);
@@ -68,13 +68,13 @@ void fired::MapGenerator::genCityLandscape(int areaStart, int areaEnd, int horiz
 	genFill(40, horizon - 5, 88, horizon - 5, true);
 	genFill(40, horizon - 4, 88, horizon - 1, false);
 
-	setBrush("warning");
+	setBrush("plank.dark");
 	genFill(40, horizon - 10, 48, horizon - 10, true);
 	genFill(80, horizon - 10, 88, horizon - 10, true);
 
 
 	//Generating testing house
-	setBrush("brick.red");
+	setBrush("brick.mossy");
 	genFill(140, horizon - 10, 159, horizon - 1, false);
 	genFill(140, horizon, 159, horizon, true);
 	genFill(140, horizon - 10, 159, horizon - 9, true);
@@ -94,7 +94,7 @@ void fired::MapGenerator::genCityLandscape(int areaStart, int areaEnd, int horiz
 
 
 	//Generating cave
-	setBrush("brick.gray");
+	setBrush("brick.stone");
 	genFill(62, horizon, 66, horizon + 25, false);
 	genFill(42, horizon + 21, 86, horizon + 25, false);
 }
@@ -103,10 +103,10 @@ void fired::MapGenerator::genCityLandscape(int areaStart, int areaEnd, int horiz
 
 /***********************************************************************
      * MapGenerator
-     * genCityDecors
+     * genCastleDecors
 
 ***********************************************************************/
-void fired::MapGenerator::genCityDecors() {
+void fired::MapGenerator::genCastleDecors() {
 	addDecor(1900, 608, "box");
 	addDecor(1932, 608, "box");
 	addDecor(1916, 576, "box");
@@ -127,10 +127,10 @@ void fired::MapGenerator::genCityDecors() {
 
 /***********************************************************************
      * MapGenerator
-     * genCityPlatforms
+     * genCastlePlatforms
 
 ***********************************************************************/
-void fired::MapGenerator::genCityPlatforms() {
+void fired::MapGenerator::genCastlePlatforms() {
 	for (int x = 49; x < 80; x++) addPlatform(x, 30, "bridge.metal");
 	for (int x = 62; x < 67; x++) addPlatform(x, 40, "bridge.metal");
 	for (int x = 62; x < 67; x++) addPlatform(x, 45, "bridge.metal");
@@ -143,10 +143,10 @@ void fired::MapGenerator::genCityPlatforms() {
 
 /***********************************************************************
      * MapGenerator
-     * genCityCollectors
+     * genCastleCollectors
 
 ***********************************************************************/
-void fired::MapGenerator::genCityCollectors() {
+void fired::MapGenerator::genCastleCollectors() {
 	addCollector(704 , 528, "chest");
 	addCollector(1344, 528, "chest");
 }
@@ -155,10 +155,10 @@ void fired::MapGenerator::genCityCollectors() {
 
 /***********************************************************************
      * MapGenerator
-     * genCityPlayer
+     * genCastlePlayer
 
 ***********************************************************************/
-void fired::MapGenerator::genCityPlayer() {
+void fired::MapGenerator::genCastlePlayer() {
 	int y = 0;
 	startPos.x = (sizeX / 2) * TILE_SIZE;
 

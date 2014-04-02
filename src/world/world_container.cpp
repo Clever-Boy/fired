@@ -764,7 +764,9 @@ int fired::Container::loadBiome(void *data, int, char **argv, char **) {
 	sscanf(argv[7], "%hhu,%hhu,%hhu,%hhu", &current->cloudColor.r, &current->cloudColor.g, &current->cloudColor.b, &current->cloudColor.a);
 
 	strcpy(current->name   , argv[1]);
-	strcpy(current->weather, argv[4]);
+
+	if (argv[4]) strcpy(current->weather, argv[4]);
+	else         current->weather[0] = 0;
 
 	if (argv[12]) {
 		char *token = strtok(argv[8], "\n");

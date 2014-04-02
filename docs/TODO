@@ -481,48 +481,18 @@
 		<todo done="yes" collapse="no"><title>Rain sound</title></todo>
 		<todo done="yes" collapse="no"><title>Snow sound</title></todo>
 	</todo>
-	<todo done="no" collapse="no"><title>Skills</title>
-		<todo done="yes" collapse="yes"><title>Primary skills</title>
-			<todo done="yes" collapse="no"><title>Primary skills struct</title></todo>
-			<todo done="yes" collapse="no"><title>Primary skills points</title></todo>
-			<todo done="yes" collapse="no"><title>Giving points on levelup</title></todo>
-			<todo done="yes" collapse="no"><title>Primary skills calculation</title></todo>
-			<todo done="yes" collapse="no"><title>Primary skills coefficients</title></todo>
-			<todo done="yes" collapse="no"><title>XP factor</title></todo>
-			<todo done="yes" collapse="no"><title>Accuracy</title></todo>
-			<todo done="yes" collapse="no"><title>Rendering skills and skill points in character window</title></todo>
-			<todo done="yes" collapse="no"><title>Allow to use skill points</title></todo>
-		</todo>
-		<todo done="no" collapse="no"><title>Secondary skills</title>
-			<todo done="no" collapse="no"><title>Secondary skills struct</title></todo>
-			<todo done="no" collapse="no"><title>Secondary skills points</title></todo>
-			<todo done="no" collapse="no"><title>Giving points on levelup</title></todo>
-			<todo done="no" collapse="no"><title>Secondary skills calculation</title></todo>
-			<todo done="no" collapse="no"><title>Secondary skills window</title></todo>
-			<todo done="no" collapse="no"><title>Rendering skills and skill points in skills window</title></todo>
-			<todo done="no" collapse="no"><title>Class depending secondary skills</title></todo>
-		</todo>
-		<todo done="no" collapse="yes"><title>Weapon skills (each weapon has it's own XP value)</title>
-			<todo done="no" collapse="no"><title>XP calculation</title></todo>
-			<todo done="no" collapse="no"><title>Weapon skills levelup</title></todo>
-			<todo done="no" collapse="no"><title>Weapon skills rendering at skills window</title></todo>
-		</todo>
+	<todo done="yes" collapse="yes"><title>Skills</title>
+		<todo done="yes" collapse="no"><title>Primary skills struct</title></todo>
+		<todo done="yes" collapse="no"><title>Primary skills points</title></todo>
+		<todo done="yes" collapse="no"><title>Giving points on levelup</title></todo>
+		<todo done="yes" collapse="no"><title>Primary skills calculation</title></todo>
+		<todo done="yes" collapse="no"><title>Primary skills coefficients</title></todo>
+		<todo done="yes" collapse="no"><title>XP factor</title></todo>
+		<todo done="yes" collapse="no"><title>Accuracy</title></todo>
+		<todo done="yes" collapse="no"><title>Rendering skills and skill points in character window</title></todo>
+		<todo done="yes" collapse="no"><title>Allow to use skill points</title></todo>
 	</todo>
-	<todo done="no" collapse="yes"><title>Graphics refactoring</title>
-		<todo done="yes" collapse="no"><title>Add antialiasing</title></todo>
-		<todo done="yes" collapse="no"><title>Scale BG to fit window height</title></todo>
-		<todo done="yes" collapse="no"><title>Allow BG slide only horizontally</title></todo>
-		<todo done="yes" collapse="no"><title>Change BG</title></todo>
-		<todo done="yes" collapse="no"><title>Add sky gradient color</title></todo>
-		<todo done="yes" collapse="no"><title>Convert TGA to PNG</title></todo>
-		<todo done="yes" collapse="no"><title>Alternate mask for bricks like dirt, stone etc.</title></todo>
-		<todo done="yes" collapse="no"><title>Define in DB, what mask to be used</title></todo>
-		<todo done="yes" collapse="no"><title>Split GUI rendering to functions</title></todo>
-		<todo done="no" collapse="no"><title>Change crosshair</title></todo>
-		<todo done="no" collapse="no"><title>Change Armor icons</title></todo>
-		<todo done="no" collapse="no"><title>Change weapon icons</title></todo>
-	</todo>
-	<todo done="no" collapse="yes"><title>Biomes</title>
+	<todo done="no" collapse="no"><title>Biomes</title>
 		<todo done="no" collapse="yes"><title>Building</title>
 			<todo done="no" collapse="no"><title>Tiles</title></todo>
 			<todo done="no" collapse="no"><title>Decors</title></todo>
@@ -569,6 +539,41 @@
 			<todo done="no" collapse="no"><title>Generation</title></todo>
 		</todo>
 	</todo>
+	<todo done="no" collapse="yes"><title>Graphics refactoring</title>
+		<todo done="yes" collapse="no"><title>Add antialiasing</title></todo>
+		<todo done="yes" collapse="no"><title>Scale BG to fit window height</title></todo>
+		<todo done="yes" collapse="no"><title>Allow BG slide only horizontally</title></todo>
+		<todo done="yes" collapse="no"><title>Change BG</title></todo>
+		<todo done="yes" collapse="no"><title>Add sky gradient color</title></todo>
+		<todo done="yes" collapse="no"><title>Convert TGA to PNG</title></todo>
+		<todo done="yes" collapse="no"><title>Alternate mask for bricks like dirt, stone etc.</title></todo>
+		<todo done="yes" collapse="no"><title>Define in DB, what mask to be used</title></todo>
+		<todo done="yes" collapse="no"><title>Split GUI rendering to functions</title></todo>
+		<todo done="no" collapse="no"><title>Change crosshair</title></todo>
+		<todo done="no" collapse="no"><title>Change Armor icons</title></todo>
+		<todo done="no" collapse="no"><title>Change weapon icons</title></todo>
+		<todo done="no" collapse="no"><title>Fix bug with bumpy tiles</title></todo>
+	</todo>
+	<todo done="no" collapse="yes"><title>Liquids</title>
+		<todo done="no" collapse="no"><title>Class</title></todo>
+		<todo done="no" collapse="no"><title>Rendering</title></todo>
+		<todo done="no" collapse="no"><title>Flow animation</title></todo>
+		<todo done="no" collapse="no"><title>Physics</title></todo>
+		<todo done="no" collapse="no"><title>Splash on impact</title></todo>
+		<todo done="no" collapse="no"><title>Oxygen limit</title></todo>
+	</todo>
+	<todo done="no" collapse="yes"><title>--- Release Alpha</title>
+		<todo done="no" collapse="no"><title>Add some weapons</title></todo>
+		<todo done="no" collapse="no"><title>Add some armors</title></todo>
+		<todo done="no" collapse="no"><title>Add some model types</title></todo>
+		<todo done="no" collapse="no"><title>Add some models</title></todo>
+		<todo done="no" collapse="no"><title>Add some hairs</title></todo>
+		<todo done="no" collapse="no"><title>Add some creatures</title></todo>
+		<todo done="no" collapse="no"><title>Generating loot depending on level</title></todo>
+		<todo done="no" collapse="no"><title>Items bonuses +dmg, +defence, etc.</title></todo>
+		<todo done="no" collapse="no"><title>Final code optimization</title></todo>
+	</todo>
+	<todo done="no" collapse="yes"><title>Fix Alpha bugs</title></todo>
 	<todo done="no" collapse="yes"><title>Locations</title>
 		<todo done="no" collapse="yes"><title>City</title>
 			<todo done="no" collapse="no"><title>Tiles</title></todo>
@@ -593,14 +598,6 @@
 		<todo done="no" collapse="no"><title>Quests</title></todo>
 		<todo done="no" collapse="no"><title>Quest items</title></todo>
 	</todo>
-	<todo done="no" collapse="yes"><title>Liquids</title>
-		<todo done="no" collapse="no"><title>Class</title></todo>
-		<todo done="no" collapse="no"><title>Rendering</title></todo>
-		<todo done="no" collapse="no"><title>Flow animation</title></todo>
-		<todo done="no" collapse="no"><title>Physics</title></todo>
-		<todo done="no" collapse="no"><title>Splash on impact</title></todo>
-		<todo done="no" collapse="no"><title>Oxygen limit</title></todo>
-	</todo>
 	<todo done="no" collapse="yes"><title>Menu windows</title>
 		<todo done="no" collapse="no"><title>Window class</title></todo>
 		<todo done="no" collapse="yes"><title>Sound settings window</title>
@@ -615,18 +612,20 @@
 			<todo done="no" collapse="no"><title>Color selecting</title></todo>
 		</todo>
 	</todo>
-	<todo done="no" collapse="yes"><title>--- Release Alpha</title>
-		<todo done="no" collapse="no"><title>Add some weapons</title></todo>
-		<todo done="no" collapse="no"><title>Add some armors</title></todo>
-		<todo done="no" collapse="no"><title>Add some model types</title></todo>
-		<todo done="no" collapse="no"><title>Add some models</title></todo>
-		<todo done="no" collapse="no"><title>Add some hairs</title></todo>
-		<todo done="no" collapse="no"><title>Add some creatures</title></todo>
-		<todo done="no" collapse="no"><title>Generating loot depending on level</title></todo>
-		<todo done="no" collapse="no"><title>Items bonuses +dmg, +defence, etc.</title></todo>
-		<todo done="no" collapse="no"><title>Final code optimization</title></todo>
+	<todo done="no" collapse="yes"><title>Secondary skills</title>
+		<todo done="no" collapse="no"><title>Secondary skills struct</title></todo>
+		<todo done="no" collapse="no"><title>Secondary skills points</title></todo>
+		<todo done="no" collapse="no"><title>Giving points on levelup</title></todo>
+		<todo done="no" collapse="no"><title>Secondary skills calculation</title></todo>
+		<todo done="no" collapse="no"><title>Secondary skills window</title></todo>
+		<todo done="no" collapse="no"><title>Rendering skills and skill points in skills window</title></todo>
+		<todo done="no" collapse="no"><title>Class depending secondary skills</title></todo>
 	</todo>
-	<todo done="no" collapse="yes"><title>Fix Alpha bugs</title></todo>
+	<todo done="no" collapse="yes"><title>Weapon skills (each weapon has it's own XP value)</title>
+		<todo done="no" collapse="no"><title>XP calculation</title></todo>
+		<todo done="no" collapse="no"><title>Weapon skills levelup</title></todo>
+		<todo done="no" collapse="no"><title>Weapon skills rendering at skills window</title></todo>
+	</todo>
 	<todo done="no" collapse="yes"><title>Multiplayer</title>
 		<todo done="no" collapse="no"><title>Server thread</title></todo>
 		<todo done="no" collapse="no"><title>Multiplayer AI type</title></todo>

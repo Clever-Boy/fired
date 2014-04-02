@@ -122,7 +122,7 @@ void fired::Game::processHandler(fired::Handler handler) {
 
 ***********************************************************************/
 void fired::Game::generateWorld() {
-	delete new fired::MapGenerator(container->getBiome("City"));
+	delete new fired::MapGenerator(container->getBiome("Building"));
 }
 
 

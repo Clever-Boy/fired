@@ -144,8 +144,38 @@ void fired::MapGenerator::genBuildingRoom(int x, int y) {
 	setBrush("brick.gray");
 	genFill(x, y, x + building.roomSize.x - 1, y + building.roomSize.y - 1, false);
 
-	addLightSource((x + 1) * TILE_SIZE, (y + 1) * TILE_SIZE, "wall.lamp");
-	addLightSource((x + building.roomSize.x - 2) * TILE_SIZE, (y + 1) * TILE_SIZE, "wall.lamp");
+	setEraser();
+	int width = building.roomSize.x - 2 * building.wall - 1;
+
+	int sizeSide, sizeCenter, spacingSide, spacingCenter;
+	sizeCenter = (width - 3 * building.wall) / 4;
+
+	if (sizeCenter * 4 == width - 3 * building.wall) sizeSide = sizeCenter;
+	else                                             sizeSide = sizeCenter + 1;
+
+	spacingSide = building.wall;
+	spacingCenter = width - 2 * spacingSide - 2 * sizeSide - 2 * sizeCenter;
+
+	int x1, y1, x2, y2;
+
+	y1 = y + building.wall;
+	y2 = y1 + building.wall;
+
+	x1 = x + building.wall;
+	x2 = x1 + sizeSide - 1;
+	genFill(x1, y1, x2, y2, false);
+
+	x1 = x2 + spacingSide + 1;
+	x2 = x1 + sizeCenter - 1;
+	genFill(x1, y1, x2, y2, false);
+
+	x1 = x2 + spacingCenter + 1;
+	x2 = x1 + sizeCenter - 1;
+	genFill(x1, y1, x2, y2, false);
+
+	x1 = x2 + spacingSide + 1;
+	x2 = x1 + sizeSide - 1;
+	genFill(x1, y1, x2, y2, false);
 }
 
 

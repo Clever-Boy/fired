@@ -11,6 +11,7 @@
 
 
 void genGraveyard();
+void genGraveyardMeta();
 void genGraveyardPalette();
 void genGraveyardLandscape(int areaStart, int areaEnd, int horizon);
 void genGraveyardPlayer();

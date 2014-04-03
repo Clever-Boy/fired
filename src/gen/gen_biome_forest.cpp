@@ -16,6 +16,8 @@
 
 ***********************************************************************/
 void fired::MapGenerator::genForest() {
+	genForestMeta();
+	genForestPalette();
 	genForestLandscape(0, sizeX - 1, 40);
 	genForestDecors();
 	genForestPlatforms();
@@ -35,6 +37,17 @@ void fired::MapGenerator::genForestPalette() {
 	addTileToPalette("stone");
 	addTileToPalette("dirt");
 	addTileToPalette("grass");
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genForestMeta
+
+***********************************************************************/
+void fired::MapGenerator::genForestMeta() {
+	genClear(200, 100);
 }
 
 

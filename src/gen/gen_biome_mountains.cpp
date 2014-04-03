@@ -16,6 +16,8 @@
 
 ***********************************************************************/
 void fired::MapGenerator::genMountains() {
+	genMountainsMeta();
+	genMountainsPalette();
 	genMountainsLandscape(0, sizeX - 1, 40);
 	genMountainsDecors();
 	genMountainsPlatforms();
@@ -35,6 +37,17 @@ void fired::MapGenerator::genMountainsPalette() {
 	addTileToPalette("stone");
 	addTileToPalette("rock");
 	addTileToPalette("plank");
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genMountainsMeta
+
+***********************************************************************/
+void fired::MapGenerator::genMountainsMeta() {
+	genClear(200, 100);
 }
 
 

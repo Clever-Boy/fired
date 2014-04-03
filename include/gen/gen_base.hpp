@@ -30,7 +30,6 @@ namespace fired {
 
 
 		#include "gen_misc.hpp"
-		#include "gen_biome.hpp"
 
 		#include "gen_biome_building.hpp"
 		#include "gen_biome_mine.hpp"

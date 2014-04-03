@@ -16,6 +16,8 @@
 
 ***********************************************************************/
 void fired::MapGenerator::genCastle() {
+	genCastleMeta();
+	genCastlePalette();
 	genCastleLandscape(0, sizeX - 1, 40);
 	genCastleDecors();
 	genCastlePlatforms();
@@ -35,6 +37,17 @@ void fired::MapGenerator::genCastlePalette() {
 	addTileToPalette("brick.stone");
 	addTileToPalette("stone.cobble");
 	addTileToPalette("plank.dark");
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genCastleMeta
+
+***********************************************************************/
+void fired::MapGenerator::genCastleMeta() {
+	genClear(200, 100);
 }
 
 

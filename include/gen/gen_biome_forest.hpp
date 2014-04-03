@@ -11,6 +11,7 @@
 
 
 void genForest();
+void genForestMeta();
 void genForestPalette();
 void genForestLandscape(int areaStart, int areaEnd, int horizon);
 void genForestPlayer();

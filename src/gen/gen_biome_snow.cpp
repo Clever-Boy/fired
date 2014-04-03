@@ -16,6 +16,8 @@
 
 ***********************************************************************/
 void fired::MapGenerator::genSnow() {
+	genSnowMeta();
+	genSnowPalette();
 	genSnowLandscape(0, sizeX - 1, 40);
 	genSnowDecors();
 	genSnowPlatforms();
@@ -35,6 +37,17 @@ void fired::MapGenerator::genSnowPalette() {
 	addTileToPalette("brick.snow");
 	addTileToPalette("snow");
 	addTileToPalette("ice");
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genSnowMeta
+
+***********************************************************************/
+void fired::MapGenerator::genSnowMeta() {
+	genClear(200, 100);
 }
 
 

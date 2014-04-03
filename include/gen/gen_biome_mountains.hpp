@@ -11,6 +11,7 @@
 
 
 void genMountains();
+void genMountainsMeta();
 void genMountainsPalette();
 void genMountainsLandscape(int areaStart, int areaEnd, int horizon);
 void genMountainsPlayer();

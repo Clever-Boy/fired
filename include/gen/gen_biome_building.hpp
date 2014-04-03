@@ -10,12 +10,28 @@
 #define __GEN_BIOME_BUILDING
 
 
+struct {
+	sf::Vector2i rooms;
+	sf::Vector2i roomSize;
+
+	int          ladder;
+	int          ladderPos;
+	int          floor;
+	int          wall;
+	int          roof;
+	int          attic;
+	int          door;
+} building;
+
+
 void genBuilding();
+void genBuildingMeta();
 void genBuildingPalette();
-void genBuildingLandscape(int areaStart, int areaEnd, int horizon);
+void genBuildingBase();
+void genBuildingRooms();
+void genBuildingDoors();
+void genBuildingLadder();
+void genBuildingRoom(int x, int y);
 void genBuildingPlayer();
-void genBuildingDecors();
-void genBuildingPlatforms();
-void genBuildingCollectors();
 
 #endif

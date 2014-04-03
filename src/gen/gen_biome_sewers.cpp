@@ -16,6 +16,8 @@
 
 ***********************************************************************/
 void fired::MapGenerator::genSewers() {
+	genSewersMeta();
+	genSewersPalette();
 	genSewersLandscape(0, sizeX - 1, 40);
 	genSewersDecors();
 	genSewersPlatforms();
@@ -35,6 +37,17 @@ void fired::MapGenerator::genSewersPalette() {
 	addTileToPalette("brick.sewer");
 	addTileToPalette("stone.cobble");
 	addTileToPalette("mud");
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genSewersMeta
+
+***********************************************************************/
+void fired::MapGenerator::genSewersMeta() {
+	genClear(200, 100);
 }
 
 

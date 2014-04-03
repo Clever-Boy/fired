@@ -11,6 +11,7 @@
 
 
 void genCave();
+void genCaveMeta();
 void genCavePalette();
 void genCaveLandscape(int areaStart, int areaEnd, int horizon);
 void genCavePlayer();

@@ -16,6 +16,8 @@
 
 ***********************************************************************/
 void fired::MapGenerator::genCave() {
+	genCaveMeta();
+	genCavePalette();
 	genCaveLandscape(0, sizeX - 1, 40);
 	genCaveDecors();
 	genCavePlatforms();
@@ -35,6 +37,17 @@ void fired::MapGenerator::genCavePalette() {
 	addTileToPalette("dirt.light");
 	addTileToPalette("dirt.hard");
 	addTileToPalette("grass.dark");
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genCaveMeta
+
+***********************************************************************/
+void fired::MapGenerator::genCaveMeta() {
+	genClear(200, 100);
 }
 
 

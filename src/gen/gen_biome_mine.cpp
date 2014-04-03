@@ -16,6 +16,8 @@
 
 ***********************************************************************/
 void fired::MapGenerator::genMine() {
+	genMineMeta();
+	genMinePalette();
 	genMineLandscape(0, sizeX - 1, 40);
 	genMineDecors();
 	genMinePlatforms();
@@ -35,6 +37,17 @@ void fired::MapGenerator::genMinePalette() {
 	addTileToPalette("sand");
 	addTileToPalette("dirt.orange");
 	addTileToPalette("stone.cobble");
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genMineMeta
+
+***********************************************************************/
+void fired::MapGenerator::genMineMeta() {
+	genClear(200, 100);
 }
 
 

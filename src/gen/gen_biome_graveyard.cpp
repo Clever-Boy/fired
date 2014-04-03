@@ -16,6 +16,8 @@
 
 ***********************************************************************/
 void fired::MapGenerator::genGraveyard() {
+	genGraveyardMeta();
+	genGraveyardPalette();
 	genGraveyardLandscape(0, sizeX - 1, 40);
 	genGraveyardDecors();
 	genGraveyardPlatforms();
@@ -35,6 +37,17 @@ void fired::MapGenerator::genGraveyardPalette() {
 	addTileToPalette("dirt.hard");
 	addTileToPalette("dirt.dark");
 	addTileToPalette("plate");
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genGraveyardMeta
+
+***********************************************************************/
+void fired::MapGenerator::genGraveyardMeta() {
+	genClear(200, 100);
 }
 
 

@@ -11,6 +11,7 @@
 
 
 void genMine();
+void genMineMeta();
 void genMinePalette();
 void genMineLandscape(int areaStart, int areaEnd, int horizon);
 void genMinePlayer();

@@ -18,9 +18,16 @@
 fired::MapGenerator::MapGenerator(fired::Biome *_biome) {
 	biome = _biome;
 
-	genClear(200, 100);
-	genPalette();
-	genBiome();
+	if (!strcmp(biome->name, "Building"))  genBuilding();
+	if (!strcmp(biome->name, "Mine"))      genMine();
+	if (!strcmp(biome->name, "Snow"))      genSnow();
+	if (!strcmp(biome->name, "Sewers"))    genSewers();
+	if (!strcmp(biome->name, "Castle"))    genCastle();
+	if (!strcmp(biome->name, "Cave"))      genCave();
+	if (!strcmp(biome->name, "Mountains")) genMountains();
+	if (!strcmp(biome->name, "Graveyard")) genGraveyard();
+	if (!strcmp(biome->name, "Forest"))    genForest();
+
 	genSave(this, "data/maps/test.map");
 }
 

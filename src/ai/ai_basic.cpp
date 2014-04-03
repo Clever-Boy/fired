@@ -68,9 +68,12 @@ void fired::BasicAI::selectTarget() {
 	float minDist, dist;
 	minDist = -1;
 
-	for (unsigned int i = 0; i < world->chars.size(); i++)
+	for (unsigned int i = 0; i < world->chars.size(); i++) {
+		if (world->chars[i]->dead) continue;
+
 		if (owner->character->isEnemy(world->chars[i]->fraction)) {
 			dist = vLen(owner->character->phys.center - world->chars[i]->phys.center);
+			if (dist > owner->character->stats.aimrange) continue;
 
 			if (minDist == -1) {
 				minDist = dist;
@@ -80,4 +83,5 @@ void fired::BasicAI::selectTarget() {
 				target = world->chars[i];
 			}
 		}
+	}
 }

@@ -570,8 +570,8 @@
 		<todo done="yes" collapse="no"><title>Define in DB, what mask to be used</title></todo>
 		<todo done="yes" collapse="no"><title>Split GUI rendering to functions</title></todo>
 		<todo done="yes" collapse="no"><title>Change crosshair</title></todo>
-		<todo done="no" collapse="no"><title>Remove sky gradient</title></todo>
-		<todo done="no" collapse="no"><title>Remove cloud color</title></todo>
+		<todo done="yes" collapse="no"><title>Remove sky gradient</title></todo>
+		<todo done="yes" collapse="no"><title>Remove cloud color</title></todo>
 		<todo done="no" collapse="no"><title>Change Armor icons</title></todo>
 		<todo done="no" collapse="no"><title>Change weapon icons</title></todo>
 		<todo done="no" collapse="no"><title>Fix bug with bumpy tiles</title></todo>

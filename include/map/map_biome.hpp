@@ -16,11 +16,7 @@ namespace fired {
 		char weather[64];
 		char intensity;
 
-		sf::Color skyHi;
-		sf::Color skyLow;
-		sf::Color cloudColor;
-		sf::Color lightness;
-
+		sf::Color           lightness;
 		sf::Texture        *bgTex;
 		sf::RectangleShape *bgSprite;
 		float               bgScale;

@@ -738,9 +738,9 @@ int fired::Container::getTileset(const char *name) {
 void fired::Container::loadBiomes(sqlite3 *db) {
 	char *zErrMsg = 0;
 
-	if (sqlite3_exec(db, "SELECT Biomes.ID, Biomes.Name, Biomes.SkyGradientHi, "
-	                     "Biomes.SkyGradientLow, Biomes.Weather, Biomes.Lightness, Biomes.Background, "
-	                     "Biomes.CloudColor, Biomes.Creatures, Biomes.Intensity FROM Biomes",
+	if (sqlite3_exec(db, "SELECT Biomes.ID, Biomes.Name, "
+	                     "Biomes.Weather, Biomes.Lightness, Biomes.Background, "
+	                     "Biomes.Creatures, Biomes.Intensity FROM Biomes",
 	                     loadBiome, this, &zErrMsg) != SQLITE_OK)
 		printf("SQL error: %s\n", zErrMsg);
 }
@@ -753,23 +753,19 @@ void fired::Container::loadBiomes(sqlite3 *db) {
 
 ***********************************************************************/
 int fired::Container::loadBiome(void *data, int, char **argv, char **) {
-	((fired::Container *) data)->biomes.push_back(new fired::Biome(argv[6]));
+	((fired::Container *) data)->biomes.push_back(new fired::Biome(argv[4]));
 	fired::Biome *current = ((fired::Container *) data)->biomes.back();
 
-	current->intensity = atoi(argv[9]);
+	current->intensity = atoi(argv[6]);
 
-	sscanf(argv[2], "%hhu,%hhu,%hhu,%hhu", &current->skyHi.r     , &current->skyHi.g     , &current->skyHi.b     , &current->skyHi.a);
-	sscanf(argv[3], "%hhu,%hhu,%hhu,%hhu", &current->skyLow.r    , &current->skyLow.g    , &current->skyLow.b    , &current->skyLow.a);
-	sscanf(argv[5], "%hhu,%hhu,%hhu,%hhu", &current->lightness.r , &current->lightness.g , &current->lightness.b , &current->lightness.a);
-	sscanf(argv[7], "%hhu,%hhu,%hhu,%hhu", &current->cloudColor.r, &current->cloudColor.g, &current->cloudColor.b, &current->cloudColor.a);
-
+	sscanf(argv[3], "%hhu,%hhu,%hhu,%hhu", &current->lightness.r , &current->lightness.g , &current->lightness.b , &current->lightness.a);
 	strcpy(current->name   , argv[1]);
 
-	if (argv[4]) strcpy(current->weather, argv[4]);
+	if (argv[2]) strcpy(current->weather, argv[2]);
 	else         current->weather[0] = 0;
 
-	if (argv[12]) {
-		char *token = strtok(argv[8], "\n");
+	if (argv[5]) {
+		char *token = strtok(argv[5], "\n");
 		while (token) {
 			current->creatures.push_back(((fired::Container *) data)->getCreature(token));
 			token = strtok(NULL, "\n");

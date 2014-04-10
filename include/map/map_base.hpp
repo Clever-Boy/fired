@@ -34,8 +34,6 @@ namespace fired {
 		fired::Biome   *biome;
 		fired::Weather *weather;
 
-		sf::Vertex sky[4];
-
 		std::vector<fired::MapObject*>            objects;
 		std::vector<fired::TemporaryLightSource*> lights;
 

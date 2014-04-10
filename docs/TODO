@@ -494,20 +494,70 @@
 	</todo>
 	<todo done="no" collapse="no"><title>Biomes</title>
 		<todo done="no" collapse="no"><title>Building</title>
+			<todo done="yes" collapse="no"><title>Background</title></todo>
+			<todo done="no" collapse="no"><title>Lighting</title></todo>
+			<todo done="no" collapse="no"><title>Weather</title></todo>
 			<todo done="yes" collapse="no"><title>Rooms</title></todo>
 			<todo done="no" collapse="no"><title>Ladder</title></todo>
 			<todo done="no" collapse="no"><title>Roof</title></todo>
 			<todo done="no" collapse="no"><title>Attic</title></todo>
 			<todo done="no" collapse="no"><title>Secret room</title></todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Mines</title></todo>
-		<todo done="no" collapse="yes"><title>Snow</title></todo>
-		<todo done="no" collapse="yes"><title>Sewers</title></todo>
-		<todo done="no" collapse="yes"><title>Castle</title></todo>
-		<todo done="no" collapse="yes"><title>Cave</title></todo>
-		<todo done="no" collapse="yes"><title>Mountains</title></todo>
-		<todo done="no" collapse="yes"><title>Graveyard</title></todo>
-		<todo done="no" collapse="yes"><title>Forest</title></todo>
+		<todo done="no" collapse="yes"><title>Mines</title>
+			<todo done="yes" collapse="no"><title>Background</title></todo>
+			<todo done="no" collapse="no"><title>Lighting</title></todo>
+			<todo done="no" collapse="no"><title>Weather</title></todo>
+			<todo done="no" collapse="no"><title>Landscape</title></todo>
+			<todo done="no" collapse="no"><title>Big rooms</title></todo>
+			<todo done="no" collapse="no"><title>Corridors</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Snow</title>
+			<todo done="yes" collapse="no"><title>Background</title></todo>
+			<todo done="no" collapse="no"><title>Lighting</title></todo>
+			<todo done="no" collapse="no"><title>Weather</title></todo>
+			<todo done="no" collapse="no"><title>Landscape</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Sewers</title>
+			<todo done="yes" collapse="no"><title>Background</title></todo>
+			<todo done="no" collapse="no"><title>Lighting</title></todo>
+			<todo done="no" collapse="no"><title>Weather</title></todo>
+			<todo done="no" collapse="no"><title>Corridors</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Castle</title>
+			<todo done="yes" collapse="no"><title>Background</title></todo>
+			<todo done="no" collapse="no"><title>Lighting</title></todo>
+			<todo done="no" collapse="no"><title>Weather</title></todo>
+			<todo done="no" collapse="no"><title>Landscape</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Cave</title>
+			<todo done="yes" collapse="no"><title>Background</title></todo>
+			<todo done="no" collapse="no"><title>Lighting</title></todo>
+			<todo done="no" collapse="no"><title>Weather</title></todo>
+			<todo done="no" collapse="no"><title>Landscape</title></todo>
+			<todo done="no" collapse="no"><title>Cave enterances</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Mountains</title>
+			<todo done="yes" collapse="no"><title>Background</title></todo>
+			<todo done="no" collapse="no"><title>Lighting</title></todo>
+			<todo done="no" collapse="no"><title>Weather</title></todo>
+			<todo done="no" collapse="no"><title>Landscape</title></todo>
+			<todo done="no" collapse="no"><title>Secret caves</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Graveyard</title>
+			<todo done="yes" collapse="no"><title>Background</title></todo>
+			<todo done="no" collapse="no"><title>Lighting</title></todo>
+			<todo done="no" collapse="no"><title>Weather</title></todo>
+			<todo done="no" collapse="no"><title>Landscape</title></todo>
+			<todo done="no" collapse="no"><title>Graves</title></todo>
+			<todo done="no" collapse="no"><title>Vaults</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Forest</title>
+			<todo done="yes" collapse="no"><title>Background</title></todo>
+			<todo done="no" collapse="no"><title>Lighting</title></todo>
+			<todo done="no" collapse="no"><title>Weather</title></todo>
+			<todo done="no" collapse="no"><title>Landscape</title></todo>
+			<todo done="no" collapse="no"><title>Trees</title></todo>
+		</todo>
 	</todo>
 	<todo done="no" collapse="yes"><title>Graphics refactoring</title>
 		<todo done="yes" collapse="no"><title>Add antialiasing</title></todo>
@@ -520,6 +570,8 @@
 		<todo done="yes" collapse="no"><title>Define in DB, what mask to be used</title></todo>
 		<todo done="yes" collapse="no"><title>Split GUI rendering to functions</title></todo>
 		<todo done="yes" collapse="no"><title>Change crosshair</title></todo>
+		<todo done="no" collapse="no"><title>Remove sky gradient</title></todo>
+		<todo done="no" collapse="no"><title>Remove cloud color</title></todo>
 		<todo done="no" collapse="no"><title>Change Armor icons</title></todo>
 		<todo done="no" collapse="no"><title>Change weapon icons</title></todo>
 		<todo done="no" collapse="no"><title>Fix bug with bumpy tiles</title></todo>

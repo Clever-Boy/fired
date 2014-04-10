@@ -197,6 +197,16 @@ void fired::MapGenerator::genBuildingLadder() {
 	y2 = sizeY - building.attic - 1;
 
 	genFill(x1, y1, x2, y2, false);
+
+	x1 += 2;
+	x2 -= 2;
+
+	for (int i = 1; i <= building.rooms.y; i++) {
+		y1 = building.roof + (building.roomSize.y + building.floor) * i - building.door - 2;
+
+		addLightSource(x1 * TILE_SIZE, y1 * TILE_SIZE, "wall.lamp");
+		addLightSource(x2 * TILE_SIZE, y1 * TILE_SIZE, "wall.lamp");
+	}
 }
 
 

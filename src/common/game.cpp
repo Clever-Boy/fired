@@ -121,8 +121,8 @@ void fired::Game::processHandler(fired::Handler handler) {
      * generateWorld
 
 ***********************************************************************/
-void fired::Game::generateWorld() {
-	delete new fired::MapGenerator(container->getBiome("Building"));
+void fired::Game::generateWorld(const char *biome) {
+	delete new fired::MapGenerator(container->getBiome(biome));
 }
 
 

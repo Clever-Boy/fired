@@ -12,13 +12,15 @@
 
 namespace fired {
 	struct Handlers {
-		void buttonStart();
+		void buttonStartBuilding();
+		void buttonStartMine();
+		void buttonStartGraveyard();
 		void buttonCredits();
 		void buttonExit();
 	};
 
 
-	typedef void (Handlers::*Handler)(void);
+	typedef void (Handlers::*Handler)();
 }
 
 #endif

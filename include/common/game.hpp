@@ -70,7 +70,7 @@ namespace fired {
 		void update();
 		void stop() { running = false; };
 
-		void generateWorld();
+		void generateWorld(const char *biome);
 		void setGameState(fired::GameState state);
 		void setMusic(const char *musicFile);
 		bool switchGameState();

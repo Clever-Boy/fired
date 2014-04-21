@@ -12,11 +12,35 @@
 
 /***********************************************************************
      * Handlers
-     * buttonStart
+     * buttonStartBuilding
 
 ***********************************************************************/
-void fired::Handlers::buttonStart() {
-	game->generateWorld();
+void fired::Handlers::buttonStartBuilding() {
+	game->generateWorld("Building");
+	game->setGameState(gsWorld);
+}
+
+
+
+/***********************************************************************
+     * Handlers
+     * buttonStartMine
+
+***********************************************************************/
+void fired::Handlers::buttonStartMine() {
+	game->generateWorld("Mine");
+	game->setGameState(gsWorld);
+}
+
+
+
+/***********************************************************************
+     * Handlers
+     * buttonStartGraveyard
+
+***********************************************************************/
+void fired::Handlers::buttonStartGraveyard() {
+	game->generateWorld("Graveyard");
 	game->setGameState(gsWorld);
 }
 

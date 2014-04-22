@@ -32,9 +32,7 @@ void fired::MapGenerator::genMine() {
 ***********************************************************************/
 void fired::MapGenerator::genMinePalette() {
 	addTileToPalette("clay");
-	addTileToPalette("sand");
-	addTileToPalette("dirt.orange");
-	addTileToPalette("stone.cobble");
+	addTileToPalette("plank.dark");
 }
 
 
@@ -55,6 +53,7 @@ void fired::MapGenerator::genMineMeta() {
 	mine.midlayer   = random() % 5 + 5;
 
 	mine.lanternDiff = random() % 5 + 20;
+	mine.beamDiff    = random() % 5 + 15;
 
 
 	sf::Vector2i size(0, 0);
@@ -135,6 +134,7 @@ void fired::MapGenerator::genMineTunnel(sf::IntRect tunRect) {
 	int loLen = 0;
 
 	int lantern = mine.lanternDiff / 2;
+	int beam    = mine.beamDiff / 2;
 
 	for (int x = tunRect.left + 2; x <= tunRect.left + tunRect.width - 2; x++) {
 		if (!hiLen) {
@@ -162,17 +162,24 @@ void fired::MapGenerator::genMineTunnel(sf::IntRect tunRect) {
 				lo += 2;
 		}
 
+		hiLen--;
+		loLen--;
+		lantern++;
+		beam++;
+
 		if (lantern == mine.lanternDiff) {
 			lantern = 0;
 			if (tunRect.left + tunRect.width - x - 1 > mine.lanternDiff / 4)
 				addLightSource(x * TILE_SIZE, hi * TILE_SIZE, "lantern");
 		}
 
-		hiLen--;
-		loLen--;
-		lantern++;
-
-		genBar(x, hi, lo, false);
+		if (beam == mine.beamDiff) {
+			beam = 0;
+			setBrush("plank.dark");
+			genBar(x, hi, lo, false);
+			setBrush("clay");
+		} else
+			genBar(x, hi, lo, false);
 	}
 
 	diff = (lo - hi) / 3;

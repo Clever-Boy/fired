@@ -19,6 +19,7 @@ struct {
 	int landOffset;
 	int midlayer;
 	int lanternDiff;
+	int beamDiff;
 } mine;
 
 

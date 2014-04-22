@@ -10,13 +10,21 @@
 #define __GEN_BIOME_MINE
 
 
+struct {
+	int landscape;
+	int tunnels;
+	int tunHeight;
+	int width;
+	int tunOffset;
+	int landOffset;
+	int midlayer;
+} mine;
+
+
 void genMine();
 void genMineMeta();
 void genMinePalette();
-void genMineLandscape(int areaStart, int areaEnd, int horizon);
+void genMineLandscape();
 void genMinePlayer();
-void genMineDecors();
-void genMinePlatforms();
-void genMineCollectors();
 
 #endif

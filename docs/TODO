@@ -494,7 +494,17 @@
 			<todo done="yes" collapse="no"><title>Allow to use skill points</title></todo>
 		</todo>
 		<todo done="no" collapse="no"><title>Biomes</title>
-			<todo done="no" collapse="no"><title>Building</title>
+			<todo done="no" collapse="no"><title>Mine</title>
+				<todo done="yes" collapse="no"><title>Background</title></todo>
+				<todo done="yes" collapse="no"><title>Lighting</title></todo>
+				<todo done="yes" collapse="no"><title>Weather</title></todo>
+				<todo done="yes" collapse="no"><title>Landscape</title></todo>
+				<todo done="no" collapse="no"><title>Tunnels</title></todo>
+				<todo done="no" collapse="no"><title>Random tunnels count due layer</title></todo>
+				<todo done="no" collapse="no"><title>Ladders</title></todo>
+				<todo done="no" collapse="no"><title>Main enterance</title></todo>
+			</todo>
+			<todo done="yes" collapse="yes"><title>Building</title>
 				<todo done="yes" collapse="no"><title>Background</title></todo>
 				<todo done="yes" collapse="no"><title>Lighting</title></todo>
 				<todo done="yes" collapse="no"><title>Weather</title></todo>
@@ -505,20 +515,13 @@
 				<todo done="no" collapse="no"><title>Attic</title></todo>
 				<todo done="no" collapse="no"><title>Secret rooms</title></todo>
 			</todo>
-			<todo done="no" collapse="yes"><title>Mines</title>
-				<todo done="yes" collapse="no"><title>Background</title></todo>
-				<todo done="yes" collapse="no"><title>Lighting</title></todo>
-				<todo done="yes" collapse="no"><title>Weather</title></todo>
-				<todo done="no" collapse="no"><title>Landscape</title></todo>
-				<todo done="no" collapse="no"><title>Big rooms</title></todo>
-				<todo done="no" collapse="no"><title>Corridors</title></todo>
-			</todo>
 			<todo done="no" collapse="yes"><title>Cave</title>
 				<todo done="yes" collapse="no"><title>Background</title></todo>
 				<todo done="yes" collapse="no"><title>Lighting</title></todo>
 				<todo done="yes" collapse="no"><title>Weather</title></todo>
-				<todo done="no" collapse="no"><title>Landscape</title></todo>
-				<todo done="no" collapse="no"><title>Cave enterances</title></todo>
+				<todo done="no" collapse="no"><title>Lanscape</title></todo>
+				<todo done="no" collapse="no"><title>Cave</title></todo>
+				<todo done="no" collapse="no"><title>Cave enterance</title></todo>
 			</todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Graphics refactoring</title>

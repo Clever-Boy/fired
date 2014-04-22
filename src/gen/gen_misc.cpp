@@ -43,6 +43,17 @@ void fired::MapGenerator::genBar(int x, int startHeight, int endHeight, bool isW
 
 /***********************************************************************
      * MapGenerator
+     * genFillRect
+
+***********************************************************************/
+void fired::MapGenerator::genFillRect(sf::IntRect rect, bool isWall) {
+	genFill(rect.left, rect.top, rect.left + rect.width, rect.top + rect.height, isWall);
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
      * genFill
 
 ***********************************************************************/

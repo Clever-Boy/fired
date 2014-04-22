@@ -25,6 +25,8 @@ void genMine();
 void genMineMeta();
 void genMinePalette();
 void genMineLandscape();
+void genMineTunnels();
+void genMineTunnel(sf::IntRect tunRect);
 void genMinePlayer();
 
 #endif

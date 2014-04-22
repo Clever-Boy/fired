@@ -18,6 +18,7 @@ struct {
 	int tunOffset;
 	int landOffset;
 	int midlayer;
+	int lanternDiff;
 } mine;
 
 

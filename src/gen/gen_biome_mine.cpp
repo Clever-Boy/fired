@@ -47,12 +47,15 @@ void fired::MapGenerator::genMinePalette() {
 void fired::MapGenerator::genMineMeta() {
 	mine.landscape = random() % 20 + 40;
 	mine.tunnels   = random() % 3 + 3;
-	mine.tunHeight = random() % 3 + 7;
+	mine.tunHeight = random() % 5 + 7;
 	mine.width     = random() % 20 + 150;
 
 	mine.tunOffset  = random() % 3 + 2;
 	mine.landOffset = random() % 3 + 3;
 	mine.midlayer   = random() % 5 + 5;
+
+	mine.lanternDiff = random() % 5 + 20;
+
 
 	sf::Vector2i size(0, 0);
 
@@ -131,6 +134,8 @@ void fired::MapGenerator::genMineTunnel(sf::IntRect tunRect) {
 	int hiLen = 0;
 	int loLen = 0;
 
+	int lantern = mine.lanternDiff / 2;
+
 	for (int x = tunRect.left + 2; x <= tunRect.left + tunRect.width - 2; x++) {
 		if (!hiLen) {
 			hiLen = random() % 3 + 3;
@@ -157,15 +162,22 @@ void fired::MapGenerator::genMineTunnel(sf::IntRect tunRect) {
 				lo += 2;
 		}
 
+		if (lantern == mine.lanternDiff) {
+			lantern = 0;
+			if (tunRect.left + tunRect.width - x - 1 > mine.lanternDiff / 4)
+				addLightSource(x * TILE_SIZE, hi * TILE_SIZE, "lantern");
+		}
+
 		hiLen--;
 		loLen--;
+		lantern++;
 
 		genBar(x, hi, lo, false);
 	}
 
 	diff = (lo - hi) / 3;
-	genBar(tunRect.left + tunRect.width - 1, hi + diff    , lo - diff    , false);
-	genBar(tunRect.left + tunRect.width    , hi + diff / 2, lo - diff / 2, false);
+	genBar(tunRect.left + tunRect.width - 1, hi + diff / 2, lo - diff / 2, false);
+	genBar(tunRect.left + tunRect.width    , hi + diff    , lo - diff    , false);
 }
 
 
@@ -178,9 +190,9 @@ void fired::MapGenerator::genMineTunnel(sf::IntRect tunRect) {
 void fired::MapGenerator::genMinePlayer() {
 	/** TEMPORARY LADDER **/
 	setEraser();
-	genBar(40, 0, sizeY - 1, false);
-	genBar(41, 0, sizeY - 1, false);
-	genBar(42, 0, sizeY - 1, false);
+	genBar(30, 0, sizeY - 1, false);
+	genBar(31, 0, sizeY - 1, false);
+	genBar(32, 0, sizeY - 1, false);
 
 	int y = 0;
 	startPos.x = 20 * TILE_SIZE;

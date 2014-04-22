@@ -500,7 +500,7 @@
 				<todo done="yes" collapse="no"><title>Weather</title></todo>
 				<todo done="yes" collapse="no"><title>Landscape</title></todo>
 				<todo done="yes" collapse="no"><title>Tunnels</title></todo>
-				<todo done="no" collapse="no"><title>Light sources in tunnels</title></todo>
+				<todo done="yes" collapse="no"><title>Light sources in tunnels</title></todo>
 				<todo done="no" collapse="no"><title>Random tunnels count due layer</title></todo>
 				<todo done="no" collapse="no"><title>Ladders</title></todo>
 				<todo done="no" collapse="no"><title>Main enterance</title></todo>

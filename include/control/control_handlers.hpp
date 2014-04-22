@@ -14,7 +14,7 @@ namespace fired {
 	struct Handlers {
 		void buttonStartBuilding();
 		void buttonStartMine();
-		void buttonStartGraveyard();
+		void buttonStartCave();
 		void buttonCredits();
 		void buttonExit();
 	};

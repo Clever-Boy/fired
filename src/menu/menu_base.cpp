@@ -303,9 +303,9 @@ void fired::MainMenu::fillMenu() {
 	menuItemAdd("Audio"   , curParent);
 
 	curParent = menuItems[1];
-	menuItemAdd("Building" , curParent, itButton, &fired::Handlers::buttonStartBuilding);
-	menuItemAdd("Mine"     , curParent, itButton, &fired::Handlers::buttonStartMine);
-	menuItemAdd("Graveyard", curParent, itButton, &fired::Handlers::buttonStartGraveyard);
+	menuItemAdd("Building", curParent, itButton, &fired::Handlers::buttonStartBuilding);
+	menuItemAdd("Mine"    , curParent, itButton, &fired::Handlers::buttonStartMine);
+	menuItemAdd("Cave"    , curParent, itButton, &fired::Handlers::buttonStartCave);
 
 	fillMenuBack();
 

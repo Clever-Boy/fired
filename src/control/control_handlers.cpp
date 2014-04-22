@@ -36,11 +36,11 @@ void fired::Handlers::buttonStartMine() {
 
 /***********************************************************************
      * Handlers
-     * buttonStartGraveyard
+     * buttonStartCave
 
 ***********************************************************************/
-void fired::Handlers::buttonStartGraveyard() {
-	game->generateWorld("Graveyard");
+void fired::Handlers::buttonStartCave() {
+	game->generateWorld("Cave");
 	game->setGameState(gsWorld);
 }
 

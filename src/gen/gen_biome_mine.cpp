@@ -123,8 +123,51 @@ void fired::MapGenerator::genMineTunnels() {
 
 ***********************************************************************/
 void fired::MapGenerator::genMineTunnel(sf::IntRect tunRect) {
-	setEraser();
-	genFillRect(tunRect, false);
+	int hi = tunRect.top + random() % (mine.tunOffset);
+	int lo = tunRect.top - random() % (mine.tunOffset) + tunRect.height;
+
+	int diff = (lo - hi) / 3;
+	genBar(tunRect.left    , hi + diff    , lo - diff    , false);
+	genBar(tunRect.left + 1, hi + diff / 2, lo - diff / 2, false);
+
+	int hiLen = 0;
+	int loLen = 0;
+
+	for (int x = tunRect.left + 2; x <= tunRect.left + tunRect.width - 2; x++) {
+		if (!hiLen) {
+			hiLen = random() % 3 + 3;
+			if (random() % 2) hi--;
+			else              hi++;
+
+			if (hi > tunRect.top + mine.tunOffset)
+				hi -= 2;
+
+			if (hi < tunRect.top)
+				hi += 2;
+		}
+
+		if (!loLen) {
+			loLen = random() % 3 + 3;
+
+			if (random() % 2) lo--;
+			else              lo++;
+
+			if (lo > tunRect.top + tunRect.height - 1)
+				lo -= 2;
+
+			if (lo < tunRect.top + tunRect.height - mine.tunOffset - 1)
+				lo += 2;
+		}
+
+		hiLen--;
+		loLen--;
+
+		genBar(x, hi, lo, false);
+	}
+
+	diff = (hi - lo) / 3;
+	genBar(tunRect.left + tunRect.width - 1, hi + diff    , lo - diff    , false);
+	genBar(tunRect.left + tunRect.width    , hi + diff / 2, lo - diff / 2, false);
 }
 
 

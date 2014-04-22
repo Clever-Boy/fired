@@ -45,7 +45,6 @@ void fired::MapGenerator::genMinePalette() {
 void fired::MapGenerator::genMineMeta() {
 	mine.landscape = random() % 20 + 40;
 	mine.tunnels   = random() % 3 + 3;
-	mine.tunHeight = random() % 5 + 7;
 	mine.width     = random() % 20 + 150;
 
 	mine.tunOffset  = random() % 3 + 2;
@@ -55,6 +54,8 @@ void fired::MapGenerator::genMineMeta() {
 	mine.lanternDiff = random() % 5 + 20;
 	mine.beamDiff    = random() % 5 + 15;
 
+	for (int i = 0; i < mine.tunnels; i++) mine.tunHeight.push_back(random() % 10 + 7);
+
 
 	sf::Vector2i size(0, 0);
 
@@ -62,7 +63,7 @@ void fired::MapGenerator::genMineMeta() {
 
 	size.y += mine.landscape + mine.landOffset;
 	size.y += mine.midlayer;
-	size.y += mine.tunnels * (mine.tunHeight + mine.tunOffset * 2 + mine.midlayer);
+	for (int i = 0; i < mine.tunnels; i++) size.y += mine.tunHeight[i] + mine.tunOffset * 2 + mine.midlayer;
 
 	genClear(size.x, size.y);
 }
@@ -107,11 +108,12 @@ void fired::MapGenerator::genMineLandscape() {
 
 ***********************************************************************/
 void fired::MapGenerator::genMineTunnels() {
-	sf::IntRect tunRect(mine.tunOffset, mine.landscape + mine.landOffset + mine.midlayer, sizeX - 2 * mine.tunOffset - 1, 2 * mine.tunOffset + mine.tunHeight);
+	sf::IntRect tunRect(mine.tunOffset, mine.landscape + mine.landOffset + mine.midlayer, sizeX - 2 * mine.tunOffset - 1, 2 * mine.tunOffset + mine.tunHeight[0]);
 
 	for (int i = 0; i < mine.tunnels; i++) {
+		tunRect.height  = 2 * mine.tunOffset + mine.tunHeight[i];
 		genMineTunnel(tunRect);
-		tunRect.top += tunRect.height + mine.midlayer;
+		tunRect.top    += tunRect.height + mine.midlayer;
 	}
 }
 

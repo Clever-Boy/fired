@@ -13,13 +13,14 @@
 struct {
 	int landscape;
 	int tunnels;
-	int tunHeight;
 	int width;
 	int tunOffset;
 	int landOffset;
 	int midlayer;
 	int lanternDiff;
 	int beamDiff;
+
+	std::vector<int> tunHeight;
 } mine;
 
 

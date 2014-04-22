@@ -47,14 +47,12 @@ void fired::MapGenerator::genMinePalette() {
 void fired::MapGenerator::genMineMeta() {
 	mine.landscape = random() % 20 + 40;
 	mine.tunnels   = random() % 3 + 3;
-	mine.tunHeight = random() % 3 + 8;
+	mine.tunHeight = random() % 3 + 7;
 	mine.width     = random() % 20 + 150;
 
-	mine.tunOffset  = random() % 3 + 3;
+	mine.tunOffset  = random() % 3 + 2;
 	mine.landOffset = random() % 3 + 3;
 	mine.midlayer   = random() % 5 + 5;
-
-	if (mine.tunHeight < 4 + 2 * mine.tunOffset) mine.tunHeight = 4 + 2 * mine.tunOffset;
 
 	sf::Vector2i size(0, 0);
 
@@ -165,7 +163,7 @@ void fired::MapGenerator::genMineTunnel(sf::IntRect tunRect) {
 		genBar(x, hi, lo, false);
 	}
 
-	diff = (hi - lo) / 3;
+	diff = (lo - hi) / 3;
 	genBar(tunRect.left + tunRect.width - 1, hi + diff    , lo - diff    , false);
 	genBar(tunRect.left + tunRect.width    , hi + diff / 2, lo - diff / 2, false);
 }

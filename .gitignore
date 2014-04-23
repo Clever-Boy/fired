@@ -16,5 +16,11 @@
 fired
 src/fired
 
+# CMake files
+Makefile
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+
 # Test map
 data/maps/test.map

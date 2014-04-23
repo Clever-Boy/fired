@@ -47,19 +47,19 @@ void fired::MapGenerator::genBuildingPalette() {
 
 ***********************************************************************/
 void fired::MapGenerator::genBuildingMeta() {
-	building.rooms.x = random() % 6 + 5;
-	building.rooms.y = random() % 6 + 3;
+	building.rooms.x = rand() % 6 + 5;
+	building.rooms.y = rand() % 6 + 3;
 
-	building.roomSize.x = random() % 20 + 30;
-	building.roomSize.y = random() % 10 + 15;
+	building.roomSize.x = rand() % 20 + 30;
+	building.roomSize.y = rand() % 10 + 15;
 
-	building.ladderPos = random() % (building.rooms.x + 1);
-	building.ladder    = random() % 15 + 10;
-	building.attic     = random() % 10 + 20;
-	building.roof      = random() % 20 + 30;
-	building.wall      = random() % 3  + 3;
-	building.floor     = random() % 3  + 3;
-	building.door      = random() % 4  + 5;
+	building.ladderPos = rand() % (building.rooms.x + 1);
+	building.ladder    = rand() % 15 + 10;
+	building.attic     = rand() % 10 + 20;
+	building.roof      = rand() % 20 + 30;
+	building.wall      = rand() % 3  + 3;
+	building.floor     = rand() % 3  + 3;
+	building.door      = rand() % 4  + 5;
 
 	sf::Vector2i size(0, 0);
 

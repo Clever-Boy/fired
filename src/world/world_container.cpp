@@ -826,7 +826,7 @@ int fired::Container::loadExplosion(void *data, int, char **argv, char **) {
 ***********************************************************************/
 fired::BaseExplosion *fired::Container::getExplosion() {
 	if (explosions.size() == 0) return 0;
-	else return explosions[random() % explosions.size()];
+	else return explosions[rand() % explosions.size()];
 }
 
 

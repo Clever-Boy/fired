@@ -101,8 +101,8 @@ void fired::Map::render() {
 void fired::Map::spawn() {
 	if (biome->creatures.size() == 0) return;
 
-	int toSpawn = random() % biome->creatures.size();
-	world->spawn(sf::Vector2f(2200 + random() % 200, 560), biome->creatures[toSpawn]);
+	int toSpawn = rand() % biome->creatures.size();
+	world->spawn(sf::Vector2f(2200 + rand() % 200, 560), biome->creatures[toSpawn]);
 }
 
 

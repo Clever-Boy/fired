@@ -79,13 +79,13 @@ void fired::WeatherStorm::genLightning() {
 	sf::Vector2f start, end;
 
 	start    = cam->offset;
-	start.x += (float)(random() % settings->window.width);
+	start.x += (float)(rand() % settings->window.width);
 
 	end    = start;
 	end.y += (float)settings->window.height;
 
 	lightning     = new fired::Lightning(start, end);
-	lightningTime = LIGHTNING_MIN_TIME + (LIGHTNING_MAX_TIME - LIGHTNING_MIN_TIME) * ((float)(random() % 100) / 100.0);
+	lightningTime = LIGHTNING_MIN_TIME + (LIGHTNING_MAX_TIME - LIGHTNING_MIN_TIME) * ((float)(rand() % 100) / 100.0);
 
 	resources->sounds.thunderSnd->play();
 

@@ -126,7 +126,7 @@ float sign(float x) {
 
 ***********************************************************************/
 float getRandomOffset(float offsetAmount) {
-	return float(random() % 400 - 200) * offsetAmount / 200.0;
+	return float(rand() % 400 - 200) * offsetAmount / 200.0;
 }
 
 

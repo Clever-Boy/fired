@@ -71,7 +71,7 @@ void fired::ParticleSystemSpray::addParticle() {
 	particles.back()->color    = color;
 	particles.back()->sprite   = sprite;
 	particles.back()->scale    = 1.0;
-	particles.back()->speed    = direction * (float)((random() % 400) / 400.0) + normal * (float)(((random() % 400) - 200) / 200.0);
+	particles.back()->speed    = direction * (float)((rand() % 400) / 400.0) + normal * (float)(((rand() % 400) - 200) / 200.0);
 	particles.back()->accel    = accel;
 	particles.back()->life     = 0.0;
 	particles.back()->lifetime = lifetime;

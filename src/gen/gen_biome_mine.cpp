@@ -43,18 +43,18 @@ void fired::MapGenerator::genMinePalette() {
 
 ***********************************************************************/
 void fired::MapGenerator::genMineMeta() {
-	mine.landscape = random() % 20 + 40;
-	mine.tunnels   = random() % 3 + 3;
-	mine.width     = random() % 20 + 150;
+	mine.landscape = rand() % 20 + 40;
+	mine.tunnels   = rand() % 3 + 3;
+	mine.width     = rand() % 20 + 150;
 
-	mine.tunOffset  = random() % 3 + 2;
-	mine.landOffset = random() % 3 + 3;
-	mine.midlayer   = random() % 5 + 5;
+	mine.tunOffset  = rand() % 3 + 2;
+	mine.landOffset = rand() % 3 + 3;
+	mine.midlayer   = rand() % 5 + 5;
 
-	mine.lanternDiff = random() % 5 + 20;
-	mine.beamDiff    = random() % 5 + 15;
+	mine.lanternDiff = rand() % 5 + 20;
+	mine.beamDiff    = rand() % 5 + 15;
 
-	for (int i = 0; i < mine.tunnels; i++) mine.tunHeight.push_back(random() % 10 + 7);
+	for (int i = 0; i < mine.tunnels; i++) mine.tunHeight.push_back(rand() % 10 + 7);
 
 
 	sf::Vector2i size(0, 0);
@@ -83,9 +83,9 @@ void fired::MapGenerator::genMineLandscape() {
 
 	for (int x = 0; x < sizeX; x++) {
 		if (!planeWidth) {
-			planeWidth = random() % 10 + 10;
+			planeWidth = rand() % 10 + 10;
 
-			if (random() % 2) planeHeight--;
+			if (rand() % 2) planeHeight--;
 			else              planeHeight++;
 
 			if (planeHeight > mine.landscape + mine.landOffset)
@@ -125,8 +125,8 @@ void fired::MapGenerator::genMineTunnels() {
 
 ***********************************************************************/
 void fired::MapGenerator::genMineTunnel(sf::IntRect tunRect) {
-	int hi = tunRect.top + random() % (mine.tunOffset);
-	int lo = tunRect.top - random() % (mine.tunOffset) + tunRect.height;
+	int hi = tunRect.top + rand() % (mine.tunOffset);
+	int lo = tunRect.top - rand() % (mine.tunOffset) + tunRect.height;
 
 	int diff = (lo - hi) / 3;
 	genBar(tunRect.left    , hi + diff    , lo - diff    , false);
@@ -140,8 +140,8 @@ void fired::MapGenerator::genMineTunnel(sf::IntRect tunRect) {
 
 	for (int x = tunRect.left + 2; x <= tunRect.left + tunRect.width - 2; x++) {
 		if (!hiLen) {
-			hiLen = random() % 3 + 3;
-			if (random() % 2) hi--;
+			hiLen = rand() % 3 + 3;
+			if (rand() % 2) hi--;
 			else              hi++;
 
 			if (hi > tunRect.top + mine.tunOffset)
@@ -152,9 +152,9 @@ void fired::MapGenerator::genMineTunnel(sf::IntRect tunRect) {
 		}
 
 		if (!loLen) {
-			loLen = random() % 3 + 3;
+			loLen = rand() % 3 + 3;
 
-			if (random() % 2) lo--;
+			if (rand() % 2) lo--;
 			else              lo++;
 
 			if (lo > tunRect.top + tunRect.height - 1)

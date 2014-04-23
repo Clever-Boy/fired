@@ -105,7 +105,7 @@ void fired::Weather::fill() {
 		particles.back()->speed    = speed;
 		particles.back()->accel    = accel;
 		particles.back()->scale    = genScale();
-		particles.back()->pos      = cam->offset + sf::Vector2f(random() % settings->window.width, random() % settings->window.height);
+		particles.back()->pos      = cam->offset + sf::Vector2f(rand() % settings->window.width, rand() % settings->window.height);
 	}
 }
 
@@ -133,7 +133,7 @@ void fired::Weather::addParticle() {
 
 ***********************************************************************/
 sf::Vector2f fired::Weather::genPos() {
-	unsigned int random_val = random() % (settings->window.width + 2 * settings->window.height);
+	unsigned int random_val = rand() % (settings->window.width + 2 * settings->window.height);
 	sf::Vector2f result = cam->offset;
 
 	if (random_val < settings->window.height)

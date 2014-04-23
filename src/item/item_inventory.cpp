@@ -82,7 +82,7 @@ void fired::Inventory::dropAll(fired::World *world) {
 	for (int i = 0; i < 10; i++)
 		for (int j = 0; j < 5; j++)
 			if (items[i][j].base != NULL) {
-				angle = -(random() % 180) * 3.14f / 180.0f;
+				angle = -(rand() % 180) * 3.14f / 180.0f;
 				world->addItem(&items[i][j], pos, sf::Vector2f(ITEM_SPEED * cos(angle), ITEM_SPEED * sin(angle)));
 				emptyItem(&items[i][j]);
 			}
@@ -103,9 +103,9 @@ void fired::Inventory::generateLoot(std::vector<fired::LootItem*> *_items) {
 
 	for (unsigned int i = 0; i < _items->size(); i++) {
 		lootItem = (*_items)[i];
-		if (((random() % 100) / 100.0f) > lootItem->probability) continue;
+		if (((rand() % 100) / 100.0f) > lootItem->probability) continue;
 
-		count = lootItem->minCount + (random() % (lootItem->maxCount - lootItem->minCount + 1));
+		count = lootItem->minCount + (rand() % (lootItem->maxCount - lootItem->minCount + 1));
 		item = new fired::InventoryItem(lootItem->base, count);
 
 		if (canPickup(item)) pickup(item);

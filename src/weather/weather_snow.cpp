@@ -33,5 +33,5 @@ fired::WeatherSnow::WeatherSnow(fired::World *_world, float _frequency, float _w
 
 ***********************************************************************/
 float fired::WeatherSnow::genScale() {
-	return (float)(20 + random() % 80) / 100.0f;
+	return (float)(20 + rand() % 80) / 100.0f;
 }

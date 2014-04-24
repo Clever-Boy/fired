@@ -82,16 +82,39 @@ void fired::MapGenerator::genMineMeta() {
 void fired::MapGenerator::genMineMetaLayer(mineTunLayer *layer, int height) {
 	layer->tunHeight = rand() % 10 + 7;
 
-	int startX, endX, tunW, tunH, tunC;
-	tunC = rand() % (mine.width / (mine.tunMinLen + mine.tunSpace)) + 1;
-	tunW = mine.width / tunC;
-
+	int startX, tunW, tunH, tunC, freeW;
+	tunC   = rand() % ((mine.width - 2 * mine.tunSpace) / (mine.tunMinLen + mine.tunSpace)) + 1;
+	tunW   = mine.width / tunC;
 	startX = mine.tunSpace;
-	endX   = mine.width - mine.tunOffset - 1;
 
 	for (int i = 0; i < tunC; i++) {
+		tunH = rand() % 10 + 7;
+		if (tunH > layer->tunHeight) tunH = layer->tunHeight;
+
 		layer->tunnels.push_back(sf::IntRect(startX, height, mine.tunMinLen, layer->tunHeight + 2 * mine.tunOffset));
 		startX += mine.tunMinLen + mine.tunSpace;
+	}
+
+	freeW = mine.width - startX - 1;
+
+	for (int i = 0; i < tunC; i++) {
+		tunW = rand() % freeW;
+		freeW -= tunW;
+
+		layer->tunnels[i].width += tunW;
+
+		for (int j = i + 1; j < tunC; j++)
+			layer->tunnels[j].left += tunW;
+	}
+
+	for (int i = 0; i < tunC; i++) {
+		tunW = rand() % freeW;
+		freeW -= tunW;
+
+		layer->tunnels[i].left += tunW;
+
+		for (int j = i + 1; j < tunC; j++)
+			layer->tunnels[j].left += tunW;
 	}
 }
 
@@ -165,7 +188,7 @@ void fired::MapGenerator::genMineTunnel(sf::IntRect tunRect) {
 		if (!hiLen) {
 			hiLen = rand() % 3 + 3;
 			if (rand() % 2) hi--;
-			else              hi++;
+			else            hi++;
 
 			if (hi > tunRect.top + mine.tunOffset)
 				hi -= 2;
@@ -178,7 +201,7 @@ void fired::MapGenerator::genMineTunnel(sf::IntRect tunRect) {
 			loLen = rand() % 3 + 3;
 
 			if (rand() % 2) lo--;
-			else              lo++;
+			else            lo++;
 
 			if (lo > tunRect.top + tunRect.height - 1)
 				lo -= 2;
@@ -194,7 +217,7 @@ void fired::MapGenerator::genMineTunnel(sf::IntRect tunRect) {
 
 		if (lantern == mine.lanternDiff) {
 			lantern = 0;
-			if (tunRect.left + tunRect.width - x - 1 > mine.lanternDiff / 4)
+			if (tunRect.left + tunRect.width - x - 1 > mine.lanternDiff / 8)
 				addLightSource(x * TILE_SIZE, hi * TILE_SIZE, "lantern");
 		}
 
@@ -210,6 +233,11 @@ void fired::MapGenerator::genMineTunnel(sf::IntRect tunRect) {
 	diff = (lo - hi) / 3;
 	genBar(tunRect.left + tunRect.width - 1, hi + diff / 2, lo - diff / 2, false);
 	genBar(tunRect.left + tunRect.width    , hi + diff    , lo - diff    , false);
+
+	/** TEMPORARY LADDER **/
+	setEraser();
+	genFill(tunRect.left+2, 0, tunRect.left+4, tunRect.top + 5,false);
+	setBrush("clay");
 }
 
 
@@ -220,12 +248,6 @@ void fired::MapGenerator::genMineTunnel(sf::IntRect tunRect) {
 
 ***********************************************************************/
 void fired::MapGenerator::genMinePlayer() {
-	/** TEMPORARY LADDER **/
-	setEraser();
-	genBar(30, 0, sizeY - 1, false);
-	genBar(31, 0, sizeY - 1, false);
-	genBar(32, 0, sizeY - 1, false);
-
 	int y = 0;
 	startPos.x = 20 * TILE_SIZE;
 

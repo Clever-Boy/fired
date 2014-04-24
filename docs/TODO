@@ -558,6 +558,7 @@
 			<todo done="no" collapse="no"><title>Add some models</title></todo>
 			<todo done="no" collapse="no"><title>Add some hairs</title></todo>
 			<todo done="no" collapse="no"><title>Add some creatures</title></todo>
+			<todo done="no" collapse="no"><title>Generating spawn places</title></todo>
 			<todo done="no" collapse="no"><title>Generating loot depending on level</title></todo>
 			<todo done="no" collapse="no"><title>Items bonuses +dmg, +defence, etc.</title></todo>
 			<todo done="no" collapse="no"><title>In-game menu</title></todo>
@@ -663,6 +664,7 @@
 		</todo>
 		<todo done="no" collapse="yes"><title>Improovements</title>
 			<todo done="no" collapse="no"><title>Destructable bricks</title></todo>
+			<todo done="no" collapse="no"><title>Minimap</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Release</title>
 			<todo done="no" collapse="no"><title>Code optimization</title></todo>

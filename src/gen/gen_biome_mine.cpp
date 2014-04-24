@@ -20,6 +20,7 @@ void fired::MapGenerator::genMine() {
 	genMinePalette();
 	genMineLandscape();
 	genMineTunnels();
+	genMineLadders();
 	genMinePlayer();
 	genMineClean();
 }
@@ -245,11 +246,19 @@ void fired::MapGenerator::genMineTunnel(mineTunnel *tun) {
 	diff = (lo - hi) / 3;
 	genBar(tun->tunRect.left + tun->tunRect.width - 1, hi + diff / 2, lo - diff / 2, false);
 	genBar(tun->tunRect.left + tun->tunRect.width    , hi + diff    , lo - diff    , false);
+}
 
-	/** TEMPORARY LADDER **/
-	setEraser();
-	genFill(tun->tunRect.left+2, 0, tun->tunRect.left+4, tun->tunRect.top + 5,false);
-	setBrush("clay");
+
+
+/***********************************************************************
+     * MapGenerator
+     * genMineLadders
+
+***********************************************************************/
+void fired::MapGenerator::genMineLadders() {
+	for (int i = 0; i < mine.tunCount; i++)
+		for (unsigned int j = 0; j < mine.layers[i]->tunnels.size(); j++)
+			genFill(mine.layers[i]->tunnels[j]->tunRect.left+2, 0, mine.layers[i]->tunnels[j]->tunRect.left+4, mine.layers[i]->tunnels[j]->tunRect.top + 5,false);
 }
 
 

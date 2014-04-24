@@ -10,9 +10,14 @@
 #define __GEN_BIOME_MINE
 
 
+struct mineTunLayer {
+	int tunHeight;
+	std::vector<sf::IntRect> tunnels;
+};
+
 struct {
 	int landscape;
-	int tunnels;
+	int tunCount;
 	int width;
 	int tunOffset;
 	int landOffset;
@@ -20,16 +25,18 @@ struct {
 	int lanternDiff;
 	int beamDiff;
 
-	std::vector<int> tunHeight;
+	std::vector<mineTunLayer*> layers;
 } mine;
 
 
 void genMine();
 void genMineMeta();
+void genMineMetaLayer(mineTunLayer *layer, int height);
 void genMinePalette();
 void genMineLandscape();
 void genMineTunnels();
 void genMineTunnel(sf::IntRect tunRect);
 void genMinePlayer();
+void genMineClean();
 
 #endif

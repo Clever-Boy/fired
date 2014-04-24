@@ -18,6 +18,8 @@ struct mineTunLayer {
 struct {
 	int landscape;
 	int tunCount;
+	int tunMinLen;
+	int tunSpace;
 	int width;
 	int tunOffset;
 	int landOffset;

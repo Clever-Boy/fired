@@ -46,9 +46,11 @@ void fired::MapGenerator::genMinePalette() {
 void fired::MapGenerator::genMineMeta() {
 	mine.landscape = rand() % 20 + 40;
 	mine.tunCount  = rand() % 3 + 3;
-	mine.width     = rand() % 20 + 150;
+	mine.width     = rand() % 200 + 150;
+	mine.tunMinLen = rand() % 30 + 45;
 
 	mine.tunOffset  = rand() % 3 + 2;
+	mine.tunSpace   = rand() % 10 + 5;
 	mine.landOffset = rand() % 3 + 3;
 	mine.midlayer   = rand() % 5 + 5;
 
@@ -80,8 +82,17 @@ void fired::MapGenerator::genMineMeta() {
 void fired::MapGenerator::genMineMetaLayer(mineTunLayer *layer, int height) {
 	layer->tunHeight = rand() % 10 + 7;
 
-	sf::IntRect tunRect(mine.tunOffset, height, mine.width - 2 * mine.tunOffset - 1, 2 * mine.tunOffset + layer->tunHeight);
-	layer->tunnels.push_back(tunRect);
+	int startX, endX, tunW, tunH, tunC;
+	tunC = rand() % (mine.width / (mine.tunMinLen + mine.tunSpace)) + 1;
+	tunW = mine.width / tunC;
+
+	startX = mine.tunSpace;
+	endX   = mine.width - mine.tunOffset - 1;
+
+	for (int i = 0; i < tunC; i++) {
+		layer->tunnels.push_back(sf::IntRect(startX, height, mine.tunMinLen, layer->tunHeight + 2 * mine.tunOffset));
+		startX += mine.tunMinLen + mine.tunSpace;
+	}
 }
 
 

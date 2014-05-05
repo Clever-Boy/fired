@@ -19,14 +19,13 @@ void fired::Container::loadContent(sqlite3 *db, const char *table, int (*callbac
 	char *zErrMsg = 0;
 
 	screen->mainBar->setCaption("Loading", table);
+	screen->mainBar->increase();
 
 	char countQuery[64];
 	snprintf(countQuery, sizeof(countQuery), "SELECT COUNT(*) FROM %s", table);
 
 	if (sqlite3_exec(db, countQuery, count   , this, &zErrMsg) != SQLITE_OK) printf("SQL error: %s\n", zErrMsg);
 	if (sqlite3_exec(db, sql       , callback, this, &zErrMsg) != SQLITE_OK) printf("SQL error: %s\n", zErrMsg);
-
-	screen->mainBar->increase();
 }
 
 

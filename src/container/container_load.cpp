@@ -16,7 +16,9 @@
 
 ***********************************************************************/
 int fired::Container::loadSprite(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->updateProgress(argv[0]);
 	((fired::Container *) data)->sprites.push_back(new fired::GameSprite(argv[0]));
+
 	return 0;
 }
 
@@ -28,7 +30,9 @@ int fired::Container::loadSprite(void *data, int, char **argv, char **) {
 
 ***********************************************************************/
 int fired::Container::loadSound(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->updateProgress(argv[1]);
 	((fired::Container *) data)->sounds.push_back(new fired::GameSound(argv[1], argv[0]));
+
 	return 0;
 }
 
@@ -40,9 +44,12 @@ int fired::Container::loadSound(void *data, int, char **argv, char **) {
 
 ***********************************************************************/
 int fired::Container::loadDecor(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->updateProgress(argv[1]);
+
 	sf::Vector2f size;
 	sscanf(argv[2], "%f,%f", &size.x, &size.y);
 	((fired::Container *) data)->decors.push_back(new fired::BaseDecor(argv[1], size, ((fired::Container *) data)->sprites[atoi(argv[4])]));
+
 	return 0;
 }
 
@@ -54,6 +61,7 @@ int fired::Container::loadDecor(void *data, int, char **argv, char **) {
 
 ***********************************************************************/
 int fired::Container::loadLight(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->updateProgress(argv[0]);
 	((fired::Container *) data)->lights.push_back(new fired::BaseLightSource);
 	fired::BaseLightSource *current = ((fired::Container *) data)->lights.back();
 
@@ -63,6 +71,7 @@ int fired::Container::loadLight(void *data, int, char **argv, char **) {
 	current->intensity = (char)atoi(argv[2]);
 	current->decor     = ((fired::Container *) data)->decors[atoi(argv[3])];
 	current->color.a   = 255;
+
 	return 0;
 }
 
@@ -74,6 +83,7 @@ int fired::Container::loadLight(void *data, int, char **argv, char **) {
 
 ***********************************************************************/
 int fired::Container::loadBodypart(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->updateProgress(argv[0]);
 	((fired::Container *) data)->bodyparts.push_back(new fired::BaseBodypart);
 	fired::BaseBodypart *current = ((fired::Container *) data)->bodyparts.back();
 
@@ -102,6 +112,8 @@ int fired::Container::loadBodypart(void *data, int, char **argv, char **) {
 
 ***********************************************************************/
 int fired::Container::loadModel(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->updateProgress(argv[2]);
+
 	char field[128];
 
 	if (!strcmp(argv[1], "humanoid")) {
@@ -136,6 +148,7 @@ int fired::Container::loadModel(void *data, int, char **argv, char **) {
 
 ***********************************************************************/
 int fired::Container::loadArmor(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->updateProgress(argv[1]);
 	((fired::Container *) data)->armors.push_back(new fired::BaseArmor);
 	fired::BaseArmor *current = ((fired::Container *) data)->armors.back();
 
@@ -164,6 +177,7 @@ int fired::Container::loadArmor(void *data, int, char **argv, char **) {
 
 ***********************************************************************/
 int fired::Container::loadWeapon(void *data, int, char **argv, char **){
+	((fired::Container *) data)->updateProgress(argv[2]);
 	((fired::Container *) data)->weapons.push_back(new fired::BaseWeapon);
 	fired::BaseWeapon *current = ((fired::Container *) data)->weapons.back();
 
@@ -211,6 +225,7 @@ int fired::Container::loadWeapon(void *data, int, char **argv, char **){
 
 ***********************************************************************/
 int fired::Container::loadItem(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->updateProgress(argv[1]);
 	((fired::Container *) data)->items.push_back(new fired::BaseItem);
 	fired::BaseItem *current = ((fired::Container *) data)->items.back();
 
@@ -255,6 +270,7 @@ int fired::Container::loadItem(void *data, int, char **argv, char **) {
 
 ***********************************************************************/
 int fired::Container::loadCreature(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->updateProgress(argv[1]);
 	((fired::Container *) data)->creatures.push_back(new fired::BaseCreature);
 	fired::BaseCreature *current = ((fired::Container *) data)->creatures.back();
 	emptyStats(&current->stats);
@@ -301,6 +317,7 @@ int fired::Container::loadCreature(void *data, int, char **argv, char **) {
 
 ***********************************************************************/
 int fired::Container::loadTileset(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->updateProgress(argv[3]);
 	((fired::Container *) data)->tilesets.push_back(new fired::Tileset(atoi(argv[0]), ((fired::Container *) data)->sprites[atoi(argv[1])], atoi(argv[2]), argv[3]));
 	return 0;
 }
@@ -313,13 +330,14 @@ int fired::Container::loadTileset(void *data, int, char **argv, char **) {
 
 ***********************************************************************/
 int fired::Container::loadBiome(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->updateProgress(argv[1]);
 	((fired::Container *) data)->biomes.push_back(new fired::Biome(argv[4]));
 	fired::Biome *current = ((fired::Container *) data)->biomes.back();
 
 	current->intensity = atoi(argv[6]);
 
 	sscanf(argv[3], "%hhu,%hhu,%hhu,%hhu", &current->lightness.r , &current->lightness.g , &current->lightness.b , &current->lightness.a);
-	strcpy(current->name   , argv[1]);
+	strcpy(current->name, argv[1]);
 
 	if (argv[2]) strcpy(current->weather, argv[2]);
 	else         current->weather[0] = 0;
@@ -343,6 +361,7 @@ int fired::Container::loadBiome(void *data, int, char **argv, char **) {
 
 ***********************************************************************/
 int fired::Container::loadExplosion(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->updateProgress(argv[1]);
 	((fired::Container *) data)->explosions.push_back(new fired::BaseExplosion(argv[1]));
 	return 0;
 }
@@ -355,6 +374,7 @@ int fired::Container::loadExplosion(void *data, int, char **argv, char **) {
 
 ***********************************************************************/
 int fired::Container::loadAmmo(void *data, int, char **argv, char **){
+	((fired::Container *) data)->updateProgress(argv[3]);
 	((fired::Container *) data)->ammos.push_back(new fired::BaseAmmo);
 	fired::BaseAmmo *current = ((fired::Container *) data)->ammos.back();
 

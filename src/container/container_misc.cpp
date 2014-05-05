@@ -75,3 +75,16 @@ int fired::Container::count(void *data, int, char **argv, char **) {
 
 	return 0;
 }
+
+
+
+/***********************************************************************
+     * Container
+     * updateProgress
+
+***********************************************************************/
+void fired::Container::updateProgress(const char *caption) {
+	screen->secBar->increase();
+	screen->secBar->setCaption("Loading", caption);
+	screen->render();
+}

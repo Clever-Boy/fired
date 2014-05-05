@@ -17,6 +17,9 @@
 ***********************************************************************/
 fired::ProgressBar::ProgressBar(sf::Vector2f _pos) {
 	pos = _pos;
+
+	limit = 1;
+	value = 0;
 }
 
 
@@ -38,6 +41,8 @@ fired::ProgressBar::~ProgressBar() {
 
 ***********************************************************************/
 void fired::ProgressBar::render() {
+	resources->progress.full->setTextureRect(sf::IntRect(0, 0, PROGRESSBAR_WIDTH * ((float)value / (float)limit), PROGRESSBAR_HEIGHT));
+
 	resources->progress.border->setPosition(pos);
 	resources->progress.empty->setPosition(pos);
 	resources->progress.full->setPosition(pos);

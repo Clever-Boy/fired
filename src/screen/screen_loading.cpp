@@ -24,6 +24,9 @@ fired::LoadingScr::LoadingScr() {
 	sprite = new sf::Sprite();
 	sprite->setTexture(*texture);
 	sprite->move((settings->window.width - texture->getSize().x) / 2, (settings->window.height - texture->getSize().y) / 2);
+
+	mainBar = new fired::ProgressBar(sf::Vector2f((settings->window.width - PROGRESSBAR_WIDTH) / 2, (settings->window.height - PROGRESSBAR_HEIGHT) / 2 + 100));
+	secBar  = new fired::ProgressBar(sf::Vector2f((settings->window.width - PROGRESSBAR_WIDTH) / 2, (settings->window.height - PROGRESSBAR_HEIGHT) / 2 + 150));
 }
 
 
@@ -36,6 +39,9 @@ fired::LoadingScr::LoadingScr() {
 fired::LoadingScr::~LoadingScr() {
 	delete texture;
 	delete sprite;
+
+	delete mainBar;
+	delete secBar;
 }
 
 
@@ -47,6 +53,7 @@ fired::LoadingScr::~LoadingScr() {
 ***********************************************************************/
 void fired::LoadingScr::update() {
 	render();
+
 	container = new fired::Container();
 	game->setGameState(gsStartScr);
 }
@@ -60,6 +67,10 @@ void fired::LoadingScr::update() {
 ***********************************************************************/
 void fired::LoadingScr::render() {
 	app->clear();
+
 	app->draw(*sprite);
+	mainBar->render();
+	secBar->render();
+
 	app->display();
 }

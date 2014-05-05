@@ -529,7 +529,7 @@
 		<todo done="no" collapse="no"><title>Loading screen</title>
 			<todo done="yes" collapse="no"><title>Loading screen class</title></todo>
 			<todo done="yes" collapse="no"><title>Splash while loading</title></todo>
-			<todo done="no" collapse="no"><title>Progress bar</title></todo>
+			<todo done="yes" collapse="no"><title>Progress bar</title></todo>
 			<todo done="no" collapse="no"><title>Loading progress</title></todo>
 			<todo done="no" collapse="no"><title>Progress per item</title></todo>
 		</todo>

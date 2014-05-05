@@ -12,6 +12,9 @@
 
 namespace fired {
 	struct LoadingScr : GameScreen {
+		fired::ProgressBar *mainBar;
+		fired::ProgressBar *secBar;
+
 		sf::Texture* texture;
 		sf::Sprite*  sprite;
 

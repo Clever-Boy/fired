@@ -14,11 +14,17 @@ namespace fired {
 	struct ProgressBar {
 		sf::Vector2f pos;
 
+		int value;
+		int limit;
+
 
 		 ProgressBar(sf::Vector2f _pos);
 		~ProgressBar();
 
 		void render();
+
+		void setLimit(int _limit) {limit = _limit;};
+		void increase()           {if (value != limit) value++;};
 	};
 }
 

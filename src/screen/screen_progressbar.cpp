@@ -20,6 +20,13 @@ fired::ProgressBar::ProgressBar(sf::Vector2f _pos) {
 
 	limit = 1;
 	value = 0;
+
+	caption = new sf::Text;
+	caption->setFont(*game->font);
+	caption->setCharacterSize(14);
+	//caption->setStyle(sf::Text::Bold);
+	caption->setColor(sf::Color::Black);
+	caption->setPosition(pos.x + 50.0f, pos.y);
 }
 
 
@@ -50,4 +57,19 @@ void fired::ProgressBar::render() {
 	app->draw(*resources->progress.empty);
 	app->draw(*resources->progress.full);
 	app->draw(*resources->progress.border);
+	app->draw(*caption);
+}
+
+
+
+/***********************************************************************
+     * ProgressBar
+     * setCaption
+
+***********************************************************************/
+void fired::ProgressBar::setCaption(const char *_caption, const char *_subject) {
+	char newCaption[128];
+	snprintf(newCaption, sizeof(newCaption), "%s %s", _caption, _subject);
+
+	caption->setString(sf::String(newCaption));
 }

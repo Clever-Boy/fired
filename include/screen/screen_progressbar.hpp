@@ -12,7 +12,8 @@
 
 namespace fired {
 	struct ProgressBar {
-		sf::Vector2f pos;
+		sf::Vector2f  pos;
+		sf::Text     *caption;
 
 		int value;
 		int limit;
@@ -25,6 +26,7 @@ namespace fired {
 
 		void setLimit(int _limit) {limit = _limit;};
 		void increase()           {if (value != limit) value++;};
+		void setCaption(const char *_caption, const char *_subject);
 	};
 }
 

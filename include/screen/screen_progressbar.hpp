@@ -1,6 +1,6 @@
 /***********************************************************************
      * File       : screen_progressbar.hpp
-     * Created    : Jul 22, 2013
+     * Created    : May 05, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
@@ -23,10 +23,11 @@ namespace fired {
 		~ProgressBar();
 
 		void render();
-
-		void setLimit(int _limit) {limit = _limit;};
-		void increase()           {if (value != limit) value++;};
 		void setCaption(const char *_caption, const char *_subject);
+
+		void setLimit(int _limit) { limit = _limit;              };
+		void increase()           { if (value != limit) value++; };
+		void reset()              { value = 0;                   };
 	};
 }
 

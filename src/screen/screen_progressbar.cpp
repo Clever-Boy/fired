@@ -1,6 +1,6 @@
 /***********************************************************************
      * File       : screen_progressbar.cpp
-     * Created    : Jul 22, 2013
+     * Created    : May 05, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com

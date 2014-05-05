@@ -113,6 +113,8 @@ fired::Resources::Resources() {
 	progress.border->setTexture(*progress.borderTex);
 	progress.empty->setTexture(*progress.emptyTex);
 	progress.full->setTexture(*progress.fullTex);
+
+	progress.empty->setTextureRect(sf::IntRect(0, 0, PROGRESSBAR_WIDTH, PROGRESSBAR_HEIGHT));
 }
 
 

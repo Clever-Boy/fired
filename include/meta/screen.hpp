@@ -10,6 +10,7 @@
 #define __SCREEN
 
 #include "screen/screen_base.hpp"
+#include "screen/screen_progressbar.hpp"
 #include "screen/screen_start.hpp"
 #include "screen/screen_credits.hpp"
 #include "screen/screen_loading.hpp"

@@ -47,8 +47,6 @@ fired::LoadingScr::~LoadingScr() {
 ***********************************************************************/
 void fired::LoadingScr::update() {
 	render();
-
-	resources = new fired::Resources();
 	container = new fired::Container();
 	game->setGameState(gsStartScr);
 }

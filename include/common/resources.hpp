@@ -54,6 +54,17 @@ namespace fired {
 		} masks;
 
 
+		struct {
+			sf::Texture *borderTex;
+			sf::Texture *emptyTex;
+			sf::Texture *fullTex;
+
+			sf::Sprite *border;
+			sf::Sprite *empty;
+			sf::Sprite *full;
+		} progress;
+
+
 		 Resources();
 		~Resources();
 	};

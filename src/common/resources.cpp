@@ -92,6 +92,27 @@ fired::Resources::Resources() {
 
 	masks.bumpy->loadFromFile("data/img/world/tileset/bumpy.png");
 	masks.flat->loadFromFile("data/img/world/tileset/flat.png");
+
+
+
+	progress.borderTex  = new sf::Texture();
+	progress.emptyTex   = new sf::Texture();
+	progress.fullTex    = new sf::Texture();
+
+	progress.borderTex->loadFromFile("data/img/gui/progress/border.png");
+	progress.emptyTex->loadFromFile("data/img/gui/progress/empty.png");
+	progress.fullTex->loadFromFile("data/img/gui/progress/full.png");
+
+	progress.emptyTex->setRepeated(true);
+	progress.fullTex->setRepeated(true);
+
+	progress.border = new sf::Sprite();
+	progress.empty  = new sf::Sprite();
+	progress.full   = new sf::Sprite();
+
+	progress.border->setTexture(*progress.borderTex);
+	progress.empty->setTexture(*progress.emptyTex);
+	progress.full->setTexture(*progress.fullTex);
 }
 
 
@@ -137,4 +158,14 @@ fired::Resources::~Resources() {
 
 	delete masks.flat;
 	delete masks.bumpy;
+
+
+
+	delete progress.border;
+	delete progress.empty;
+	delete progress.full;
+
+	delete progress.borderTex;
+	delete progress.emptyTex;
+	delete progress.fullTex;
 }

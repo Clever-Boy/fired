@@ -1,20 +1,16 @@
 /***********************************************************************
-     * File       : world_container.hpp
+     * File       : container.hpp
      * Created    : Aug 26, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __WORLD_CONTAINER
-#define __WORLD_CONTAINER
+#ifndef __CONTAINER
+#define __CONTAINER
 
 
 #include <sqlite3.h>
-
-#include "char.hpp"
-#include "world_sound.hpp"
-#include "map.hpp"
 
 
 namespace fired {

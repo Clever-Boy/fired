@@ -28,6 +28,7 @@
 #include "settings.hpp"
 #include "resources.hpp"
 #include "world.hpp"
+#include "container.hpp"
 #include "misc.hpp"
 #include "mechanics.hpp"
 #include "vect.hpp"

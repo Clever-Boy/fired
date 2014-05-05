@@ -27,6 +27,9 @@ fired::LoadingScr::LoadingScr() {
 
 	mainBar = new fired::ProgressBar(sf::Vector2f((settings->window.width - PROGRESSBAR_WIDTH) / 2, (settings->window.height - PROGRESSBAR_HEIGHT) / 2 + 100));
 	secBar  = new fired::ProgressBar(sf::Vector2f((settings->window.width - PROGRESSBAR_WIDTH) / 2, (settings->window.height - PROGRESSBAR_HEIGHT) / 2 + 150));
+
+	mainBar->setCaption("Loading", "DB");
+	secBar->setCaption("Loading", "some file");
 }
 
 

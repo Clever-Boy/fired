@@ -1,5 +1,5 @@
 /***********************************************************************
-     * File       : world_container.cpp
+     * File       : container.cpp
      * Created    : Aug 26, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander

@@ -22,12 +22,11 @@
 
 
 #include "defines.hpp"
-#include "gamescreen.hpp"
 #include "control.hpp"
+#include "screen.hpp"
 #include "menu.hpp"
 #include "settings.hpp"
 #include "resources.hpp"
-#include "screen.hpp"
 #include "world.hpp"
 #include "misc.hpp"
 #include "mechanics.hpp"
@@ -39,6 +38,7 @@
 namespace fired {
 	enum GameState {
 		gsNone,
+		gsLoadingScr,
 		gsStartScr,
 		gsMainMenu,
 		gsCreditsScr,

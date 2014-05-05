@@ -18,8 +18,6 @@
 fired::Game::Game() {
 	clock     = new sf::Clock;
 	settings  = new fired::Settings();
-	resources = new fired::Resources();
-	container = new fired::Container();
 
 	unsigned long style;
 	if (settings->window.fullScreen) style = sf::Style::Fullscreen;
@@ -54,7 +52,7 @@ fired::Game::Game() {
 	font = new sf::Font;
 	font->loadFromFile("data/fonts/monterey.ttf");
 
-	setGameState(gsStartScr);
+	setGameState(gsLoadingScr);
 	lastClock = clock->getElapsedTime().asMilliseconds();
 }
 
@@ -207,6 +205,7 @@ bool fired::Game::switchGameState() {
 	gameState = gameStateNew;
 
 	if      (gameState == gsMainMenu)   gameScreen = new fired::MainMenu(mouse);
+	else if (gameState == gsLoadingScr) gameScreen = new fired::LoadingScr();
 	else if (gameState == gsStartScr)   gameScreen = new fired::StartScr();
 	else if (gameState == gsCreditsScr) gameScreen = new fired::CreditsScr();
 	else if (gameState == gsWorld)      gameScreen = new fired::World(mouse);

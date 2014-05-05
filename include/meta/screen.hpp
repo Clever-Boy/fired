@@ -9,7 +9,9 @@
 #ifndef __SCREEN
 #define __SCREEN
 
+#include "screen/screen_base.hpp"
 #include "screen/screen_start.hpp"
 #include "screen/screen_credits.hpp"
+#include "screen/screen_loading.hpp"
 
 #endif

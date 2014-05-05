@@ -15,11 +15,17 @@
      * loadContent
 
 ***********************************************************************/
-void fired::Container::loadContent(sqlite3 *db, int (*callback)(void*,int,char**,char**), const char *sql) {
+void fired::Container::loadContent(sqlite3 *db, const char *caption, int (*callback)(void*,int,char**,char**), const char *sql) {
 	char *zErrMsg = 0;
+
+	screen->mainBar->setCaption("Loading", caption);
+	screen->render();
 
 	if (sqlite3_exec(db, sql, callback, this, &zErrMsg) != SQLITE_OK)
 		printf("SQL error: %s\n", zErrMsg);
+
+	screen->mainBar->increase();
+	screen->render();
 }
 
 

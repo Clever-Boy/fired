@@ -30,8 +30,10 @@ namespace fired {
 		std::vector<fired::Tileset*>         tilesets;
 		std::vector<fired::Biome*>           biomes;
 
+		fired::LoadingScr *screen;
 
-		 Container();
+
+		 Container(fired::LoadingScr *_screen);
 		~Container();
 
 		#include "container_misc.hpp"

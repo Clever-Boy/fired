@@ -15,14 +15,17 @@
      * loadContent
 
 ***********************************************************************/
-void fired::Container::loadContent(sqlite3 *db, const char *caption, int (*callback)(void*,int,char**,char**), const char *sql) {
+void fired::Container::loadContent(sqlite3 *db, const char *table, int (*callback)(void*,int,char**,char**), const char *sql) {
 	char *zErrMsg = 0;
 
-	screen->mainBar->setCaption("Loading", caption);
+	screen->mainBar->setCaption("Loading", table);
 	screen->render();
 
-	if (sqlite3_exec(db, sql, callback, this, &zErrMsg) != SQLITE_OK)
-		printf("SQL error: %s\n", zErrMsg);
+	char countQuery[64];
+	snprintf(countQuery, sizeof(countQuery), "SELECT COUNT(*) FROM %s", table);
+
+	if (sqlite3_exec(db, countQuery, count   , this, &zErrMsg) != SQLITE_OK) printf("SQL error: %s\n", zErrMsg);
+	if (sqlite3_exec(db, sql       , callback, this, &zErrMsg) != SQLITE_OK) printf("SQL error: %s\n", zErrMsg);
 
 	screen->mainBar->increase();
 	screen->render();
@@ -57,4 +60,18 @@ void fired::Container::loadCreatureLoot(fired::BaseCreature *current, const char
 
 	sscanf(lootStr, "(%[^)]),(%u,%u),%f\n", name, &minCount, &maxCount, &probability);
 	current->loot.push_back(new fired::LootItem(getItem(name), minCount, maxCount, probability));
+}
+
+
+
+/***********************************************************************
+     * Container
+     * count
+
+***********************************************************************/
+int fired::Container::count(void *data, int, char **argv, char **) {
+	((fired::Container *) data)->screen->secBar->reset();
+	((fired::Container *) data)->screen->secBar->setLimit(atoi(argv[0]));
+
+	return 0;
 }

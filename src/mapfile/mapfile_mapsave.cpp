@@ -101,3 +101,12 @@ void mapSaveObjects(fired::Map *map, FILE *fp) {
 		mapSaveObject(map->objects[i], fp);
 }
 
+
+
+/***********************************************************************
+     * mapSaveSpawns
+
+***********************************************************************/
+void mapSaveSpawns(fired::Map *map, FILE *fp) {
+	return;
+}

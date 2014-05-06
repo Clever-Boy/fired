@@ -115,3 +115,11 @@ void mapLoadObjects(fired::Map *map, FILE *fp) {
 }
 
 
+
+/***********************************************************************
+     * mapLoadSpawns
+
+***********************************************************************/
+void mapLoadSpawns(fired::Map *map, FILE *fp) {
+	return;
+}

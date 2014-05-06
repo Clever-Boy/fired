@@ -17,5 +17,6 @@ void genSaveTiles(fired::MapGenerator *gen, FILE *fp);
 void genSaveCollectorItems(fired::BaseMapObjectCollector *obj, FILE *fp);
 void genSaveObject(fired::BaseMapObject obj, FILE *fp);
 void genSaveObjects(fired::MapGenerator *gen, FILE *fp);
+void genSaveSpawns(fired::MapGenerator *gen, FILE *fp);
 
 #endif

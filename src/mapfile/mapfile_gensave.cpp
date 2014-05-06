@@ -89,3 +89,12 @@ void genSaveObjects(fired::MapGenerator *gen, FILE *fp) {
 		genSaveObject(gen->objects[i], fp);
 }
 
+
+
+/***********************************************************************
+     * genSaveSpawns
+
+***********************************************************************/
+void genSaveSpawns(fired::MapGenerator *gen, FILE *fp) {
+	return;
+}

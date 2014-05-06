@@ -36,6 +36,7 @@ namespace fired {
 
 		std::vector<fired::MapObject*>            objects;
 		std::vector<fired::TemporaryLightSource*> lights;
+		std::vector<sf::IntRect>                  spawns;
 
 		sf::Vector2i        visibleTiles;
 		sf::Vector2f        startPos;

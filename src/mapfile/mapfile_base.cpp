@@ -21,6 +21,7 @@ void mapLoad(fired::Map *map, const char* filename) {
 	mapLoadMeta(map, fp);
 	mapLoadTiles(map, fp);
 	mapLoadObjects(map, fp);
+	mapLoadSpawns(map, fp);
 
 	fclose(fp);
 }
@@ -41,6 +42,7 @@ void mapSave(fired::Map *map, const char* filename) {
 	mapSaveMeta(map, fp);
 	mapSaveTiles(map, fp);
 	mapSaveObjects(map, fp);
+	mapSaveSpawns(map, fp);
 
 	fclose(fp);
 }
@@ -61,6 +63,7 @@ void genSave(fired::MapGenerator *gen, const char* filename) {
 	genSaveMeta(gen, fp);
 	genSaveTiles(gen, fp);
 	genSaveObjects(gen, fp);
+	genSaveSpawns(gen, fp);
 
 	fclose(fp);
 }

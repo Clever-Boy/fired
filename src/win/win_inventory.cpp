@@ -24,13 +24,13 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner, fired::World *
 	sf::Vector2f winOffset = win->offset;
 
 	moneyText = new sf::Text();
-	moneyText->setFont(*game->font);
+	moneyText->setFont(*resources->fonts.game);
 	moneyText->setCharacterSize(16);
 	moneyText->setPosition(winOffset + sf::Vector2f(30.0f, 360.0f));
 	moneyText->setColor(sf::Color::White);
 
 	countText = new sf::Text();
-	countText->setFont(*game->font);
+	countText->setFont(*resources->fonts.game);
 	countText->setCharacterSize(12);
 	countText->setColor(sf::Color::White);
 

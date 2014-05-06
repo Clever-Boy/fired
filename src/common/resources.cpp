@@ -115,6 +115,18 @@ fired::Resources::Resources() {
 	progress.full->setTexture(*progress.fullTex);
 
 	progress.empty->setTextureRect(sf::IntRect(0, 0, PROGRESSBAR_WIDTH, PROGRESSBAR_HEIGHT));
+
+
+
+	fonts.menu    = new sf::Font();
+	fonts.game    = new sf::Font();
+	fonts.credits = new sf::Font();
+	fonts.loading = new sf::Font();
+
+	fonts.menu->loadFromFile("data/fonts/monterey.ttf");
+	fonts.game->loadFromFile("data/fonts/spinwerad.ttf");
+	fonts.credits->loadFromFile("data/fonts/mrsmonster.ttf");
+	fonts.loading->loadFromFile("data/fonts/jennifer.ttf");
 }
 
 
@@ -170,4 +182,11 @@ fired::Resources::~Resources() {
 	delete progress.borderTex;
 	delete progress.emptyTex;
 	delete progress.fullTex;
+
+
+
+	delete fonts.menu;
+	delete fonts.game;
+	delete fonts.credits;
+	delete fonts.loading;
 }

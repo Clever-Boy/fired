@@ -65,6 +65,14 @@ namespace fired {
 		} progress;
 
 
+		struct {
+			sf::Font *menu;
+			sf::Font *game;
+			sf::Font *credits;
+			sf::Font *loading;
+		} fonts;
+
+
 		 Resources();
 		~Resources();
 	};

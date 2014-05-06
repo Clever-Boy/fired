@@ -22,7 +22,7 @@ fired::FlyText::FlyText(sf::Vector2f _pos, sf::Color _color, int size, const cha
 
 	flyStr = new sf::String(text);
 	flyTxt = new sf::Text;
-	flyTxt->setFont(*game->font);
+	flyTxt->setFont(*resources->fonts.game);
 	flyTxt->setString(*flyStr);
 	flyTxt->setCharacterSize(size);
 	flyTxt->setStyle(sf::Text::Bold);

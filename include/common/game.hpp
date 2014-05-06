@@ -49,7 +49,6 @@ namespace fired {
 
 	struct Game {
 		sf::Clock        *clock;
-		sf::Font         *font;
 		sf::Image        *icon;
 		sf::Music        *musicTheme;
 

@@ -53,7 +53,7 @@ fired::MainMenu::MainMenu(fired::Mouse *_mouse) {
 	else
 		logoSprite->setPosition((settings->window.width - logoTexture->getSize().x) / 2, 0);
 
-	menuCaption->setFont(*game->font);
+	menuCaption->setFont(*resources->fonts.menu);
 	menuCaption->setCharacterSize(32);
 
 	fillMenu();

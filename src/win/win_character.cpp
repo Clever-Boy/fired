@@ -20,7 +20,7 @@ fired::CharacterWindow::CharacterWindow(fired::Character *_owner) {
 	win    = new fired::Window(sf::Vector2f(300, 410));
 
 	text = new sf::Text();
-	text->setFont(*game->font);
+	text->setFont(*resources->fonts.game);
 	text->setCharacterSize(16);
 	text->setPosition(win->offset + sf::Vector2f(30.0f, 360.0f));
 	text->setColor(sf::Color::White);

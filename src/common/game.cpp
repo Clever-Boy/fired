@@ -50,9 +50,6 @@ fired::Game::Game() {
 	musicTheme->setLoop(true);
 	musicTheme->setVolume(settings->volume.music);
 
-	font = new sf::Font;
-	font->loadFromFile("data/fonts/monterey.ttf");
-
 	setGameState(gsLoadingScr);
 	lastClock = clock->getElapsedTime().asMilliseconds();
 }
@@ -69,7 +66,6 @@ fired::Game::~Game() {
 	delete mouse;
 	delete handlers;
 	delete gameScreen;
-	delete font;
 	delete clock;
 	delete icon;
 	delete settings;

@@ -29,7 +29,7 @@ fired::GUI::GUI(fired::Character *_owner) {
 
 	str = new sf::String;
 	txt = new sf::Text;
-	txt->setFont(*game->font);
+	txt->setFont(*resources->fonts.game);
 	txt->setCharacterSize(12);
 
 }

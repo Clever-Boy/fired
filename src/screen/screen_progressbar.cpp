@@ -22,7 +22,7 @@ fired::ProgressBar::ProgressBar(sf::Vector2f _pos) {
 	value = 0;
 
 	caption = new sf::Text;
-	caption->setFont(*game->font);
+	caption->setFont(*resources->fonts.loading);
 	caption->setCharacterSize(14);
 	caption->setColor(sf::Color::Black);
 	caption->setPosition(pos.x + 50.0f, pos.y);

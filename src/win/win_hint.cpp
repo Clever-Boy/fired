@@ -20,7 +20,7 @@ fired::HintWindow::HintWindow(fired::World *_world) {
 	world = _world;
 
 	text = new sf::Text();
-	text->setFont(*game->font);
+	text->setFont(*resources->fonts.game);
 	text->setCharacterSize(12);
 	text->setPosition(win->offset + sf::Vector2f(30.0f, 360.0f));
 	text->setColor(sf::Color::White);

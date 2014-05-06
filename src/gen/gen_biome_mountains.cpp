@@ -23,6 +23,7 @@ void fired::MapGenerator::genMountains() {
 	genMountainsPlatforms();
 	genMountainsCollectors();
 	genMountainsPlayer();
+	genMountainsSpawns();
 }
 
 
@@ -177,4 +178,15 @@ void fired::MapGenerator::genMountainsPlayer() {
 
 	while (!tiles[sizeX / 2][y].tileset || !tiles[sizeX / 2][y].isWall) y++;
 	startPos.y = (y - 3) * TILE_SIZE;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genMountainsSpawns
+
+***********************************************************************/
+void fired::MapGenerator::genMountainsSpawns() {
+	return;
 }

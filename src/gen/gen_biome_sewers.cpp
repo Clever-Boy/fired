@@ -23,6 +23,7 @@ void fired::MapGenerator::genSewers() {
 	genSewersPlatforms();
 	genSewersCollectors();
 	genSewersPlayer();
+	genSewersSpawns();
 }
 
 
@@ -177,4 +178,15 @@ void fired::MapGenerator::genSewersPlayer() {
 
 	while (!tiles[sizeX / 2][y].tileset || !tiles[sizeX / 2][y].isWall) y++;
 	startPos.y = (y - 3) * TILE_SIZE;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genSewersSpawns
+
+***********************************************************************/
+void fired::MapGenerator::genSewersSpawns() {
+	return;
 }

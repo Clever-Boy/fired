@@ -33,5 +33,6 @@ void genBuildingDoors();
 void genBuildingLadder();
 void genBuildingRoom(int x, int y);
 void genBuildingPlayer();
+void genBuildingSpawns();
 
 #endif

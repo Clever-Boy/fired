@@ -23,6 +23,7 @@ void fired::MapGenerator::genCastle() {
 	genCastlePlatforms();
 	genCastleCollectors();
 	genCastlePlayer();
+	genCastleSpawns();
 }
 
 
@@ -177,4 +178,15 @@ void fired::MapGenerator::genCastlePlayer() {
 
 	while (!tiles[sizeX / 2][y].tileset || !tiles[sizeX / 2][y].isWall) y++;
 	startPos.y = (y - 3) * TILE_SIZE;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genCastleSpawns
+
+***********************************************************************/
+void fired::MapGenerator::genCastleSpawns() {
+	return;
 }

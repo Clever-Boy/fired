@@ -23,6 +23,7 @@ void fired::MapGenerator::genBuilding() {
 	genBuildingDoors();
 	genBuildingLadder();
 	genBuildingPlayer();
+	genBuildingSpawns();
 }
 
 
@@ -217,4 +218,15 @@ void fired::MapGenerator::genBuildingLadder() {
 void fired::MapGenerator::genBuildingPlayer() {
 	startPos.x = 6 * TILE_SIZE;
 	startPos.y = (building.roof + building.floor + building.roomSize.y - 3) * TILE_SIZE;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genBuildingSpawns
+
+***********************************************************************/
+void fired::MapGenerator::genBuildingSpawns() {
+	return;
 }

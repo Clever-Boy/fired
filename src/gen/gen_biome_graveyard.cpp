@@ -23,6 +23,7 @@ void fired::MapGenerator::genGraveyard() {
 	genGraveyardPlatforms();
 	genGraveyardCollectors();
 	genGraveyardPlayer();
+	genGraveyardSpawns();
 }
 
 
@@ -177,4 +178,15 @@ void fired::MapGenerator::genGraveyardPlayer() {
 
 	while (!tiles[sizeX / 2][y].tileset || !tiles[sizeX / 2][y].isWall) y++;
 	startPos.y = (y - 3) * TILE_SIZE;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genGraveyardSpawns
+
+***********************************************************************/
+void fired::MapGenerator::genGraveyardSpawns() {
+	return;
 }

@@ -15,6 +15,7 @@ void genCastleMeta();
 void genCastlePalette();
 void genCastleLandscape(int areaStart, int areaEnd, int horizon);
 void genCastlePlayer();
+void genCastleSpawns();
 void genCastleDecors();
 void genCastlePlatforms();
 void genCastleCollectors();

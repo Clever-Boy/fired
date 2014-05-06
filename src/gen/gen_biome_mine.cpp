@@ -23,6 +23,7 @@ void fired::MapGenerator::genMine() {
 	genMineLadders();
 	genMinePlayer();
 	genMineClean();
+	genMineSpawns();
 }
 
 
@@ -288,4 +289,15 @@ void fired::MapGenerator::genMineClean() {
 		deleteList(mine.layers[i]->tunnels);
 
 	deleteList(mine.layers);
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genMineSpawns
+
+***********************************************************************/
+void fired::MapGenerator::genMineSpawns() {
+	return;
 }

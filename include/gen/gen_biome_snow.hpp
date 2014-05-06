@@ -15,6 +15,7 @@ void genSnowMeta();
 void genSnowPalette();
 void genSnowLandscape(int areaStart, int areaEnd, int horizon);
 void genSnowPlayer();
+void genSnowSpawns();
 void genSnowDecors();
 void genSnowPlatforms();
 void genSnowCollectors();

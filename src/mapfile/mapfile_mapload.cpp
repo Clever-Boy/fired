@@ -121,5 +121,12 @@ void mapLoadObjects(fired::Map *map, FILE *fp) {
 
 ***********************************************************************/
 void mapLoadSpawns(fired::Map *map, FILE *fp) {
-	return;
+	unsigned int spawnsCount;
+	sf::IntRect spawn;
+
+	fread(&spawnsCount, sizeof(spawnsCount), 1, fp);
+	for (unsigned int i = 0; i < spawnsCount; i++) {
+		fread(&spawn, sizeof(spawn), 1, fp);
+		map->spawns.push_back(sf::IntRect(spawn));
+	}
 }

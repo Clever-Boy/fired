@@ -108,5 +108,9 @@ void mapSaveObjects(fired::Map *map, FILE *fp) {
 
 ***********************************************************************/
 void mapSaveSpawns(fired::Map *map, FILE *fp) {
-	return;
+	unsigned int spawnsCount = map->spawns.size();
+	fwrite(&spawnsCount, sizeof(spawnsCount), 1, fp);
+
+	for (unsigned int i = 0; i < spawnsCount; i++)
+		fwrite(&map->spawns[i], sizeof(sf::IntRect), 1, fp);
 }

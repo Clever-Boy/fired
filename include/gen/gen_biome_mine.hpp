@@ -49,6 +49,7 @@ void genMineTunnels();
 void genMineTunnel(mineTunnel *tun);
 void genMineLadders();
 void genMinePlayer();
+void genMineSpawns();
 void genMineClean();
 
 #endif

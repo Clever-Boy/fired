@@ -23,6 +23,7 @@ void fired::MapGenerator::genForest() {
 	genForestPlatforms();
 	genForestCollectors();
 	genForestPlayer();
+	genForestSpawns();
 }
 
 
@@ -177,4 +178,15 @@ void fired::MapGenerator::genForestPlayer() {
 
 	while (!tiles[sizeX / 2][y].tileset || !tiles[sizeX / 2][y].isWall) y++;
 	startPos.y = (y - 3) * TILE_SIZE;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genForestSpawns
+
+***********************************************************************/
+void fired::MapGenerator::genForestSpawns() {
+	return;
 }

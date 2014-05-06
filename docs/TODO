@@ -114,11 +114,11 @@
 			<todo done="yes" collapse="no"><title>Platform physics</title></todo>
 			<todo done="yes" collapse="no"><title>Platform jumpdown</title></todo>
 		</todo>
-		<todo done="yes" collapse="no"><title>Map generator</title>
+		<todo done="yes" collapse="yes"><title>Map generator</title>
 			<todo done="yes" collapse="no"><title>MapGenerator class</title></todo>
 			<todo done="yes" collapse="no"><title>Landscape generation</title></todo>
 			<todo done="yes" collapse="no"><title>Saving player position to map file</title></todo>
-			<todo done="no" collapse="no"><title>Enemy spawns</title></todo>
+			<todo done="yes" collapse="no"><title>Enemy spawns</title></todo>
 		</todo>
 		<todo done="yes" collapse="yes"><title>Animation</title>
 			<todo done="yes" collapse="no"><title>Model class</title></todo>
@@ -211,7 +211,7 @@
 			<todo done="yes" collapse="no"><title>Vector with all characters</title></todo>
 			<todo done="yes" collapse="no"><title>Basic AI</title></todo>
 		</todo>
-		<todo done="yes" collapse="no"><title>Map</title>
+		<todo done="yes" collapse="yes"><title>Map</title>
 			<todo done="yes" collapse="no"><title>Tile storage class</title></todo>
 			<todo done="yes" collapse="no"><title>Map storage class</title></todo>
 			<todo done="yes" collapse="no"><title>Tileset storage class</title></todo>
@@ -231,7 +231,7 @@
 			<todo done="yes" collapse="no"><title>Map decoration class</title></todo>
 			<todo done="yes" collapse="no"><title>Decorations</title></todo>
 			<todo done="yes" collapse="no"><title>Platforms</title></todo>
-			<todo done="no" collapse="no"><title>Enemy spawns</title></todo>
+			<todo done="yes" collapse="no"><title>Enemy spawns</title></todo>
 		</todo>
 		<todo done="yes" collapse="yes"><title>Inventory</title>
 			<todo done="yes" collapse="no"><title>Inventory class</title></todo>
@@ -563,6 +563,7 @@
 			<todo done="no" collapse="no"><title>Oxygen limit</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Release</title>
+			<todo done="no" collapse="no"><title>Spawn enemies at spawn areas</title></todo>
 			<todo done="no" collapse="no"><title>Add some weapons</title></todo>
 			<todo done="no" collapse="no"><title>Add some armors</title></todo>
 			<todo done="no" collapse="no"><title>Add some model types</title></todo>

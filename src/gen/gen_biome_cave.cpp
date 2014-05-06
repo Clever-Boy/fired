@@ -23,6 +23,7 @@ void fired::MapGenerator::genCave() {
 	genCavePlatforms();
 	genCaveCollectors();
 	genCavePlayer();
+	genCaveSpawns();
 }
 
 
@@ -177,4 +178,15 @@ void fired::MapGenerator::genCavePlayer() {
 
 	while (!tiles[sizeX / 2][y].tileset || !tiles[sizeX / 2][y].isWall) y++;
 	startPos.y = (y - 3) * TILE_SIZE;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genCaveSpawns
+
+***********************************************************************/
+void fired::MapGenerator::genCaveSpawns() {
+	return;
 }

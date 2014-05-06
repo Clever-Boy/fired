@@ -114,10 +114,11 @@
 			<todo done="yes" collapse="no"><title>Platform physics</title></todo>
 			<todo done="yes" collapse="no"><title>Platform jumpdown</title></todo>
 		</todo>
-		<todo done="yes" collapse="yes"><title>Map generator</title>
+		<todo done="yes" collapse="no"><title>Map generator</title>
 			<todo done="yes" collapse="no"><title>MapGenerator class</title></todo>
 			<todo done="yes" collapse="no"><title>Landscape generation</title></todo>
 			<todo done="yes" collapse="no"><title>Saving player position to map file</title></todo>
+			<todo done="no" collapse="no"><title>Enemy spawns</title></todo>
 		</todo>
 		<todo done="yes" collapse="yes"><title>Animation</title>
 			<todo done="yes" collapse="no"><title>Model class</title></todo>
@@ -210,7 +211,7 @@
 			<todo done="yes" collapse="no"><title>Vector with all characters</title></todo>
 			<todo done="yes" collapse="no"><title>Basic AI</title></todo>
 		</todo>
-		<todo done="yes" collapse="yes"><title>Map</title>
+		<todo done="yes" collapse="no"><title>Map</title>
 			<todo done="yes" collapse="no"><title>Tile storage class</title></todo>
 			<todo done="yes" collapse="no"><title>Map storage class</title></todo>
 			<todo done="yes" collapse="no"><title>Tileset storage class</title></todo>
@@ -230,6 +231,7 @@
 			<todo done="yes" collapse="no"><title>Map decoration class</title></todo>
 			<todo done="yes" collapse="no"><title>Decorations</title></todo>
 			<todo done="yes" collapse="no"><title>Platforms</title></todo>
+			<todo done="no" collapse="no"><title>Enemy spawns</title></todo>
 		</todo>
 		<todo done="yes" collapse="yes"><title>Inventory</title>
 			<todo done="yes" collapse="no"><title>Inventory class</title></todo>
@@ -528,6 +530,7 @@
 				<todo done="yes" collapse="no"><title>Random tunnels count due layer</title></todo>
 				<todo done="no" collapse="no"><title>Ladders</title></todo>
 				<todo done="no" collapse="no"><title>Main enterance</title></todo>
+				<todo done="no" collapse="no"><title>Enemy spawns</title></todo>
 			</todo>
 			<todo done="yes" collapse="yes"><title>Building</title>
 				<todo done="yes" collapse="no"><title>Background</title></todo>
@@ -539,6 +542,7 @@
 				<todo done="no" collapse="no"><title>Roof</title></todo>
 				<todo done="no" collapse="no"><title>Attic</title></todo>
 				<todo done="no" collapse="no"><title>Secret rooms</title></todo>
+				<todo done="no" collapse="no"><title>Enemy spawns</title></todo>
 			</todo>
 			<todo done="no" collapse="yes"><title>Cave</title>
 				<todo done="yes" collapse="no"><title>Background</title></todo>
@@ -547,6 +551,7 @@
 				<todo done="no" collapse="no"><title>Lanscape</title></todo>
 				<todo done="no" collapse="no"><title>Cave</title></todo>
 				<todo done="no" collapse="no"><title>Cave enterance</title></todo>
+				<todo done="no" collapse="no"><title>Enemy spawns</title></todo>
 			</todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Liquids</title>

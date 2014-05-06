@@ -142,29 +142,29 @@ void fired::Map::findTile(int i, int j) {
 
 
 	if (i == 0) left = 1;
-	else if (tiles[i-1][j].tileset && tiles[i][j].tileset && tiles[i-1][j].isWall >= tiles[i][j].isWall) left = 1;
+	else if (tiles[i-1][j].tileset && tiles[i-1][j].isWall >= tiles[i][j].isWall) left = 1;
 
 	if (i == sizeX - 1) right = 1;
-	else if (tiles[i+1][j].tileset && tiles[i][j].tileset && tiles[i+1][j].isWall >= tiles[i][j].isWall) right = 1;
+	else if (tiles[i+1][j].tileset && tiles[i+1][j].isWall >= tiles[i][j].isWall) right = 1;
 
 	if (j == 0) top = 1;
-	else if (tiles[i][j-1].tileset && tiles[i][j].tileset && tiles[i][j-1].isWall >= tiles[i][j].isWall) top = 1;
+	else if (tiles[i][j-1].tileset && tiles[i][j-1].isWall >= tiles[i][j].isWall) top = 1;
 
 	if (j == sizeY - 1) bottom = 1;
-	else if (tiles[i][j+1].tileset && tiles[i][j].tileset && tiles[i][j+1].isWall >= tiles[i][j].isWall) bottom = 1;
+	else if (tiles[i][j+1].tileset && tiles[i][j+1].isWall >= tiles[i][j].isWall) bottom = 1;
 
 
 	if (i == 0) leftBack = 1;
-	else if (tiles[i-1][j].tileset && tiles[i][j].tileset) leftBack = 1;
+	else if (tiles[i-1][j].tileset) leftBack = 1;
 
 	if (i == sizeX - 1) rightBack = 1;
-	else if (tiles[i+1][j].tileset && tiles[i][j].tileset) rightBack = 1;
+	else if (tiles[i+1][j].tileset) rightBack = 1;
 
 	if (j == 0) topBack = 1;
-	else if (tiles[i][j-1].tileset && tiles[i][j].tileset) topBack = 1;
+	else if (tiles[i][j-1].tileset) topBack = 1;
 
 	if (j == sizeY - 1) bottomBack = 1;
-	else if (tiles[i][j+1].tileset && tiles[i][j].tileset) bottomBack = 1;
+	else if (tiles[i][j+1].tileset) bottomBack = 1;
 
 
 	resultTile = left   * 1 +

@@ -1,5 +1,5 @@
 /***********************************************************************
-     * File       : phys.cpp
+     * File       : misc_phys.cpp
      * Created    : Aug 06, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander

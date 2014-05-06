@@ -1,13 +1,13 @@
 /***********************************************************************
-     * File       : settings.hpp
+     * File       : container_settings.hpp
      * Created    : Aug 02, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __SETTINGS
-#define __SETTINGS
+#ifndef __CONTAINER_SETTINGS
+#define __CONTAINER_SETTINGS
 
 
 namespace fired {

@@ -1,13 +1,13 @@
 /***********************************************************************
-     * File       : resources.hpp
+     * File       : container_resources.hpp
      * Created    : Feb 05, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __RESOURCES
-#define __RESOURCES
+#ifndef __CONTAINER_RESOURCES
+#define __CONTAINER_RESOURCES
 
 
 namespace fired {

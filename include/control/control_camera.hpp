@@ -10,7 +10,7 @@
 #define __CONTROL_CAMERA
 
 
-#include "phys.hpp"
+#include "misc/misc_phys.hpp"
 
 
 namespace fired {

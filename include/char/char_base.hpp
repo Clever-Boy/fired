@@ -17,8 +17,8 @@ namespace fired {
 
 #include "char_stats.hpp"
 #include "char_attr.hpp"
-#include "phys.hpp"
 #include "model.hpp"
+#include "misc/misc_phys.hpp"
 #include "item.hpp"
 #include "win.hpp"
 

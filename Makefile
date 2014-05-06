@@ -17,8 +17,7 @@ export LDFLAGS=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lm -lst
 export CFLAGS=-Wall                   \
               -Wextra                 \
               -I$(INCLUDE_DIR)        \
-              -I$(INCLUDE_DIR)/meta   \
-              -I$(INCLUDE_DIR)/common
+              -I$(INCLUDE_DIR)/meta
 
 
 

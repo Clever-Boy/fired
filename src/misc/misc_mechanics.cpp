@@ -1,5 +1,5 @@
 /***********************************************************************
-     * File       : mechanics.cpp
+     * File       : misc_mechanics.cpp
      * Created    : Sep 01, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander

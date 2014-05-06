@@ -9,6 +9,8 @@
 #ifndef __CONTAINER
 #define __CONTAINER
 
+#include "container/container_settings.hpp"
+#include "container/container_resources.hpp"
 #include "container/container_base.hpp"
 
 #endif

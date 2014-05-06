@@ -1,13 +1,13 @@
 /***********************************************************************
-     * File       : phys.hpp
+     * File       : misc_phys.hpp
      * Created    : Aug 02, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __PHYS
-#define __PHYS
+#ifndef __MISC_PHYS
+#define __MISC_PHYS
 
 
 namespace fired {

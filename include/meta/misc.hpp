@@ -1,18 +1,17 @@
 /***********************************************************************
-     * File       : vect.hpp
-     * Created    : Sep 01, 2013
+     * File       : misc.hpp
+     * Created    : May 08, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __VECT
-#define __VECT
+#ifndef __MISC
+#define __MISC
 
-
-sf::Vector2f vNorm(sf::Vector2f v);
-sf::Vector2f vSetLen(sf::Vector2f v, float l);
-sf::Vector2f rectCenter(sf::FloatRect rect);
-float        vLen(sf::Vector2f v);
+#include "misc/misc_base.hpp"
+#include "misc/misc_mechanics.hpp"
+#include "misc/misc_vect.hpp"
+#include "misc/misc_phys.hpp"
 
 #endif

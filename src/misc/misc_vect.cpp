@@ -1,5 +1,5 @@
 /***********************************************************************
-     * File       : vect.cpp
+     * File       : misc_vect.cpp
      * Created    : Sep 01, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander

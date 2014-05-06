@@ -1,13 +1,13 @@
 /***********************************************************************
-     * File       : misc.hpp
+     * File       : misc_base.hpp
      * Created    : Aug 02, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __MISC
-#define __MISC
+#ifndef __MISC_BASE
+#define __MISC_BASE
 
 
 void swapItems(fired::InventoryItem *item1, fired::InventoryItem *item2);

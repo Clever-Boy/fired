@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 project(fired)
-include_directories("include" "include/meta" "include/common")
+include_directories("include" "include/meta")
 file(GLOB SRC "src/*/*.cpp")
 add_executable(fired ${SRC})
 target_link_libraries(fired sfml-system sfml-window sfml-graphics sfml-audio m sqlite3 stdc++)

@@ -1,18 +1,18 @@
 /***********************************************************************
-     * File       : mechanics.hpp
+     * File       : misc_vect.hpp
      * Created    : Sep 01, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __MECHANICS
-#define __MECHANICS
+#ifndef __MISC_VECT
+#define __MISC_VECT
 
 
-long  levelXP(int level);
-float armorReduction(unsigned int armor);
-void  calcStats(fired::CharacterStats *stats, fired::CharacterAttributes *attr);
-float accuracyReduction(float accuracy);
+sf::Vector2f vNorm(sf::Vector2f v);
+sf::Vector2f vSetLen(sf::Vector2f v, float l);
+sf::Vector2f rectCenter(sf::FloatRect rect);
+float        vLen(sf::Vector2f v);
 
 #endif

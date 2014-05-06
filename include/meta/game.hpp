@@ -25,13 +25,9 @@
 #include "control.hpp"
 #include "screen.hpp"
 #include "menu.hpp"
-#include "settings.hpp"
-#include "resources.hpp"
 #include "world.hpp"
 #include "container.hpp"
 #include "misc.hpp"
-#include "mechanics.hpp"
-#include "vect.hpp"
 #include "ai.hpp"
 #include "sqlite.hpp"
 

@@ -19,8 +19,8 @@ namespace fired {
 #include "map_tile.hpp"
 #include "object.hpp"
 #include "map_temporary_light.hpp"
-#include "phys.hpp"
 #include "weather.hpp"
+#include "misc/misc_phys.hpp"
 #include "map_biome.hpp"
 #include "world.hpp"
 

@@ -1,5 +1,5 @@
 /***********************************************************************
-     * File       : misc.cpp
+     * File       : misc_base.cpp
      * Created    : Aug 02, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander

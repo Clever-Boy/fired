@@ -126,10 +126,20 @@ void fired::Map::setWeather() {
 ***********************************************************************/
 void fired::Map::findTile(int i, int j) {
 	int resultTile;
+	int resultTileBack;
+
+	if (tiles[i][j].tileset == 0) return;
+
 	int top    = 0;
 	int left   = 0;
 	int right  = 0;
 	int bottom = 0;
+
+	int topBack    = 0;
+	int leftBack   = 0;
+	int rightBack  = 0;
+	int bottomBack = 0;
+
 
 	if (i == 0) left = 1;
 	else if (tiles[i-1][j].tileset && tiles[i][j].tileset && tiles[i-1][j].isWall >= tiles[i][j].isWall) left = 1;
@@ -143,12 +153,33 @@ void fired::Map::findTile(int i, int j) {
 	if (j == sizeY - 1) bottom = 1;
 	else if (tiles[i][j+1].tileset && tiles[i][j].tileset && tiles[i][j+1].isWall >= tiles[i][j].isWall) bottom = 1;
 
+
+	if (i == 0) leftBack = 1;
+	else if (tiles[i-1][j].tileset && tiles[i][j].tileset) leftBack = 1;
+
+	if (i == sizeX - 1) rightBack = 1;
+	else if (tiles[i+1][j].tileset && tiles[i][j].tileset) rightBack = 1;
+
+	if (j == 0) topBack = 1;
+	else if (tiles[i][j-1].tileset && tiles[i][j].tileset) topBack = 1;
+
+	if (j == sizeY - 1) bottomBack = 1;
+	else if (tiles[i][j+1].tileset && tiles[i][j].tileset) bottomBack = 1;
+
+
 	resultTile = left   * 1 +
 	             right  * 2 +
 	             top    * 4 +
 	             bottom * 8;
 
+	resultTileBack = leftBack   * 1 +
+	                 rightBack  * 2 +
+	                 topBack    * 4 +
+	                 bottomBack * 8;
+
+
 	tiles[i][j].setTile(resultTile);
+	tiles[i][j].setTileBack(resultTileBack);
 }
 
 

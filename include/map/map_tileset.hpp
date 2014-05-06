@@ -13,12 +13,13 @@
 namespace fired {
 	struct Tileset {
 		int          ID;
+		bool         flat;
 		char         name[64];
 		sf::Texture *tex;
 		std::vector<sf::Sprite*> sprites;
 
 
-		 Tileset(int _ID, fired::GameSprite *baseSprite, bool flat, char *_name);
+		 Tileset(int _ID, fired::GameSprite *baseSprite, bool _flat, char *_name);
 		~Tileset();
 	};
 }

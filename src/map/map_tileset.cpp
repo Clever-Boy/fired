@@ -15,8 +15,9 @@
      * constructor
 
 ***********************************************************************/
-fired::Tileset::Tileset(int _ID, fired::GameSprite *baseSprite, bool flat, char *_name) {
-	ID = _ID;
+fired::Tileset::Tileset(int _ID, fired::GameSprite *baseSprite, bool _flat, char *_name) {
+	ID   = _ID;
+	flat = _flat;
 	strcpy(name, _name);
 
 	sf::Image          maskImg;

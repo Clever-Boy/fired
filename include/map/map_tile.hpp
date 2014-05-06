@@ -25,11 +25,13 @@ namespace fired {
 		sf::Vector2f pos;
 		sf::Vector2i index;
 		sf::Sprite  *sprite;
+		sf::Sprite  *spriteBack;
 		sf::Color    color;
 		sf::Color    light;
 
-		int tileset;
-		int tile;
+		int  tileset;
+		int  tile;
+		int  tileBack;
 		bool isWall;
 		bool isPlatform;
 
@@ -39,9 +41,12 @@ namespace fired {
 
 		void set(int _tileset, bool _isWall, bool _isPlatform, int x, int y);
 		void render();
+		void renderWall();
+		void renderBack();
 
 		void setTileset();
 		void setTile(int _tile);
+		void setTileBack(int _tile);
 	};
 }
 

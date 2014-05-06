@@ -500,6 +500,22 @@
 			<todo done="yes" collapse="no"><title>Loading progress</title></todo>
 			<todo done="yes" collapse="no"><title>Progress per item</title></todo>
 		</todo>
+		<todo done="yes" collapse="yes"><title>Graphics refactoring</title>
+			<todo done="yes" collapse="no"><title>Add antialiasing</title></todo>
+			<todo done="yes" collapse="no"><title>Scale BG to fit window height</title></todo>
+			<todo done="yes" collapse="no"><title>Allow BG slide only horizontally</title></todo>
+			<todo done="yes" collapse="no"><title>Change BG</title></todo>
+			<todo done="yes" collapse="no"><title>Add sky gradient color</title></todo>
+			<todo done="yes" collapse="no"><title>Convert TGA to PNG</title></todo>
+			<todo done="yes" collapse="no"><title>Alternate mask for bricks like dirt, stone etc.</title></todo>
+			<todo done="yes" collapse="no"><title>Define in DB, what mask to be used</title></todo>
+			<todo done="yes" collapse="no"><title>Split GUI rendering to functions</title></todo>
+			<todo done="yes" collapse="no"><title>Change crosshair</title></todo>
+			<todo done="yes" collapse="no"><title>Remove sky gradient</title></todo>
+			<todo done="yes" collapse="no"><title>Remove cloud color</title></todo>
+			<todo done="yes" collapse="no"><title>Change Armor icons</title></todo>
+			<todo done="yes" collapse="no"><title>Fix bug with bumpy tiles</title></todo>
+		</todo>
 		<todo done="no" collapse="no"><title>Biomes</title>
 			<todo done="no" collapse="no"><title>Mine</title>
 				<todo done="yes" collapse="no"><title>Background</title></todo>
@@ -532,23 +548,6 @@
 				<todo done="no" collapse="no"><title>Cave</title></todo>
 				<todo done="no" collapse="no"><title>Cave enterance</title></todo>
 			</todo>
-		</todo>
-		<todo done="no" collapse="yes"><title>Graphics refactoring</title>
-			<todo done="yes" collapse="no"><title>Add antialiasing</title></todo>
-			<todo done="yes" collapse="no"><title>Scale BG to fit window height</title></todo>
-			<todo done="yes" collapse="no"><title>Allow BG slide only horizontally</title></todo>
-			<todo done="yes" collapse="no"><title>Change BG</title></todo>
-			<todo done="yes" collapse="no"><title>Add sky gradient color</title></todo>
-			<todo done="yes" collapse="no"><title>Convert TGA to PNG</title></todo>
-			<todo done="yes" collapse="no"><title>Alternate mask for bricks like dirt, stone etc.</title></todo>
-			<todo done="yes" collapse="no"><title>Define in DB, what mask to be used</title></todo>
-			<todo done="yes" collapse="no"><title>Split GUI rendering to functions</title></todo>
-			<todo done="yes" collapse="no"><title>Change crosshair</title></todo>
-			<todo done="yes" collapse="no"><title>Remove sky gradient</title></todo>
-			<todo done="yes" collapse="no"><title>Remove cloud color</title></todo>
-			<todo done="yes" collapse="no"><title>Change Armor icons</title></todo>
-			<todo done="no" collapse="no"><title>Change weapon icons</title></todo>
-			<todo done="no" collapse="no"><title>Fix bug with bumpy tiles</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Liquids</title>
 			<todo done="no" collapse="no"><title>Class</title></todo>

@@ -40,6 +40,12 @@ void fired::Tile::set(int _tileset, bool _isWall, bool _isPlatform, int x, int y
 void fired::Tile::render() {
 	if (!tileset) return;
 
+	if (spriteBack) {
+		spriteBack->setPosition(pos);
+		spriteBack->setColor(sf::Color(140, 140, 140, 255));
+		app->draw(*spriteBack);
+	}
+
 	sprite->setPosition(pos);
 	sprite->setColor(color);
 	app->draw(*sprite);
@@ -55,6 +61,9 @@ void fired::Tile::render() {
 void fired::Tile::setTileset() {
 	if (tileset == 0) sprite = NULL;
 	else sprite = container->tilesets[tileset - 1]->sprites[tile];
+
+	if ((tileset == 0) || (tile == tileBack) || (!isWall) || (container->tilesets[tileset - 1]->flat)) spriteBack = NULL;
+	else spriteBack = container->tilesets[tileset - 1]->sprites[tileBack];
 }
 
 
@@ -66,4 +75,15 @@ void fired::Tile::setTileset() {
 ***********************************************************************/
 void fired::Tile::setTile(int _tile) {
 	tile = _tile;
+}
+
+
+
+/***********************************************************************
+     * Tile
+     * setTileBack
+
+***********************************************************************/
+void fired::Tile::setTileBack(int _tile) {
+	tileBack = _tile;
 }

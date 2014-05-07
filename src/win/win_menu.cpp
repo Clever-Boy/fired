@@ -17,7 +17,7 @@
 ***********************************************************************/
 fired::MenuWindow::MenuWindow(fired::World *_world) {
 	world  = _world;
-	win    = new fired::Window(sf::Vector2f(200, 150));
+	win    = new fired::Window(sf::Vector2f(200, 190));
 
 	text = new sf::Text();
 	text->setFont(*resources->fonts.game);
@@ -91,6 +91,7 @@ void fired::MenuWindow::render(sf::Vector2f mousePos) {
 
 	renderButton(70.0f , "Back to game", mousePos);
 	renderButton(110.0f, "Exit to Menu", mousePos);
+	renderButton(150.0f, "Exit"        , mousePos);
 }
 
 
@@ -103,4 +104,5 @@ void fired::MenuWindow::render(sf::Vector2f mousePos) {
 void fired::MenuWindow::click(sf::Vector2f mousePos) {
 	if (sf::FloatRect(win->offset + sf::Vector2f(10, 70 ), sf::Vector2f(180, 30)).contains(mousePos)) world->state = wsNormal;
 	if (sf::FloatRect(win->offset + sf::Vector2f(10, 110), sf::Vector2f(180, 30)).contains(mousePos)) game->setGameState(gsMainMenu);
+	if (sf::FloatRect(win->offset + sf::Vector2f(10, 150), sf::Vector2f(180, 30)).contains(mousePos)) game->stop();
 }

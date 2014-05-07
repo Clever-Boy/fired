@@ -1,18 +1,16 @@
 /***********************************************************************
-     * File       : misc.hpp
-     * Created    : May 08, 2014
+     * File       : misc_char.hpp
+     * Created    : May 07, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __MISC
-#define __MISC
+#ifndef __MISC_CHAR
+#define __MISC_CHAR
 
-#include "misc/misc_base.hpp"
-#include "misc/misc_mechanics.hpp"
-#include "misc/misc_vect.hpp"
-#include "misc/misc_phys.hpp"
-#include "misc/misc_char.hpp"
+
+void saveChar(fired::Character *character, const char *filename);
+void loadChar(fired::Character *character, const char *filename);
 
 #endif

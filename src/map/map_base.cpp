@@ -100,9 +100,19 @@ void fired::Map::render() {
 ***********************************************************************/
 void fired::Map::spawn() {
 	if (biome->creatures.size() == 0) return;
+	if (spawns.size() == 0) return;
 
-	int toSpawn = rand() % biome->creatures.size();
-	world->spawn(sf::Vector2f(2200 + rand() % 200, 560), biome->creatures[toSpawn]);
+	int toSpawn;
+	sf::Vector2f pos;
+	sf::Vector2f creatureSize;
+	sf::Vector2f spawnSize;
+
+	toSpawn = rand() % biome->creatures.size();
+	creatureSize = biome->creatures[toSpawn]->model->size;
+	spawnSize    = sf::Vector2f(spawns[0].width, spawns[0].height) - creatureSize;
+
+	pos          = sf::Vector2f(spawns[0].left + rand() % (int)(spawnSize.x), spawns[0].top + spawnSize.y);
+	world->spawn(pos, biome->creatures[toSpawn]);
 }
 
 

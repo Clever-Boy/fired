@@ -188,5 +188,5 @@ void fired::MapGenerator::genCavePlayer() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCaveSpawns() {
-	return;
+	spawns.push_back(sf::IntRect(141*TILE_SIZE, 34*TILE_SIZE, 16*TILE_SIZE, 5*TILE_SIZE));
 }

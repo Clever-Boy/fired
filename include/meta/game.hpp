@@ -28,6 +28,7 @@
 #include "world.hpp"
 #include "container.hpp"
 #include "misc.hpp"
+#include "charfile.hpp"
 #include "ai.hpp"
 #include "sqlite.hpp"
 

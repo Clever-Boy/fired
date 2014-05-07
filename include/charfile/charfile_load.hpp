@@ -1,17 +1,15 @@
 /***********************************************************************
-     * File       : misc.hpp
+     * File       : charfile_load.hpp
      * Created    : May 07, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __MISC
-#define __MISC
+#ifndef __CHARFILE_LOAD
+#define __CHARFILE_LOAD
 
-#include "misc/misc_base.hpp"
-#include "misc/misc_mechanics.hpp"
-#include "misc/misc_vect.hpp"
-#include "misc/misc_phys.hpp"
+
+void loadCharAttr(fired::Character *character, FILE *fp);
 
 #endif

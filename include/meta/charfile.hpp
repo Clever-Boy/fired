@@ -1,17 +1,16 @@
 /***********************************************************************
-     * File       : misc.hpp
+     * File       : charfile.hpp
      * Created    : May 07, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __MISC
-#define __MISC
+#ifndef __CHARFILE
+#define __CHARFILE
 
-#include "misc/misc_base.hpp"
-#include "misc/misc_mechanics.hpp"
-#include "misc/misc_vect.hpp"
-#include "misc/misc_phys.hpp"
+#include "charfile/charfile_save.hpp"
+#include "charfile/charfile_load.hpp"
+#include "charfile/charfile_base.hpp"
 
 #endif

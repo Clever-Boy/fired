@@ -1,5 +1,5 @@
 /***********************************************************************
-     * File       : misc_char.cpp
+     * File       : charfile_base.cpp
      * Created    : May 07, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
@@ -18,7 +18,7 @@ void saveChar(fired::Character *character, const char *filename) {
 	FILE *fp = fopen(filename, "w");
 	if (!fp) return;
 
-	fwrite(&character->attr, sizeof(character->attr), 1, fp);
+	saveCharAttr(character, fp);
 
 	fclose(fp);
 }
@@ -33,7 +33,7 @@ void loadChar(fired::Character *character, const char *filename) {
 	FILE *fp = fopen(filename, "r");
 	if (!fp) return;
 
-	fread(&character->attr, sizeof(character->attr), 1, fp);
+	loadCharAttr(character, fp);
 
 	fclose(fp);
 }

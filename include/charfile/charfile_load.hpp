@@ -13,5 +13,6 @@
 void loadCharMeta(fired::Character *character, FILE *fp);
 void loadCharAttr(fired::Character *character, FILE *fp);
 void loadCharInv(fired::Character *character, FILE *fp);
+void loadCharItem(fired::InventoryItem *item, FILE *fp);
 
 #endif

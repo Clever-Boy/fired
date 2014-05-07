@@ -39,3 +39,22 @@ void loadCharAttr(fired::Character *character, FILE *fp) {
 void loadCharInv(fired::Character *character, FILE *fp) {
 	fread(&character->inventory->credits, sizeof(character->inventory->credits), 1, fp);
 }
+
+
+
+/***********************************************************************
+     * loadCharItem
+
+***********************************************************************/
+void loadCharItem(fired::InventoryItem *item, FILE *fp) {
+	int          ID;
+	unsigned int count;
+
+	fread(&ID, sizeof(ID), 1, fp);
+	fread(&count, sizeof(count), 1, fp);
+
+	if (count) {
+		item->base = container->items[ID];
+		item->count = count;
+	}
+}

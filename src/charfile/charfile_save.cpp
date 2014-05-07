@@ -39,3 +39,22 @@ void saveCharAttr(fired::Character *character, FILE *fp) {
 void saveCharInv(fired::Character *character, FILE *fp) {
 	fwrite(&character->inventory->credits, sizeof(character->inventory->credits), 1, fp);
 }
+
+
+
+/***********************************************************************
+     * saveCharItem
+
+***********************************************************************/
+void saveCharItem(fired::InventoryItem *item, FILE *fp) {
+	int          ID    = 0;
+	unsigned int count = 0;
+
+	if (item->base) {
+		ID    = item->base->ID;
+		count = item->count;
+	}
+
+	fwrite(&ID, sizeof(ID), 1, fp);
+	fwrite(&count, sizeof(count), 1, fp);
+}

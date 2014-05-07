@@ -11,6 +11,18 @@
 
 
 /***********************************************************************
+     * loadCharMeta
+
+***********************************************************************/
+void loadCharMeta(fired::Character *character, FILE *fp) {
+	fread(&character->HP   , sizeof(character->HP)   , 1, fp);
+	fread(&character->XP   , sizeof(character->XP)   , 1, fp);
+	fread(&character->level, sizeof(character->level), 1, fp);
+}
+
+
+
+/***********************************************************************
      * loadCharAttr
 
 ***********************************************************************/

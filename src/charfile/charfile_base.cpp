@@ -18,6 +18,7 @@ void saveChar(fired::Character *character, const char *filename) {
 	FILE *fp = fopen(filename, "w");
 	if (!fp) return;
 
+	saveCharMeta(character, fp);
 	saveCharAttr(character, fp);
 
 	fclose(fp);
@@ -33,6 +34,7 @@ void loadChar(fired::Character *character, const char *filename) {
 	FILE *fp = fopen(filename, "r");
 	if (!fp) return;
 
+	loadCharMeta(character, fp);
 	loadCharAttr(character, fp);
 
 	fclose(fp);

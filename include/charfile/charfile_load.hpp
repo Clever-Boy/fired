@@ -10,6 +10,7 @@
 #define __CHARFILE_LOAD
 
 
+void loadCharMeta(fired::Character *character, FILE *fp);
 void loadCharAttr(fired::Character *character, FILE *fp);
 
 #endif

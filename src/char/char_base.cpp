@@ -45,7 +45,7 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 
 	level          = 1;
 	XP             = 0;
-	lastXP         = 0;
+	lastXP         = levelXP(level - 1);
 	needXP         = levelXP(level);
 }
 

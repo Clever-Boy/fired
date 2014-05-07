@@ -10,6 +10,7 @@
 #define __CHARFILE_SAVE
 
 
+void saveCharMeta(fired::Character *character, FILE *fp);
 void saveCharAttr(fired::Character *character, FILE *fp);
 
 #endif

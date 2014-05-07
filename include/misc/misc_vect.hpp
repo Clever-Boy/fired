@@ -13,6 +13,7 @@
 sf::Vector2f vNorm(sf::Vector2f v);
 sf::Vector2f vSetLen(sf::Vector2f v, float l);
 sf::Vector2f rectCenter(sf::FloatRect rect);
+sf::Vector2f rectCenter(sf::IntRect rect);
 float        vLen(sf::Vector2f v);
 
 #endif

@@ -98,20 +98,36 @@ void fired::Map::render() {
      * spawn
 
 ***********************************************************************/
-void fired::Map::spawn() {
+void fired::Map::spawn(sf::Vector2f position) {
 	if (biome->creatures.size() == 0) return;
 	if (spawns.size() == 0) return;
 
-	int toSpawn;
+	int   toSpawn;
+	int   place = -1;
+	float minDist;
+	float dist;
+
 	sf::Vector2f pos;
 	sf::Vector2f creatureSize;
 	sf::Vector2f spawnSize;
 
+	for (unsigned int i = 0; i < spawns.size(); i++) {
+		if (cam->isRectVisible(sf::FloatRect(spawns[i]))) continue;
+
+		dist = vLen(position - rectCenter(spawns[i]));
+		if ((place == -1) || (dist < minDist)) {
+			place = i;
+			minDist = dist;
+		}
+	}
+
+	if (place == -1) return;
+
 	toSpawn = rand() % biome->creatures.size();
 	creatureSize = biome->creatures[toSpawn]->model->size;
-	spawnSize    = sf::Vector2f(spawns[0].width, spawns[0].height) - creatureSize;
+	spawnSize    = sf::Vector2f(spawns[place].width, spawns[place].height) - creatureSize;
 
-	pos          = sf::Vector2f(spawns[0].left + rand() % (int)(spawnSize.x), spawns[0].top + spawnSize.y);
+	pos          = sf::Vector2f(spawns[place].left + rand() % (int)(spawnSize.x), spawns[place].top + spawnSize.y);
 	world->spawn(pos, biome->creatures[toSpawn]);
 }
 

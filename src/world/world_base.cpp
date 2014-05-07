@@ -37,6 +37,10 @@ fired::World::World(fired::Mouse *_mouse) {
 
 	map->setWeather();
 	chars.push_back(player->character);
+
+	spawnRate = 4.0f;
+	spawnLeft = spawnRate;
+	spawnMax  = 7;
 }
 
 
@@ -86,6 +90,7 @@ void fired::World::update() {
 	checkCreatures();
 	checkPhys();
 	checkItems();
+	checkSpawns();
 
 	updateList(chunks);
 	updateList(shots);
@@ -165,7 +170,6 @@ void fired::World::checkCreatures() {
 
 			delete creatures[i];
 			creatures.erase(creatures.begin() + i);
-			map->spawn();
 		} else
 			i++;
 	}
@@ -182,6 +186,23 @@ void fired::World::checkPhys() {
 	for (unsigned int i = 0; i < chars.size() ; map->checkPhys(&chars[i]->phys   , chars[i], PHYS_TUNNEL_TIME), i++);
 	for (unsigned int i = 0; i < chunks.size(); map->checkPhys(&chunks[i++]->phys, NULL    , PHYS_TUNNEL_CHUNK));
 	for (unsigned int i = 0; i < items.size() ; map->checkPhys(&items[i++]->phys , NULL    , PHYS_TUNNEL_CHUNK));
+}
+
+
+
+/***********************************************************************
+     * World
+     * checkSpawns
+
+***********************************************************************/
+void fired::World::checkSpawns() {
+	if (chars.size() >= spawnMax) return;
+
+	spawnLeft -= frameClock;
+	if (spawnLeft <= 0) {
+		spawnLeft = spawnRate;
+		map->spawn(player->character->phys.pos);
+	}
 }
 
 

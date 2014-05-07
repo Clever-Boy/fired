@@ -59,7 +59,11 @@ namespace fired {
 		std::vector<fired::Character*>       chars;
 		std::vector<fired::Explosion*>       explosions;
 
-		bool paused;
+		float             spawnRate;
+		float             spawnLeft;
+		unsigned int      spawnMax;
+
+		bool              paused;
 		fired::WorldState state;
 
 
@@ -77,6 +81,7 @@ namespace fired {
 		void checkPhys();
 		void checkCreatures();
 		void checkItems();
+		void checkSpawns();
 
 		void interact(fired::Character *owner);
 		void spawn(sf::Vector2f pos, fired::BaseCreature *creature);

@@ -9,6 +9,7 @@ all: $(OUT)
 
 $(OUT): $(OBJS)
 	$(LD) -r $(OBJS) -o ../$(OUT)
+	@echo
 
 
 .cpp.o:

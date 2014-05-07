@@ -29,3 +29,13 @@ void saveCharMeta(fired::Character *character, FILE *fp) {
 void saveCharAttr(fired::Character *character, FILE *fp) {
 	fwrite(&character->attr, sizeof(character->attr), 1, fp);
 }
+
+
+
+/***********************************************************************
+     * saveCharInv
+
+***********************************************************************/
+void saveCharInv(fired::Character *character, FILE *fp) {
+	fwrite(&character->inventory->credits, sizeof(character->inventory->credits), 1, fp);
+}

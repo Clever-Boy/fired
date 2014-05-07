@@ -29,3 +29,13 @@ void loadCharMeta(fired::Character *character, FILE *fp) {
 void loadCharAttr(fired::Character *character, FILE *fp) {
 	fread(&character->attr, sizeof(character->attr), 1, fp);
 }
+
+
+
+/***********************************************************************
+     * loadCharInv
+
+***********************************************************************/
+void loadCharInv(fired::Character *character, FILE *fp) {
+	fread(&character->inventory->credits, sizeof(character->inventory->credits), 1, fp);
+}

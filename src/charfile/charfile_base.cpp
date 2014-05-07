@@ -20,6 +20,7 @@ void saveChar(fired::Character *character, const char *filename) {
 
 	saveCharMeta(character, fp);
 	saveCharAttr(character, fp);
+	saveCharInv(character, fp);
 
 	fclose(fp);
 }
@@ -36,6 +37,7 @@ void loadChar(fired::Character *character, const char *filename) {
 
 	loadCharMeta(character, fp);
 	loadCharAttr(character, fp);
+	loadCharInv(character, fp);
 
 	fclose(fp);
 }

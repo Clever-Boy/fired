@@ -12,5 +12,6 @@
 
 void saveCharMeta(fired::Character *character, FILE *fp);
 void saveCharAttr(fired::Character *character, FILE *fp);
+void saveCharInv(fired::Character *character, FILE *fp);
 
 #endif

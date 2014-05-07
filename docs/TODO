@@ -554,14 +554,6 @@
 				<todo done="no" collapse="no"><title>Enemy spawns</title></todo>
 			</todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Liquids</title>
-			<todo done="no" collapse="no"><title>Class</title></todo>
-			<todo done="no" collapse="no"><title>Rendering</title></todo>
-			<todo done="no" collapse="no"><title>Flow animation</title></todo>
-			<todo done="no" collapse="no"><title>Physics</title></todo>
-			<todo done="no" collapse="no"><title>Splash on impact</title></todo>
-			<todo done="no" collapse="no"><title>Oxygen limit</title></todo>
-		</todo>
 		<todo done="no" collapse="yes"><title>Release</title>
 			<todo done="yes" collapse="no"><title>Spawn enemies at spawn areas</title></todo>
 			<todo done="yes" collapse="no"><title>Select nearest non-visible area to spawn</title></todo>
@@ -580,48 +572,6 @@
 	</todo>
 	<todo done="yes" collapse="yes"><title>0.99 beta</title>
 		<todo done="no" collapse="yes"><title>Fix 0.99 alpha bugs</title></todo>
-		<todo done="no" collapse="yes"><title>Biomes</title>
-			<todo done="no" collapse="yes"><title>Snow</title>
-				<todo done="yes" collapse="no"><title>Background</title></todo>
-				<todo done="yes" collapse="no"><title>Lighting</title></todo>
-				<todo done="yes" collapse="no"><title>Weather</title></todo>
-				<todo done="no" collapse="no"><title>Landscape</title></todo>
-			</todo>
-			<todo done="no" collapse="yes"><title>Sewers</title>
-				<todo done="yes" collapse="no"><title>Background</title></todo>
-				<todo done="yes" collapse="no"><title>Lighting</title></todo>
-				<todo done="yes" collapse="no"><title>Weather</title></todo>
-				<todo done="no" collapse="no"><title>Corridors</title></todo>
-			</todo>
-			<todo done="no" collapse="yes"><title>Castle</title>
-				<todo done="yes" collapse="no"><title>Background</title></todo>
-				<todo done="yes" collapse="no"><title>Lighting</title></todo>
-				<todo done="yes" collapse="no"><title>Weather</title></todo>
-				<todo done="no" collapse="no"><title>Landscape</title></todo>
-			</todo>
-			<todo done="no" collapse="yes"><title>Mountains</title>
-				<todo done="yes" collapse="no"><title>Background</title></todo>
-				<todo done="yes" collapse="no"><title>Lighting</title></todo>
-				<todo done="yes" collapse="no"><title>Weather</title></todo>
-				<todo done="no" collapse="no"><title>Landscape</title></todo>
-				<todo done="no" collapse="no"><title>Secret caves</title></todo>
-			</todo>
-			<todo done="no" collapse="yes"><title>Forest</title>
-				<todo done="yes" collapse="no"><title>Background</title></todo>
-				<todo done="yes" collapse="no"><title>Lighting</title></todo>
-				<todo done="yes" collapse="no"><title>Weather</title></todo>
-				<todo done="no" collapse="no"><title>Landscape</title></todo>
-				<todo done="no" collapse="no"><title>Trees</title></todo>
-			</todo>
-			<todo done="no" collapse="yes"><title>Graveyard</title>
-				<todo done="yes" collapse="no"><title>Background</title></todo>
-				<todo done="yes" collapse="no"><title>Lighting</title></todo>
-				<todo done="yes" collapse="no"><title>Weather</title></todo>
-				<todo done="no" collapse="no"><title>Landscape</title></todo>
-				<todo done="no" collapse="no"><title>Graves</title></todo>
-				<todo done="no" collapse="no"><title>Vaults</title></todo>
-			</todo>
-		</todo>
 		<todo done="no" collapse="yes"><title>Locations</title>
 			<todo done="no" collapse="yes"><title>City</title>
 				<todo done="no" collapse="no"><title>Tiles</title></todo>
@@ -645,6 +595,14 @@
 		<todo done="no" collapse="yes"><title>Quests</title>
 			<todo done="no" collapse="no"><title>Quests</title></todo>
 			<todo done="no" collapse="no"><title>Quest items</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Liquids</title>
+			<todo done="no" collapse="no"><title>Class</title></todo>
+			<todo done="no" collapse="no"><title>Rendering</title></todo>
+			<todo done="no" collapse="no"><title>Flow animation</title></todo>
+			<todo done="no" collapse="no"><title>Physics</title></todo>
+			<todo done="no" collapse="no"><title>Splash on impact</title></todo>
+			<todo done="no" collapse="no"><title>Oxygen limit</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Menu windows</title>
 			<todo done="no" collapse="no"><title>Window class</title></todo>
@@ -676,7 +634,6 @@
 		</todo>
 		<todo done="no" collapse="yes"><title>Improovements</title>
 			<todo done="no" collapse="no"><title>Destructable bricks</title></todo>
-			<todo done="no" collapse="no"><title>Minimap</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Release</title>
 			<todo done="no" collapse="no"><title>Code optimization</title></todo>
@@ -689,6 +646,34 @@
 			<todo done="no" collapse="no"><title>Multiplayer AI type</title></todo>
 			<todo done="no" collapse="no"><title>Socket AI binding</title></todo>
 		</todo>
+		<todo done="no" collapse="yes"><title>Biomes</title>
+			<todo done="no" collapse="yes"><title>Sewers</title>
+				<todo done="yes" collapse="no"><title>Background</title></todo>
+				<todo done="yes" collapse="no"><title>Lighting</title></todo>
+				<todo done="yes" collapse="no"><title>Weather</title></todo>
+				<todo done="no" collapse="no"><title>Corridors</title></todo>
+			</todo>
+			<todo done="no" collapse="yes"><title>Castle</title>
+				<todo done="yes" collapse="no"><title>Background</title></todo>
+				<todo done="yes" collapse="no"><title>Lighting</title></todo>
+				<todo done="yes" collapse="no"><title>Weather</title></todo>
+				<todo done="no" collapse="no"><title>Landscape</title></todo>
+			</todo>
+			<todo done="no" collapse="yes"><title>Graveyard</title>
+				<todo done="yes" collapse="no"><title>Background</title></todo>
+				<todo done="yes" collapse="no"><title>Lighting</title></todo>
+				<todo done="yes" collapse="no"><title>Weather</title></todo>
+				<todo done="no" collapse="no"><title>Landscape</title></todo>
+				<todo done="no" collapse="no"><title>Graves</title></todo>
+				<todo done="no" collapse="no"><title>Vaults</title></todo>
+			</todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Minimap</title>
+			<todo done="no" collapse="no"><title>Rendering minimap window</title></todo>
+			<todo done="no" collapse="no"><title>Calculating colors for tiles</title></todo>
+			<todo done="no" collapse="no"><title>Rendering map</title></todo>
+			<todo done="no" collapse="no"><title>Fog of war</title></todo>
+		</todo>
 		<todo done="no" collapse="yes"><title>Release</title>
 			<todo done="no" collapse="no"><title>Items bonuses +dmg, +defence, etc.</title></todo>
 			<todo done="no" collapse="no"><title>Generating loot depending on level</title></todo>
@@ -697,6 +682,28 @@
 	</todo>
 	<todo done="yes" collapse="yes"><title>1.0.0</title>
 		<todo done="no" collapse="no"><title>Fix 0.99 bugs</title></todo>
+		<todo done="no" collapse="yes"><title>Biomes</title>
+			<todo done="no" collapse="yes"><title>Snow</title>
+				<todo done="yes" collapse="no"><title>Background</title></todo>
+				<todo done="yes" collapse="no"><title>Lighting</title></todo>
+				<todo done="yes" collapse="no"><title>Weather</title></todo>
+				<todo done="no" collapse="no"><title>Landscape</title></todo>
+			</todo>
+			<todo done="no" collapse="yes"><title>Mountains</title>
+				<todo done="yes" collapse="no"><title>Background</title></todo>
+				<todo done="yes" collapse="no"><title>Lighting</title></todo>
+				<todo done="yes" collapse="no"><title>Weather</title></todo>
+				<todo done="no" collapse="no"><title>Landscape</title></todo>
+				<todo done="no" collapse="no"><title>Secret caves</title></todo>
+			</todo>
+			<todo done="no" collapse="yes"><title>Forest</title>
+				<todo done="yes" collapse="no"><title>Background</title></todo>
+				<todo done="yes" collapse="no"><title>Lighting</title></todo>
+				<todo done="yes" collapse="no"><title>Weather</title></todo>
+				<todo done="no" collapse="no"><title>Landscape</title></todo>
+				<todo done="no" collapse="no"><title>Trees</title></todo>
+			</todo>
+		</todo>
 		<todo done="no" collapse="yes"><title>Release</title>
 			<todo done="no" collapse="no"><title>Code optimization</title></todo>
 		</todo>

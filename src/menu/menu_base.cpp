@@ -294,13 +294,8 @@ void fired::MainMenu::fillMenu() {
 
 	curParent = menuItems[0];
 	menuItemAdd("Start game", curParent);
-	menuItemAdd("Options"   , curParent);
 	menuItemAdd("Credits"   , curParent, itButton, &fired::Handlers::buttonCredits);
 	menuItemAdd("Exit"      , curParent, itButton, &fired::Handlers::buttonExit);
-
-	curParent = menuItems[2];
-	menuItemAdd("Video"   , curParent);
-	menuItemAdd("Audio"   , curParent);
 
 	curParent = menuItems[1];
 	menuItemAdd("Building", curParent, itButton, &fired::Handlers::buttonStartBuilding);

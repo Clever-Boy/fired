@@ -30,6 +30,7 @@ fired::World::World(fired::Mouse *_mouse) {
 	inventoryWin = new fired::InventoryWindow(player->character, this);
 	exchangeWin  = new fired::ExchangeWindow(player->character, this);
 	characterWin = new fired::CharacterWindow(player->character);
+	menuWin      = new fired::MenuWindow(this);
 
 	cam->mapSize    = sf::Vector2i(map->sizeX * TILE_SIZE, map->sizeY * TILE_SIZE);
 	cam->objToTrack = &player->character->phys;
@@ -60,6 +61,7 @@ fired::World::~World() {
 	delete inventoryWin;
 	delete exchangeWin;
 	delete characterWin;
+	delete menuWin;
 
 	deleteList(shots);
 	deleteList(meleeShots);
@@ -243,10 +245,11 @@ void fired::World::checkItems() {
 ***********************************************************************/
 void fired::World::processEvent(sf::Event event) {
 	if ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)) {
-		if      (state == wsNormal)    game->stop();
+		if      (state == wsNormal)    state = wsMenu;
 		else if (state == wsInventory) state = wsNormal;
 		else if (state == wsExchange)  state = wsNormal;
 		else if (state == wsCharacter) state = wsNormal;
+		else if (state == wsMenu)      state = wsNormal;
 	}
 
 
@@ -266,6 +269,11 @@ void fired::World::processEvent(sf::Event event) {
 		if (state == wsCharacter) characterWin->click(mouse->pos);
 		if (state == wsInventory) inventoryWin->click(mouse->pos);
 		if (state == wsExchange)  exchangeWin->click(mouse->pos);
+	}
+
+
+	if ((event.type == sf::Event::MouseButtonReleased) && (event.mouseButton.button == sf::Mouse::Left)) {
+		if (state == wsMenu)      menuWin->click(mouse->pos);
 	}
 
 
@@ -378,6 +386,7 @@ void fired::World::preUpdateState() {
 		case wsInventory:
 		case wsExchange:
 		case wsCharacter:
+		case wsMenu:
 			frameClock = 0.0f;
 			break;
 	}
@@ -416,6 +425,13 @@ void fired::World::postUpdateState() {
 			cam->reset();
 			gui->update();
 			characterWin->update();
+			mouse->update();
+			break;
+
+		case wsMenu:
+			cam->reset();
+			gui->update();
+			menuWin->update(mouse->pos);
 			mouse->update();
 			break;
 	}

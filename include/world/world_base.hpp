@@ -18,7 +18,8 @@ namespace fired {
 		wsNormal,
 		wsInventory,
 		wsExchange,
-		wsCharacter
+		wsCharacter,
+		wsMenu
 	};
 }
 
@@ -47,6 +48,7 @@ namespace fired {
 		fired::InventoryWindow  *inventoryWin;
 		fired::ExchangeWindow   *exchangeWin;
 		fired::CharacterWindow  *characterWin;
+		fired::MenuWindow       *menuWin;
 
 		std::vector<fired::ParticleSystem*>  particles;
 		std::vector<fired::Shot*>            shots;

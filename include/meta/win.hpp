@@ -11,5 +11,6 @@
 
 #include "win/win_exchange.hpp"
 #include "win/win_character.hpp"
+#include "win/win_menu.hpp"
 
 #endif

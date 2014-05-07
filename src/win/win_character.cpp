@@ -22,7 +22,6 @@ fired::CharacterWindow::CharacterWindow(fired::Character *_owner) {
 	text = new sf::Text();
 	text->setFont(*resources->fonts.game);
 	text->setCharacterSize(16);
-	text->setPosition(win->offset + sf::Vector2f(30.0f, 360.0f));
 	text->setColor(sf::Color::White);
 }
 

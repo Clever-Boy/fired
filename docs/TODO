@@ -566,17 +566,15 @@
 			<todo done="yes" collapse="no"><title>Spawn enemies at spawn areas</title></todo>
 			<todo done="yes" collapse="no"><title>Select nearest non-visible area to spawn</title></todo>
 			<todo done="yes" collapse="no"><title>Spawn rate</title></todo>
+			<todo done="no" collapse="no"><title>In-game menu</title></todo>
+			<todo done="no" collapse="no"><title>Optimize skills coefficients</title></todo>
+			<todo done="no" collapse="no"><title>Saving character</title></todo>
 			<todo done="no" collapse="no"><title>Add some weapons</title></todo>
 			<todo done="no" collapse="no"><title>Add some armors</title></todo>
 			<todo done="no" collapse="no"><title>Add some model types</title></todo>
 			<todo done="no" collapse="no"><title>Add some models</title></todo>
 			<todo done="no" collapse="no"><title>Add some hairs</title></todo>
 			<todo done="no" collapse="no"><title>Add some creatures</title></todo>
-			<todo done="no" collapse="no"><title>Generating spawn places</title></todo>
-			<todo done="no" collapse="no"><title>Generating loot depending on level</title></todo>
-			<todo done="no" collapse="no"><title>Items bonuses +dmg, +defence, etc.</title></todo>
-			<todo done="no" collapse="no"><title>In-game menu</title></todo>
-			<todo done="no" collapse="no"><title>Optimize skills coefficients</title></todo>
 			<todo done="no" collapse="no"><title>Code optimization</title></todo>
 		</todo>
 	</todo>
@@ -692,6 +690,8 @@
 			<todo done="no" collapse="no"><title>Socket AI binding</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Release</title>
+			<todo done="no" collapse="no"><title>Items bonuses +dmg, +defence, etc.</title></todo>
+			<todo done="no" collapse="no"><title>Generating loot depending on level</title></todo>
 			<todo done="no" collapse="no"><title>Code optimization</title></todo>
 		</todo>
 	</todo>

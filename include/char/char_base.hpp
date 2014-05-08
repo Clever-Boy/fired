@@ -65,7 +65,7 @@ namespace fired {
 		fired::Phys phys;
 
 
-		 Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *_base);
+		 Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *_base, const char *filename = NULL);
 		~Character();
 
 		void update();

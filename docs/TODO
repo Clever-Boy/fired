@@ -559,9 +559,9 @@
 			<todo done="yes" collapse="no"><title>Select nearest non-visible area to spawn</title></todo>
 			<todo done="yes" collapse="no"><title>Spawn rate</title></todo>
 			<todo done="yes" collapse="no"><title>In-game menu</title></todo>
+			<todo done="yes" collapse="no"><title>Saving character</title></todo>
+			<todo done="yes" collapse="no"><title>Loading character</title></todo>
 			<todo done="no" collapse="no"><title>Optimize skills coefficients</title></todo>
-			<todo done="no" collapse="no"><title>Saving character</title></todo>
-			<todo done="no" collapse="no"><title>Loading character</title></todo>
 			<todo done="no" collapse="no"><title>Add some weapons</title></todo>
 			<todo done="no" collapse="no"><title>Add some armors</title></todo>
 			<todo done="no" collapse="no"><title>Add some model types</title></todo>

@@ -19,7 +19,7 @@ fired::Player::Player(fired::Camera *_cam, sf::Vector2f _startpos, fired::Crossh
 	startPos = _startpos;
 	deadTime = 0;
 
-	character = new fired::Character(_cam, _startpos, world, container->getCreature("Player"));
+	character = new fired::Character(_cam, _startpos, world, container->getCreature("Player"), "data/chars/player.chr");
 	crosshair = _crosshair;
 	crosshair->owner = &character->phys;
 }
@@ -32,6 +32,7 @@ fired::Player::Player(fired::Camera *_cam, sf::Vector2f _startpos, fired::Crossh
 
 ***********************************************************************/
 fired::Player::~Player() {
+	saveChar(character, "data/chars/player.chr");
 	delete character;
 }
 

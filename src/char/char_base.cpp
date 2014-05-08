@@ -15,7 +15,7 @@
      * constructor
 
 ***********************************************************************/
-fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *_base) {
+fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *_base, const char *filename) {
 	world    = _world;
 	cam      = _cam;
 	base     = _base;
@@ -39,12 +39,15 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 		}
 	}
 
+	level    = 1;
+	XP       = 0;
 	fraction = _base->fraction;
+
+	if (filename) loadChar(this, filename);
+
 	updateStats();
 	respawn(_startpos);
 
-	level          = 1;
-	XP             = 0;
 	lastXP         = levelXP(level - 1);
 	needXP         = levelXP(level);
 }

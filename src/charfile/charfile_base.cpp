@@ -15,8 +15,11 @@
 
 ***********************************************************************/
 void saveChar(fired::Character *character, const char *filename) {
-	FILE *fp = fopen(filename, "w");
-	if (!fp) return;
+	struct stat buf;
+	FILE *fp;
+
+	if (stat("data/chars", &buf) == -1) mkdir("data/chars", 0755);
+	if ((fp = fopen(filename, "w")) == NULL) return;
 
 	saveCharMeta(character, fp);
 	saveCharAttr(character, fp);

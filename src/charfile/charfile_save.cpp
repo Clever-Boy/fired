@@ -38,6 +38,22 @@ void saveCharAttr(fired::Character *character, FILE *fp) {
 ***********************************************************************/
 void saveCharInv(fired::Character *character, FILE *fp) {
 	fwrite(&character->inventory->credits, sizeof(character->inventory->credits), 1, fp);
+
+	saveCharItem(&character->inventory->helm, fp);
+	saveCharItem(&character->inventory->body, fp);
+	saveCharItem(&character->inventory->arms, fp);
+	saveCharItem(&character->inventory->fist, fp);
+	saveCharItem(&character->inventory->legs, fp);
+	saveCharItem(&character->inventory->shoe, fp);
+
+	saveCharItem(&character->inventory->primaryWeapon  , fp);
+	saveCharItem(&character->inventory->secondaryWeapon, fp);
+	saveCharItem(&character->inventory->primaryAmmo    , fp);
+	saveCharItem(&character->inventory->secondaryAmmo  , fp);
+
+	for (unsigned int i = 0; i < 10; i++)
+		for (unsigned int j = 0; j < 5; j++)
+			saveCharItem(&character->inventory->items[i][j], fp);
 }
 
 

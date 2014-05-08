@@ -38,6 +38,22 @@ void loadCharAttr(fired::Character *character, FILE *fp) {
 ***********************************************************************/
 void loadCharInv(fired::Character *character, FILE *fp) {
 	fread(&character->inventory->credits, sizeof(character->inventory->credits), 1, fp);
+
+	loadCharItem(&character->inventory->helm, fp);
+	loadCharItem(&character->inventory->body, fp);
+	loadCharItem(&character->inventory->arms, fp);
+	loadCharItem(&character->inventory->fist, fp);
+	loadCharItem(&character->inventory->legs, fp);
+	loadCharItem(&character->inventory->shoe, fp);
+
+	loadCharItem(&character->inventory->primaryWeapon  , fp);
+	loadCharItem(&character->inventory->secondaryWeapon, fp);
+	loadCharItem(&character->inventory->primaryAmmo    , fp);
+	loadCharItem(&character->inventory->secondaryAmmo  , fp);
+
+	for (unsigned int i = 0; i < 10; i++)
+		for (unsigned int j = 0; j < 5; j++)
+			loadCharItem(&character->inventory->items[i][j], fp);
 }
 
 

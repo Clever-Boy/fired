@@ -24,6 +24,7 @@ fired::StartScr::StartScr() {
 	textures.push_back(new sf::Texture()); textures.back()->loadFromFile("data/img/gui/startscr/01.jpg");
 	textures.push_back(new sf::Texture()); textures.back()->loadFromFile("data/img/gui/startscr/02.jpg");
 	textures.push_back(new sf::Texture()); textures.back()->loadFromFile("data/img/gui/startscr/03.jpg");
+	textures.push_back(new sf::Texture()); textures.back()->loadFromFile("data/img/gui/startscr/04.jpg");
 
 
 	for (unsigned int i = 0; i < textures.size(); i++) {

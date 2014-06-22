@@ -15,7 +15,7 @@
 
 ***********************************************************************/
 void mapLoad(fired::Map *map, const char* filename) {
-	FILE *fp = fopen(filename, "r");
+	FILE *fp = fopen(filename, "rb");
 	if (!fp) return;
 
 	mapLoadMeta(map, fp);
@@ -37,7 +37,7 @@ void mapSave(fired::Map *map, const char* filename) {
 	struct stat buf;
 
 	if (stat("data/maps", &buf) == -1) mkdir("data/maps", 0755);
-	if ((fp = fopen(filename, "w")) == NULL) return;
+	if ((fp = fopen(filename, "wb")) == NULL) return;
 
 	mapSaveMeta(map, fp);
 	mapSaveTiles(map, fp);
@@ -58,7 +58,7 @@ void genSave(fired::MapGenerator *gen, const char* filename) {
 	struct stat buf;
 
 	if (stat("data/maps", &buf) == -1) mkdir("data/maps", 0755);
-	if ((fp = fopen(filename, "w")) == NULL) return;
+	if ((fp = fopen(filename, "wb")) == NULL) return;
 
 	genSaveMeta(gen, fp);
 	genSaveTiles(gen, fp);

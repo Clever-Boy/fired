@@ -19,7 +19,7 @@ void saveChar(fired::Character *character, const char *filename) {
 	FILE *fp;
 
 	if (stat("data/chars", &buf) == -1) mkdir("data/chars", 0755);
-	if ((fp = fopen(filename, "w")) == NULL) return;
+	if ((fp = fopen(filename, "wb")) == NULL) return;
 
 	saveCharMeta(character, fp);
 	saveCharAttr(character, fp);
@@ -35,7 +35,7 @@ void saveChar(fired::Character *character, const char *filename) {
 
 ***********************************************************************/
 void loadChar(fired::Character *character, const char *filename) {
-	FILE *fp = fopen(filename, "r");
+	FILE *fp = fopen(filename, "rb");
 	if (!fp) return;
 
 	loadCharMeta(character, fp);

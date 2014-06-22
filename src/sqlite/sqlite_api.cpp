@@ -22,7 +22,7 @@ void sqliteSaveDB(sqlite3 *db, const char *filename, bool crypt, const char *key
 	size = strlen(sql);
 	if (crypt) sqlite_crypt(sql, size, key, strlen(key));
 
-	FILE *fp = fopen(filename, "w");
+	FILE *fp = fopen(filename, "wb");
 	fwrite(sql, size, 1, fp);
 	fclose(fp);
 	free(sql);
@@ -43,7 +43,7 @@ void sqliteLoadDB(sqlite3 **db, const char *filename, bool crypt, const char *ke
 	stat(filename, &buf);
 	filesize = buf.st_size;
 
-	FILE *fp = fopen(filename, "r");
+	FILE *fp = fopen(filename, "rb");
 	sql = (char *)malloc(filesize + 1);
 	fread(sql, filesize, 1, fp);
 	sql[filesize] = 0;

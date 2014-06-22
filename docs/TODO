@@ -522,7 +522,7 @@
 			<todo done="yes" collapse="no"><title>Background</title></todo>
 			<todo done="yes" collapse="no"><title>Lightning</title></todo>
 			<todo done="yes" collapse="no"><title>Weather</title></todo>
-			<todo done="no" collapse="no"><title>Base map</title></todo>
+			<todo done="yes" collapse="no"><title>Base map</title></todo>
 			<todo done="no" collapse="no"><title>Underground tunnels</title></todo>
 			<todo done="no" collapse="no"><title>Labs</title></todo>
 			<todo done="no" collapse="no"><title>Chests</title></todo>

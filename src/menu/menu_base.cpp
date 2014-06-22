@@ -293,14 +293,9 @@ void fired::MainMenu::fillMenu() {
 	menuItemAdd("Main menu", NULL);
 
 	curParent = menuItems[0];
-	menuItemAdd("Start game", curParent);
+	menuItemAdd("Start game", curParent, itButton, &fired::Handlers::buttonStart);
 	menuItemAdd("Credits"   , curParent, itButton, &fired::Handlers::buttonCredits);
 	menuItemAdd("Exit"      , curParent, itButton, &fired::Handlers::buttonExit);
-
-	curParent = menuItems[1];
-	menuItemAdd("Building", curParent, itButton, &fired::Handlers::buttonStartBuilding);
-	menuItemAdd("Mine"    , curParent, itButton, &fired::Handlers::buttonStartMine);
-	menuItemAdd("Cave"    , curParent, itButton, &fired::Handlers::buttonStartCave);
 
 	fillMenuBack();
 

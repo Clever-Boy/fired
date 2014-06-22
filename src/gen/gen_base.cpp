@@ -24,6 +24,7 @@ fired::MapGenerator::MapGenerator(fired::Biome *_biome) {
 	if (!strcmp(biome->name, "Sewers"))    genSewers();
 	if (!strcmp(biome->name, "Castle"))    genCastle();
 	if (!strcmp(biome->name, "Cave"))      genCave();
+	if (!strcmp(biome->name, "City"))      genCity();
 	if (!strcmp(biome->name, "Mountains")) genMountains();
 	if (!strcmp(biome->name, "Graveyard")) genGraveyard();
 	if (!strcmp(biome->name, "Forest"))    genForest();

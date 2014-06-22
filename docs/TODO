@@ -1,5 +1,5 @@
 <todo>
-	<todo done="yes" collapse="no"><title>0.99 alpha</title>
+	<todo done="yes" collapse="no"><title>0.99 pre-alpha</title>
 		<todo done="yes" collapse="yes"><title>Menu engine</title>
 			<todo done="yes" collapse="no"><title>Window initialization</title></todo>
 			<todo done="yes" collapse="no"><title>Event handling</title></todo>
@@ -518,8 +518,37 @@
 			<todo done="yes" collapse="no"><title>Change Armor icons</title></todo>
 			<todo done="yes" collapse="no"><title>Fix bug with bumpy tiles</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Biomes</title>
-			<todo done="no" collapse="no"><title>Mine</title>
+		<todo done="no" collapse="no"><title>Test biome (City)</title>
+			<todo done="yes" collapse="no"><title>Background</title></todo>
+			<todo done="yes" collapse="no"><title>Lightning</title></todo>
+			<todo done="yes" collapse="no"><title>Weather</title></todo>
+			<todo done="no" collapse="no"><title>Base map</title></todo>
+			<todo done="no" collapse="no"><title>Underground tunnels</title></todo>
+			<todo done="no" collapse="no"><title>Labs</title></todo>
+			<todo done="no" collapse="no"><title>Chests</title></todo>
+			<todo done="no" collapse="no"><title>Enemy spawns</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Release</title>
+			<todo done="yes" collapse="no"><title>Spawn enemies at spawn areas</title></todo>
+			<todo done="yes" collapse="no"><title>Select nearest non-visible area to spawn</title></todo>
+			<todo done="yes" collapse="no"><title>Spawn rate</title></todo>
+			<todo done="yes" collapse="no"><title>In-game menu</title></todo>
+			<todo done="yes" collapse="no"><title>Saving character</title></todo>
+			<todo done="yes" collapse="no"><title>Loading character</title></todo>
+			<todo done="no" collapse="no"><title>Optimize skills coefficients</title></todo>
+			<todo done="no" collapse="no"><title>Make windows build project</title></todo>
+			<todo done="no" collapse="no"><title>Add some weapons</title></todo>
+			<todo done="no" collapse="no"><title>Add some armors</title></todo>
+			<todo done="no" collapse="no"><title>Add some model types</title></todo>
+			<todo done="no" collapse="no"><title>Add some models</title></todo>
+			<todo done="no" collapse="no"><title>Add some creatures</title></todo>
+			<todo done="no" collapse="no"><title>Code optimization</title></todo>
+		</todo>
+	</todo>
+	<todo done="yes" collapse="yes"><title>0.99 alpha</title>
+		<todo done="no" collapse="yes"><title>Fix 0.99 pre-alpha bugs</title></todo>
+		<todo done="no" collapse="yes"><title>Biomes</title>
+			<todo done="no" collapse="yes"><title>Mine</title>
 				<todo done="yes" collapse="no"><title>Background</title></todo>
 				<todo done="yes" collapse="no"><title>Lighting</title></todo>
 				<todo done="yes" collapse="no"><title>Weather</title></todo>
@@ -554,24 +583,6 @@
 				<todo done="no" collapse="no"><title>Enemy spawns</title></todo>
 			</todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Release</title>
-			<todo done="yes" collapse="no"><title>Spawn enemies at spawn areas</title></todo>
-			<todo done="yes" collapse="no"><title>Select nearest non-visible area to spawn</title></todo>
-			<todo done="yes" collapse="no"><title>Spawn rate</title></todo>
-			<todo done="yes" collapse="no"><title>In-game menu</title></todo>
-			<todo done="yes" collapse="no"><title>Saving character</title></todo>
-			<todo done="yes" collapse="no"><title>Loading character</title></todo>
-			<todo done="no" collapse="no"><title>Optimize skills coefficients</title></todo>
-			<todo done="no" collapse="no"><title>Add some weapons</title></todo>
-			<todo done="no" collapse="no"><title>Add some armors</title></todo>
-			<todo done="no" collapse="no"><title>Add some model types</title></todo>
-			<todo done="no" collapse="no"><title>Add some models</title></todo>
-			<todo done="no" collapse="no"><title>Add some creatures</title></todo>
-			<todo done="no" collapse="no"><title>Code optimization</title></todo>
-		</todo>
-	</todo>
-	<todo done="yes" collapse="yes"><title>0.99 beta</title>
-		<todo done="no" collapse="yes"><title>Fix 0.99 alpha bugs</title></todo>
 		<todo done="no" collapse="yes"><title>Locations</title>
 			<todo done="no" collapse="yes"><title>City</title>
 				<todo done="no" collapse="no"><title>Tiles</title></todo>
@@ -639,8 +650,8 @@
 			<todo done="no" collapse="no"><title>Code optimization</title></todo>
 		</todo>
 	</todo>
-	<todo done="yes" collapse="yes"><title>0.99</title>
-		<todo done="no" collapse="no"><title>Fix 0.99 beta bugs</title></todo>
+	<todo done="yes" collapse="yes"><title>0.99 beta</title>
+		<todo done="no" collapse="no"><title>Fix 0.99 alpha bugs</title></todo>
 		<todo done="no" collapse="yes"><title>Multiplayer</title>
 			<todo done="no" collapse="no"><title>Server thread</title></todo>
 			<todo done="no" collapse="no"><title>Multiplayer AI type</title></todo>
@@ -679,6 +690,12 @@
 			<todo done="no" collapse="no"><title>Generating loot depending on level</title></todo>
 			<todo done="no" collapse="no"><title>Add hairs</title></todo>
 			<todo done="no" collapse="no"><title>Code optimization</title></todo>
+		</todo>
+	</todo>
+	<todo done="no" collapse="yes"><title>0.99</title>
+		<todo done="no" collapse="no"><title>Fix 0.99 beta bugs</title></todo>
+		<todo done="no" collapse="yes"><title>Release</title>
+			<todo done="no" collapse="no"><title>Code optimisation</title></todo>
 		</todo>
 	</todo>
 	<todo done="yes" collapse="yes"><title>1.0.0</title>

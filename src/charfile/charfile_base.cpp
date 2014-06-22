@@ -18,7 +18,7 @@ void saveChar(fired::Character *character, const char *filename) {
 	struct stat buf;
 	FILE *fp;
 
-	if (stat("data/chars", &buf) == -1) mkdir("data/chars", 0755);
+	if (stat("data/chars", &buf) == -1) MKDIR("data/chars");
 	if ((fp = fopen(filename, "wb")) == NULL) return;
 
 	saveCharMeta(character, fp);

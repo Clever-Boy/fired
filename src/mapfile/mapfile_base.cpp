@@ -36,7 +36,7 @@ void mapSave(fired::Map *map, const char* filename) {
 	FILE *fp;
 	struct stat buf;
 
-	if (stat("data/maps", &buf) == -1) mkdir("data/maps", 0755);
+	if (stat("data/maps", &buf) == -1) MKDIR("data/maps");
 	if ((fp = fopen(filename, "wb")) == NULL) return;
 
 	mapSaveMeta(map, fp);
@@ -57,7 +57,7 @@ void genSave(fired::MapGenerator *gen, const char* filename) {
 	FILE *fp;
 	struct stat buf;
 
-	if (stat("data/maps", &buf) == -1) mkdir("data/maps", 0755);
+	if (stat("data/maps", &buf) == -1) MKDIR("data/maps");
 	if ((fp = fopen(filename, "wb")) == NULL) return;
 
 	genSaveMeta(gen, fp);

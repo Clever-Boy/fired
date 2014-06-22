@@ -535,12 +535,12 @@
 			<todo done="yes" collapse="no"><title>In-game menu</title></todo>
 			<todo done="yes" collapse="no"><title>Saving character</title></todo>
 			<todo done="yes" collapse="no"><title>Loading character</title></todo>
-			<todo done="no" collapse="no"><title>Optimize skills coefficients</title></todo>
 			<todo done="no" collapse="yes"><title>Make windows build project</title>
 				<todo done="yes" collapse="no"><title>Fix builds</title></todo>
-				<todo done="no" collapse="no"><title>Make arch defines</title></todo>
+				<todo done="yes" collapse="no"><title>Make arch defines</title></todo>
 				<todo done="no" collapse="no"><title>Fix SFML libs</title></todo>
 			</todo>
+			<todo done="no" collapse="no"><title>Optimize skills coefficients</title></todo>
 			<todo done="no" collapse="no"><title>Add some weapons</title></todo>
 			<todo done="no" collapse="no"><title>Add some armors</title></todo>
 			<todo done="no" collapse="no"><title>Add some model types</title></todo>

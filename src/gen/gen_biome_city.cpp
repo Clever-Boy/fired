@@ -127,6 +127,10 @@ void fired::MapGenerator::genCityLandscape() {
 	setBrush("plate");
 	genFill(16, 54, 16, 54, true);
 	setBrush("brick.clay.silver");
+
+	//Generating left secret room
+	genFill(4, 76, 14, 81, false);
+	genFill(7, 65, 11, 75, false);
 }
 
 
@@ -182,6 +186,10 @@ void fired::MapGenerator::genCityPlatforms() {
 
 	for (int x = 4 ; x < 15; x++) addPlatform(x, 55, "bridge.metal");
 	for (int x = 9 ; x < 20; x++) addPlatform(x, 61, "bridge.metal");
+
+	for (int x = 7 ; x < 12; x++) addPlatform(x, 66, "bridge.metal");
+	for (int x = 7 ; x < 12; x++) addPlatform(x, 71, "bridge.metal");
+	for (int x = 7 ; x < 12; x++) addPlatform(x, 76, "bridge.metal");
 }
 
 

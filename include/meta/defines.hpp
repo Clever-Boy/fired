@@ -187,14 +187,14 @@
      * Skills constants
 
 ***********************************************************************/
-#define SKILL_SPEED_K     3.0f
-#define SKILL_ACCEL_K     8.0f
-#define SKILL_JUMP_K      3.0f
-#define SKILL_AIMRANGE_K  1.5f
-#define SKILL_XPFACTOR_K  0.015f
-#define SKILL_ACCURACY_K  2.5f
+#define SKILL_SPEED_K     1.0f
+#define SKILL_ACCEL_K     2.0f
+#define SKILL_JUMP_K      1.0f
+#define SKILL_AIMRANGE_K  0.5f
+#define SKILL_XPFACTOR_K  0.005f
+#define SKILL_ACCURACY_K  1.5f
 #define SKILL_ARMOR_K     1
-#define SKILL_MAXHP_K     5
+#define SKILL_MAXHP_K     1
 
 
 

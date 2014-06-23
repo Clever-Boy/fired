@@ -114,14 +114,19 @@ void fired::MapGenerator::genCityLandscape() {
 
 	//Generating left tunnel
 	genFill(4, 40, 9, 55, false);
-
-	for (int i = 1; i <= 5; i++)
-		genFill(4 + i, 50 + i, 9 + i, 50 + i, false);
-
-	for (int i = 1; i <= 10; i++)
-		genFill(4 + i, 55 + i, 14 + i, 55 + i, false);
-
 	genFill(4, 61, 35, 65, false);
+
+	for (int i = 1; i <=  5; i++) genFill(4 + i, 50 + i, 9  + i, 50 + i, false);
+	for (int i = 1; i <= 10; i++) genFill(4 + i, 55 + i, 14 + i, 55 + i, false);
+
+	//Generating left room
+	genFill(16, 54, 50, 57, false);
+	genFill(16, 54, 19, 59, false);
+	genFill(35, 49, 50, 57, false);
+
+	setBrush("plate");
+	genFill(16, 54, 16, 54, true);
+	setBrush("brick.clay.silver");
 }
 
 
@@ -143,14 +148,17 @@ void fired::MapGenerator::genCityDecors() {
 	addLightSource(2272, 528, "wall.lamp.red");
 	addLightSource(2512, 528, "wall.lamp.blue");
 
-	addLightSource(688, 992, "wall.lamp");
-	addLightSource(1360, 992, "wall.lamp");
-	addLightSource(1024, 912, "wall.lamp");
+	addLightSource(688, 992, "wall.lamp.dim");
+	addLightSource(1360, 992, "wall.lamp.dim");
+	addLightSource(1024, 912, "wall.lamp.dim");
 
-	addLightSource(48, 512, "wall.lamp");
+	addLightSource(48, 528, "wall.lamp.dim");
 
-	addLightSource(80 , 992, "wall.lamp");
-	addLightSource(544, 992, "wall.lamp");
+	addLightSource(80 , 992, "wall.lamp.dim");
+	addLightSource(544, 992, "wall.lamp.dim");
+
+	addLightSource(576, 800, "wall.lamp.dim");
+	addLightSource(784, 800, "wall.lamp.dim");
 }
 
 

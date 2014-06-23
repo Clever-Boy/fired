@@ -18,7 +18,7 @@
 void fired::MapGenerator::genCity() {
 	genCityMeta();
 	genCityPalette();
-	genCityLandscape(0, sizeX - 1, 40);
+	genCityLandscape();
 	genCityDecors();
 	genCityPlatforms();
 	genCityCollectors();
@@ -58,59 +58,70 @@ void fired::MapGenerator::genCityMeta() {
      * genCityLandscape
 
 ***********************************************************************/
-void fired::MapGenerator::genCityLandscape(int areaStart, int areaEnd, int horizon) {
+void fired::MapGenerator::genCityLandscape() {
 	setBrush("plate");
-	genFill(areaStart, horizon, areaEnd, sizeY - 1, true);
-	genFill(areaStart, horizon - 2, areaEnd, horizon - 1, false);
+	genFill(0, 40, 199, 99, true);
+	genFill(0, 38, 199, 39, false);
 
-	genFill(areaStart  , horizon - 2, areaStart + 3, horizon - 1, true);
-	genFill(areaEnd - 4, horizon - 2, areaEnd      , horizon - 1, true);
+	genFill(0  , 38, 3  , 39, true);
+	genFill(195, 38, 199, 39, true);
 
-	genFill(areaStart + 4, horizon - 1, areaStart + 7, horizon - 1, true);
-	genFill(areaEnd - 8  , horizon - 1, areaEnd - 5  , horizon - 1, true);
+	genFill(4  , 39, 7  , 39, true);
+	genFill(191, 39, 194, 39, true);
 
 	//Generating testing planes
 	setBrush("brick.clay.silver");
-	genBar(41, horizon - 11, horizon - 6, false);
-	genBar(47, horizon - 11, horizon - 6, false);
-	genFill(41, horizon - 7, 47, horizon - 6, false);
+	genBar (41, 29, 34, false);
+	genBar (47, 29, 34, false);
+	genFill(41, 33, 47, 34, false);
 
-	genBar(81, horizon - 11, horizon - 6, false);
-	genBar(87, horizon - 11, horizon - 6, false);
-	genFill(81, horizon - 7, 87, horizon - 6, false);
+	genBar (81, 29, 34, false);
+	genBar (87, 29, 34, false);
+	genFill(81, 43, 87, 34, false);
 
-	genFill(40, horizon - 5, 88, horizon - 5, true);
-	genFill(40, horizon - 4, 88, horizon - 1, false);
+	genFill(40, 35, 88, 35, true);
+	genFill(40, 36, 88, 39, false);
 
 	setBrush("plank.dark");
-	genFill(40, horizon - 10, 48, horizon - 10, true);
-	genFill(80, horizon - 10, 88, horizon - 10, true);
+	genFill(40, 30, 48, 30, true);
+	genFill(80, 30, 88, 30, true);
 
 
 	//Generating testing house
 	setBrush("brick.brown");
-	genFill(140, horizon - 10, 159, horizon - 1, false);
-	genFill(140, horizon, 159, horizon, true);
-	genFill(140, horizon - 10, 159, horizon - 9, true);
-	genBar(140, horizon - 10, horizon - 6, true);
-	genBar(159, horizon - 10, horizon - 6, true);
+	genFill(140, 30, 159, 39, false);
+	genFill(140, 40, 159, 40, true);
+	genFill(140, 30, 159, 31, true);
+	genBar(140, 30, 34, true);
+	genBar(159, 30, 34, true);
 
-	genFill(142, horizon - 11, 157, horizon - 11, true);
-	genFill(144, horizon - 12, 155, horizon - 12, true);
-	genFill(146, horizon - 13, 153, horizon - 13, true);
-	genFill(148, horizon - 14, 151, horizon - 14, true);
+	genFill(142, 29, 157, 29, true);
+	genFill(144, 28, 155, 28, true);
+	genFill(146, 27, 153, 27, true);
+	genFill(148, 26, 151, 26, true);
 
 	//Generating one more testing house
-	genFill(0, horizon - 8, 19, horizon-1, false);
-	genFill(0, horizon - 10, 1, horizon-1, true);
-	genFill(0, horizon - 10, 18, horizon - 10, true);
-	genFill(0, horizon - 9, 21, horizon - 9, true);
+	genFill(0, 32, 19, 39, false);
+	genFill(0, 30, 1 , 39, true);
+	genFill(0, 30, 18, 30, true);
+	genFill(0, 31, 21, 31, true);
 
 
 	//Generating cave
 	setBrush("brick.clay.silver");
-	genFill(62, horizon, 66, horizon + 25, false);
-	genFill(42, horizon + 21, 86, horizon + 25, false);
+	genFill(62, 40, 66, 65, false);
+	genFill(42, 61, 86, 65, false);
+
+	//Generating left tunnel
+	genFill(4, 40, 9, 55, false);
+
+	for (int i = 1; i <= 5; i++)
+		genFill(4 + i, 50 + i, 9 + i, 50 + i, false);
+
+	for (int i = 1; i <= 10; i++)
+		genFill(4 + i, 55 + i, 14 + i, 55 + i, false);
+
+	genFill(4, 61, 35, 65, false);
 }
 
 
@@ -135,6 +146,11 @@ void fired::MapGenerator::genCityDecors() {
 	addLightSource(688, 992, "wall.lamp");
 	addLightSource(1360, 992, "wall.lamp");
 	addLightSource(1024, 912, "wall.lamp");
+
+	addLightSource(48, 512, "wall.lamp");
+
+	addLightSource(80 , 992, "wall.lamp");
+	addLightSource(544, 992, "wall.lamp");
 }
 
 
@@ -151,6 +167,13 @@ void fired::MapGenerator::genCityPlatforms() {
 	for (int x = 62; x < 67; x++) addPlatform(x, 50, "bridge.metal");
 	for (int x = 62; x < 67; x++) addPlatform(x, 55, "bridge.metal");
 	for (int x = 62; x < 67; x++) addPlatform(x, 60, "bridge.metal");
+
+	for (int x = 4 ; x < 10; x++) addPlatform(x, 40, "bridge.metal");
+	for (int x = 4 ; x < 10; x++) addPlatform(x, 45, "bridge.metal");
+	for (int x = 4 ; x < 10; x++) addPlatform(x, 50, "bridge.metal");
+
+	for (int x = 4 ; x < 15; x++) addPlatform(x, 55, "bridge.metal");
+	for (int x = 9 ; x < 20; x++) addPlatform(x, 61, "bridge.metal");
 }
 
 
@@ -174,7 +197,7 @@ void fired::MapGenerator::genCityCollectors() {
 ***********************************************************************/
 void fired::MapGenerator::genCityPlayer() {
 	int y = 0;
-	startPos.x = (sizeX / 2) * TILE_SIZE;
+	startPos.x = (6) * TILE_SIZE;
 
 	while (!tiles[sizeX / 2][y].tileset || !tiles[sizeX / 2][y].isWall) y++;
 	startPos.y = (y - 3) * TILE_SIZE;

@@ -13,7 +13,7 @@
 void genCity();
 void genCityMeta();
 void genCityPalette();
-void genCityLandscape(int areaStart, int areaEnd, int horizon);
+void genCityLandscape();
 void genCityPlayer();
 void genCitySpawns();
 void genCityDecors();

@@ -538,10 +538,11 @@
 			<todo done="yes" collapse="no"><title>Saving character</title></todo>
 			<todo done="yes" collapse="no"><title>Loading character</title></todo>
 			<todo done="yes" collapse="no"><title>Optimize skills coefficients</title></todo>
-			<todo done="no" collapse="yes"><title>Make windows build project</title>
+			<todo done="yes" collapse="yes"><title>Make windows build project</title>
 				<todo done="yes" collapse="no"><title>Fix builds</title></todo>
 				<todo done="yes" collapse="no"><title>Make arch defines</title></todo>
-				<todo done="no" collapse="no"><title>Fix SFML libs</title></todo>
+				<todo done="yes" collapse="no"><title>Fix SFML libs (branch bugfix/al_context)</title></todo>
+				<todo done="no" collapse="no"><title>Try win32 static linkage</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Add some weapons</title></todo>
 			<todo done="no" collapse="no"><title>Add some armors</title></todo>

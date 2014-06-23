@@ -16,7 +16,7 @@
 
 ***********************************************************************/
 #define PROJECT_CAPTION         "F.I.R.E.D."
-#define PROJECT_VER             "0.99"
+#define PROJECT_VER             "0.99 pre-alpha"
 #define PROJECT_KEY             "the key"
 
 
@@ -73,7 +73,6 @@
 ***********************************************************************/
 #define PLAYER_RESPAWN_TIME     3.0f
 #define ITEM_SPEED              100.0f
-#define ITEM_MAX_STACK          25
 #define TILE_SIZE               16.0f
 #define BROAD_ATTACK_TIME       0.25f
 

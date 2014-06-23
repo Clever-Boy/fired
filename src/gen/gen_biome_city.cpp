@@ -188,6 +188,7 @@ void fired::MapGenerator::genCityPlayer() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCitySpawns() {
-	spawns.push_back(sf::IntRect(141*TILE_SIZE, 34*TILE_SIZE, 16*TILE_SIZE, 5*TILE_SIZE));
-	spawns.push_back(sf::IntRect(  3*TILE_SIZE, 34*TILE_SIZE, 16*TILE_SIZE, 5*TILE_SIZE));
+	// Commented for debugging
+	// spawns.push_back(sf::IntRect(141*TILE_SIZE, 34*TILE_SIZE, 16*TILE_SIZE, 5*TILE_SIZE));
+	// spawns.push_back(sf::IntRect(  3*TILE_SIZE, 34*TILE_SIZE, 16*TILE_SIZE, 5*TILE_SIZE));
 }

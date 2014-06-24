@@ -39,6 +39,8 @@ void fired::MapGenerator::genCityPalette() {
 	addTileToPalette("plate");
 	addTileToPalette("plank.dark");
 	addTileToPalette("plank");
+	addTileToPalette("dirt");
+	addTileToPalette("dirt.hard");
 }
 
 
@@ -195,6 +197,23 @@ void fired::MapGenerator::genCityLandscape() {
 	genFill(93 , 56, 97 , 69, false);
 	genFill(80 , 49, 149, 55, false);
 	genFill(116, 40, 123, 48, false);
+
+	//Generating right hill
+	setBrush("dirt");
+	genFill(185, 39, 199, 40, true);
+	genFill(186, 37, 199, 38, true);
+	genFill(187, 36, 199, 36, true);
+	genFill(189, 35, 199, 35, true);
+	genFill(195, 34, 199, 34, true);
+
+	//Left dirt
+	setBrush("dirt.hard");
+	genFill(19, 30, 20, 30, true);
+	genFill(0 , 29, 20, 29, true);
+	genFill(0 , 28, 19, 28, true);
+	genFill(0 , 27, 15, 27, true);
+	genFill(0 , 26, 10, 26, true);
+	genFill(0 , 25,  4, 25, true);
 }
 
 
@@ -205,9 +224,9 @@ void fired::MapGenerator::genCityLandscape() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCityDecors() {
-	addDecor(1900, 608, "box");
-	addDecor(1932, 608, "box");
-	addDecor(1916, 576, "box");
+	addDecor(1740, 608, "box");
+	addDecor(1772, 608, "box");
+	addDecor(1756, 576, "box");
 
 	addDecor(2288, 608, "barrel");
 	addDecor(2368, 608, "barrel");

@@ -189,7 +189,7 @@ void fired::MapGenerator::genCityLandscape() {
 	for (int i = 1; i <= 7; i++) genFill(181 - i, 56 + i, 181    , 56 + i, false);
 
 	//Generating right upper enterance
-	genFill(174, 65, 181, 69, false);
+	genFill(174, 65, 180, 69, false);
 	genFill(166, 70, 196, 75, false);
 
 	//Generating left upper enterance
@@ -200,6 +200,10 @@ void fired::MapGenerator::genCityLandscape() {
 	genFill(93 , 56, 97 , 69, false);
 	genFill(80 , 49, 159, 55, false);
 	genFill(116, 40, 123, 48, false);
+
+	setBrush("plate");
+	genFill(116, 55, 123, 55, true);
+	genFill(118, 54, 121, 54, true);
 
 	//Generating central lab
 	setBrush("brick.clay.white");
@@ -256,8 +260,8 @@ void fired::MapGenerator::genCityDecors() {
 	addLightSource(80 , 992, "wall.lamp.dim");
 	addLightSource(544, 992, "wall.lamp.dim");
 
-	addLightSource(576, 800, "wall.lamp.dim");
-	addLightSource(784, 800, "wall.lamp.dim");
+	addLightSource(576, 800, "wall.lamp");
+	addLightSource(784, 800, "wall.lamp");
 }
 
 
@@ -289,9 +293,30 @@ void fired::MapGenerator::genCityPlatforms() {
 	for (int x = 29; x < 33; x++) addPlatform(x, 66, "bridge.metal");
 	for (int x = 29; x < 33; x++) addPlatform(x, 72, "bridge.metal");
 	for (int x = 29; x < 33; x++) addPlatform(x, 78, "bridge.metal");
+
 	for (int x = 45; x < 49; x++) addPlatform(x, 66, "bridge.metal");
 	for (int x = 45; x < 49; x++) addPlatform(x, 72, "bridge.metal");
 	for (int x = 45; x < 49; x++) addPlatform(x, 78, "bridge.metal");
+
+	for (int x = 80; x < 84; x++) addPlatform(x, 56, "bridge.metal");
+	for (int x = 80; x < 84; x++) addPlatform(x, 61, "bridge.metal");
+	for (int x = 80; x < 84; x++) addPlatform(x, 66, "bridge.metal");
+	for (int x = 80; x < 84; x++) addPlatform(x, 72, "bridge.metal");
+	for (int x = 80; x < 84; x++) addPlatform(x, 78, "bridge.metal");
+
+	for (int x = 93; x < 98; x++) addPlatform(x, 56, "bridge.metal");
+	for (int x = 93; x < 98; x++) addPlatform(x, 61, "bridge.metal");
+	for (int x = 93; x < 98; x++) addPlatform(x, 66, "bridge.metal");
+	for (int x = 93; x < 98; x++) addPlatform(x, 70, "bridge.metal");
+
+	for (int x = 116; x < 124; x++) addPlatform(x, 40, "bridge.metal");
+	for (int x = 116; x < 124; x++) addPlatform(x, 44, "bridge.metal");
+	for (int x = 116; x < 124; x++) addPlatform(x, 49, "bridge.metal");
+
+	for (int x = 174; x < 180; x++) addPlatform(x, 40, "bridge.metal");
+	for (int x = 174; x < 180; x++) addPlatform(x, 44, "bridge.metal");
+	for (int x = 174; x < 181; x++) addPlatform(x, 48, "bridge.metal");
+	for (int x = 174; x < 181; x++) addPlatform(x, 70, "bridge.metal");
 }
 
 

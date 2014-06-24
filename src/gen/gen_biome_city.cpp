@@ -164,6 +164,24 @@ void fired::MapGenerator::genCityLandscape() {
 	genFill(121, 69, 132, 74, false);
 	genFill(136, 69, 147, 74, false);
 	genFill(151, 69, 162, 74, false);
+
+	//Generating right lower room
+	setBrush("brick.clay.silver");
+	genFill(166, 89, 185, 92, false);
+	genFill(178, 85, 185, 92, false);
+
+	//Generating right tunnel
+	genFill(174, 40, 179, 50, false);
+	genFill(180, 54, 197, 59, false);
+	genFill(174, 64, 181, 64, false);
+
+	for (int i = 1; i <= 6; i++) genFill(179    , 47 + i, 179 + i, 47 + i, false);
+	for (int i = 1; i <= 6; i++) genFill(179    , 65 - i, 180 + i, 65 - i, false);
+	for (int i = 0; i <  6; i++) genFill(174 + i, 50 + i, 181    , 50 + i, false);
+	for (int i = 1; i <= 7; i++) genFill(181 - i, 56 + i, 181    , 56 + i, false);
+
+	genFill(174, 65, 181, 69, false);
+	genFill(166, 70, 196, 75, false);
 }
 
 
@@ -252,10 +270,10 @@ void fired::MapGenerator::genCityCollectors() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCityPlayer() {
-	int y = 80;
-	startPos.x = (130) * TILE_SIZE;
+	int y = 40;
+	startPos.x = (170) * TILE_SIZE;
 
-	while (!tiles[130][y].tileset || !tiles[130][y].isWall) y++;
+	//while (!tiles[130][y].tileset || !tiles[130][y].isWall) y++;
 	startPos.y = (y - 3) * TILE_SIZE;
 }
 

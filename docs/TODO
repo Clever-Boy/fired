@@ -547,7 +547,7 @@
 				<todo done="yes" collapse="no"><title>Fix SFML libs (branch bugfix/al_context)</title></todo>
 				<todo done="yes" collapse="no"><title>Remove console window</title></todo>
 				<todo done="yes" collapse="no"><title>Try win32 static linkage</title></todo>
-				<todo done="no" collapse="no"><title>Add windows icon</title></todo>
+				<todo done="yes" collapse="no"><title>Add windows icon</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Make equipment easy-to-understand</title></todo>
 			<todo done="no" collapse="no"><title>Add some weapons</title></todo>

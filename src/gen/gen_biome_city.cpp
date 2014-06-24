@@ -38,6 +38,7 @@ void fired::MapGenerator::genCityPalette() {
 	addTileToPalette("brick.clay.silver");
 	addTileToPalette("plate");
 	addTileToPalette("plank.dark");
+	addTileToPalette("plank");
 }
 
 
@@ -153,6 +154,16 @@ void fired::MapGenerator::genCityLandscape() {
 
 	//Generating left lower enterance
 	genFill(102, 83, 117, 92, false);
+
+	//Generating large hall
+	setBrush("plank");
+	genFill(118, 66, 165, 92, false);
+
+	//Generating windows
+	setEraser();
+	genFill(121, 69, 132, 74, false);
+	genFill(136, 69, 147, 74, false);
+	genFill(151, 69, 162, 74, false);
 }
 
 
@@ -241,10 +252,10 @@ void fired::MapGenerator::genCityCollectors() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCityPlayer() {
-	int y = 0;
-	startPos.x = (6) * TILE_SIZE;
+	int y = 80;
+	startPos.x = (130) * TILE_SIZE;
 
-	while (!tiles[sizeX / 2][y].tileset || !tiles[sizeX / 2][y].isWall) y++;
+	while (!tiles[130][y].tileset || !tiles[130][y].isWall) y++;
 	startPos.y = (y - 3) * TILE_SIZE;
 }
 

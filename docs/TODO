@@ -525,10 +525,10 @@
 			<todo done="yes" collapse="no"><title>Base map</title></todo>
 			<todo done="yes" collapse="no"><title>Underground tunnels</title></todo>
 			<todo done="yes" collapse="no"><title>Add some bumpy tiles</title></todo>
-			<todo done="no" collapse="no"><title>Labs made of other types of bricks</title></todo>
-			<todo done="no" collapse="no"><title>Large hall additional platforms</title></todo>
-			<todo done="no" collapse="no"><title>Light sources</title></todo>
+			<todo done="yes" collapse="no"><title>Labs made of other types of bricks</title></todo>
 			<todo done="no" collapse="no"><title>Bridges</title></todo>
+			<todo done="no" collapse="no"><title>Light sources</title></todo>
+			<todo done="no" collapse="no"><title>Large hall additional platforms</title></todo>
 			<todo done="no" collapse="no"><title>Decors</title></todo>
 			<todo done="no" collapse="no"><title>Chests</title></todo>
 			<todo done="no" collapse="no"><title>Enemy spawns</title></todo>

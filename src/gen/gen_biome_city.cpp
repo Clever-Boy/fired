@@ -41,6 +41,7 @@ void fired::MapGenerator::genCityPalette() {
 	addTileToPalette("plank");
 	addTileToPalette("dirt");
 	addTileToPalette("dirt.hard");
+	addTileToPalette("brick.clay.white");
 }
 
 
@@ -125,6 +126,8 @@ void fired::MapGenerator::genCityLandscape() {
 	//Generating left room
 	genFill(16, 54, 50, 57, false);
 	genFill(16, 54, 19, 59, false);
+
+	setBrush("brick.clay.white");
 	genFill(35, 49, 50, 57, false);
 
 	setBrush("plate");
@@ -195,8 +198,12 @@ void fired::MapGenerator::genCityLandscape() {
 	//Generating central tunnel
 	genFill(80 , 56, 83 , 77, false);
 	genFill(93 , 56, 97 , 69, false);
-	genFill(80 , 49, 149, 55, false);
+	genFill(80 , 49, 159, 55, false);
 	genFill(116, 40, 123, 48, false);
+
+	//Generating central lab
+	setBrush("brick.clay.white");
+	genFill(140, 44, 159, 55, false);
 
 	//Generating right hill
 	setBrush("dirt");
@@ -214,6 +221,11 @@ void fired::MapGenerator::genCityLandscape() {
 	genFill(0 , 27, 15, 27, true);
 	genFill(0 , 26, 10, 26, true);
 	genFill(0 , 25,  4, 25, true);
+
+	//Generating main lab
+	setBrush("brick.clay.white");
+	genFill(49, 78, 79, 84, false);
+	genFill(51, 85, 77, 85, false);
 }
 
 
@@ -261,7 +273,7 @@ void fired::MapGenerator::genCityPlatforms() {
 	for (int x = 62; x < 67; x++) addPlatform(x, 45, "bridge.metal");
 	for (int x = 62; x < 67; x++) addPlatform(x, 50, "bridge.metal");
 	for (int x = 62; x < 67; x++) addPlatform(x, 55, "bridge.metal");
-	for (int x = 62; x < 67; x++) addPlatform(x, 60, "bridge.metal");
+	for (int x = 62; x < 67; x++) addPlatform(x, 61, "bridge.metal");
 
 	for (int x = 4 ; x < 10; x++) addPlatform(x, 40, "bridge.metal");
 	for (int x = 4 ; x < 10; x++) addPlatform(x, 45, "bridge.metal");

@@ -146,6 +146,9 @@ void fired::MapGenerator::genCityLandscape() {
 
 	genFill(45, 84, 48, 84, true);
 	genFill(43, 85, 50, 85, true);
+
+	genFill(80, 84, 83, 84, true);
+	genFill(78, 85, 85, 85, true);
 	setBrush("brick.clay.silver");
 
 	//Generating downstairs
@@ -180,8 +183,18 @@ void fired::MapGenerator::genCityLandscape() {
 	for (int i = 0; i <  6; i++) genFill(174 + i, 50 + i, 181    , 50 + i, false);
 	for (int i = 1; i <= 7; i++) genFill(181 - i, 56 + i, 181    , 56 + i, false);
 
+	//Generating right upper enterance
 	genFill(174, 65, 181, 69, false);
 	genFill(166, 70, 196, 75, false);
+
+	//Generating left upper enterance
+	genFill(93, 70, 117, 75, false);
+
+	//Generating central tunnel
+	genFill(80 , 56, 83 , 77, false);
+	genFill(93 , 56, 97 , 69, false);
+	genFill(80 , 49, 149, 55, false);
+	genFill(116, 40, 123, 48, false);
 }
 
 

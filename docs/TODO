@@ -550,11 +550,19 @@
 				<todo done="yes" collapse="no"><title>Add windows icon</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Make equipment easy-to-understand</title></todo>
-			<todo done="no" collapse="no"><title>Add some weapons</title></todo>
-			<todo done="no" collapse="no"><title>Add some armors</title></todo>
-			<todo done="no" collapse="no"><title>Add some model types</title></todo>
-			<todo done="no" collapse="no"><title>Add some models</title></todo>
-			<todo done="no" collapse="no"><title>Add some creatures</title></todo>
+			<todo done="no" collapse="yes"><title>Add content</title>
+				<todo done="no" collapse="no"><title>Weapons</title></todo>
+				<todo done="no" collapse="no"><title>Armors</title></todo>
+				<todo done="no" collapse="no"><title>Model types</title></todo>
+				<todo done="no" collapse="no"><title>Models</title></todo>
+				<todo done="no" collapse="no"><title>Enemies</title></todo>
+			</todo>
+			<todo done="no" collapse="yes"><title>New music</title>
+				<todo done="no" collapse="no"><title>Start screen</title></todo>
+				<todo done="no" collapse="no"><title>Main menu</title></todo>
+				<todo done="no" collapse="no"><title>Credits</title></todo>
+				<todo done="no" collapse="no"><title>Game</title></todo>
+			</todo>
 			<todo done="no" collapse="no"><title>Code optimization</title></todo>
 		</todo>
 	</todo>

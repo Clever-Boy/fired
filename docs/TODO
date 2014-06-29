@@ -550,6 +550,15 @@
 				<todo done="yes" collapse="no"><title>Add windows icon</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Make equipment easy-to-understand</title></todo>
+			<todo done="no" collapse="yes"><title>Advanced sound system</title>
+				<todo done="no" collapse="no"><title>Sound source coordinates</title></todo>
+				<todo done="no" collapse="no"><title>Listener coordinates</title></todo>
+			</todo>
+			<todo done="no" collapse="yes"><title>Timers</title>
+				<todo done="no" collapse="no"><title>Timer class</title></todo>
+				<todo done="no" collapse="no"><title>Weapon cooldown is a timer class</title></todo>
+				<todo done="no" collapse="no"><title>Fixed weapon switch cooldown</title></todo>
+			</todo>
 			<todo done="no" collapse="yes"><title>Add content</title>
 				<todo done="no" collapse="no"><title>Weapons</title></todo>
 				<todo done="no" collapse="no"><title>Armors</title></todo>

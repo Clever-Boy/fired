@@ -13,5 +13,6 @@
 #include "misc/misc_mechanics.hpp"
 #include "misc/misc_vect.hpp"
 #include "misc/misc_phys.hpp"
+#include "misc/misc_timer.hpp"
 
 #endif

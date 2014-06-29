@@ -557,11 +557,11 @@
 				<todo done="no" collapse="no"><title>Models</title></todo>
 				<todo done="no" collapse="no"><title>Enemies</title></todo>
 			</todo>
-			<todo done="no" collapse="yes"><title>New music</title>
-				<todo done="no" collapse="no"><title>Start screen</title></todo>
-				<todo done="no" collapse="no"><title>Main menu</title></todo>
-				<todo done="no" collapse="no"><title>Credits</title></todo>
-				<todo done="no" collapse="no"><title>Game</title></todo>
+			<todo done="yes" collapse="yes"><title>New music</title>
+				<todo done="yes" collapse="no"><title>Start screen</title></todo>
+				<todo done="yes" collapse="no"><title>Main menu</title></todo>
+				<todo done="yes" collapse="no"><title>Credits</title></todo>
+				<todo done="yes" collapse="no"><title>Game</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Code optimization</title></todo>
 		</todo>

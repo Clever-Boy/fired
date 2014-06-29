@@ -549,10 +549,16 @@
 				<todo done="yes" collapse="no"><title>Try win32 static linkage</title></todo>
 				<todo done="yes" collapse="no"><title>Add windows icon</title></todo>
 			</todo>
-			<todo done="no" collapse="no"><title>Timers</title>
+			<todo done="yes" collapse="yes"><title>New music</title>
+				<todo done="yes" collapse="no"><title>Start screen</title></todo>
+				<todo done="yes" collapse="no"><title>Main menu</title></todo>
+				<todo done="yes" collapse="no"><title>Credits</title></todo>
+				<todo done="yes" collapse="no"><title>Game</title></todo>
+			</todo>
+			<todo done="yes" collapse="yes"><title>Timers</title>
 				<todo done="yes" collapse="no"><title>Timer class</title></todo>
-				<todo done="no" collapse="no"><title>Weapon cooldown is a timer class</title></todo>
-				<todo done="no" collapse="no"><title>Fixed weapon switch cooldown</title></todo>
+				<todo done="yes" collapse="no"><title>Weapon cooldown is a timer class</title></todo>
+				<todo done="yes" collapse="no"><title>Fixed weapon switch cooldown</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Make equipment easy-to-understand</title></todo>
 			<todo done="no" collapse="yes"><title>Advanced sound system</title>
@@ -565,12 +571,6 @@
 				<todo done="no" collapse="no"><title>Model types</title></todo>
 				<todo done="no" collapse="no"><title>Models</title></todo>
 				<todo done="no" collapse="no"><title>Enemies</title></todo>
-			</todo>
-			<todo done="yes" collapse="yes"><title>New music</title>
-				<todo done="yes" collapse="no"><title>Start screen</title></todo>
-				<todo done="yes" collapse="no"><title>Main menu</title></todo>
-				<todo done="yes" collapse="no"><title>Credits</title></todo>
-				<todo done="yes" collapse="no"><title>Game</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Code optimization</title></todo>
 		</todo>

@@ -47,22 +47,22 @@ namespace fired {
 		fired::BaseArmor *shoe;
 		fired::BaseArmor *fist;
 
+		fired::Timer weaponCooldown;
+		fired::Phys  phys;
+
 		bool  dead;
 		bool  isShooting;
 		bool  wasShot;
 		int   direction;
 		int   watching;
-		float aiming;
-		float weaponCooldown;
 		int   fraction;
+		float aiming;
 
 		long HP;
 		long XP;
 		long needXP;
 		long lastXP;
 		int  level;
-
-		fired::Phys phys;
 
 
 		 Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::World *_world, fired::BaseCreature *_base, const char *filename = NULL);

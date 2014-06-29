@@ -75,6 +75,7 @@
 #define ITEM_SPEED              100.0f
 #define TILE_SIZE               16.0f
 #define BROAD_ATTACK_TIME       0.25f
+#define WEAPON_SWITCH_COOLDOWN  0.5f
 
 
 

@@ -190,16 +190,14 @@ void fired::GUI::renderCooldown() {
 	app->draw(*bar);
 
 
-	if (owner->weaponCooldown > 0) percent = (float)(owner->weapon->cooldown - owner->weaponCooldown) / (float)owner->weapon->cooldown;
-	else                           percent = 1.0f;
-
+	percent = owner->weaponCooldown.getPercent();
 	bar->setSize(sf::Vector2f(200 * percent, 12));
 	bar->setFillColor(sf::Color(150, 60, 0, 255));
 	app->draw(*bar);
 
 
-	if (owner->weaponCooldown > 0) snprintf(outStr, sizeof(outStr), "%3.2f", owner->weaponCooldown);
-	else                           outStr[0] = 0;
+	if (owner->weaponCooldown.isActive()) snprintf(outStr, sizeof(outStr), "%3.2f", owner->weaponCooldown.value);
+	else                                  outStr[0] = 0;
 
 	*str = std::string(outStr);
 	txt->setString(*str);

@@ -81,7 +81,6 @@ void fired::Character::respawn(sf::Vector2f pos) {
 	phys.calculate();
 
 	HP             = stats.maxHP;
-	weaponCooldown = 0;
 	dead           = false;
 	isShooting     = false;
 	direction      = 1;
@@ -102,9 +101,8 @@ void fired::Character::update() {
 	move();
 
 	model->update();
+	weaponCooldown.process();
 	if (world->isRectVisible(phys.rect)) model->render();
-
-	weaponCooldown -= frameClock;
 
 	phys.isMoving = false;
 	isShooting    = false;
@@ -421,7 +419,7 @@ void fired::Character::interact() {
 
 ***********************************************************************/
 void fired::Character::swapWeapons() {
-	if (weaponCooldown > 0) return;
+	if (weaponCooldown.isActive()) return;
 	swapItems(&inventory->primaryWeapon, &inventory->secondaryWeapon);
 	swapItems(&inventory->primaryAmmo  , &inventory->secondaryAmmo);
 
@@ -431,7 +429,7 @@ void fired::Character::swapWeapons() {
 	if (inventory->primaryAmmo.base) ammo = container->ammos[inventory->primaryAmmo.base->UID];
 	else                             ammo = base->ammo;
 
-	weaponCooldown = weapon->cooldown;
+	weaponCooldown.setTimer(WEAPON_SWITCH_COOLDOWN);
 }
 
 
@@ -513,19 +511,18 @@ void fired::Character::updateStats() {
 
 ***********************************************************************/
 void fired::Character::shot() {
-	if (weaponCooldown > 0) {
+	if (weaponCooldown.isActive()) {
 		if (weapon->type == WEAPON_TYPE_RANGED) isShooting = true;
 		return;
 	}
 
 	isShooting = true;
 
-	if (weaponCooldown > 0) return;
 	if (!weapon->automatic && wasShot) return;
 	if (weapon->type == WEAPON_TYPE_RANGED && (!ammo || ammo->subtype != weapon->subtype))
 		if (!findAmmo()) return;
 
-	weaponCooldown = weapon->cooldown;
+	weaponCooldown.setTimer(weapon->cooldown);
 	wasShot = true;
 
 	if (weapon->shotSound) weapon->shotSound->play();

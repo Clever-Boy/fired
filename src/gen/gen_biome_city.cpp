@@ -281,6 +281,11 @@ void fired::MapGenerator::genCityDecors() {
 
 	addLightSource(2256, 720, "wall.lamp");
 	addLightSource(2528, 720, "wall.lamp");
+
+	addLightSource(480 , 544, "lamp.post");
+	addLightSource(1824, 544, "lamp.post");
+	addLightSource(2000, 544, "lamp.post");
+	addLightSource(2928, 544, "lamp.post");
 }
 
 

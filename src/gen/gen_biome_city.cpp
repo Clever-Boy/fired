@@ -167,6 +167,19 @@ void fired::MapGenerator::genCityLandscape() {
 	setBrush("plank");
 	genFill(118, 66, 165, 92, false);
 
+	setBrush("plate");
+	for (int i = 0; i < 5; i++)
+		genFill(132 + i, 92 - i, 152 - i, 92 - i, true);
+
+	for (int i = 0; i < 7; i++) {
+		genFill(118    , 76 + i, 118 + i, 76 + i, true);
+		genFill(165 - i, 76 + i, 165    , 76 + i, true);
+	}
+
+	genFill(114, 82, 117, 88, true);
+	setBrush("brick.clay.silver");
+	genFill(102, 83, 113, 88, false);
+
 	//Generating windows
 	setEraser();
 	genFill(121, 69, 132, 74, false);
@@ -323,6 +336,8 @@ void fired::MapGenerator::genCityPlatforms() {
 	for (int x = 174; x < 180; x++) addPlatform(x, 44, "bridge.metal");
 	for (int x = 174; x < 181; x++) addPlatform(x, 48, "bridge.metal");
 	for (int x = 174; x < 181; x++) addPlatform(x, 70, "bridge.metal");
+
+	for (int x = 118; x < 166; x++) addPlatform(x, 83, "bridge.metal");
 }
 
 

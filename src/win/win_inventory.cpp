@@ -22,6 +22,7 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner, fired::World *
 	inHand = new fired::InventoryWindowItem(sf::Vector2f(0.0f, 0.0f), new fired::InventoryItem, itAny);
 
 	sf::Vector2f winOffset = win->offset;
+	win->text->setCharacterSize(12);
 
 	moneyText = new sf::Text();
 	moneyText->setFont(*resources->fonts.game);
@@ -41,8 +42,8 @@ fired::InventoryWindow::InventoryWindow(fired::Character *_owner, fired::World *
 	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(120.0f,  50.0f), &owner->inventory->legs, itArmor, acLegs));
 	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(120.0f, 125.0f), &owner->inventory->shoe, itArmor, acShoe));
 
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(280.0f, 10.0f), &owner->inventory->primaryWeapon, itWeapon));
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(280.0f, 50.0f), &owner->inventory->secondaryWeapon, itWeapon));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(275.0f, 10.0f), &owner->inventory->primaryWeapon, itWeapon));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(275.0f, 50.0f), &owner->inventory->secondaryWeapon, itWeapon));
 
 	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(325.0f, 10.0f), &owner->inventory->primaryAmmo, itAmmo));
 	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(325.0f, 50.0f), &owner->inventory->secondaryAmmo, itAmmo));
@@ -114,6 +115,21 @@ void fired::InventoryWindow::render() {
 	if (trashCan->item->base == NULL) trashCan->render(resources->win.trashSpr , countText);
 	else if (trashCan->hover)         trashCan->render(resources->win.hoverSpr , countText);
 	else                              trashCan->render(resources->win.normalSpr, countText);
+
+
+	win->renderText( 92.0f,  45.0f, "Helm" , taCenter);
+	win->renderText( 92.0f, 125.0f, "Torso", taCenter);
+	win->renderText( 47.0f,  85.0f, "Arms" , taCenter);
+	win->renderText( 47.0f, 165.0f, "Fist" , taCenter);
+	win->renderText(137.0f,  85.0f, "Legs" , taCenter);
+	win->renderText(137.0f, 165.0f, "Shoes", taCenter);
+	win->renderText(342.0f, 165.0f, "Trash", taCenter);
+
+	win->renderText(263.0f,  22.0f, "Primary"  , taRight);
+	win->renderText(263.0f,  62.0f, "Secondary", taRight);
+
+	win->renderText(292.0f,  85.0f, "Weapon", taCenter);
+	win->renderText(342.0f,  85.0f, "Ammo"  , taCenter);
 
 
 	resources->sprites.coin->setPosition(win->offset + sf::Vector2f(20.0f, 370.0f));

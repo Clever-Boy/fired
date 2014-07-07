@@ -19,11 +19,7 @@ fired::HintWindow::HintWindow(fired::World *_world) {
 	win   = new fired::Window(sf::Vector2f(150, 50));
 	world = _world;
 
-	text = new sf::Text();
-	text->setFont(*resources->fonts.game);
-	text->setCharacterSize(12);
-	text->setPosition(win->offset + sf::Vector2f(30.0f, 360.0f));
-	text->setColor(sf::Color::White);
+	win->text->setCharacterSize(12);
 }
 
 
@@ -35,7 +31,6 @@ fired::HintWindow::HintWindow(fired::World *_world) {
 ***********************************************************************/
 fired::HintWindow::~HintWindow() {
 	delete win;
-	delete text;
 }
 
 
@@ -47,25 +42,6 @@ fired::HintWindow::~HintWindow() {
 ***********************************************************************/
 void fired::HintWindow::update(fired::BaseItem *_item) {
 	render(_item);
-}
-
-
-
-/***********************************************************************
-     * HintWindow
-     * renderText
-
-***********************************************************************/
-void fired::HintWindow::renderText(float x, float y, const char *caption, bool rightAligned) {
-	if (rightAligned) {
-		text->setString(sf::String(caption));
-		text->setPosition(win->offset + sf::Vector2f(x - text->getGlobalBounds().width, y));
-		app->draw(*text);
-	} else {
-		text->setString(sf::String(caption));
-		text->setPosition(win->offset + sf::Vector2f(x, y));
-		app->draw(*text);
-	}
 }
 
 
@@ -84,7 +60,7 @@ void fired::HintWindow::render(fired::BaseItem *item) {
 		win->setSize(sf::Vector2f(200, 40));
 		win->render();
 
-		renderText(5, 5, "Misc", false);
+		win->renderText(5, 5, "Misc", taLeft);
 	} else if (item->type == itWeapon) {
 		fired::BaseWeapon *base = container->weapons[item->UID];
 
@@ -92,49 +68,49 @@ void fired::HintWindow::render(fired::BaseItem *item) {
 		else                                  win->setSize(sf::Vector2f(200, 115));
 		win->render();
 
-		renderText(5, 5, base->caption, false);
-		renderText(5, 20, "Weapon class:", false);
-		renderText(5, 35, "Weapon subclass:", false);
+		win->renderText(5, 5, base->caption, taLeft);
+		win->renderText(5, 20, "Weapon class:", taLeft);
+		win->renderText(5, 35, "Weapon subclass:", taLeft);
 
 		switch (base->type) {
-			case WEAPON_TYPE_RANGED: renderText(195, 20, "ranged", true); break;
-			case WEAPON_TYPE_MELEE : renderText(195, 20, "melee", true); break;
-			case WEAPON_TYPE_BROAD : renderText(195, 20, "broad", true); break;
+			case WEAPON_TYPE_RANGED: win->renderText(195, 20, "ranged", taRight); break;
+			case WEAPON_TYPE_MELEE : win->renderText(195, 20, "melee", taRight); break;
+			case WEAPON_TYPE_BROAD : win->renderText(195, 20, "broad", taRight); break;
 		}
 
 		switch (base->subtype) {
-			case WEAPON_SUBTYPE_MELEE     : renderText(195, 35, "melee"    , true); break;
-			case WEAPON_SUBTYPE_BROAD     : renderText(195, 35, "broad"    , true); break;
-			case WEAPON_SUBTYPE_PISTOL    : renderText(195, 35, "pistol"   , true); break;
-			case WEAPON_SUBTYPE_SHOTGUN   : renderText(195, 35, "shotgun"  , true); break;
-			case WEAPON_SUBTYPE_RIFLE     : renderText(195, 35, "rifle"    , true); break;
-			case WEAPON_SUBTYPE_ENERGY    : renderText(195, 35, "energy"   , true); break;
-			case WEAPON_SUBTYPE_EXPLOSIVE : renderText(195, 35, "explosive", true); break;
+			case WEAPON_SUBTYPE_MELEE     : win->renderText(195, 35, "melee"    , taRight); break;
+			case WEAPON_SUBTYPE_BROAD     : win->renderText(195, 35, "broad"    , taRight); break;
+			case WEAPON_SUBTYPE_PISTOL    : win->renderText(195, 35, "pistol"   , taRight); break;
+			case WEAPON_SUBTYPE_SHOTGUN   : win->renderText(195, 35, "shotgun"  , taRight); break;
+			case WEAPON_SUBTYPE_RIFLE     : win->renderText(195, 35, "rifle"    , taRight); break;
+			case WEAPON_SUBTYPE_ENERGY    : win->renderText(195, 35, "energy"   , taRight); break;
+			case WEAPON_SUBTYPE_EXPLOSIVE : win->renderText(195, 35, "explosive", taRight); break;
 		}
 
-		if (base->automatic) renderText(5, 50, "Automatic", false);
-		else                 renderText(5, 50, "Non-automatic", false);
+		if (base->automatic) win->renderText(5, 50, "Automatic", taLeft);
+		else                 win->renderText(5, 50, "Non-automatic", taLeft);
 
-		renderText(5, 65, "Damage", false);
 		snprintf(str, sizeof(str), "%d", base->damage);
-		renderText(195, 65, str, true);
+		win->renderText(5, 65, "Damage", taLeft);
+		win->renderText(195, 65, str, taRight);
 
-		renderText(5, 80, "Knockback", false);
 		snprintf(str, sizeof(str), "%3.2f", base->knockback);
-		renderText(195, 80, str, true);
+		win->renderText(5, 80, "Knockback", taLeft);
+		win->renderText(195, 80, str, taRight);
 
-		renderText(5, 95, "Range", false);
 		snprintf(str, sizeof(str), "%3.2f", base->range);
-		renderText(195, 95, str, true);
+		win->renderText(5, 95, "Range", taLeft);
+		win->renderText(195, 95, str, taRight);
 
-		renderText(5, 110, "Cooldown", false);
 		snprintf(str, sizeof(str), "%3.2f", base->cooldown);
-		renderText(195, 110, str, true);
+		win->renderText(5, 110, "Cooldown", taLeft);
+		win->renderText(195, 110, str, taRight);
 
 		if (base->type == WEAPON_TYPE_RANGED) {
-			renderText(5, 125, "Speed", false);
 			snprintf(str, sizeof(str), "%3.2f", base->speed);
-			renderText(195, 125, str, true);
+			win->renderText(5, 125, "Speed", taLeft);
+			win->renderText(195, 125, str, taRight);
 		}
 	} else if (item->type == itArmor) {
 		fired::BaseArmor *base = container->armors[item->UID];
@@ -142,22 +118,22 @@ void fired::HintWindow::render(fired::BaseItem *item) {
 		win->setSize(sf::Vector2f(200, 55));
 		win->render();
 
-		renderText(5, 5, base->caption, false);
-		renderText(5, 20, "Armor class:", false);
+		win->renderText(5, 5, base->caption, taLeft);
+		win->renderText(5, 20, "Armor class:", taLeft);
 
 		switch (base->type) {
-			case acHelm: renderText(195, 20, "helm" , true); break;
-			case acFist: renderText(195, 20, "fist" , true); break;
-			case acBody: renderText(195, 20, "torso", true); break;
-			case acLegs: renderText(195, 20, "legs" , true); break;
-			case acShoe: renderText(195, 20, "shoes", true); break;
-			case acArms: renderText(195, 20, "arms" , true); break;
+			case acHelm: win->renderText(195, 20, "helm" , taRight); break;
+			case acFist: win->renderText(195, 20, "fist" , taRight); break;
+			case acBody: win->renderText(195, 20, "torso", taRight); break;
+			case acLegs: win->renderText(195, 20, "legs" , taRight); break;
+			case acShoe: win->renderText(195, 20, "shoes", taRight); break;
+			case acArms: win->renderText(195, 20, "arms" , taRight); break;
 			case acNull: break;
 		}
 
-		renderText(5, 35, "Armor:", false);
 		snprintf(str, sizeof(str), "%d", base->armor);
-		renderText(195, 35, str, true);
+		win->renderText(5, 35, "Armor:", taLeft);
+		win->renderText(195, 35, str, taRight);
 	} else if (item->type == itAmmo) {
 		fired::BaseAmmo *base = container->ammos[item->UID];
 
@@ -165,27 +141,27 @@ void fired::HintWindow::render(fired::BaseItem *item) {
 		else                 win->setSize(sf::Vector2f(200, 55));
 		win->render();
 
-		renderText(5, 5, base->caption, false);
-		renderText(5, 20, "Ammo class:", false);
+		win->renderText(5, 5, base->caption, taLeft);
+		win->renderText(5, 20, "Ammo class:", taLeft);
 
 		switch (base->subtype) {
-			case WEAPON_SUBTYPE_MELEE     : renderText(195, 20, "melee"    , true); break;
-			case WEAPON_SUBTYPE_BROAD     : renderText(195, 20, "broad"    , true); break;
-			case WEAPON_SUBTYPE_PISTOL    : renderText(195, 20, "pistol"   , true); break;
-			case WEAPON_SUBTYPE_SHOTGUN   : renderText(195, 20, "shotgun"  , true); break;
-			case WEAPON_SUBTYPE_RIFLE     : renderText(195, 20, "rifle"    , true); break;
-			case WEAPON_SUBTYPE_ENERGY    : renderText(195, 20, "energy"   , true); break;
-			case WEAPON_SUBTYPE_EXPLOSIVE : renderText(195, 20, "explosive", true); break;
+			case WEAPON_SUBTYPE_MELEE     : win->renderText(195, 20, "melee"    , taRight); break;
+			case WEAPON_SUBTYPE_BROAD     : win->renderText(195, 20, "broad"    , taRight); break;
+			case WEAPON_SUBTYPE_PISTOL    : win->renderText(195, 20, "pistol"   , taRight); break;
+			case WEAPON_SUBTYPE_SHOTGUN   : win->renderText(195, 20, "shotgun"  , taRight); break;
+			case WEAPON_SUBTYPE_RIFLE     : win->renderText(195, 20, "rifle"    , taRight); break;
+			case WEAPON_SUBTYPE_ENERGY    : win->renderText(195, 20, "energy"   , taRight); break;
+			case WEAPON_SUBTYPE_EXPLOSIVE : win->renderText(195, 20, "explosive", taRight); break;
 		}
 
-		renderText(5, 35, "Damage", false);
 		snprintf(str, sizeof(str), "%d", base->damage);
-		renderText(195, 35, str, true);
+		win->renderText(5, 35, "Damage", taLeft);
+		win->renderText(195, 35, str, taRight);
 
 		if (base->explosive) {
-			renderText(5, 50, "Explosion radius", false);
 			snprintf(str, sizeof(str), "%3.2f", base->explosionRadius);
-			renderText(195, 50, str, true);
+			win->renderText(5, 50, "Explosion radius", taLeft);
+			win->renderText(195, 50, str, taRight);
 		}
 	}
 }

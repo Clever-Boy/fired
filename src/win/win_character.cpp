@@ -19,10 +19,7 @@ fired::CharacterWindow::CharacterWindow(fired::Character *_owner) {
 	owner  = _owner;
 	win    = new fired::Window(sf::Vector2f(300, 410));
 
-	text = new sf::Text();
-	text->setFont(*resources->fonts.game);
-	text->setCharacterSize(16);
-	text->setColor(sf::Color::White);
+	win->text->setCharacterSize(16);
 }
 
 
@@ -34,7 +31,6 @@ fired::CharacterWindow::CharacterWindow(fired::Character *_owner) {
 ***********************************************************************/
 fired::CharacterWindow::~CharacterWindow() {
 	delete win;
-	delete text;
 }
 
 
@@ -46,27 +42,6 @@ fired::CharacterWindow::~CharacterWindow() {
 ***********************************************************************/
 void fired::CharacterWindow::update() {
 	render();
-}
-
-
-
-/***********************************************************************
-     * CharacterWindow
-     * renderText
-
-***********************************************************************/
-void fired::CharacterWindow::renderText(float x, float y, const char *caption, bool rightAligned, sf::Color color = sf::Color::White) {
-	text->setColor(color);
-
-	if (rightAligned) {
-		text->setString(sf::String(caption));
-		text->setPosition(win->offset + sf::Vector2f(x - text->getGlobalBounds().width, y));
-		app->draw(*text);
-	} else {
-		text->setString(sf::String(caption));
-		text->setPosition(win->offset + sf::Vector2f(x, y));
-		app->draw(*text);
-	}
 }
 
 
@@ -95,20 +70,20 @@ void fired::CharacterWindow::renderMain() {
 	char str[128];
 
 	snprintf(str, sizeof(str), "%d", owner->level);
-	renderText( 10, 10, "Level", false);
-	renderText(290, 10, str    , true);
+	win->renderText( 10, 10, "Level", taLeft);
+	win->renderText(290, 10, str    , taRight);
 
 	snprintf(str, sizeof(str), "%ld / %d", owner->HP, owner->stats.maxHP);
-	renderText( 10, 30, "HP", false);
-	renderText(290, 30, str , true);
+	win->renderText( 10, 30, "HP", taLeft);
+	win->renderText(290, 30, str , taRight);
 
 	snprintf(str, sizeof(str), "%ld", owner->XP);
-	renderText( 10, 50, "XP", false);
-	renderText(290, 50, str , true);
+	win->renderText( 10, 50, "XP", taLeft);
+	win->renderText(290, 50, str , taRight);
 
 	snprintf(str, sizeof(str), "%ld", owner->needXP);
-	renderText( 10, 70, "Next level", false);
-	renderText(290, 70, str         , true);
+	win->renderText( 10, 70, "Next level", taLeft);
+	win->renderText(290, 70, str         , taRight);
 }
 
 
@@ -127,36 +102,36 @@ void fired::CharacterWindow::renderSkills() {
 
 
 	snprintf(str, sizeof(str), "%d", owner->attr.strength);
-	renderText(10    , 110, "Strength", false);
-	renderText(offset, 110, str       , true);
+	win->renderText(10    , 110, "Strength", taLeft);
+	win->renderText(offset, 110, str       , taRight);
 
 	snprintf(str, sizeof(str), "%d", owner->attr.dexterity);
-	renderText(10    , 130, "Dexterity", false);
-	renderText(offset, 130, str        , true);
+	win->renderText(10    , 130, "Dexterity", taLeft);
+	win->renderText(offset, 130, str        , taRight);
 
 	snprintf(str, sizeof(str), "%d", owner->attr.constitution);
-	renderText(10   , 150, "Constitution", false);
-	renderText(offset, 150, str          , true);
+	win->renderText(10   , 150, "Constitution", taLeft);
+	win->renderText(offset, 150, str          , taRight);
 
 	snprintf(str, sizeof(str), "%d", owner->attr.intelligence);
-	renderText(10    , 170, "Intelligence", false);
-	renderText(offset, 170, str           , true);
+	win->renderText(10    , 170, "Intelligence", taLeft);
+	win->renderText(offset, 170, str           , taRight);
 
 
 
 	snprintf(str, sizeof(str), "%d", owner->attr.points);
-	renderText( 10, 200, "Skill points", false);
-	renderText(290, 200, str           , true);
+	win->renderText( 10, 200, "Skill points", taLeft);
+	win->renderText(290, 200, str           , taRight);
 
 
 
 	if (flag) {
 		snprintf(str, sizeof(str), "+");
 
-		renderText(290, 110, str, true, sf::Color(44, 88, 22));
-		renderText(290, 130, str, true, sf::Color(44, 88, 22));
-		renderText(290, 150, str, true, sf::Color(44, 88, 22));
-		renderText(290, 170, str, true, sf::Color(44, 88, 22));
+		win->renderText(290, 110, str, taRight, sf::Color(44, 88, 22));
+		win->renderText(290, 130, str, taRight, sf::Color(44, 88, 22));
+		win->renderText(290, 150, str, taRight, sf::Color(44, 88, 22));
+		win->renderText(290, 170, str, taRight, sf::Color(44, 88, 22));
 	}
 }
 
@@ -171,36 +146,36 @@ void fired::CharacterWindow::renderStats() {
 	char str[128];
 
 	snprintf(str, sizeof(str), "%d", owner->stats.armor);
-	renderText( 10, 240, "Armor", false);
-	renderText(290, 240, str    , true);
+	win->renderText( 10, 240, "Armor", taLeft);
+	win->renderText(290, 240, str    , taRight);
 
 	snprintf(str, sizeof(str), "%d", owner->getDamage());
-	renderText( 10, 260, "Damage", false);
-	renderText(290, 260, str    , true);
+	win->renderText( 10, 260, "Damage", taLeft);
+	win->renderText(290, 260, str    , taRight);
 
 	snprintf(str, sizeof(str), "%3.2f", owner->stats.speed);
-	renderText( 10, 280, "Speed", false);
-	renderText(290, 280, str    , true);
+	win->renderText( 10, 280, "Speed", taLeft);
+	win->renderText(290, 280, str    , taRight);
 
 	snprintf(str, sizeof(str), "%3.2f", owner->stats.accel);
-	renderText( 10, 300, "Acceleration", false);
-	renderText(290, 300, str    , true);
+	win->renderText( 10, 300, "Acceleration", taLeft);
+	win->renderText(290, 300, str    , taRight);
 
 	snprintf(str, sizeof(str), "%3.2f", owner->stats.aimrange);
-	renderText( 10, 320, "Aim range", false);
-	renderText(290, 320, str    , true);
+	win->renderText( 10, 320, "Aim range", taLeft);
+	win->renderText(290, 320, str    , taRight);
 
 	snprintf(str, sizeof(str), "%3.2f", owner->stats.accuracy);
-	renderText( 10, 340, "Accuracy", false);
-	renderText(290, 340, str    , true);
+	win->renderText( 10, 340, "Accuracy", taLeft);
+	win->renderText(290, 340, str    , taRight);
 
 	snprintf(str, sizeof(str), "%3.2f", owner->stats.jump);
-	renderText( 10, 360, "Jump", false);
-	renderText(290, 360, str    , true);
+	win->renderText( 10, 360, "Jump", taLeft);
+	win->renderText(290, 360, str    , taRight);
 
 	snprintf(str, sizeof(str), "%3.2f", owner->stats.xpfactor);
-	renderText( 10, 380, "XP bonus", false);
-	renderText(290, 380, str    , true);
+	win->renderText( 10, 380, "XP bonus", taLeft);
+	win->renderText(290, 380, str    , taRight);
 }
 
 

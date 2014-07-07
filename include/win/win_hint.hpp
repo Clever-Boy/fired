@@ -17,7 +17,6 @@ namespace fired {
 	struct HintWindow {
 		fired::Window *win;
 		fired::World  *world;
-		sf::Text      *text;
 
 
 		 HintWindow(fired::World *_world);
@@ -25,7 +24,6 @@ namespace fired {
 
 		void update(fired::BaseItem *_item);
 		void render(fired::BaseItem *_item);
-		void renderText(float x, float y, const char *caption, bool rightAligned);
 	};
 }
 

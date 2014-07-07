@@ -25,6 +25,10 @@ fired::Window::Window(sf::Vector2f _size) {
 	window->setFillColor(sf::Color(0, 0, 0, 200));
 	window->setOutlineThickness(2);
 	window->setOutlineColor(sf::Color(44, 88, 22));
+
+	text = new sf::Text();
+	text->setFont(*resources->fonts.game);
+	text->setColor(sf::Color::White);
 }
 
 
@@ -36,6 +40,7 @@ fired::Window::Window(sf::Vector2f _size) {
 ***********************************************************************/
 fired::Window::~Window() {
 	delete window;
+	delete text;
 }
 
 
@@ -57,6 +62,34 @@ void fired::Window::render() {
 }
 
 
+
+/***********************************************************************
+     * Window
+     * render
+
+***********************************************************************/
+void fired::Window::renderText(float x, float y, const char *caption, fired::TextAlignment alignment, sf::Color color) {
+	text->setColor(color);
+	text->setString(sf::String(caption));
+
+	sf::Vector2f textPosition = sf::Vector2f(x, y) + offset;
+
+	switch (alignment) {
+		case taLeft:
+			break;
+
+		case taRight:
+			textPosition.x -= text->getGlobalBounds().width;
+			break;
+
+		case taCenter:
+			textPosition.x -= text->getGlobalBounds().width / 2;
+			break;
+	}
+
+	text->setPosition(textPosition);
+	app->draw(*text);
+}
 
 /***********************************************************************
      * Window

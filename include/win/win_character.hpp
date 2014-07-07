@@ -18,8 +18,6 @@ namespace fired {
 		fired::Window              *win;
 		fired::Character           *owner;
 
-		sf::Text *text;
-
 
 		 CharacterWindow(fired::Character *_owner);
 		~CharacterWindow();
@@ -29,7 +27,6 @@ namespace fired {
 		void renderMain();
 		void renderSkills();
 		void renderStats();
-		void renderText(float x, float y, const char *caption, bool rightAligned, sf::Color color);
 		void click(sf::Vector2f mousePos);
 	};
 }

@@ -34,20 +34,20 @@ fired::ExchangeWindow::ExchangeWindow(fired::Character *_owner, fired::World *wo
 	countText->setCharacterSize(12);
 	countText->setColor(sf::Color::White);
 
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(175.0f,  10.0f), &owner->inventory->helm, itArmor, acHelm));
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(175.0f,  65.0f), &owner->inventory->body, itArmor, acBody));
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(130.0f,  22.0f), &owner->inventory->arms, itArmor, acArms));
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(130.0f,  85.0f), &owner->inventory->fist, itArmor, acFist));
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(220.0f,  25.0f), &owner->inventory->legs, itArmor, acLegs));
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(220.0f,  85.0f), &owner->inventory->shoe, itArmor, acShoe));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f( 75.0f,  10.0f), &owner->inventory->helm, itArmor, acHelm));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f( 75.0f,  90.0f), &owner->inventory->body, itArmor, acBody));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f( 30.0f,  50.0f), &owner->inventory->arms, itArmor, acArms));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f( 30.0f, 125.0f), &owner->inventory->fist, itArmor, acFist));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(120.0f,  50.0f), &owner->inventory->legs, itArmor, acLegs));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(120.0f, 125.0f), &owner->inventory->shoe, itArmor, acShoe));
 
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(155.0f, 130.0f), &owner->inventory->primaryWeapon, itWeapon));
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(195.0f, 130.0f), &owner->inventory->secondaryWeapon, itWeapon));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(280.0f, 10.0f), &owner->inventory->primaryWeapon, itWeapon));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(280.0f, 50.0f), &owner->inventory->secondaryWeapon, itWeapon));
 
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(120.0f, 130.0f), &owner->inventory->primaryAmmo, itAmmo));
-	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(230.0f, 130.0f), &owner->inventory->secondaryAmmo, itAmmo));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(325.0f, 10.0f), &owner->inventory->primaryAmmo, itAmmo));
+	items.push_back(new fired::InventoryWindowItem(winOffset + sf::Vector2f(325.0f, 50.0f), &owner->inventory->secondaryAmmo, itAmmo));
 
-	trashCan = new fired::InventoryWindowItem(winOffset + sf::Vector2f(325.0f, 130.0f), &owner->inventory->trash, itAny);
+	trashCan = new fired::InventoryWindowItem(winOffset + sf::Vector2f(325.0f, 125.0f), &owner->inventory->trash, itAny);
 
 	for (int i = 0; i < 10; i++)
 		for (int j = 0; j < 5; j++)

@@ -542,7 +542,7 @@
 			<todo done="no" collapse="no"><title>Chests</title></todo>
 			<todo done="no" collapse="no"><title>Enemy spawns</title></todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Release</title>
+		<todo done="no" collapse="no"><title>Release</title>
 			<todo done="yes" collapse="no"><title>Spawn enemies at spawn areas</title></todo>
 			<todo done="yes" collapse="no"><title>Select nearest non-visible area to spawn</title></todo>
 			<todo done="yes" collapse="no"><title>Spawn rate</title></todo>
@@ -572,7 +572,7 @@
 			<todo done="no" collapse="no"><title>Use tiles in addLightSource and addDecor instead of pixels</title></todo>
 			<todo done="no" collapse="no"><title>Make Background not to light up by light sources</title></todo>
 			<todo done="no" collapse="no"><title>Make equipment easy-to-understand</title>
-				<todo done="no" collapse="no"><title>Move icons (weapon to the right)</title></todo>
+				<todo done="yes" collapse="no"><title>Move icons (weapon to the right)</title></todo>
 				<todo done="no" collapse="no"><title>Add labels</title></todo>
 			</todo>
 			<todo done="no" collapse="yes"><title>Advanced sound system</title>

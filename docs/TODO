@@ -542,7 +542,7 @@
 			<todo done="no" collapse="no"><title>Chests</title></todo>
 			<todo done="no" collapse="no"><title>Enemy spawns</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Release</title>
+		<todo done="no" collapse="yes"><title>Release</title>
 			<todo done="yes" collapse="no"><title>Spawn enemies at spawn areas</title></todo>
 			<todo done="yes" collapse="no"><title>Select nearest non-visible area to spawn</title></todo>
 			<todo done="yes" collapse="no"><title>Spawn rate</title></todo>

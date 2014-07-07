@@ -295,6 +295,10 @@ void fired::MapGenerator::genCityDecors() {
 	addLightSource(134, 66, "lantern");
 	addLightSource(149, 66, "lantern");
 	addLightSource(164, 66, "lantern");
+
+	addLightSource(184, 86, "wall.lamp.dim");
+	addLightSource(195, 71, "wall.lamp");
+	addLightSource(196, 55, "wall.lamp");
 }
 
 

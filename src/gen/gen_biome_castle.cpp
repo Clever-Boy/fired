@@ -121,20 +121,20 @@ void fired::MapGenerator::genCastleLandscape(int areaStart, int areaEnd, int hor
 
 ***********************************************************************/
 void fired::MapGenerator::genCastleDecors() {
-	addDecor(1900, 608, "box");
-	addDecor(1932, 608, "box");
-	addDecor(1916, 576, "box");
+	addDecor(119, 38, "box");
+	addDecor(121, 38, "box");
+	addDecor(120, 36, "box");
 
-	addDecor(2288, 608, "barrel");
-	addDecor(2368, 608, "barrel");
-	addDecor(2400, 608, "barrel");
+	addDecor(143, 38, "barrel");
+	addDecor(148, 38, "barrel");
+	addDecor(150, 38, "barrel");
 
-	addLightSource(2272, 528, "wall.lamp.red");
-	addLightSource(2512, 528, "wall.lamp.blue");
+	addLightSource(142, 33, "wall.lamp.red");
+	addLightSource(157, 33, "wall.lamp.blue");
 
-	addLightSource(688, 992, "wall.lamp");
-	addLightSource(1360, 992, "wall.lamp");
-	addLightSource(1024, 912, "wall.lamp");
+	addLightSource(43 , 62, "wall.lamp");
+	addLightSource(85 , 62, "wall.lamp");
+	addLightSource(64 , 57, "wall.lamp");
 }
 
 
@@ -161,8 +161,8 @@ void fired::MapGenerator::genCastlePlatforms() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCastleCollectors() {
-	addCollector(704 , 528, "chest");
-	addCollector(1344, 528, "chest");
+	addCollector(44, 33, "chest");
+	addCollector(84, 33, "chest");
 }
 
 

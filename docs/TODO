@@ -518,7 +518,7 @@
 			<todo done="yes" collapse="no"><title>Change Armor icons</title></todo>
 			<todo done="yes" collapse="no"><title>Fix bug with bumpy tiles</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Test biome (City)</title>
+		<todo done="no" collapse="yes"><title>Test biome (City)</title>
 			<todo done="yes" collapse="no"><title>Background</title></todo>
 			<todo done="yes" collapse="no"><title>Lightning</title></todo>
 			<todo done="yes" collapse="no"><title>Weather</title></todo>
@@ -569,7 +569,7 @@
 				<todo done="yes" collapse="no"><title>Weapon cooldown is a timer class</title></todo>
 				<todo done="yes" collapse="no"><title>Fixed weapon switch cooldown</title></todo>
 			</todo>
-			<todo done="no" collapse="no"><title>Use tiles in addLightSource and addDecor instead of pixels</title></todo>
+			<todo done="yes" collapse="no"><title>Use tiles in addLightSource and addDecor instead of pixels</title></todo>
 			<todo done="no" collapse="no"><title>Make Background not to light up by light sources</title></todo>
 			<todo done="no" collapse="no"><title>Make equipment easy-to-understand</title>
 				<todo done="yes" collapse="no"><title>Move icons (weapon to the right)</title></todo>

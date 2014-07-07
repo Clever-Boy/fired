@@ -228,7 +228,7 @@ void fired::MapGenerator::genMineTunnel(mineTunnel *tun) {
 
 			if (tun->tunRect.left + tun->tunRect.width - x - 1 > mine.lanternDiff / 8) {
 				tun->usedUp.push_back(x);
-				addLightSource(x * TILE_SIZE, hi * TILE_SIZE, "lantern");
+				addLightSource(x, hi, "lantern");
 			}
 		}
 

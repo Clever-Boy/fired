@@ -15,9 +15,9 @@ void genBar(int x, int startHeight, int endHeight, bool isWall);
 void genFill(int x1, int y1, int x2, int y2, bool isWall);
 void genFillRect(sf::IntRect rect, bool isWall);
 
-void addDecor(float x, float y, const char *name);
-void addCollector(float x, float y, const char *name);
-void addLightSource(float x, float y, const char *name);
+void addDecor(int x, int y, const char *name);
+void addCollector(int x, int y, const char *name);
+void addLightSource(int x, int y, const char *name);
 void addPlatform(int x, int y, const char *name);
 
 void addTileToPalette(const char *name);

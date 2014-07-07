@@ -253,47 +253,48 @@ void fired::MapGenerator::genCityLandscape() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCityDecors() {
-	addDecor(1740, 608, "box");
-	addDecor(1772, 608, "box");
-	addDecor(1756, 576, "box");
+	addDecor(119, 38, "box");
+	addDecor(121, 38, "box");
+	addDecor(120, 36, "box");
 
-	addDecor(2288, 608, "barrel");
-	addDecor(2368, 608, "barrel");
-	addDecor(2400, 608, "barrel");
+	addDecor(143, 38, "barrel");
+	addDecor(148, 38, "barrel");
+	addDecor(150, 38, "barrel");
 
-	addLightSource(2272, 528, "wall.lamp.red");
-	addLightSource(2512, 528, "wall.lamp.blue");
+	addLightSource(142, 33, "wall.lamp.red");
+	addLightSource(157, 33, "wall.lamp.blue");
 
-	addLightSource(688, 992, "wall.lamp.dim");
-	addLightSource(1360, 992, "wall.lamp.dim");
-	addLightSource(1024, 912, "wall.lamp.dim");
+	addLightSource(43 , 62, "wall.lamp");
+	addLightSource(85 , 62, "wall.lamp");
+	addLightSource(64 , 57, "wall.lamp");
 
-	addLightSource(48, 528, "wall.lamp.dim");
 
-	addLightSource(80 , 992, "wall.lamp.dim");
-	addLightSource(544, 992, "wall.lamp.dim");
+	addLightSource(3 , 33, "wall.lamp.dim");
 
-	addLightSource(576, 800, "wall.lamp");
-	addLightSource(784, 800, "wall.lamp");
+	addLightSource(5 , 62, "wall.lamp.dim");
+	addLightSource(34, 62, "wall.lamp.dim");
 
-	addLightSource(800 , 1264, "wall.lamp");
-	addLightSource(1248, 1264, "wall.lamp");
+	addLightSource(36, 50, "wall.lamp");
+	addLightSource(49, 50, "wall.lamp");
 
-	addLightSource(2256, 720, "wall.lamp");
-	addLightSource(2528, 720, "wall.lamp");
+	addLightSource(50, 79, "wall.lamp");
+	addLightSource(78, 79, "wall.lamp");
 
-	addLightSource(480 , 544, "lamp.post");
-	addLightSource(1824, 544, "lamp.post");
-	addLightSource(2000, 544, "lamp.post");
-	addLightSource(2928, 544, "lamp.post");
+	addLightSource(141, 45, "wall.lamp");
+	addLightSource(158, 45, "wall.lamp");
 
-	addLightSource(1904, 1344, "wall.lamp");
-	addLightSource(2624, 1344, "wall.lamp");
+	addLightSource(30 , 34, "lamp.post");
+	addLightSource(114, 34, "lamp.post");
+	addLightSource(125, 34, "lamp.post");
+	addLightSource(183, 34, "lamp.post");
 
-	addLightSource(1904, 1056, "lantern");
-	addLightSource(2144, 1056, "lantern");
-	addLightSource(2384, 1056, "lantern");
-	addLightSource(2624, 1056, "lantern");
+	addLightSource(119, 84, "wall.lamp");
+	addLightSource(164, 84, "wall.lamp");
+
+	addLightSource(119, 66, "lantern");
+	addLightSource(134, 66, "lantern");
+	addLightSource(149, 66, "lantern");
+	addLightSource(164, 66, "lantern");
 }
 
 
@@ -361,8 +362,8 @@ void fired::MapGenerator::genCityPlatforms() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCityCollectors() {
-	addCollector(704 , 528, "chest");
-	addCollector(1344, 528, "chest");
+	addCollector(44, 33, "chest");
+	addCollector(84, 33, "chest");
 }
 
 

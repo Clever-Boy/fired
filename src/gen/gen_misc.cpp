@@ -72,8 +72,8 @@ void fired::MapGenerator::genFill(int x1, int y1, int x2, int y2, bool isWall) {
      * addDecor
 
 ***********************************************************************/
-void fired::MapGenerator::addDecor(float x, float y, const char *name) {
-	objects.push_back(new fired::BaseMapObject(container->getDecor(name), sf::Vector2f(x, y), moNone));
+void fired::MapGenerator::addDecor(int x, int y, const char *name) {
+	objects.push_back(new fired::BaseMapObject(container->getDecor(name), sf::Vector2f(x * TILE_SIZE, y * TILE_SIZE), moNone));
 }
 
 
@@ -83,8 +83,8 @@ void fired::MapGenerator::addDecor(float x, float y, const char *name) {
      * addCollector
 
 ***********************************************************************/
-void fired::MapGenerator::addCollector(float x, float y, const char *name) {
-	objects.push_back(new fired::BaseMapObjectCollector(container->getDecor(name), sf::Vector2f(x, y)));
+void fired::MapGenerator::addCollector(int x, int y, const char *name) {
+	objects.push_back(new fired::BaseMapObjectCollector(container->getDecor(name), sf::Vector2f(x * TILE_SIZE, y * TILE_SIZE)));
 	((fired::BaseMapObjectCollector*)objects.back())->generateLoot();
 }
 
@@ -95,8 +95,8 @@ void fired::MapGenerator::addCollector(float x, float y, const char *name) {
      * addLightSource
 
 ***********************************************************************/
-void fired::MapGenerator::addLightSource(float x, float y, const char *name) {
-	objects.push_back(new fired::BaseMapObjectLightSource(container->getLight(name), sf::Vector2f(x, y)));
+void fired::MapGenerator::addLightSource(int x, int y, const char *name) {
+	objects.push_back(new fired::BaseMapObjectLightSource(container->getLight(name), sf::Vector2f(x * TILE_SIZE, y * TILE_SIZE)));
 }
 
 
@@ -107,7 +107,7 @@ void fired::MapGenerator::addLightSource(float x, float y, const char *name) {
 
 ***********************************************************************/
 void fired::MapGenerator::addPlatform(int x, int y, const char *name) {
-	addDecor(x * TILE_SIZE, y * TILE_SIZE, name);
+	addDecor(x, y, name);
 	tiles[x][y].isPlatform = true;
 }
 

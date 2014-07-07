@@ -203,8 +203,8 @@ void fired::MapGenerator::genBuildingLadder() {
 	for (int i = 1; i <= building.rooms.y; i++) {
 		y1 = building.roof + (building.roomSize.y + building.floor) * i - building.door - 2;
 
-		addLightSource(x1 * TILE_SIZE, y1 * TILE_SIZE, "wall.lamp");
-		addLightSource(x2 * TILE_SIZE, y1 * TILE_SIZE, "wall.lamp");
+		addLightSource(x1, y1, "wall.lamp");
+		addLightSource(x2, y1, "wall.lamp");
 	}
 }
 

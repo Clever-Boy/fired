@@ -569,11 +569,14 @@
 				<todo done="yes" collapse="no"><title>Weapon cooldown is a timer class</title></todo>
 				<todo done="yes" collapse="no"><title>Fixed weapon switch cooldown</title></todo>
 			</todo>
-			<todo done="yes" collapse="no"><title>Use tiles in addLightSource and addDecor instead of pixels</title></todo>
-			<todo done="no" collapse="no"><title>Make Background not to light up by light sources</title></todo>
-			<todo done="no" collapse="no"><title>Make equipment easy-to-understand</title>
-				<todo done="yes" collapse="no"><title>Move icons (weapon to the right)</title></todo>
-				<todo done="no" collapse="no"><title>Add labels</title></todo>
+			<todo done="no" collapse="no"><title>Improovements</title>
+				<todo done="yes" collapse="no"><title>Use tiles in addLightSource and addDecor instead of pixels</title></todo>
+				<todo done="no" collapse="no"><title>Make Background not to light up by light sources</title></todo>
+				<todo done="no" collapse="no"><title>Make equipment easy-to-understand</title>
+					<todo done="yes" collapse="no"><title>Move icons (weapon to the right)</title></todo>
+					<todo done="no" collapse="no"><title>Window function to draw label</title></todo>
+					<todo done="no" collapse="no"><title>Add labels</title></todo>
+				</todo>
 			</todo>
 			<todo done="no" collapse="yes"><title>Advanced sound system</title>
 				<todo done="no" collapse="no"><title>Sound source coordinates</title></todo>

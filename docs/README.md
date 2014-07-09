@@ -5,7 +5,7 @@ F.I.R.E.D.
 Description
 -----------
 
-F.I.R.E.D. is a 2D cross-platform games with elements of Action, RPG and Adventure.
+F.I.R.E.D. is a 2D cross-platform game with elements of Action, RPG and Adventure.
 
 
 Controls

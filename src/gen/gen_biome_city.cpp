@@ -257,7 +257,6 @@ void fired::MapGenerator::genCityDecors() {
 	addDecor(121, 38, "box");
 	addDecor(120, 36, "box");
 
-	addDecor(143, 38, "barrel");
 	addDecor(148, 38, "barrel");
 	addDecor(150, 38, "barrel");
 
@@ -397,6 +396,7 @@ void fired::MapGenerator::genCityPlatforms() {
 	for (int x = 174; x < 181; x++) addPlatform(x, 70, "bridge.metal");
 
 	for (int x = 118; x < 166; x++) addPlatform(x, 83, "bridge.metal");
+	for (int x =  47; x <  51; x++) addPlatform(x, 54, "bridge.wooden");
 }
 
 
@@ -407,8 +407,11 @@ void fired::MapGenerator::genCityPlatforms() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCityCollectors() {
-	addCollector(44, 33, "chest");
-	addCollector(84, 33, "chest");
+	addCollector( 44, 33, "chest");
+	addCollector( 84, 33, "chest");
+	addCollector(143, 38, "barrel");
+	addCollector( 47, 52, "box");
+	addCollector( 49, 52, "box");
 }
 
 
@@ -419,8 +422,8 @@ void fired::MapGenerator::genCityCollectors() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCityPlayer() {
-	startPos.x = (170) * TILE_SIZE;
-	startPos.y = ( 37) * TILE_SIZE;
+	startPos.x = 17 * TILE_SIZE;
+	startPos.y = 37 * TILE_SIZE;
 }
 
 
@@ -432,6 +435,9 @@ void fired::MapGenerator::genCityPlayer() {
 ***********************************************************************/
 void fired::MapGenerator::genCitySpawns() {
 	// Commented for debugging
-	// addSpawn(141, 34, 16, 5);
-	// addSpawn(  3, 34, 16, 5);
+	// addSpawn(141, 34, 16,  5);
+	// addSpawn(  3, 34, 16,  5);
+	// addSpawn( 55, 30, 19,  5);
+	// addSpawn( 35, 49, 16, 23);
+	// addSpawn(  4, 61, 32, 5);
 }

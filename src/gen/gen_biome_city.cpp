@@ -307,6 +307,39 @@ void fired::MapGenerator::genCityDecors() {
 	addLightSource(95 , 71, "wall.lamp.dim");
 	addLightSource(114, 50, "wall.lamp.dim");
 	addLightSource(125, 50, "wall.lamp.dim");
+
+	// Central lab
+	addDecor(142, 53, "metal.capsule");
+	addDecor(158, 50, "bookcase");
+	addDecor(158, 52, "bookcase");
+	addDecor(158, 54, "bookcase");
+	addDecor(156, 52, "bookcase");
+	addDecor(156, 54, "bookcase");
+	addDecor(153, 54, "shelf");
+	addDecor(151, 52, "shelf.pc.off");
+	addDecor(149, 52, "shelf.pc.on");
+	addDecor(148, 54, "metal.chair");
+
+	// Main lab
+	addDecor(51, 82, "bookcase");
+	addDecor(51, 84, "bookcase");
+	addDecor(54, 84, "metal.chair");
+	addDecor(55, 84, "metal.chair");
+	addDecor(56, 84, "metal.chair");
+	addDecor(58, 84, "shelf");
+	addDecor(68, 84, "shelf");
+	addDecor(68, 82, "bookcase");
+	addDecor(66, 82, "shelf.pc.on");
+	addDecor(70, 82, "shelf.pc.on");
+	addDecor(72, 82, "shelf.pc.on");
+
+	// Left lab
+	addDecor(38, 55, "metal.capsule");
+	addDecor(36, 54, "shelf.pc.off");
+	addDecor(43, 55, "metal.capsule");
+	addDecor(41, 54, "shelf.pc.off");
+	addDecor(48, 55, "metal.capsule");
+	addDecor(46, 54, "shelf.pc.off");
 }
 
 

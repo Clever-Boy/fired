@@ -534,10 +534,10 @@
 				<todo done="yes" collapse="no"><title>Large hall lights</title></todo>
 				<todo done="yes" collapse="no"><title>Corridor lights</title></todo>
 			</todo>
-			<todo done="no" collapse="no"><title>Decors</title>
-				<todo done="no" collapse="no"><title>PC stations</title></todo>
-				<todo done="no" collapse="no"><title>Bookshelves</title></todo>
-				<todo done="no" collapse="no"><title>Chairs</title></todo>
+			<todo done="yes" collapse="yes"><title>Decors</title>
+				<todo done="yes" collapse="no"><title>PC stations</title></todo>
+				<todo done="yes" collapse="no"><title>Bookshelves</title></todo>
+				<todo done="yes" collapse="no"><title>Chairs</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Chests</title></todo>
 			<todo done="no" collapse="no"><title>Enemy spawns</title></todo>

@@ -419,11 +419,8 @@ void fired::MapGenerator::genCityCollectors() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCityPlayer() {
-	int y = 40;
 	startPos.x = (170) * TILE_SIZE;
-
-	//while (!tiles[130][y].tileset || !tiles[130][y].isWall) y++;
-	startPos.y = (y - 3) * TILE_SIZE;
+	startPos.y = ( 37) * TILE_SIZE;
 }
 
 
@@ -435,6 +432,6 @@ void fired::MapGenerator::genCityPlayer() {
 ***********************************************************************/
 void fired::MapGenerator::genCitySpawns() {
 	// Commented for debugging
-	// spawns.push_back(sf::IntRect(141*TILE_SIZE, 34*TILE_SIZE, 16*TILE_SIZE, 5*TILE_SIZE));
-	// spawns.push_back(sf::IntRect(  3*TILE_SIZE, 34*TILE_SIZE, 16*TILE_SIZE, 5*TILE_SIZE));
+	// addSpawn(141, 34, 16, 5);
+	// addSpawn(  3, 34, 16, 5);
 }

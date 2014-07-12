@@ -19,6 +19,7 @@ void addDecor(int x, int y, const char *name);
 void addCollector(int x, int y, const char *name);
 void addLightSource(int x, int y, const char *name);
 void addPlatform(int x, int y, const char *name);
+void addSpawn(int left, int top, int width, int height);
 
 void addTileToPalette(const char *name);
 void setBrush(const char *name);

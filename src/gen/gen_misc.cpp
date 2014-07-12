@@ -115,6 +115,17 @@ void fired::MapGenerator::addPlatform(int x, int y, const char *name) {
 
 /***********************************************************************
      * MapGenerator
+     * addSpawn
+
+***********************************************************************/
+void fired::MapGenerator::addSpawn(int left, int top, int width, int height) {
+	spawns.push_back(sf::IntRect(left * TILE_SIZE, top * TILE_SIZE, width * TILE_SIZE, height * TILE_SIZE));
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
      * addTileToPalette
 
 ***********************************************************************/

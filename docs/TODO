@@ -518,7 +518,7 @@
 			<todo done="yes" collapse="no"><title>Change Armor icons</title></todo>
 			<todo done="yes" collapse="no"><title>Fix bug with bumpy tiles</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Test biome (City)</title>
+		<todo done="yes" collapse="yes"><title>Test biome (City)</title>
 			<todo done="yes" collapse="no"><title>Background</title></todo>
 			<todo done="yes" collapse="no"><title>Lightning</title></todo>
 			<todo done="yes" collapse="no"><title>Weather</title></todo>
@@ -539,10 +539,10 @@
 				<todo done="yes" collapse="no"><title>Bookshelves</title></todo>
 				<todo done="yes" collapse="no"><title>Chairs</title></todo>
 			</todo>
-			<todo done="no" collapse="no"><title>Chests</title></todo>
-			<todo done="no" collapse="no"><title>Enemy spawns</title></todo>
+			<todo done="yes" collapse="no"><title>Chests</title></todo>
+			<todo done="yes" collapse="no"><title>Enemy spawns</title></todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Release</title>
+		<todo done="no" collapse="no"><title>Release</title>
 			<todo done="yes" collapse="no"><title>Spawn enemies at spawn areas</title></todo>
 			<todo done="yes" collapse="no"><title>Select nearest non-visible area to spawn</title></todo>
 			<todo done="yes" collapse="no"><title>Spawn rate</title></todo>

@@ -135,8 +135,8 @@ void fired::MapGenerator::genCityLandscape() {
 	setBrush("brick.clay.silver");
 
 	//Generating left secret room
-	genFill(4, 76, 14, 81, false);
-	genFill(7, 65, 11, 75, false);
+	genFill(4, 76, 13, 81, false);
+	genFill(7, 65, 10, 75, false);
 
 	//Generating tunnels to main tunnel
 	genFill(29, 66, 32, 77, false);
@@ -169,7 +169,7 @@ void fired::MapGenerator::genCityLandscape() {
 
 	setBrush("plate");
 	for (int i = 0; i < 5; i++)
-		genFill(132 + i, 92 - i, 152 - i, 92 - i, true);
+		genFill(132 + i, 92 - i, 151 - i, 92 - i, true);
 
 	for (int i = 0; i < 7; i++) {
 		genFill(118    , 76 + i, 118 + i, 76 + i, true);
@@ -203,7 +203,7 @@ void fired::MapGenerator::genCityLandscape() {
 
 	//Generating right upper enterance
 	genFill(174, 65, 180, 69, false);
-	genFill(166, 70, 196, 75, false);
+	genFill(166, 70, 197, 75, false);
 
 	//Generating left upper enterance
 	genFill(93, 70, 117, 75, false);
@@ -296,7 +296,7 @@ void fired::MapGenerator::genCityDecors() {
 	addLightSource(164, 66, "lantern");
 
 	addLightSource(184, 86, "wall.lamp.dim");
-	addLightSource(195, 71, "wall.lamp");
+	addLightSource(196, 71, "wall.lamp");
 	addLightSource(196, 55, "wall.lamp");
 
 	addLightSource(27, 79, "wall.lamp.dim");
@@ -339,6 +339,15 @@ void fired::MapGenerator::genCityDecors() {
 	addDecor(41, 54, "shelf.pc.off");
 	addDecor(48, 55, "metal.capsule");
 	addDecor(46, 54, "shelf.pc.off");
+
+	// Seret room fake chests
+	addDecor( 6, 80, "chest");
+	addDecor( 8, 80, "chest");
+	addDecor(10, 80, "chest");
+
+	// Right lower room
+	addDecor(181, 90, "metal.capsule");
+	addDecor(179, 89, "shelf.pc.on");
 }
 
 
@@ -363,9 +372,9 @@ void fired::MapGenerator::genCityPlatforms() {
 	for (int x = 4 ; x < 15; x++) addPlatform(x, 55, "bridge.metal");
 	for (int x = 9 ; x < 20; x++) addPlatform(x, 61, "bridge.metal");
 
-	for (int x = 7 ; x < 12; x++) addPlatform(x, 66, "bridge.metal");
-	for (int x = 7 ; x < 12; x++) addPlatform(x, 71, "bridge.metal");
-	for (int x = 7 ; x < 12; x++) addPlatform(x, 76, "bridge.metal");
+	for (int x = 7 ; x < 11; x++) addPlatform(x, 66, "bridge.metal");
+	for (int x = 7 ; x < 11; x++) addPlatform(x, 71, "bridge.metal");
+	for (int x = 7 ; x < 11; x++) addPlatform(x, 76, "bridge.metal");
 
 	for (int x = 29; x < 33; x++) addPlatform(x, 66, "bridge.metal");
 	for (int x = 29; x < 33; x++) addPlatform(x, 72, "bridge.metal");
@@ -412,6 +421,15 @@ void fired::MapGenerator::genCityCollectors() {
 	addCollector(143, 38, "barrel");
 	addCollector( 47, 52, "box");
 	addCollector( 49, 52, "box");
+	addCollector(  4, 80, "chest");
+	addCollector( 12, 80, "chest");
+	addCollector( 26, 81, "metal.capsule");
+	addCollector(198, 32, "chest");
+	addCollector(158, 48, "chest");
+	addCollector(196, 58, "box");
+	addCollector(196, 74, "box");
+	addCollector(184, 91, "barrel");
+	addCollector(141, 86, "chest");
 }
 
 
@@ -422,8 +440,8 @@ void fired::MapGenerator::genCityCollectors() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCityPlayer() {
-	startPos.x = 17 * TILE_SIZE;
-	startPos.y = 37 * TILE_SIZE;
+	startPos.x = 170 * TILE_SIZE;
+	startPos.y =  37 * TILE_SIZE;
 }
 
 
@@ -439,5 +457,15 @@ void fired::MapGenerator::genCitySpawns() {
 	// addSpawn(  3, 34, 16,  5);
 	// addSpawn( 55, 30, 19,  5);
 	// addSpawn( 35, 49, 16, 23);
-	// addSpawn(  4, 61, 32, 5);
+	// addSpawn(  4, 61, 32,  5);
+	// addSpawn( 35, 80,  8,  5);
+	// addSpawn( 42, 61, 45,  5);
+	// addSpawn(140, 44, 20, 12);
+	// addSpawn( 84, 49,  9,  7);
+	// addSpawn(187, 55, 10,  5);
+	// addSpawn(187, 71, 10,  5);
+	// addSpawn(178, 85,  8,  6);
+	// addSpawn(136, 76, 12,  7);
+	// addSpawn(118, 85, 15,  8);
+	// addSpawn(151, 85, 15,  8);
 }

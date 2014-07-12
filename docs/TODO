@@ -594,6 +594,14 @@
 	</todo>
 	<todo done="yes" collapse="yes"><title>0.99 alpha</title>
 		<todo done="no" collapse="yes"><title>Fix 0.99 pre-alpha bugs</title></todo>
+		<todo done="no" collapse="yes"><title>SFGUI</title>
+			<todo done="no" collapse="no"><title>Audio settings</title></todo>
+			<todo done="no" collapse="no"><title>Video settings</title></todo>
+			<todo done="no" collapse="no"><title>In-game menu</title></todo>
+			<todo done="no" collapse="no"><title>Character window</title></todo>
+			<todo done="no" collapse="no"><title>Inventory window</title></todo>
+			<todo done="no" collapse="no"><title>Exchange window</title></todo>
+		</todo>
 		<todo done="no" collapse="yes"><title>Biomes</title>
 			<todo done="no" collapse="yes"><title>Mine</title>
 				<todo done="yes" collapse="no"><title>Background</title></todo>

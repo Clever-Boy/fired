@@ -319,6 +319,11 @@ void fired::MapGenerator::genCityDecors() {
 	addDecor(149, 52, "shelf.pc.on");
 	addDecor(148, 54, "metal.chair");
 
+	tiles[156][52].isPlatform = true;
+	tiles[157][52].isPlatform = true;
+	tiles[158][50].isPlatform = true;
+	tiles[159][50].isPlatform = true;
+
 	// Main lab
 	addDecor(51, 82, "bookcase");
 	addDecor(51, 84, "bookcase");

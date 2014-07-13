@@ -24,6 +24,8 @@ fired::GameSound::GameSound(const char *filename, const char *_name) {
 	snd = new sf::Sound();
 	snd->setBuffer(*buf);
 	snd->setVolume(settings->volume.sound);
+	snd->setMinDistance(SOUND_MINDISTANCE);
+	snd->setAttenuation(SOUND_ATTENUATION);
 }
 
 

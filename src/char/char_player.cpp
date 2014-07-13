@@ -22,6 +22,8 @@ fired::Player::Player(fired::Camera *_cam, sf::Vector2f _startpos, fired::Crossh
 	character = new fired::Character(_cam, _startpos, world, container->getCreature("Player"), "data/chars/player.chr");
 	crosshair = _crosshair;
 	crosshair->owner = &character->phys;
+
+	sf::Listener::setDirection(0.0f, 0.0f, -1.0f);
 }
 
 
@@ -56,6 +58,8 @@ void fired::Player::update() {
 
 	character->setAiming(crosshair->angle);
 	character->update();
+
+	sf::Listener::setPosition(character->phys.pos.x, character->phys.pos.y, 0.0f);
 }
 
 

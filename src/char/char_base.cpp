@@ -525,7 +525,10 @@ void fired::Character::shot() {
 	weaponCooldown.setTimer(weapon->cooldown);
 	wasShot = true;
 
-	if (weapon->shotSound) weapon->shotSound->play();
+	if (weapon->shotSound) {
+		weapon->shotSound->setPosition(phys.pos.x, phys.pos.y, 0.0f);
+		weapon->shotSound->play();
+	}
 
 	if (weapon->type == WEAPON_TYPE_RANGED) {
 		if (weapon->subtype == WEAPON_SUBTYPE_SHOTGUN)

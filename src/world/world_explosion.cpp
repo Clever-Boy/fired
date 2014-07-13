@@ -62,6 +62,9 @@ fired::Explosion::Explosion(sf::Vector2f _pos, float radius, float _life) {
 	sound    = new sf::Sound(*resources->sounds.explosion);
 
 	sound->setVolume(settings->volume.sound);
+	sound->setMinDistance(SOUND_MINDISTANCE);
+	sound->setAttenuation(SOUND_ATTENUATION);
+	sound->setPosition(pos.x, pos.y, 0.0f);
 	sound->play();
 }
 

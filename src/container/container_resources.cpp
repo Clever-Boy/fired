@@ -36,6 +36,9 @@ fired::Resources::Resources() {
 
 	sounds.rainSnd->setLoop(true);
 
+	sounds.impactSnd->setMinDistance(SOUND_MINDISTANCE);
+	sounds.impactSnd->setAttenuation(SOUND_ATTENUATION);
+
 
 
 	win.trashTex  = new sf::Texture();

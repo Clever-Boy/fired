@@ -569,12 +569,12 @@
 				<todo done="yes" collapse="no"><title>Weapon cooldown is a timer class</title></todo>
 				<todo done="yes" collapse="no"><title>Fixed weapon switch cooldown</title></todo>
 			</todo>
-			<todo done="yes" collapse="no"><title>Advanced sound system</title>
+			<todo done="yes" collapse="yes"><title>Advanced sound system</title>
 				<todo done="yes" collapse="no"><title>Sound source coordinates</title></todo>
 				<todo done="yes" collapse="no"><title>Listener coordinates</title></todo>
-				<todo done="no" collapse="no"><title>Convert some sounds to mono</title></todo>
+				<todo done="yes" collapse="no"><title>Convert some sounds to mono</title></todo>
 			</todo>
-			<todo done="no" collapse="yes"><title>Improovements</title>
+			<todo done="no" collapse="no"><title>Improovements</title>
 				<todo done="yes" collapse="no"><title>Use tiles in addLightSource and addDecor instead of pixels</title></todo>
 				<todo done="yes" collapse="yes"><title>Make equipment easy-to-understand</title>
 					<todo done="yes" collapse="no"><title>Move icons (weapon to the right)</title></todo>

@@ -574,23 +574,22 @@
 				<todo done="yes" collapse="no"><title>Listener coordinates</title></todo>
 				<todo done="yes" collapse="no"><title>Convert some sounds to mono</title></todo>
 			</todo>
-			<todo done="no" collapse="no"><title>Improovements</title>
+			<todo done="no" collapse="no"><title>Add content</title>
+				<todo done="no" collapse="no"><title>Weapons</title></todo>
+				<todo done="no" collapse="no"><title>Armors</title></todo>
+				<todo done="no" collapse="no"><title>Model types</title></todo>
+				<todo done="no" collapse="no"><title>Models</title></todo>
+				<todo done="no" collapse="no"><title>Enemies</title></todo>
+			</todo>
+			<todo done="no" collapse="yes"><title>Improovements</title>
 				<todo done="yes" collapse="no"><title>Use tiles in addLightSource and addDecor instead of pixels</title></todo>
 				<todo done="yes" collapse="yes"><title>Make equipment easy-to-understand</title>
 					<todo done="yes" collapse="no"><title>Move icons (weapon to the right)</title></todo>
 					<todo done="yes" collapse="no"><title>Window function to draw label</title></todo>
 					<todo done="yes" collapse="no"><title>Add labels</title></todo>
 				</todo>
-				<todo done="no" collapse="no"><title>Make Background not to light up by light sources</title></todo>
 				<todo done="no" collapse="no"><title>'Big loot' chests</title></todo>
 				<todo done="no" collapse="no"><title>Boss spawns</title></todo>
-			</todo>
-			<todo done="no" collapse="yes"><title>Add content</title>
-				<todo done="no" collapse="no"><title>Weapons</title></todo>
-				<todo done="no" collapse="no"><title>Armors</title></todo>
-				<todo done="no" collapse="no"><title>Model types</title></todo>
-				<todo done="no" collapse="no"><title>Models</title></todo>
-				<todo done="no" collapse="no"><title>Enemies</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Code optimization</title></todo>
 		</todo>

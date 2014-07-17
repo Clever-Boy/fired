@@ -36,10 +36,11 @@ void fired::MapGenerator::genCity() {
 void fired::MapGenerator::genCityPalette() {
 	addTileToPalette("brick.brown");
 	addTileToPalette("brick.clay.silver");
-	addTileToPalette("plate");
 	addTileToPalette("plank.dark");
 	addTileToPalette("plank");
+	addTileToPalette("plate");
 	addTileToPalette("dirt");
+	addTileToPalette("brick.cobble");
 	addTileToPalette("dirt.hard");
 	addTileToPalette("brick.clay.white");
 }
@@ -63,7 +64,7 @@ void fired::MapGenerator::genCityMeta() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCityLandscape() {
-	setBrush("plate");
+	setBrush("dirt");
 	genFill(0, 40, 199, 99, true);
 	genFill(0, 38, 199, 39, false);
 
@@ -112,7 +113,7 @@ void fired::MapGenerator::genCityLandscape() {
 
 
 	//Generating cave
-	setBrush("brick.clay.silver");
+	setBrush("brick.cobble");
 	genFill(62, 40, 66, 65, false);
 	genFill(42, 61, 86, 65, false);
 
@@ -130,9 +131,9 @@ void fired::MapGenerator::genCityLandscape() {
 	setBrush("brick.clay.white");
 	genFill(35, 49, 50, 57, false);
 
-	setBrush("plate");
+	setBrush("dirt");
 	genFill(16, 54, 16, 54, true);
-	setBrush("brick.clay.silver");
+	setBrush("brick.cobble");
 
 	//Generating left secret room
 	genFill(4, 76, 13, 81, false);
@@ -145,7 +146,7 @@ void fired::MapGenerator::genCityLandscape() {
 	//Generating big tunnel
 	genFill(26, 78, 96, 85, false);
 
-	setBrush("plate");
+	setBrush("dirt");
 	genFill(26, 84, 32, 84, true);
 	genFill(26, 85, 34, 85, true);
 
@@ -154,7 +155,7 @@ void fired::MapGenerator::genCityLandscape() {
 
 	genFill(80, 84, 83, 84, true);
 	genFill(78, 85, 85, 85, true);
-	setBrush("brick.clay.silver");
+	setBrush("brick.cobble");
 
 	//Generating downstairs
 	for (int i = 0; i <= 2; i++) genFill(94 + i, 85 + i, 96    , 85 + i, false);
@@ -164,10 +165,10 @@ void fired::MapGenerator::genCityLandscape() {
 	genFill(102, 83, 117, 92, false);
 
 	//Generating large hall
-	setBrush("plank");
+	setBrush("plate");
 	genFill(118, 66, 165, 92, false);
 
-	setBrush("plate");
+	setBrush("dirt");
 	for (int i = 0; i < 5; i++)
 		genFill(132 + i, 92 - i, 151 - i, 92 - i, true);
 
@@ -177,7 +178,7 @@ void fired::MapGenerator::genCityLandscape() {
 	}
 
 	genFill(114, 82, 117, 88, true);
-	setBrush("brick.clay.silver");
+	setBrush("brick.cobble");
 	genFill(102, 83, 113, 88, false);
 
 	//Generating windows
@@ -187,7 +188,7 @@ void fired::MapGenerator::genCityLandscape() {
 	genFill(151, 69, 162, 74, false);
 
 	//Generating right lower room
-	setBrush("brick.clay.silver");
+	setBrush("brick.cobble");
 	genFill(166, 89, 185, 92, false);
 	genFill(178, 85, 185, 92, false);
 
@@ -214,7 +215,7 @@ void fired::MapGenerator::genCityLandscape() {
 	genFill(80 , 49, 159, 55, false);
 	genFill(116, 40, 123, 48, false);
 
-	setBrush("plate");
+	setBrush("dirt");
 	genFill(116, 55, 123, 55, true);
 	genFill(118, 54, 121, 54, true);
 

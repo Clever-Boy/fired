@@ -72,7 +72,7 @@ void fired::Map::initIntensity(fired::Tile *tile, char intensity, sf::Color colo
 ***********************************************************************/
 void fired::Map::setIntensity(fired::Tile *tile, char intensity, sf::Color color) {
 	if (canMixColors(tile->light, color) || intensity > tile->intensity) {
-	tile->intensity = intensity;
+		tile->intensity = intensity;
 		int index = intensity - 1;
 
 		if (index < 0) return;
@@ -152,6 +152,17 @@ void fired::Map::checkNeighbours(fired::Tile *tile) {
 	if (x < sizeX - 1) setIntensity(&tiles[x+1][y], intensity, color);
 	if (y > 0)         setIntensity(&tiles[x][y-1], intensity, color);
 	if (y < sizeY - 1) setIntensity(&tiles[x][y+1], intensity, color);
+
+
+	intensity--;
+	color.r *= 0.85f;
+	color.g *= 0.85f;
+	color.b *= 0.85f;
+
+	if (x > 0         && y < sizeY - 1) setIntensity(&tiles[x-1][y+1], intensity, color);
+	if (x < sizeX - 1 && y > 0)         setIntensity(&tiles[x+1][y-1], intensity, color);
+	if (y > 0         && x > 0)         setIntensity(&tiles[x-1][y-1], intensity, color);
+	if (y < sizeY - 1 && x < sizeX - 1) setIntensity(&tiles[x+1][y+1], intensity, color);
 }
 
 

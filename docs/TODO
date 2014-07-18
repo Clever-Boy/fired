@@ -575,11 +575,38 @@
 				<todo done="yes" collapse="no"><title>Convert some sounds to mono</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Add content</title>
-				<todo done="no" collapse="no"><title>Weapons</title></todo>
-				<todo done="no" collapse="no"><title>Armors</title></todo>
-				<todo done="no" collapse="no"><title>Model types</title></todo>
-				<todo done="no" collapse="no"><title>Models</title></todo>
-				<todo done="no" collapse="no"><title>Enemies</title></todo>
+				<todo done="no" collapse="no"><title>Model types</title>
+					<todo done="no" collapse="no"><title>Spider</title></todo>
+					<todo done="no" collapse="no"><title>Animal</title></todo>
+				</todo>
+				<todo done="no" collapse="no"><title>Models</title>
+					<todo done="no" collapse="no"><title>Troll (humanoid)</title></todo>
+					<todo done="no" collapse="no"><title>Black mamba (spider)</title></todo>
+					<todo done="no" collapse="no"><title>Cat (animal)</title></todo>
+					<todo done="no" collapse="no"><title>Dog (animal)</title></todo>
+					<todo done="no" collapse="no"><title>Panda (animal)</title></todo>
+				</todo>
+				<todo done="no" collapse="no"><title>Enemies</title>
+					<todo done="no" collapse="no"><title>Captain (soldier x 1.5) (boss)</title></todo>
+					<todo done="no" collapse="no"><title>Troll (troll)</title></todo>
+					<todo done="no" collapse="no"><title>Fat troll (troll x 1.5) (boss)</title></todo>
+					<todo done="no" collapse="no"><title>Little (black mamba x 0.7)</title></todo>
+					<todo done="no" collapse="no"><title>Black mamba (black mamba)</title></todo>
+					<todo done="no" collapse="no"><title>Big mamba (black mamba x 1.5) (boss)</title></todo>
+				</todo>
+				<todo done="no" collapse="no"><title>Critters</title>
+					<todo done="no" collapse="no"><title>Cat</title></todo>
+					<todo done="no" collapse="no"><title>Dog</title></todo>
+					<todo done="no" collapse="no"><title>Panda</title></todo>
+				</todo>
+				<todo done="no" collapse="no"><title>Weapons</title>
+					<todo done="no" collapse="no"><title>Machine gun</title></todo>
+					<todo done="no" collapse="no"><title>Rocket rifle (automated rocket launcher)</title></todo>
+				</todo>
+				<todo done="no" collapse="no"><title>Armors</title>
+					<todo done="no" collapse="no"><title>Iron armor</title></todo>
+					<todo done="no" collapse="no"><title>Enchanced armor</title></todo>
+				</todo>
 			</todo>
 			<todo done="no" collapse="yes"><title>Improovements</title>
 				<todo done="yes" collapse="no"><title>Use tiles in addLightSource and addDecor instead of pixels</title></todo>
@@ -588,6 +615,7 @@
 					<todo done="yes" collapse="no"><title>Window function to draw label</title></todo>
 					<todo done="yes" collapse="no"><title>Add labels</title></todo>
 				</todo>
+				<todo done="no" collapse="no"><title>Move bodypart colors to creature definition</title></todo>
 				<todo done="no" collapse="no"><title>'Big loot' chests</title></todo>
 				<todo done="no" collapse="no"><title>Boss spawns</title></todo>
 			</todo>

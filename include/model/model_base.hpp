@@ -38,18 +38,7 @@ namespace fired {
 	};
 
 
-	struct BaseModelHumanoid : BaseModel {
-		fired::BaseModelBodypart partLegsF;
-		fired::BaseModelBodypart partLegsB;
-		fired::BaseModelBodypart partShoeF;
-		fired::BaseModelBodypart partShoeB;
-		fired::BaseModelBodypart partFistF;
-		fired::BaseModelBodypart partFistB;
-		fired::BaseModelBodypart partHair;
-		fired::BaseModelBodypart partBody;
-		fired::BaseModelBodypart partArms;
-		fired::BaseModelBodypart partHead;
-	};
+	struct ModelColors {};
 
 
 	struct Model {
@@ -70,7 +59,7 @@ namespace fired {
 		void render();
 		void explode(sf::Vector2f shot, float knockback);
 
-		void initPart(fired::Bodypart *part, fired::BaseModelBodypart *base, fired::BaseArmor *armor, int *direction);
+		void initPart(fired::Bodypart *part, fired::BaseModelBodypart *base, sf::Color color, fired::BaseArmor *armor, int *direction);
 		void drawPart(fired::Bodypart *part);
 		void resetPart(fired::Bodypart *part);
 		void chunkPart(fired::Bodypart *part, sf::Vector2f shot, float knockback);

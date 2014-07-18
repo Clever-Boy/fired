@@ -28,6 +28,7 @@ fired::BaseCreature::BaseCreature() {
 ***********************************************************************/
 fired::BaseCreature::~BaseCreature() {
 	deleteList(loot);
+	delete colors;
 }
 
 

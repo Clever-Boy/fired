@@ -38,7 +38,7 @@ void fired::Container::loadContent(sqlite3 *db, const char *table, int (*callbac
 void fired::Container::loadModelBodypart(const char* s, fired::BaseModelBodypart *bodypart, fired::BodypartType type) {
 		char field[128];
 
-		sscanf(s, "%[^,],(%hhu,%hhu,%hhu,%hhu),(%f,%f)\n", field, &bodypart->color.r, &bodypart->color.g, &bodypart->color.b, &bodypart->color.a, &bodypart->offset.x, &bodypart->offset.y);
+		sscanf(s, "%[^,],(%f,%f)\n", field, &bodypart->offset.x, &bodypart->offset.y);
 		bodypart->part = getBodypart(field, type);
 }
 
@@ -84,4 +84,32 @@ void fired::Container::updateProgress(const char *caption) {
 	screen->secBar->increase();
 	screen->secBar->setCaption("Loading", caption);
 	screen->render();
+}
+
+
+
+/***********************************************************************
+     * Container
+     * loadModelColors
+
+***********************************************************************/
+void fired::Container::loadModelColors(const char *s, fired::BaseCreature *creature) {
+	switch (creature->model->type) {
+		case mtHumanoid:
+			creature->colors = new fired::ModelHumanoidColors;
+			fired::ModelHumanoidColors *current = (fired::ModelHumanoidColors*)creature->colors;
+
+			sscanf(strstr(s, "legsf"), "legsf=%hhu,%hhu,%hhu,%hhu\n", &current->partLegsF.r, &current->partLegsF.g, &current->partLegsF.b, &current->partLegsF.a);
+			sscanf(strstr(s, "legsb"), "legsb=%hhu,%hhu,%hhu,%hhu\n", &current->partLegsB.r, &current->partLegsB.g, &current->partLegsB.b, &current->partLegsB.a);
+			sscanf(strstr(s, "shoef"), "shoef=%hhu,%hhu,%hhu,%hhu\n", &current->partShoeF.r, &current->partShoeF.g, &current->partShoeF.b, &current->partShoeF.a);
+			sscanf(strstr(s, "shoeb"), "shoeb=%hhu,%hhu,%hhu,%hhu\n", &current->partShoeB.r, &current->partShoeB.g, &current->partShoeB.b, &current->partShoeB.a);
+			sscanf(strstr(s, "fistf"), "fistf=%hhu,%hhu,%hhu,%hhu\n", &current->partFistF.r, &current->partFistF.g, &current->partFistF.b, &current->partFistF.a);
+			sscanf(strstr(s, "fistb"), "fistb=%hhu,%hhu,%hhu,%hhu\n", &current->partFistB.r, &current->partFistB.g, &current->partFistB.b, &current->partFistB.a);
+			sscanf(strstr(s, "arms" ), "arms=%hhu,%hhu,%hhu,%hhu\n" , &current->partArms.r , &current->partArms.g , &current->partArms.b , &current->partArms.a );
+			sscanf(strstr(s, "hair" ), "hair=%hhu,%hhu,%hhu,%hhu\n" , &current->partHair.r , &current->partHair.g , &current->partHair.b , &current->partHair.a );
+			sscanf(strstr(s, "head" ), "head=%hhu,%hhu,%hhu,%hhu\n" , &current->partHead.r , &current->partHead.g , &current->partHead.b , &current->partHead.a );
+			sscanf(strstr(s, "body" ), "body=%hhu,%hhu,%hhu,%hhu\n" , &current->partBody.r , &current->partBody.g , &current->partBody.b , &current->partBody.a );
+
+			break;
+	}
 }

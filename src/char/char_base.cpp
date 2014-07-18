@@ -34,7 +34,7 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 
 	switch (_base->model->type) {
 		case mtHumanoid: {
-			model = new fired::ModelHumanoid(this, (fired::BaseModelHumanoid*)_base->model, base->modelScale, world);
+			model = new fired::ModelHumanoid(this, (fired::BaseModelHumanoid*)_base->model, (fired::ModelHumanoidColors*)_base->colors, base->modelScale, world);
 			break;
 		}
 	}
@@ -106,6 +106,19 @@ void fired::Character::update() {
 
 	phys.isMoving = false;
 	isShooting    = false;
+}
+
+
+
+/***********************************************************************
+     * Character
+     * updateModel
+
+***********************************************************************/
+void fired::Character::updateModel() {
+	switch (base->model->type) {
+		case mtHumanoid: ((fired::ModelHumanoid*)model)->updateParts((fired::ModelHumanoidColors*)base->colors); break;
+	}
 }
 
 
@@ -486,7 +499,7 @@ void fired::Character::updateEquip() {
 	if (inventory->primaryAmmo.base) ammo = container->ammos[inventory->primaryAmmo.base->UID];
 	else                             ammo = base->ammo;
 
-	model->updateParts();
+	updateModel();
 }
 
 

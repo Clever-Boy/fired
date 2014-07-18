@@ -49,13 +49,13 @@ void fired::Model::explode(sf::Vector2f shot, float knockback) {
      * initPart
 
 ***********************************************************************/
-void fired::Model::initPart(fired::Bodypart *part, fired::BaseModelBodypart *base, fired::BaseArmor *armor, int *direction) {
+void fired::Model::initPart(fired::Bodypart *part, fired::BaseModelBodypart *base, sf::Color color, fired::BaseArmor *armor, int *direction) {
 	if (armor) {
 		part->base  = armor->base;
 		part->color = armor->color;
 	} else {
 		part->base  = base->part;
-		part->color = base->color;
+		part->color = color;
 	}
 
 	part->offset       = base->offset;

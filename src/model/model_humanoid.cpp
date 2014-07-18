@@ -15,7 +15,7 @@
      * constructor
 
 ***********************************************************************/
-fired::ModelHumanoid::ModelHumanoid(fired::Character *_owner, fired::BaseModelHumanoid *_base, float scale, fired::World *_world) {
+fired::ModelHumanoid::ModelHumanoid(fired::Character *_owner, fired::BaseModelHumanoid *_base, fired::ModelHumanoidColors *modelColors, float scale, fired::World *_world) {
 	owner    = _owner;
 	world    = _world;
 	base     = _base;
@@ -24,7 +24,7 @@ fired::ModelHumanoid::ModelHumanoid(fired::Character *_owner, fired::BaseModelHu
 	owner->phys.size       = base->size * scale;
 	owner->phys.calculate();
 
-	updateParts();
+	updateParts(modelColors);
 	respawn();
 }
 
@@ -65,17 +65,17 @@ void fired::ModelHumanoid::update() {
      * updateParts
 
 ***********************************************************************/
-void fired::ModelHumanoid::updateParts() {
-	initPart(&partHead , &base->partHead , NULL       , &owner->watching);
-	initPart(&partHair , &base->partHair , owner->helm, &owner->watching);
-	initPart(&partBody , &base->partBody , owner->body, &owner->watching);
-	initPart(&partArms , &base->partArms , owner->arms, &owner->watching);
-	initPart(&partLegsF, &base->partLegsF, owner->legs, &owner->direction);
-	initPart(&partLegsB, &base->partLegsB, owner->legs, &owner->direction);
-	initPart(&partShoeF, &base->partShoeF, owner->shoe, &owner->direction);
-	initPart(&partShoeB, &base->partShoeB, owner->shoe, &owner->direction);
-	initPart(&partFistF, &base->partFistF, owner->fist, &owner->watching);
-	initPart(&partFistB, &base->partFistB, owner->fist, &owner->watching);
+void fired::ModelHumanoid::updateParts(fired::ModelHumanoidColors *modelColors) {
+	initPart(&partHead , &base->partHead , modelColors->partHead , NULL       , &owner->watching);
+	initPart(&partHair , &base->partHair , modelColors->partHair , owner->helm, &owner->watching);
+	initPart(&partBody , &base->partBody , modelColors->partBody , owner->body, &owner->watching);
+	initPart(&partArms , &base->partArms , modelColors->partArms , owner->arms, &owner->watching);
+	initPart(&partLegsF, &base->partLegsF, modelColors->partLegsF, owner->legs, &owner->direction);
+	initPart(&partLegsB, &base->partLegsB, modelColors->partLegsB, owner->legs, &owner->direction);
+	initPart(&partShoeF, &base->partShoeF, modelColors->partShoeF, owner->shoe, &owner->direction);
+	initPart(&partShoeB, &base->partShoeB, modelColors->partShoeB, owner->shoe, &owner->direction);
+	initPart(&partFistF, &base->partFistF, modelColors->partFistF, owner->fist, &owner->watching);
+	initPart(&partFistB, &base->partFistB, modelColors->partFistB, owner->fist, &owner->watching);
 }
 
 

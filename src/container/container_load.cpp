@@ -289,11 +289,13 @@ int fired::Container::loadCreature(void *data, int, char **argv, char **) {
 	sscanf(argv[12], "%f", &current->stats.aimrange);
 	sscanf(argv[13], "%d", &current->stats.maxHP);
 
-	current->model  = ((fired::Container *) data)->models[atoi(argv[15])];
-	current->weapon = ((fired::Container *) data)->weapons[atoi(argv[16])];
+	current->model  = ((fired::Container *) data)->models[atoi(argv[16])];
+	current->weapon = ((fired::Container *) data)->weapons[atoi(argv[17])];
 
-	if (argv[17] && strlen(argv[17]))
-		current->ammo = ((fired::Container *) data)->ammos[atoi(argv[17])];
+	((fired::Container *) data)->loadModelColors(argv[15], current);
+
+	if (argv[18] && strlen(argv[18]))
+		current->ammo = ((fired::Container *) data)->ammos[atoi(argv[18])];
 	else
 		current->ammo = NULL;
 

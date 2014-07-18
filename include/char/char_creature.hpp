@@ -29,6 +29,7 @@ namespace fired {
 
 		fired::CharacterStats  stats;
 		fired::BaseModel      *model;
+		fired::ModelColors    *colors;
 		fired::BaseWeapon     *weapon;
 		fired::BaseAmmo       *ammo;
 

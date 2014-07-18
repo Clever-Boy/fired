@@ -34,7 +34,6 @@ namespace fired {
 
 	struct BaseModelBodypart {
 		fired::BaseBodypart *part;
-		sf::Color            color;
 		sf::Vector2f         offset;
 	};
 

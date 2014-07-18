@@ -101,6 +101,7 @@ namespace fired {
 		float getKnockback();
 		void  updateEquip();
 		void  updateStats();
+		void  updateModel();
 
 		void pickup(fired::InventoryItem *item)                  {inventory->pickup(item); };
 		bool canPickup(fired::InventoryItem *item)               {return inventory->canPickup(item); };

@@ -49,6 +49,8 @@ fired::Game::Game() {
 	musicTheme = new sf::Music();
 	musicTheme->setLoop(true);
 	musicTheme->setVolume(settings->volume.music);
+	musicTheme->setPosition(0.0f, 0.0f, 0.0f);
+	musicTheme->setRelativeToListener(true);
 
 	setGameState(gsLoadingScr);
 	lastClock = clock->getElapsedTime().asMilliseconds();

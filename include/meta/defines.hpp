@@ -188,8 +188,8 @@
      * Fraction constants
 
 ***********************************************************************/
-#define SOUND_MINDISTANCE   200.0f
-#define SOUND_ATTENUATION    10.0f
+#define SOUND_MINDISTANCE   300.0f
+#define SOUND_ATTENUATION     5.0f
 
 
 

@@ -37,9 +37,9 @@ bool inline fired::Map::isPlatform(int i, int j, fired::Phys *phys) {
 	if (j < 0)      return true;
 	if (j >= sizeY) return true;
 
-	if ((phys->pos.y + phys->size.y) - j * TILE_SIZE > TILE_SIZE / 2.0f) return false;
 	if (!tiles[i][j].isPlatform) return false;
 	if (phys->velocity.y < 0)    return false;
+	if ((phys->pos.y + phys->size.y) - j * TILE_SIZE > TILE_SIZE / 2.0f) return false;
 
 	if (phys->jumpdown) {
 		if (phys->jumpdownLevel == 0) phys->jumpdownLevel = j;

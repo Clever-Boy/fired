@@ -576,10 +576,17 @@
 			</todo>
 			<todo done="no" collapse="no"><title>Add content</title>
 				<todo done="no" collapse="no"><title>Model types</title>
+					<todo done="no" collapse="no"><title>Humanoid</title>
+						<todo done="no" collapse="no"><title>Fix common model offsets and origins</title></todo>
+						<todo done="no" collapse="no"><title>Fix model rendering</title></todo>
+						<todo done="no" collapse="no"><title>Fix model animation</title></todo>
+						<todo done="no" collapse="no"><title>Fix troll model</title></todo>
+					</todo>
 					<todo done="no" collapse="no"><title>Spider</title></todo>
 					<todo done="no" collapse="no"><title>Animal</title></todo>
 				</todo>
 				<todo done="no" collapse="no"><title>Models</title>
+					<todo done="no" collapse="no"><title>Soldier (humanoid)</title></todo>
 					<todo done="no" collapse="no"><title>Troll (humanoid)</title></todo>
 					<todo done="no" collapse="no"><title>Black mamba (spider)</title></todo>
 					<todo done="no" collapse="no"><title>Cat (animal)</title></todo>
@@ -590,6 +597,7 @@
 					<todo done="no" collapse="no"><title>Captain (soldier x 1.5) (boss)</title></todo>
 					<todo done="no" collapse="no"><title>Troll (troll)</title></todo>
 					<todo done="no" collapse="no"><title>Fat troll (troll x 1.5) (boss)</title></todo>
+					<todo done="no" collapse="no"><title>Snow giant (troll x 2.5) (white) (boss)</title></todo>
 					<todo done="no" collapse="no"><title>Little (black mamba x 0.7)</title></todo>
 					<todo done="no" collapse="no"><title>Black mamba (black mamba)</title></todo>
 					<todo done="no" collapse="no"><title>Big mamba (black mamba x 1.5) (boss)</title></todo>
@@ -616,8 +624,11 @@
 					<todo done="yes" collapse="no"><title>Add labels</title></todo>
 				</todo>
 				<todo done="yes" collapse="no"><title>Move bodypart colors to creature definition</title></todo>
+				<todo done="no" collapse="no"><title>Plasma shot sound</title></todo>
+				<todo done="no" collapse="no"><title>Spawn area instead of spawn point</title></todo>
 				<todo done="no" collapse="no"><title>'Big loot' chests</title></todo>
 				<todo done="no" collapse="no"><title>Boss spawns</title></todo>
+				<todo done="no" collapse="no"><title>Random loot at chests</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Code optimization</title></todo>
 		</todo>

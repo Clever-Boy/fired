@@ -20,8 +20,8 @@ fired::ModelHumanoid::ModelHumanoid(fired::Character *_owner, fired::BaseModelHu
 	world    = _world;
 	base     = _base;
 
-	modelScale = scale;
-	owner->phys.size       = base->size * scale;
+	modelScale       = scale;
+	owner->phys.size = base->size * scale;
 	owner->phys.calculate();
 
 	updateParts(modelColors);
@@ -118,7 +118,8 @@ void fired::ModelHumanoid::setWeapon(fired::BaseWeapon *weapon) {
 	partWeapon.offset       = base->weaponOffset;
 	partWeapon.direction    = &owner->watching;
 	partWeapon.animOffset   = sf::Vector2f(0.0, 0.0);
-	partWeapon.animRotation = 0.0;}
+	partWeapon.animRotation = 0.0;
+}
 
 
 

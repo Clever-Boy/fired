@@ -574,10 +574,10 @@
 				<todo done="yes" collapse="no"><title>Listener coordinates</title></todo>
 				<todo done="yes" collapse="no"><title>Convert some sounds to mono</title></todo>
 			</todo>
-			<todo done="no" collapse="yes"><title>Add content</title>
+			<todo done="no" collapse="no"><title>Add content</title>
 				<todo done="no" collapse="no"><title>Model types</title>
 					<todo done="no" collapse="no"><title>Humanoid</title>
-						<todo done="no" collapse="no"><title>Fix common model offsets and origins</title></todo>
+						<todo done="yes" collapse="no"><title>Fix common model offsets and origins</title></todo>
 						<todo done="no" collapse="no"><title>Fix model rendering</title></todo>
 						<todo done="no" collapse="no"><title>Fix model animation</title></todo>
 						<todo done="no" collapse="no"><title>Fix troll model</title></todo>

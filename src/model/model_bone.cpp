@@ -15,11 +15,14 @@
      * set
 
 ***********************************************************************/
-void fired::ModelBone::set(sf::Vector2f _origin, sf::Vector2f _end) {
-	origin    = _origin;
+void fired::ModelBone::set(sf::Vector2f _start, sf::Vector2f _end) {
+	start     = _start;
 	end       = _end;
-	direction = _end - _origin;
-	angle     = 0;
+
+	origin    = start;
+	direction = end - start;
+
+	angle     = 0.0f;
 }
 
 
@@ -57,6 +60,29 @@ void fired::ModelBone::rotate(float rotation) {
 
 ***********************************************************************/
 void fired::ModelBone::reset() {
-	direction = end - origin;
-	angle = 0.0f;
+	origin    = start;
+	direction = end - start;
+	angle     = 0.0f;
+}
+
+
+
+/***********************************************************************
+     * ModelBone
+     * move
+
+***********************************************************************/
+void fired::ModelBone::move(sf::Vector2f _move) {
+	origin += _move;
+}
+
+
+
+/***********************************************************************
+     * ModelBone
+     * moveto
+
+***********************************************************************/
+void fired::ModelBone::moveto(sf::Vector2f pos) {
+	origin = pos;
 }

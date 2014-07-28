@@ -12,14 +12,17 @@
 
 namespace fired {
 	struct ModelBone {
-		sf::Vector2f origin;
+		sf::Vector2f start;
 		sf::Vector2f end;
+		sf::Vector2f origin;
 		sf::Vector2f direction;
 		float        angle;
 
 
 		void reset();
-		void set(sf::Vector2f _origin, sf::Vector2f _direction);
+		void set(sf::Vector2f _start, sf::Vector2f _end);
+		void move(sf::Vector2f _move);
+		void moveto(sf::Vector2f pos);
 		void rotate(float rotation);
 		sf::Vector2f getEnd();
 	};

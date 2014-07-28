@@ -9,6 +9,7 @@
 #ifndef __MODEL
 #define __MODEL
 
+#include "model/model_bone.hpp"
 #include "model/model_chunk.hpp"
 #include "model/model_base.hpp"
 #include "model/model_humanoid.hpp"

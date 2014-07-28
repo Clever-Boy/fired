@@ -574,9 +574,16 @@
 				<todo done="yes" collapse="no"><title>Listener coordinates</title></todo>
 				<todo done="yes" collapse="no"><title>Convert some sounds to mono</title></todo>
 			</todo>
-			<todo done="no" collapse="no"><title>Add content</title>
+			<todo done="no" collapse="no"><title>Model bones system</title>
+				<todo done="yes" collapse="no"><title>Class</title></todo>
+				<todo done="no" collapse="no"><title>Array</title></todo>
+				<todo done="no" collapse="no"><title>Calculation</title></todo>
+				<todo done="no" collapse="no"><title>Animation</title></todo>
+				<todo done="no" collapse="no"><title>Binding</title></todo>
+			</todo>
+			<todo done="no" collapse="yes"><title>Add content</title>
 				<todo done="no" collapse="no"><title>Model types</title>
-					<todo done="no" collapse="no"><title>Humanoid</title>
+					<todo done="no" collapse="yes"><title>Humanoid</title>
 						<todo done="yes" collapse="no"><title>Fix common model offsets and origins</title></todo>
 						<todo done="no" collapse="no"><title>Fix model rendering</title></todo>
 						<todo done="no" collapse="no"><title>Fix model animation</title></todo>
@@ -616,7 +623,7 @@
 					<todo done="no" collapse="no"><title>Enchanced armor</title></todo>
 				</todo>
 			</todo>
-			<todo done="no" collapse="no"><title>Improovements</title>
+			<todo done="no" collapse="yes"><title>Improovements</title>
 				<todo done="yes" collapse="no"><title>Use tiles in addLightSource and addDecor instead of pixels</title></todo>
 				<todo done="yes" collapse="yes"><title>Make equipment easy-to-understand</title>
 					<todo done="yes" collapse="no"><title>Move icons (weapon to the right)</title></todo>

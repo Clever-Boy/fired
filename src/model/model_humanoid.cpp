@@ -168,9 +168,6 @@ void fired::ModelHumanoid::processBodyAnimation() {
 			partLegsF.animRotation =  20.0;
 			partLegsB.animRotation = -20.0;
 
-			partLegsF.animOffset = sf::Vector2f( 0.0, -2.0);
-			partLegsB.animOffset = sf::Vector2f( 0.0,  2.0);
-
 			partShoeF.animOffset = sf::Vector2f(-3.0, -2.0);
 			partShoeB.animOffset = sf::Vector2f( 3.0, -2.0);
 			break;

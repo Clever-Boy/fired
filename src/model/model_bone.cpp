@@ -12,10 +12,10 @@
 
 /***********************************************************************
      * ModelBone
-     * constructor
+     * set
 
 ***********************************************************************/
-fired::ModelBone::ModelBone(sf::Vector2f _origin, sf::Vector2f _end) {
+void fired::ModelBone::set(sf::Vector2f _origin, sf::Vector2f _end) {
 	origin    = _origin;
 	end       = _end;
 	direction = _end - _origin;

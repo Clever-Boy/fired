@@ -576,10 +576,9 @@
 			</todo>
 			<todo done="no" collapse="no"><title>Model bones system</title>
 				<todo done="yes" collapse="no"><title>Class</title></todo>
-				<todo done="no" collapse="no"><title>Array</title></todo>
+				<todo done="yes" collapse="no"><title>Array</title></todo>
 				<todo done="no" collapse="no"><title>Calculation</title></todo>
 				<todo done="no" collapse="no"><title>Animation</title></todo>
-				<todo done="no" collapse="no"><title>Binding</title></todo>
 			</todo>
 			<todo done="no" collapse="yes"><title>Add content</title>
 				<todo done="no" collapse="no"><title>Model types</title>

@@ -18,9 +18,8 @@ namespace fired {
 		float        angle;
 
 
-		ModelBone(sf::Vector2f _origin, sf::Vector2f _direction);
-
 		void reset();
+		void set(sf::Vector2f _origin, sf::Vector2f _direction);
 		void rotate(float rotation);
 		sf::Vector2f getEnd();
 	};

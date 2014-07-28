@@ -42,8 +42,18 @@ namespace fired {
 	};
 
 
+	struct ModelHumanoidBones {
+		fired::ModelBone legsF;
+		fired::ModelBone legsB;
+		fired::ModelBone armsF;
+		fired::ModelBone armsB;
+		fired::ModelBone weapon;
+	};
+
+
 	struct ModelHumanoid : Model {
-		fired::BaseModelHumanoid *base;
+		fired::BaseModelHumanoid  *base;
+		fired::ModelHumanoidBones  bones;
 
 		fired::Bodypart partLegsF;
 		fired::Bodypart partLegsB;

@@ -300,7 +300,10 @@ void fired::ModelHumanoid::processArmsAnimation() {
 				bones.fistB.rotate(angle);
 				bones.fistB.moveto(bones.arms.getEnd());
 				bones.weapon.rotate(angle + 90);
-			} else armsAnimation = caNone;
+			} else {
+				armsAnimation = caNone;
+				bones.weapon.rotate(90);
+			}
 			break;
 
 
@@ -314,7 +317,10 @@ void fired::ModelHumanoid::processArmsAnimation() {
 				bones.fistB.rotate(angle);
 				bones.fistB.moveto(bones.arms.getEnd());
 				bones.weapon.rotate(angle + 90);
-			} else armsAnimation = caNone;
+			} else {
+				armsAnimation = caNone;
+				bones.weapon.rotate(90);
+			}
 			break;
 	}
 }

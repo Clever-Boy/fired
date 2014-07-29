@@ -580,7 +580,7 @@
 				<todo done="yes" collapse="no"><title>Move function</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Add content</title>
-				<todo done="no" collapse="no"><title>Model types</title>
+				<todo done="no" collapse="yes"><title>Model types</title>
 					<todo done="yes" collapse="yes"><title>Humanoid</title>
 						<todo done="yes" collapse="no"><title>Fix common model offsets and origins</title></todo>
 						<todo done="yes" collapse="no"><title>Bones</title></todo>
@@ -608,7 +608,7 @@
 					<todo done="no" collapse="no"><title>Dog (animal)</title></todo>
 					<todo done="no" collapse="no"><title>Panda (animal)</title></todo>
 				</todo>
-				<todo done="no" collapse="no"><title>Enemies</title>
+				<todo done="no" collapse="yes"><title>Enemies</title>
 					<todo done="yes" collapse="no"><title>Soldier (soldier)</title></todo>
 					<todo done="yes" collapse="no"><title>Captain (soldier x 1.5) (boss)</title></todo>
 					<todo done="no" collapse="no"><title>Troll (troll)</title></todo>

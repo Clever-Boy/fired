@@ -45,8 +45,7 @@ namespace fired {
 	struct ModelHumanoidBones {
 		fired::ModelBone legsF;
 		fired::ModelBone legsB;
-		fired::ModelBone armsF;
-		fired::ModelBone armsB;
+		fired::ModelBone arms;
 		fired::ModelBone weapon;
 	};
 
@@ -83,6 +82,7 @@ namespace fired {
 
 		void update();
 		void updateParts(fired::ModelHumanoidColors *modelColors);
+		void updateBones();
 		void respawn();
 		void setWeapon(fired::BaseWeapon *weapon);
 

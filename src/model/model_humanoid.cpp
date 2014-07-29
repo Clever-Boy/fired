@@ -25,6 +25,7 @@ fired::ModelHumanoid::ModelHumanoid(fired::Character *_owner, fired::BaseModelHu
 	owner->phys.calculate();
 
 	updateParts(modelColors);
+	updateBones();
 	respawn();
 }
 
@@ -76,6 +77,20 @@ void fired::ModelHumanoid::updateParts(fired::ModelHumanoidColors *modelColors) 
 	initPart(&partShoeB, &base->partShoeB, modelColors->partShoeB, owner->shoe, &owner->direction);
 	initPart(&partFistF, &base->partFistF, modelColors->partFistF, owner->fist, &owner->watching);
 	initPart(&partFistB, &base->partFistB, modelColors->partFistB, owner->fist, &owner->watching);
+}
+
+
+
+/***********************************************************************
+     * ModelHumanoid
+     * updateBones
+
+***********************************************************************/
+void fired::ModelHumanoid::updateBones() {
+	bones.legsF.set(partLegsF.offset, partShoeF.offset);
+	bones.legsB.set(partLegsB.offset, partShoeB.offset);
+	bones.arms.set(partArms.offset, partFistF.offset);
+	bones.weapon.set(partFistF.offset, base->weaponOffset);
 }
 
 

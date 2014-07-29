@@ -24,7 +24,9 @@ namespace fired {
 		void move(sf::Vector2f _move);
 		void moveto(sf::Vector2f pos);
 		void rotate(float rotation);
+		void setRotation(float rotation);
 		sf::Vector2f getEnd();
+		sf::Vector2f getEndOffset();
 	};
 }
 

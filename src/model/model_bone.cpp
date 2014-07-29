@@ -40,6 +40,17 @@ sf::Vector2f fired::ModelBone::getEnd() {
 
 /***********************************************************************
      * ModelBone
+     * getEnd
+
+***********************************************************************/
+sf::Vector2f fired::ModelBone::getEndOffset() {
+	return getEnd() - end;
+}
+
+
+
+/***********************************************************************
+     * ModelBone
      * rotate
 
 ***********************************************************************/
@@ -50,6 +61,23 @@ void fired::ModelBone::rotate(float rotation) {
 	);
 
 	angle += rotation;
+}
+
+
+
+/***********************************************************************
+     * ModelBone
+     * setRotation
+
+***********************************************************************/
+void fired::ModelBone::setRotation(float rotation) {
+	direction = end - start;
+	direction = sf::Vector2f(
+		direction.x * cos(rotation) - direction.y * sin(rotation),
+		direction.x * sin(rotation) + direction.y * cos(rotation)
+	);
+
+	angle = rotation;
 }
 
 

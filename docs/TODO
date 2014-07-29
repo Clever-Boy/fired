@@ -581,12 +581,12 @@
 			</todo>
 			<todo done="no" collapse="no"><title>Add content</title>
 				<todo done="no" collapse="no"><title>Model types</title>
-					<todo done="yes" collapse="no"><title>Humanoid</title>
+					<todo done="yes" collapse="yes"><title>Humanoid</title>
 						<todo done="yes" collapse="no"><title>Fix common model offsets and origins</title></todo>
 						<todo done="yes" collapse="no"><title>Bones</title></todo>
 						<todo done="yes" collapse="no"><title>Bones calculation</title></todo>
 						<todo done="yes" collapse="no"><title>Legs bones animation</title></todo>
-						<todo done="no" collapse="no"><title>Arms bones animation</title></todo>
+						<todo done="yes" collapse="no"><title>Arms bones animation</title></todo>
 					</todo>
 					<todo done="no" collapse="yes"><title>Spider</title>
 						<todo done="no" collapse="no"><title>Bones</title></todo>
@@ -600,8 +600,8 @@
 						<todo done="no" collapse="no"><title>Tail animation</title></todo>
 					</todo>
 				</todo>
-				<todo done="no" collapse="yes"><title>Models</title>
-					<todo done="no" collapse="no"><title>Soldier (humanoid)</title></todo>
+				<todo done="no" collapse="no"><title>Models</title>
+					<todo done="yes" collapse="no"><title>Soldier (humanoid)</title></todo>
 					<todo done="no" collapse="no"><title>Troll (humanoid)</title></todo>
 					<todo done="no" collapse="no"><title>Black mamba (spider)</title></todo>
 					<todo done="no" collapse="no"><title>Cat (animal)</title></todo>

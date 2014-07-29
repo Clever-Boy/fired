@@ -58,6 +58,7 @@
 
 ***********************************************************************/
 #define DEG_TO_RAD              0.01745f
+#define RAD_TO_DEG             57.29578f
 
 
 
@@ -83,6 +84,7 @@
 #define ITEM_SPEED              100.0f
 #define TILE_SIZE               16.0f
 #define BROAD_ATTACK_TIME       0.25f
+#define MELEE_ATTACK_TIME       0.2f
 #define WEAPON_SWITCH_COOLDOWN  0.5f
 
 

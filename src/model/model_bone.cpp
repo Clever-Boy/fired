@@ -40,7 +40,7 @@ sf::Vector2f fired::ModelBone::getEnd() {
 
 /***********************************************************************
      * ModelBone
-     * getEnd
+     * getEndOffset
 
 ***********************************************************************/
 sf::Vector2f fired::ModelBone::getEndOffset() {
@@ -51,16 +51,29 @@ sf::Vector2f fired::ModelBone::getEndOffset() {
 
 /***********************************************************************
      * ModelBone
+     * getEnd
+
+***********************************************************************/
+sf::Vector2f fired::ModelBone::getOriginOffset() {
+	return origin - start;
+}
+
+
+
+/***********************************************************************
+     * ModelBone
      * rotate
 
 ***********************************************************************/
-void fired::ModelBone::rotate(float rotation) {
+void fired::ModelBone::rotate(float _rotation) {
+	float rotation = _rotation * DEG_TO_RAD;
+
 	direction = sf::Vector2f(
 		direction.x * cos(rotation) - direction.y * sin(rotation),
 		direction.x * sin(rotation) + direction.y * cos(rotation)
 	);
 
-	angle += rotation;
+	angle += _rotation;
 }
 
 
@@ -70,14 +83,16 @@ void fired::ModelBone::rotate(float rotation) {
      * setRotation
 
 ***********************************************************************/
-void fired::ModelBone::setRotation(float rotation) {
+void fired::ModelBone::setRotation(float _rotation) {
+	float rotation = _rotation * DEG_TO_RAD;
+
 	direction = end - start;
 	direction = sf::Vector2f(
 		direction.x * cos(rotation) - direction.y * sin(rotation),
 		direction.x * sin(rotation) + direction.y * cos(rotation)
 	);
 
-	angle = rotation;
+	angle = _rotation;
 }
 
 

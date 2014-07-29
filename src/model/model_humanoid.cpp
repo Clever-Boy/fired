@@ -87,10 +87,10 @@ void fired::ModelHumanoid::updateParts(fired::ModelHumanoidColors *modelColors) 
 
 ***********************************************************************/
 void fired::ModelHumanoid::updateBones() {
-	bones.legsF.set(partLegsF.offset, partShoeF.offset);
-	bones.legsB.set(partLegsB.offset, partShoeB.offset);
-	bones.arms.set(partArms.offset, partFistF.offset);
-	bones.weapon.set(partFistF.offset, base->weaponOffset);
+	initBone(&bones.legsF , partLegsF.offset, partShoeF.offset);
+	initBone(&bones.legsB , partLegsB.offset, partShoeB.offset);
+	initBone(&bones.arms  , partArms.offset , partFistF.offset);
+	initBone(&bones.weapon, partFistF.offset, base->weaponOffset);
 }
 
 
@@ -175,17 +175,41 @@ void fired::ModelHumanoid::processBodyAnimation() {
 
 			partLegsB.animOffset = sf::Vector2f(cos(0.449 * (bodyFrame - 7)) * 2.0 - 2.0, 0.0);
 			partShoeB.animOffset = sf::Vector2f(cos(0.449 * (bodyFrame - 7)) * 3.0 - 2.0, lessOrZero(sin(0.449 * (bodyFrame - 7)) * 3.0));
+
+
+
+			partLegsF.animOffset   = bones.legsF.getOriginOffset();
+			partLegsF.animRotation = bones.legsF.angle;
+
+			partLegsB.animOffset   = bones.legsB.getOriginOffset();
+			partLegsB.animRotation = bones.legsB.angle;
+
+			partShoeF.animOffset   = bones.legsF.getEndOffset();
+			partShoeF.animRotation = bones.legsF.angle;
+
+			partShoeB.animOffset   = bones.legsB.getEndOffset();
+			partShoeB.animRotation = bones.legsB.angle;
 			break;
 
 
 		case caJumping:
 			bodyAnimationTime = 0.0;
 
-			partLegsF.animRotation =  20.0;
-			partLegsB.animRotation = -20.0;
+			bones.legsF.rotate( 20);
+			bones.legsB.rotate(-20);
 
-			partShoeF.animOffset = sf::Vector2f(-3.0, -2.0);
-			partShoeB.animOffset = sf::Vector2f( 3.0, -2.0);
+
+			partLegsF.animOffset   = bones.legsF.getOriginOffset();
+			partLegsF.animRotation = bones.legsF.angle;
+
+			partLegsB.animOffset   = bones.legsB.getOriginOffset();
+			partLegsB.animRotation = bones.legsB.angle;
+
+			partShoeF.animOffset   = bones.legsF.getEndOffset();
+			partShoeF.animRotation = bones.legsF.angle;
+
+			partShoeB.animOffset   = bones.legsB.getEndOffset();
+			partShoeB.animRotation = bones.legsB.angle;
 			break;
 	}
 }

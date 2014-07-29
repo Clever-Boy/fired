@@ -17,6 +17,7 @@
 ***********************************************************************/
 fired::Model::~Model() {
 	bodyParts.clear();
+	bodyBones.clear();
 }
 
 
@@ -62,6 +63,18 @@ void fired::Model::initPart(fired::Bodypart *part, fired::BaseModelBodypart *bas
 	part->direction    = direction;
 	part->animOffset   = sf::Vector2f(0.0, 0.0);
 	part->animRotation = 0.0;
+}
+
+
+
+/***********************************************************************
+     * Model
+     * initBone
+
+***********************************************************************/
+void fired::Model::initBone(fired::ModelBone *bone, sf::Vector2f start, sf::Vector2f end) {
+	bone->set(start, end);
+	bodyBones.push_back(bone);
 }
 
 
@@ -134,5 +147,6 @@ void fired::Model::resetPart(fired::Bodypart *part) {
 ***********************************************************************/
 void fired::Model::resetAnimation() {
 	for (unsigned int i = 0; i < bodyParts.size(); i++) resetPart(bodyParts[i]);
+	for (unsigned int i = 0; i < bodyBones.size(); i++) bodyBones[i]->reset();
 }
 

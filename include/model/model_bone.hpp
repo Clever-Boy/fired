@@ -23,10 +23,13 @@ namespace fired {
 		void set(sf::Vector2f _start, sf::Vector2f _end);
 		void move(sf::Vector2f _move);
 		void moveto(sf::Vector2f pos);
-		void rotate(float rotation);
-		void setRotation(float rotation);
+		void rotate(float _rotation);
+		void setRotation(float _rotation);
+
+		float        getRotation();
 		sf::Vector2f getEnd();
 		sf::Vector2f getEndOffset();
+		sf::Vector2f getOriginOffset();
 	};
 }
 

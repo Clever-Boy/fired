@@ -46,7 +46,8 @@ namespace fired {
 		fired::World     *world;
 
 		float modelScale;
-		std::vector<fired::Bodypart*> bodyParts;
+		std::vector<fired::Bodypart*>  bodyParts;
+		std::vector<fired::ModelBone*> bodyBones;
 
 
 		virtual ~Model();
@@ -63,6 +64,7 @@ namespace fired {
 		void drawPart(fired::Bodypart *part);
 		void resetPart(fired::Bodypart *part);
 		void chunkPart(fired::Bodypart *part, sf::Vector2f shot, float knockback);
+		void initBone(fired::ModelBone *bone, sf::Vector2f start, sf::Vector2f end);
 
 		void resetAnimation();
 	};

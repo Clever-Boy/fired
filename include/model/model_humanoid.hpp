@@ -89,6 +89,7 @@ namespace fired {
 		void processAnimation();
 		void processBodyAnimation();
 		void processArmsAnimation();
+		void processBones();
 	};
 }
 

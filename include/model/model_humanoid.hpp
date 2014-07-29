@@ -46,6 +46,8 @@ namespace fired {
 		fired::ModelBone legsF;
 		fired::ModelBone legsB;
 		fired::ModelBone arms;
+		fired::ModelBone fistF;
+		fired::ModelBone fistB;
 		fired::ModelBone weapon;
 	};
 

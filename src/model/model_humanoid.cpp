@@ -86,10 +86,12 @@ void fired::ModelHumanoid::updateParts(fired::ModelHumanoidColors *modelColors) 
 
 ***********************************************************************/
 void fired::ModelHumanoid::updateBones() {
-	initBone(&bones.legsF , partLegsF.offset, partShoeF.offset);
-	initBone(&bones.legsB , partLegsB.offset, partShoeB.offset);
-	initBone(&bones.arms  , partArms.offset , partFistF.offset);
-	initBone(&bones.weapon, partFistF.offset, base->weaponOffset);
+	initBone(&bones.legsF , partLegsF.offset  , partShoeF.offset);
+	initBone(&bones.legsB , partLegsB.offset  , partShoeB.offset);
+	initBone(&bones.arms  , partArms.offset   , partFistF.offset);
+	initBone(&bones.fistB , partFistB.offset  , partFistB.offset);
+	initBone(&bones.fistF , partFistF.offset  , base->weaponOffset);
+	initBone(&bones.weapon, base->weaponOffset, base->weaponOffset);
 }
 
 
@@ -155,6 +157,10 @@ void fired::ModelHumanoid::processAnimation() {
 
 ***********************************************************************/
 void fired::ModelHumanoid::processBones() {
+	bones.fistF.moveto(bones.arms.getEnd());
+	bones.weapon.moveto(bones.fistF.getEnd());
+
+
 	partLegsF.animOffset   = bones.legsF.getOriginOffset();
 	partLegsF.animRotation = bones.legsF.angle;
 
@@ -166,6 +172,18 @@ void fired::ModelHumanoid::processBones() {
 
 	partShoeB.animOffset   = bones.legsB.getEndOffset();
 	partShoeB.animRotation = bones.legsB.angle;
+
+	partArms.animOffset   = bones.arms.getOriginOffset();
+	partArms.animRotation = bones.arms.angle;
+
+	partFistF.animOffset   = bones.fistF.getOriginOffset();
+	partFistF.animRotation = bones.fistF.angle;
+
+	partFistB.animOffset   = bones.fistB.getOriginOffset();
+	partFistB.animRotation = bones.fistB.angle;
+
+	partWeapon.animOffset   = bones.weapon.getOriginOffset();
+	partWeapon.animRotation = bones.weapon.angle;
 }
 
 
@@ -230,32 +248,25 @@ void fired::ModelHumanoid::processArmsAnimation() {
 				case caShooting:
 				case caMeleeAttack:
 				case caBroadAttack:
-					partWeapon.animRotation = 90;
+					bones.weapon.rotate(90);
 					break;
 
 				case caJumping:
-					partWeapon.animOffset = sf::Vector2f(5.0, -4.0);
+					bones.arms.rotate(15);
+					bones.fistF.rotate(-90);
+					bones.fistB.rotate(-90);
+					bones.fistB.move(sf::Vector2f(-bones.arms.getEndOffset().x, bones.arms.getEndOffset().y));
 
-					partFistF.animRotation = -90.0;
-					partFistB.animRotation = -90.0;
-
-					partFistF.animOffset = sf::Vector2f(-3.0, -3.0);
-					partFistB.animOffset = sf::Vector2f(-3.0, -3.0);
-
-					if (owner->weapon->type == WEAPON_TYPE_BROAD) partWeapon.animRotation = -90;
+					if (owner->weapon->type == WEAPON_TYPE_BROAD) bones.weapon.rotate(-90);
 					break;
 
 				case caMoving:
-					partArms.animRotation = -cos(0.449 * (bodyFrame - 7)) * 7.0;
-					partWeapon.animOffset = sf::Vector2f(5.0 + cos(0.449 * (bodyFrame - 7)), -4.0);
+					bones.arms.rotate(-cos(3.14f * bodyFrame / 7) * 15.0f);
+					bones.fistF.rotate(-90);
+					bones.fistB.rotate(-90);
+					bones.fistB.move(sf::Vector2f(-bones.arms.getEndOffset().x, bones.arms.getEndOffset().y));
 
-					partFistF.animOffset = sf::Vector2f(-3.0 + cos(0.449 * (bodyFrame - 7)), -3.0);
-					partFistB.animOffset = sf::Vector2f(-3.0 - cos(0.449 * (bodyFrame - 7)), -3.0);
-
-					partFistF.animRotation = -90.0;
-					partFistB.animRotation = -90.0;
-
-					if (owner->weapon->type == WEAPON_TYPE_BROAD) partWeapon.animRotation = -90;
+					if (owner->weapon->type == WEAPON_TYPE_BROAD) bones.weapon.rotate(-90);
 					break;
 			}
 			break;
@@ -276,10 +287,10 @@ void fired::ModelHumanoid::processArmsAnimation() {
 			}
 
 			partWeapon.animOffset = sf::Vector2f(0.0, -12.0) + sf::Vector2f(12.0 * cos(owner->aiming), 12.0 * sin(owner->aiming));
-			partWeapon.animRotation = owner->aiming * 180 / 3.14;
+			bones.weapon.rotate(owner->aiming / DEG_TO_RAD);
 
 			if (*partWeapon.direction < 0) {
-				partWeapon.animRotation = 180 - partWeapon.animRotation;
+				bones.weapon.setRotation(180 - bones.weapon.angle);
 				partWeapon.animOffset.x = -partWeapon.animOffset.x;
 			}
 			break;
@@ -301,10 +312,10 @@ void fired::ModelHumanoid::processArmsAnimation() {
 				}
 
 				partWeapon.animOffset = sf::Vector2f(0.0, -12.0) + sf::Vector2f(12.0 * cos(owner->aiming), 12.0 * sin(owner->aiming));
-				partWeapon.animRotation = owner->aiming * 180 / 3.14;
+				bones.weapon.rotate(owner->aiming / DEG_TO_RAD);
 
 				if (*partWeapon.direction < 0) {
-					partWeapon.animRotation = 180 - partWeapon.animRotation;
+					bones.weapon.setRotation(180 - bones.weapon.angle);
 					partWeapon.animOffset.x = -partWeapon.animOffset.x;
 				}
 			} else armsAnimation = caNone;
@@ -322,7 +333,7 @@ void fired::ModelHumanoid::processArmsAnimation() {
 				partFistB.animOffset = sf::Vector2f(-5.0, 0.0);
 
 				partWeapon.animOffset = sf::Vector2f(0.0, -12.0) + sf::Vector2f(12.0 * cos(3.14 * (armsAnimationTime / BROAD_ATTACK_TIME - 1.0f) + 1.57), 12.0 * sin(3.14 * (armsAnimationTime / BROAD_ATTACK_TIME - 1.0f) + 1.57));
-				partWeapon.animRotation = partArms.animRotation + 90;
+				bones.weapon.rotate(partArms.animRotation + 90);
 			} else armsAnimation = caNone;
 			break;
 	}

@@ -621,13 +621,16 @@
 					<todo done="no" collapse="no"><title>Cat</title></todo>
 					<todo done="no" collapse="no"><title>Dog</title></todo>
 					<todo done="no" collapse="no"><title>Panda</title></todo>
+					<todo done="no" collapse="no"><title>Dragon</title></todo>
 				</todo>
 				<todo done="no" collapse="yes"><title>Weapons</title>
 					<todo done="no" collapse="no"><title>Machine gun</title></todo>
 					<todo done="no" collapse="no"><title>Rocket rifle (automated rocket launcher)</title></todo>
+					<todo done="no" collapse="no"><title>XM1014 (automatic shotgun)</title></todo>
 				</todo>
 				<todo done="no" collapse="yes"><title>Armors</title>
 					<todo done="no" collapse="no"><title>Iron armor</title></todo>
+					<todo done="no" collapse="no"><title>S.W.A.T. armor</title></todo>
 					<todo done="no" collapse="no"><title>Enchanced armor</title></todo>
 				</todo>
 			</todo>
@@ -642,6 +645,7 @@
 				<todo done="yes" collapse="no"><title>Plasma shot sound</title></todo>
 				<todo done="no" collapse="no"><title>Spawn area instead of spawn point</title></todo>
 				<todo done="no" collapse="no"><title>'Big loot' chests</title></todo>
+				<todo done="no" collapse="no"><title>Enemy loot option (one of many)</title></todo>
 				<todo done="no" collapse="no"><title>Boss spawns</title></todo>
 				<todo done="no" collapse="no"><title>Random loot at chests</title></todo>
 			</todo>

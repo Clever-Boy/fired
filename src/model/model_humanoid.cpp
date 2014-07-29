@@ -191,7 +191,7 @@ void fired::ModelHumanoid::processBodyAnimation() {
 
 			{
 				float xOffset = legsDiff * sin(3.14f * bodyFrame / 14);
-				float yOffset = legsDiff * sin(3.14f * bodyFrame / 7) / 2.0f;
+				float yOffset = legsDiff * sin(3.14f * bodyFrame / 7) / 2.5f;
 				float angle   = cos(3.14f * bodyFrame / 7) * 15.0f;
 
 				bones.legsF.move(sf::Vector2f( xOffset, lessOrZero(-yOffset)));

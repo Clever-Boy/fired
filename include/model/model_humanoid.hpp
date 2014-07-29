@@ -72,6 +72,7 @@ namespace fired {
 
 		float bodyAnimationTime;
 		float armsAnimationTime;
+		float legsDiff;
 
 		int bodyFrame;
 		int armsFrame;
@@ -80,7 +81,7 @@ namespace fired {
 		 ModelHumanoid(fired::Character *_owner, fired::BaseModelHumanoid *_base, fired::ModelHumanoidColors *modelColors, float scale, fired::World *_world);
 		~ModelHumanoid() {};
 
-		void update();
+		void updateAnimation();
 		void updateParts(fired::ModelHumanoidColors *modelColors);
 		void updateBones();
 		void respawn();

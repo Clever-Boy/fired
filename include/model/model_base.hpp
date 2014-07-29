@@ -52,11 +52,15 @@ namespace fired {
 
 		virtual ~Model();
 
-		virtual void update()      {};
-		virtual void updateParts() {};
-		virtual void respawn()     {};
+		virtual void updateAnimation()             {};
+		virtual void updateParts()                 {};
+		virtual void updateBones()                 {};
+		virtual void respawn()                     {};
+		virtual void processAnimation()            {};
+		virtual void processBones()                {};
 		virtual void setWeapon(fired::BaseWeapon*) {};
 
+		void update();
 		void render();
 		void explode(sf::Vector2f shot, float knockback);
 

@@ -21,6 +21,7 @@ fired::ModelHumanoid::ModelHumanoid(fired::Character *_owner, fired::BaseModelHu
 	base     = _base;
 
 	modelScale       = scale;
+	legsDiff         = abs(_base->partLegsB.offset.x - _base->partLegsB.offset.y);
 	owner->phys.size = base->size * scale;
 	owner->phys.calculate();
 
@@ -33,10 +34,10 @@ fired::ModelHumanoid::ModelHumanoid(fired::Character *_owner, fired::BaseModelHu
 
 /***********************************************************************
      * ModelHumanoid
-     * update
+     * updateAnimation
 
 ***********************************************************************/
-void fired::ModelHumanoid::update() {
+void fired::ModelHumanoid::updateAnimation() {
 	if (owner->dead) {
 		if (bodyAnimation != caNone) {
 			bodyAnimation = caNone;
@@ -55,8 +56,6 @@ void fired::ModelHumanoid::update() {
 			if (owner->weapon->type == WEAPON_TYPE_BROAD)  armsAnimation = caBroadAttack;
 		}
 	}
-
-	processAnimation();
 }
 
 
@@ -144,10 +143,8 @@ void fired::ModelHumanoid::setWeapon(fired::BaseWeapon *weapon) {
 
 ***********************************************************************/
 void fired::ModelHumanoid::processAnimation() {
-	resetAnimation();
 	processBodyAnimation();
 	processArmsAnimation();
-	processBones();
 }
 
 

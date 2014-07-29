@@ -21,7 +21,7 @@ fired::ModelHumanoid::ModelHumanoid(fired::Character *_owner, fired::BaseModelHu
 	base     = _base;
 
 	modelScale       = scale;
-	legsDiff         = abs(_base->partLegsB.offset.x - _base->partLegsB.offset.y);
+	legsDiff         = abs(_base->partLegsB.offset.x - _base->partLegsF.offset.x);
 	owner->phys.size = base->size * scale;
 	owner->phys.calculate();
 
@@ -189,11 +189,17 @@ void fired::ModelHumanoid::processBodyAnimation() {
 			bodyAnimationTime += frameClock * abs(owner->phys.velocity.x);
 			bodyFrame          = (int)(bodyAnimationTime / 5) % 14;
 
-			partLegsF.animOffset = sf::Vector2f(cos(0.449 * bodyFrame) * 2.0 + 2.0, 0.0);
-			partShoeF.animOffset = sf::Vector2f(cos(0.449 * bodyFrame) * 3.0 + 2.0, lessOrZero(sin(0.449 * bodyFrame) * 3.0));
+			{
+				float xOffset = legsDiff * sin(3.14f * bodyFrame / 14);
+				float yOffset = legsDiff * sin(3.14f * bodyFrame / 7) / 2.0f;
+				float angle   = cos(3.14f * bodyFrame / 7) * 15.0f;
 
-			partLegsB.animOffset = sf::Vector2f(cos(0.449 * (bodyFrame - 7)) * 2.0 - 2.0, 0.0);
-			partShoeB.animOffset = sf::Vector2f(cos(0.449 * (bodyFrame - 7)) * 3.0 - 2.0, lessOrZero(sin(0.449 * (bodyFrame - 7)) * 3.0));
+				bones.legsF.move(sf::Vector2f( xOffset, lessOrZero(-yOffset)));
+				bones.legsB.move(sf::Vector2f(-xOffset, lessOrZero( yOffset)));
+
+				bones.legsF.rotate( angle);
+				bones.legsB.rotate(-angle);
+			}
 			break;
 
 

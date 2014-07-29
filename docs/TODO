@@ -580,7 +580,7 @@
 				<todo done="yes" collapse="no"><title>Move function</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Add content</title>
-				<todo done="no" collapse="yes"><title>Model types</title>
+				<todo done="no" collapse="no"><title>Model types</title>
 					<todo done="yes" collapse="yes"><title>Humanoid</title>
 						<todo done="yes" collapse="no"><title>Fix common model offsets and origins</title></todo>
 						<todo done="yes" collapse="no"><title>Bones</title></todo>
@@ -600,9 +600,9 @@
 						<todo done="no" collapse="no"><title>Tail animation</title></todo>
 					</todo>
 				</todo>
-				<todo done="no" collapse="no"><title>Models</title>
+				<todo done="no" collapse="yes"><title>Models</title>
 					<todo done="yes" collapse="no"><title>Soldier (humanoid)</title></todo>
-					<todo done="no" collapse="no"><title>Troll (humanoid)</title></todo>
+					<todo done="yes" collapse="no"><title>Troll (humanoid)</title></todo>
 					<todo done="no" collapse="no"><title>Black mamba (spider)</title></todo>
 					<todo done="no" collapse="no"><title>Cat (animal)</title></todo>
 					<todo done="no" collapse="no"><title>Dog (animal)</title></todo>
@@ -611,9 +611,9 @@
 				<todo done="no" collapse="yes"><title>Enemies</title>
 					<todo done="yes" collapse="no"><title>Soldier (soldier)</title></todo>
 					<todo done="yes" collapse="no"><title>Captain (soldier x 1.5) (boss)</title></todo>
-					<todo done="no" collapse="no"><title>Troll (troll)</title></todo>
-					<todo done="no" collapse="no"><title>Fat troll (troll x 1.5) (boss)</title></todo>
-					<todo done="no" collapse="no"><title>Snow giant (troll x 2.5) (white) (boss)</title></todo>
+					<todo done="yes" collapse="no"><title>Troll (troll)</title></todo>
+					<todo done="yes" collapse="no"><title>Fat troll (troll x 1.5) (boss)</title></todo>
+					<todo done="yes" collapse="no"><title>Snow giant (troll x 2.5) (white) (boss)</title></todo>
 					<todo done="no" collapse="no"><title>Little (black mamba x 0.7)</title></todo>
 					<todo done="no" collapse="no"><title>Black mamba (black mamba)</title></todo>
 					<todo done="no" collapse="no"><title>Big mamba (black mamba x 1.5) (boss)</title></todo>
@@ -644,6 +644,8 @@
 				</todo>
 				<todo done="yes" collapse="no"><title>Move bodypart colors to creature definition</title></todo>
 				<todo done="yes" collapse="no"><title>Plasma shot sound</title></todo>
+				<todo done="no" collapse="no"><title>Reduce shotgun knockback</title></todo>
+				<todo done="no" collapse="no"><title>Knockback resistance</title></todo>
 				<todo done="no" collapse="no"><title>Spawn area instead of spawn point</title></todo>
 				<todo done="no" collapse="no"><title>'Big loot' chests</title></todo>
 				<todo done="no" collapse="no"><title>Enemy loot option (one of many)</title></todo>

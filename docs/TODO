@@ -580,6 +580,11 @@
 				<todo done="yes" collapse="no"><title>Move function</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Add content</title>
+				<todo done="yes" collapse="yes"><title>Weapons</title>
+					<todo done="yes" collapse="no"><title>Machine gun</title></todo>
+					<todo done="yes" collapse="no"><title>Rocket rifle (automated rocket launcher)</title></todo>
+					<todo done="yes" collapse="no"><title>XM1014 (automatic shotgun)</title></todo>
+				</todo>
 				<todo done="no" collapse="no"><title>Model types</title>
 					<todo done="yes" collapse="yes"><title>Humanoid</title>
 						<todo done="yes" collapse="no"><title>Fix common model offsets and origins</title></todo>
@@ -623,11 +628,6 @@
 					<todo done="no" collapse="no"><title>Dog</title></todo>
 					<todo done="no" collapse="no"><title>Panda</title></todo>
 					<todo done="no" collapse="no"><title>Dragon</title></todo>
-				</todo>
-				<todo done="no" collapse="yes"><title>Weapons</title>
-					<todo done="no" collapse="no"><title>Machine gun</title></todo>
-					<todo done="no" collapse="no"><title>Rocket rifle (automated rocket launcher)</title></todo>
-					<todo done="no" collapse="no"><title>XM1014 (automatic shotgun)</title></todo>
 				</todo>
 				<todo done="no" collapse="yes"><title>Armors</title>
 					<todo done="no" collapse="no"><title>Iron armor</title></todo>

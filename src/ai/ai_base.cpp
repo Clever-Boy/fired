@@ -1,5 +1,5 @@
 /***********************************************************************
-     * File       : ai_idle.cpp
+     * File       : ai_base.cpp
      * Created    : Aug 12, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
@@ -11,10 +11,12 @@
 
 
 /***********************************************************************
-     * IdleAI
-     * update
+     * BaseAI
+     * constructor
 
 ***********************************************************************/
-void fired::IdleAI::update() {
-	return;
+fired::BaseAI::BaseAI(fired::Creature *_owner, fired::World *_world) {
+	target = NULL;
+	owner  = _owner;
+	world  = _world;
 }

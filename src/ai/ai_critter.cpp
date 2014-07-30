@@ -1,26 +1,20 @@
 /***********************************************************************
-     * File       : ai_basic.hpp
+     * File       : ai_critter.cpp
      * Created    : Aug 17, 2013
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __AI_BASIC
-#define __AI_BASIC
+#include "game.hpp"
 
 
-#include "ai_base.hpp"
 
+/***********************************************************************
+     * CritterAI
+     * update
 
-namespace fired {
-	struct BasicAI : BaseAI {
-		 BasicAI(fired::Creature *_owner, fired::World *_world) : BaseAI(_owner, _world) {};
-		~BasicAI() {};
-
-		void update();
-		void selectTarget();
-	};
+***********************************************************************/
+void fired::CritterAI::update() {
+	return;
 }
-
-#endif

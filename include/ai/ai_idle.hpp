@@ -15,11 +15,12 @@
 
 namespace fired {
 	struct IdleAI : BaseAI {
-		 IdleAI(fired::Creature *_owner, fired::World *_world);
+		 IdleAI(fired::Creature *_owner, fired::World *_world) : BaseAI(_owner, _world) {};
 		~IdleAI() {};
 
 		void update();
 		void selectTarget() {};
 	};
 }
+
 #endif

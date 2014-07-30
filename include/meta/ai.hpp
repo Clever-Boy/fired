@@ -11,5 +11,6 @@
 
 #include "ai/ai_idle.hpp"
 #include "ai/ai_basic.hpp"
+#include "ai/ai_critter.hpp"
 
 #endif

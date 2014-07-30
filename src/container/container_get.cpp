@@ -18,8 +18,9 @@
 fired::BaseAI *fired::Container::getAI(const char *name, fired::Creature *owner, fired::World *world) {
 	if (!strcmp(name, "idle")) return new fired::IdleAI(owner, world);
 	if (!strcmp(name, "basic")) return new fired::BasicAI(owner, world);
+	if (!strcmp(name, "critter")) return new fired::CritterAI(owner, world);
 
-	return new fired::BaseAI();
+	return new fired::BaseAI(owner, world);
 }
 
 

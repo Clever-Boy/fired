@@ -19,11 +19,12 @@ namespace fired {
 		fired::World     *world;
 
 
-		 BaseAI() {};
+		 BaseAI(fired::Creature *_owner, fired::World *_world);
 
 		virtual ~BaseAI()           {};
 		virtual void update()       {};
 		virtual void selectTarget() {};
 	};
 }
+
 #endif

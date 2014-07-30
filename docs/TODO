@@ -613,7 +613,6 @@
 					<todo done="yes" collapse="no"><title>Cat (animal)</title></todo>
 					<todo done="no" collapse="no"><title>Dog (animal)</title></todo>
 					<todo done="no" collapse="no"><title>Panda (animal)</title></todo>
-					<todo done="no" collapse="no"><title>Dragon (animal)</title></todo>
 					<todo done="no" collapse="no"><title>Black mamba (spider)</title></todo>
 				</todo>
 				<todo done="no" collapse="no"><title>Critters</title>
@@ -621,8 +620,8 @@
 					<todo done="yes" collapse="no"><title>Ginger Cat</title></todo>
 					<todo done="yes" collapse="no"><title>Gray Cat</title></todo>
 					<todo done="no" collapse="no"><title>Dog</title></todo>
+					<todo done="no" collapse="no"><title>Ginger Dog</title></todo>
 					<todo done="no" collapse="no"><title>Panda</title></todo>
-					<todo done="no" collapse="no"><title>Dragon</title></todo>
 				</todo>
 				<todo done="no" collapse="yes"><title>Enemies</title>
 					<todo done="yes" collapse="no"><title>Soldier (soldier)</title></todo>
@@ -640,8 +639,9 @@
 					<todo done="no" collapse="no"><title>Enchanced armor</title></todo>
 				</todo>
 				<todo done="no" collapse="yes"><title>AI</title>
-					<todo done="no" collapse="yes"><title>Critter</title>
+					<todo done="no" collapse="no"><title>Critter</title>
 						<todo done="yes" collapse="no"><title>Fraction</title></todo>
+						<todo done="yes" collapse="no"><title>Class</title></todo>
 						<todo done="no" collapse="no"><title>Moving around</title></todo>
 						<todo done="no" collapse="no"><title>Jumping sometimes</title></todo>
 					</todo>

@@ -13,5 +13,6 @@
 #include "model/model_chunk.hpp"
 #include "model/model_base.hpp"
 #include "model/model_humanoid.hpp"
+#include "model/model_animal.hpp"
 
 #endif

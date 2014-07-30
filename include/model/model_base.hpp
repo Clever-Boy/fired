@@ -26,7 +26,8 @@ namespace fired {
 
 
 	enum ModelType {
-		mtHumanoid
+		mtHumanoid,
+		mtAnimal
 	};
 
 

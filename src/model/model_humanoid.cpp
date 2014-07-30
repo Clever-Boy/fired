@@ -21,7 +21,7 @@ fired::ModelHumanoid::ModelHumanoid(fired::Character *_owner, fired::BaseModelHu
 	base     = _base;
 
 	modelScale       = scale;
-	legsDiff         = abs(_base->partLegsB.offset.x - _base->partLegsF.offset.x);
+	legsDiff         = abs(base->partLegsB.offset.x - base->partLegsF.offset.x);
 	owner->phys.size = base->size * scale;
 	owner->phys.calculate();
 

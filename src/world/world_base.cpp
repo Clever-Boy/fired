@@ -98,9 +98,9 @@ void fired::World::update() {
 	updateList(shots);
 	updateList(particles);
 	updateList(explosions);
+	map->light();
 	updateList(texts);
 
-	map->light();
 	postUpdateState();
 }
 

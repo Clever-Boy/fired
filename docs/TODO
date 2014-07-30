@@ -581,7 +581,7 @@
 			</todo>
 			<todo done="no" collapse="no"><title>Add content</title>
 				<todo done="yes" collapse="yes"><title>Weapons</title>
-					<todo done="yes" collapse="no"><title>Machine gun</title></todo>
+					<todo done="yes" collapse="no"><title>Minigun</title></todo>
 					<todo done="yes" collapse="no"><title>Rocket rifle (automated rocket launcher)</title></todo>
 					<todo done="yes" collapse="no"><title>XM1014 (automatic shotgun)</title></todo>
 				</todo>
@@ -593,25 +593,33 @@
 						<todo done="yes" collapse="no"><title>Legs bones animation</title></todo>
 						<todo done="yes" collapse="no"><title>Arms bones animation</title></todo>
 					</todo>
-					<todo done="no" collapse="yes"><title>Spider</title>
-						<todo done="no" collapse="no"><title>Bones</title></todo>
-						<todo done="no" collapse="no"><title>Bones calculation</title></todo>
-						<todo done="no" collapse="no"><title>Legs bones animation</title></todo>
-					</todo>
-					<todo done="no" collapse="yes"><title>Animal</title>
-						<todo done="no" collapse="no"><title>Bones</title></todo>
-						<todo done="no" collapse="no"><title>Bones calculation</title></todo>
+					<todo done="no" collapse="no"><title>Animal</title>
+						<todo done="yes" collapse="no"><title>Class</title></todo>
+						<todo done="yes" collapse="no"><title>Bones</title></todo>
+						<todo done="yes" collapse="no"><title>Bones calculation</title></todo>
 						<todo done="no" collapse="no"><title>Legs bones animation</title></todo>
 						<todo done="no" collapse="no"><title>Tail animation</title></todo>
+					</todo>
+					<todo done="no" collapse="yes"><title>Spider</title>
+						<todo done="no" collapse="no"><title>Class</title></todo>
+						<todo done="no" collapse="no"><title>Bones</title></todo>
+						<todo done="no" collapse="no"><title>Bones calculation</title></todo>
+						<todo done="no" collapse="no"><title>Legs bones animation</title></todo>
 					</todo>
 				</todo>
 				<todo done="no" collapse="yes"><title>Models</title>
 					<todo done="yes" collapse="no"><title>Soldier (humanoid)</title></todo>
 					<todo done="yes" collapse="no"><title>Troll (humanoid)</title></todo>
-					<todo done="no" collapse="no"><title>Black mamba (spider)</title></todo>
 					<todo done="no" collapse="no"><title>Cat (animal)</title></todo>
 					<todo done="no" collapse="no"><title>Dog (animal)</title></todo>
 					<todo done="no" collapse="no"><title>Panda (animal)</title></todo>
+					<todo done="no" collapse="no"><title>Black mamba (spider)</title></todo>
+				</todo>
+				<todo done="no" collapse="yes"><title>Critters</title>
+					<todo done="no" collapse="no"><title>Cat</title></todo>
+					<todo done="no" collapse="no"><title>Dog</title></todo>
+					<todo done="no" collapse="no"><title>Panda</title></todo>
+					<todo done="no" collapse="no"><title>Dragon</title></todo>
 				</todo>
 				<todo done="no" collapse="yes"><title>Enemies</title>
 					<todo done="yes" collapse="no"><title>Soldier (soldier)</title></todo>
@@ -623,16 +631,17 @@
 					<todo done="no" collapse="no"><title>Black mamba (black mamba)</title></todo>
 					<todo done="no" collapse="no"><title>Big mamba (black mamba x 1.5) (boss)</title></todo>
 				</todo>
-				<todo done="no" collapse="yes"><title>Critters</title>
-					<todo done="no" collapse="no"><title>Cat</title></todo>
-					<todo done="no" collapse="no"><title>Dog</title></todo>
-					<todo done="no" collapse="no"><title>Panda</title></todo>
-					<todo done="no" collapse="no"><title>Dragon</title></todo>
-				</todo>
 				<todo done="no" collapse="yes"><title>Armors</title>
 					<todo done="no" collapse="no"><title>Iron armor</title></todo>
 					<todo done="no" collapse="no"><title>S.W.A.T. armor</title></todo>
 					<todo done="no" collapse="no"><title>Enchanced armor</title></todo>
+				</todo>
+				<todo done="no" collapse="yes"><title>AI</title>
+					<todo done="no" collapse="yes"><title>Critter</title>
+						<todo done="no" collapse="no"><title>Fraction</title></todo>
+						<todo done="no" collapse="no"><title>Moving around</title></todo>
+						<todo done="no" collapse="no"><title>Jumping sometimes</title></todo>
+					</todo>
 				</todo>
 			</todo>
 			<todo done="no" collapse="yes"><title>Improovements</title>
@@ -644,6 +653,7 @@
 				</todo>
 				<todo done="yes" collapse="no"><title>Move bodypart colors to creature definition</title></todo>
 				<todo done="yes" collapse="no"><title>Plasma shot sound</title></todo>
+				<todo done="no" collapse="no"><title>Don't load backgrounds (load on game start and store path)</title></todo>
 				<todo done="no" collapse="no"><title>Reduce shotgun knockback</title></todo>
 				<todo done="no" collapse="no"><title>Knockback resistance</title></todo>
 				<todo done="no" collapse="no"><title>Spawn area instead of spawn point</title></todo>

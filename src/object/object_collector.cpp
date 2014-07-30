@@ -36,6 +36,7 @@ void fired::BaseMapObjectCollector::generateLoot() {
 	addItem(1, "weapon.plasmagun");
 	addItem(1, "weapon.bazooka");
 	addItem(1, "weapon.shotgun");
+	addItem(1, "weapon.minigun");
 	addItem(1, "armor.arms.leather");
 	addItem(1, "armor.fist.leather");
 	addItem(1, "armor.head.leather");

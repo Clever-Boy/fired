@@ -91,10 +91,10 @@ void fired::ModelAnimal::respawn() {
 	bodyParts.push_back(&partLegsBF);
 	bodyParts.push_back(&partLegsBB);
 	bodyParts.push_back(&partBody  );
-	bodyParts.push_back(&partHead  );
 	bodyParts.push_back(&partTail  );
 	bodyParts.push_back(&partLegsFF);
 	bodyParts.push_back(&partLegsFB);
+	bodyParts.push_back(&partHead  );
 
 	bodyAnimation     = caNone;
 	bodyAnimationTime = 0;

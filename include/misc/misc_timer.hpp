@@ -15,6 +15,9 @@ namespace fired {
 		float value;
 		float timer;
 
+
+		Timer() { value = 0.0f; timer = 0.0f; };
+
 		void  setTimer(float _timer);
 		bool  process();
 		bool  isActive();

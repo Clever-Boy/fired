@@ -580,6 +580,14 @@
 				<todo done="yes" collapse="no"><title>Move function</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Add content</title>
+				<todo done="yes" collapse="yes"><title>AI</title>
+					<todo done="yes" collapse="yes"><title>Critter</title>
+						<todo done="yes" collapse="no"><title>Fraction</title></todo>
+						<todo done="yes" collapse="no"><title>Class</title></todo>
+						<todo done="yes" collapse="no"><title>Moving around</title></todo>
+						<todo done="yes" collapse="no"><title>Jumping sometimes</title></todo>
+					</todo>
+				</todo>
 				<todo done="yes" collapse="yes"><title>Weapons</title>
 					<todo done="yes" collapse="no"><title>Minigun</title></todo>
 					<todo done="yes" collapse="no"><title>Rocket rifle (automated rocket launcher)</title></todo>
@@ -637,14 +645,6 @@
 					<todo done="no" collapse="no"><title>Iron armor</title></todo>
 					<todo done="no" collapse="no"><title>S.W.A.T. armor</title></todo>
 					<todo done="no" collapse="no"><title>Enchanced armor</title></todo>
-				</todo>
-				<todo done="no" collapse="yes"><title>AI</title>
-					<todo done="no" collapse="no"><title>Critter</title>
-						<todo done="yes" collapse="no"><title>Fraction</title></todo>
-						<todo done="yes" collapse="no"><title>Class</title></todo>
-						<todo done="no" collapse="no"><title>Moving around</title></todo>
-						<todo done="no" collapse="no"><title>Jumping sometimes</title></todo>
-					</todo>
 				</todo>
 			</todo>
 			<todo done="no" collapse="yes"><title>Improovements</title>

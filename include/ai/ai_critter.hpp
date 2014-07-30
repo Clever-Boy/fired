@@ -15,7 +15,14 @@
 
 namespace fired {
 	struct CritterAI : BaseAI {
-		 CritterAI(fired::Creature *_owner, fired::World *_world) : BaseAI(_owner, _world) {};
+		int moving;
+		int jumping;
+
+		fired::Timer moveTimer;
+		fired::Timer jumpTimer;
+
+
+		 CritterAI(fired::Creature *_owner, fired::World *_world);
 		~CritterAI() {};
 
 		void update();

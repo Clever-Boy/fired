@@ -167,10 +167,10 @@ void fired::ModelAnimal::processAnimation() {
 		case caJumping:
 			bodyAnimationTime = 0.0;
 
-			bones.legsFF.rotate( 20);
-			bones.legsBF.rotate(-20);
-			bones.legsFB.rotate(-20);
-			bones.legsBB.rotate( 20);
+			bones.legsFF.rotate(-55);
+			bones.legsBF.rotate(-55);
+			bones.legsFB.rotate( 55);
+			bones.legsBB.rotate( 55);
 			bones.tail.rotate(20);
 			break;
 	}

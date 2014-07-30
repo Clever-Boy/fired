@@ -96,6 +96,7 @@ int fired::Container::loadBodypart(void *data, int, char **argv, char **) {
 	if (!strcmp(argv[1], "legs"  )) current->type = bptLegs;
 	if (!strcmp(argv[1], "shoe"  )) current->type = bptShoe;
 	if (!strcmp(argv[1], "fist"  )) current->type = bptFist;
+	if (!strcmp(argv[1], "misc"  )) current->type = bptMisc;
 	if (!strcmp(argv[1], "weapon")) current->type = bptWeapon;
 
 	sscanf(argv[2], "%f,%f", &current->origin.x, &current->origin.y);
@@ -135,6 +136,26 @@ int fired::Container::loadModel(void *data, int, char **argv, char **) {
 		sscanf(strstr(argv[5], "body" ), "body=%s\n" , field); ((fired::Container *) data)->loadModelBodypart(field, &model->partBody , bptBody);
 
 		((fired::Container *) data)->models.push_back(model);
+		return 0;
+	}
+
+	if (!strcmp(argv[1], "animal")) {
+		fired::BaseModelAnimal *model = new fired::BaseModelAnimal;
+		model->type = mtAnimal;
+
+		sscanf(argv[3], "%f,%f\n", &model->size.x, &model->size.y);
+		sscanf(argv[4], "%f,%f\n", &model->weaponOffset.x, &model->weaponOffset.y);
+
+		sscanf(strstr(argv[5], "legsff"), "legsff=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partLegsFF, bptLegs);
+		sscanf(strstr(argv[5], "legsbf"), "legsbf=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partLegsBF, bptLegs);
+		sscanf(strstr(argv[5], "legsfb"), "legsfb=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partLegsFB, bptLegs);
+		sscanf(strstr(argv[5], "legsbb"), "legsbb=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partLegsBB, bptLegs);
+		sscanf(strstr(argv[5], "tail"  ), "tail=%s\n"  , field); ((fired::Container *) data)->loadModelBodypart(field, &model->partTail  , bptMisc);
+		sscanf(strstr(argv[5], "head"  ), "head=%s\n"  , field); ((fired::Container *) data)->loadModelBodypart(field, &model->partHead  , bptHead);
+		sscanf(strstr(argv[5], "body"  ), "body=%s\n"  , field); ((fired::Container *) data)->loadModelBodypart(field, &model->partBody  , bptBody);
+
+		((fired::Container *) data)->models.push_back(model);
+		return 0;
 	}
 
 	return 0;
@@ -280,6 +301,7 @@ int fired::Container::loadCreature(void *data, int, char **argv, char **) {
 
 	if (!strcmp(argv[3], "player"))  current->fraction = FIRED_FRACTION_PLAYER;
 	if (!strcmp(argv[3], "soldier")) current->fraction = FIRED_FRACTION_SOLDIER;
+	if (!strcmp(argv[3], "critter")) current->fraction = FIRED_FRACTION_CRITTER;
 
 	sscanf(argv[5] , "%f", &current->modelScale);
 	sscanf(argv[8] , "%d", &current->stats.armor);

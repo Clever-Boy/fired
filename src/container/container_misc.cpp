@@ -95,7 +95,7 @@ void fired::Container::updateProgress(const char *caption) {
 ***********************************************************************/
 void fired::Container::loadModelColors(const char *s, fired::BaseCreature *creature) {
 	switch (creature->model->type) {
-		case mtHumanoid:
+		case mtHumanoid: {
 			creature->colors = new fired::ModelHumanoidColors;
 			fired::ModelHumanoidColors *current = (fired::ModelHumanoidColors*)creature->colors;
 
@@ -109,7 +109,20 @@ void fired::Container::loadModelColors(const char *s, fired::BaseCreature *creat
 			sscanf(strstr(s, "hair" ), "hair=%hhu,%hhu,%hhu,%hhu\n" , &current->partHair.r , &current->partHair.g , &current->partHair.b , &current->partHair.a );
 			sscanf(strstr(s, "head" ), "head=%hhu,%hhu,%hhu,%hhu\n" , &current->partHead.r , &current->partHead.g , &current->partHead.b , &current->partHead.a );
 			sscanf(strstr(s, "body" ), "body=%hhu,%hhu,%hhu,%hhu\n" , &current->partBody.r , &current->partBody.g , &current->partBody.b , &current->partBody.a );
+		} break;
 
-			break;
+
+		case mtAnimal: {
+			creature->colors = new fired::ModelAnimalColors;
+			fired::ModelAnimalColors *current = (fired::ModelAnimalColors*)creature->colors;
+
+			sscanf(strstr(s, "legsff"), "legsff=%hhu,%hhu,%hhu,%hhu\n", &current->partLegsFF.r, &current->partLegsFF.g, &current->partLegsFF.b, &current->partLegsFF.a);
+			sscanf(strstr(s, "legsbf"), "legsbf=%hhu,%hhu,%hhu,%hhu\n", &current->partLegsBF.r, &current->partLegsBF.g, &current->partLegsBF.b, &current->partLegsBF.a);
+			sscanf(strstr(s, "legsfb"), "legsfb=%hhu,%hhu,%hhu,%hhu\n", &current->partLegsFB.r, &current->partLegsFB.g, &current->partLegsFB.b, &current->partLegsFB.a);
+			sscanf(strstr(s, "legsbb"), "legsbb=%hhu,%hhu,%hhu,%hhu\n", &current->partLegsBB.r, &current->partLegsBB.g, &current->partLegsBB.b, &current->partLegsBB.a);
+			sscanf(strstr(s, "tail"  ), "tail=%hhu,%hhu,%hhu,%hhu\n"  , &current->partTail.r  , &current->partTail.g  , &current->partTail.b  , &current->partTail.a  );
+			sscanf(strstr(s, "head"  ), "head=%hhu,%hhu,%hhu,%hhu\n"  , &current->partHead.r  , &current->partHead.g  , &current->partHead.b  , &current->partHead.a  );
+			sscanf(strstr(s, "body"  ), "body=%hhu,%hhu,%hhu,%hhu\n"  , &current->partBody.r  , &current->partBody.g  , &current->partBody.b  , &current->partBody.a  );
+		} break;
 	}
 }

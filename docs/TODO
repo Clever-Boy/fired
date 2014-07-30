@@ -638,7 +638,7 @@
 				</todo>
 				<todo done="no" collapse="yes"><title>AI</title>
 					<todo done="no" collapse="yes"><title>Critter</title>
-						<todo done="no" collapse="no"><title>Fraction</title></todo>
+						<todo done="yes" collapse="no"><title>Fraction</title></todo>
 						<todo done="no" collapse="no"><title>Moving around</title></todo>
 						<todo done="no" collapse="no"><title>Jumping sometimes</title></todo>
 					</todo>

@@ -224,5 +224,6 @@
 ***********************************************************************/
 #define FIRED_FRACTION_PLAYER  1
 #define FIRED_FRACTION_SOLDIER 2
+#define FIRED_FRACTION_CRITTER 3
 
 #endif

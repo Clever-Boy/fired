@@ -37,6 +37,11 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 			model = new fired::ModelHumanoid(this, (fired::BaseModelHumanoid*)_base->model, (fired::ModelHumanoidColors*)_base->colors, base->modelScale, world);
 			break;
 		}
+
+		case mtAnimal: {
+			model = new fired::ModelAnimal(this, (fired::BaseModelAnimal*)_base->model, (fired::ModelAnimalColors*)_base->colors, base->modelScale, world);
+			break;
+		}
 	}
 
 	level    = 1;
@@ -118,6 +123,7 @@ void fired::Character::update() {
 void fired::Character::updateModel() {
 	switch (base->model->type) {
 		case mtHumanoid: ((fired::ModelHumanoid*)model)->updateParts((fired::ModelHumanoidColors*)base->colors); break;
+		case mtAnimal  : ((fired::ModelAnimal*)model)->updateParts((fired::ModelAnimalColors*)base->colors); break;
 	}
 }
 

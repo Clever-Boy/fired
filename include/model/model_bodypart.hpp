@@ -19,8 +19,8 @@ namespace fired {
 		bptHair,
 		bptHead,
 		bptArms,
-		bptWeapon,
-		bptOther
+		bptMisc,
+		bptWeapon
 	};
 
 

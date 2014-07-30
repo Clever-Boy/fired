@@ -38,6 +38,10 @@ namespace fired {
 		std::vector<fired::TemporaryLightSource*> lights;
 		std::vector<sf::IntRect>                  spawns;
 
+		sf::Texture        *bgTex;
+		sf::RectangleShape *bgSprite;
+		float               bgScale;
+
 		sf::Vector2i        visibleTiles;
 		sf::Vector2f        startPos;
 

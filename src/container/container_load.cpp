@@ -355,13 +355,14 @@ int fired::Container::loadTileset(void *data, int, char **argv, char **) {
 ***********************************************************************/
 int fired::Container::loadBiome(void *data, int, char **argv, char **) {
 	((fired::Container *) data)->updateProgress(argv[1]);
-	((fired::Container *) data)->biomes.push_back(new fired::Biome(argv[4]));
+	((fired::Container *) data)->biomes.push_back(new fired::Biome);
 	fired::Biome *current = ((fired::Container *) data)->biomes.back();
 
 	current->intensity = atoi(argv[6]);
 
 	sscanf(argv[3], "%hhu,%hhu,%hhu,%hhu", &current->lightness.r , &current->lightness.g , &current->lightness.b , &current->lightness.a);
-	strcpy(current->name, argv[1]);
+	strcpy(current->name      , argv[1]);
+	strcpy(current->background, argv[4]);
 
 	if (argv[2]) strcpy(current->weather, argv[2]);
 	else         current->weather[0] = 0;

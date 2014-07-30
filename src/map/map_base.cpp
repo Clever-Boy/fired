@@ -24,6 +24,17 @@ fired::Map::Map(fired::Camera *_cam, fired::World *_world) {
 
 	mapLoad(this, "data/maps/test.map");
 
+	bgTex    = new sf::Texture();
+	bgSprite = new sf::RectangleShape();
+
+	bgTex->loadFromFile(biome->background);
+	bgSprite->setTexture(bgTex);
+	bgTex->setRepeated(true);
+	bgTex->setSmooth(true);
+	bgSprite->setSize(sf::Vector2f(settings->window.width, settings->window.height));
+
+	bgScale = (float)bgTex->getSize().y / (float)settings->window.height;
+
 	int lightCount = (visibleTiles.x + LIGHT_OFFSCREEN_TILES * 2) * (visibleTiles.x + LIGHT_OFFSCREEN_TILES * 2);
 	for (int i = 0; i < LIGHT_MAX_LIGHTLEVEL; i++) lightTiles[i] = new fired::Tile*[lightCount];
 }
@@ -40,6 +51,8 @@ fired::Map::~Map() {
 	for (int i = 0; i < sizeX; delete tiles[i++]);
 	delete tiles;
 	delete weather;
+	delete bgSprite;
+	delete bgTex;
 
 	deleteList(objects);
 	deleteList(lights);
@@ -56,8 +69,8 @@ void fired::Map::update() {
 	sf::Vector2f offset = cam->offset;
 	resetLight();
 
-	biome->bgSprite->setPosition(offset);
-	biome->bgSprite->setTextureRect(sf::IntRect(offset.x / 3.0f, 0, settings->window.width * biome->bgScale, biome->bgTex->getSize().y));
+	bgSprite->setPosition(offset);
+	bgSprite->setTextureRect(sf::IntRect(offset.x / 3.0f, 0, settings->window.width * bgScale, bgTex->getSize().y));
 
 	render();
 }
@@ -70,7 +83,7 @@ void fired::Map::update() {
 
 ***********************************************************************/
 void fired::Map::render() {
-	app->draw(*biome->bgSprite);
+	app->draw(*bgSprite);
 	if (weather) weather->update();
 
 	sf::Vector2i from((int)(cam->offset.x / TILE_SIZE), (int)(cam->offset.y / TILE_SIZE));

@@ -656,7 +656,7 @@
 				</todo>
 				<todo done="yes" collapse="no"><title>Move bodypart colors to creature definition</title></todo>
 				<todo done="yes" collapse="no"><title>Plasma shot sound</title></todo>
-				<todo done="no" collapse="no"><title>Don't load backgrounds (load on game start and store path)</title></todo>
+				<todo done="yes" collapse="no"><title>Don't load backgrounds (load on game start and store path)</title></todo>
 				<todo done="no" collapse="no"><title>Reduce shotgun knockback</title></todo>
 				<todo done="no" collapse="no"><title>Knockback resistance</title></todo>
 				<todo done="no" collapse="no"><title>Spawn area instead of spawn point</title></todo>

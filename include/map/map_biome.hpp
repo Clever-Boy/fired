@@ -14,18 +14,12 @@ namespace fired {
 	struct Biome {
 		char name[64];
 		char weather[64];
+		char background[128];
 		char intensity;
 
-		sf::Color           lightness;
-		sf::Texture        *bgTex;
-		sf::RectangleShape *bgSprite;
-		float               bgScale;
-
+		sf::Color lightness;
 		std::vector<fired::BaseCreature*> creatures;
 
-
-		 Biome(const char *bgFile);
-		~Biome();
 
 		fired::Weather *getWeather(fired::World *world);
 	};

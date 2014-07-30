@@ -21,7 +21,7 @@ fired::ModelAnimal::ModelAnimal(fired::Character *_owner, fired::BaseModelAnimal
 	base     = _base;
 
 	modelScale       = scale;
-	legsDiff         = abs(base->partLegsBF.offset.x - base->partLegsFF.offset.x);
+	legsDiff         = abs(base->partLegsFB.offset.x - base->partLegsBB.offset.x);
 	owner->phys.size = base->size * scale;
 	owner->phys.calculate();
 

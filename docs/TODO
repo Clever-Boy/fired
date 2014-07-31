@@ -593,7 +593,12 @@
 					<todo done="yes" collapse="no"><title>Rocket rifle (automated rocket launcher)</title></todo>
 					<todo done="yes" collapse="no"><title>XM1014 (automatic shotgun)</title></todo>
 				</todo>
-				<todo done="no" collapse="yes"><title>Model types</title>
+				<todo done="yes" collapse="yes"><title>Armors</title>
+					<todo done="yes" collapse="no"><title>Leather</title></todo>
+					<todo done="yes" collapse="no"><title>Iron</title></todo>
+					<todo done="yes" collapse="no"><title>Mithril</title></todo>
+				</todo>
+				<todo done="no" collapse="no"><title>Model types</title>
 					<todo done="yes" collapse="yes"><title>Humanoid</title>
 						<todo done="yes" collapse="no"><title>Fix common model offsets and origins</title></todo>
 						<todo done="yes" collapse="no"><title>Bones</title></todo>
@@ -640,11 +645,6 @@
 					<todo done="no" collapse="no"><title>Little (black mamba x 0.7)</title></todo>
 					<todo done="no" collapse="no"><title>Black mamba (black mamba)</title></todo>
 					<todo done="no" collapse="no"><title>Big mamba (black mamba x 1.5) (boss)</title></todo>
-				</todo>
-				<todo done="no" collapse="no"><title>Armors</title>
-					<todo done="no" collapse="no"><title>Leather</title></todo>
-					<todo done="no" collapse="no"><title>Iron</title></todo>
-					<todo done="no" collapse="no"><title>Mithril</title></todo>
 				</todo>
 			</todo>
 			<todo done="no" collapse="yes"><title>Improovements</title>

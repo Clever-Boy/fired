@@ -43,6 +43,18 @@ void fired::BaseMapObjectCollector::generateLoot() {
 	addItem(1, "armor.body.leather");
 	addItem(1, "armor.legs.leather");
 	addItem(1, "armor.shoe.leather");
+	addItem(1, "armor.arms.mithril");
+	addItem(1, "armor.fist.mithril");
+	addItem(1, "armor.head.mithril");
+	addItem(1, "armor.body.mithril");
+	addItem(1, "armor.legs.mithril");
+	addItem(1, "armor.shoe.mithril");
+	addItem(1, "armor.arms.iron");
+	addItem(1, "armor.fist.iron");
+	addItem(1, "armor.head.iron");
+	addItem(1, "armor.body.iron");
+	addItem(1, "armor.legs.iron");
+	addItem(1, "armor.shoe.iron");
 }
 
 

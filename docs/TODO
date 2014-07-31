@@ -658,19 +658,19 @@
 				<todo done="yes" collapse="no"><title>Plasma shot sound</title></todo>
 				<todo done="yes" collapse="no"><title>Don't load backgrounds (load on game start and store path)</title></todo>
 				<todo done="no" collapse="no"><title>Spawn area instead of spawn point</title></todo>
-				<todo done="no" collapse="no"><title>Reduce shotgun knockback</title></todo>
-				<todo done="no" collapse="no"><title>Knockback resistance</title></todo>
 				<todo done="no" collapse="no"><title>Enemy loot option (one of many)</title></todo>
+				<todo done="no" collapse="yes"><title>Random loot at chests</title>
+					<todo done="no" collapse="no"><title>Remove static loot generation</title></todo>
+					<todo done="no" collapse="no"><title>Creature-like loot system</title></todo>
+					<todo done="no" collapse="no"><title>Function for adding loot property</title></todo>
+				</todo>
+				<todo done="no" collapse="no"><title>Divide shotgun shot knockback and damage by shot count</title></todo>
+				<todo done="no" collapse="no"><title>Knockback resistance (multiplies my scale)</title></todo>
 				<todo done="no" collapse="yes"><title>Boss spawns</title>
 					<todo done="no" collapse="no"><title>'Bosses' biome field</title></todo>
 					<todo done="no" collapse="no"><title>Bosses limits</title></todo>
 					<todo done="no" collapse="no"><title>Boss spawn rate</title></todo>
 					<todo done="no" collapse="no"><title>Spawning bosses</title></todo>
-				</todo>
-				<todo done="no" collapse="yes"><title>Random loot at chests</title>
-					<todo done="no" collapse="no"><title>Remove static loot generation</title></todo>
-					<todo done="no" collapse="no"><title>Creature-like loot system</title></todo>
-					<todo done="no" collapse="no"><title>Function for adding loot property</title></todo>
 				</todo>
 				<todo done="no" collapse="no"><title>'Big loot' chests</title></todo>
 			</todo>

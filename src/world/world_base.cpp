@@ -24,7 +24,7 @@ fired::World::World(fired::Mouse *_mouse) {
 	cam       = new fired::Camera();
 	map       = new fired::Map(cam, this);
 	crosshair = new fired::Crosshair(cam);
-	player    = new fired::Player(cam, map->startPos, crosshair, this);
+	player    = new fired::Player(cam, crosshair, this);
 	gui       = new fired::GUI(player->character);
 
 	inventoryWin = new fired::InventoryWindow(player->character, this);

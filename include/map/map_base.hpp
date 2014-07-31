@@ -66,6 +66,7 @@ namespace fired {
 		void findTiles(int x1, int y1, int x2, int y2) {for (int i = x1; i < x2; i++) for (int j = y1; j < y2; j++) findTile(i, j); };
 
 		fired::MapObject *checkInteraction(fired::Character *owner);
+		sf::Vector2f getPlayerSpawn();
 
 		#include "map_lighting.hpp"
 		#include "map_physics.hpp"

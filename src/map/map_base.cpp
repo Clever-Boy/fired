@@ -137,11 +137,22 @@ void fired::Map::spawn(sf::Vector2f position) {
 	if (place == -1) return;
 
 	toSpawn = rand() % biome->creatures.size();
-	creatureSize = biome->creatures[toSpawn]->model->size;
+	creatureSize = biome->creatures[toSpawn]->model->size * biome->creatures[toSpawn]->modelScale;
 	spawnSize    = sf::Vector2f(spawns[place].width, spawns[place].height) - creatureSize;
 
 	pos          = sf::Vector2f(spawns[place].left + rand() % (int)(spawnSize.x), spawns[place].top + spawnSize.y);
 	world->spawn(pos, biome->creatures[toSpawn]);
+}
+
+
+
+/***********************************************************************
+     * Map
+     * spawn
+
+***********************************************************************/
+sf::Vector2f fired::Map::getPlayerSpawn() {
+	return startPos;
 }
 
 

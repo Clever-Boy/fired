@@ -15,11 +15,10 @@
      * constructor
 
 ***********************************************************************/
-fired::Player::Player(fired::Camera *_cam, sf::Vector2f _startpos, fired::Crosshair *_crosshair, fired::World *world) {
-	startPos = _startpos;
+fired::Player::Player(fired::Camera *_cam, fired::Crosshair *_crosshair, fired::World *world) {
 	deadTime = 0;
 
-	character = new fired::Character(_cam, _startpos, world, container->getCreature("Player"), "data/chars/player.chr");
+	character = new fired::Character(_cam, world->map->getPlayerSpawn(), world, container->getCreature("Player"), "data/chars/player.chr");
 	crosshair = _crosshair;
 	crosshair->owner = &character->phys;
 
@@ -51,7 +50,7 @@ void fired::Player::update() {
 			deadTime += frameClock;
 			return;
 		} else {
-			character->respawn(startPos);
+			character->respawn(character->world->map->getPlayerSpawn());
 			deadTime = 0;
 		}
 	}

@@ -673,6 +673,8 @@
 					<todo done="no" collapse="no"><title>Spawning bosses</title></todo>
 				</todo>
 				<todo done="no" collapse="no"><title>'Big loot' chests</title></todo>
+				<todo done="no" collapse="no"><title>Spawn rate and spawn limit as argument</title></todo>
+				<todo done="no" collapse="no"><title>Test Biome (I Hate Animals)</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Code optimization</title></todo>
 		</todo>

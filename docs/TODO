@@ -651,7 +651,7 @@
 			<todo done="no" collapse="no"><title>Test biome (I Hate Animals)</title>
 				<todo done="yes" collapse="no"><title>Biome class</title></todo>
 				<todo done="no" collapse="no"><title>Biome generation</title></todo>
-				<todo done="no" collapse="no"><title>Decors (trees)</title></todo>
+				<todo done="yes" collapse="no"><title>Decors (trees)</title></todo>
 			</todo>
 			<todo done="no" collapse="yes"><title>Improovements</title>
 				<todo done="yes" collapse="no"><title>Use tiles in addLightSource and addDecor instead of pixels</title></todo>

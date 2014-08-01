@@ -18,12 +18,14 @@
 void fired::MapGenerator::genCastle() {
 	genCastleMeta();
 	genCastlePalette();
+	genCastleCreateLoot();
 	genCastleLandscape(0, sizeX - 1, 40);
 	genCastleDecors();
 	genCastlePlatforms();
 	genCastleCollectors();
 	genCastlePlayer();
 	genCastleSpawns();
+	genCastleClearLoot();
 }
 
 
@@ -184,5 +186,27 @@ void fired::MapGenerator::genCastlePlayer() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCastleSpawns() {
+	return;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genCastleCreateLoot
+
+***********************************************************************/
+void fired::MapGenerator::genCastleCreateLoot() {
+	return;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genCastleClearLoot
+
+***********************************************************************/
+void fired::MapGenerator::genCastleClearLoot() {
 	return;
 }

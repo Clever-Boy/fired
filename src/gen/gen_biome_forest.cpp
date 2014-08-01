@@ -18,11 +18,13 @@
 void fired::MapGenerator::genForest() {
 	genForestMeta();
 	genForestPalette();
+	genForestCreateLoot();
 	genForestLandscape();
 	genForestDecors();
 	genForestCollectors();
 	genForestPlayer();
 	genForestSpawns();
+	genForestClearLoot();
 }
 
 
@@ -128,4 +130,26 @@ void fired::MapGenerator::genForestPlayer() {
 ***********************************************************************/
 void fired::MapGenerator::genForestSpawns() {
 	return;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genForestCreateLoot
+
+***********************************************************************/
+void genForestCreateLoot() {
+	return;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genForestClearLoot
+
+***********************************************************************/
+void genForestClearLoot() {
+	deleteList(forest.loot);
 }

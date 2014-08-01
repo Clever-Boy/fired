@@ -18,12 +18,14 @@
 void fired::MapGenerator::genCity() {
 	genCityMeta();
 	genCityPalette();
+	genCityCreateLoot();
 	genCityLandscape();
 	genCityDecors();
 	genCityPlatforms();
 	genCityCollectors();
 	genCityPlayer();
 	genCitySpawns();
+	genCityClearLoot()
 }
 
 
@@ -473,4 +475,27 @@ void fired::MapGenerator::genCitySpawns() {
 	// addSpawn(136, 76, 12,  7);
 	// addSpawn(118, 85, 15,  8);
 	// addSpawn(151, 85, 15,  8);
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genCityCreateLoot
+
+***********************************************************************/
+void genCityCreateLoot() {
+	return;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genCityClearLoot
+
+***********************************************************************/
+void genCityClearLoot() {
+	deleteList(city.simpleLoot);
+	deleteList(city.bigLoot);
 }

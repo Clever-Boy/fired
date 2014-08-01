@@ -18,12 +18,14 @@
 void fired::MapGenerator::genMountains() {
 	genMountainsMeta();
 	genMountainsPalette();
+	genMountainsCreateLoot();
 	genMountainsLandscape(0, sizeX - 1, 40);
 	genMountainsDecors();
 	genMountainsPlatforms();
 	genMountainsCollectors();
 	genMountainsPlayer();
 	genMountainsSpawns();
+	genMountainsClearLoot();
 }
 
 
@@ -184,5 +186,27 @@ void fired::MapGenerator::genMountainsPlayer() {
 
 ***********************************************************************/
 void fired::MapGenerator::genMountainsSpawns() {
+	return;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genMountainsCreateLoot
+
+***********************************************************************/
+void fired::MapGenerator::genMountainsCreateLoot() {
+	return;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genMountainsClearLoot
+
+***********************************************************************/
+void fired::MapGenerator::genMountainsClearLoot() {
 	return;
 }

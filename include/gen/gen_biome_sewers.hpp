@@ -13,6 +13,8 @@
 void genSewers();
 void genSewersMeta();
 void genSewersPalette();
+void genSewersCreateLoot();
+void genSewersClearLoot();
 void genSewersLandscape(int areaStart, int areaEnd, int horizon);
 void genSewersPlayer();
 void genSewersSpawns();

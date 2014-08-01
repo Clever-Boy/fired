@@ -10,9 +10,16 @@
 #define __GEN_BIOME_FOREST
 
 
+struct {
+	std::vector<fired::LootItem*> loot;
+} forest;
+
+
 void genForest();
 void genForestMeta();
 void genForestPalette();
+void genForestCreateLoot();
+void genForestClearLoot();
 void genForestLandscape();
 void genForestPlayer();
 void genForestSpawns();

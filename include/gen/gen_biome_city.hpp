@@ -10,9 +10,17 @@
 #define __GEN_BIOME_CITY
 
 
+struct {
+	std::vector<fired::LootItem*> simpleLoot;
+	std::vector<fired::LootItem*> bigLoot;
+} city;
+
+
 void genCity();
 void genCityMeta();
 void genCityPalette();
+void genCityCreateLoot();
+void genCityClearLoot();
 void genCityLandscape();
 void genCityPlayer();
 void genCitySpawns();

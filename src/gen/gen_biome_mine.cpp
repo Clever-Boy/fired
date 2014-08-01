@@ -18,12 +18,14 @@
 void fired::MapGenerator::genMine() {
 	genMineMeta();
 	genMinePalette();
+	genMineCreateLoot();
 	genMineLandscape();
 	genMineTunnels();
 	genMineLadders();
 	genMinePlayer();
 	genMineClean();
 	genMineSpawns();
+	genMineClearLoot();
 }
 
 
@@ -295,5 +297,27 @@ void fired::MapGenerator::genMineClean() {
 
 ***********************************************************************/
 void fired::MapGenerator::genMineSpawns() {
+	return;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genMineCreateLoot
+
+***********************************************************************/
+void fired::MapGenerator::genMineCreateLoot() {
+	return;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genMineClearLoot
+
+***********************************************************************/
+void fired::MapGenerator::genMineClearLoot() {
 	return;
 }

@@ -18,12 +18,14 @@
 void fired::MapGenerator::genCave() {
 	genCaveMeta();
 	genCavePalette();
+	genCaveCreateLoot();
 	genCaveLandscape(0, sizeX - 1, 40);
 	genCaveDecors();
 	genCavePlatforms();
 	genCaveCollectors();
 	genCavePlayer();
 	genCaveSpawns();
+	genCaveClearLoot();
 }
 
 
@@ -186,4 +188,26 @@ void fired::MapGenerator::genCavePlayer() {
 void fired::MapGenerator::genCaveSpawns() {
 	spawns.push_back(sf::IntRect(141*TILE_SIZE, 34*TILE_SIZE, 16*TILE_SIZE, 5*TILE_SIZE));
 	spawns.push_back(sf::IntRect(  3*TILE_SIZE, 34*TILE_SIZE, 16*TILE_SIZE, 5*TILE_SIZE));
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genCaveCreateLoot
+
+***********************************************************************/
+void fired::MapGenerator::genCaveCreateLoot() {
+	return;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genCaveClearLoot
+
+***********************************************************************/
+void fired::MapGenerator::genCaveClearLoot() {
+	return;
 }

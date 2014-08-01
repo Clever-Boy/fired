@@ -44,6 +44,8 @@ void genMine();
 void genMineMeta();
 void genMineMetaLayer(mineTunLayer *layer, int height);
 void genMinePalette();
+void genMineCreateLoot();
+void genMineClearLoot();
 void genMineLandscape();
 void genMineTunnels();
 void genMineTunnel(mineTunnel *tun);

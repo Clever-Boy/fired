@@ -18,12 +18,14 @@
 void fired::MapGenerator::genSewers() {
 	genSewersMeta();
 	genSewersPalette();
+	genSewersCreateLoot();
 	genSewersLandscape(0, sizeX - 1, 40);
 	genSewersDecors();
 	genSewersPlatforms();
 	genSewersCollectors();
 	genSewersPlayer();
 	genSewersSpawns();
+	genSewersClearLoot();
 }
 
 
@@ -184,5 +186,27 @@ void fired::MapGenerator::genSewersPlayer() {
 
 ***********************************************************************/
 void fired::MapGenerator::genSewersSpawns() {
+	return;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genSewersCreateLoot
+
+***********************************************************************/
+void fired::MapGenerator::genSewersCreateLoot() {
+	return;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genSewersClearLoot
+
+***********************************************************************/
+void fired::MapGenerator::genSewersClearLoot() {
 	return;
 }

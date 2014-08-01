@@ -27,6 +27,8 @@ struct {
 void genBuilding();
 void genBuildingMeta();
 void genBuildingPalette();
+void genBuildingCreateLoot();
+void genBuildingClearLoot();
 void genBuildingBase();
 void genBuildingRooms();
 void genBuildingDoors();

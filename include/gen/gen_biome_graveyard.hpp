@@ -13,6 +13,8 @@
 void genGraveyard();
 void genGraveyardMeta();
 void genGraveyardPalette();
+void genGraveyardCreateLoot();
+void genGraveyardClearLoot();
 void genGraveyardLandscape(int areaStart, int areaEnd, int horizon);
 void genGraveyardPlayer();
 void genGraveyardSpawns();

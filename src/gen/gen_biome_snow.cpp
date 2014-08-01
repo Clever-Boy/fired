@@ -18,12 +18,14 @@
 void fired::MapGenerator::genSnow() {
 	genSnowMeta();
 	genSnowPalette();
+	genSnowCreateLoot();
 	genSnowLandscape(0, sizeX - 1, 40);
 	genSnowDecors();
 	genSnowPlatforms();
 	genSnowCollectors();
 	genSnowPlayer();
 	genSnowSpawns();
+	genSnowClearLoot();
 }
 
 
@@ -184,5 +186,27 @@ void fired::MapGenerator::genSnowPlayer() {
 
 ***********************************************************************/
 void fired::MapGenerator::genSnowSpawns() {
+	return;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genSnowCreateLoot
+
+***********************************************************************/
+void fired::MapGenerator::genSnowCreateLoot() {
+	return;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genSnowClearLoot
+
+***********************************************************************/
+void fired::MapGenerator::genSnowClearLoot() {
 	return;
 }

@@ -18,12 +18,14 @@
 void fired::MapGenerator::genBuilding() {
 	genBuildingMeta();
 	genBuildingPalette();
+	genBuildingCreateLoot();
 	genBuildingBase();
 	genBuildingRooms();
 	genBuildingDoors();
 	genBuildingLadder();
 	genBuildingPlayer();
 	genBuildingSpawns();
+	genBuildingClearLoot();
 }
 
 
@@ -227,5 +229,27 @@ void fired::MapGenerator::genBuildingPlayer() {
 
 ***********************************************************************/
 void fired::MapGenerator::genBuildingSpawns() {
+	return;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genBuildingCreateLoot
+
+***********************************************************************/
+void fired::MapGenerator::genBuildingCreateLoot() {
+	return;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genBuildingClearLoot
+
+***********************************************************************/
+void fired::MapGenerator::genBuildingClearLoot() {
 	return;
 }

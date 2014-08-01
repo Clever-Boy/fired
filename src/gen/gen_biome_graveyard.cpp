@@ -18,12 +18,14 @@
 void fired::MapGenerator::genGraveyard() {
 	genGraveyardMeta();
 	genGraveyardPalette();
+	genGraveyardCreateLoot();
 	genGraveyardLandscape(0, sizeX - 1, 40);
 	genGraveyardDecors();
 	genGraveyardPlatforms();
 	genGraveyardCollectors();
 	genGraveyardPlayer();
 	genGraveyardSpawns();
+	genGraveyardClearLoot();
 }
 
 
@@ -184,5 +186,27 @@ void fired::MapGenerator::genGraveyardPlayer() {
 
 ***********************************************************************/
 void fired::MapGenerator::genGraveyardSpawns() {
+	return;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genGraveyardCreateLoot
+
+***********************************************************************/
+void fired::MapGenerator::genGraveyardCreateLoot() {
+	return;
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genGraveyardClearLoot
+
+***********************************************************************/
+void fired::MapGenerator::genGraveyardClearLoot() {
 	return;
 }

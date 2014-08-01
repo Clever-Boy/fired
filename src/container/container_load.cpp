@@ -171,18 +171,10 @@ int fired::Container::loadModel(void *data, int, char **argv, char **) {
 		sscanf(strstr(argv[5], "legsf2"), "legsf2=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partLegsF2, bptLegs);
 		sscanf(strstr(argv[5], "legsf3"), "legsf3=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partLegsF3, bptLegs);
 		sscanf(strstr(argv[5], "legsf4"), "legsf4=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partLegsF4, bptLegs);
-		sscanf(strstr(argv[5], "legsb1"), "legsb1=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partLegsB1, bptLegs);
-		sscanf(strstr(argv[5], "legsb2"), "legsb2=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partLegsB2, bptLegs);
-		sscanf(strstr(argv[5], "legsb3"), "legsb3=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partLegsB3, bptLegs);
-		sscanf(strstr(argv[5], "legsb4"), "legsb4=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partLegsB4, bptLegs);
 		sscanf(strstr(argv[5], "shoef1"), "shoef1=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partShoeF1, bptShoe);
 		sscanf(strstr(argv[5], "shoef2"), "shoef2=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partShoeF2, bptShoe);
 		sscanf(strstr(argv[5], "shoef3"), "shoef3=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partShoeF3, bptShoe);
 		sscanf(strstr(argv[5], "shoef4"), "shoef4=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partShoeF4, bptShoe);
-		sscanf(strstr(argv[5], "shoeb1"), "shoeb1=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partShoeB1, bptShoe);
-		sscanf(strstr(argv[5], "shoeb2"), "shoeb2=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partShoeB2, bptShoe);
-		sscanf(strstr(argv[5], "shoeb3"), "shoeb3=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partShoeB3, bptShoe);
-		sscanf(strstr(argv[5], "shoeb4"), "shoeb4=%s\n", field); ((fired::Container *) data)->loadModelBodypart(field, &model->partShoeB4, bptShoe);
 		sscanf(strstr(argv[5], "head"  ), "head=%s\n"  , field); ((fired::Container *) data)->loadModelBodypart(field, &model->partHead  , bptHead);
 		sscanf(strstr(argv[5], "body"  ), "body=%s\n"  , field); ((fired::Container *) data)->loadModelBodypart(field, &model->partBody  , bptBody);
 

@@ -61,18 +61,10 @@ void fired::ModelSpider::updateParts(fired::ModelSpiderColors *modelColors) {
 	initPart(&partLegsF2, &base->partLegsF2, modelColors->partLegsF2, NULL, &owner->direction);
 	initPart(&partLegsF3, &base->partLegsF3, modelColors->partLegsF3, NULL, &owner->direction);
 	initPart(&partLegsF4, &base->partLegsF4, modelColors->partLegsF4, NULL, &owner->direction);
-	initPart(&partLegsB1, &base->partLegsB1, modelColors->partLegsB1, NULL, &owner->direction);
-	initPart(&partLegsB2, &base->partLegsB2, modelColors->partLegsB2, NULL, &owner->direction);
-	initPart(&partLegsB3, &base->partLegsB3, modelColors->partLegsB3, NULL, &owner->direction);
-	initPart(&partLegsB4, &base->partLegsB4, modelColors->partLegsB4, NULL, &owner->direction);
 	initPart(&partShoeF1, &base->partShoeF1, modelColors->partShoeF1, NULL, &owner->direction);
 	initPart(&partShoeF2, &base->partShoeF2, modelColors->partShoeF2, NULL, &owner->direction);
 	initPart(&partShoeF3, &base->partShoeF3, modelColors->partShoeF3, NULL, &owner->direction);
 	initPart(&partShoeF4, &base->partShoeF4, modelColors->partShoeF4, NULL, &owner->direction);
-	initPart(&partShoeB1, &base->partShoeB1, modelColors->partShoeB1, NULL, &owner->direction);
-	initPart(&partShoeB2, &base->partShoeB2, modelColors->partShoeB2, NULL, &owner->direction);
-	initPart(&partShoeB3, &base->partShoeB3, modelColors->partShoeB3, NULL, &owner->direction);
-	initPart(&partShoeB4, &base->partShoeB4, modelColors->partShoeB4, NULL, &owner->direction);
 }
 
 
@@ -87,18 +79,10 @@ void fired::ModelSpider::updateBones() {
 	initBone(&bones.legsF2, partLegsF2.offset, partShoeF2.offset);
 	initBone(&bones.legsF3, partLegsF3.offset, partShoeF3.offset);
 	initBone(&bones.legsF4, partLegsF4.offset, partShoeF4.offset);
-	initBone(&bones.legsB1, partLegsB1.offset, partShoeB1.offset);
-	initBone(&bones.legsB2, partLegsB2.offset, partShoeB2.offset);
-	initBone(&bones.legsB3, partLegsB3.offset, partShoeB3.offset);
-	initBone(&bones.legsB4, partLegsB4.offset, partShoeB4.offset);
 	initBone(&bones.shoeF1, partShoeF1.offset, partShoeF1.offset);
 	initBone(&bones.shoeF2, partShoeF2.offset, partShoeF2.offset);
 	initBone(&bones.shoeF3, partShoeF3.offset, partShoeF3.offset);
 	initBone(&bones.shoeF4, partShoeF4.offset, partShoeF4.offset);
-	initBone(&bones.shoeB1, partShoeB1.offset, partShoeB1.offset);
-	initBone(&bones.shoeB2, partShoeB2.offset, partShoeB2.offset);
-	initBone(&bones.shoeB3, partShoeB3.offset, partShoeB3.offset);
-	initBone(&bones.shoeB4, partShoeB4.offset, partShoeB4.offset);
 }
 
 
@@ -109,14 +93,6 @@ void fired::ModelSpider::updateBones() {
 
 ***********************************************************************/
 void fired::ModelSpider::respawn() {
-	bodyParts.push_back(&partShoeB1);
-	bodyParts.push_back(&partShoeB2);
-	bodyParts.push_back(&partShoeB3);
-	bodyParts.push_back(&partShoeB4);
-	bodyParts.push_back(&partLegsB1);
-	bodyParts.push_back(&partLegsB2);
-	bodyParts.push_back(&partLegsB3);
-	bodyParts.push_back(&partLegsB4);
 	bodyParts.push_back(&partBody  );
 	bodyParts.push_back(&partHead  );
 	bodyParts.push_back(&partLegsF1);

@@ -134,18 +134,10 @@ void fired::Container::loadModelColors(const char *s, fired::BaseCreature *creat
 			sscanf(strstr(s, "legsf2"), "legsf2=%hhu,%hhu,%hhu,%hhu\n", &current->partLegsF2.r, &current->partLegsF2.g, &current->partLegsF2.b, &current->partLegsF2.a);
 			sscanf(strstr(s, "legsf3"), "legsf3=%hhu,%hhu,%hhu,%hhu\n", &current->partLegsF3.r, &current->partLegsF3.g, &current->partLegsF3.b, &current->partLegsF3.a);
 			sscanf(strstr(s, "legsf4"), "legsf4=%hhu,%hhu,%hhu,%hhu\n", &current->partLegsF4.r, &current->partLegsF4.g, &current->partLegsF4.b, &current->partLegsF4.a);
-			sscanf(strstr(s, "legsb1"), "legsb1=%hhu,%hhu,%hhu,%hhu\n", &current->partLegsB1.r, &current->partLegsB1.g, &current->partLegsB1.b, &current->partLegsB1.a);
-			sscanf(strstr(s, "legsb2"), "legsb2=%hhu,%hhu,%hhu,%hhu\n", &current->partLegsB2.r, &current->partLegsB2.g, &current->partLegsB2.b, &current->partLegsB2.a);
-			sscanf(strstr(s, "legsb3"), "legsb3=%hhu,%hhu,%hhu,%hhu\n", &current->partLegsB3.r, &current->partLegsB3.g, &current->partLegsB3.b, &current->partLegsB3.a);
-			sscanf(strstr(s, "legsb4"), "legsb4=%hhu,%hhu,%hhu,%hhu\n", &current->partLegsB4.r, &current->partLegsB4.g, &current->partLegsB4.b, &current->partLegsB4.a);
 			sscanf(strstr(s, "shoef1"), "shoef1=%hhu,%hhu,%hhu,%hhu\n", &current->partShoeF1.r, &current->partShoeF1.g, &current->partShoeF1.b, &current->partShoeF1.a);
 			sscanf(strstr(s, "shoef2"), "shoef2=%hhu,%hhu,%hhu,%hhu\n", &current->partShoeF2.r, &current->partShoeF2.g, &current->partShoeF2.b, &current->partShoeF2.a);
 			sscanf(strstr(s, "shoef3"), "shoef3=%hhu,%hhu,%hhu,%hhu\n", &current->partShoeF3.r, &current->partShoeF3.g, &current->partShoeF3.b, &current->partShoeF3.a);
 			sscanf(strstr(s, "shoef4"), "shoef4=%hhu,%hhu,%hhu,%hhu\n", &current->partShoeF4.r, &current->partShoeF4.g, &current->partShoeF4.b, &current->partShoeF4.a);
-			sscanf(strstr(s, "shoeb1"), "shoeb1=%hhu,%hhu,%hhu,%hhu\n", &current->partShoeB1.r, &current->partShoeB1.g, &current->partShoeB1.b, &current->partShoeB1.a);
-			sscanf(strstr(s, "shoeb2"), "shoeb2=%hhu,%hhu,%hhu,%hhu\n", &current->partShoeB2.r, &current->partShoeB2.g, &current->partShoeB2.b, &current->partShoeB2.a);
-			sscanf(strstr(s, "shoeb3"), "shoeb3=%hhu,%hhu,%hhu,%hhu\n", &current->partShoeB3.r, &current->partShoeB3.g, &current->partShoeB3.b, &current->partShoeB3.a);
-			sscanf(strstr(s, "shoeb4"), "shoeb4=%hhu,%hhu,%hhu,%hhu\n", &current->partShoeB4.r, &current->partShoeB4.g, &current->partShoeB4.b, &current->partShoeB4.a);
 			sscanf(strstr(s, "head"  ), "head=%hhu,%hhu,%hhu,%hhu\n"  , &current->partHead.r  , &current->partHead.g  , &current->partHead.b  , &current->partHead.a  );
 			sscanf(strstr(s, "body"  ), "body=%hhu,%hhu,%hhu,%hhu\n"  , &current->partBody.r  , &current->partBody.g  , &current->partBody.b  , &current->partBody.a  );
 		} break;

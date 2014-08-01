@@ -169,15 +169,19 @@ void fired::ModelSpider::processAnimation() {
 			bodyAnimationTime += frameClock * abs(owner->phys.velocity.x);
 			bodyFrame          = (int)(bodyAnimationTime / 5) % 14;
 
-			bones.legsF1.rotate(-40);
-			bones.legsF2.rotate(-20);
-			bones.legsF3.rotate( 20);
-			bones.legsF4.rotate( 40);
+			{
+				float angle   = cos(3.14f * bodyFrame / 7) * 15.0f;
 
-			bones.shoeF1.rotate( 20);
-			bones.shoeF2.rotate( 20);
-			bones.shoeF3.rotate(-20);
-			bones.shoeF4.rotate(-20);
+				bones.legsF1.rotate(-40 - angle);
+				bones.legsF2.rotate(-20 + angle);
+				bones.legsF3.rotate( 20 - angle);
+				bones.legsF4.rotate( 40 + angle);
+
+				bones.shoeF1.rotate( 20 + angle);
+				bones.shoeF2.rotate( 20 - angle);
+				bones.shoeF3.rotate(-20 + angle);
+				bones.shoeF4.rotate(-20 - angle);
+			}
 
 			break;
 	}

@@ -584,7 +584,7 @@
 				<todo done="yes" collapse="no"><title>Biome generation</title></todo>
 				<todo done="yes" collapse="no"><title>Decors (trees)</title></todo>
 			</todo>
-			<todo done="no" collapse="no"><title>Add content</title>
+			<todo done="yes" collapse="yes"><title>Add content</title>
 				<todo done="yes" collapse="yes"><title>AI</title>
 					<todo done="yes" collapse="yes"><title>Critter</title>
 						<todo done="yes" collapse="no"><title>Fraction</title></todo>
@@ -603,7 +603,7 @@
 					<todo done="yes" collapse="no"><title>Iron</title></todo>
 					<todo done="yes" collapse="no"><title>Mithril</title></todo>
 				</todo>
-				<todo done="no" collapse="no"><title>Model types</title>
+				<todo done="yes" collapse="yes"><title>Model types</title>
 					<todo done="yes" collapse="yes"><title>Humanoid</title>
 						<todo done="yes" collapse="no"><title>Fix common model offsets and origins</title></todo>
 						<todo done="yes" collapse="no"><title>Bones</title></todo>
@@ -618,12 +618,12 @@
 						<todo done="yes" collapse="no"><title>Legs bones animation</title></todo>
 						<todo done="yes" collapse="no"><title>Tail animation</title></todo>
 					</todo>
-					<todo done="no" collapse="no"><title>Spider</title>
+					<todo done="yes" collapse="yes"><title>Spider</title>
 						<todo done="yes" collapse="no"><title>Class</title></todo>
 						<todo done="yes" collapse="no"><title>Bones</title></todo>
 						<todo done="yes" collapse="no"><title>Bones calculation</title></todo>
 						<todo done="yes" collapse="no"><title>Legs standing rotations</title></todo>
-						<todo done="no" collapse="no"><title>Legs bones animation</title></todo>
+						<todo done="yes" collapse="no"><title>Legs bones animation</title></todo>
 					</todo>
 				</todo>
 				<todo done="yes" collapse="yes"><title>Models</title>
@@ -653,7 +653,7 @@
 					<todo done="yes" collapse="no"><title>Big mamba (black mamba x 1.5) (boss)</title></todo>
 				</todo>
 			</todo>
-			<todo done="no" collapse="yes"><title>Improovements</title>
+			<todo done="no" collapse="no"><title>Improovements</title>
 				<todo done="yes" collapse="no"><title>Use tiles in addLightSource and addDecor instead of pixels</title></todo>
 				<todo done="yes" collapse="yes"><title>Make equipment easy-to-understand</title>
 					<todo done="yes" collapse="no"><title>Move icons (weapon to the right)</title></todo>

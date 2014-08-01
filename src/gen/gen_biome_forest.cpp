@@ -18,9 +18,8 @@
 void fired::MapGenerator::genForest() {
 	genForestMeta();
 	genForestPalette();
-	genForestLandscape(0, sizeX - 1, 40);
+	genForestLandscape();
 	genForestDecors();
-	genForestPlatforms();
 	genForestCollectors();
 	genForestPlayer();
 	genForestSpawns();
@@ -34,9 +33,7 @@ void fired::MapGenerator::genForest() {
 
 ***********************************************************************/
 void fired::MapGenerator::genForestPalette() {
-	addTileToPalette("plank");
 	addTileToPalette("stone");
-	addTileToPalette("dirt");
 	addTileToPalette("grass");
 }
 
@@ -48,7 +45,7 @@ void fired::MapGenerator::genForestPalette() {
 
 ***********************************************************************/
 void fired::MapGenerator::genForestMeta() {
-	genClear(200, 100);
+	genClear(100, 90);
 }
 
 
@@ -58,59 +55,13 @@ void fired::MapGenerator::genForestMeta() {
      * genForestLandscape
 
 ***********************************************************************/
-void fired::MapGenerator::genForestLandscape(int areaStart, int areaEnd, int horizon) {
-	setBrush("dirt");
-	genFill(areaStart, horizon, areaEnd, sizeY - 1, true);
-	genFill(areaStart, horizon - 2, areaEnd, horizon - 1, false);
-
-	genFill(areaStart  , horizon - 2, areaStart + 3, horizon - 1, true);
-	genFill(areaEnd - 4, horizon - 2, areaEnd      , horizon - 1, true);
-
-	genFill(areaStart + 4, horizon - 1, areaStart + 7, horizon - 1, true);
-	genFill(areaEnd - 8  , horizon - 1, areaEnd - 5  , horizon - 1, true);
-
-	//Generating testing planes
-	setBrush("stone");
-	genBar(41, horizon - 11, horizon - 6, false);
-	genBar(47, horizon - 11, horizon - 6, false);
-	genFill(41, horizon - 7, 47, horizon - 6, false);
-
-	genBar(81, horizon - 11, horizon - 6, false);
-	genBar(87, horizon - 11, horizon - 6, false);
-	genFill(81, horizon - 7, 87, horizon - 6, false);
-
-	genFill(40, horizon - 5, 88, horizon - 5, true);
-	genFill(40, horizon - 4, 88, horizon - 1, false);
-
+void fired::MapGenerator::genForestLandscape() {
 	setBrush("grass");
-	genFill(40, horizon - 10, 48, horizon - 10, true);
-	genFill(80, horizon - 10, 88, horizon - 10, true);
+	genFill( 0, 50, 99, 89, true);
 
-
-	//Generating testing house
-	setBrush("plank");
-	genFill(140, horizon - 10, 159, horizon - 1, false);
-	genFill(140, horizon, 159, horizon, true);
-	genFill(140, horizon - 10, 159, horizon - 9, true);
-	genBar(140, horizon - 10, horizon - 6, true);
-	genBar(159, horizon - 10, horizon - 6, true);
-
-	genFill(142, horizon - 11, 157, horizon - 11, true);
-	genFill(144, horizon - 12, 155, horizon - 12, true);
-	genFill(146, horizon - 13, 153, horizon - 13, true);
-	genFill(148, horizon - 14, 151, horizon - 14, true);
-
-	//Generating one more testing house
-	genFill(0, horizon - 8, 19, horizon-1, false);
-	genFill(0, horizon - 10, 1, horizon-1, true);
-	genFill(0, horizon - 10, 18, horizon - 10, true);
-	genFill(0, horizon - 9, 21, horizon - 9, true);
-
-
-	//Generating cave
 	setBrush("stone");
-	genFill(62, horizon, 66, horizon + 25, false);
-	genFill(42, horizon + 21, 86, horizon + 25, false);
+	genFill( 0, 42,  5, 49, true);
+	genFill(95, 42, 99, 49, true);
 }
 
 
@@ -121,36 +72,28 @@ void fired::MapGenerator::genForestLandscape(int areaStart, int areaEnd, int hor
 
 ***********************************************************************/
 void fired::MapGenerator::genForestDecors() {
-	addDecor(119, 38, "box");
-	addDecor(121, 38, "box");
-	addDecor(120, 36, "box");
-
-	addDecor(143, 38, "barrel");
-	addDecor(148, 38, "barrel");
-	addDecor(150, 38, "barrel");
-
-	addLightSource(142, 33, "wall.lamp.red");
-	addLightSource(157, 33, "wall.lamp.blue");
-
-	addLightSource(43 , 62, "wall.lamp");
-	addLightSource(85 , 62, "wall.lamp");
-	addLightSource(64 , 57, "wall.lamp");
-}
-
-
-
-/***********************************************************************
-     * MapGenerator
-     * genForestPlatforms
-
-***********************************************************************/
-void fired::MapGenerator::genForestPlatforms() {
-	for (int x = 49; x < 80; x++) addPlatform(x, 30, "bridge.metal");
-	for (int x = 62; x < 67; x++) addPlatform(x, 40, "bridge.metal");
-	for (int x = 62; x < 67; x++) addPlatform(x, 45, "bridge.metal");
-	for (int x = 62; x < 67; x++) addPlatform(x, 50, "bridge.metal");
-	for (int x = 62; x < 67; x++) addPlatform(x, 55, "bridge.metal");
-	for (int x = 62; x < 67; x++) addPlatform(x, 60, "bridge.metal");
+	addDecor( 7, 41, "tree4");
+	addDecor(10, 41, "tree1");
+	addDecor(14, 41, "tree4");
+	addDecor(18, 42, "tree3");
+	addDecor(24, 44, "tree2");
+	addDecor(26, 41, "tree1");
+	addDecor(32, 45, "tree5");
+	addDecor(38, 44, "tree2");
+	addDecor(41, 42, "tree3");
+	addDecor(44, 41, "tree1");
+	addDecor(50, 41, "tree4");
+	addDecor(54, 45, "tree5");
+	addDecor(57, 44, "tree2");
+	addDecor(62, 41, "tree4");
+	addDecor(63, 42, "tree3");
+	addDecor(68, 45, "tree5");
+	addDecor(72, 41, "tree1");
+	addDecor(76, 41, "tree4");
+	addDecor(79, 41, "tree1");
+	addDecor(82, 42, "tree3");
+	addDecor(86, 45, "tree5");
+	addDecor(90, 44, "tree2");
 }
 
 
@@ -161,8 +104,8 @@ void fired::MapGenerator::genForestPlatforms() {
 
 ***********************************************************************/
 void fired::MapGenerator::genForestCollectors() {
-	addCollector(44, 33, "chest");
-	addCollector(84, 33, "chest");
+	addCollector( 2, 40, "chest");
+	addCollector(96, 40, "chest");
 }
 
 
@@ -173,11 +116,8 @@ void fired::MapGenerator::genForestCollectors() {
 
 ***********************************************************************/
 void fired::MapGenerator::genForestPlayer() {
-	int y = 0;
-	startPos.x = (sizeX / 2) * TILE_SIZE;
-
-	while (!tiles[sizeX / 2][y].tileset || !tiles[sizeX / 2][y].isWall) y++;
-	startPos.y = (y - 3) * TILE_SIZE;
+	startPos.x =  2 * TILE_SIZE;
+	startPos.y = 38 * TILE_SIZE;
 }
 
 

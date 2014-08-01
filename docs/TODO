@@ -555,6 +555,35 @@
 				<todo done="yes" collapse="no"><title>Array</title></todo>
 				<todo done="yes" collapse="no"><title>Move function</title></todo>
 			</todo>
+			<todo done="yes" collapse="yes"><title>Test biome (City)</title>
+				<todo done="yes" collapse="no"><title>Background</title></todo>
+				<todo done="yes" collapse="no"><title>Lightning</title></todo>
+				<todo done="yes" collapse="no"><title>Weather</title></todo>
+				<todo done="yes" collapse="no"><title>Base map</title></todo>
+				<todo done="yes" collapse="no"><title>Underground tunnels</title></todo>
+				<todo done="yes" collapse="no"><title>Add some bumpy tiles</title></todo>
+				<todo done="yes" collapse="no"><title>Labs made of other types of bricks</title></todo>
+				<todo done="yes" collapse="no"><title>Bridges</title></todo>
+				<todo done="yes" collapse="no"><title>Large hall additional platforms</title></todo>
+				<todo done="yes" collapse="yes"><title>Light sources</title>
+					<todo done="yes" collapse="no"><title>Labs lamps</title></todo>
+					<todo done="yes" collapse="no"><title>Outdoor Lamp Post</title></todo>
+					<todo done="yes" collapse="no"><title>Large hall lights</title></todo>
+					<todo done="yes" collapse="no"><title>Corridor lights</title></todo>
+				</todo>
+				<todo done="yes" collapse="yes"><title>Decors</title>
+					<todo done="yes" collapse="no"><title>PC stations</title></todo>
+					<todo done="yes" collapse="no"><title>Bookshelves</title></todo>
+					<todo done="yes" collapse="no"><title>Chairs</title></todo>
+				</todo>
+				<todo done="yes" collapse="no"><title>Chests</title></todo>
+				<todo done="yes" collapse="no"><title>Enemy spawns</title></todo>
+			</todo>
+			<todo done="yes" collapse="yes"><title>Test biome (I Hate Animals)</title>
+				<todo done="yes" collapse="no"><title>Biome class</title></todo>
+				<todo done="yes" collapse="no"><title>Biome generation</title></todo>
+				<todo done="yes" collapse="no"><title>Decors (trees)</title></todo>
+			</todo>
 			<todo done="no" collapse="no"><title>Add content</title>
 				<todo done="yes" collapse="yes"><title>AI</title>
 					<todo done="yes" collapse="yes"><title>Critter</title>
@@ -623,35 +652,6 @@
 					<todo done="yes" collapse="no"><title>Black mamba (black mamba)</title></todo>
 					<todo done="yes" collapse="no"><title>Big mamba (black mamba x 1.5) (boss)</title></todo>
 				</todo>
-			</todo>
-			<todo done="yes" collapse="yes"><title>Test biome (City)</title>
-				<todo done="yes" collapse="no"><title>Background</title></todo>
-				<todo done="yes" collapse="no"><title>Lightning</title></todo>
-				<todo done="yes" collapse="no"><title>Weather</title></todo>
-				<todo done="yes" collapse="no"><title>Base map</title></todo>
-				<todo done="yes" collapse="no"><title>Underground tunnels</title></todo>
-				<todo done="yes" collapse="no"><title>Add some bumpy tiles</title></todo>
-				<todo done="yes" collapse="no"><title>Labs made of other types of bricks</title></todo>
-				<todo done="yes" collapse="no"><title>Bridges</title></todo>
-				<todo done="yes" collapse="no"><title>Large hall additional platforms</title></todo>
-				<todo done="yes" collapse="yes"><title>Light sources</title>
-					<todo done="yes" collapse="no"><title>Labs lamps</title></todo>
-					<todo done="yes" collapse="no"><title>Outdoor Lamp Post</title></todo>
-					<todo done="yes" collapse="no"><title>Large hall lights</title></todo>
-					<todo done="yes" collapse="no"><title>Corridor lights</title></todo>
-				</todo>
-				<todo done="yes" collapse="yes"><title>Decors</title>
-					<todo done="yes" collapse="no"><title>PC stations</title></todo>
-					<todo done="yes" collapse="no"><title>Bookshelves</title></todo>
-					<todo done="yes" collapse="no"><title>Chairs</title></todo>
-				</todo>
-				<todo done="yes" collapse="no"><title>Chests</title></todo>
-				<todo done="yes" collapse="no"><title>Enemy spawns</title></todo>
-			</todo>
-			<todo done="no" collapse="no"><title>Test biome (I Hate Animals)</title>
-				<todo done="yes" collapse="no"><title>Biome class</title></todo>
-				<todo done="no" collapse="no"><title>Biome generation</title></todo>
-				<todo done="yes" collapse="no"><title>Decors (trees)</title></todo>
 			</todo>
 			<todo done="no" collapse="yes"><title>Improovements</title>
 				<todo done="yes" collapse="no"><title>Use tiles in addLightSource and addDecor instead of pixels</title></todo>

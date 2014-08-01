@@ -13,11 +13,10 @@
 void genForest();
 void genForestMeta();
 void genForestPalette();
-void genForestLandscape(int areaStart, int areaEnd, int horizon);
+void genForestLandscape();
 void genForestPlayer();
 void genForestSpawns();
 void genForestDecors();
-void genForestPlatforms();
 void genForestCollectors();
 
 #endif

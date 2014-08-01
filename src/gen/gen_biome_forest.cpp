@@ -116,8 +116,7 @@ void fired::MapGenerator::genForestCollectors() {
 
 ***********************************************************************/
 void fired::MapGenerator::genForestPlayer() {
-	startPos.x =  2 * TILE_SIZE;
-	startPos.y = 38 * TILE_SIZE;
+	setStart(0, 37, 5, 5);
 }
 
 

@@ -173,11 +173,7 @@ void fired::MapGenerator::genCastleCollectors() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCastlePlayer() {
-	int y = 0;
-	startPos.x = (sizeX / 2) * TILE_SIZE;
-
-	while (!tiles[sizeX / 2][y].tileset || !tiles[sizeX / 2][y].isWall) y++;
-	startPos.y = (y - 3) * TILE_SIZE;
+	setStart(sizeX / 2, 36, 10, 5);
 }
 
 

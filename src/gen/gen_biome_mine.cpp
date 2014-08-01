@@ -270,11 +270,7 @@ void fired::MapGenerator::genMineLadders() {
 
 ***********************************************************************/
 void fired::MapGenerator::genMinePlayer() {
-	int y = 0;
-	startPos.x = 20 * TILE_SIZE;
-
-	while (!tiles[20][y].tileset || !tiles[20][y].isWall) y++;
-	startPos.y = (y - 4) * TILE_SIZE;
+	setStart(sizeX / 2, 36, 10, 5);
 }
 
 

@@ -16,7 +16,7 @@ namespace fired {
 	struct MapGenerator {
 		fired::Biome    *biome;
 		fired::MapTile **tiles;
-		sf::Vector2f     startPos;
+		sf::IntRect    startRect;
 		int sizeX;
 		int sizeY;
 		int brush;

@@ -43,7 +43,7 @@ namespace fired {
 		float               bgScale;
 
 		sf::Vector2i        visibleTiles;
-		sf::Vector2f        startPos;
+		sf::IntRect         startRect;
 
 		sf::Vertex          lightMask[4];
 
@@ -67,6 +67,7 @@ namespace fired {
 
 		fired::MapObject *checkInteraction(fired::Character *owner);
 		sf::Vector2f getPlayerSpawn();
+		sf::IntRect  getRectToSpawn(fired::BaseCreature *creature, sf::IntRect spawnRect);
 
 		#include "map_lighting.hpp"
 		#include "map_physics.hpp"

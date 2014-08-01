@@ -446,8 +446,7 @@ void fired::MapGenerator::genCityCollectors() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCityPlayer() {
-	startPos.x = 170 * TILE_SIZE;
-	startPos.y =  37 * TILE_SIZE;
+	setStart(170, 35, 8, 5);
 }
 
 

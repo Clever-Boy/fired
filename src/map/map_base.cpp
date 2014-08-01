@@ -121,8 +121,7 @@ void fired::Map::spawn(sf::Vector2f position) {
 	float dist;
 
 	sf::Vector2f pos;
-	sf::Vector2f creatureSize;
-	sf::Vector2f spawnSize;
+	sf::IntRect  spawnRect;
 
 	for (unsigned int i = 0; i < spawns.size(); i++) {
 		if (cam->isRectVisible(sf::FloatRect(spawns[i]))) continue;
@@ -136,11 +135,10 @@ void fired::Map::spawn(sf::Vector2f position) {
 
 	if (place == -1) return;
 
-	toSpawn = rand() % biome->creatures.size();
-	creatureSize = biome->creatures[toSpawn]->model->size * biome->creatures[toSpawn]->modelScale;
-	spawnSize    = sf::Vector2f(spawns[place].width, spawns[place].height) - creatureSize;
+	toSpawn   = rand() % biome->creatures.size();
+	spawnRect = getRectToSpawn(biome->creatures[toSpawn], spawns[place]);
+	pos       = sf::Vector2f(spawnRect.left + rand() % spawnRect.width, spawnRect.top + spawnRect.height);
 
-	pos          = sf::Vector2f(spawns[place].left + rand() % (int)(spawnSize.x), spawns[place].top + spawnSize.y);
 	world->spawn(pos, biome->creatures[toSpawn]);
 }
 
@@ -152,7 +150,24 @@ void fired::Map::spawn(sf::Vector2f position) {
 
 ***********************************************************************/
 sf::Vector2f fired::Map::getPlayerSpawn() {
-	return startPos;
+	sf::IntRect spawnRect = getRectToSpawn(container->getCreature("Player"), startRect);
+	return sf::Vector2f(spawnRect.left + rand() % spawnRect.width, spawnRect.top + spawnRect.height);
+}
+
+
+
+/***********************************************************************
+     * Map
+     * spawn
+
+***********************************************************************/
+sf::IntRect fired::Map::getRectToSpawn(fired::BaseCreature *creature, sf::IntRect spawnRect) {
+	sf::IntRect result(spawnRect);
+	sf::Vector2i size = sf::Vector2i(creature->model->size * creature->modelScale);
+
+	result.width  -= size.x;
+	result.height -= size.y;
+	return result;
 }
 
 

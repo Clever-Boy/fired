@@ -663,7 +663,7 @@
 				<todo done="yes" collapse="no"><title>Move bodypart colors to creature definition</title></todo>
 				<todo done="yes" collapse="no"><title>Plasma shot sound</title></todo>
 				<todo done="yes" collapse="no"><title>Don't load backgrounds (load on game start and store path)</title></todo>
-				<todo done="no" collapse="no"><title>Spawn area instead of spawn point</title></todo>
+				<todo done="yes" collapse="no"><title>Spawn area instead of spawn point</title></todo>
 				<todo done="no" collapse="no"><title>Enemy loot option (one of many)</title></todo>
 				<todo done="no" collapse="yes"><title>Random loot at chests</title>
 					<todo done="no" collapse="no"><title>Remove static loot generation</title></todo>

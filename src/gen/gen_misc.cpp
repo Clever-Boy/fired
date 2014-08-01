@@ -126,6 +126,17 @@ void fired::MapGenerator::addSpawn(int left, int top, int width, int height) {
 
 /***********************************************************************
      * MapGenerator
+     * setStart
+
+***********************************************************************/
+void fired::MapGenerator::setStart(int left, int top, int width, int height) {
+	startRect = sf::IntRect(left * TILE_SIZE, top * TILE_SIZE, width * TILE_SIZE, height * TILE_SIZE);
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
      * addTileToPalette
 
 ***********************************************************************/

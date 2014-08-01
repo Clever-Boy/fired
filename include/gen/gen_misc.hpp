@@ -22,6 +22,7 @@ void addPlatform(int x, int y, const char *name);
 void addSpawn(int left, int top, int width, int height);
 
 void addTileToPalette(const char *name);
+void setStart(int left, int top, int width, int height);
 void setBrush(const char *name);
 void setEraser();
 

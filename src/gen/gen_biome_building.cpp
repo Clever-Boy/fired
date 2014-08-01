@@ -216,8 +216,7 @@ void fired::MapGenerator::genBuildingLadder() {
 
 ***********************************************************************/
 void fired::MapGenerator::genBuildingPlayer() {
-	startPos.x = 6 * TILE_SIZE;
-	startPos.y = (building.roof + building.floor + building.roomSize.y - 3) * TILE_SIZE;
+	setStart(6, building.roof + building.floor + building.roomSize.y, 10, 3);
 }
 
 

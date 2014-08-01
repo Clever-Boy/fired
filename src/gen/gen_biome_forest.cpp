@@ -139,7 +139,7 @@ void fired::MapGenerator::genForestSpawns() {
      * genForestCreateLoot
 
 ***********************************************************************/
-void genForestCreateLoot() {
+void fired::MapGenerator::genForestCreateLoot() {
 	return;
 }
 
@@ -150,6 +150,6 @@ void genForestCreateLoot() {
      * genForestClearLoot
 
 ***********************************************************************/
-void genForestClearLoot() {
+void fired::MapGenerator::genForestClearLoot() {
 	deleteList(forest.loot);
 }

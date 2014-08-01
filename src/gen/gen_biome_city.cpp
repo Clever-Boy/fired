@@ -25,7 +25,7 @@ void fired::MapGenerator::genCity() {
 	genCityCollectors();
 	genCityPlayer();
 	genCitySpawns();
-	genCityClearLoot()
+	genCityClearLoot();
 }
 
 
@@ -484,7 +484,7 @@ void fired::MapGenerator::genCitySpawns() {
      * genCityCreateLoot
 
 ***********************************************************************/
-void genCityCreateLoot() {
+void fired::MapGenerator::genCityCreateLoot() {
 	return;
 }
 
@@ -495,7 +495,7 @@ void genCityCreateLoot() {
      * genCityClearLoot
 
 ***********************************************************************/
-void genCityClearLoot() {
+void fired::MapGenerator::genCityClearLoot() {
 	deleteList(city.simpleLoot);
 	deleteList(city.bigLoot);
 }

@@ -670,8 +670,6 @@
 					<todo done="no" collapse="no"><title>Creature-like loot system</title></todo>
 					<todo done="no" collapse="no"><title>Function for adding loot property</title></todo>
 				</todo>
-				<todo done="no" collapse="no"><title>Divide shotgun shot knockback and damage by shot count</title></todo>
-				<todo done="no" collapse="no"><title>Knockback resistance (multiplies my scale)</title></todo>
 				<todo done="no" collapse="yes"><title>Boss spawns</title>
 					<todo done="no" collapse="no"><title>'Bosses' biome field</title></todo>
 					<todo done="no" collapse="no"><title>Bosses limits</title></todo>
@@ -684,7 +682,6 @@
 					<todo done="no" collapse="no"><title>Critters spawn rate</title></todo>
 					<todo done="no" collapse="no"><title>Spawning critters</title></todo>
 				</todo>
-				<todo done="no" collapse="no"><title>'Big loot' chests</title></todo>
 				<todo done="no" collapse="no"><title>Spawn rate and spawn limit as argument</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Code optimization</title></todo>

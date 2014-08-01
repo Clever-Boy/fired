@@ -12,11 +12,23 @@
 
 /***********************************************************************
      * Handlers
-     * buttonStart
+     * buttonStartCity
 
 ***********************************************************************/
-void fired::Handlers::buttonStart() {
+void fired::Handlers::buttonStartCity() {
 	game->generateWorld("City");
+	game->setGameState(gsWorld);
+}
+
+
+
+/***********************************************************************
+     * Handlers
+     * buttonStartForest
+
+***********************************************************************/
+void fired::Handlers::buttonStartForest() {
+	game->generateWorld("Forest");
 	game->setGameState(gsWorld);
 }
 

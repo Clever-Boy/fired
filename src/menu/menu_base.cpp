@@ -293,9 +293,13 @@ void fired::MainMenu::fillMenu() {
 	menuItemAdd("Main menu", NULL);
 
 	curParent = menuItems[0];
-	menuItemAdd("Start game", curParent, itButton, &fired::Handlers::buttonStart);
+	menuItemAdd("Start game", curParent, itSubmenu);
 	menuItemAdd("Credits"   , curParent, itButton, &fired::Handlers::buttonCredits);
 	menuItemAdd("Exit"      , curParent, itButton, &fired::Handlers::buttonExit);
+
+	curParent = menuItems[1];
+	menuItemAdd("City"          , curParent, itButton, &fired::Handlers::buttonStartCity);
+	menuItemAdd("I Hate Animals", curParent, itButton, &fired::Handlers::buttonStartForest);
 
 	fillMenuBack();
 

@@ -637,15 +637,15 @@
 					<todo done="yes" collapse="no"><title>Ginger Dog</title></todo>
 					<todo done="yes" collapse="no"><title>Panda</title></todo>
 				</todo>
-				<todo done="no" collapse="yes"><title>Enemies</title>
+				<todo done="yes" collapse="yes"><title>Enemies</title>
 					<todo done="yes" collapse="no"><title>Soldier (soldier)</title></todo>
 					<todo done="yes" collapse="no"><title>Captain (soldier x 1.5) (boss)</title></todo>
 					<todo done="yes" collapse="no"><title>Troll (troll)</title></todo>
 					<todo done="yes" collapse="no"><title>Fat troll (troll x 1.5) (boss)</title></todo>
 					<todo done="yes" collapse="no"><title>Snow giant (troll x 2.5) (white) (boss)</title></todo>
-					<todo done="no" collapse="no"><title>Little (black mamba x 0.7)</title></todo>
-					<todo done="no" collapse="no"><title>Black mamba (black mamba)</title></todo>
-					<todo done="no" collapse="no"><title>Big mamba (black mamba x 1.5) (boss)</title></todo>
+					<todo done="yes" collapse="no"><title>Little (black mamba x 0.7)</title></todo>
+					<todo done="yes" collapse="no"><title>Black mamba (black mamba)</title></todo>
+					<todo done="yes" collapse="no"><title>Big mamba (black mamba x 1.5) (boss)</title></todo>
 				</todo>
 			</todo>
 			<todo done="no" collapse="yes"><title>Improovements</title>

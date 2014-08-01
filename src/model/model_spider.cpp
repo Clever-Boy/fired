@@ -116,7 +116,25 @@ void fired::ModelSpider::respawn() {
 
 ***********************************************************************/
 void fired::ModelSpider::processBones() {
-	return;
+	partLegsF1.animOffset = bones.legsF1.getOriginOffset();
+	partLegsF2.animOffset = bones.legsF2.getOriginOffset();
+	partLegsF3.animOffset = bones.legsF3.getOriginOffset();
+	partLegsF4.animOffset = bones.legsF4.getOriginOffset();
+
+	partLegsF1.animRotation = bones.legsF1.angle;
+	partLegsF2.animRotation = bones.legsF2.angle;
+	partLegsF3.animRotation = bones.legsF3.angle;
+	partLegsF4.animRotation = bones.legsF4.angle;
+
+	partShoeF1.animOffset = bones.legsF1.getEndOffset();
+	partShoeF2.animOffset = bones.legsF2.getEndOffset();
+	partShoeF3.animOffset = bones.legsF3.getEndOffset();
+	partShoeF4.animOffset = bones.legsF4.getEndOffset();
+
+	partShoeF1.animRotation = bones.shoeF1.angle;
+	partShoeF2.animRotation = bones.shoeF2.angle;
+	partShoeF3.animRotation = bones.shoeF3.angle;
+	partShoeF4.animRotation = bones.shoeF4.angle;
 }
 
 
@@ -134,12 +152,33 @@ void fired::ModelSpider::processAnimation() {
 		case caMeleeAttack:
 		case caBroadAttack:
 			bodyAnimationTime = 0.0;
+
+			bones.legsF1.rotate(-40);
+			bones.legsF2.rotate(-20);
+			bones.legsF3.rotate( 20);
+			bones.legsF4.rotate( 40);
+
+			bones.shoeF1.rotate( 20);
+			bones.shoeF2.rotate( 20);
+			bones.shoeF3.rotate(-20);
+			bones.shoeF4.rotate(-20);
 			break;
 
 
 		case caMoving:
 			bodyAnimationTime += frameClock * abs(owner->phys.velocity.x);
 			bodyFrame          = (int)(bodyAnimationTime / 5) % 14;
+
+			bones.legsF1.rotate(-40);
+			bones.legsF2.rotate(-20);
+			bones.legsF3.rotate( 20);
+			bones.legsF4.rotate( 40);
+
+			bones.shoeF1.rotate( 20);
+			bones.shoeF2.rotate( 20);
+			bones.shoeF3.rotate(-20);
+			bones.shoeF4.rotate(-20);
+
 			break;
 	}
 }

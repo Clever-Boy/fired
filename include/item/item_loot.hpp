@@ -19,7 +19,7 @@ namespace fired {
 		float            probability;
 
 
-		MapLootItem(char *_items, unsigned int _minCount, unsigned int _maxCount, float _probability);
+		MapLootItem(const char *__items, unsigned int _minCount, unsigned int _maxCount, float _probability);
 	};
 
 

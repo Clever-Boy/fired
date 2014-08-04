@@ -39,7 +39,11 @@ void fired::LootItem::addItem(fired::BaseItem *item) {
      * constructor
 
 ***********************************************************************/
-fired::MapLootItem::MapLootItem(char *_items, unsigned int _minCount, unsigned int _maxCount, float _probability) {
+fired::MapLootItem::MapLootItem(const char *__items, unsigned int _minCount, unsigned int _maxCount, float _probability) {
+	char _items[256];
+	memset(_items, sizeof(_items), 0);
+	strncpy(_items, __items, sizeof(_items));
+
 	char *token = strtok(_items, "|");
 		while (token) {
 			items.push_back(container->getItemIndex(token));

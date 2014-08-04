@@ -19,7 +19,7 @@ namespace fired {
 
 		BaseMapObjectCollector(unsigned int id, sf::Vector2f _pos);
 
-		void generateLoot();
+		void generateLoot(std::vector<fired::MapLootItem*> *loot);
 		void addItem(unsigned int _count, const char *name);
 	};
 

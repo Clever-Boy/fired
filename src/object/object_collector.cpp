@@ -28,33 +28,21 @@ fired::BaseMapObjectCollector::BaseMapObjectCollector(unsigned int id, sf::Vecto
      * generateLoot
 
 ***********************************************************************/
-void fired::BaseMapObjectCollector::generateLoot() {
-	addItem(100, "ammo.bullet");
-	addItem(100, "ammo.rocket");
-	addItem(100, "ammo.plasma.bolt");
-	addItem(50, "ammo.shell");
-	addItem(1, "weapon.plasmagun");
-	addItem(1, "weapon.bazooka");
-	addItem(1, "weapon.shotgun");
-	addItem(1, "weapon.minigun");
-	addItem(1, "armor.arms.leather");
-	addItem(1, "armor.fist.leather");
-	addItem(1, "armor.head.leather");
-	addItem(1, "armor.body.leather");
-	addItem(1, "armor.legs.leather");
-	addItem(1, "armor.shoe.leather");
-	addItem(1, "armor.arms.mithril");
-	addItem(1, "armor.fist.mithril");
-	addItem(1, "armor.head.mithril");
-	addItem(1, "armor.body.mithril");
-	addItem(1, "armor.legs.mithril");
-	addItem(1, "armor.shoe.mithril");
-	addItem(1, "armor.arms.iron");
-	addItem(1, "armor.fist.iron");
-	addItem(1, "armor.head.iron");
-	addItem(1, "armor.body.iron");
-	addItem(1, "armor.legs.iron");
-	addItem(1, "armor.shoe.iron");
+void fired::BaseMapObjectCollector::generateLoot(std::vector<fired::MapLootItem*> *loot) {
+	if (loot == NULL) return;
+
+
+	fired::MapLootItem   *lootItem;
+	int                   count;
+
+
+	for (unsigned int i = 0; i < loot->size(); i++) {
+		lootItem = (*loot)[i];
+		if (((rand() % 100) / 100.0f) > lootItem->probability) continue;
+
+		count = lootItem->minCount + (rand() % (lootItem->maxCount - lootItem->minCount + 1));
+		items.push_back(new fired::MapItem(count, lootItem->items[random() % lootItem->items.size()]));
+	}
 }
 
 

@@ -664,13 +664,13 @@
 				<todo done="yes" collapse="no"><title>Plasma shot sound</title></todo>
 				<todo done="yes" collapse="no"><title>Don't load backgrounds (load on game start and store path)</title></todo>
 				<todo done="yes" collapse="no"><title>Spawn area instead of spawn point</title></todo>
-				<todo done="no" collapse="no"><title>Random loot at chests</title>
+				<todo done="yes" collapse="yes"><title>Random loot at chests</title>
 					<todo done="yes" collapse="no"><title>Generator CreateLoot and ClearLoot functions</title></todo>
 					<todo done="yes" collapse="no"><title>MapLoot class</title></todo>
 					<todo done="yes" collapse="no"><title>Separator "|" means multiloot option</title></todo>
-					<todo done="no" collapse="no"><title>Generating loot sets</title></todo>
-					<todo done="no" collapse="no"><title>Creature-like loot system (as argument to add chest)</title></todo>
-					<todo done="no" collapse="no"><title>Remove static loot generation</title></todo>
+					<todo done="yes" collapse="no"><title>Generating loot sets</title></todo>
+					<todo done="yes" collapse="no"><title>Creature-like loot system (as argument to add chest)</title></todo>
+					<todo done="yes" collapse="no"><title>Remove static loot generation</title></todo>
 				</todo>
 				<todo done="no" collapse="yes"><title>Boss spawns</title>
 					<todo done="no" collapse="no"><title>'Bosses' biome field</title></todo>

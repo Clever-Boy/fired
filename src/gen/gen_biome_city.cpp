@@ -424,20 +424,20 @@ void fired::MapGenerator::genCityPlatforms() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCityCollectors() {
-	addCollector( 44, 33, "chest");
-	addCollector( 84, 33, "chest");
-	addCollector(143, 38, "barrel");
-	addCollector( 47, 52, "box");
-	addCollector( 49, 52, "box");
-	addCollector(  4, 80, "chest");
-	addCollector( 12, 80, "chest");
-	addCollector( 26, 81, "metal.capsule");
-	addCollector(198, 32, "chest");
-	addCollector(158, 48, "chest");
-	addCollector(196, 58, "box");
-	addCollector(196, 74, "box");
-	addCollector(184, 91, "barrel");
-	addCollector(141, 86, "chest");
+	addCollector( 44, 33, "chest"        , &city.simpleLoot);
+	addCollector( 84, 33, "chest"        , &city.simpleLoot);
+	addCollector(143, 38, "barrel"       , &city.simpleLoot);
+	addCollector( 47, 52, "box"          , &city.simpleLoot);
+	addCollector( 49, 52, "box"          , &city.simpleLoot);
+	addCollector(  4, 80, "chest"        , &city.bigLoot);
+	addCollector( 12, 80, "chest"        , &city.bigLoot);
+	addCollector( 26, 81, "metal.capsule", &city.bigLoot);
+	addCollector(198, 32, "chest"        , &city.simpleLoot);
+	addCollector(158, 48, "chest"        , &city.bigLoot);
+	addCollector(196, 58, "box"          , &city.simpleLoot);
+	addCollector(196, 74, "box"          , &city.simpleLoot);
+	addCollector(184, 91, "barrel"       , &city.simpleLoot);
+	addCollector(141, 86, "chest"        , &city.bigLoot);
 }
 
 
@@ -485,7 +485,16 @@ void fired::MapGenerator::genCitySpawns() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCityCreateLoot() {
-	return;
+	city.simpleLoot.push_back(new fired::MapLootItem("armor.arms.leather|armor.legs.leather|armor.body.leather|armor.fist.leather|armor.shoe.leather|armor.head.leather", 1, 1, 1.0f));
+	city.simpleLoot.push_back(new fired::MapLootItem("weapon.bar|weapon.bat|weapon.sword", 1, 1, 1.0f));
+	city.simpleLoot.push_back(new fired::MapLootItem("weapon.uzi|weapon.plasmagun|weapon.shotgun", 1, 1, 0.5f));
+	city.simpleLoot.push_back(new fired::MapLootItem("ammo.shell|ammo.rocket", 30, 50, 0.75f));
+	city.simpleLoot.push_back(new fired::MapLootItem("ammo.bullet|ammo.plasma.bolt", 50, 70, 0.75f));
+
+	city.bigLoot.push_back(new fired::MapLootItem("armor.arms.iron|armor.legs.iron|armor.body.iron|armor.fist.iron|armor.shoe.iron|armor.head.iron", 1, 1, 1.0f));
+	city.bigLoot.push_back(new fired::MapLootItem("weapon.bazooka|weapon.rifle", 1, 1, 1.0f));
+	city.bigLoot.push_back(new fired::MapLootItem("ammo.shell|ammo.rocket", 30, 50, 1.0f));
+	city.bigLoot.push_back(new fired::MapLootItem("ammo.bullet|ammo.plasma.bolt", 50, 70, 1.0f));
 }
 
 

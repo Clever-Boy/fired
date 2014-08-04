@@ -106,8 +106,8 @@ void fired::MapGenerator::genForestDecors() {
 
 ***********************************************************************/
 void fired::MapGenerator::genForestCollectors() {
-	addCollector( 2, 40, "chest");
-	addCollector(96, 40, "chest");
+	addCollector( 2, 40, "chest", &forest.loot);
+	addCollector(96, 40, "chest", &forest.loot);
 }
 
 
@@ -140,7 +140,21 @@ void fired::MapGenerator::genForestSpawns() {
 
 ***********************************************************************/
 void fired::MapGenerator::genForestCreateLoot() {
-	return;
+	forest.loot.push_back(new fired::MapLootItem("weapon.minigun", 1, 1, 1.0f));
+	forest.loot.push_back(new fired::MapLootItem("ammo.bullet", 200, 200, 1.0f));
+	forest.loot.push_back(new fired::MapLootItem("ammo.bullet", 200, 200, 1.0f));
+	forest.loot.push_back(new fired::MapLootItem("ammo.bullet", 200, 200, 1.0f));
+	forest.loot.push_back(new fired::MapLootItem("ammo.bullet", 200, 200, 1.0f));
+	forest.loot.push_back(new fired::MapLootItem("ammo.bullet", 200, 200, 1.0f));
+	forest.loot.push_back(new fired::MapLootItem("ammo.bullet", 200, 200, 1.0f));
+
+	forest.loot.push_back(new fired::MapLootItem("weapon.launcher", 1, 1, 1.0f));
+	forest.loot.push_back(new fired::MapLootItem("ammo.rocket", 50, 50, 1.0f));
+	forest.loot.push_back(new fired::MapLootItem("ammo.rocket", 50, 50, 1.0f));
+	forest.loot.push_back(new fired::MapLootItem("ammo.rocket", 50, 50, 1.0f));
+	forest.loot.push_back(new fired::MapLootItem("ammo.rocket", 50, 50, 1.0f));
+	forest.loot.push_back(new fired::MapLootItem("ammo.rocket", 50, 50, 1.0f));
+	forest.loot.push_back(new fired::MapLootItem("ammo.rocket", 50, 50, 1.0f));
 }
 
 

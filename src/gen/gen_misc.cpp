@@ -83,9 +83,9 @@ void fired::MapGenerator::addDecor(int x, int y, const char *name) {
      * addCollector
 
 ***********************************************************************/
-void fired::MapGenerator::addCollector(int x, int y, const char *name) {
+void fired::MapGenerator::addCollector(int x, int y, const char *name, std::vector<fired::MapLootItem*> *loot) {
 	objects.push_back(new fired::BaseMapObjectCollector(container->getDecor(name), sf::Vector2f(x * TILE_SIZE, y * TILE_SIZE)));
-	((fired::BaseMapObjectCollector*)objects.back())->generateLoot();
+	((fired::BaseMapObjectCollector*)objects.back())->generateLoot(loot);
 }
 
 

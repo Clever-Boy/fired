@@ -11,8 +11,8 @@
 
 
 struct {
-	std::vector<fired::LootItem*> simpleLoot;
-	std::vector<fired::LootItem*> bigLoot;
+	std::vector<fired::MapLootItem*> simpleLoot;
+	std::vector<fired::MapLootItem*> bigLoot;
 } city;
 
 

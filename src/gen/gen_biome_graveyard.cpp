@@ -163,8 +163,8 @@ void fired::MapGenerator::genGraveyardPlatforms() {
 
 ***********************************************************************/
 void fired::MapGenerator::genGraveyardCollectors() {
-	addCollector(44, 33, "chest");
-	addCollector(84, 33, "chest");
+	addCollector(44, 33, "chest", NULL);
+	addCollector(84, 33, "chest", NULL);
 }
 
 

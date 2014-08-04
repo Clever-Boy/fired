@@ -11,7 +11,7 @@
 
 
 struct {
-	std::vector<fired::LootItem*> loot;
+	std::vector<fired::MapLootItem*> loot;
 } forest;
 
 

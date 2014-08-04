@@ -50,13 +50,22 @@ void fired::Container::loadModelBodypart(const char* s, fired::BaseModelBodypart
 
 ***********************************************************************/
 void fired::Container::loadCreatureLoot(fired::BaseCreature *current, const char *lootStr) {
-	char         name[64];
-	unsigned int minCount;
-	unsigned int maxCount;
-	float        probability;
+	char             items[256];
+	unsigned int     minCount;
+	unsigned int     maxCount;
+	float            probability;
+	fired::LootItem *loot;
 
-	sscanf(lootStr, "(%[^)]),(%u,%u),%f\n", name, &minCount, &maxCount, &probability);
-	current->loot.push_back(new fired::LootItem(getItem(name), minCount, maxCount, probability));
+	sscanf(lootStr, "(%[^)]),(%u,%u),%f\n", items, &minCount, &maxCount, &probability);
+	loot = new fired::LootItem(minCount, maxCount, probability);
+
+	char *token = strtok(items, "|");
+		while (token) {
+			loot->addItem(getItem(token));
+			token = strtok(NULL, "|");
+		}
+
+	current->loot.push_back(loot);
 }
 
 

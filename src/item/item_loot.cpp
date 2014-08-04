@@ -15,11 +15,21 @@
      * constructor
 
 ***********************************************************************/
-fired::LootItem::LootItem(fired::BaseItem *_base, unsigned int _minCount, unsigned int _maxCount, float _probability) {
-	base        = _base;
+fired::LootItem::LootItem(unsigned int _minCount, unsigned int _maxCount, float _probability) {
 	minCount    = _minCount;
 	maxCount    = _maxCount;
 	probability = _probability;
+}
+
+
+
+/***********************************************************************
+     * LootItem
+     * addItem
+
+***********************************************************************/
+void fired::LootItem::addItem(fired::BaseItem *item) {
+	items.push_back(item);
 }
 
 
@@ -29,8 +39,13 @@ fired::LootItem::LootItem(fired::BaseItem *_base, unsigned int _minCount, unsign
      * constructor
 
 ***********************************************************************/
-fired::MapLootItem::MapLootItem(const char *name, unsigned int _minCount, unsigned int _maxCount, float _probability) {
-	id          = container->getItemIndex(name);
+fired::MapLootItem::MapLootItem(char *_items, unsigned int _minCount, unsigned int _maxCount, float _probability) {
+	char *token = strtok(_items, "|");
+		while (token) {
+			items.push_back(container->getItemIndex(token));
+			token = strtok(NULL, "|");
+		}
+
 	minCount    = _minCount;
 	maxCount    = _maxCount;
 	probability = _probability;

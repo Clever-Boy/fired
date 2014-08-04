@@ -12,26 +12,28 @@
 
 namespace fired {
 	struct MapLootItem {
-		int              id;
+		std::vector<int> items;
 
 		unsigned int     minCount;
 		unsigned int     maxCount;
 		float            probability;
 
 
-		MapLootItem(const char *name, unsigned int _minCount, unsigned int _maxCount, float _probability);
+		MapLootItem(char *_items, unsigned int _minCount, unsigned int _maxCount, float _probability);
 	};
 
 
 	struct LootItem {
-		fired::BaseItem *base;
+		std::vector<fired::BaseItem *> items;
 
 		unsigned int     minCount;
 		unsigned int     maxCount;
 		float            probability;
 
 
-		LootItem(fired::BaseItem *_base, unsigned int _minCount, unsigned int _maxCount, float _probability);
+		LootItem(unsigned int _minCount, unsigned int _maxCount, float _probability);
+
+		void addItem(fired::BaseItem *item);
 	};
 }
 

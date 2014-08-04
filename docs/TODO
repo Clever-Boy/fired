@@ -666,6 +666,7 @@
 				<todo done="yes" collapse="no"><title>Spawn area instead of spawn point</title></todo>
 				<todo done="no" collapse="no"><title>Random loot at chests</title>
 					<todo done="yes" collapse="no"><title>Generator CreateLoot and ClearLoot functions</title></todo>
+					<todo done="yes" collapse="no"><title>MapLoot class</title></todo>
 					<todo done="no" collapse="no"><title>Generating loot sets</title></todo>
 					<todo done="no" collapse="no"><title>Creature-like loot system (as argument to add chest)</title></todo>
 					<todo done="no" collapse="no"><title>Remove static loot generation</title></todo>

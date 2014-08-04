@@ -21,3 +21,17 @@ fired::LootItem::LootItem(fired::BaseItem *_base, unsigned int _minCount, unsign
 	maxCount    = _maxCount;
 	probability = _probability;
 }
+
+
+
+/***********************************************************************
+     * MapLootItem
+     * constructor
+
+***********************************************************************/
+fired::MapLootItem::MapLootItem(const char *name, unsigned int _minCount, unsigned int _maxCount, float _probability) {
+	id          = container->getItemIndex(name);
+	minCount    = _minCount;
+	maxCount    = _maxCount;
+	probability = _probability;
+}

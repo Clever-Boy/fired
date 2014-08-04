@@ -11,6 +11,18 @@
 
 
 namespace fired {
+	struct MapLootItem {
+		int              id;
+
+		unsigned int     minCount;
+		unsigned int     maxCount;
+		float            probability;
+
+
+		MapLootItem(const char *name, unsigned int _minCount, unsigned int _maxCount, float _probability);
+	};
+
+
 	struct LootItem {
 		fired::BaseItem *base;
 

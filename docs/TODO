@@ -672,6 +672,7 @@
 					<todo done="yes" collapse="no"><title>Creature-like loot system (as argument to add chest)</title></todo>
 					<todo done="yes" collapse="no"><title>Remove static loot generation</title></todo>
 				</todo>
+				<todo done="yes" collapse="no"><title>Change game font to more readable</title></todo>
 				<todo done="no" collapse="yes"><title>Boss spawns</title>
 					<todo done="no" collapse="no"><title>'Bosses' biome field</title></todo>
 					<todo done="no" collapse="no"><title>Bosses limits</title></todo>
@@ -685,6 +686,8 @@
 					<todo done="no" collapse="no"><title>Spawning critters</title></todo>
 				</todo>
 				<todo done="no" collapse="no"><title>Spawn rate and spawn limit as argument</title></todo>
+				<todo done="no" collapse="no"><title>Fill 'loot' fields in Creatures table</title></todo>
+				<todo done="no" collapse="no"><title>Player default colors</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Code optimization</title></todo>
 		</todo>

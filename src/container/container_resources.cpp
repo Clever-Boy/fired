@@ -127,7 +127,7 @@ fired::Resources::Resources() {
 	fonts.loading = new sf::Font();
 
 	fonts.menu->loadFromFile("data/fonts/monterey.ttf");
-	fonts.game->loadFromFile("data/fonts/spinwerad.ttf");
+	fonts.game->loadFromFile("data/fonts/montserrat.ttf");
 	fonts.credits->loadFromFile("data/fonts/mrsmonster.ttf");
 	fonts.loading->loadFromFile("data/fonts/jennifer.ttf");
 }

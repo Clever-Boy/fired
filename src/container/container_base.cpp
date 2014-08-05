@@ -35,7 +35,7 @@ fired::Container::Container(fired::LoadingScr *_screen) {
 	loadContent(db, "Items"       , loadItem     , "SELECT Items.*, Sprites.ID FROM Items, Sprites WHERE Sprites.Name = Items.Icon");
 	loadContent(db, "Creatures"   , loadCreature , "SELECT Creatures.*, Models.ID, Weapons.ID, Ammo.ID FROM Creatures, Weapons, Models LEFT OUTER JOIN Ammo ON Creatures.Ammo = Ammo.Name WHERE Creatures.Model = Models.ModelName AND Creatures.Weapon = Weapons.Name");
 	loadContent(db, "Tiles"       , loadTileset  , "SELECT Tiles.ID, Sprites.ID, Tiles.Flat, Tiles.Name FROM Tiles, Sprites WHERE Tiles.Sprite = Sprites.Name");
-	loadContent(db, "Biomes"      , loadBiome    , "SELECT Biomes.ID, Biomes.Name, Biomes.Weather, Biomes.Lightness, Biomes.Background, Biomes.Creatures, Biomes.Intensity FROM Biomes");
+	loadContent(db, "Biomes"      , loadBiome    , "SELECT Biomes.ID, Biomes.Name, Biomes.Weather, Biomes.Lightness, Biomes.Background, Biomes.Creatures, Biomes.Critters, Biomes.Bosses, Biomes.Intensity FROM Biomes");
 	loadContent(db, "Explosions"  , loadExplosion, "SELECT * FROM Explosions");
 
 	sqlite3_close(db);

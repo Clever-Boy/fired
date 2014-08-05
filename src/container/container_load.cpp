@@ -382,7 +382,7 @@ int fired::Container::loadBiome(void *data, int, char **argv, char **) {
 	((fired::Container *) data)->biomes.push_back(new fired::Biome);
 	fired::Biome *current = ((fired::Container *) data)->biomes.back();
 
-	current->intensity = atoi(argv[6]);
+	current->intensity = atoi(argv[8]);
 
 	sscanf(argv[3], "%hhu,%hhu,%hhu,%hhu", &current->lightness.r , &current->lightness.g , &current->lightness.b , &current->lightness.a);
 	strcpy(current->name      , argv[1]);

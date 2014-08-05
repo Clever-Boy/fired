@@ -19,6 +19,7 @@ namespace fired {
 		Timer() { value = 0.0f; timer = 0.0f; };
 
 		void  setTimer(float _timer);
+		void  reset();
 		bool  process();
 		bool  isActive();
 		float getPercent();

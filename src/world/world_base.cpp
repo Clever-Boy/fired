@@ -39,9 +39,13 @@ fired::World::World(fired::Mouse *_mouse) {
 	map->setWeather();
 	chars.push_back(player->character);
 
-	spawnRate = 4.0f;
-	spawnLeft = spawnRate;
-	spawnMax  = 7;
+	creatureSpawnTimer.setTimer(10.0f);
+	critterSpawnTimer.setTimer(10.0f);
+	bossSpawnTimer.setTimer(50.0f);
+
+	creatureSpawnMax  = 7;
+	critterSpawnMax   = 5;
+	bossSpawnMax      = 2;
 }
 
 
@@ -68,6 +72,8 @@ fired::World::~World() {
 	deleteList(broadShots);
 	deleteList(particles);
 	deleteList(creatures);
+	deleteList(critters);
+	deleteList(bosses);
 	deleteList(texts);
 	deleteList(chunks);
 	deleteList(explosions);
@@ -186,6 +192,41 @@ void fired::World::checkCreatures() {
 		} else
 			i++;
 	}
+
+
+	for (unsigned int i = 0; i < critters.size();) {
+		critters[i]->update();
+
+		if (critters[i]->character->dead) {
+			for (unsigned int j = 0; j < chars.size(); j++)
+				if (chars[j] == critters[i]->character) {
+					chars.erase(chars.begin() + j);
+					break;
+				}
+
+			delete critters[i];
+			critters.erase(critters.begin() + i);
+		} else
+			i++;
+	}
+
+
+	for (unsigned int i = 0; i < bosses.size();) {
+		bosses[i]->update();
+
+		if (bosses[i]->character->dead) {
+			for (unsigned int j = 0; j < chars.size(); j++)
+				if (chars[j] == bosses[i]->character) {
+					chars.erase(chars.begin() + j);
+					break;
+				}
+
+			delete bosses[i];
+			bosses.erase(bosses.begin() + i);
+		} else
+			i++;
+	}
+
 }
 
 
@@ -209,12 +250,26 @@ void fired::World::checkPhys() {
 
 ***********************************************************************/
 void fired::World::checkSpawns() {
-	if (chars.size() >= spawnMax) return;
+	creatureSpawnTimer.process();
+	critterSpawnTimer.process();
+	bossSpawnTimer.process();
 
-	spawnLeft -= frameClock;
-	if (spawnLeft <= 0) {
-		spawnLeft = spawnRate;
+
+	if ((!creatureSpawnTimer.isActive()) && (creatures.size() < creatureSpawnMax)) {
+		creatureSpawnTimer.reset();
 		map->spawn(player->character->phys.pos, mstCreature);
+	}
+
+
+	if ((!critterSpawnTimer.isActive()) && (critters.size() < critterSpawnMax)) {
+		critterSpawnTimer.reset();
+		map->spawn(player->character->phys.pos, mstCritter);
+	}
+
+
+	if ((!bossSpawnTimer.isActive()) && (bosses.size() < bossSpawnMax)) {
+		bossSpawnTimer.reset();
+		map->spawn(player->character->phys.pos, mstBoss);
 	}
 }
 
@@ -315,9 +370,23 @@ bool fired::World::isCharExists(fired::Character *character) {
      * spawn
 
 ***********************************************************************/
-void fired::World::spawn(sf::Vector2f pos, fired::BaseCreature *creature) {
-	creatures.push_back(new fired::Creature(cam, pos, this, creature));
-	chars.push_back(creatures.back()->character);
+void fired::World::spawn(sf::Vector2f pos, fired::BaseCreature *creature, fired::MapSpawnType type) {
+	switch (type) {
+		case mstCreature:
+			creatures.push_back(new fired::Creature(cam, pos, this, creature));
+			chars.push_back(creatures.back()->character);
+			break;
+
+		case mstCritter:
+			critters.push_back(new fired::Creature(cam, pos, this, creature));
+			chars.push_back(critters.back()->character);
+			break;
+
+		case mstBoss:
+			bosses.push_back(new fired::Creature(cam, pos, this, creature));
+			chars.push_back(bosses.back()->character);
+			break;
+	}
 }
 
 

@@ -133,8 +133,6 @@ void fired::Map::spawn(sf::Vector2f position, fired::MapSpawnType type) {
 			break;
 	}
 
-	if (biome->creatures.size() == 0) return;
-
 	int   place = -1;
 	float minDist;
 	float dist;
@@ -158,7 +156,7 @@ void fired::Map::spawn(sf::Vector2f position, fired::MapSpawnType type) {
 	spawnRect = getRectToSpawn(toSpawn, spawns[place]->spawn);
 	pos       = sf::Vector2f(spawnRect.left + rand() % spawnRect.width, spawnRect.top + spawnRect.height);
 
-	world->spawn(pos, toSpawn);
+	world->spawn(pos, toSpawn, type);
 }
 
 

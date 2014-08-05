@@ -50,20 +50,27 @@ namespace fired {
 		fired::CharacterWindow  *characterWin;
 		fired::MenuWindow       *menuWin;
 
+		fired::Timer creatureSpawnTimer;
+		fired::Timer critterSpawnTimer;
+		fired::Timer bossSpawnTimer;
+
+		unsigned int      creatureSpawnMax;
+		unsigned int      critterSpawnMax;
+		unsigned int      bossSpawnMax;
+
 		std::vector<fired::ParticleSystem*>  particles;
 		std::vector<fired::Shot*>            shots;
 		std::vector<fired::MeleeShot*>       meleeShots;
 		std::vector<fired::BroadShot*>       broadShots;
-		std::vector<fired::Creature*>        creatures;
 		std::vector<fired::FlyText*>         texts;
 		std::vector<fired::Chunk*>           chunks;
 		std::vector<fired::CollectableItem*> items;
 		std::vector<fired::Character*>       chars;
 		std::vector<fired::Explosion*>       explosions;
 
-		float             spawnRate;
-		float             spawnLeft;
-		unsigned int      spawnMax;
+		std::vector<fired::Creature*>        creatures;
+		std::vector<fired::Creature*>        critters;
+		std::vector<fired::Creature*>        bosses;
 
 		bool              paused;
 		fired::WorldState state;
@@ -87,7 +94,7 @@ namespace fired {
 		void checkChunks();
 
 		void interact(fired::Character *owner);
-		void spawn(sf::Vector2f pos, fired::BaseCreature *creature);
+		void spawn(sf::Vector2f pos, fired::BaseCreature *creature, fired::MapSpawnType type);
 		bool isCharExists(fired::Character *character);
 		bool isSolidPixel(sf::Vector2f pixel)   { return map->isSolid(pixel.x / TILE_SIZE, pixel.y / TILE_SIZE); };
 		bool isRectVisible(sf::FloatRect rect)  { return cam->isRectVisible(rect);                               };

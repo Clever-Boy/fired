@@ -673,21 +673,22 @@
 					<todo done="yes" collapse="no"><title>Remove static loot generation</title></todo>
 				</todo>
 				<todo done="yes" collapse="no"><title>Change game font to more readable</title></todo>
-				<todo done="no" collapse="yes"><title>Boss spawns</title>
-					<todo done="no" collapse="no"><title>'Bosses' biome field</title></todo>
-					<todo done="no" collapse="no"><title>Bosses limits</title></todo>
-					<todo done="no" collapse="no"><title>Boss spawn rate</title></todo>
-					<todo done="no" collapse="no"><title>Spawning bosses</title></todo>
+				<todo done="yes" collapse="yes"><title>Boss spawns</title>
+					<todo done="yes" collapse="no"><title>'Bosses' biome field</title></todo>
+					<todo done="yes" collapse="no"><title>Bosses limits</title></todo>
+					<todo done="yes" collapse="no"><title>Boss spawn rate</title></todo>
+					<todo done="yes" collapse="no"><title>Spawning bosses</title></todo>
 				</todo>
-				<todo done="no" collapse="yes"><title>Critter spawns</title>
-					<todo done="no" collapse="no"><title>'Critters' biome field</title></todo>
-					<todo done="no" collapse="no"><title>Critters limits</title></todo>
-					<todo done="no" collapse="no"><title>Critters spawn rate</title></todo>
-					<todo done="no" collapse="no"><title>Spawning critters</title></todo>
+				<todo done="yes" collapse="yes"><title>Critter spawns</title>
+					<todo done="yes" collapse="no"><title>'Critters' biome field</title></todo>
+					<todo done="yes" collapse="no"><title>Critters limits</title></todo>
+					<todo done="yes" collapse="no"><title>Critters spawn rate</title></todo>
+					<todo done="yes" collapse="no"><title>Spawning critters</title></todo>
 				</todo>
-				<todo done="no" collapse="no"><title>Spawn rate and spawn limit as argument</title></todo>
 				<todo done="no" collapse="no"><title>Fill 'loot' fields in Creatures table</title></todo>
+				<todo done="no" collapse="no"><title>Fill 'Critters' and 'Bosses' fields in Biomes table</title></todo>
 				<todo done="no" collapse="no"><title>Player default colors</title></todo>
+				<todo done="no" collapse="no"><title>Spawn rate and spawn limit as argument</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Code optimization</title></todo>
 		</todo>

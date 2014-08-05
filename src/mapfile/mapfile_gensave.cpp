@@ -100,5 +100,5 @@ void genSaveSpawns(fired::MapGenerator *gen, FILE *fp) {
 	fwrite(&spawnsCount, sizeof(spawnsCount), 1, fp);
 
 	for (unsigned int i = 0; i < spawnsCount; i++)
-		fwrite(&gen->spawns[i], sizeof(sf::IntRect), 1, fp);
+		fwrite(gen->spawns[i], sizeof(fired::MapSpawn), 1, fp);
 }

@@ -47,4 +47,5 @@ fired::MapGenerator::~MapGenerator() {
 
 	deleteList(objects);
 	deleteList(palette);
+	deleteList(spawns);
 }

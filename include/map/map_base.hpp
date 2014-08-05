@@ -17,6 +17,7 @@ namespace fired {
 
 #include "defines.hpp"
 #include "map_tile.hpp"
+#include "map_spawn.hpp"
 #include "object.hpp"
 #include "map_temporary_light.hpp"
 #include "weather.hpp"
@@ -36,7 +37,7 @@ namespace fired {
 
 		std::vector<fired::MapObject*>            objects;
 		std::vector<fired::TemporaryLightSource*> lights;
-		std::vector<sf::IntRect>                  spawns;
+		std::vector<fired::MapSpawn*>             spawns;
 
 		sf::Texture        *bgTex;
 		sf::RectangleShape *bgSprite;

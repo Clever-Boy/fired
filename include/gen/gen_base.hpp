@@ -23,7 +23,7 @@ namespace fired {
 
 		std::vector<fired::BaseMapObject*> objects;
 		std::vector<fired::GenTileset*>    palette;
-		std::vector<sf::IntRect>           spawns;
+		std::vector<fired::MapSpawn*>      spawns;
 
 
 		 MapGenerator(fired::Biome *_biome);

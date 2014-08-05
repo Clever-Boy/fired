@@ -56,6 +56,7 @@ fired::Map::~Map() {
 
 	deleteList(objects);
 	deleteList(lights);
+	deleteList(spawns);
 }
 
 
@@ -124,9 +125,9 @@ void fired::Map::spawn(sf::Vector2f position) {
 	sf::IntRect  spawnRect;
 
 	for (unsigned int i = 0; i < spawns.size(); i++) {
-		if (cam->isRectVisible(sf::FloatRect(spawns[i]))) continue;
+		if (cam->isRectVisible(sf::FloatRect(spawns[i]->spawn))) continue;
 
-		dist = vLen(position - rectCenter(spawns[i]));
+		dist = vLen(position - rectCenter(spawns[i]->spawn));
 		if ((place == -1) || (dist < minDist)) {
 			place = i;
 			minDist = dist;
@@ -136,7 +137,7 @@ void fired::Map::spawn(sf::Vector2f position) {
 	if (place == -1) return;
 
 	toSpawn   = rand() % biome->creatures.size();
-	spawnRect = getRectToSpawn(biome->creatures[toSpawn], spawns[place]);
+	spawnRect = getRectToSpawn(biome->creatures[toSpawn], spawns[place]->spawn);
 	pos       = sf::Vector2f(spawnRect.left + rand() % spawnRect.width, spawnRect.top + spawnRect.height);
 
 	world->spawn(pos, biome->creatures[toSpawn]);

@@ -32,12 +32,12 @@ void fired::CritterAI::update() {
 	jumpTimer.process();
 
 	if (!moveTimer.isActive()) {
-		moveTimer.setTimer(4.0f + random() % 4);
+		moveTimer.setTimer(4.0f + rand() % 4);
 		if (moving)
 			moving = 0;
 		else {
-			moving = (random() % 2) ? 1 : -1;
-			if (random() % 2) {
+			moving = (rand() % 2) ? 1 : -1;
+			if (rand() % 2) {
 				jumpTimer.setTimer(2.0f + abs(getRandomOffset(moveTimer.timer - 2.0f)));
 				jumping = 1;
 			}

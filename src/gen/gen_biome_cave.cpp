@@ -186,8 +186,8 @@ void fired::MapGenerator::genCavePlayer() {
 
 ***********************************************************************/
 void fired::MapGenerator::genCaveSpawns() {
-	addSpawn(141, 34, 16, 5, mstCommon);
-	addSpawn(  3, 34, 16, 5, mstCommon);
+	addSpawn(141, 34, 16, 5, mstCreature);
+	addSpawn(  3, 34, 16, 5, mstCreature);
 }
 
 

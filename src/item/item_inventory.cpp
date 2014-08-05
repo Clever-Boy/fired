@@ -106,7 +106,7 @@ void fired::Inventory::generateLoot(std::vector<fired::LootItem*> *_items) {
 		if (((rand() % 100) / 100.0f) > lootItem->probability) continue;
 
 		count = lootItem->minCount + (rand() % (lootItem->maxCount - lootItem->minCount + 1));
-		item = new fired::InventoryItem(lootItem->items[random() % lootItem->items.size()], count);
+		item = new fired::InventoryItem(lootItem->items[rand() % lootItem->items.size()], count);
 
 		if (canPickup(item)) pickup(item);
 		delete item;

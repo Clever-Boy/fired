@@ -214,7 +214,7 @@ void fired::World::checkSpawns() {
 	spawnLeft -= frameClock;
 	if (spawnLeft <= 0) {
 		spawnLeft = spawnRate;
-		map->spawn(player->character->phys.pos);
+		map->spawn(player->character->phys.pos, mstCreature);
 	}
 }
 

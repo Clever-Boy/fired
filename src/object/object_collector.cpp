@@ -41,7 +41,7 @@ void fired::BaseMapObjectCollector::generateLoot(std::vector<fired::MapLootItem*
 		if (((rand() % 100) / 100.0f) > lootItem->probability) continue;
 
 		count = lootItem->minCount + (rand() % (lootItem->maxCount - lootItem->minCount + 1));
-		items.push_back(new fired::MapItem(count, lootItem->items[random() % lootItem->items.size()]));
+		items.push_back(new fired::MapItem(count, lootItem->items[rand() % lootItem->items.size()]));
 	}
 }
 

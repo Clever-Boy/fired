@@ -460,21 +460,21 @@ void fired::MapGenerator::genCityPlayer() {
 ***********************************************************************/
 void fired::MapGenerator::genCitySpawns() {
 	// Commented for debugging
-	// addSpawn(141, 34, 16,  5, mstCommon);
-	// addSpawn(  3, 34, 16,  5, mstCommon);
-	// addSpawn( 55, 30, 19,  5, mstCommon);
-	// addSpawn( 35, 49, 16, 23, mstCommon);
-	// addSpawn(  4, 61, 32,  5, mstCommon);
-	// addSpawn( 35, 80,  8,  5, mstCommon);
-	// addSpawn( 42, 61, 45,  5, mstCommon);
-	// addSpawn(140, 44, 20, 12, mstCommon);
-	// addSpawn( 84, 49,  9,  7, mstCommon);
-	// addSpawn(187, 55, 10,  5, mstCommon);
-	// addSpawn(187, 71, 10,  5, mstCommon);
-	// addSpawn(178, 85,  8,  6, mstCommon);
-	// addSpawn(136, 76, 12,  7, mstCommon);
-	// addSpawn(118, 85, 15,  8, mstCommon);
-	// addSpawn(151, 85, 15,  8, mstCommon);
+	// addSpawn(141, 34, 16,  5, mstCreature);
+	// addSpawn(  3, 34, 16,  5, mstCreature);
+	// addSpawn( 55, 30, 19,  5, mstCreature);
+	// addSpawn( 35, 49, 16, 23, mstCreature);
+	// addSpawn(  4, 61, 32,  5, mstCreature);
+	// addSpawn( 35, 80,  8,  5, mstCreature);
+	// addSpawn( 42, 61, 45,  5, mstCreature);
+	// addSpawn(140, 44, 20, 12, mstCreature);
+	// addSpawn( 84, 49,  9,  7, mstCreature);
+	// addSpawn(187, 55, 10,  5, mstCreature);
+	// addSpawn(187, 71, 10,  5, mstCreature);
+	// addSpawn(178, 85,  8,  6, mstCreature);
+	// addSpawn(136, 76, 12,  7, mstCreature);
+	// addSpawn(118, 85, 15,  8, mstCreature);
+	// addSpawn(151, 85, 15,  8, mstCreature);
 }
 
 

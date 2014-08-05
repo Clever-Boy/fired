@@ -399,6 +399,22 @@ int fired::Container::loadBiome(void *data, int, char **argv, char **) {
 		}
 	}
 
+	if (argv[6]) {
+		char *token = strtok(argv[6], "\n");
+		while (token) {
+			current->critters.push_back(((fired::Container *) data)->getCreature(token));
+			token = strtok(NULL, "\n");
+		}
+	}
+
+	if (argv[7]) {
+		char *token = strtok(argv[7], "\n");
+		while (token) {
+			current->bosses.push_back(((fired::Container *) data)->getCreature(token));
+			token = strtok(NULL, "\n");
+		}
+	}
+
 	return 0;
 }
 

@@ -15,9 +15,9 @@
 
 namespace fired {
 	enum MapSpawnType {
-		mstCommon  = 1,
-		mstBoss    = 2,
-		mstCritter = 4
+		mstCreature = 1,
+		mstBoss     = 2,
+		mstCritter  = 4
 	};
 
 

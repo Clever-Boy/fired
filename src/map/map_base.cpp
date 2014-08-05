@@ -112,11 +112,29 @@ void fired::Map::render() {
      * spawn
 
 ***********************************************************************/
-void fired::Map::spawn(sf::Vector2f position) {
-	if (biome->creatures.size() == 0) return;
+void fired::Map::spawn(sf::Vector2f position, fired::MapSpawnType type) {
 	if (spawns.size() == 0) return;
 
-	int   toSpawn;
+	fired::BaseCreature *toSpawn;
+	switch (type) {
+		case mstCreature:
+			if (biome->creatures.size() == 0) return;
+			toSpawn = biome->creatures[rand() % biome->creatures.size()];
+			break;
+
+		case mstCritter:
+			if (biome->critters.size() == 0) return;
+			toSpawn = biome->critters[rand() % biome->critters.size()];
+			break;
+
+		case mstBoss:
+			if (biome->bosses.size() == 0) return;
+			toSpawn = biome->bosses[rand() % biome->bosses.size()];
+			break;
+	}
+
+	if (biome->creatures.size() == 0) return;
+
 	int   place = -1;
 	float minDist;
 	float dist;
@@ -125,6 +143,7 @@ void fired::Map::spawn(sf::Vector2f position) {
 	sf::IntRect  spawnRect;
 
 	for (unsigned int i = 0; i < spawns.size(); i++) {
+		if (!(spawns[i]->type & type)) continue;
 		if (cam->isRectVisible(sf::FloatRect(spawns[i]->spawn))) continue;
 
 		dist = vLen(position - rectCenter(spawns[i]->spawn));
@@ -136,11 +155,10 @@ void fired::Map::spawn(sf::Vector2f position) {
 
 	if (place == -1) return;
 
-	toSpawn   = rand() % biome->creatures.size();
-	spawnRect = getRectToSpawn(biome->creatures[toSpawn], spawns[place]->spawn);
+	spawnRect = getRectToSpawn(toSpawn, spawns[place]->spawn);
 	pos       = sf::Vector2f(spawnRect.left + rand() % spawnRect.width, spawnRect.top + spawnRect.height);
 
-	world->spawn(pos, biome->creatures[toSpawn]);
+	world->spawn(pos, toSpawn);
 }
 
 

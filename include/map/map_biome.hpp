@@ -19,6 +19,8 @@ namespace fired {
 
 		sf::Color lightness;
 		std::vector<fired::BaseCreature*> creatures;
+		std::vector<fired::BaseCreature*> critters;
+		std::vector<fired::BaseCreature*> bosses;
 
 
 		fired::Weather *getWeather(fired::World *world);

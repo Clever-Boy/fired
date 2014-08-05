@@ -91,10 +91,10 @@ void fired::World::update() {
 	checkShots();
 	checkCreatures();
 	checkPhys();
-	checkItems();
 	checkSpawns();
+	checkChunks();
+	checkItems();
 
-	updateList(chunks);
 	updateList(shots);
 	updateList(particles);
 	updateList(explosions);
@@ -150,6 +150,17 @@ void fired::World::checkShots() {
 			chars[j]->checkBroadShot(broadShots[i]);
 
 	deleteList(broadShots);
+}
+
+
+
+/***********************************************************************
+     * World
+     * checkChunks
+
+***********************************************************************/
+void fired::World::checkChunks() {
+	updateList(chunks);
 }
 
 

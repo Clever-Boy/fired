@@ -84,6 +84,7 @@ namespace fired {
 		void checkCreatures();
 		void checkItems();
 		void checkSpawns();
+		void checkChunks();
 
 		void interact(fired::Character *owner);
 		void spawn(sf::Vector2f pos, fired::BaseCreature *creature);

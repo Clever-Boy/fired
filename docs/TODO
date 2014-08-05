@@ -688,7 +688,7 @@
 				</todo>
 				<todo done="yes" collapse="no"><title>Fill 'Critters' and 'Bosses' fields in Biomes table</title></todo>
 				<todo done="no" collapse="no"><title>Fill 'loot' fields in Creatures table</title></todo>
-				<todo done="no" collapse="no"><title>Player default colors in database</title></todo>
+				<todo done="yes" collapse="no"><title>Player default colors in database</title></todo>
 				<todo done="no" collapse="no"><title>Spawn rate and spawn limit in mapfile</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Code optimization</title></todo>

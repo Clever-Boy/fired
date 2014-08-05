@@ -129,7 +129,15 @@ void fired::MapGenerator::genForestPlayer() {
 
 ***********************************************************************/
 void fired::MapGenerator::genForestSpawns() {
-	return;
+	addSpawn( 6, 46, 10,  4, mstCritter);
+	addSpawn(16, 46, 10,  4, mstCritter);
+	addSpawn(26, 46, 10,  4, mstCritter);
+	addSpawn(36, 46, 10,  4, mstCritter);
+	addSpawn(46, 46, 10,  4, mstCritter);
+	addSpawn(56, 46, 10,  4, mstCritter);
+	addSpawn(66, 46, 10,  4, mstCritter);
+	addSpawn(76, 46, 10,  4, mstCritter);
+	addSpawn(86, 46, 10,  4, mstCritter);
 }
 
 

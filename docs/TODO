@@ -579,10 +579,11 @@
 				<todo done="yes" collapse="no"><title>Chests</title></todo>
 				<todo done="yes" collapse="no"><title>Enemy spawns</title></todo>
 			</todo>
-			<todo done="yes" collapse="yes"><title>Test biome (I Hate Animals)</title>
+			<todo done="yes" collapse="yes"><title>Test biome (I Hate Critters)</title>
 				<todo done="yes" collapse="no"><title>Biome class</title></todo>
 				<todo done="yes" collapse="no"><title>Biome generation</title></todo>
 				<todo done="yes" collapse="no"><title>Decors (trees)</title></todo>
+				<todo done="yes" collapse="no"><title>Spawns</title></todo>
 			</todo>
 			<todo done="yes" collapse="yes"><title>Add content</title>
 				<todo done="yes" collapse="yes"><title>AI</title>
@@ -685,10 +686,10 @@
 					<todo done="yes" collapse="no"><title>Critters spawn rate</title></todo>
 					<todo done="yes" collapse="no"><title>Spawning critters</title></todo>
 				</todo>
+				<todo done="yes" collapse="no"><title>Fill 'Critters' and 'Bosses' fields in Biomes table</title></todo>
 				<todo done="no" collapse="no"><title>Fill 'loot' fields in Creatures table</title></todo>
-				<todo done="no" collapse="no"><title>Fill 'Critters' and 'Bosses' fields in Biomes table</title></todo>
-				<todo done="no" collapse="no"><title>Player default colors</title></todo>
-				<todo done="no" collapse="no"><title>Spawn rate and spawn limit as argument</title></todo>
+				<todo done="no" collapse="no"><title>Player default colors in database</title></todo>
+				<todo done="no" collapse="no"><title>Spawn rate and spawn limit in mapfile</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Code optimization</title></todo>
 		</todo>

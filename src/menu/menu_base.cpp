@@ -298,8 +298,8 @@ void fired::MainMenu::fillMenu() {
 	menuItemAdd("Exit"      , curParent, itButton, &fired::Handlers::buttonExit);
 
 	curParent = menuItems[1];
-	menuItemAdd("City"          , curParent, itButton, &fired::Handlers::buttonStartCity);
-	menuItemAdd("I Hate Animals", curParent, itButton, &fired::Handlers::buttonStartForest);
+	menuItemAdd("City"           , curParent, itButton, &fired::Handlers::buttonStartCity);
+	menuItemAdd("I Hate Critters", curParent, itButton, &fired::Handlers::buttonStartForest);
 
 	fillMenuBack();
 

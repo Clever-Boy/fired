@@ -94,18 +94,17 @@ void fired::World::update() {
 	map->update();
 	player->update();
 
+	checkParticles();
 	checkShots();
 	checkCreatures();
+	checkPlayer();
+	checkChunks();
 	checkPhys();
 	checkSpawns();
-	checkChunks();
 	checkItems();
-
-	updateList(shots);
-	updateList(particles);
-	updateList(explosions);
-	map->light();
-	updateList(texts);
+	checkExplosions();
+	checkLight();
+	checkTexts();
 
 	postUpdateState();
 }
@@ -142,6 +141,7 @@ void fired::World::checkShots() {
 
 		i++;
 	}
+	updateList(shots);
 
 
 	for (unsigned int i = 0; i < meleeShots.size(); i++)
@@ -167,6 +167,61 @@ void fired::World::checkShots() {
 ***********************************************************************/
 void fired::World::checkChunks() {
 	updateList(chunks);
+}
+
+
+
+/***********************************************************************
+     * World
+     * checkPlayer
+
+***********************************************************************/
+void fired::World::checkPlayer() {
+	player->character->update();
+}
+
+
+
+/***********************************************************************
+     * World
+     * checkParticles
+
+***********************************************************************/
+void fired::World::checkParticles() {
+	updateList(particles);
+}
+
+
+
+/***********************************************************************
+     * World
+     * checkExplosions
+
+***********************************************************************/
+void fired::World::checkExplosions() {
+	updateList(explosions);
+}
+
+
+
+/***********************************************************************
+     * World
+     * checkTexts
+
+***********************************************************************/
+void fired::World::checkTexts() {
+	updateList(texts);
+}
+
+
+
+/***********************************************************************
+     * World
+     * checkLight
+
+***********************************************************************/
+void fired::World::checkLight() {
+	map->light();
 }
 
 

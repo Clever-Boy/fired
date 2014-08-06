@@ -92,6 +92,11 @@ namespace fired {
 		void checkItems();
 		void checkSpawns();
 		void checkChunks();
+		void checkPlayer();
+		void checkParticles();
+		void checkExplosions();
+		void checkTexts();
+		void checkLight();
 
 		void interact(fired::Character *owner);
 		void spawn(sf::Vector2f pos, fired::BaseCreature *creature, fired::MapSpawnType type);

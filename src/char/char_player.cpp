@@ -56,8 +56,6 @@ void fired::Player::update() {
 	}
 
 	character->setAiming(crosshair->angle);
-	character->update();
-
 	sf::Listener::setPosition(character->phys.pos.x, character->phys.pos.y, 0.0f);
 }
 

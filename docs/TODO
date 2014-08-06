@@ -654,7 +654,7 @@
 					<todo done="yes" collapse="no"><title>Big mamba (black mamba x 1.5) (boss)</title></todo>
 				</todo>
 			</todo>
-			<todo done="no" collapse="no"><title>Improovements</title>
+			<todo done="yes" collapse="yes"><title>Improovements</title>
 				<todo done="yes" collapse="no"><title>Use tiles in addLightSource and addDecor instead of pixels</title></todo>
 				<todo done="yes" collapse="yes"><title>Make equipment easy-to-understand</title>
 					<todo done="yes" collapse="no"><title>Move icons (weapon to the right)</title></todo>
@@ -687,7 +687,7 @@
 					<todo done="yes" collapse="no"><title>Spawning critters</title></todo>
 				</todo>
 				<todo done="yes" collapse="no"><title>Fill 'Critters' and 'Bosses' fields in Biomes table</title></todo>
-				<todo done="no" collapse="no"><title>Fill 'loot' fields in Creatures table</title></todo>
+				<todo done="yes" collapse="no"><title>Fill 'loot' fields in Creatures table</title></todo>
 				<todo done="yes" collapse="no"><title>Player default colors in database</title></todo>
 				<todo done="yes" collapse="no"><title>Spawn rate and spawn limit in mapfile</title></todo>
 			</todo>

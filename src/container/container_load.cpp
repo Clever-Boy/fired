@@ -346,11 +346,11 @@ int fired::Container::loadCreature(void *data, int, char **argv, char **) {
 		current->ammo = NULL;
 
 	if (argv[14]) {
-		char *token = strtok(argv[14], "\n");
+		char *token = strtok_r(argv[14], "\n", &argv[14]);
 
 		while (token) {
 			((fired::Container *) data)->loadCreatureLoot(current, token);
-			token = strtok(NULL, "\n");
+			token = strtok_r(NULL, "\n", &argv[14]);
 		}
 	}
 

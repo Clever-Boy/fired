@@ -225,56 +225,9 @@ void fired::World::checkLight() {
 
 ***********************************************************************/
 void fired::World::checkCreatures() {
-	for (unsigned int i = 0; i < creatures.size();) {
-		creatures[i]->update();
-
-		if (creatures[i]->character->dead) {
-			for (unsigned int j = 0; j < chars.size(); j++)
-				if (chars[j] == creatures[i]->character) {
-					chars.erase(chars.begin() + j);
-					break;
-				}
-
-			delete creatures[i];
-			creatures.erase(creatures.begin() + i);
-		} else
-			i++;
-	}
-
-
-	for (unsigned int i = 0; i < critters.size();) {
-		critters[i]->update();
-
-		if (critters[i]->character->dead) {
-			for (unsigned int j = 0; j < chars.size(); j++)
-				if (chars[j] == critters[i]->character) {
-					chars.erase(chars.begin() + j);
-					break;
-				}
-
-			delete critters[i];
-			critters.erase(critters.begin() + i);
-		} else
-			i++;
-	}
-
-
-	for (unsigned int i = 0; i < bosses.size();) {
-		bosses[i]->update();
-
-		if (bosses[i]->character->dead) {
-			for (unsigned int j = 0; j < chars.size(); j++)
-				if (chars[j] == bosses[i]->character) {
-					chars.erase(chars.begin() + j);
-					break;
-				}
-
-			delete bosses[i];
-			bosses.erase(bosses.begin() + i);
-		} else
-			i++;
-	}
-
+	updateCreatures(creatures);
+	updateCreatures(critters);
+	updateCreatures(bosses);
 }
 
 

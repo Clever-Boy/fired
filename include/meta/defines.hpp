@@ -25,8 +25,9 @@
      * List processing macros
 
 ***********************************************************************/
-#define deleteList(list) for (; !(list).empty(); delete (list).back(), (list).pop_back())
-#define updateList(list) for (unsigned int i = 0; i < (list).size();) { if (!(list)[i]->update()) {delete (list)[i]; (list).erase((list).begin() + i);} else i++;}
+#define deleteList(list)      for (; !(list).empty(); delete (list).back(), (list).pop_back())
+#define updateList(list)      for (unsigned int i = 0; i < (list).size();) { if (!(list)[i]->update()) {delete (list)[i]; (list).erase((list).begin() + i);} else i++;}
+#define updateCreatures(list) for (unsigned int i = 0; i < (list).size();) { (list)[i]->update(); if ((list)[i]->character->dead) {for (unsigned int j = 0; j < chars.size(); j++) if (chars[j] == (list)[i]->character) {chars.erase(chars.begin() + j); break;} delete (list)[i]; (list).erase((list).begin() + i);} else i++;}
 
 
 

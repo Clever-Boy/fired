@@ -234,8 +234,8 @@ void fired::Character::levelUp() {
 	needXP = levelXP(level);
 
 	attr.points++;
-	if (level % 5 == 0)  attr.points++;
-	if (level % 25 == 0) attr.points++;
+	if (level %  5 == 0) attr.points++;
+	if (level % 15 == 0) attr.points++;
 }
 
 

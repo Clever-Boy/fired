@@ -1,5 +1,5 @@
 <todo>
-	<todo done="yes" collapse="no"><title>0.99 pre-alpha</title>
+	<todo done="yes" collapse="yes"><title>0.99 pre-alpha</title>
 		<todo done="yes" collapse="yes"><title>Menu engine</title>
 			<todo done="yes" collapse="no"><title>Window initialization</title></todo>
 			<todo done="yes" collapse="no"><title>Event handling</title></todo>
@@ -518,7 +518,7 @@
 			<todo done="yes" collapse="no"><title>Change Armor icons</title></todo>
 			<todo done="yes" collapse="no"><title>Fix bug with bumpy tiles</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Release</title>
+		<todo done="yes" collapse="yes"><title>Release</title>
 			<todo done="yes" collapse="no"><title>Spawn enemies at spawn areas</title></todo>
 			<todo done="yes" collapse="no"><title>Select nearest non-visible area to spawn</title></todo>
 			<todo done="yes" collapse="no"><title>Spawn rate</title></todo>
@@ -691,7 +691,7 @@
 				<todo done="yes" collapse="no"><title>Player default colors in database</title></todo>
 				<todo done="yes" collapse="no"><title>Spawn rate and spawn limit in mapfile</title></todo>
 			</todo>
-			<todo done="no" collapse="no"><title>Code optimization</title></todo>
+			<todo done="yes" collapse="no"><title>Code optimization</title></todo>
 		</todo>
 	</todo>
 	<todo done="yes" collapse="yes"><title>0.99 alpha</title>

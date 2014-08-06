@@ -33,15 +33,7 @@ namespace fired {
 
 		#include "gen_misc.hpp"
 
-		#include "gen_biome_building.hpp"
-		#include "gen_biome_mine.hpp"
-		#include "gen_biome_snow.hpp"
-		#include "gen_biome_sewers.hpp"
-		#include "gen_biome_castle.hpp"
-		#include "gen_biome_cave.hpp"
 		#include "gen_biome_city.hpp"
-		#include "gen_biome_mountains.hpp"
-		#include "gen_biome_graveyard.hpp"
 		#include "gen_biome_forest.hpp"
 	};
 }

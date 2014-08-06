@@ -17,7 +17,7 @@
 ***********************************************************************/
 #define PROJECT_CAPTION         "F.I.R.E.D."
 #define PROJECT_VER             "0.99 pre-alpha"
-#define PROJECT_KEY             "\x07\x03\x19\x88\xF1\x4E\xD0\x43\x20\x32\x98\xE2\x12"
+#define PROJECT_KEY             "\x07\x03\x19\xF1\xD0\xE2\x12"
 
 
 

@@ -15,10 +15,11 @@
 
 ***********************************************************************/
 void mapSaveMeta(fired::Map *map, FILE *fp) {
-	fwrite( map->biome->name, sizeof(map->biome->name), 1, fp);
-	fwrite(&map->startRect  , sizeof(map->startRect)  , 1, fp);
-	fwrite(&map->sizeX      , sizeof(int)             , 1, fp);
-	fwrite(&map->sizeY      , sizeof(int)             , 1, fp);
+	fwrite( map->biome->name, sizeof(map->biome->name)      , 1, fp);
+	fwrite(&map->startRect  , sizeof(map->startRect)        , 1, fp);
+	fwrite(&map->sizeX      , sizeof(int)                   , 1, fp);
+	fwrite(&map->sizeY      , sizeof(int)                   , 1, fp);
+	fwrite(&map->worldProps , sizeof(fired::WorldProperties), 1, fp);
 }
 
 

@@ -26,6 +26,7 @@
 #include "screen.hpp"
 #include "menu.hpp"
 #include "misc/misc_timer.hpp"
+#include "misc/misc_world_properties.hpp"
 #include "world.hpp"
 #include "container.hpp"
 #include "misc.hpp"
@@ -68,7 +69,7 @@ namespace fired {
 		void update();
 		void stop() { running = false; };
 
-		void generateWorld(const char *biome);
+		void generateWorld(const char *biome, fired::WorldProperties worldProps);
 		void setGameState(fired::GameState state);
 		void setMusic(const char *musicFile);
 		bool switchGameState();

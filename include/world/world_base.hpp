@@ -85,6 +85,7 @@ namespace fired {
 		void preUpdateState();
 		void postUpdateState();
 		void togglePause() { paused = !paused; };
+		void applyProperties(fired::WorldProperties *worldProps);
 
 		void checkShots();
 		void checkPhys();

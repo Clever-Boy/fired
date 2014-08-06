@@ -15,8 +15,9 @@
      * constructor
 
 ***********************************************************************/
-fired::MapGenerator::MapGenerator(fired::Biome *_biome) {
+fired::MapGenerator::MapGenerator(fired::Biome *_biome, fired::WorldProperties _worldProps) {
 	biome = _biome;
+	memcpy(&worldProps, &_worldProps, sizeof(fired::WorldProperties));
 
 	if (!strcmp(biome->name, "Building"))  genBuilding();
 	if (!strcmp(biome->name, "Mine"))      genMine();

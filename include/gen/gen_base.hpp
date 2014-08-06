@@ -14,9 +14,10 @@
 
 namespace fired {
 	struct MapGenerator {
-		fired::Biome    *biome;
-		fired::MapTile **tiles;
-		sf::IntRect    startRect;
+		fired::Biome            *biome;
+		fired::MapTile         **tiles;
+		fired::WorldProperties   worldProps;
+		sf::IntRect              startRect;
 		int sizeX;
 		int sizeY;
 		int brush;
@@ -26,7 +27,7 @@ namespace fired {
 		std::vector<fired::MapSpawn*>      spawns;
 
 
-		 MapGenerator(fired::Biome *_biome);
+		 MapGenerator(fired::Biome *_biome, fired::WorldProperties _worldProps);
 		~MapGenerator();
 
 

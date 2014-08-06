@@ -38,14 +38,7 @@ fired::World::World(fired::Mouse *_mouse) {
 
 	map->setWeather();
 	chars.push_back(player->character);
-
-	creatureSpawnTimer.setTimer(10.0f);
-	critterSpawnTimer.setTimer(10.0f);
-	bossSpawnTimer.setTimer(50.0f);
-
-	creatureSpawnMax  = 7;
-	critterSpawnMax   = 5;
-	bossSpawnMax      = 2;
+	applyProperties(&map->worldProps);
 }
 
 
@@ -459,6 +452,23 @@ void fired::World::interact(fired::Character *owner) {
 		exchangeWin->init((fired::MapObjectCollector*)obj);
 		state = wsExchange;
 	}
+}
+
+
+
+/***********************************************************************
+     * World
+     * applyProperties
+
+***********************************************************************/
+void fired::World::applyProperties(fired::WorldProperties *worldProps) {
+	creatureSpawnTimer.setTimer(worldProps->creaturesRate);
+	critterSpawnTimer.setTimer(worldProps->crittersRate);
+	bossSpawnTimer.setTimer(worldProps->bossesRate);
+
+	creatureSpawnMax  = worldProps->creaturesLimit;
+	critterSpawnMax   = worldProps->crittersLimit;
+	bossSpawnMax      = worldProps->bossesLimit;
 }
 
 

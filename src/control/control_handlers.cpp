@@ -16,7 +16,18 @@
 
 ***********************************************************************/
 void fired::Handlers::buttonStartCity() {
-	game->generateWorld("City");
+	fired::WorldProperties props;
+
+	props.creaturesLimit = 7;
+	props.crittersLimit  = 5;
+	props.bossesLimit    = 2;
+
+	props.creaturesRate  =  5.0f;
+	props.crittersRate   =  2.0f;
+	props.bossesRate     = 30.0f;
+
+
+	game->generateWorld("City", props);
 	game->setGameState(gsWorld);
 }
 
@@ -28,7 +39,18 @@ void fired::Handlers::buttonStartCity() {
 
 ***********************************************************************/
 void fired::Handlers::buttonStartForest() {
-	game->generateWorld("Forest");
+	fired::WorldProperties props;
+
+	props.creaturesLimit = 0;
+	props.crittersLimit  = 50;
+	props.bossesLimit    = 0;
+
+	props.creaturesRate  = 0.0f;
+	props.crittersRate   = 0.5f;
+	props.bossesRate     = 0.0f;
+
+
+	game->generateWorld("Forest", props);
 	game->setGameState(gsWorld);
 }
 

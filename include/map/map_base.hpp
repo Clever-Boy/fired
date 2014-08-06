@@ -31,9 +31,10 @@ namespace fired {
 		fired::Camera    *cam;
 		fired::World     *world;
 
-		fired::Tile   **tiles;
-		fired::Biome   *biome;
-		fired::Weather *weather;
+		fired::Tile            **tiles;
+		fired::Biome            *biome;
+		fired::Weather          *weather;
+		fired::WorldProperties   worldProps;
 
 		std::vector<fired::MapObject*>            objects;
 		std::vector<fired::TemporaryLightSource*> lights;

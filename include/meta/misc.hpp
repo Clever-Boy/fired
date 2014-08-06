@@ -14,5 +14,6 @@
 #include "misc/misc_vect.hpp"
 #include "misc/misc_phys.hpp"
 #include "misc/misc_timer.hpp"
+#include "misc/misc_world_properties.hpp"
 
 #endif

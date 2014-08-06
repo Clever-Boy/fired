@@ -21,7 +21,7 @@ fired::Container::Container(fired::LoadingScr *_screen) {
 	screen->mainBar->reset();
 
 	sqlite3 *db;
-	sqlite3_open("data/database.sqlite", &db);
+	sqliteLoadDB(&db, "data/database.sqlite", true, PROJECT_KEY);
 
 	loadContent(db, "Sprites"     , loadSprite   , "SELECT Path FROM Sprites");
 	loadContent(db, "Sounds"      , loadSound    , "SELECT Name, Path FROM Sounds");

@@ -20,8 +20,9 @@ IF ( WIN32 )
 ELSEIF ( UNIX )
 
         SET ( CMAKE_RESOURCE  "" )
-        SET ( CMAKE_CXX_FLAGS  "-s" )
-        SET ( CMAKE_LINK_LIBS sfml-system sfml-window sfml-graphics sfml-audio m sqlite3 stdc++ )
+        SET ( CMAKE_CXX_FLAGS  "-DSFML_STATIC -s" )
+        SET ( CMAKE_EXE_LINKER_FLAGS  "-static-libgcc -static-libstdc++" )
+        SET ( CMAKE_LINK_LIBS sfml-audio-s sfml-graphics-s sfml-window-s sfml-system-s pthread GL X11 Xrandr freetype GLEW jpeg sndfile openal m sqlite3 udev )
 
 ENDIF ( )
 

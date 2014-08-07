@@ -346,12 +346,20 @@ int fired::Container::loadCreature(void *data, int, char **argv, char **) {
 		current->ammo = NULL;
 
 	if (argv[14]) {
-		char *token = strtok_r(argv[14], "\n", &argv[14]);
+		std::vector<char*> loots;
+		char *token = strtok(argv[14], "\n");
 
 		while (token) {
-			((fired::Container *) data)->loadCreatureLoot(current, token);
-			token = strtok_r(NULL, "\n", &argv[14]);
+			loots.push_back(strdup(token));
+			token = strtok(NULL, "\n");
 		}
+
+		for (unsigned int i = 0; i < loots.size(); i++) {
+			((fired::Container *) data)->loadCreatureLoot(current, loots[i]);
+			free(loots[i]);
+		}
+
+		loots.clear();
 	}
 
 	return 0;

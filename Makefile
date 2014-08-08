@@ -6,6 +6,7 @@
 export PROJECT=fired
 export CC=g++
 export LD=ld
+export STRIP=strip
 export CLEAN=rm -f
 export MAKE=make --no-print-directory
 export MAKESRC=$(MAKE) -f $(PWD)/Makefile.src
@@ -23,6 +24,7 @@ export CFLAGS=-Wall                   \
 all: src
 	$(MAKE) -C src -f $(PWD)/Makefile.src clean-subdirs
 	$(MAKESRC) -C src
+	$(STRIP) $(PROJECT)
 
 
 clean:

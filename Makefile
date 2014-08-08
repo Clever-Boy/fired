@@ -4,8 +4,7 @@
 #                                                                       
 ########################################################################
 export PROJECT=fired
-export CC=gcc
-export STRIP=strip
+export CC=g++
 export LD=ld
 export CLEAN=rm -f
 export MAKE=make --no-print-directory
@@ -13,7 +12,7 @@ export MAKESRC=$(MAKE) -f $(PWD)/Makefile.src
 export MAKESUB=$(MAKE) -j8 -C $$$$dir -f $(PWD)/Makefile.sub
 
 export INCLUDE_DIR=$(PWD)/include
-export LDFLAGS=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lm -lstdc++ -lsqlite3
+export LDFLAGS=-static-libstdc++ -static-libgcc -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lm -lsqlite3
 export CFLAGS=-Wall                   \
               -Wextra                 \
               -I$(INCLUDE_DIR)        \
@@ -24,7 +23,6 @@ export CFLAGS=-Wall                   \
 all: src
 	$(MAKE) -C src -f $(PWD)/Makefile.src clean-subdirs
 	$(MAKESRC) -C src
-	$(STRIP) $(PROJECT)
 
 
 clean:

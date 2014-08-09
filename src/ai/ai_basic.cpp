@@ -17,7 +17,7 @@
 ***********************************************************************/
 void fired::BasicAI::update() {
 	if (target) if (target->dead) target = NULL;
-	if (!target) selectTarget();
+	selectTarget();
 	if (!target) return;
 
 	owner->character->setAiming(atan2(target->phys.center.y - owner->character->phys.center.y, 
@@ -61,6 +61,7 @@ void fired::BasicAI::selectTarget() {
 		if (owner->character->isEnemy(world->chars[i]->fraction)) {
 			dist = vLen(owner->character->phys.center - world->chars[i]->phys.center);
 			if (dist > owner->character->stats.aimrange) continue;
+			if (target && dist > owner->character->stats.aimrange * 0.66f) continue;
 
 			if (minDist == -1) {
 				minDist = dist;

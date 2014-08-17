@@ -697,6 +697,8 @@
 	<todo done="yes" collapse="no"><title>0.99 alpha</title>
 		<todo done="no" collapse="no"><title>Fix 0.99 pre-alpha bugs</title>
 			<todo done="no" collapse="no"><title>Shots should originate from the weapon and also not appear behind the character</title></todo>
+			<todo done="no" collapse="no"><title>Fix colorful lighting</title></todo>
+			<todo done="no" collapse="no"><title>Remove unused functions</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>SFGUI</title>
 			<todo done="no" collapse="no"><title>Audio settings</title></todo>
@@ -759,12 +761,15 @@
 		</todo>
 		<todo done="no" collapse="yes"><title>NPC</title>
 			<todo done="no" collapse="no"><title>NPC AI</title></todo>
+			<todo done="no" collapse="no"><title>NPC usage</title></todo>
 			<todo done="no" collapse="no"><title>Main quest NPC</title></todo>
 			<todo done="no" collapse="no"><title>Trader NPC</title></todo>
+			<todo done="no" collapse="no"><title>Builder NPC</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Quests</title>
 			<todo done="no" collapse="no"><title>Quests</title></todo>
 			<todo done="no" collapse="no"><title>Quest items</title></todo>
+			<todo done="no" collapse="no"><title>Quest NPCs</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Liquids</title>
 			<todo done="no" collapse="no"><title>Class</title></todo>

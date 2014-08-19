@@ -10,6 +10,7 @@
 #define __MISC
 
 #include "misc/misc_base.hpp"
+#include "misc/misc_light.hpp"
 #include "misc/misc_mechanics.hpp"
 #include "misc/misc_vect.hpp"
 #include "misc/misc_phys.hpp"

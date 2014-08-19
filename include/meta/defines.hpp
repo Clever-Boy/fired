@@ -95,11 +95,11 @@
 
 ***********************************************************************/
 #define LIGHT_OFFSCREEN_TILES   24
-#define LIGHT_MAX_LIGHTLEVEL    24
-#define LIGHT_ABSOLUTE          20
+#define LIGHT_MAX_LIGHTLEVEL    100
+#define LIGHT_ABSOLUTE          80
 
-#define LIGHT_SPLASH_INTENSITY  24
-#define LIGHT_SHOT_INTENSITY    10
+#define LIGHT_SPLASH_INTENSITY  100
+#define LIGHT_SHOT_INTENSITY    45
 #define LIGHT_SHOT_LIFETIME     0.5f
 
 

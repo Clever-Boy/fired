@@ -16,7 +16,7 @@
 
 ***********************************************************************/
 fired::LogMessage::LogMessage(const char *_text, fired::LogMessageLevel level) {
-	life  = 0.0f;
+	life  = LOG_MESSAGE_LIFE;
 	strncpy(text, _text, 64);
 
 	switch (level) {
@@ -35,6 +35,10 @@ fired::LogMessage::LogMessage(const char *_text, fired::LogMessageLevel level) {
 
 ***********************************************************************/
 bool fired::LogMessage::update() {
-	life += frameClock;
+	life -= frameClock;
+
+	if (life <= 0.0f) return false;
+	if (life <= LOG_MESSAGE_FADING) color.a = 255 * (life / LOG_MESSAGE_FADING);
+
 	return true;
 }

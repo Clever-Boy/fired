@@ -26,6 +26,7 @@ fired::World::World(fired::Mouse *_mouse) {
 	crosshair = new fired::Crosshair(cam);
 	player    = new fired::Player(cam, crosshair, this);
 	gui       = new fired::GUI(player->character);
+	log       = new fired::Log;
 
 	inventoryWin = new fired::InventoryWindow(player->character, this);
 	exchangeWin  = new fired::ExchangeWindow(player->character, this);
@@ -54,6 +55,7 @@ fired::World::~World() {
 	delete map;
 	delete gui;
 	delete cam;
+	delete log;
 
 	delete inventoryWin;
 	delete exchangeWin;
@@ -503,11 +505,13 @@ void fired::World::postUpdateState() {
 			crosshair->update(player->character->stats.aimrange);
 			cam->reset();
 			gui->update();
+			log->update();
 			break;
 
 		case wsInventory:
 			cam->reset();
 			gui->update();
+			log->update();
 			inventoryWin->update(mouse->pos);
 			mouse->update();
 			break;
@@ -515,6 +519,7 @@ void fired::World::postUpdateState() {
 		case wsExchange:
 			cam->reset();
 			gui->update();
+			log->update();
 			exchangeWin->update(mouse->pos);
 			mouse->update();
 			break;
@@ -522,6 +527,7 @@ void fired::World::postUpdateState() {
 		case wsCharacter:
 			cam->reset();
 			gui->update();
+			log->update();
 			characterWin->update();
 			mouse->update();
 			break;
@@ -529,6 +535,7 @@ void fired::World::postUpdateState() {
 		case wsMenu:
 			cam->reset();
 			gui->update();
+			log->update();
 			menuWin->update(mouse->pos);
 			mouse->update();
 			break;

@@ -44,6 +44,7 @@ namespace fired {
 		fired::Mouse      *mouse;
 		fired::Player     *player;
 		fired::GUI        *gui;
+		fired::Log        *log;
 
 		fired::InventoryWindow  *inventoryWin;
 		fired::ExchangeWindow   *exchangeWin;

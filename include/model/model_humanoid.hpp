@@ -93,6 +93,8 @@ namespace fired {
 		void processBodyAnimation();
 		void processArmsAnimation();
 		void processBones();
+
+		sf::Vector2f getBarrelPos();
 	};
 }
 

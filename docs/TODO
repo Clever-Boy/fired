@@ -695,10 +695,10 @@
 		</todo>
 	</todo>
 	<todo done="yes" collapse="no"><title>0.99 alpha</title>
-		<todo done="no" collapse="no"><title>Fix 0.99 pre-alpha bugs</title>
+		<todo done="yes" collapse="yes"><title>Fix 0.99 pre-alpha bugs</title>
 			<todo done="yes" collapse="no"><title>Fix colorful lighting</title></todo>
 			<todo done="yes" collapse="no"><title>Remove unused functions</title></todo>
-			<todo done="no" collapse="no"><title>Shots should originate from the weapon and also not appear behind the character</title></todo>
+			<todo done="yes" collapse="no"><title>Shots should originate from the weapon and also not appear behind the character</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>SFGUI</title>
 			<todo done="no" collapse="no"><title>Audio settings</title></todo>

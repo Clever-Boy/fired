@@ -17,11 +17,12 @@
 ***********************************************************************/
 fired::Shot::Shot(fired::Character *_owner, fired::World *_world) {
 	owner     = _owner;
-	pos       = owner->phys.center;
+	pos       = owner->model->getBarrelPos();
+	origin    = pos;
 	angle     = owner->aiming;
 	world     = _world;
 	tracer    = NULL;
-
+	farAway   = false;
 	sprite    = owner->ammo->shotSprite;
 	damage    = owner->getDamage();
 	knockback = owner->getKnockback();
@@ -37,7 +38,7 @@ fired::Shot::Shot(fired::Character *_owner, fired::World *_world) {
 	velocity = sf::Vector2f(owner->weapon->speed * cos(angle), owner->weapon->speed * sin(angle));
 	line = sf::VertexArray(sf::Lines, 2);
 	line[0].color = sf::Color::White;
-	line[1].color = sf::Color(141, 152, 141, 50);
+	line[1].color = sf::Color(205, 154, 0, 20);
 
 	switch (owner->ammo->tracer) {
 		case stNone:
@@ -95,8 +96,13 @@ void fired::Shot::render() {
 		sprite->spr->setPosition(pos);
 		app->draw(*sprite->spr);
 	} else {
+		if (!farAway) farAway = vLen(pos - origin) > vLen(velocity * frameClock * 3.0f);
+
 		line[0].position = pos;
-		line[1].position = pos - velocity * frameClock * 2.0f;
+
+		if (farAway) line[1].position = pos - velocity * frameClock * 2.0f;
+		else         line[1].position = origin;
+
 		app->draw(line);
 	}
 }

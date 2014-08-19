@@ -62,6 +62,8 @@ namespace fired {
 		virtual void processBones()                {};
 		virtual void setWeapon(fired::BaseWeapon*) {};
 
+		virtual sf::Vector2f getBarrelPos();
+
 		void update();
 		void render();
 		void explode(sf::Vector2f shot, float knockback);

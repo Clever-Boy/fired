@@ -164,3 +164,13 @@ void fired::Model::resetAnimation() {
 	for (unsigned int i = 0; i < bodyBones.size(); i++) bodyBones[i]->reset();
 }
 
+
+
+/***********************************************************************
+     * Model
+     * getBarrelPos
+
+***********************************************************************/
+sf::Vector2f fired::Model::getBarrelPos() {
+	return owner->phys.center;
+}

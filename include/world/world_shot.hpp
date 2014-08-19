@@ -23,6 +23,7 @@ namespace fired {
 namespace fired {
 	struct Shot {
 		sf::Vector2f pos;
+		sf::Vector2f origin;
 		sf::Vector2i index;
 		sf::Vector2f velocity;
 		float        angle;
@@ -30,6 +31,7 @@ namespace fired {
 		float        leftToFly;
 		float        explosionRadius;
 
+		bool         farAway;
 		bool         explosive;
 		int          damage;
 		int          fraction;

@@ -324,3 +324,17 @@ void fired::ModelHumanoid::processArmsAnimation() {
 			break;
 	}
 }
+
+
+
+/***********************************************************************
+     * ModelHumanoid
+     * getBarrelPos
+
+***********************************************************************/
+sf::Vector2f fired::ModelHumanoid::getBarrelPos() {
+	if (*partWeapon.direction == 1)
+		return owner->phys.pos + (partWeapon.offset + partWeapon.animOffset) * modelScale;
+	else
+		return owner->phys.pos + sf::Vector2f(-partWeapon.offset.x - partWeapon.animOffset.x, partWeapon.offset.y + partWeapon.animOffset.y) * modelScale + sf::Vector2f(owner->phys.size.x, 0);
+}

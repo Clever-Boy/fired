@@ -23,6 +23,7 @@ namespace fired {
 		sf::Color color;
 		char      text[64];
 		float     life;
+		float     top;
 
 
 		LogMessage(const char *_text, fired::LogMessageLevel level);

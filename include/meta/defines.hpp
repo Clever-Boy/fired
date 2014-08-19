@@ -136,6 +136,7 @@
 #define LOG_MESSAGE_HEIGHT      12
 #define LOG_MESSAGE_LIFE        7.5f
 #define LOG_MESSAGE_FADING      1.5f
+#define LOG_MESSAGE_SPEED       100.0f
 
 
 

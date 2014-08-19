@@ -62,6 +62,8 @@ void fired::Log::update() {
 void fired::Log::render() {
 	win->render();
 
-	for (unsigned int i = 0; i < messages.size(); i++)
-		win->renderText(5, i * LOG_MESSAGE_HEIGHT, messages[i]->text, taLeft, messages[i]->color);
+	for (unsigned int i = 0; i < messages.size(); i++) {
+		if (messages[i]->top < i * LOG_MESSAGE_HEIGHT) messages[i]->top = i * LOG_MESSAGE_HEIGHT;
+		win->renderText(5, messages[i]->top, messages[i]->text, taLeft, messages[i]->color);
+	}
 }

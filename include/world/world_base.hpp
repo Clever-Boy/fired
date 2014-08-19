@@ -34,6 +34,7 @@ namespace fired {
 #include "map.hpp"
 #include "mapfile.hpp"
 #include "world_gui.hpp"
+#include "log.hpp"
 
 
 namespace fired {
@@ -113,9 +114,10 @@ namespace fired {
 
 		void addText        (sf::Vector2f pos, sf::Color color, int size, const char *text)                     { texts.push_back(new fired::FlyText(pos, color, size, text));                            };
 		void addBulletSplash(sf::Vector2f pos, sf::Vector2f direction)                                          { particles.push_back(new fired::ParticleSystemSparc(pos, direction, this));              };
-		void addBloodSplash (sf::Vector2f pos, sf::Vector2f direction, int bloodCount)                          { particles.push_back(new fired::ParticleSystemBlood(pos, direction, this, bloodCount)); };
+		void addBloodSplash (sf::Vector2f pos, sf::Vector2f direction, int bloodCount)                          { particles.push_back(new fired::ParticleSystemBlood(pos, direction, this, bloodCount));  };
 		void addChunk       (fired::Bodypart *bodyPart, float scale, sf::Vector2f position, sf::Vector2f speed) { chunks.push_back(new fired::Chunk(bodyPart, scale, position, speed, this));             };
 		void addItem        (fired::InventoryItem *item, sf::Vector2f pos, sf::Vector2f speed)                  { items.push_back(new fired::CollectableItem(item, pos, speed, this));                    };
+		void addMessage     (const char *text, fired::LogMessageLevel level)                                    { log->messages.push_back(new fired::LogMessage(text, level));                            };
 		void addExplosion   (sf::Vector2f pos, float radius, float life, float knockback, int damage, fired::Character *owner, int fraction);
 	};
 }

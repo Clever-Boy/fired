@@ -704,16 +704,22 @@
 		<todo done="no" collapse="no"><title>Message log</title>
 			<todo done="yes" collapse="no"><title>Message class</title></todo>
 			<todo done="yes" collapse="no"><title>Class</title></todo>
+			<todo done="yes" collapse="no"><title>Adding messages</title></todo>
+			<todo done="yes" collapse="no"><title>Messages limit</title></todo>
+			<todo done="yes" collapse="no"><title>Move left GUI to the right</title></todo>
+			<todo done="yes" collapse="no"><title>Messages window</title></todo>
 			<todo done="no" collapse="no"><title>Rendering</title></todo>
+			<todo done="no" collapse="no"><title>Fading out old messages</title></todo>
 			<todo done="no" collapse="no"><title>Colors</title></todo>
 			<todo done="no" collapse="no"><title>Floating messages</title></todo>
-			<todo done="no" collapse="no"><title>Disappearing messages</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Locations</title>
-			<todo done="no" collapse="no"><title>City</title>
+			<todo done="no" collapse="yes"><title>City</title>
+				<todo done="no" collapse="no"><title>Class</title></todo>
 				<todo done="no" collapse="no"><title>Background</title></todo>
 				<todo done="no" collapse="no"><title>Tiles</title></todo>
 				<todo done="no" collapse="no"><title>Generation</title></todo>
+				<todo done="no" collapse="no"><title>Day/Night cycle</title></todo>
 			</todo>
 			<todo done="no" collapse="yes"><title>Teleport</title>
 				<todo done="no" collapse="no"><title>Map object class</title></todo>

@@ -15,8 +15,11 @@
      * constructor
 
 ***********************************************************************/
-fired::Log::Log() {
+fired::Log::Log(sf::FloatRect rect) {
 	messages.clear();
+
+	win = new fired::Window(sf::Vector2f(rect.width, rect.height));
+	win->offset = sf::Vector2f(rect.left, rect.top);
 }
 
 
@@ -28,6 +31,7 @@ fired::Log::Log() {
 ***********************************************************************/
 fired::Log::~Log() {
 	deleteList(messages);
+	delete win;
 }
 
 
@@ -39,6 +43,11 @@ fired::Log::~Log() {
 ***********************************************************************/
 void fired::Log::update() {
 	updateList(messages);
+	while (messages.size() > LOG_SIZE) {
+		delete messages[0];
+		messages.erase(messages.begin());
+	}
+
 	render();
 }
 
@@ -50,5 +59,5 @@ void fired::Log::update() {
 
 ***********************************************************************/
 void fired::Log::render() {
-	return;
+	win->render();
 }

@@ -26,7 +26,7 @@ fired::World::World(fired::Mouse *_mouse) {
 	crosshair = new fired::Crosshair(cam);
 	player    = new fired::Player(cam, crosshair, this);
 	gui       = new fired::GUI(player->character);
-	log       = new fired::Log;
+	log       = new fired::Log(sf::FloatRect(10, settings->window.height - gui->getBounds().y, settings->window.width - gui->getBounds().x, gui->getBounds().y - 10));
 
 	inventoryWin = new fired::InventoryWindow(player->character, this);
 	exchangeWin  = new fired::ExchangeWindow(player->character, this);

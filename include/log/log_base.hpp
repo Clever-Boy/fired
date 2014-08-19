@@ -12,10 +12,11 @@
 
 namespace fired {
 	struct Log {
-		std::vector<fired::LogMessage *> messages;
+		std::vector<fired::LogMessage *>  messages;
+		fired::Window                    *win;
 
 
-		 Log();
+		 Log(sf::FloatRect rect);
 		~Log();
 
 		void update();

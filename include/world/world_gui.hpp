@@ -37,6 +37,8 @@ namespace fired {
 		void renderXP();
 		void renderAmmo();
 		void renderCooldown();
+
+		sf::Vector2f getBounds();
 	};
 }
 

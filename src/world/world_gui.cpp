@@ -73,10 +73,10 @@ void fired::GUI::update() {
 
 ***********************************************************************/
 void fired::GUI::renderBase() {
-	barSpr->setPosition(sf::Vector2f(20, settings->window.height - barHeight - 20));
+	barSpr->setPosition(sf::Vector2f(settings->window.width - barWidth - 20, settings->window.height - 2 * barHeight - 20));
 	app->draw(*barSpr);
 
-	barSpr->setPosition(sf::Vector2f(settings->window.width - barWidth - 20, settings->window.height - barHeight - 20));
+	barSpr->setPosition(sf::Vector2f(settings->window.width - barWidth - 20, settings->window.height - barHeight - 10));
 	app->draw(*barSpr);
 }
 
@@ -93,7 +93,7 @@ void fired::GUI::renderHP() {
 
 	bar->setSize(sf::Vector2f(200, 12));
 	bar->setFillColor(sf::Color(75, 0, 0, 255));
-	bar->setPosition(sf::Vector2f(23, settings->window.height - barHeight - 17));
+	bar->setPosition(sf::Vector2f(settings->window.width - barWidth - 17, settings->window.height - 2 * barHeight - 17));
 	app->draw(*bar);
 
 
@@ -108,7 +108,7 @@ void fired::GUI::renderHP() {
 	snprintf(outStr, sizeof(outStr), "HP  %ld / %d", owner->HP, owner->stats.maxHP);
 	*str = std::string(outStr);
 	txt->setString(*str);
-	txt->setPosition(sf::Vector2f(23 + (barWidth - txt->getGlobalBounds().width) / 2.0f, settings->window.height - barHeight - 19));
+	txt->setPosition(sf::Vector2f(settings->window.width - barWidth - 17 + (barWidth - txt->getGlobalBounds().width) / 2.0f, settings->window.height - 2 * barHeight - 19));
 	app->draw(*txt);
 }
 
@@ -125,7 +125,7 @@ void fired::GUI::renderXP() {
 
 	bar->setSize(sf::Vector2f(200, 12));
 	bar->setFillColor(sf::Color(75, 75, 0, 255));
-	bar->setPosition(sf::Vector2f(23, settings->window.height - barHeight - 2));
+	bar->setPosition(sf::Vector2f(settings->window.width - barWidth - 17, settings->window.height - 2 * barHeight - 2));
 	app->draw(*bar);
 
 
@@ -138,7 +138,7 @@ void fired::GUI::renderXP() {
 	snprintf(outStr, sizeof(outStr), "Level %u  (%lu / %lu)", owner->level, owner->XP, owner->needXP);
 	*str = std::string(outStr);
 	txt->setString(*str);
-	txt->setPosition(sf::Vector2f(23 + (barWidth - txt->getGlobalBounds().width) / 2.0f, settings->window.height - barHeight - 4));
+	txt->setPosition(sf::Vector2f(settings->window.width - barWidth - 17 + (barWidth - txt->getGlobalBounds().width) / 2.0f, settings->window.height - 2 * barHeight - 4));
 	app->draw(*txt);
 }
 
@@ -155,7 +155,7 @@ void fired::GUI::renderAmmo() {
 
 	bar->setSize(sf::Vector2f(200, 12));
 	bar->setFillColor(sf::Color(0, 75, 0, 255));
-	bar->setPosition(sf::Vector2f(settings->window.width - barWidth - 17, settings->window.height - barHeight - 17));
+	bar->setPosition(sf::Vector2f(settings->window.width - barWidth - 17, settings->window.height - barHeight - 7));
 	app->draw(*bar);
 
 
@@ -169,7 +169,7 @@ void fired::GUI::renderAmmo() {
 
 	*str = std::string(outStr);
 	txt->setString(*str);
-	txt->setPosition(sf::Vector2f(settings->window.width - barWidth - 17 + (barWidth - txt->getGlobalBounds().width) / 2.0f, settings->window.height - barHeight - 19));
+	txt->setPosition(sf::Vector2f(settings->window.width - barWidth - 17 + (barWidth - txt->getGlobalBounds().width) / 2.0f, settings->window.height - barHeight - 9));
 	app->draw(*txt);
 }
 
@@ -186,7 +186,7 @@ void fired::GUI::renderCooldown() {
 
 	bar->setSize(sf::Vector2f(200, 12));
 	bar->setFillColor(sf::Color(75, 30, 0, 255));
-	bar->setPosition(sf::Vector2f(settings->window.width - barWidth - 17, settings->window.height - barHeight - 2));
+	bar->setPosition(sf::Vector2f(settings->window.width - barWidth - 17, settings->window.height - barHeight + 8));
 	app->draw(*bar);
 
 
@@ -201,6 +201,17 @@ void fired::GUI::renderCooldown() {
 
 	*str = std::string(outStr);
 	txt->setString(*str);
-	txt->setPosition(sf::Vector2f(settings->window.width - barWidth - 17 + (barWidth - txt->getGlobalBounds().width) / 2.0f, settings->window.height - barHeight - 4));
+	txt->setPosition(sf::Vector2f(settings->window.width - barWidth - 17 + (barWidth - txt->getGlobalBounds().width) / 2.0f, settings->window.height - barHeight + 6));
 	app->draw(*txt);
+}
+
+
+
+/***********************************************************************
+     * GUI
+     * getBounds
+
+***********************************************************************/
+sf::Vector2f fired::GUI::getBounds() {
+	return sf::Vector2f(barWidth + 40, barHeight * 2 + 20);
 }

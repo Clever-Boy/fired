@@ -25,7 +25,6 @@
 #include "control.hpp"
 #include "screen.hpp"
 #include "menu.hpp"
-#include "log.hpp"
 #include "misc/misc_timer.hpp"
 #include "misc/misc_world_properties.hpp"
 #include "world.hpp"

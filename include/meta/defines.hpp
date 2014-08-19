@@ -133,7 +133,7 @@
 
 ***********************************************************************/
 #define LOG_SIZE                6
-#define LOG_MESSAGE_HEIGHT      16
+#define LOG_MESSAGE_HEIGHT      12
 
 
 

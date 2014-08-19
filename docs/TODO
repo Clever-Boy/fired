@@ -708,7 +708,7 @@
 			<todo done="yes" collapse="no"><title>Messages limit</title></todo>
 			<todo done="yes" collapse="no"><title>Move left GUI to the right</title></todo>
 			<todo done="yes" collapse="no"><title>Messages window</title></todo>
-			<todo done="no" collapse="no"><title>Rendering</title></todo>
+			<todo done="yes" collapse="no"><title>Rendering</title></todo>
 			<todo done="no" collapse="no"><title>Fading out old messages</title></todo>
 			<todo done="no" collapse="no"><title>Colors</title></todo>
 			<todo done="no" collapse="no"><title>Floating messages</title></todo>

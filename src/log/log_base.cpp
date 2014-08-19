@@ -19,7 +19,8 @@ fired::Log::Log(sf::FloatRect rect) {
 	messages.clear();
 
 	win = new fired::Window(sf::Vector2f(rect.width, rect.height));
-	win->offset = sf::Vector2f(rect.left, rect.top);
+	win->setOffset(sf::Vector2f(rect.left, rect.top));
+	win->text->setCharacterSize(LOG_MESSAGE_HEIGHT);
 }
 
 
@@ -60,4 +61,7 @@ void fired::Log::update() {
 ***********************************************************************/
 void fired::Log::render() {
 	win->render();
+
+	for (unsigned int i = 0; i < messages.size(); i++)
+		win->renderText(5, i * LOG_MESSAGE_HEIGHT, messages[i]->text, taLeft);
 }

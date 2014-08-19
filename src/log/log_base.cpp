@@ -63,5 +63,5 @@ void fired::Log::render() {
 	win->render();
 
 	for (unsigned int i = 0; i < messages.size(); i++)
-		win->renderText(5, i * LOG_MESSAGE_HEIGHT, messages[i]->text, taLeft);
+		win->renderText(5, i * LOG_MESSAGE_HEIGHT, messages[i]->text, taLeft, messages[i]->color);
 }

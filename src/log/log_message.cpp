@@ -15,11 +15,16 @@
      * constructor
 
 ***********************************************************************/
-fired::LogMessage::LogMessage(const char *_text, fired::LogMessageLevel _level) {
+fired::LogMessage::LogMessage(const char *_text, fired::LogMessageLevel level) {
 	life  = 0.0f;
-	level = _level;
-
 	strncpy(text, _text, 64);
+
+	switch (level) {
+		case mlNeutral : color = sf::Color(255, 255, 255); break;
+		case mlInfo    : color = sf::Color(  0, 255,   0); break;
+		case mlWarning : color = sf::Color(255, 255,   0); break;
+		case mlCritical: color = sf::Color(255,   0,   0); break;
+	}
 }
 
 

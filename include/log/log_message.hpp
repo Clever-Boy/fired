@@ -12,6 +12,7 @@
 
 namespace fired {
 	enum LogMessageLevel {
+		mlNeutral,
 		mlInfo,
 		mlWarning,
 		mlCritical
@@ -19,12 +20,12 @@ namespace fired {
 
 
 	struct LogMessage {
-		fired::LogMessageLevel level;
-		char                   text[64];
-		float                  life;
+		sf::Color color;
+		char      text[64];
+		float     life;
 
 
-		LogMessage(const char *_text, fired::LogMessageLevel _level);
+		LogMessage(const char *_text, fired::LogMessageLevel level);
 
 		bool update();
 	};

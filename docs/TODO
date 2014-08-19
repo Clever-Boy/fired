@@ -700,13 +700,29 @@
 			<todo done="yes" collapse="no"><title>Remove unused functions</title></todo>
 			<todo done="yes" collapse="no"><title>Shots should originate from the weapon and also not appear behind the character</title></todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>SFGUI</title>
-			<todo done="no" collapse="no"><title>Audio settings</title></todo>
-			<todo done="no" collapse="no"><title>Video settings</title></todo>
-			<todo done="no" collapse="no"><title>In-game menu</title></todo>
-			<todo done="no" collapse="no"><title>Character window</title></todo>
-			<todo done="no" collapse="no"><title>Inventory window</title></todo>
-			<todo done="no" collapse="no"><title>Exchange window</title></todo>
+		<todo done="no" collapse="no"><title>Message log</title>
+			<todo done="no" collapse="no"><title>Message class</title></todo>
+			<todo done="no" collapse="no"><title>Class</title></todo>
+			<todo done="no" collapse="no"><title>Rendering</title></todo>
+			<todo done="no" collapse="no"><title>Colors</title></todo>
+			<todo done="no" collapse="no"><title>Floating messages</title></todo>
+			<todo done="no" collapse="no"><title>Disappearing messages</title></todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Locations</title>
+			<todo done="no" collapse="no"><title>City</title>
+				<todo done="no" collapse="no"><title>Background</title></todo>
+				<todo done="no" collapse="no"><title>Tiles</title></todo>
+				<todo done="no" collapse="no"><title>Generation</title></todo>
+			</todo>
+			<todo done="no" collapse="yes"><title>Teleport</title>
+				<todo done="no" collapse="no"><title>Map object class</title></todo>
+				<todo done="no" collapse="no"><title>Decor</title></todo>
+				<todo done="no" collapse="no"><title>Using (from city to home or to biome)</title></todo>
+			</todo>
+			<todo done="no" collapse="yes"><title>Home</title>
+				<todo done="no" collapse="no"><title>Tiles</title></todo>
+				<todo done="no" collapse="no"><title>Generation</title></todo>
+			</todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Biomes</title>
 			<todo done="no" collapse="yes"><title>Mine</title>
@@ -742,21 +758,6 @@
 				<todo done="no" collapse="no"><title>Cave</title></todo>
 				<todo done="no" collapse="no"><title>Cave enterance</title></todo>
 				<todo done="no" collapse="no"><title>Enemy spawns</title></todo>
-			</todo>
-		</todo>
-		<todo done="no" collapse="yes"><title>Locations</title>
-			<todo done="no" collapse="yes"><title>City</title>
-				<todo done="no" collapse="no"><title>Tiles</title></todo>
-				<todo done="no" collapse="no"><title>Generation</title></todo>
-			</todo>
-			<todo done="no" collapse="yes"><title>Teleport</title>
-				<todo done="no" collapse="no"><title>Map object class</title></todo>
-				<todo done="no" collapse="no"><title>Decor</title></todo>
-				<todo done="no" collapse="no"><title>Using (from city to home or to biome)</title></todo>
-			</todo>
-			<todo done="no" collapse="yes"><title>Home</title>
-				<todo done="no" collapse="no"><title>Tiles</title></todo>
-				<todo done="no" collapse="no"><title>Generation</title></todo>
 			</todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>NPC</title>
@@ -808,6 +809,7 @@
 			<todo done="no" collapse="no"><title>Weapon skills rendering at skills window</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Improovements</title>
+			<todo done="no" collapse="no"><title>Relations map (fraction to fraction)</title></todo>
 			<todo done="no" collapse="no"><title>Destructable bricks</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Release</title>

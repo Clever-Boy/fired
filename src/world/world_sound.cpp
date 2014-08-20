@@ -20,12 +20,6 @@ fired::GameSound::GameSound(const char *filename, const char *_name) {
 
 	buf = new sf::SoundBuffer();
 	buf->loadFromFile(filename);
-
-	snd = new sf::Sound();
-	snd->setBuffer(*buf);
-	snd->setVolume(settings->volume.sound);
-	snd->setMinDistance(SOUND_MINDISTANCE);
-	snd->setAttenuation(SOUND_ATTENUATION);
 }
 
 
@@ -37,5 +31,22 @@ fired::GameSound::GameSound(const char *filename, const char *_name) {
 ***********************************************************************/
 fired::GameSound::~GameSound() {
 	delete buf;
-	delete snd;
+}
+
+
+
+/***********************************************************************
+     * GameSound
+     * destructor
+
+***********************************************************************/
+sf::Sound* fired::GameSound::getClone() {
+	sf::Sound *snd = new sf::Sound();
+
+	snd->setBuffer(*buf);
+	snd->setVolume(settings->volume.sound);
+	snd->setMinDistance(SOUND_MINDISTANCE);
+	snd->setAttenuation(SOUND_ATTENUATION);
+
+	return snd;
 }

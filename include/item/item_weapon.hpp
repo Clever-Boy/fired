@@ -26,7 +26,7 @@ namespace fired {
 
 		bool  automatic;
 
-		sf::Sound           *shotSound;
+		fired::GameSound    *shotSound;
 		fired::BaseBodypart *bodypart;
 	};
 }

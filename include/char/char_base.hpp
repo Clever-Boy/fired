@@ -50,6 +50,8 @@ namespace fired {
 		fired::Timer weaponCooldown;
 		fired::Phys  phys;
 
+		sf::Sound   *shotSound;
+
 		bool  dead;
 		bool  isShooting;
 		bool  wasShot;

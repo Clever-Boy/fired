@@ -23,13 +23,14 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 	memcpy(&baseStats, &(base->stats), sizeof(fired::CharacterStats));
 	inventory = new fired::Inventory(this);
 
-	helm   = NULL;
-	arms   = NULL;
-	legs   = NULL;
-	body   = NULL;
-	shoe   = NULL;
-	fist   = NULL;
-	weapon = NULL;
+	helm      = NULL;
+	arms      = NULL;
+	legs      = NULL;
+	body      = NULL;
+	shoe      = NULL;
+	fist      = NULL;
+	weapon    = NULL;
+	shotSound = NULL;
 
 
 	switch (_base->model->type) {
@@ -72,6 +73,8 @@ fired::Character::Character(fired::Camera *_cam, sf::Vector2f _startpos, fired::
 fired::Character::~Character() {
 	delete model;
 	delete inventory;
+
+	if (shotSound) delete shotSound;
 }
 
 
@@ -176,6 +179,13 @@ void fired::Character::setAiming(float _aiming) {
 void fired::Character::setWeapon(fired::BaseWeapon *_weapon) {
 	weapon = _weapon;
 	model->setWeapon(_weapon);
+
+	if (shotSound) {
+		delete shotSound;
+		shotSound = NULL;
+	}
+
+	if (weapon->shotSound) shotSound = weapon->shotSound->getClone();
 }
 
 
@@ -230,7 +240,7 @@ void fired::Character::gainXP(long xp) {
 void fired::Character::levelUp() {
 	lastXP = needXP;
 	level++;
-	world->addText(sf::Vector2f(phys.pos.x, phys.pos.y - 20), sf::Color(255, 255, 0, 255), 24, "Level UP");
+	world->addMessage("Level UP", mlInfo);
 	needXP = levelXP(level);
 
 	attr.points++;
@@ -550,9 +560,9 @@ void fired::Character::shot() {
 	weaponCooldown.setTimer(weapon->cooldown);
 	wasShot = true;
 
-	if (weapon->shotSound) {
-		weapon->shotSound->setPosition(phys.pos.x, phys.pos.y, 0.0f);
-		weapon->shotSound->play();
+	if (shotSound) {
+		shotSound->setPosition(phys.pos.x, phys.pos.y, 0.0f);
+		shotSound->play();
 	}
 
 	if (weapon->type == WEAPON_TYPE_RANGED) {

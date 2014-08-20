@@ -30,9 +30,9 @@ fired::BaseAI *fired::Container::getAI(const char *name, fired::Creature *owner,
      * getSound
 
 ***********************************************************************/
-sf::Sound* fired::Container::getSound(const char *name) {
+fired::GameSound* fired::Container::getSound(const char *name) {
 	for (unsigned int i = 0; i < sounds.size(); i++)
-		if (!strcmp(name, sounds[i]->name)) return sounds[i]->snd;
+		if (!strcmp(name, sounds[i]->name)) return sounds[i];
 
 	return NULL;
 }

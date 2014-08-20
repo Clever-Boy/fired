@@ -10,7 +10,7 @@
 #define __CONTAINER_GET
 
 
-sf::Sound            *getSound(const char *name);
+fired::GameSound     *getSound(const char *name);
 fired::BaseAI        *getAI(const char *name, fired::Creature *owner, fired::World *world);
 fired::BaseItem      *getItem(const char *name);
 fired::BaseCreature  *getCreature(const char *name);

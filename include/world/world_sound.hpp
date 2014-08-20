@@ -14,11 +14,12 @@ namespace fired {
 	struct GameSound {
 		char             name[64];
 		sf::SoundBuffer *buf;
-		sf::Sound       *snd;
 
 
 		 GameSound(const char *filename, const char *_name);
 		~GameSound();
+
+		sf::Sound* getClone();
 	};
 }
 

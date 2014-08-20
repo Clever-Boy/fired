@@ -253,10 +253,10 @@ int fired::Container::loadWeapon(void *data, int, char **argv, char **){
 	if (atoi(argv[8])) current->automatic = true;
 	else               current->automatic = false;
 
-	if (argv[11] && (strlen(argv[11]) > 0)) current->shotSound  = ((fired::Container *) data)->getSound(argv[11]);
+	if (argv[11] && (strlen(argv[11]) > 0)) current->shotSound = ((fired::Container *) data)->getSound(argv[11]);
 	else                                    current->shotSound = NULL;
 
-	if (argv[13] && (strlen(argv[13]) > 0)) current->bodypart   = ((fired::Container *) data)->bodyparts[atoi(argv[13])];
+	if (argv[13] && (strlen(argv[13]) > 0)) current->bodypart = ((fired::Container *) data)->bodyparts[atoi(argv[13])];
 	else                                    current->bodypart = NULL;
 
 	return 0;

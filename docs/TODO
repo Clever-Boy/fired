@@ -695,11 +695,11 @@
 		</todo>
 	</todo>
 	<todo done="yes" collapse="no"><title>0.99 alpha</title>
-		<todo done="yes" collapse="no"><title>Fix 0.99 pre-alpha bugs</title>
+		<todo done="yes" collapse="yes"><title>Fix 0.99 pre-alpha bugs</title>
 			<todo done="yes" collapse="no"><title>Fix colorful lighting</title></todo>
 			<todo done="yes" collapse="no"><title>Remove unused functions</title></todo>
 			<todo done="yes" collapse="no"><title>Shots should originate from the weapon and also not appear behind the character</title></todo>
-			<todo done="no" collapse="no"><title>Enemy shooting suppresses character shoot sound</title></todo>
+			<todo done="yes" collapse="no"><title>Enemy shooting suppresses character shoot sound</title></todo>
 		</todo>
 		<todo done="yes" collapse="yes"><title>Message log</title>
 			<todo done="yes" collapse="no"><title>Message class</title></todo>
@@ -713,8 +713,8 @@
 			<todo done="yes" collapse="no"><title>Fading out old messages</title></todo>
 			<todo done="yes" collapse="no"><title>Floating messages</title></todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Locations</title>
-			<todo done="no" collapse="yes"><title>City</title>
+		<todo done="no" collapse="no"><title>Locations</title>
+			<todo done="no" collapse="no"><title>City</title>
 				<todo done="no" collapse="no"><title>Class</title></todo>
 				<todo done="no" collapse="no"><title>Background</title></todo>
 				<todo done="no" collapse="no"><title>Tiles</title></todo>

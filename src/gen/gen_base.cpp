@@ -37,6 +37,23 @@ fired::MapGenerator::MapGenerator(fired::Biome *_biome, fired::WorldProperties _
 
 /***********************************************************************
      * MapGenerator
+     * constructor
+
+***********************************************************************/
+fired::MapGenerator::MapGenerator(const char *location) {
+	char filename[128];
+/*
+	if (!strcmp(location, "City"))  genLocationCity();
+	if (!strcmp(location, "Home"))  genLocationHome();
+*/
+	snprintf(filename, sizeof(filename), "data/maps/%s.map", location);
+	genSave(this, filename);
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
      * destructor
 
 ***********************************************************************/

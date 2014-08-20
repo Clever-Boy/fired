@@ -58,7 +58,7 @@ void fired::MapGenerator::genLocationCityPalette() {
 
 ***********************************************************************/
 void fired::MapGenerator::genLocationCityMeta() {
-	genClear(200, 100);
+	genClear(210, 100);
 }
 
 
@@ -70,7 +70,7 @@ void fired::MapGenerator::genLocationCityMeta() {
 ***********************************************************************/
 void fired::MapGenerator::genLocationCityLandscape() {
 	setBrush("grass");
-	genFill(0, 50, 199, 99, true);
+	genFill(0, 50, 209, 99, true);
 }
 
 
@@ -81,7 +81,7 @@ void fired::MapGenerator::genLocationCityLandscape() {
 
 ***********************************************************************/
 void fired::MapGenerator::genLocationCityHouses() {
-	for (int i = 0; i < 8; i++) genLocationCityHouse(sf::IntRect(i * 25, 35, 24, 14));
+	for (int i = 0; i < 8; i++) genLocationCityHouse(sf::IntRect(5 + i * 25, 35, 24, 14));
 }
 
 
@@ -151,5 +151,8 @@ void fired::MapGenerator::genLocationCityHouse(sf::IntRect rect) {
 	genFillRect(sf::IntRect(rect.left + offset, rect.top + rect.height - houseHeight, width, houseHeight), false);
 
 	genLocationCitySetRandomPlank();
-	genFillRect(sf::IntRect(rect.left + offset - 2, rect.top + rect.height - height, width + 4, roofHeight), false);
+
+	int roofOffset = (4 + width) / (2 * roofHeight) + 1;
+	for (int i = 0; i < roofHeight; i++)
+		genFillRect(sf::IntRect(rect.left + offset - 2 + roofOffset * i, rect.top + rect.height - houseHeight - i, width + 4 - 2 * roofOffset * i, 0), false);
 }

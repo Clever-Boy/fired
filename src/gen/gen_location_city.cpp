@@ -19,6 +19,7 @@ void fired::MapGenerator::genLocationCity() {
 	genLocationCityMeta();
 	genLocationCityPalette();
 	genLocationCityLandscape();
+	genLocationCityHouses();
 	genLocationCityPlayer();
 }
 
@@ -44,6 +45,9 @@ void fired::MapGenerator::genLocationCityPalette() {
 	addTileToPalette("brick.clay.pink");
 	addTileToPalette("brick.clay.silver");
 	addTileToPalette("brick.clay.white");
+
+	addTileToPalette("plank");
+	addTileToPalette("plank.dark");
 }
 
 
@@ -65,8 +69,19 @@ void fired::MapGenerator::genLocationCityMeta() {
 
 ***********************************************************************/
 void fired::MapGenerator::genLocationCityLandscape() {
-	setBrush("dirt");
-	genFill(0, 40, 199, 99, true);
+	setBrush("grass");
+	genFill(0, 50, 199, 99, true);
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genLocationCityHouses
+
+***********************************************************************/
+void fired::MapGenerator::genLocationCityHouses() {
+	for (int i = 0; i < 8; i++) genLocationCityHouse(sf::IntRect(i * 25, 35, 24, 14));
 }
 
 
@@ -77,17 +92,17 @@ void fired::MapGenerator::genLocationCityLandscape() {
 
 ***********************************************************************/
 void fired::MapGenerator::genLocationCityPlayer() {
-	setStart(170, 35, 8, 5);
+	setStart(170, 45, 8, 5);
 }
 
 
 
 /***********************************************************************
      * MapGenerator
-     * genLocationCitySetRandomBrush
+     * genLocationCitySetRandomBrick
 
 ***********************************************************************/
-void fired::MapGenerator::genLocationCitySetRandomBrush() {
+void fired::MapGenerator::genLocationCitySetRandomBrick() {
 	switch (rand() % 11) {
 		case  0: setBrush("brick.snow"       ); break;
 		case  1: setBrush("brick.brown"      ); break;
@@ -101,4 +116,40 @@ void fired::MapGenerator::genLocationCitySetRandomBrush() {
 		case  9: setBrush("brick.clay.silver"); break;
 		case 10: setBrush("brick.clay.white" ); break;
 	}
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genLocationCitySetRandomPlank
+
+***********************************************************************/
+void fired::MapGenerator::genLocationCitySetRandomPlank() {
+	switch (rand() % 2) {
+		case  0: setBrush("plank"     ); break;
+		case  1: setBrush("plank.dark"); break;
+	}
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * genLocationCityHouse
+
+***********************************************************************/
+void fired::MapGenerator::genLocationCityHouse(sf::IntRect rect) {
+	int width = rect.width - 7 - rand() % (int)(rect.width * 0.3);
+	int offset = 2 + rand() % (rect.width - width);
+
+	int height = rect.height - rand() % (int)(rect.height * 0.3);
+	int roofHeight = 3 + rand() % 4;
+	int houseHeight = height - roofHeight;
+
+	genLocationCitySetRandomBrick();
+	genFillRect(sf::IntRect(rect.left + offset, rect.top + rect.height - houseHeight, width, houseHeight), false);
+
+	genLocationCitySetRandomPlank();
+	genFillRect(sf::IntRect(rect.left + offset - 2, rect.top + rect.height - height, width + 4, roofHeight), false);
 }

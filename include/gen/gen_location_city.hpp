@@ -15,6 +15,10 @@ void genLocationCityMeta();
 void genLocationCityPalette();
 void genLocationCityLandscape();
 void genLocationCityPlayer();
-void genLocationCitySetRandomBrush();
+void genLocationCitySetRandomBrick();
+void genLocationCitySetRandomPlank();
+
+void genLocationCityHouses();
+void genLocationCityHouse(sf::IntRect rect);
 
 #endif

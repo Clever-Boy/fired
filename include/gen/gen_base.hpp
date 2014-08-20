@@ -27,7 +27,6 @@ namespace fired {
 		std::vector<fired::MapSpawn*>      spawns;
 
 
-		 MapGenerator(const char *location);
 		 MapGenerator(fired::Biome *_biome, fired::WorldProperties _worldProps);
 		~MapGenerator();
 
@@ -44,6 +43,9 @@ namespace fired {
 		#include "gen_biome_mountains.hpp"
 		#include "gen_biome_graveyard.hpp"
 		#include "gen_biome_forest.hpp"
+
+		#include "gen_location_city.hpp"
+		#include "gen_location_home.hpp"
 	};
 }
 

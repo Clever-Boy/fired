@@ -19,6 +19,9 @@ fired::MapGenerator::MapGenerator(fired::Biome *_biome, fired::WorldProperties _
 	biome = _biome;
 	memcpy(&worldProps, &_worldProps, sizeof(fired::WorldProperties));
 
+	if (!strcmp(biome->name, "LocationCity"))    genLocationCity();
+	if (!strcmp(biome->name, "LocationHome"))    genLocationHome();
+
 	if (!strcmp(biome->name, "Building"))  genBuilding();
 	if (!strcmp(biome->name, "Mine"))      genMine();
 	if (!strcmp(biome->name, "Snow"))      genSnow();
@@ -31,23 +34,6 @@ fired::MapGenerator::MapGenerator(fired::Biome *_biome, fired::WorldProperties _
 	if (!strcmp(biome->name, "Forest"))    genForest();
 
 	genSave(this, "data/maps/test.map");
-}
-
-
-
-/***********************************************************************
-     * MapGenerator
-     * constructor
-
-***********************************************************************/
-fired::MapGenerator::MapGenerator(const char *location) {
-	char filename[128];
-/*
-	if (!strcmp(location, "City"))  genLocationCity();
-	if (!strcmp(location, "Home"))  genLocationHome();
-*/
-	snprintf(filename, sizeof(filename), "data/maps/%s.map", location);
-	genSave(this, filename);
 }
 
 

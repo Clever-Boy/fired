@@ -27,7 +27,7 @@ void fired::Handlers::buttonStartCity() {
 	props.bossesRate     = 30.0f;
 
 
-	game->generateWorld("City", props);
+	game->generateWorld("LocationCity", props);
 	game->setGameState(gsWorld);
 }
 

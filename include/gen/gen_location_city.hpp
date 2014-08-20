@@ -15,5 +15,6 @@ void genLocationCityMeta();
 void genLocationCityPalette();
 void genLocationCityLandscape();
 void genLocationCityPlayer();
+void genLocationCitySetRandomBrush();
 
 #endif

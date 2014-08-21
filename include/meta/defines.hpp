@@ -35,8 +35,13 @@
      * Architecture
 
 ***********************************************************************/
-#ifdef __MINGW32__
+#if defined(__MINGW32__)
 #	define MKDIR(dir) mkdir((dir))
+#elif defined(_MSC_VER)
+#	include <direct.h>
+#	pragma warning(disable : 4996)
+#	pragma warning(disable : 4703)
+#	define MKDIR(dir) _mkdir((dir))
 #else
 #	define MKDIR(dir) mkdir((dir), 0755)
 #endif
@@ -226,5 +231,41 @@
 #define FIRED_FRACTION_PLAYER  1
 #define FIRED_FRACTION_SOLDIER 2
 #define FIRED_FRACTION_CRITTER 3
+
+
+
+/***********************************************************************
+     * MSVC snprintf
+
+***********************************************************************/
+#ifdef _MSC_VER
+
+#define snprintf c99_snprintf
+
+inline int c99_vsnprintf(char* str, size_t size, const char* format, va_list ap)
+{
+	int count = -1;
+
+	if (size != 0)
+		count = _vsnprintf_s(str, size, _TRUNCATE, format, ap);
+	if (count == -1)
+		count = _vscprintf(format, ap);
+
+	return count;
+}
+
+inline int c99_snprintf(char* str, size_t size, const char* format, ...)
+{
+	int count;
+	va_list ap;
+
+	va_start(ap, format);
+	count = c99_vsnprintf(str, size, format, ap);
+	va_end(ap);
+
+	return count;
+}
+
+#endif
 
 #endif

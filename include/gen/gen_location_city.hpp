@@ -19,6 +19,6 @@ void genLocationCitySetRandomBrick();
 void genLocationCitySetRandomPlank();
 
 void genLocationCityHouses();
-void genLocationCityHouse(sf::IntRect rect);
+int  genLocationCityHouse(int height, int offset, int left);
 
 #endif

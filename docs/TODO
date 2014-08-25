@@ -716,9 +716,9 @@
 		<todo done="no" collapse="no"><title>Locations</title>
 			<todo done="no" collapse="no"><title>City</title>
 				<todo done="no" collapse="no"><title>Class</title></todo>
-				<todo done="no" collapse="no"><title>Background</title></todo>
-				<todo done="no" collapse="no"><title>Tiles</title></todo>
-				<todo done="no" collapse="no"><title>Generation</title></todo>
+				<todo done="yes" collapse="no"><title>Background</title></todo>
+				<todo done="yes" collapse="no"><title>Tiles</title></todo>
+				<todo done="yes" collapse="no"><title>Generation</title></todo>
 				<todo done="no" collapse="no"><title>Day/Night cycle</title></todo>
 			</todo>
 			<todo done="no" collapse="yes"><title>Teleport</title>
@@ -727,6 +727,7 @@
 				<todo done="no" collapse="no"><title>Using (from city to home or to biome)</title></todo>
 			</todo>
 			<todo done="no" collapse="yes"><title>Home</title>
+				<todo done="no" collapse="no"><title>Furniture decors</title></todo>
 				<todo done="no" collapse="no"><title>Tiles</title></todo>
 				<todo done="no" collapse="no"><title>Generation</title></todo>
 			</todo>
@@ -816,6 +817,7 @@
 			<todo done="no" collapse="no"><title>Weapon skills rendering at skills window</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>Improovements</title>
+			<todo done="no" collapse="no"><title>Diagonal bricks</title></todo>
 			<todo done="no" collapse="no"><title>Relations map (fraction to fraction)</title></todo>
 			<todo done="no" collapse="no"><title>Destructable bricks</title></todo>
 		</todo>

@@ -81,7 +81,9 @@ void fired::MapGenerator::genLocationCityLandscape() {
 
 ***********************************************************************/
 void fired::MapGenerator::genLocationCityHouses() {
-	for (int i = 0; i < 8; i++) genLocationCityHouse(sf::IntRect(5 + i * 25, 35, 24, 14));
+	int offset = 0;
+	while (offset < 210)
+		offset += genLocationCityHouse(50, offset, 210 - offset);
 }
 
 
@@ -139,20 +141,59 @@ void fired::MapGenerator::genLocationCitySetRandomPlank() {
      * genLocationCityHouse
 
 ***********************************************************************/
-void fired::MapGenerator::genLocationCityHouse(sf::IntRect rect) {
-	int width = rect.width - 7 - rand() % (int)(rect.width * 0.3);
-	int offset = 2 + rand() % (rect.width - width);
+int fired::MapGenerator::genLocationCityHouse(int height, int offset, int left) {
+	if (left < 18) return left;
 
-	int height = rect.height - rand() % (int)(rect.height * 0.3);
+	int startOffset = 4 + rand() % 4;
+	int endOffset   = 4 + rand() % 4;
+
+	int houseHeight = 6 + rand() % 6;
+	int windowCount = 3 + rand() % 3;
+	int windowOffset = 1 + rand() % 3;
+	int width = 2 * windowCount + windowOffset * (windowCount + 1);
 	int roofHeight = 3 + rand() % 4;
-	int houseHeight = height - roofHeight;
+
+	int iteration = 0;
+	while (width + startOffset + 2 > left) {
+		switch (iteration) {
+			case 0: startOffset  = 4; break;
+			case 1: windowOffset = 1; break;
+			case 2: windowCount  = 3; break;
+			case 3: return left;
+		}
+
+		width = 2 * windowCount + windowOffset * (windowCount + 1);
+		iteration++;
+	}
+
 
 	genLocationCitySetRandomBrick();
-	genFillRect(sf::IntRect(rect.left + offset, rect.top + rect.height - houseHeight, width, houseHeight), false);
+	genFillRect(sf::IntRect(offset + startOffset, height - houseHeight, width - 1, houseHeight - 1), false);
 
 	genLocationCitySetRandomPlank();
 
 	int roofOffset = (4 + width) / (2 * roofHeight) + 1;
 	for (int i = 0; i < roofHeight; i++)
-		genFillRect(sf::IntRect(rect.left + offset - 2 + roofOffset * i, rect.top + rect.height - houseHeight - i, width + 4 - 2 * roofOffset * i, 0), false);
+		genFillRect(sf::IntRect(offset + startOffset - 2 + roofOffset * i, height - houseHeight - i, width + 3 - 2 * roofOffset * i, 0), false);
+
+	int doorIndex = rand() % windowCount;
+	int windowTop = houseHeight / 2;
+	bool twoWindows = false;
+
+	if (houseHeight >= 10) {
+		twoWindows = true;
+		windowTop = houseHeight / 3;
+	}
+
+	for (int i = 0; i < windowCount; i++)
+		if (twoWindows) {
+			if (i == doorIndex) addDecor(offset + startOffset + 2 * i + windowOffset * (i + 1), height - 3                      , "door.wooden");
+			else                addDecor(offset + startOffset + 2 * i + windowOffset * (i + 1), height - houseHeight + 2 * windowTop, "window.wooden");
+			addDecor(offset + startOffset + 2 * i + windowOffset * (i + 1), height - houseHeight + windowTop, "window.wooden");
+		} else {
+			if (i == doorIndex) addDecor(offset + startOffset + 2 * i + windowOffset * (i + 1), height - 3                      , "door.wooden");
+			else                addDecor(offset + startOffset + 2 * i + windowOffset * (i + 1), height - houseHeight + windowTop, "window.wooden");
+		}
+
+	return startOffset + width + endOffset;
 }

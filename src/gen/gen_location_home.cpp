@@ -53,13 +53,13 @@ void fired::MapGenerator::genLocationHomeMeta() {
 ***********************************************************************/
 void fired::MapGenerator::genLocationHomeHall() {
 	setBrush("brick.mossy");
-	genFill( 0,  0, 199, 99, true);
-	genFill(90, 70, 109, 77, false);
+	genFill(89, 69, 110, 76, true);
+	genFill(90, 70, 109, 75, false);
 
 	addLightSource( 93, 70, "lantern");
 	addLightSource(106, 70, "lantern");
 
-	addDecor(99, 75, "door.wooden");
+	addDecor(99, 73, "door.wooden");
 }
 
 
@@ -70,5 +70,5 @@ void fired::MapGenerator::genLocationHomeHall() {
 
 ***********************************************************************/
 void fired::MapGenerator::genLocationHomePlayer() {
-	setStart(99, 75, 2, 3);
+	setStart(99, 73, 2, 3);
 }

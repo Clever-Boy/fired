@@ -13,7 +13,7 @@
 void genLocationHome();
 void genLocationHomeMeta();
 void genLocationHomePalette();
-void genLocationHomeLandscape();
+void genLocationHomeHall();
 void genLocationHomePlayer();
 
 #endif

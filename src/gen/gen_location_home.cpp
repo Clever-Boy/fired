@@ -18,7 +18,7 @@
 void fired::MapGenerator::genLocationHome() {
 	genLocationHomeMeta();
 	genLocationHomePalette();
-	genLocationHomeLandscape();
+	genLocationHomeHall();
 	genLocationHomePlayer();
 }
 
@@ -30,7 +30,7 @@ void fired::MapGenerator::genLocationHome() {
 
 ***********************************************************************/
 void fired::MapGenerator::genLocationHomePalette() {
-	addTileToPalette("dirt");
+	addTileToPalette("brick.mossy");
 }
 
 
@@ -51,16 +51,15 @@ void fired::MapGenerator::genLocationHomeMeta() {
      * genLocationHomeLandscape
 
 ***********************************************************************/
-void fired::MapGenerator::genLocationHomeLandscape() {
-	setBrush("dirt");
-	genFill(0, 40, 199, 99, true);
-	genFill(0, 38, 199, 39, false);
+void fired::MapGenerator::genLocationHomeHall() {
+	setBrush("brick.mossy");
+	genFill( 0,  0, 199, 99, true);
+	genFill(90, 70, 109, 77, false);
 
-	genFill(0  , 38, 3  , 39, true);
-	genFill(195, 38, 199, 39, true);
+	addLightSource( 93, 70, "lantern");
+	addLightSource(106, 70, "lantern");
 
-	genFill(4  , 39, 7  , 39, true);
-	genFill(191, 39, 194, 39, true);
+	addDecor(99, 75, "door.wooden");
 }
 
 
@@ -71,5 +70,5 @@ void fired::MapGenerator::genLocationHomeLandscape() {
 
 ***********************************************************************/
 void fired::MapGenerator::genLocationHomePlayer() {
-	setStart(170, 35, 8, 5);
+	setStart(99, 75, 2, 3);
 }

@@ -714,7 +714,18 @@
 			<todo done="yes" collapse="no"><title>Floating messages</title></todo>
 		</todo>
 		<todo done="no" collapse="no"><title>Locations</title>
-			<todo done="no" collapse="no"><title>City</title>
+			<todo done="no" collapse="no"><title>Home</title>
+				<todo done="no" collapse="no"><title>Class</title>
+					<todo done="no" collapse="no"><title>Rooms</title></todo>
+					<todo done="no" collapse="no"><title>Floors</title></todo>
+				</todo>
+				<todo done="no" collapse="no"><title>Generation</title></todo>
+				<todo done="no" collapse="no"><title>Adding rooms</title></todo>
+				<todo done="no" collapse="no"><title>Pictures decors</title></todo>
+				<todo done="no" collapse="no"><title>Furniture decors</title></todo>
+				<todo done="no" collapse="no"><title>Upgrading room (pictures &amp; furniture)</title></todo>
+			</todo>
+			<todo done="no" collapse="yes"><title>City</title>
 				<todo done="no" collapse="no"><title>Class</title></todo>
 				<todo done="yes" collapse="no"><title>Background</title></todo>
 				<todo done="no" collapse="no"><title>Generation</title></todo>
@@ -725,11 +736,6 @@
 					<todo done="no" collapse="no"><title>To biome</title></todo>
 				</todo>
 				<todo done="no" collapse="no"><title>Day/Night cycle</title></todo>
-			</todo>
-			<todo done="no" collapse="yes"><title>Home</title>
-				<todo done="no" collapse="no"><title>Furniture decors</title></todo>
-				<todo done="no" collapse="no"><title>Tiles</title></todo>
-				<todo done="no" collapse="no"><title>Generation</title></todo>
 			</todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>NPC</title>

@@ -713,7 +713,18 @@
 			<todo done="yes" collapse="no"><title>Fading out old messages</title></todo>
 			<todo done="yes" collapse="no"><title>Floating messages</title></todo>
 		</todo>
-		<todo done="no" collapse="no"><title>Locations</title>
+		<todo done="no" collapse="no"><title>Selecting worlds and players</title>
+			<todo done="no" collapse="no"><title>Select world</title></todo>
+			<todo done="no" collapse="no"><title>Generating new world</title></todo>
+			<todo done="no" collapse="no"><title>Select player</title></todo>
+			<todo done="no" collapse="no"><title>Generating new player</title></todo>
+			<todo done="no" collapse="no"><title>Generating house</title></todo>
+			<todo done="no" collapse="no"><title>Teleports</title>
+				<todo done="no" collapse="no"><title>Home -&gt; City</title></todo>
+				<todo done="no" collapse="no"><title>City -&gt; Home</title></todo>
+			</todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Locations</title>
 			<todo done="no" collapse="no"><title>Home</title>
 				<todo done="yes" collapse="yes"><title>Class</title>
 					<todo done="yes" collapse="no"><title>Rooms</title></todo>
@@ -744,12 +755,6 @@
 				</todo>
 				<todo done="no" collapse="no"><title>Day/Night cycle</title></todo>
 			</todo>
-		</todo>
-		<todo done="no" collapse="yes"><title>Selecting worlds and players</title>
-			<todo done="no" collapse="no"><title>Select world</title></todo>
-			<todo done="no" collapse="no"><title>Generating new world</title></todo>
-			<todo done="no" collapse="no"><title>Select player</title></todo>
-			<todo done="no" collapse="no"><title>Generating new player</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>NPC</title>
 			<todo done="no" collapse="no"><title>NPC AI</title></todo>

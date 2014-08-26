@@ -715,13 +715,16 @@
 		</todo>
 		<todo done="no" collapse="no"><title>Menu windows</title>
 			<todo done="yes" collapse="no"><title>Window class</title></todo>
-			<todo done="no" collapse="yes"><title>Sound settings window</title>
+			<todo done="no" collapse="no"><title>Sound settings window</title>
+				<todo done="yes" collapse="no"><title>Window class</title></todo>
 				<todo done="no" collapse="yes"><title>Music volume change</title></todo>
 				<todo done="no" collapse="no"><title>Sound volume change</title></todo>
 			</todo>
-			<todo done="no" collapse="yes"><title>Video settings window</title>
+			<todo done="no" collapse="no"><title>Video settings window</title>
+				<todo done="yes" collapse="no"><title>Window class</title></todo>
 				<todo done="no" collapse="no"><title>Video modes change</title></todo>
 				<todo done="no" collapse="no"><title>Fullscreen toggle</title></todo>
+				<todo done="no" collapse="no"><title>Antialiasing</title></todo>
 			</todo>
 			<todo done="no" collapse="yes"><title>Selecting worlds and players</title>
 				<todo done="no" collapse="no"><title>Select world</title></todo>

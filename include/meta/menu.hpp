@@ -10,5 +10,7 @@
 #define __MENU
 
 #include "menu/menu_base.hpp"
+#include "menu/menu_window_audio.hpp"
+#include "menu/menu_window_video.hpp"
 
 #endif

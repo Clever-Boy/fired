@@ -294,12 +294,17 @@ void fired::MainMenu::fillMenu() {
 
 	curParent = menuItems[0];
 	menuItemAdd("Start game", curParent, itSubmenu);
+	menuItemAdd("Options"   , curParent, itSubmenu);
 	menuItemAdd("Credits"   , curParent, itButton, &fired::Handlers::buttonCredits);
 	menuItemAdd("Exit"      , curParent, itButton, &fired::Handlers::buttonExit);
 
 	curParent = menuItems[1];
 	menuItemAdd("City"           , curParent, itButton, &fired::Handlers::buttonStartCity);
 	menuItemAdd("I Hate Critters", curParent, itButton, &fired::Handlers::buttonStartForest);
+
+	curParent = menuItems[2];
+	menuItemAdd("Video", curParent, itSubmenu, NULL, new fired::MenuItemWindowVideo());
+	menuItemAdd("Audio", curParent, itSubmenu, NULL, new fired::MenuItemWindowAudio());
 
 	fillMenuBack();
 

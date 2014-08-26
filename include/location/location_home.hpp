@@ -18,6 +18,12 @@ namespace fired {
 
 		 LocationHome(fired::Camera *_cam, fired::World *_world);
 		~LocationHome();
+
+		void buildStairs()      {};
+		void expandStairsUp()   {};
+		void expandStairsDown() {};
+		void buildTeasury()     {};
+		void buildLivingRoom()  {};
 	};
 }
 

@@ -82,6 +82,10 @@ namespace fired {
 
 		unsigned int brickTile;
 		unsigned int wallTile;
+
+		void defaults();
+		void loadFromFile();
+		void saveToFile();
 	};
 }
 

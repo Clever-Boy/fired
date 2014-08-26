@@ -721,7 +721,13 @@
 				</todo>
 				<todo done="no" collapse="no"><title>Save and Load home metadata</title></todo>
 				<todo done="no" collapse="no"><title>Generation</title></todo>
-				<todo done="no" collapse="no"><title>Adding rooms</title></todo>
+				<todo done="no" collapse="no"><title>Adding rooms</title>
+					<todo done="no" collapse="no"><title>Stairs</title></todo>
+					<todo done="no" collapse="no"><title>Stairs up and down</title></todo>
+					<todo done="no" collapse="no"><title>Crafting</title></todo>
+					<todo done="no" collapse="no"><title>Treasury</title></todo>
+					<todo done="no" collapse="no"><title>Living rooms</title></todo>
+				</todo>
 				<todo done="no" collapse="no"><title>Pictures decors</title></todo>
 				<todo done="no" collapse="no"><title>Furniture decors</title></todo>
 				<todo done="no" collapse="no"><title>Upgrading room (pictures &amp; furniture)</title></todo>

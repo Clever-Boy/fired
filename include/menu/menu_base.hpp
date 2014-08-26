@@ -59,7 +59,7 @@ namespace fired {
 
 		void fillMenu();
 		void fillMenuBack();
-		void menuItemAdd(const char *_caption, fired::MenuItem *_parent, fired::MenuItemType itemType, fired::Handler handlerFunc);
+		void menuItemAdd(const char *_caption, fired::MenuItem *_parent, fired::MenuItemType itemType, fired::Handler handlerFunc, fired::MenuItemWindow *_window);
 		void switchMenu(fired::MenuItem *menuItem);
 		void setNextMenu(fired::MenuItem *menuItem);
 		void initAnimation(fired::MenuAnimationType animType);

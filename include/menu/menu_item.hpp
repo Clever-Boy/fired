@@ -10,6 +10,7 @@
 #define __MENU_ITEM
 
 
+#include "menu_window.hpp"
 #include "control.hpp"
 
 
@@ -37,10 +38,11 @@ namespace fired {
 
 		fired::MenuItem              *parent;
 		fired::MenuItemType           itemType;
+		fired::MenuItemWindow        *window;
 		std::vector<fired::MenuItem*> subMenu;
 
 
-		 MenuItem(fired::MainMenu *_mainMenu, sf::Sprite *_sprite, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc);
+		 MenuItem(fired::MainMenu *_mainMenu, sf::Sprite *_sprite, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc, fired::MenuItemWindow *_window);
 		~MenuItem();
 
 		void update();

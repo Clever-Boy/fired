@@ -15,13 +15,14 @@
      * constructor
 
 ***********************************************************************/
-fired::MenuItem::MenuItem(fired::MainMenu *_mainMenu, sf::Sprite *_sprite, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc) {
+fired::MenuItem::MenuItem(fired::MainMenu *_mainMenu, sf::Sprite *_sprite, const char *_caption, fired::MenuItem *_parent, fired::MenuItemType _itemType, fired::Handler _handlerFunc, fired::MenuItemWindow *_window) {
 	sf::FloatRect textRect;
 
 	font        = resources->fonts.menu;
 	mainMenu    = _mainMenu;
 	sprite      = _sprite;
 	parent      = _parent;
+	window      = _window;
 	itemType    = _itemType;
 	handlerFunc = _handlerFunc;
 	caption     = new sf::String(_caption);
@@ -43,6 +44,8 @@ fired::MenuItem::MenuItem(fired::MainMenu *_mainMenu, sf::Sprite *_sprite, const
 
 ***********************************************************************/
 fired::MenuItem::~MenuItem() {
+	if (window) delete window;
+
 	delete caption;
 	delete text;
 }
@@ -79,6 +82,7 @@ void fired::MenuItem::addSubMenu(fired::MenuItem *subMenuItem) {
 ***********************************************************************/
 void fired::MenuItem::update() {
 	render();
+	if (window) window->update();
 }
 
 

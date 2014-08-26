@@ -262,8 +262,8 @@ void fired::MainMenu::processAnimation() {
      * menuItemAdd
 
 ***********************************************************************/
-void fired::MainMenu::menuItemAdd(const char *_caption, fired::MenuItem *_parent, fired::MenuItemType itemType = itSubmenu, fired::Handler handlerFunc = NULL) {
-	menuItems.push_back(new fired::MenuItem(this, menuItemSprite, _caption, _parent, itemType, handlerFunc));
+void fired::MainMenu::menuItemAdd(const char *_caption, fired::MenuItem *_parent, fired::MenuItemType itemType = itSubmenu, fired::Handler handlerFunc = NULL, fired::MenuItemWindow *_window = NULL) {
+	menuItems.push_back(new fired::MenuItem(this, menuItemSprite, _caption, _parent, itemType, handlerFunc, _window));
 }
 
 

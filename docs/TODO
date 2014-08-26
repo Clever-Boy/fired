@@ -753,7 +753,7 @@
 					<todo done="no" collapse="no"><title>Treasury</title></todo>
 					<todo done="no" collapse="no"><title>Living rooms</title></todo>
 				</todo>
-				<todo done="no" collapse="no"><title>Pictures decors</title></todo>
+				<todo done="yes" collapse="no"><title>Pictures decors</title></todo>
 				<todo done="no" collapse="no"><title>Furniture decors</title></todo>
 				<todo done="no" collapse="no"><title>Upgrading room (pictures &amp; furniture)</title></todo>
 			</todo>

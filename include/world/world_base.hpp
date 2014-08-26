@@ -32,6 +32,7 @@ namespace fired {
 #include "world_shot.hpp"
 #include "char.hpp"
 #include "map.hpp"
+#include "location.hpp"
 #include "mapfile.hpp"
 #include "world_gui.hpp"
 #include "log.hpp"
@@ -39,7 +40,9 @@ namespace fired {
 
 namespace fired {
 	struct World : GameScreen {
-		fired::Map        *map;
+		fired::LocationHome *home;
+		fired::Map          *map;
+
 		fired::Camera     *cam;
 		fired::Crosshair  *crosshair;
 		fired::Mouse      *mouse;

@@ -22,7 +22,8 @@ fired::World::World(fired::Mouse *_mouse) {
 	state  = wsNormal;
 
 	cam       = new fired::Camera();
-	map       = new fired::Map(cam, this);
+	home      = new fired::LocationHome(cam, this);
+	map       = home->map;
 	crosshair = new fired::Crosshair(cam);
 	player    = new fired::Player(cam, crosshair, this);
 	gui       = new fired::GUI(player->character);
@@ -52,7 +53,7 @@ fired::World::World(fired::Mouse *_mouse) {
 fired::World::~World() {
 	delete player;
 	delete crosshair;
-	delete map;
+	delete home;
 	delete gui;
 	delete cam;
 	delete log;

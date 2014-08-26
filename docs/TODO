@@ -715,10 +715,11 @@
 		</todo>
 		<todo done="no" collapse="no"><title>Locations</title>
 			<todo done="no" collapse="no"><title>Home</title>
-				<todo done="no" collapse="no"><title>Class</title>
-					<todo done="no" collapse="no"><title>Rooms</title></todo>
-					<todo done="no" collapse="no"><title>Floors</title></todo>
+				<todo done="yes" collapse="yes"><title>Class</title>
+					<todo done="yes" collapse="no"><title>Rooms</title></todo>
+					<todo done="yes" collapse="no"><title>Floors</title></todo>
 				</todo>
+				<todo done="no" collapse="no"><title>Save and Load home metadata</title></todo>
 				<todo done="no" collapse="no"><title>Generation</title></todo>
 				<todo done="no" collapse="no"><title>Adding rooms</title></todo>
 				<todo done="no" collapse="no"><title>Pictures decors</title></todo>
@@ -737,6 +738,12 @@
 				</todo>
 				<todo done="no" collapse="no"><title>Day/Night cycle</title></todo>
 			</todo>
+		</todo>
+		<todo done="no" collapse="yes"><title>Selecting worlds and players</title>
+			<todo done="no" collapse="no"><title>Select world</title></todo>
+			<todo done="no" collapse="no"><title>Generating new world</title></todo>
+			<todo done="no" collapse="no"><title>Select player</title></todo>
+			<todo done="no" collapse="no"><title>Generating new player</title></todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>NPC</title>
 			<todo done="no" collapse="no"><title>NPC AI</title></todo>

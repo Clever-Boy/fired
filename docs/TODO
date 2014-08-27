@@ -734,12 +734,16 @@
 				<todo done="no" collapse="no"><title>Fullscreen toggle</title></todo>
 				<todo done="no" collapse="no"><title>Antialiasing</title></todo>
 			</todo>
-			<todo done="no" collapse="no"><title>Selecting worlds and players</title>
-				<todo done="no" collapse="no"><title>Select world</title></todo>
-				<todo done="no" collapse="no"><title>Generating new world</title></todo>
-				<todo done="no" collapse="no"><title>Select player</title></todo>
+			<todo done="no" collapse="no"><title>World selection</title>
+				<todo done="no" collapse="no"><title>Window class</title></todo>
+				<todo done="no" collapse="no"><title>Generation button</title></todo>
+				<todo done="no" collapse="no"><title>Selection</title></todo>
+			</todo>
+			<todo done="no" collapse="no"><title>Player selection</title>
+				<todo done="no" collapse="no"><title>Window class</title></todo>
 				<todo done="no" collapse="no"><title>Generating new player</title></todo>
 				<todo done="no" collapse="no"><title>Generating house</title></todo>
+				<todo done="no" collapse="no"><title>Selection</title></todo>
 			</todo>
 		</todo>
 		<todo done="no" collapse="no"><title>Locations</title>
@@ -752,16 +756,16 @@
 					<todo done="yes" collapse="no"><title>Rooms</title></todo>
 					<todo done="yes" collapse="no"><title>Floors</title></todo>
 				</todo>
+				<todo done="yes" collapse="no"><title>Generation</title></todo>
+				<todo done="yes" collapse="no"><title>Pictures decors</title></todo>
 				<todo done="no" collapse="no"><title>Save and Load home metadata</title></todo>
-				<todo done="no" collapse="no"><title>Generation</title></todo>
-				<todo done="no" collapse="no"><title>Adding rooms</title>
+				<todo done="no" collapse="yes"><title>Adding rooms</title>
 					<todo done="no" collapse="no"><title>Stairs</title></todo>
 					<todo done="no" collapse="no"><title>Stairs up and down</title></todo>
 					<todo done="no" collapse="no"><title>Crafting</title></todo>
 					<todo done="no" collapse="no"><title>Treasury</title></todo>
 					<todo done="no" collapse="no"><title>Living rooms</title></todo>
 				</todo>
-				<todo done="yes" collapse="no"><title>Pictures decors</title></todo>
 				<todo done="no" collapse="no"><title>Furniture decors</title></todo>
 				<todo done="no" collapse="no"><title>Upgrading room (pictures &amp; furniture)</title></todo>
 			</todo>
@@ -769,13 +773,11 @@
 				<todo done="no" collapse="no"><title>Class</title></todo>
 				<todo done="yes" collapse="no"><title>Background</title></todo>
 				<todo done="no" collapse="no"><title>Generation</title></todo>
-				<todo done="no" collapse="yes"><title>Teleport</title>
-					<todo done="no" collapse="no"><title>Map object class</title></todo>
-					<todo done="no" collapse="no"><title>Decor</title></todo>
-					<todo done="no" collapse="no"><title>To home</title></todo>
-					<todo done="no" collapse="no"><title>To biome</title></todo>
+				<todo done="no" collapse="no"><title>Day/Night cycle</title>
+					<todo done="no" collapse="no"><title>Sun/Moon sprite</title></todo>
+					<todo done="no" collapse="no"><title>Calculation sun/moon position</title></todo>
+					<todo done="no" collapse="no"><title>Calculation intensity</title></todo>
 				</todo>
-				<todo done="no" collapse="no"><title>Day/Night cycle</title></todo>
 			</todo>
 		</todo>
 		<todo done="no" collapse="yes"><title>NPC</title>

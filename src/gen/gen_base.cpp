@@ -56,6 +56,18 @@ fired::MapGenerator::MapGenerator(fired::Biome *_biome, const char *filename) {
 
 /***********************************************************************
      * MapGenerator
+     * constructor
+
+***********************************************************************/
+fired::MapGenerator::MapGenerator(const char *filename) {
+	genLoad(this, filename);
+	genSave(this, filename);
+};
+
+
+
+/***********************************************************************
+     * MapGenerator
      * destructor
 
 ***********************************************************************/

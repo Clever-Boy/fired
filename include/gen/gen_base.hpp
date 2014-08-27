@@ -29,6 +29,7 @@ namespace fired {
 
 		 MapGenerator(fired::Biome *_biome, fired::WorldProperties _worldProps, const char *filename);
 		 MapGenerator(fired::Biome *_biome, const char *filename);
+		 MapGenerator(const char *filename);
 		~MapGenerator();
 
 

@@ -50,6 +50,24 @@ void mapSave(fired::Map *map, const char* filename) {
 
 
 /***********************************************************************
+     * genLoad
+
+***********************************************************************/
+void genLoad(fired::MapGenerator *gen, const char* filename) {
+	FILE *fp = fopen(filename, "rb");
+	if (!fp) return;
+
+	genLoadMeta(gen, fp);
+	genLoadTiles(gen, fp);
+	genLoadObjects(gen, fp);
+	genLoadSpawns(gen, fp);
+
+	fclose(fp);
+}
+
+
+
+/***********************************************************************
      * genSave
 
 ***********************************************************************/

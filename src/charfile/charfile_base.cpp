@@ -31,6 +31,24 @@ void saveChar(fired::Character *character, const char *filename) {
 
 
 /***********************************************************************
+     * genChar
+
+***********************************************************************/
+void genChar(const char *filename) {
+	FILE *fp;
+
+	if ((fp = fopen(filename, "wb")) == NULL) return;
+
+	genCharMeta(fp);
+	genCharAttr(fp);
+	genCharInv(fp);
+
+	fclose(fp);
+}
+
+
+
+/***********************************************************************
      * loadChar
 
 ***********************************************************************/

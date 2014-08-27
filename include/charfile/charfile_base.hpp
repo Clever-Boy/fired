@@ -12,5 +12,6 @@
 
 void saveChar(fired::Character *character, const char *filename);
 void loadChar(fired::Character *character, const char *filename);
+void genChar(const char *filename);
 
 #endif

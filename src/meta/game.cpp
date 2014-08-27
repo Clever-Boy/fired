@@ -149,6 +149,9 @@ void fired::Game::generatePlayer(const char *name, const char *worldname) {
 
 	snprintf(playerDir, sizeof(playerDir), "data/worlds/%s/players/%s/home.map", worldname, name);
 	delete new fired::MapGenerator(container->getBiome("LocationHome"), playerDir);
+
+	snprintf(playerDir, sizeof(playerDir), "data/worlds/%s/players/%s/player.chr", worldname, name);
+	genChar(playerDir);
 }
 
 

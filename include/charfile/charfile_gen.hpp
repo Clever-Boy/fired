@@ -1,17 +1,18 @@
 /***********************************************************************
-     * File       : charfile.hpp
-     * Created    : May 07, 2014
+     * File       : charfile_gen.hpp
+     * Created    : Aug 27, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander
      * Email      : achpile@gmail.com
 
 ***********************************************************************/
-#ifndef __CHARFILE
-#define __CHARFILE
+#ifndef __CHARFILE_GEN
+#define __CHARFILE_GEN
 
-#include "charfile/charfile_gen.hpp"
-#include "charfile/charfile_save.hpp"
-#include "charfile/charfile_load.hpp"
-#include "charfile/charfile_base.hpp"
+
+void genCharMeta(FILE *fp);
+void genCharAttr(FILE *fp);
+void genCharInv(FILE *fp);
+void genCharItem(FILE *fp);
 
 #endif

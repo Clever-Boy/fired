@@ -115,11 +115,53 @@ void fired::Game::processHandler(fired::Handler handler) {
 
 /***********************************************************************
      * Game
+     * generateBiome
+
+***********************************************************************/
+void fired::Game::generateBiome(const char *biome, fired::WorldProperties worldProps) {
+	delete new fired::MapGenerator(container->getBiome(biome), worldProps, "data/maps/test.map");
+}
+
+
+
+/***********************************************************************
+     * Game
      * generateWorld
 
 ***********************************************************************/
-void fired::Game::generateWorld(const char *biome, fired::WorldProperties worldProps) {
-	delete new fired::MapGenerator(container->getBiome(biome), worldProps);
+void fired::Game::generateWorld(const char *name) {
+	char worldDir[256];
+	struct stat buf;
+	if (stat("data/worlds", &buf) == -1) MKDIR("data/worlds");
+
+
+	snprintf(worldDir, sizeof(worldDir), "data/worlds/%s", name);
+	MKDIR(worldDir);
+
+	snprintf(worldDir, sizeof(worldDir), "data/worlds/%s/players", name);
+	MKDIR(worldDir);
+
+	snprintf(worldDir, sizeof(worldDir), "data/worlds/%s/maps", name);
+	MKDIR(worldDir);
+
+	snprintf(worldDir, sizeof(worldDir), "data/worlds/%s/city.map", name);
+	delete new fired::MapGenerator(container->getBiome("LocationCity"), worldDir);
+}
+
+
+
+/***********************************************************************
+     * Game
+     * generatePlayer
+
+***********************************************************************/
+void fired::Game::generatePlayer(const char *name, const char *worldname) {
+	char playerDir[256];
+	snprintf(playerDir, sizeof(playerDir), "data/worlds/%s/players/%s", worldname, name);
+	MKDIR(playerDir);
+
+	snprintf(playerDir, sizeof(playerDir), "data/worlds/%s/players/%s/home.map", worldname, name);
+	delete new fired::MapGenerator(container->getBiome("LocationHome"), playerDir);
 }
 
 

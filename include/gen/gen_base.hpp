@@ -27,7 +27,8 @@ namespace fired {
 		std::vector<fired::MapSpawn*>      spawns;
 
 
-		 MapGenerator(fired::Biome *_biome, fired::WorldProperties _worldProps);
+		 MapGenerator(fired::Biome *_biome, fired::WorldProperties _worldProps, const char *filename);
+		 MapGenerator(fired::Biome *_biome, const char *filename);
 		~MapGenerator();
 
 

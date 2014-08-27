@@ -15,7 +15,7 @@
      * constructor
 
 ***********************************************************************/
-fired::MapGenerator::MapGenerator(fired::Biome *_biome, fired::WorldProperties _worldProps) {
+fired::MapGenerator::MapGenerator(fired::Biome *_biome, fired::WorldProperties _worldProps, const char *filename) {
 	biome = _biome;
 	memcpy(&worldProps, &_worldProps, sizeof(fired::WorldProperties));
 
@@ -33,7 +33,23 @@ fired::MapGenerator::MapGenerator(fired::Biome *_biome, fired::WorldProperties _
 	if (!strcmp(biome->name, "Graveyard")) genGraveyard();
 	if (!strcmp(biome->name, "Forest"))    genForest();
 
-	genSave(this, "data/maps/test.map");
+	genSave(this, filename);
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
+     * constructor
+
+***********************************************************************/
+fired::MapGenerator::MapGenerator(fired::Biome *_biome, const char *filename) {
+	biome = _biome;
+
+	if (!strcmp(biome->name, "LocationCity"))    genLocationCity();
+	if (!strcmp(biome->name, "LocationHome"))    genLocationHome();
+
+	genSave(this, filename);
 }
 
 

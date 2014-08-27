@@ -69,10 +69,13 @@ namespace fired {
 		void update();
 		void stop() { running = false; };
 
-		void generateWorld(const char *biome, fired::WorldProperties worldProps);
 		void setGameState(fired::GameState state);
 		void setMusic(const char *musicFile);
 		bool switchGameState();
+
+		void generateBiome(const char *biome, fired::WorldProperties worldProps);
+		void generateWorld(const char *name);
+		void generatePlayer(const char *name, const char *worldname);
 
 		void processHandler(fired::Handler handler);
 		void processEvents();

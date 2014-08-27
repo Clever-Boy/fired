@@ -16,7 +16,8 @@ namespace fired {
 	enum MapObjectType {
 		moNone,
 		moCollector,
-		moLightSource
+		moLightSource,
+		moTeleport
 	};
 
 

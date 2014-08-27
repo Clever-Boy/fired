@@ -11,5 +11,6 @@
 
 #include "object/object_collector.hpp"
 #include "object/object_lightsource.hpp"
+#include "object/object_teleport.hpp"
 
 #endif

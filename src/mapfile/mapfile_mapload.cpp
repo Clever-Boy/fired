@@ -95,6 +95,13 @@ void mapLoadObject(fired::Map *map, fired::BaseMapObject obj, FILE *fp) {
 			map->objects.push_back(new fired::MapObjectLightSource(lightObj.id, obj.pos));
 			break;
 		}
+
+		case fired::moTeleport: {
+			fired::BaseMapObjectTeleport teleObj;
+			fread(&teleObj.ttype, sizeof(teleObj.ttype), 1, fp);
+			map->objects.push_back(new fired::MapObjectTeleport(obj.decorId, obj.pos, teleObj.ttype));
+			break;
+		}
 	}
 }
 

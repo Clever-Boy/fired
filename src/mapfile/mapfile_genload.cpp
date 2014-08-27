@@ -86,6 +86,13 @@ void genLoadObject(fired::MapGenerator *gen, fired::BaseMapObject obj, FILE *fp)
 			gen->objects.push_back(new fired::BaseMapObjectLightSource(lightObj.id, obj.pos));
 			break;
 		}
+
+		case fired::moTeleport: {
+			fired::BaseMapObjectTeleport teleObj;
+			fread(&teleObj.ttype, sizeof(teleObj.ttype), 1, fp);
+			gen->objects.push_back(new fired::BaseMapObjectTeleport(obj.decorId, obj.pos, teleObj.ttype));
+			break;
+		}
 	}
 }
 

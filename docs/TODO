@@ -740,13 +740,13 @@
 				<todo done="no" collapse="no"><title>Select player</title></todo>
 				<todo done="no" collapse="no"><title>Generating new player</title></todo>
 				<todo done="no" collapse="no"><title>Generating house</title></todo>
-				<todo done="no" collapse="no"><title>Teleports</title>
-					<todo done="no" collapse="no"><title>Home -&gt; City</title></todo>
-					<todo done="no" collapse="no"><title>City -&gt; Home</title></todo>
-				</todo>
 			</todo>
 		</todo>
-		<todo done="no" collapse="yes"><title>Locations</title>
+		<todo done="no" collapse="no"><title>Locations</title>
+			<todo done="no" collapse="no"><title>Teleports</title>
+				<todo done="yes" collapse="no"><title>Object class</title></todo>
+				<todo done="no" collapse="no"><title>Usage</title></todo>
+			</todo>
 			<todo done="no" collapse="no"><title>Home</title>
 				<todo done="yes" collapse="yes"><title>Class</title>
 					<todo done="yes" collapse="no"><title>Rooms</title></todo>
@@ -765,7 +765,7 @@
 				<todo done="no" collapse="no"><title>Furniture decors</title></todo>
 				<todo done="no" collapse="no"><title>Upgrading room (pictures &amp; furniture)</title></todo>
 			</todo>
-			<todo done="no" collapse="yes"><title>City</title>
+			<todo done="no" collapse="no"><title>City</title>
 				<todo done="no" collapse="no"><title>Class</title></todo>
 				<todo done="yes" collapse="no"><title>Background</title></todo>
 				<todo done="no" collapse="no"><title>Generation</title></todo>

@@ -83,6 +83,12 @@ void mapSaveObject(fired::MapObject *obj, FILE *fp) {
 			break;
 		}
 
+		case fired::moTeleport: {
+			fired::MapObjectTeleport *teleObj = (fired::MapObjectTeleport*)obj;
+			fwrite(&teleObj->ttype, sizeof(teleObj->ttype), 1, fp);
+			break;
+		}
+
 		case fired::moNone:
 			break;
 	}

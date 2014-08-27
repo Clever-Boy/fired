@@ -71,6 +71,12 @@ void genSaveObject(fired::BaseMapObject *obj, FILE *fp) {
 			break;
 		}
 
+		case fired::moTeleport: {
+			fired::BaseMapObjectTeleport *teleObj = (fired::BaseMapObjectTeleport*)obj;
+			fwrite(&teleObj->ttype, sizeof(teleObj->ttype), 1, fp);
+			break;
+		}
+
 		case fired::moNone:
 			break;
 	}

@@ -1,5 +1,5 @@
 /***********************************************************************
-     * File       : charfile_save.cpp
+     * File       : charfile_gen.cpp
      * Created    : May 07, 2014
      * Copyright  : (C) 2014 Achpile
      * Author     : Fedosov Alexander

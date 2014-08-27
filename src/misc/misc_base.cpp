@@ -101,6 +101,29 @@ float getRandomOffset(float offsetAmount) {
 
 
 /***********************************************************************
+     * getRandomOffset
+
+***********************************************************************/
+void createWindow() {
+	unsigned long style;
+	if (settings->window.fullScreen) style = sf::Style::Fullscreen;
+	else                             style = sf::Style::Close;
+
+	sf::ContextSettings contextSettings;
+	contextSettings.antialiasingLevel = settings->window.antialiasing;
+
+	app = new sf::RenderWindow(sf::VideoMode(settings->window.width,
+	                           settings->window.height,
+	                           settings->window.bpp),
+	                           PROJECT_CAPTION " v" PROJECT_VER,
+	                           style,
+	                           contextSettings);
+	app->setMouseCursorVisible(false);
+}
+
+
+
+/***********************************************************************
                        Fast Ray-Box Intersection
                            by Andrew Woo
               from "Graphics Gems", Academic Press, 1990

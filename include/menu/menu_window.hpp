@@ -10,6 +10,9 @@
 #define __MENU_WINDOW
 
 
+#include "input.hpp"
+
+
 namespace fired {
 	struct MenuItemWindow {
 		sf::Vector2f size;

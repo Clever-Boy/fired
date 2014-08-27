@@ -715,6 +715,13 @@
 		</todo>
 		<todo done="no" collapse="no"><title>Menu windows</title>
 			<todo done="yes" collapse="no"><title>Window class</title></todo>
+			<todo done="no" collapse="no"><title>Window elements</title>
+				<todo done="no" collapse="no"><title>Window border</title></todo>
+				<todo done="no" collapse="no"><title>Scroller</title></todo>
+				<todo done="no" collapse="no"><title>Text input</title></todo>
+				<todo done="no" collapse="no"><title>Checkbox</title></todo>
+				<todo done="no" collapse="no"><title>Button</title></todo>
+			</todo>
 			<todo done="no" collapse="no"><title>Sound settings window</title>
 				<todo done="yes" collapse="no"><title>Window class</title></todo>
 				<todo done="no" collapse="yes"><title>Music volume change</title></todo>
@@ -726,7 +733,7 @@
 				<todo done="no" collapse="no"><title>Fullscreen toggle</title></todo>
 				<todo done="no" collapse="no"><title>Antialiasing</title></todo>
 			</todo>
-			<todo done="no" collapse="yes"><title>Selecting worlds and players</title>
+			<todo done="no" collapse="no"><title>Selecting worlds and players</title>
 				<todo done="no" collapse="no"><title>Select world</title></todo>
 				<todo done="no" collapse="no"><title>Generating new world</title></todo>
 				<todo done="no" collapse="no"><title>Select player</title></todo>

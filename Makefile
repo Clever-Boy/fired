@@ -3,30 +3,42 @@
 #                   Main Makefile for FIRED project                     
 #                                                                       
 ########################################################################
-export PROJECT=fired
-export CC=g++
-export LD=ld
-export STRIP=strip
-export CLEAN=rm -f
-export MAKE=make --no-print-directory
-export MAKESRC=$(MAKE) -f $(PWD)/Makefile.src
-export MAKESUB=$(MAKE) -j8 -C $$$$dir -f $(PWD)/Makefile.sub
+PROJECT     = fired
+CC          = g++
+STRIP       = strip
+CLEAN       = rm -f
+MAKE        = make -j8 --no-print-directory
+INCLUDE_DIR = $(PWD)/include
+OBJS        = $(patsubst %.cpp,%.o,$(wildcard src/*/*.cpp))
 
-export INCLUDE_DIR=$(PWD)/include
-export LDFLAGS=-static-libstdc++ -static-libgcc -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -lm -lsqlite3
-export CFLAGS=-Wall                   \
-              -Wextra                 \
-              -I$(INCLUDE_DIR)        \
+LDFLAGS     = -static-libstdc++ \
+              -static-libgcc    \
+              -lsfml-graphics   \
+              -lsfml-window     \
+              -lsfml-system     \
+              -lsfml-audio      \
+              -lm               \
+              -lsqlite3
+
+CFLAGS      = -Wall                 \
+              -Wextra               \
+              -I$(INCLUDE_DIR)      \
               -I$(INCLUDE_DIR)/meta
 
 
+all:
+	$(MAKE) $(PROJECT)
 
-all: src
-	$(MAKE) -C src -f $(PWD)/Makefile.src clean-subdirs
-	$(MAKESRC) -C src
+
+$(PROJECT): $(OBJS)
+	$(CC) $(OBJS) -o $(PROJECT) $(LDFLAGS)
 	$(STRIP) $(PROJECT)
 
 
+.cpp.o:
+	$(CC) $(CFLAGS) -o $@ -c $<
+
+
 clean:
-	$(MAKE) -C src -f $(PWD)/Makefile.src clean
+	$(CLEAN) $(OBJS)
 	$(CLEAN) $(PROJECT)

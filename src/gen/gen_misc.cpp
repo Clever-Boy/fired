@@ -92,6 +92,17 @@ void fired::MapGenerator::addCollector(int x, int y, const char *name, std::vect
 
 /***********************************************************************
      * MapGenerator
+     * addTeleport
+
+***********************************************************************/
+void fired::MapGenerator::addTeleport(int x, int y, const char *name, fired::TeleportType ttype) {
+	objects.push_back(new fired::BaseMapObjectTeleport(container->getDecor(name), sf::Vector2f(x * TILE_SIZE, y * TILE_SIZE), ttype));
+}
+
+
+
+/***********************************************************************
+     * MapGenerator
      * addLightSource
 
 ***********************************************************************/

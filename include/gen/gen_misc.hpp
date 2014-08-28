@@ -16,6 +16,7 @@ void genFill(int x1, int y1, int x2, int y2, bool isWall);
 void genFillRect(sf::IntRect rect, bool isWall);
 
 void addDecor(int x, int y, const char *name);
+void addTeleport(int x, int y, const char *name, fired::TeleportType ttype);
 void addCollector(int x, int y, const char *name, std::vector<fired::MapLootItem*> *loot);
 void addLightSource(int x, int y, const char *name);
 void addPlatform(int x, int y, const char *name);

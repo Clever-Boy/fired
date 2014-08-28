@@ -58,7 +58,7 @@ void fired::MapGenerator::genLocationHomeHall() {
 	genFill(90, 70, 109, 75, false);
 	addLightSource( 93, 70, "lantern");
 	addLightSource(106, 70, "lantern");
-	addDecor(99, 73, "door.wooden");
+	addTeleport(99, 73, "door.wooden", ttCity);
 
 
 	genFill(66, 69, 87, 76, true);

@@ -404,10 +404,39 @@ void fired::World::interact(fired::Character *owner) {
 	fired::MapObject *obj = map->checkInteraction(owner);
 	if (obj == NULL) return;
 
-	if (obj->type == moCollector) {
-		exchangeWin->init((fired::MapObjectCollector*)obj);
-		state = wsExchange;
+	switch (obj->type) {
+		case moCollector:
+			exchangeWin->init((fired::MapObjectCollector*)obj);
+			state = wsExchange;
+			break;
+
+		case moTeleport:
+			teleport(((fired::MapObjectTeleport*)obj)->ttype);
+			break;
+
+		case moNone:
+		case moLightSource:
+			break;
 	}
+}
+
+
+
+/***********************************************************************
+     * World
+     * teleport
+
+***********************************************************************/
+void fired::World::teleport(fired::TeleportType ttype) {
+	switch (ttype) {
+		case ttHome:
+			addMessage("Going home", mlInfo);
+			break;
+
+		case ttCity:
+			addMessage("Let's go to the city", mlWarning);
+			break;
+	};
 }
 
 

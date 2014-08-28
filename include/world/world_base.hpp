@@ -105,6 +105,7 @@ namespace fired {
 		void checkLight();
 
 		void interact(fired::Character *owner);
+		void teleport(fired::TeleportType ttype);
 		void spawn(sf::Vector2f pos, fired::BaseCreature *creature, fired::MapSpawnType type);
 		bool isCharExists(fired::Character *character);
 		bool isSolidPixel(sf::Vector2f pixel)   { return map->isSolid(pixel.x / TILE_SIZE, pixel.y / TILE_SIZE); };

@@ -42,6 +42,9 @@ fired::MenuItemWindowAudio::~MenuItemWindowAudio() {
 void fired::MenuItemWindowAudio::update() {
 	render();
 
+	musicVolume->val = settings->volume.music;
+	soundVolume->val = settings->volume.sound;
+
 	musicVolume->update();
 	soundVolume->update();
 }

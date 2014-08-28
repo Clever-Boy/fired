@@ -18,7 +18,7 @@
 fired::InputScroller::InputScroller(sf::Vector2f _size, sf::Vector2f _position, int _min, int _max, int _val, fired::Window *_parent) {
 	parent   = _parent;
 	size     = _size;
-	position = _position;
+	position = _position + parent->offset;
 	min      = _min;
 	max      = _max;
 	val      = _val;
@@ -27,10 +27,11 @@ fired::InputScroller::InputScroller(sf::Vector2f _size, sf::Vector2f _position, 
 	rect = sf::FloatRect(position + parent->offset, size);
 
 	border = new fired::Window(size);
-	border->setOffset(parent->offset + position);
+	border->setOffset(position);
+	border->text->setCharacterSize(16);
 
 	fill = new sf::RectangleShape();
-	fill->setPosition(position + parent->offset);
+	fill->setPosition(position);
 	fill->setFillColor(sf::Color(207, 170, 24, 180));
 }
 
@@ -69,4 +70,8 @@ void fired::InputScroller::update() {
 void fired::InputScroller::render() {
 	border->render();
 	app->draw(*fill);
+
+	char valStr[8];
+	snprintf(valStr, sizeof(valStr), "%d", val);
+	border->renderText(size.x / 2, size.y / 2 - 12, valStr, taCenter);
 }

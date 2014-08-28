@@ -15,9 +15,10 @@
      * constructor
 
 ***********************************************************************/
-fired::InputList::InputList(float _size, sf::Vector2f _position, fired::Window *_parent) {
+fired::InputList::InputList(float _size, sf::Vector2f _position, int _offset, fired::Window *_parent) {
 	parent   = _parent;
-	size     = sf::Vector2f(_size, 140);
+	offset   = _offset;
+	size     = sf::Vector2f(_size, 20 * (offset * 2 + 1));
 	position = _position + parent->offset;
 	index    = 0;
 
@@ -29,7 +30,7 @@ fired::InputList::InputList(float _size, sf::Vector2f _position, fired::Window *
 	border->text->setCharacterSize(16);
 
 	fill = new sf::RectangleShape(sf::Vector2f(_size, 20));
-	fill->setPosition(position + sf::Vector2f(0, 60));
+	fill->setPosition(position + sf::Vector2f(0, 20 * offset));
 	fill->setFillColor(sf::Color(207, 170, 24, 180));
 }
 
@@ -74,9 +75,9 @@ void fired::InputList::render() {
 	int drawIndex;
 	int itemIndex;
 
-	for (int i = -3; i <= 3; i++) {
-		itemIndex = index + i;
-		drawIndex = 3     + i;
+	for (int i = -offset; i <= offset; i++) {
+		itemIndex = index  + i;
+		drawIndex = offset + i;
 
 		if (itemIndex < 0) continue;
 		if (itemIndex >= (int)list.size()) break;
@@ -93,6 +94,21 @@ void fired::InputList::render() {
 
 ***********************************************************************/
 void fired::InputList::click(sf::Vector2f pos) {
-	int newIndex = index + ((int)((pos.y - position.y) / 20) - 3);
+	int newIndex = index + ((int)((pos.y - position.y) / 20) - offset);
 	if (newIndex >= 0 && newIndex < (int)list.size()) index = newIndex;
+}
+
+
+
+/***********************************************************************
+     * InputList
+     * setSelected
+
+***********************************************************************/
+void fired::InputList::setSelected(const char *item) {
+	for (unsigned int i = 0; i < list.size(); i++)
+		if (!strcmp(list[i].c_str(), item)) {
+			index = i;
+			break;
+		}
 }

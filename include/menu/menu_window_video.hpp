@@ -15,12 +15,17 @@
 
 namespace fired {
 	struct MenuItemWindowVideo : MenuItemWindow {
+		fired::InputList     *modes;
+		fired::InputCheckbox *fullscreen;
+		fired::InputButton   *apply;
+
+
 		 MenuItemWindowVideo();
 		~MenuItemWindowVideo();
 
 		void update();
 		void render();
-		void click(sf::Vector2f);
+		void click(sf::Vector2f pos);
 	};
 }
 

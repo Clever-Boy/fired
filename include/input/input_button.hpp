@@ -22,7 +22,7 @@ namespace fired {
 		char caption[128];
 
 
-		 InputButton(sf::Vector2f _position, sf::Vector2f _size, const char *_caption, fired::Window *_parent);
+		 InputButton(sf::Vector2f _size, sf::Vector2f _position, const char *_caption, fired::Window *_parent);
 		~InputButton();
 
 		void update();

@@ -14,6 +14,7 @@ void swapItems(fired::InventoryItem *item1, fired::InventoryItem *item2);
 void emptyItem(fired::InventoryItem *item);
 void emptyStats(fired::CharacterStats *stats);
 void createWindow();
+void videoModeList(std::vector<std::string>* contents);
 float lessOrZero(float x);
 float sqr(float x);
 float sign(float x);

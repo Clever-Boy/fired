@@ -142,6 +142,29 @@ bool directoryContents(const char *dir, std::vector<std::string>* contents) {
 
 
 /***********************************************************************
+     * videoModeList
+
+***********************************************************************/
+void videoModeList(std::vector<std::string>* contents) {
+	char mode[64];
+	std::vector<sf::VideoMode> modes = sf::VideoMode::getFullscreenModes();
+
+	contents->clear();
+
+	for (unsigned int i = 0; i < modes.size(); i++) {
+		if (modes[i].width        < 800 ) continue;
+		if (modes[i].width        > 1280) continue;
+		if (modes[i].bitsPerPixel < 24  ) continue;
+		if (modes[i].bitsPerPixel > 32  ) continue;
+
+		snprintf(mode, sizeof(mode), "%d x %d x %dbpp", modes[i].width, modes[i].height, modes[i].bitsPerPixel);
+		contents->push_back(mode);
+	}
+}
+
+
+
+/***********************************************************************
      * getRandomOffset
 
 ***********************************************************************/

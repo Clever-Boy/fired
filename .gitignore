@@ -1,20 +1,6 @@
 # Compiled Object files
-*.slo
-*.lo
 *.o
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-
-# Compiled project
 fired
-src/fired
 
 # CMake files
 CMakeCache.txt

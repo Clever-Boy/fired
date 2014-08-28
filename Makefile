@@ -40,5 +40,4 @@ $(PROJECT): $(OBJS)
 
 
 clean:
-	$(CLEAN) $(OBJS)
-	$(CLEAN) $(PROJECT)
+	$(CLEAN) $(OBJS) $(PROJECT)

@@ -15,11 +15,13 @@
 
 namespace fired {
 	struct MenuItemWindow {
-		sf::Vector2f size;
-		sf::Vector2f offset;
+		fired::Window *win;
+		sf::Vector2f   size;
+		sf::Vector2f   offset;
 
 
-		virtual ~MenuItemWindow()        {};
+		         MenuItemWindow();
+		virtual ~MenuItemWindow()        { delete win; };
 
 		virtual void update()            {};
 		virtual void render()            {};

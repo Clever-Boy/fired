@@ -15,7 +15,7 @@
      * constructor
 
 ***********************************************************************/
-fired::MenuItemWindowAudio::MenuItemWindowAudio() {
+fired::MenuItemWindowAudio::MenuItemWindowAudio() : MenuItemWindow() {
 }
 
 
@@ -47,6 +47,7 @@ void fired::MenuItemWindowAudio::update() {
 
 ***********************************************************************/
 void fired::MenuItemWindowAudio::render() {
+	win->render();
 }
 
 

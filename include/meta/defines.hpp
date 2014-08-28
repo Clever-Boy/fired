@@ -127,6 +127,7 @@
 
 ***********************************************************************/
 #define MENU_X_OFFSET           50
+#define MENU_X_WINDOW_OFFSET    307
 #define MENU_Y_OFFSET           150
 #define MENU_Y_DIFF             75
 #define MENU_BG_SPEED           100.0f

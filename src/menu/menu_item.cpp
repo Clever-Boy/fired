@@ -82,7 +82,6 @@ void fired::MenuItem::addSubMenu(fired::MenuItem *subMenuItem) {
 ***********************************************************************/
 void fired::MenuItem::update() {
 	render();
-	if (window) window->update();
 }
 
 

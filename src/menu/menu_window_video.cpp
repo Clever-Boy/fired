@@ -15,7 +15,7 @@
      * constructor
 
 ***********************************************************************/
-fired::MenuItemWindowVideo::MenuItemWindowVideo() {
+fired::MenuItemWindowVideo::MenuItemWindowVideo() : MenuItemWindow() {
 }
 
 
@@ -47,6 +47,7 @@ void fired::MenuItemWindowVideo::update() {
 
 ***********************************************************************/
 void fired::MenuItemWindowVideo::render() {
+	win->render();
 }
 
 

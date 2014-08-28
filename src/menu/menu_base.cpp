@@ -114,6 +114,8 @@ void fired::MainMenu::render() {
 	app->draw(*bgSprite);
 	app->draw(*logoSprite);
 	app->draw(*menuCaption);
+
+	if (currentMenu->window) currentMenu->window->update();
 }
 
 

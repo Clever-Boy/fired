@@ -15,6 +15,10 @@
 
 namespace fired {
 	struct MenuItemWindowAudio : MenuItemWindow {
+		fired::InputScroller *musicVolume;
+		fired::InputScroller *soundVolume;
+
+
 		 MenuItemWindowAudio();
 		~MenuItemWindowAudio();
 

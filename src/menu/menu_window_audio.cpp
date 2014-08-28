@@ -16,6 +16,8 @@
 
 ***********************************************************************/
 fired::MenuItemWindowAudio::MenuItemWindowAudio() : MenuItemWindow() {
+	musicVolume = new fired::InputScroller(sf::Vector2f(200, 32), sf::Vector2f(50,  50), 0, 100, 0, win);
+	soundVolume = new fired::InputScroller(sf::Vector2f(200, 32), sf::Vector2f(50, 100), 0, 100, 0, win);
 }
 
 
@@ -26,6 +28,8 @@ fired::MenuItemWindowAudio::MenuItemWindowAudio() : MenuItemWindow() {
 
 ***********************************************************************/
 fired::MenuItemWindowAudio::~MenuItemWindowAudio() {
+	delete musicVolume;
+	delete soundVolume;
 }
 
 
@@ -37,6 +41,9 @@ fired::MenuItemWindowAudio::~MenuItemWindowAudio() {
 ***********************************************************************/
 void fired::MenuItemWindowAudio::update() {
 	render();
+
+	musicVolume->update();
+	soundVolume->update();
 }
 
 

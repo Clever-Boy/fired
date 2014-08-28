@@ -12,7 +12,9 @@
 
 namespace fired {
 	struct InputCheckbox {
-		sf::FloatRect rect;
+		fired::Window *parent;
+		fired::Window *border;
+		sf::FloatRect  rect;
 
 		sf::Vector2f position;
 		sf::Vector2f size;

@@ -12,7 +12,10 @@
 
 namespace fired {
 	struct InputScroller {
-		sf::FloatRect rect;
+		fired::Window      *parent;
+		fired::Window      *border;
+		sf::FloatRect       rect;
+		sf::RectangleShape *fill;
 
 		sf::Vector2f position;
 		sf::Vector2f size;
@@ -22,11 +25,11 @@ namespace fired {
 		int val;
 
 
-		 InputScroller() {};
-		~InputScroller() {};
+		 InputScroller(sf::Vector2f _size, sf::Vector2f _position, int _min, int _max, int _val, fired::Window *_parent);
+		~InputScroller();
 
-		void update() {};
-		void render() {};
+		void update();
+		void render();
 		void click(sf::Vector2f) {};
 	};
 }

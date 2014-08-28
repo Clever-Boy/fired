@@ -12,22 +12,23 @@
 
 namespace fired {
 	struct InputCheckbox {
-		fired::Window *parent;
-		fired::Window *border;
-		sf::FloatRect  rect;
+		fired::Window      *parent;
+		fired::Window      *border;
+		sf::FloatRect       rect;
+		sf::RectangleShape *fill;
 
 		sf::Vector2f position;
 		sf::Vector2f size;
 
-		bool checked;
+		bool val;
 
 
-		 InputCheckbox() {};
-		~InputCheckbox() {};
+		 InputCheckbox(sf::Vector2f _position, bool _val, fired::Window *_parent);
+		~InputCheckbox();
 
-		void update() {};
-		void render() {};
-		void click(sf::Vector2f) {};
+		void update();
+		void render();
+		void click();
 	};
 }
 

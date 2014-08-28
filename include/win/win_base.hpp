@@ -33,6 +33,8 @@ namespace fired {
 		void renderText(float x, float y, const char *caption, fired::TextAlignment alignment, sf::Color color = sf::Color::White);
 		void setOffset(sf::Vector2f newOffset);
 		void setSize(sf::Vector2f newSize);
+
+		float getTextSize(const char *caption);
 	};
 }
 

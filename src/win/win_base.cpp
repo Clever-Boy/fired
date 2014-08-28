@@ -111,3 +111,15 @@ void fired::Window::setSize(sf::Vector2f newSize) {
 	size = newSize;
 	window->setSize(size);
 }
+
+
+
+/***********************************************************************
+     * Window
+     * getTextSize
+
+***********************************************************************/
+float fired::Window::getTextSize(const char *caption) {
+	text->setString(sf::String(caption));
+	return text->getGlobalBounds().width;
+}

@@ -19,6 +19,8 @@ float sqr(float x);
 float sign(float x);
 float getRandomOffset(float offsetAmount);
 bool directoryContents(const char *dir, std::vector<std::string>* contents);
+bool printableChar(char c);
+bool backspaceChar(char c);
 bool lineBoxCollision(sf::FloatRect box, sf::FloatRect ray, sf::Vector2f *coord, sf::Vector2f *normal, float *dist);
 
 #endif

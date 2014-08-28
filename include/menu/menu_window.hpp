@@ -23,9 +23,10 @@ namespace fired {
 		         MenuItemWindow();
 		virtual ~MenuItemWindow()        { delete win; };
 
-		virtual void update()            {};
-		virtual void render()            {};
-		virtual void click(sf::Vector2f) {};
+		virtual void update()                {};
+		virtual void render()                {};
+		virtual void click(sf::Vector2f)     {};
+		virtual void textEntered(sf::Uint32) {};
 	};
 }
 

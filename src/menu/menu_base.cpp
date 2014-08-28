@@ -127,6 +127,7 @@ void fired::MainMenu::render() {
 ***********************************************************************/
 void fired::MainMenu::processEvent(sf::Event event) {
 	if (event.type == sf::Event::MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left) click(mouse->pos);
+	if (event.type == sf::Event::TextEntered && currentMenu->window) currentMenu->window->textEntered(event.text.unicode);
 }
 
 
@@ -146,8 +147,7 @@ void fired::MainMenu::click(sf::Vector2f pos) {
 		}
 
 	if (currentMenu->window)
-		if (sf::FloatRect(currentMenu->window->offset, currentMenu->window->size).contains(pos))
-			currentMenu->window->click(pos);
+		currentMenu->window->click(pos);
 }
 
 

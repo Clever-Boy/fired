@@ -19,13 +19,14 @@ namespace fired {
 		sf::Vector2f position;
 		sf::Vector2f size;
 
+		char caption[128];
 
-		 InputButton() {};
-		~InputButton() {};
 
-		void update() {};
-		void render() {};
-		void click(sf::Vector2f) {};
+		 InputButton(sf::Vector2f _position, sf::Vector2f _size, const char *_caption, fired::Window *_parent);
+		~InputButton();
+
+		void update();
+		void render();
 	};
 }
 

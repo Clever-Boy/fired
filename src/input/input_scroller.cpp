@@ -84,5 +84,5 @@ void fired::InputScroller::render() {
 
 ***********************************************************************/
 void fired::InputScroller::click(sf::Vector2f pos) {
-	val = min + int((float)max * ((pos.x - position.x) / size.x));
+	val = min + round((float)max * ((pos.x - position.x) / size.x));
 }

@@ -16,8 +16,10 @@
 
 ***********************************************************************/
 fired::MenuItemWindowAudio::MenuItemWindowAudio() : MenuItemWindow() {
-	musicVolume = new fired::InputScroller(sf::Vector2f(200, 32), sf::Vector2f(50,  50), 0, 100, settings->volume.music, win);
-	soundVolume = new fired::InputScroller(sf::Vector2f(200, 32), sf::Vector2f(50, 100), 0, 100, settings->volume.sound, win);
+	sf::Vector2f scrollSize(win->size.x - MENU_X_OFFSET * 2, 24);
+
+	musicVolume = new fired::InputScroller(scrollSize, sf::Vector2f(MENU_X_OFFSET,  50), 0, 100, settings->volume.music, win);
+	soundVolume = new fired::InputScroller(scrollSize, sf::Vector2f(MENU_X_OFFSET, 100), 0, 100, settings->volume.sound, win);
 }
 
 

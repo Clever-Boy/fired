@@ -725,8 +725,9 @@
 			</todo>
 			<todo done="no" collapse="no"><title>Sound settings window</title>
 				<todo done="yes" collapse="no"><title>Window class</title></todo>
-				<todo done="no" collapse="yes"><title>Music volume change</title></todo>
-				<todo done="no" collapse="no"><title>Sound volume change</title></todo>
+				<todo done="yes" collapse="yes"><title>Music volume scroll bar</title></todo>
+				<todo done="yes" collapse="no"><title>Sound volume scroll bar</title></todo>
+				<todo done="no" collapse="no"><title>Applying changes</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>Video settings window</title>
 				<todo done="yes" collapse="no"><title>Window class</title></todo>

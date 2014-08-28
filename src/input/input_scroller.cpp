@@ -24,7 +24,7 @@ fired::InputScroller::InputScroller(sf::Vector2f _size, sf::Vector2f _position, 
 	val      = _val;
 
 
-	rect = sf::FloatRect(position + parent->offset, size);
+	rect = sf::FloatRect(position, size);
 
 	border = new fired::Window(size);
 	border->setOffset(position);
@@ -74,4 +74,15 @@ void fired::InputScroller::render() {
 	char valStr[8];
 	snprintf(valStr, sizeof(valStr), "%d", val);
 	border->renderText(size.x / 2, size.y / 2 - 12, valStr, taCenter);
+}
+
+
+
+/***********************************************************************
+     * InputScroller
+     * click
+
+***********************************************************************/
+void fired::InputScroller::click(sf::Vector2f pos) {
+	val = min + int((float)max * ((pos.x - position.x) / size.x));
 }

@@ -16,9 +16,9 @@
 
 ***********************************************************************/
 fired::MenuItemWindow::MenuItemWindow() {
-	sf::Vector2f from(MENU_X_WINDOW_OFFSET, MENU_Y_OFFSET + MENU_Y_DIFF);
-	sf::Vector2f to(settings->window.width - MENU_X_OFFSET, settings->window.height - MENU_X_OFFSET);
+	offset = sf::Vector2f(MENU_X_WINDOW_OFFSET, MENU_Y_OFFSET + MENU_Y_DIFF);
+	size   = sf::Vector2f(settings->window.width - MENU_X_OFFSET, settings->window.height - MENU_X_OFFSET) - offset;
 
-	win = new fired::Window(to - from);
-	win->setOffset(from);
+	win = new fired::Window(size);
+	win->setOffset(offset);
 }

@@ -144,6 +144,10 @@ void fired::MainMenu::click(sf::Vector2f pos) {
 			clickSound->play();
 			currentMenu->subMenu[i]->click();
 		}
+
+	if (currentMenu->window)
+		if (sf::FloatRect(currentMenu->window->offset, currentMenu->window->size).contains(pos))
+			currentMenu->window->click(pos);
 }
 
 

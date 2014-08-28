@@ -30,7 +30,7 @@ namespace fired {
 
 		void update();
 		void render();
-		void click(sf::Vector2f) {};
+		void click(sf::Vector2f pos);
 	};
 }
 

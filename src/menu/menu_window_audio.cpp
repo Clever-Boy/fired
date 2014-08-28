@@ -16,8 +16,8 @@
 
 ***********************************************************************/
 fired::MenuItemWindowAudio::MenuItemWindowAudio() : MenuItemWindow() {
-	musicVolume = new fired::InputScroller(sf::Vector2f(200, 32), sf::Vector2f(50,  50), 0, 100, 0, win);
-	soundVolume = new fired::InputScroller(sf::Vector2f(200, 32), sf::Vector2f(50, 100), 0, 100, 0, win);
+	musicVolume = new fired::InputScroller(sf::Vector2f(200, 32), sf::Vector2f(50,  50), 0, 100, settings->volume.music, win);
+	soundVolume = new fired::InputScroller(sf::Vector2f(200, 32), sf::Vector2f(50, 100), 0, 100, settings->volume.sound, win);
 }
 
 
@@ -42,9 +42,6 @@ fired::MenuItemWindowAudio::~MenuItemWindowAudio() {
 void fired::MenuItemWindowAudio::update() {
 	render();
 
-	musicVolume->val = settings->volume.music;
-	soundVolume->val = settings->volume.sound;
-
 	musicVolume->update();
 	soundVolume->update();
 }
@@ -67,5 +64,7 @@ void fired::MenuItemWindowAudio::render() {
      * click
 
 ***********************************************************************/
-void fired::MenuItemWindowAudio::click(sf::Vector2f) {
+void fired::MenuItemWindowAudio::click(sf::Vector2f pos) {
+	if (musicVolume->rect.contains(pos)) musicVolume->click(pos);
+	if (soundVolume->rect.contains(pos)) soundVolume->click(pos);
 }

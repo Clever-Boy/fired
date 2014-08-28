@@ -717,7 +717,7 @@
 			<todo done="yes" collapse="no"><title>Window class</title></todo>
 			<todo done="no" collapse="no"><title>Window elements</title>
 				<todo done="yes" collapse="no"><title>Window border</title></todo>
-				<todo done="no" collapse="no"><title>Scroller</title></todo>
+				<todo done="yes" collapse="no"><title>Scroller</title></todo>
 				<todo done="no" collapse="no"><title>Text input</title></todo>
 				<todo done="no" collapse="no"><title>Checkbox</title></todo>
 				<todo done="no" collapse="no"><title>List selector</title></todo>

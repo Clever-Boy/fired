@@ -69,6 +69,9 @@ namespace fired {
 		void update();
 		void stop() { running = false; };
 
+		void applySoundSettings();
+		void applyVideoSettings();
+
 		void setGameState(fired::GameState state);
 		void setMusic(const char *musicFile);
 		bool switchGameState();

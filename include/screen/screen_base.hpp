@@ -14,6 +14,7 @@ namespace fired {
 		virtual ~GameScreen()                {};
 		virtual void update()                {};
 		virtual void processEvent(sf::Event) {};
+		virtual void applySoundSettings()    {};
 	};
 }
 

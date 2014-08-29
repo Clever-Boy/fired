@@ -30,10 +30,6 @@ fired::Resources::Resources() {
 	sounds.rainSnd    = new sf::Sound(*sounds.rain);
 	sounds.impactSnd  = new sf::Sound(*sounds.impact);
 
-	sounds.thunderSnd->setVolume(settings->volume.sound);
-	sounds.rainSnd->setVolume(settings->volume.sound);
-	sounds.impactSnd->setVolume(settings->volume.sound);
-
 	sounds.rainSnd->setLoop(true);
 
 	sounds.impactSnd->setMinDistance(SOUND_MINDISTANCE);
@@ -130,6 +126,8 @@ fired::Resources::Resources() {
 	fonts.game->loadFromFile("data/fonts/montserrat.ttf");
 	fonts.credits->loadFromFile("data/fonts/mrsmonster.ttf");
 	fonts.loading->loadFromFile("data/fonts/jennifer.ttf");
+
+	applySoundSettings();
 }
 
 
@@ -192,4 +190,17 @@ fired::Resources::~Resources() {
 	delete fonts.game;
 	delete fonts.credits;
 	delete fonts.loading;
+}
+
+
+
+/***********************************************************************
+     * Resources
+     * applySoundSettings
+
+***********************************************************************/
+void fired::Resources::applySoundSettings() {
+	sounds.thunderSnd->setVolume(settings->volume.sound);
+	sounds.rainSnd->setVolume(settings->volume.sound);
+	sounds.impactSnd->setVolume(settings->volume.sound);
 }

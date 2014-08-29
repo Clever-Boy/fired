@@ -25,7 +25,7 @@ namespace fired {
 
 		virtual void update()                {};
 		virtual void render()                {};
-		virtual void click(sf::Vector2f)     {};
+		virtual bool click(sf::Vector2f)     { return false; };
 		virtual void textEntered(sf::Uint32) {};
 	};
 }

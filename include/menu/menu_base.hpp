@@ -56,6 +56,7 @@ namespace fired {
 		void render();
 		void click(sf::Vector2f pos);
 		void processEvent(sf::Event event);
+		void applySoundSettings();
 
 		void fillMenu();
 		void fillMenuBack();
@@ -64,7 +65,6 @@ namespace fired {
 		void setNextMenu(fired::MenuItem *menuItem);
 		void initAnimation(fired::MenuAnimationType animType);
 		void processAnimation();
-		void updateSettings();
 	};
 }
 

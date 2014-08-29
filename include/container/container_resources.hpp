@@ -75,6 +75,8 @@ namespace fired {
 
 		 Resources();
 		~Resources();
+
+		void applySoundSettings();
 	};
 }
 

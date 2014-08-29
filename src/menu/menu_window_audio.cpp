@@ -66,7 +66,20 @@ void fired::MenuItemWindowAudio::render() {
      * click
 
 ***********************************************************************/
-void fired::MenuItemWindowAudio::click(sf::Vector2f pos) {
-	if (musicVolume->rect.contains(pos)) musicVolume->click(pos);
-	if (soundVolume->rect.contains(pos)) soundVolume->click(pos);
+bool fired::MenuItemWindowAudio::click(sf::Vector2f pos) {
+	if (musicVolume->rect.contains(pos)) {
+		musicVolume->click(pos);
+		settings->volume.music = musicVolume->val;
+		game->applySoundSettings();
+		return true;
+	}
+
+	if (soundVolume->rect.contains(pos)) {
+		soundVolume->click(pos);
+		settings->volume.sound = soundVolume->val;
+		game->applySoundSettings();
+		return true;
+	}
+
+	return false;
 }

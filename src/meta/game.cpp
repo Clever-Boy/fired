@@ -91,6 +91,32 @@ void fired::Game::update() {
 
 /***********************************************************************
      * Game
+     * applySoundSettings
+
+***********************************************************************/
+void fired::Game::applySoundSettings() {
+	musicTheme->setVolume(settings->volume.music);
+	gameScreen->applySoundSettings();
+	resources->applySoundSettings();
+
+	settings->save();
+}
+
+
+
+/***********************************************************************
+     * Game
+     * applyVideoSettings
+
+***********************************************************************/
+void fired::Game::applyVideoSettings() {
+	settings->save();
+}
+
+
+
+/***********************************************************************
+     * Game
      * processHandler
 
 ***********************************************************************/

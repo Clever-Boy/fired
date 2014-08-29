@@ -75,7 +75,16 @@ void fired::MenuItemWindowVideo::render() {
      * click
 
 ***********************************************************************/
-void fired::MenuItemWindowVideo::click(sf::Vector2f pos) {
-	if (modes->rect.contains(pos))      modes->click(pos);
-	if (fullscreen->rect.contains(pos)) fullscreen->click();
+bool fired::MenuItemWindowVideo::click(sf::Vector2f pos) {
+	if (modes->rect.contains(pos)) {
+		modes->click(pos);
+		return true;
+	}
+
+	if (fullscreen->rect.contains(pos)) {
+		fullscreen->click();
+		return true;
+	}
+
+	return false;
 }

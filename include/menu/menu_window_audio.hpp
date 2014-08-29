@@ -24,7 +24,7 @@ namespace fired {
 
 		void update();
 		void render();
-		void click(sf::Vector2f);
+		bool click(sf::Vector2f);
 	};
 }
 

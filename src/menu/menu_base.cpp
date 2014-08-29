@@ -57,7 +57,7 @@ fired::MainMenu::MainMenu(fired::Mouse *_mouse) {
 	menuCaption->setCharacterSize(32);
 
 	fillMenu();
-	updateSettings();
+	applySoundSettings();
 }
 
 
@@ -82,6 +82,17 @@ fired::MainMenu::~MainMenu() {
 	delete menuItemSprite;
 	delete bgSprite;
 	delete menuCaption;
+}
+
+
+
+/***********************************************************************
+     * MainMenu
+     * applySoundSettings
+
+***********************************************************************/
+void fired::MainMenu::applySoundSettings() {
+	clickSound->setVolume(settings->volume.sound);
 }
 
 
@@ -146,19 +157,7 @@ void fired::MainMenu::click(sf::Vector2f pos) {
 			currentMenu->subMenu[i]->click();
 		}
 
-	if (currentMenu->window)
-		currentMenu->window->click(pos);
-}
-
-
-
-/***********************************************************************
-     * MainMenu
-     * updateSettings
-
-***********************************************************************/
-void fired::MainMenu::updateSettings() {
-	clickSound->setVolume(settings->volume.sound);
+	if (currentMenu->window && currentMenu->window->click(pos)) clickSound->play();
 }
 
 

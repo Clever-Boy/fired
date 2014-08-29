@@ -29,6 +29,8 @@ namespace fired {
 		void update();
 		void render();
 		void click();
+
+		void setPosition(sf::Vector2f _position);
 	};
 }
 

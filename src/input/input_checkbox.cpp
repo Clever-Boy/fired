@@ -77,3 +77,18 @@ void fired::InputCheckbox::render() {
 void fired::InputCheckbox::click() {
 	val = !val;
 }
+
+
+
+/***********************************************************************
+     * InputCheckbox
+     * setPosition
+
+***********************************************************************/
+void fired::InputCheckbox::setPosition(sf::Vector2f _position) {
+	position = _position + parent->offset;
+	rect     = sf::FloatRect(position, size);
+
+	border->setOffset(position);
+	fill->setPosition(position);
+}

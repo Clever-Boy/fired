@@ -33,6 +33,9 @@ namespace fired {
 		void render();
 		void click();
 		void textEntered(sf::Uint32 c);
+
+		void setSize(float _size);
+		void setPosition(sf::Vector2f _position);
 	};
 }
 

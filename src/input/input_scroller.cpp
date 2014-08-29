@@ -86,3 +86,32 @@ void fired::InputScroller::render() {
 void fired::InputScroller::click(sf::Vector2f pos) {
 	val = min + round((float)max * ((pos.x - position.x) / size.x));
 }
+
+
+
+/***********************************************************************
+     * InputScroller
+     * setSize
+
+***********************************************************************/
+void fired::InputScroller::setSize(sf::Vector2f _size) {
+	size = _size;
+	rect = sf::FloatRect(position, size);
+
+	border->setSize(size);
+}
+
+
+
+/***********************************************************************
+     * InputScroller
+     * setPosition
+
+***********************************************************************/
+void fired::InputScroller::setPosition(sf::Vector2f _position) {
+	position = _position + parent->offset;
+	rect     = sf::FloatRect(position, size);
+
+	border->setOffset(position);
+	fill->setPosition(position);
+}

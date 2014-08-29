@@ -22,3 +22,14 @@ fired::MenuItemWindow::MenuItemWindow() {
 	win = new fired::Window(size);
 	win->setOffset(offset);
 }
+
+
+
+/***********************************************************************
+     * MenuItemWindow
+     * applyVideoSettings
+
+***********************************************************************/
+void fired::MenuItemWindow::applyVideoSettings() {
+	win->setSize(sf::Vector2f(settings->window.width - MENU_X_OFFSET, settings->window.height - MENU_X_OFFSET) - offset);
+}

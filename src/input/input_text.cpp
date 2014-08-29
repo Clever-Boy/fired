@@ -99,3 +99,32 @@ void fired::InputText::textEntered(sf::Uint32 c) {
 
 	fill->setPosition(position + sf::Vector2f(border->getTextSize(text) + 2, 2));
 }
+
+
+
+/***********************************************************************
+     * InputText
+     * setSize
+
+***********************************************************************/
+void fired::InputText::setSize(float _size) {
+	size = sf::Vector2f(_size, 20);
+	rect = sf::FloatRect(position, size);
+
+	border->setSize(size);
+}
+
+
+
+/***********************************************************************
+     * InputText
+     * setPosition
+
+***********************************************************************/
+void fired::InputText::setPosition(sf::Vector2f _position) {
+	position = _position + parent->offset;
+	rect     = sf::FloatRect(position, size);
+
+	border->setOffset(position);
+	fill->setPosition(position + sf::Vector2f(border->getTextSize(text) + 2, 2));
+}

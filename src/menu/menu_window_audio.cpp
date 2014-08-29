@@ -52,6 +52,22 @@ void fired::MenuItemWindowAudio::update() {
 
 /***********************************************************************
      * MenuItemWindowAudio
+     * applyVideoSettings
+
+***********************************************************************/
+void fired::MenuItemWindowAudio::applyVideoSettings() {
+	MenuItemWindow::applyVideoSettings();
+
+	sf::Vector2f scrollSize(win->size.x - MENU_X_OFFSET * 2, 24);
+
+	musicVolume->setSize(scrollSize);
+	soundVolume->setSize(scrollSize);
+}
+
+
+
+/***********************************************************************
+     * MenuItemWindowAudio
      * render
 
 ***********************************************************************/

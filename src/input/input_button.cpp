@@ -61,3 +61,31 @@ void fired::InputButton::render() {
 	border->render();
 	border->renderText(size.x / 2, size.y / 2 - 12, caption, taCenter);
 }
+
+
+
+/***********************************************************************
+     * InputButton
+     * setSize
+
+***********************************************************************/
+void fired::InputButton::setSize(sf::Vector2f _size) {
+	size = _size;
+	rect = sf::FloatRect(position, size);
+
+	border->setSize(size);
+}
+
+
+
+/***********************************************************************
+     * InputButton
+     * setPosition
+
+***********************************************************************/
+void fired::InputButton::setPosition(sf::Vector2f _position) {
+	position = _position + parent->offset;
+	rect     = sf::FloatRect(position, size);
+
+	border->setOffset(position);
+}

@@ -125,3 +125,33 @@ const char* fired::InputList::getSelected() {
 
 	return list[index].c_str();
 }
+
+
+
+/***********************************************************************
+     * InputList
+     * setSize
+
+***********************************************************************/
+void fired::InputList::setSize(float _size) {
+	size = sf::Vector2f(_size, 20 * (offset * 2 + 1));
+	rect = sf::FloatRect(position, size);
+
+	border->setSize(size);
+	fill->setSize(sf::Vector2f(_size, 20));
+}
+
+
+
+/***********************************************************************
+     * InputList
+     * setPosition
+
+***********************************************************************/
+void fired::InputList::setPosition(sf::Vector2f _position) {
+	position = _position + parent->offset;
+	rect     = sf::FloatRect(position, size);
+
+	border->setOffset(position);
+	fill->setPosition(position + sf::Vector2f(0, 20 * offset));
+}

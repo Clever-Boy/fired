@@ -729,12 +729,12 @@
 				<todo done="yes" collapse="no"><title>Sound volume scroll bar</title></todo>
 				<todo done="yes" collapse="no"><title>Applying changes</title></todo>
 			</todo>
-			<todo done="no" collapse="no"><title>Video settings window</title>
+			<todo done="yes" collapse="yes"><title>Video settings window</title>
 				<todo done="yes" collapse="no"><title>Window class</title></todo>
 				<todo done="yes" collapse="no"><title>Video modes list</title></todo>
 				<todo done="yes" collapse="no"><title>Fullscreen toggle</title></todo>
 				<todo done="yes" collapse="no"><title>Apply button</title></todo>
-				<todo done="no" collapse="no"><title>Applying changes</title></todo>
+				<todo done="yes" collapse="no"><title>Applying changes</title></todo>
 			</todo>
 			<todo done="no" collapse="no"><title>World selection</title>
 				<todo done="no" collapse="no"><title>Window class</title></todo>

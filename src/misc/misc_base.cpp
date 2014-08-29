@@ -165,7 +165,7 @@ void videoModeList(std::vector<std::string>* contents) {
 
 
 /***********************************************************************
-     * getRandomOffset
+     * createWindow
 
 ***********************************************************************/
 void createWindow() {
@@ -176,6 +176,7 @@ void createWindow() {
 	sf::ContextSettings contextSettings;
 	contextSettings.antialiasingLevel = settings->window.antialiasing;
 
+
 	app = new sf::RenderWindow(sf::VideoMode(settings->window.width,
 	                           settings->window.height,
 	                           settings->window.bpp),
@@ -183,6 +184,7 @@ void createWindow() {
 	                           style,
 	                           contextSettings);
 	app->setMouseCursorVisible(false);
+
 
 	if (!settings->window.fullScreen) {
 		sf::VideoMode desktop = sf::VideoMode::getDesktopMode();

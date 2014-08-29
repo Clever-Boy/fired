@@ -72,6 +72,20 @@ void fired::MenuItemWindowVideo::render() {
 
 /***********************************************************************
      * MenuItemWindowVideo
+     * applyVideoSettings
+
+***********************************************************************/
+void fired::MenuItemWindowVideo::applyVideoSettings() {
+	MenuItemWindow::applyVideoSettings();
+
+	modes->setSize(win->size.x - MENU_X_OFFSET * 2);
+	apply->setPosition(sf::Vector2f(win->size.x / 2.0f - 75, 200));
+}
+
+
+
+/***********************************************************************
+     * MenuItemWindowVideo
      * click
 
 ***********************************************************************/

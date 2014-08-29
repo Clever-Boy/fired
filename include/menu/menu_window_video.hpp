@@ -26,6 +26,7 @@ namespace fired {
 		void update();
 		void render();
 		bool click(sf::Vector2f pos);
+		void applyVideoSettings();
 	};
 }
 

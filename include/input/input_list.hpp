@@ -33,6 +33,9 @@ namespace fired {
 		void click(sf::Vector2f);
 		void setSelected(const char *item);
 		const char *getSelected();
+
+		void setSize(float _size);
+		void setPosition(sf::Vector2f _position);
 	};
 }
 

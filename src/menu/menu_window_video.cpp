@@ -86,5 +86,13 @@ bool fired::MenuItemWindowVideo::click(sf::Vector2f pos) {
 		return true;
 	}
 
+	if (apply->rect.contains(pos)) {
+		sscanf(modes->getSelected(), "%d x %d x %dbpp", &settings->window.width, &settings->window.height, &settings->window.bpp);
+		settings->window.fullScreen = fullscreen->val;
+
+		game->applyVideoSettings();
+		return true;
+	}
+
 	return false;
 }

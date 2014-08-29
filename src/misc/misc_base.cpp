@@ -183,6 +183,16 @@ void createWindow() {
 	                           style,
 	                           contextSettings);
 	app->setMouseCursorVisible(false);
+
+	if (!settings->window.fullScreen) {
+		sf::VideoMode desktop = sf::VideoMode::getDesktopMode();
+		sf::Vector2i offset;
+
+		offset.x = (desktop.width  - settings->window.width ) / 2;
+		offset.y = (desktop.height - settings->window.height) / 2;
+
+		app->setPosition(offset);
+	}
 }
 
 

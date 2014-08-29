@@ -32,6 +32,7 @@ namespace fired {
 		void render();
 		void click(sf::Vector2f);
 		void setSelected(const char *item);
+		const char *getSelected();
 	};
 }
 

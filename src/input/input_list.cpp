@@ -112,3 +112,16 @@ void fired::InputList::setSelected(const char *item) {
 			break;
 		}
 }
+
+
+
+/***********************************************************************
+     * InputList
+     * getSelected
+
+***********************************************************************/
+const char* fired::InputList::getSelected() {
+	if (index < 0 || index >= (int)list.size()) return NULL;
+
+	return list[index].c_str();
+}

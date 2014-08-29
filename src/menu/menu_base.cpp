@@ -38,7 +38,6 @@ fired::MainMenu::MainMenu(fired::Mouse *_mouse) {
 	bgTexture->loadFromFile("data/img/gui/mainmenu/bg.jpg");
 	bgSprite->setTexture(bgTexture);
 	bgTexture->setRepeated(true);
-	bgSprite->setSize(sf::Vector2f(settings->window.width, settings->window.height));
 
 	menuItemTexture->loadFromFile("data/img/gui/mainmenu/menuitem.jpg");
 	menuItemSprite->setTexture(*menuItemTexture);
@@ -48,16 +47,13 @@ fired::MainMenu::MainMenu(fired::Mouse *_mouse) {
 	logoSprite->setTexture(*logoTexture);
 	logoTexture->setSmooth(true);
 
-	if (logoTexture->getSize().x > settings->window.width)
-		logoSprite->setScale((float)settings->window.width/logoTexture->getSize().x, (float)settings->window.width/logoTexture->getSize().x);
-	else
-		logoSprite->setPosition((settings->window.width - logoTexture->getSize().x) / 2, 0);
 
 	menuCaption->setFont(*resources->fonts.menu);
 	menuCaption->setCharacterSize(32);
 
 	fillMenu();
 	applySoundSettings();
+	applyVideoSettings();
 }
 
 
@@ -93,6 +89,28 @@ fired::MainMenu::~MainMenu() {
 ***********************************************************************/
 void fired::MainMenu::applySoundSettings() {
 	clickSound->setVolume(settings->volume.sound);
+}
+
+
+
+/***********************************************************************
+     * MainMenu
+     * applyVideoSettings
+
+***********************************************************************/
+void fired::MainMenu::applyVideoSettings() {
+	logoSprite->setScale(1, 1);
+	logoSprite->setPosition(0, 0);
+
+	bgSprite->setSize(sf::Vector2f(settings->window.width, settings->window.height));
+
+	if (logoTexture->getSize().x > settings->window.width)
+		logoSprite->setScale((float)settings->window.width/logoTexture->getSize().x, (float)settings->window.width/logoTexture->getSize().x);
+	else
+		logoSprite->setPosition((settings->window.width - logoTexture->getSize().x) / 2, 0);
+
+	for (unsigned int i = 1; i < menuItems.size(); i++)
+		if (menuItems[i]->window) menuItems[i]->window->applyVideoSettings();
 }
 
 

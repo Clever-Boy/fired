@@ -110,6 +110,10 @@ void fired::Game::applySoundSettings() {
 
 ***********************************************************************/
 void fired::Game::applyVideoSettings() {
+	delete app;
+	createWindow();
+
+	gameScreen->applyVideoSettings();
 	settings->save();
 }
 

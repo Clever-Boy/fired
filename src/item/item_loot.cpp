@@ -41,7 +41,7 @@ void fired::LootItem::addItem(fired::BaseItem *item) {
 ***********************************************************************/
 fired::MapLootItem::MapLootItem(const char *__items, unsigned int _minCount, unsigned int _maxCount, float _probability) {
 	char _items[256];
-	memset(_items, sizeof(_items), 0);
+	memset(_items, 0, sizeof(_items));
 	strncpy(_items, __items, sizeof(_items));
 
 	char *token = strtok(_items, "|");

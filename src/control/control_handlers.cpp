@@ -27,7 +27,7 @@ void fired::Handlers::buttonStartCity() {
 	props.bossesRate     = 30.0f;
 
 
-	game->generateBiome("LocationHome", props);
+	game->generateBiome("City", props);
 	game->setGameState(gsWorld);
 }
 
